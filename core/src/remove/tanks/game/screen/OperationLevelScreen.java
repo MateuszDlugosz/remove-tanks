@@ -1,0 +1,187 @@
+package remove.tanks.game.screen;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Window;
+import com.google.common.eventbus.EventBus;
+import remove.tanks.game.GameApplication;
+import remove.tanks.game.asset.AssetStorage;
+import remove.tanks.game.audio.music.event.PlayMusicEvent;
+import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.constant.TranslationEntryKey;
+import remove.tanks.game.graphic.camera.Game2DCamera;
+import remove.tanks.game.level.Level;
+import remove.tanks.game.level.LevelController;
+import remove.tanks.game.level.LevelControllerFactory;
+import remove.tanks.game.level.input.InputMapper;
+import remove.tanks.game.locale.Locale;
+import remove.tanks.game.mode.operation.Operation;
+import remove.tanks.game.utility.properties.Properties;
+import remove.tanks.game.utility.time.Timer;
+
+/**
+ * @author Mateusz Długosz
+ */
+public final class OperationLevelScreen extends GameScreen {
+    private static final float VICTORY_DELAY = 6.0f;
+    private static final float DEFEAT_DELAY = 3.0f;
+    private static final float SWITCH_SCREEN_DELAY = 3.0f;
+
+    private final LevelController levelController;
+    private final Skin skin;
+    private final EventBus eventBus;
+    private final Operation operation;
+    private final int currentLevelIndex;
+    private final Locale locale;
+
+    private final Timer victoryTimer;
+    private final Timer defeatTimer;
+    private final Timer switchScreenTimer;
+
+    private String levelStatus;
+    private Label levelStatusLabel;
+
+    private Stage stage;
+    private Window window;
+
+    public OperationLevelScreen(
+            GameApplication gameApplication,
+            Operation operation,
+            int currentLevelIndex,
+            Level level
+    ) {
+        super(gameApplication);
+        this.stage = new Stage(
+                gameApplication.getContext()
+                        .getComponent("MenuCamera", Game2DCamera.class).getViewport(),
+                gameApplication.getContext()
+                        .getComponent("SpriteBatch", SpriteBatch.class));
+        this.levelController = gameApplication.getContext()
+                .getComponent("LevelControllerFactory", LevelControllerFactory.class)
+                .createLevelController(level);
+        this.skin = gameApplication.getContext().getComponent("UiSkin", Skin.class);
+        this.eventBus = gameApplication.getContext()
+                .getComponent("EventBus", EventBus.class);
+        this.operation = operation;
+        this.currentLevelIndex = currentLevelIndex;
+        this.victoryTimer = new Timer(VICTORY_DELAY);
+        this.defeatTimer = new Timer(DEFEAT_DELAY);
+        this.switchScreenTimer = new Timer(SWITCH_SCREEN_DELAY);
+        this.locale = gameApplication.getContext()
+                .getComponent("Locale", Locale.class);
+
+        this.levelStatus = "";
+        this.levelStatusLabel = createLevelStatusLabel();
+
+        this.window = createWindow();
+        initStage();
+    }
+
+    @Override
+    public Stage getStage() {
+        return stage;
+    }
+
+    private void initStage() {
+        stage.addActor(window);
+        window.add(levelStatusLabel);
+        eventBus.post(new PlayMusicEvent(levelController.getLevel().getResourceRegistry()
+                .getResource("AssetStorage", AssetStorage.class).getAsset("level-start-music", Music.class)));
+    }
+
+    private Window createWindow() {
+        Window window = new Window("", skin.get("window-clear", Window.WindowStyle.class));
+        window.setFillParent(true);
+        window.setMovable(false);
+        return window;
+    }
+
+    private Label createLevelStatusLabel() {
+        return new Label(levelStatus, skin);
+    }
+
+    @Override
+    public void render(float delta) {
+        updateInput();
+        levelController.update(delta, eventBus);
+        if (levelController.isDefeat()) {
+            if (defeatTimer.isComplete()) {
+                levelStatusLabel.setText(locale.getTranslation().getEntry(
+                        TranslationEntryKey.GameLevelStatusDefeat.getName()
+                ).toUpperCase());
+                switchToSummaryScreen(delta);
+            } else {
+                defeatTimer.update(delta);
+            }
+        } else if (levelController.isVictory()) {
+            if (victoryTimer.isComplete() && !levelController.isDefeat()) {
+                levelStatusLabel.setText(locale.getTranslation().getEntry(
+                        TranslationEntryKey.GameLevelStatusVictory.getName()
+                ).toUpperCase());
+                switchToNextLevel(delta);
+            } else {
+                victoryTimer.update(delta);
+            }
+        }
+        super.render(delta);
+    }
+
+    private void switchToNextLevel(float delta) {
+        if (switchScreenTimer.isComplete()) {
+            if (operation.getLevelPrototypeFilenames().size()-1 > currentLevelIndex) {
+                getGameApplication().switchScreen(new OperationLevelLoadingScreen(
+                        getGameApplication(),
+                        operation,
+                        currentLevelIndex+1,
+                        levelController.getLevel()
+                ));
+            } else {
+                switchToSummaryScreen(delta);
+            }
+        } else {
+            switchScreenTimer.update(delta);
+        }
+    }
+
+    private void switchToSummaryScreen(float delta) {
+        if (switchScreenTimer.isComplete()) {
+            getGameApplication().switchScreen(new OperationSummaryScreen(
+                    getGameApplication(), levelController.getLevel().getResourceRegistry()
+                            .getResource(LevelResource.Properties.name(), Properties.class)
+            ));
+        } else {
+            switchScreenTimer.update(delta);
+        }
+    }
+
+    private void updateInput() {
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            levelController.getInputMapper().apply(InputMapper.Key.MoveRight);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            levelController.getInputMapper().apply(InputMapper.Key.MoveUp);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            levelController.getInputMapper().apply(InputMapper.Key.MoveLeft);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            levelController.getInputMapper().apply(InputMapper.Key.MoveDown);
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            getGameApplication().switchScreen(MainMenuScreen.class);
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.CONTROL_LEFT)) {
+            levelController.getInputMapper().apply(InputMapper.Key.Shoot);
+        }
+    }
+
+    @Override
+    public void dispose() {
+        stage.dispose();
+    }
+}

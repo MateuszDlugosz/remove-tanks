@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>8</width>
+                            <height>8</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>AllVehicleBlockadeCategory</categoryBit>
+                            <maskBit>AllVehicleBlockadeMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+    </components>
+</prototype>

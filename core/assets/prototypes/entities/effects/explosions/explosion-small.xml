@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>1</width>
+                            <height>1</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>SceneryCategory</categoryBit>
+                            <maskBit>SceneryMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+            <lightHandlers>
+                <lightHandler id="Main">
+                    <light type="PointLight">
+                        <color type="RgbColor">
+                            <r>0</r>
+                            <g>0</g>
+                            <b>0</b>
+                        </color>
+                        <distance>32</distance>
+                        <xRay>true</xRay>
+                    </light>
+                </lightHandler>
+            </lightHandlers>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="AnimationView" id="StandingDown">
+                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="NORMAL" frameDuration="0.1f">
+                        <frame regionName="explosion-small-0" />
+                        <frame regionName="explosion-small-1" />
+                        <frame regionName="explosion-small-2" />
+                        <frame regionName="explosion-small-1" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="LifetimeComponent">
+            <lifetime>0.4</lifetime>
+        </component>
+        <component type="ExplosionLayerComponent"></component>
+        <component type="SoundOnSpawnComponent">
+            <sounds>
+                <sound>
+                    <filename>small-explosion-sound</filename>
+                </sound>
+            </sounds>
+        </component>
+    </components>
+</prototype>

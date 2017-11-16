@@ -1,0 +1,3120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="70" tilewidth="8" tileheight="8" nextobjectid="4551">
+ <tileset firstgid="1" source="../../../tilesets/sepia-tileset.tsx"/>
+ <layer name="ground_layer" width="70" height="70">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,
+1,1,1,4,1,4,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,17,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,49,1,1,1,1,1,1,1,1,1,1,17,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,49,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,68,7,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,8,52,1,1,1,1,1,1,1,1,1,1,68,7,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,8,52,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,17,20,81,39,113,114,113,114,104,105,113,114,113,114,87,88,113,114,113,114,88,89,40,84,20,49,1,1,1,1,1,1,17,20,81,39,119,120,113,114,113,114,113,114,41,41,113,114,103,104,41,41,113,114,40,84,20,49,1,1,1,1,1,1,
+1,1,1,1,1,1,68,7,9,200,129,130,129,130,120,121,129,130,129,130,103,104,129,130,129,130,104,105,199,9,8,52,4,1,1,1,1,1,68,7,9,200,135,136,129,130,129,130,129,130,41,41,129,130,119,120,41,41,129,130,199,9,8,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,105,106,11,12,173,174,175,176,13,14,15,16,113,114,105,106,113,114,113,114,113,114,40,52,1,1,1,1,1,1,68,39,113,114,139,140,273,274,275,274,275,276,113,114,181,182,145,146,139,140,113,114,113,114,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,121,122,27,28,189,190,191,192,29,30,31,32,129,130,121,122,129,130,129,130,129,130,40,52,1,1,1,1,1,1,68,39,129,130,155,156,289,290,291,290,291,292,129,130,197,198,161,162,155,156,129,130,129,130,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,181,182,43,44,273,274,274,275,275,276,141,142,173,174,175,176,15,16,41,41,113,114,40,52,1,1,1,1,1,1,68,39,105,106,47,48,305,306,307,306,307,308,113,114,213,214,11,12,79,80,41,41,41,41,40,52,1,1,1,1,1,1,
+1,1,4,1,1,1,68,39,197,198,59,60,289,290,290,291,291,292,157,158,189,190,191,192,31,32,41,41,129,130,40,52,1,1,1,4,1,1,68,39,121,122,63,64,321,322,323,322,323,324,129,130,229,230,27,28,95,96,41,41,41,41,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,213,214,47,48,305,306,306,307,307,308,43,44,273,274,275,276,107,108,113,114,181,182,40,52,1,1,1,1,1,1,68,39,113,114,75,76,109,110,13,14,173,174,175,176,13,14,143,144,181,182,113,114,89,90,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,229,230,63,64,321,322,322,323,323,324,59,60,289,290,291,292,123,124,129,130,197,198,40,52,1,1,1,1,1,1,68,39,129,130,91,92,125,126,29,30,189,190,191,192,29,30,159,160,197,198,129,130,105,106,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,145,146,75,76,109,110,173,174,175,176,79,80,305,306,307,308,139,140,145,146,213,214,153,84,20,20,20,20,20,20,81,154,113,114,145,146,43,44,87,41,41,90,113,114,145,146,47,48,213,214,41,41,113,114,40,52,1,1,1,1,4,1,
+1,1,1,1,1,1,68,39,161,162,91,92,125,126,189,190,191,192,95,96,321,322,323,324,155,156,161,162,229,230,41,55,56,55,56,55,56,55,56,41,129,130,161,162,59,60,41,104,105,41,129,130,161,162,63,64,229,230,105,106,129,130,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,177,178,179,180,47,48,87,88,89,41,41,41,41,41,41,41,141,142,173,174,175,176,78,71,72,71,72,71,72,71,72,77,173,174,175,176,143,144,41,120,121,41,273,274,275,276,107,108,113,114,121,122,113,114,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,193,194,195,196,63,64,103,41,105,106,41,41,87,88,89,90,157,158,189,190,191,192,94,55,56,55,56,55,56,55,56,93,189,190,191,192,159,160,135,136,41,41,289,290,291,292,123,124,129,130,137,138,129,130,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,87,88,41,41,107,108,41,120,41,122,113,114,103,41,105,106,47,48,113,114,89,90,41,71,72,71,72,71,72,71,72,41,41,41,113,114,107,108,41,41,41,41,305,306,307,308,139,140,177,178,179,180,41,41,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,103,104,105,106,123,124,41,136,137,138,129,130,119,120,121,41,63,64,129,130,105,106,169,100,36,36,36,36,36,36,97,170,121,122,129,130,123,124,41,120,41,41,321,322,323,324,155,156,193,194,195,196,41,41,40,52,1,1,1,4,1,1,
+1,1,1,1,1,1,68,39,113,114,121,122,139,140,41,120,121,41,145,146,135,41,137,138,43,44,103,104,113,114,40,52,1,1,1,1,1,1,68,39,113,114,41,41,139,140,135,41,137,138,11,12,77,78,111,112,77,78,173,174,113,114,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,129,130,137,138,155,156,41,136,137,41,161,162,41,41,41,41,59,60,119,120,129,130,40,52,1,1,1,1,1,1,68,39,129,130,41,41,155,156,41,41,41,41,27,28,93,94,127,128,93,94,189,190,129,130,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,113,114,113,114,75,76,13,14,77,78,109,110,173,174,175,176,79,80,113,114,121,122,40,52,1,1,1,1,1,1,68,39,113,114,113,114,75,76,173,174,175,176,143,144,41,41,113,114,41,89,90,41,113,114,40,52,1,1,1,1,1,1,
+1,1,1,1,1,4,68,39,129,130,129,130,91,92,29,30,93,94,125,126,189,190,191,192,95,96,129,130,137,138,40,52,1,1,1,1,1,1,68,39,129,130,129,130,91,92,189,190,191,192,159,160,41,41,129,130,104,105,106,41,129,130,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,113,114,41,41,41,41,41,41,41,41,107,108,87,41,89,90,113,114,113,114,113,114,40,52,1,1,1,1,1,1,68,39,113,114,121,41,41,41,41,41,41,41,107,108,41,120,121,122,113,114,113,114,41,41,40,52,1,1,1,1,1,1,
+1,1,1,1,4,1,68,39,129,130,41,41,41,41,104,41,41,41,123,124,41,41,105,106,129,130,129,130,129,130,40,52,1,1,1,1,1,1,68,39,129,130,137,138,41,41,90,41,41,41,123,124,41,41,137,138,129,130,129,130,41,41,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,23,25,184,113,114,41,41,120,121,122,41,139,140,119,120,121,41,113,114,113,114,183,25,24,52,1,1,1,1,1,1,68,23,25,184,113,114,41,105,106,41,113,114,139,140,41,41,113,114,113,114,113,114,183,25,24,52,1,1,1,1,1,1,
+1,1,1,1,1,1,33,36,97,39,129,130,41,41,41,137,138,41,155,156,135,136,41,41,129,130,129,130,40,100,36,65,1,1,1,1,1,1,33,36,97,39,129,130,41,121,122,41,129,130,155,156,41,41,129,130,129,130,129,130,40,100,36,65,1,1,1,4,1,1,
+1,1,1,1,1,1,1,1,68,23,25,25,25,25,25,25,151,41,47,48,41,152,25,25,25,25,25,25,24,52,1,1,1,1,1,1,4,1,1,1,68,23,25,25,25,25,25,25,151,41,47,48,41,152,25,25,25,25,25,25,24,52,1,1,1,1,1,1,1,1,
+1,1,1,4,1,1,1,1,33,36,36,36,36,36,36,36,97,57,58,57,58,100,36,36,36,36,36,36,36,65,1,1,1,1,1,1,1,1,1,1,33,36,36,36,36,36,36,36,97,57,58,57,58,100,36,36,36,36,36,36,36,65,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,73,74,73,74,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,73,74,73,74,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,57,58,57,58,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,57,58,57,58,52,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,73,74,73,74,52,1,1,1,4,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,73,74,73,74,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,68,57,58,57,58,52,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,57,58,57,58,52,1,1,1,1,1,4,1,1,1,4,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,73,74,73,74,52,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,68,73,74,73,74,52,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,57,58,57,58,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,57,58,57,58,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,17,20,20,20,20,20,20,20,81,73,74,73,74,84,20,20,20,20,20,20,20,49,1,1,1,1,1,1,1,1,1,1,17,20,20,20,20,20,20,20,81,73,74,73,74,84,20,20,20,20,20,20,20,49,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,68,7,9,9,9,9,9,9,167,41,47,48,41,168,9,9,9,9,9,9,8,52,1,1,1,1,1,1,1,1,1,1,68,7,9,9,9,9,9,9,167,41,47,48,41,168,9,9,9,9,9,9,8,52,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,17,20,81,39,113,114,104,105,113,114,41,41,107,108,41,89,90,41,113,114,87,88,40,84,20,49,1,1,1,1,1,1,17,20,81,39,88,89,113,114,113,114,41,41,107,108,181,182,113,114,113,114,113,114,40,84,20,49,1,1,1,1,1,1,
+1,1,1,1,1,1,68,7,9,200,129,130,120,121,129,130,41,41,123,124,41,105,106,41,129,130,103,104,199,9,8,52,1,1,1,1,1,1,68,7,9,200,104,105,129,130,129,130,41,41,123,124,197,198,129,130,129,130,129,130,199,9,8,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,113,114,113,114,113,114,121,122,113,114,139,140,113,114,113,114,121,122,119,120,113,114,40,52,1,1,1,1,1,1,68,39,113,114,113,114,121,122,177,178,179,180,139,140,213,214,113,114,145,146,113,114,113,114,40,52,1,1,1,1,1,1,
+1,4,1,1,1,1,68,39,129,130,129,130,129,130,137,138,129,130,155,156,129,130,129,130,137,138,135,136,129,130,40,52,1,1,1,1,1,1,68,39,129,130,129,130,137,138,193,194,195,196,155,156,229,230,129,130,161,162,129,130,129,130,40,52,1,1,1,4,1,1,
+1,1,1,1,1,1,68,39,41,41,11,12,173,174,175,176,78,14,143,144,145,146,113,114,113,114,139,140,113,114,40,52,1,1,1,1,1,1,68,39,113,114,41,41,11,12,173,174,175,176,111,112,77,78,109,110,13,14,173,174,87,88,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,41,41,27,28,189,190,191,192,94,30,159,160,161,162,129,130,129,130,155,156,129,130,40,52,1,1,1,1,4,1,68,39,129,130,41,41,27,28,189,190,191,192,127,128,93,94,125,126,29,30,189,190,103,104,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,113,114,43,44,177,178,179,180,145,146,43,44,177,178,179,180,11,12,79,80,41,41,40,52,1,1,4,1,1,1,68,39,89,41,181,182,43,44,113,114,209,210,179,180,113,114,47,48,113,114,113,114,113,114,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,129,130,59,60,193,194,195,196,161,162,59,60,193,194,195,196,27,28,95,96,41,41,40,52,1,1,1,1,1,1,68,39,105,41,197,198,59,60,129,130,225,226,195,196,129,130,63,64,129,130,129,130,129,130,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,113,114,75,76,15,16,145,146,11,12,111,112,173,174,175,176,143,144,145,146,113,114,153,84,20,20,20,20,20,20,81,154,121,122,213,214,47,48,181,182,213,214,41,41,41,41,107,108,41,105,106,41,113,114,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,129,130,91,92,31,32,161,162,27,28,127,128,189,190,191,192,159,160,161,162,129,130,41,55,56,55,56,55,56,55,56,41,41,138,229,230,63,64,197,198,229,230,41,356,371,104,123,124,41,370,357,41,129,130,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,88,89,113,114,141,142,77,78,143,144,181,182,190,190,190,190,141,142,173,174,175,176,78,71,72,71,72,71,72,71,72,77,173,174,175,176,143,144,213,214,41,41,41,402,113,114,139,140,113,114,401,41,41,41,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,104,105,129,130,157,158,93,94,159,160,197,198,273,274,275,276,157,158,189,190,191,192,94,55,56,55,56,55,56,55,56,93,189,190,191,192,159,160,229,230,41,356,404,418,129,130,155,156,129,130,417,405,357,41,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,120,121,145,146,43,44,181,182,43,44,213,214,289,290,291,292,107,108,181,182,113,114,41,71,72,71,72,71,72,71,72,41,113,114,113,114,47,48,113,114,41,420,41,41,113,114,75,76,15,16,113,114,385,41,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,136,137,161,162,59,60,197,198,59,60,229,230,305,306,307,308,123,124,197,198,129,130,169,100,36,36,36,36,36,36,97,170,129,130,129,130,63,64,129,130,41,41,41,41,129,130,91,92,31,32,129,130,401,90,40,52,1,1,1,1,4,1,
+1,1,4,4,1,1,68,39,113,114,121,122,107,108,213,214,47,48,145,146,305,306,307,308,139,140,213,214,88,89,40,52,1,1,1,1,1,1,68,39,113,114,145,146,141,142,13,14,173,174,175,176,15,16,41,41,47,48,41,41,385,106,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,129,130,137,138,123,124,229,230,63,64,161,162,321,322,323,324,155,156,229,230,104,105,40,52,1,1,1,1,1,1,68,39,129,130,161,162,157,158,29,30,189,190,191,192,31,32,41,41,63,64,41,41,401,41,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,113,114,113,114,139,140,113,114,141,142,173,174,175,176,13,14,79,80,113,114,120,121,40,52,1,1,1,1,1,1,68,39,113,114,41,41,47,48,113,114,41,41,90,41,75,76,77,78,79,80,113,114,401,90,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,129,130,129,130,155,156,129,130,157,158,189,190,191,192,29,30,95,96,129,130,136,137,40,52,1,1,1,1,4,1,68,39,129,130,41,41,63,64,129,130,41,436,106,41,91,92,93,94,95,96,129,130,401,106,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,41,41,113,114,75,76,13,14,79,80,113,114,89,90,177,178,179,180,41,41,113,114,40,52,1,1,1,1,1,1,68,39,120,121,175,176,79,80,113,114,41,372,387,369,41,41,113,114,113,114,353,388,373,122,40,52,1,1,1,1,1,1,
+1,1,1,1,1,1,68,39,41,41,129,130,91,92,29,30,95,96,129,130,105,106,193,194,195,196,41,41,129,130,40,52,1,1,1,1,1,1,68,39,136,137,191,192,95,96,129,130,41,41,41,402,41,41,129,130,129,130,385,41,41,138,40,52,1,1,1,1,1,4,
+1,1,1,1,1,1,68,23,25,184,41,41,113,114,41,41,113,114,119,120,121,122,113,114,41,41,113,114,183,25,24,52,1,1,1,1,1,1,68,23,25,184,113,114,113,114,119,120,113,114,41,372,387,387,388,388,389,388,373,41,183,25,24,52,1,1,1,1,1,1,
+1,1,1,1,1,1,33,36,97,39,41,41,129,130,41,41,129,130,135,136,137,138,129,130,41,41,129,130,40,100,36,65,1,1,1,1,1,1,33,36,97,39,129,130,129,130,135,136,129,130,135,136,137,138,41,41,119,120,121,122,40,100,36,65,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,68,23,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,24,52,1,1,1,1,1,1,1,1,1,1,68,23,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,24,52,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,33,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,65,1,1,1,1,1,1,1,1,1,1,33,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,65,1,1,1,1,1,1,1,1,
+1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,
+1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,
+1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <objectgroup name="objects_layer">
+  <object id="1412" name="player_respawn" x="432" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="PlayerRespawnMedium"/>
+   </properties>
+  </object>
+  <object id="3928" x="168" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3929" x="64" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3930" x="216" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3931" x="144" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3934" x="152" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3936" x="200" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3937" x="224" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3938" x="104" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3940" x="232" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3942" x="72" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3944" x="192" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3945" x="56" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3948" x="80" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3950" x="184" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3951" x="160" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3952" x="112" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3953" x="96" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3954" x="128" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3955" x="136" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3957" x="240" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3958" x="88" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3959" x="208" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3960" x="176" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3963" x="120" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3964" x="232" y="56" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3965" x="64" y="56" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3966" x="200" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3967" x="216" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3968" x="88" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3969" x="240" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3970" x="208" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3971" x="176" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3972" x="56" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3973" x="112" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3974" x="104" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3975" x="96" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3976" x="232" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3977" x="168" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3978" x="120" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3979" x="80" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3980" x="184" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3981" x="192" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3982" x="128" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3983" x="224" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3984" x="64" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3985" x="72" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3986" x="232" y="240" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3987" x="64" y="240" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3988" x="48" y="112" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3989" x="48" y="120" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3990" x="48" y="104" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3991" x="48" y="88" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3992" x="48" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3993" x="48" y="96" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3994" x="48" y="72" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3995" x="48" y="184" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3996" x="48" y="176" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3997" x="48" y="152" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3998" x="48" y="192" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="3999" x="48" y="136" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4000" x="48" y="80" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4001" x="48" y="160" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4002" x="48" y="144" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4003" x="48" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4004" x="48" y="216" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4005" x="48" y="208" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4006" x="48" y="200" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4007" x="48" y="224" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4008" x="248" y="88" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4009" x="248" y="112" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4010" x="248" y="72" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4011" x="248" y="120" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4012" x="248" y="80" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4013" x="248" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4014" x="248" y="96" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4015" x="248" y="104" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4016" x="248" y="184" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4017" x="248" y="208" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4018" x="248" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4019" x="248" y="216" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4020" x="248" y="176" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4021" x="248" y="224" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4022" x="248" y="192" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4023" x="248" y="200" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4024" x="304" y="216" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4025" x="304" y="192" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4026" x="304" y="104" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4027" x="304" y="80" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4028" x="304" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4029" x="304" y="120" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4030" x="304" y="96" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4031" x="304" y="208" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4032" x="304" y="176" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4033" x="304" y="72" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4034" x="304" y="200" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4035" x="304" y="184" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4036" x="304" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4037" x="304" y="112" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4038" x="304" y="88" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4039" x="304" y="224" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4040" x="456" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4041" x="472" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4042" x="344" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4043" x="400" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4044" x="464" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4045" x="432" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4046" x="408" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4047" x="368" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4048" x="360" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4049" x="352" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4050" x="392" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4051" x="424" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4052" x="376" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4053" x="336" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4054" x="440" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4055" x="448" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4056" x="384" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4057" x="480" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4058" x="416" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4059" x="328" y="48" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4060" x="320" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4061" x="312" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4062" x="320" y="56" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4063" x="320" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4064" x="320" y="240" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4065" x="312" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4066" x="280" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4067" x="272" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4068" x="264" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4069" x="288" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4070" x="256" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4071" x="296" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4072" x="280" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4073" x="272" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4074" x="264" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4075" x="288" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4076" x="256" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4077" x="296" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4078" x="272" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4079" x="256" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4080" x="296" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4081" x="288" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4082" x="256" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4083" x="264" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4084" x="280" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4085" x="272" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4086" x="296" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4087" x="288" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4088" x="264" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4089" x="280" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4090" x="384" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4091" x="360" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4092" x="432" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4093" x="352" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4094" x="368" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4095" x="424" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4096" x="344" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4097" x="448" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4098" x="464" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4099" x="376" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4100" x="328" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4101" x="440" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4102" x="480" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4103" x="472" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4104" x="336" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4105" x="456" y="248" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4106" x="488" y="240" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4107" x="496" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4108" x="488" y="232" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4109" x="488" y="56" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4110" x="488" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4111" x="496" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4112" x="504" y="160" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4113" x="504" y="152" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4114" x="504" y="104" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4115" x="504" y="80" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4116" x="504" y="192" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4117" x="504" y="120" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4118" x="504" y="96" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4119" x="504" y="88" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4120" x="504" y="184" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4121" x="504" y="128" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4122" x="504" y="176" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4123" x="504" y="224" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4124" x="504" y="72" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4125" x="504" y="200" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4126" x="504" y="136" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4127" x="504" y="208" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4128" x="504" y="216" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4129" x="504" y="144" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4130" x="504" y="168" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4131" x="504" y="112" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4132" x="472" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4133" x="504" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4134" x="400" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4135" x="304" y="336" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4136" x="336" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4137" x="448" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4138" x="376" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4139" x="480" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4140" x="504" y="416" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4141" x="328" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4142" x="504" y="472" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4143" x="304" y="344" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4144" x="352" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4145" x="344" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4146" x="304" y="360" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4147" x="304" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4148" x="296" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4149" x="312" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4150" x="296" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4151" x="304" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4152" x="336" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4153" x="504" y="368" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4154" x="408" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4155" x="504" y="432" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4156" x="504" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4157" x="304" y="440" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4158" x="392" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4159" x="504" y="360" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4160" x="504" y="352" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4161" x="312" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4162" x="304" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4163" x="488" y="496" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4164" x="456" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4165" x="504" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4166" x="320" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4167" x="488" y="312" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4168" x="304" y="456" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4169" x="448" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4170" x="464" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4171" x="504" y="328" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4172" x="304" y="328" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4173" x="504" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4174" x="504" y="336" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4175" x="488" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4176" x="360" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4177" x="496" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4178" x="504" y="344" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4179" x="328" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4180" x="504" y="448" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4181" x="504" y="376" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4182" x="464" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4183" x="304" y="352" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4184" x="440" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4185" x="344" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4186" x="304" y="432" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4187" x="496" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4188" x="480" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4189" x="384" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4190" x="472" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4191" x="432" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4192" x="304" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4193" x="304" y="376" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4194" x="504" y="456" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4195" x="504" y="400" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4196" x="368" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4197" x="440" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4198" x="424" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4199" x="320" y="312" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4200" x="368" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4201" x="456" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4202" x="384" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4203" x="320" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4204" x="320" y="496" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4205" x="432" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4206" x="488" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4207" x="424" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4208" x="304" y="472" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4209" x="504" y="440" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4210" x="416" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4211" x="376" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4212" x="304" y="448" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4213" x="360" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4214" x="304" y="368" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4215" x="504" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4216" x="504" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4217" x="352" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4218" x="416" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4219" x="408" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4220" x="440" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4221" x="424" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4222" x="432" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4223" x="400" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4224" x="392" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4225" x="408" y="472" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4226" x="408" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4227" x="392" y="456" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4228" x="456" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4229" x="464" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4230" x="472" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4231" x="480" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4232" x="464" y="472" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4233" x="464" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4234" x="448" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4235" x="480" y="416" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4236" x="480" y="432" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4237" x="480" y="456" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4238" x="480" y="448" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4239" x="480" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4240" x="480" y="440" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4241" x="464" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4242" x="480" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4243" x="472" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4244" x="392" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4245" x="408" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4246" x="400" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4247" x="392" y="416" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4248" x="408" y="400" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4249" x="408" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4250" x="416" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4251" x="456" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4252" x="464" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4253" x="464" y="400" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4254" x="424" y="280" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4255" x="424" y="296" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4256" x="424" y="264" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4257" x="424" y="272" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4258" x="424" y="288" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4259" x="424" y="256" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4260" x="384" y="280" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4261" x="384" y="296" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4262" x="384" y="264" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4263" x="384" y="272" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4264" x="384" y="288" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4265" x="384" y="256" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4266" x="152" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4267" x="248" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4268" x="48" y="368" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4269" x="48" y="432" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4270" x="232" y="312" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4271" x="88" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4272" x="48" y="376" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4273" x="48" y="344" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4274" x="248" y="448" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4275" x="232" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4276" x="200" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4277" x="248" y="472" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4278" x="48" y="472" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4279" x="184" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4280" x="216" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4281" x="248" y="440" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4282" x="144" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4283" x="216" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4284" x="64" y="496" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4285" x="80" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4286" x="248" y="360" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4287" x="248" y="352" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4288" x="248" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4289" x="48" y="440" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4290" x="88" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4291" x="48" y="328" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4292" x="48" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4293" x="248" y="424" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4294" x="160" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4295" x="72" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4296" x="48" y="480" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4297" x="232" y="496" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4298" x="112" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4299" x="248" y="344" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4300" x="208" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4301" x="64" y="312" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4302" x="64" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4303" x="80" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4304" x="48" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4305" x="176" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4306" x="248" y="368" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4307" x="232" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4308" x="128" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4309" x="72" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4310" x="136" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4311" x="96" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4312" x="48" y="384" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4313" x="248" y="376" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4314" x="96" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4315" x="168" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4316" x="112" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4317" x="248" y="336" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4318" x="248" y="456" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4319" x="104" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4320" x="56" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4321" x="248" y="432" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4322" x="56" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4323" x="120" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4324" x="192" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4325" x="248" y="328" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4326" x="48" y="416" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4327" x="48" y="352" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4328" x="104" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4329" x="48" y="336" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4330" x="48" y="456" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4331" x="48" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4332" x="48" y="448" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4333" x="48" y="360" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4334" x="184" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4335" x="176" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4336" x="192" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4337" x="120" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4338" x="200" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4339" x="224" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4340" x="128" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4341" x="240" y="320" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4342" x="64" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4343" x="48" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4344" x="168" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4345" x="48" y="400" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4346" x="240" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4347" x="248" y="464" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4348" x="208" y="504" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4349" x="224" y="304" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4350" x="168" y="288" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4351" x="168" y="280" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4352" x="128" y="296" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4353" x="168" y="272" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4354" x="128" y="256" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4355" x="168" y="264" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4356" x="128" y="288" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4357" x="128" y="264" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4358" x="168" y="256" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4359" x="168" y="296" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4360" x="128" y="272" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4361" x="128" y="280" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4362" x="144" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4363" x="128" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4364" x="80" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4365" x="96" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4366" x="80" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4367" x="64" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4368" x="64" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4369" x="64" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4370" x="144" y="160" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4371" x="208" y="160" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4372" x="208" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4373" x="192" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4374" x="208" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4375" x="80" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4376" x="160" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4377" x="176" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4378" x="192" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4379" x="192" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4380" x="208" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4381" x="224" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4382" x="224" y="96" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4383" x="208" y="112" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4384" x="224" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4385" x="224" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4386" x="208" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4387" x="192" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4388" x="320" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4389" x="320" y="112" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4390" x="320" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4391" x="320" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4392" x="336" y="160" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4393" x="336" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4394" x="320" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4395" x="320" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4396" x="336" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4397" x="384" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4398" x="432" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4399" x="432" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4400" x="448" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4401" x="464" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4402" x="448" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4403" x="464" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4404" x="480" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4405" x="480" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4406" x="480" y="144" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4407" x="480" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4408" x="448" y="144" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4409" x="464" y="112" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4410" x="400" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4411" x="400" y="96" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4412" x="400" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4413" x="384" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4414" x="368" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4415" x="352" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4416" x="416" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4417" x="464" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4418" x="464" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4419" x="480" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4420" x="448" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4421" x="432" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4422" x="432" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4423" x="464" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4424" x="464" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4425" x="480" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4426" x="464" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4427" x="480" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4428" x="480" y="384" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4429" x="448" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4430" x="448" y="400" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4431" x="416" y="400" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4432" x="416" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4433" x="432" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4434" x="448" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4435" x="464" y="448" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4436" x="464" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4437" x="368" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4438" x="368" y="448" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4439" x="368" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4440" x="384" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4441" x="352" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4442" x="336" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4443" x="320" y="448" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4444" x="320" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4445" x="320" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4446" x="336" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4447" x="368" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4448" x="416" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4449" x="368" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4450" x="352" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4451" x="336" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4452" x="320" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4453" x="320" y="352" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4454" x="224" y="384" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4455" x="224" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4456" x="224" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4457" x="208" y="448" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4458" x="208" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4459" x="176" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4460" x="144" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4461" x="128" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4462" x="96" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4463" x="80" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4464" x="80" y="448" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4465" x="64" y="448" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4466" x="64" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4467" x="64" y="384" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4468" x="80" y="400" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4469" x="64" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4470" x="64" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4471" x="80" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4472" x="80" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4473" x="96" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4474" x="112" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4475" x="128" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4476" x="160" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4477" x="176" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4478" x="176" y="352" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4479" x="192" y="352" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4480" x="192" y="320" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4481" x="224" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4482" x="224" y="352" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4483" x="112" y="448" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="4484" x="432" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AntiTankBarrier"/>
+   </properties>
+  </object>
+  <object id="4485" x="416" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AntiTankBarrier"/>
+   </properties>
+  </object>
+  <object id="4486" x="392" y="432" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="EnemyVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4487" x="392" y="440" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="EnemyVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4488" x="432" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="EnemyVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4489" x="440" y="392" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="EnemyVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4490" x="368" y="384" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0Ruined"/>
+   </properties>
+  </object>
+  <object id="4491" x="416" y="80" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0Ruined"/>
+   </properties>
+  </object>
+  <object id="4492" x="64" y="96" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0Ruined"/>
+   </properties>
+  </object>
+  <object id="4493" x="144" y="400" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0Ruined"/>
+   </properties>
+  </object>
+  <object id="4494" x="448" y="112" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0"/>
+   </properties>
+  </object>
+  <object id="4495" x="224" y="112" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0"/>
+   </properties>
+  </object>
+  <object id="4496" x="112" y="416" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0"/>
+   </properties>
+  </object>
+  <object id="4497" x="208" y="416" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0"/>
+   </properties>
+  </object>
+  <object id="4498" x="336" y="368" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0"/>
+   </properties>
+  </object>
+  <object id="4499" x="416" y="320" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0"/>
+   </properties>
+  </object>
+  <object id="4500" x="384" y="368" width="32" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumLLeftUp0"/>
+   </properties>
+  </object>
+  <object id="4501" x="64" y="144" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal3"/>
+   </properties>
+  </object>
+  <object id="4502" x="448" y="160" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4503" x="368" y="336" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal2"/>
+   </properties>
+  </object>
+  <object id="4504" x="160" y="368" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal1"/>
+   </properties>
+  </object>
+  <object id="4505" x="96" y="368" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal3"/>
+   </properties>
+  </object>
+  <object id="4506" x="176" y="464" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4507" x="64" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4508" x="144" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4509" x="128" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4510" x="80" y="416" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4511" x="144" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4512" x="336" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4513" x="416" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4514" x="432" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="4515" x="336" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="4516" x="448" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="4517" x="160" y="352" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="4518" x="112" y="384" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="4519" x="208" y="384" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="4520" x="208" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="4521" x="160" y="400" width="32" height="48">
+   <properties>
+    <property name="prototype.code" value="Church0Intacted"/>
+   </properties>
+  </object>
+  <object id="4522" x="384" y="160" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AntiTankBarrier"/>
+   </properties>
+  </object>
+  <object id="4523" x="176" y="208" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AntiTankBarrier"/>
+   </properties>
+  </object>
+  <object id="4524" x="128" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AntiTankBarrier"/>
+   </properties>
+  </object>
+  <object id="4525" x="96" y="96" width="48" height="32">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker1Intacted"/>
+   </properties>
+  </object>
+  <object id="4527" x="352" y="80" width="48" height="32">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker2Intacted"/>
+   </properties>
+  </object>
+  <object id="4528" x="400" y="144" width="32" height="32">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker0Intacted"/>
+   </properties>
+  </object>
+  <object id="4529" x="160" y="112" width="32" height="32">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker0Intacted"/>
+   </properties>
+  </object>
+  <object id="4530" name="spawner_alpha" x="80" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="4531" name="spawner_bravo" x="80" y="352" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumBravo"/>
+   </properties>
+  </object>
+  <object id="4532" name="spawner_charlie" x="448" y="80" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumCharlie"/>
+   </properties>
+  </object>
+  <object id="4533" name="spawner_delta" x="352" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumDelta"/>
+   </properties>
+  </object>
+  <object id="4534" name="spawner_echo" x="592" y="240" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4535" name="spawner_echo" x="592" y="496" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4536" name="spawner_echo" x="592" y="112" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4537" name="spawner_echo" x="592" y="48" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4538" name="spawner_echo" x="592" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4539" name="spawner_echo" x="592" y="304" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4540" name="spawner_echo" x="592" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4541" name="spawner_echo" x="592" y="368" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumEcho"/>
+   </properties>
+  </object>
+  <object id="4543" name="bomber_spawner" x="696" y="48" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Bomber0LeftSpawner"/>
+   </properties>
+  </object>
+  <object id="4546" name="bomber_spawner" x="696" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Bomber0LeftSpawner"/>
+   </properties>
+  </object>
+  <object id="4547" name="bomber_spawner" x="696" y="304" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Bomber0LeftSpawner"/>
+   </properties>
+  </object>
+  <object id="4548" name="bomber_spawner" x="696" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Bomber0LeftSpawner"/>
+   </properties>
+  </object>
+  <object id="4549" x="408" y="488" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="EnemyVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="4550" x="488" y="408" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="EnemyVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

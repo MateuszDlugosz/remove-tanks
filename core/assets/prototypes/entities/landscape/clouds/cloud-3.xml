@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>KinematicBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>1</width>
+                            <height>1</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>SceneryCategory</categoryBit>
+                            <maskBit>SceneryMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="SpriteView" id="MovingLeft">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>cloud-3</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Moving</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Left</direction>
+        </component>
+        <component type="AutoMoveComponent"></component>
+        <component type="SpeedComponent">
+            <speed>0.5</speed>
+        </component>
+        <component type="LifetimeComponent">
+            <lifetime>60</lifetime>
+        </component>
+        <component type="CloudLayerComponent"></component>
+    </components>
+</prototype>

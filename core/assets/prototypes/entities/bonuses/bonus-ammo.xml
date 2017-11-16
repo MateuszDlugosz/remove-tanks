@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <sensors>
+                <sensor id="ContactDetector">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>16</width>
+                            <height>16</height>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>PlayerVehicleBlockadeCategory</categoryBit>
+                            <maskBit>PlayerVehicleBlockadeMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="AnimationView" id="StandingDown">
+                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="bonus-ammo-0" />
+                        <frame regionName="bonus-ammo-1" />
+                        <frame regionName="bonus-ammo-2" />
+                        <frame regionName="bonus-ammo-1" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="BonusLayerComponent"></component>
+        <component type="DestroyOnContactComponent"></component>
+        <component type="SpawnOnDestroyComponent">
+            <spawnEntries>
+                <spawnEntry>
+                    <prototypeCode>ExplosionBonus</prototypeCode>
+                </spawnEntry>
+            </spawnEntries>
+        </component>
+        <component type="SoundOnDestroyComponent">
+            <sounds>
+                <sound>
+                    <filename>bonus-sound</filename>
+                </sound>
+            </sounds>
+        </component>
+        <component type="BonusComponent">
+            <bonusType>AmmoBonus</bonusType>
+        </component>
+    </components>
+</prototype>

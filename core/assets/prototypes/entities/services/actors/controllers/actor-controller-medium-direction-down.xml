@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <sensors>
+                <sensor id="HitDetector">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>16</width>
+                            <height>16</height>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>ActorControllerCategory</categoryBit>
+                            <maskBit>ActorControllerMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+        </component>
+        <component type="ActorDirectionControllerComponent">
+            <newDirection>Down</newDirection>
+        </component>
+    </components>
+</prototype>

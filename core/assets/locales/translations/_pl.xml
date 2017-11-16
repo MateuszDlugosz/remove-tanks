@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<translation id="Polski">
+    <entry key="game.level.hud.lifes">Życia</entry>
+    <entry key="game.level.hud.points">Punkty (x%s)</entry>
+    <entry key="game.level.hud.enemies">Wrogowie</entry>
+    <entry key="game.level.status.victory">Zwycięstwo</entry>
+    <entry key="game.level.status.defeat">Porażka</entry>
+    <entry key="game.screen.main.menu.button.start">Start</entry>
+    <entry key="game.screen.main.menu.button.options">Opcje</entry>
+    <entry key="game.screen.main.menu.button.credits">Autorzy</entry>
+    <entry key="game.screen.main.menu.button.exit">Wyjście</entry>
+    <entry key="game.screen.options.title">Opcje</entry>
+    <entry key="game.screen.options.button.sound.volume">Głośność dźwięku</entry>
+    <entry key="game.screen.options.button.music.volume">Głośność muzyki</entry>
+    <entry key="game.screen.options.button.language">Język</entry>
+    <entry key="game.screen.credits.title">Autorzy</entry>
+    <entry key="game.screen.credits.content">Grafika i kod: Mateusz Długosz</entry>
+    <entry key="game.screen.mode.select.title">Wybór trybu</entry>
+    <entry key="game.screen.operation.title">Wybór operacji</entry>
+    <entry key="game.screen.operation.summary.title">Podsumowanie operacji</entry>
+    <entry key="game.screen.operation.summary.congratulations">Gratulacje, zdobyłeś %s punktów.</entry>
+    <entry key="game.operation.early-morning">Wczesny Ranek</entry>
+    <entry key="game.operation.wet-water">Mokra Woda</entry>
+    <entry key="game.operation.cold-winter">Zimna Zima</entry>
+    <entry key="game.operation.green-forest">Zielony Las</entry>
+    <entry key="game.operation.late-evening">Późny Wieczór</entry>
+    <entry key="game.mode.operation">Operacja</entry>
+    <entry key="game.mode.campaign">Kampania (Dostępne wkrótce)</entry>
+    <entry key="game.mode.arena">Arena (Dostępne wkrótce)</entry>
+    <entry key="game.screen.button.back">Powrót</entry>
+</translation>

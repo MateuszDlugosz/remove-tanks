@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>48</width>
+                            <height>32</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+            <lightHandlers>
+                <lightHandler id="Main">
+                    <light type="PointLight">
+                        <color type="RgbColor">
+                            <r>0</r>
+                            <g>0</g>
+                            <b>0</b>
+                        </color>
+                        <distance>64</distance>
+                        <xRay>true</xRay>
+                    </light>
+                </lightHandler>
+            </lightHandlers>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="SpriteView" id="StandingDown">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>enemy-bunker-2-heavy-damaged</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="GroundLayerComponent"></component>
+        <component type="HealthComponent">
+            <health>10</health>
+            <maxHealth>10</maxHealth>
+        </component>
+        <component type="SpawnOnDestroyComponent">
+            <spawnEntries>
+                <spawnEntry>
+                    <prototypeCode>ExplosionLarge</prototypeCode>
+                </spawnEntry>
+            </spawnEntries>
+        </component>
+        <component type="RandomSpawnComponent">
+            <minSpawnFrequency>0.7</minSpawnFrequency>
+            <maxSpawnFrequency>0.8</maxSpawnFrequency>
+            <spawnEntries>
+                <spawnEntry>
+                    <prototypeCode>EnemyBulletSmallDown</prototypeCode>
+                    <position>
+                        <x>0</x>
+                        <y>-12</y>
+                    </position>
+                </spawnEntry>
+                <spawnEntry>
+                    <prototypeCode>EnemyBulletSmallDown</prototypeCode>
+                    <position>
+                        <x>-16</x>
+                        <y>-12</y>
+                    </position>
+                </spawnEntry>
+                <spawnEntry>
+                    <prototypeCode>EnemyBulletSmallDown</prototypeCode>
+                    <position>
+                        <x>16</x>
+                        <y>-12</y>
+                    </position>
+                </spawnEntry>
+            </spawnEntries>
+        </component>
+        <component type="PointsComponent">
+            <points>50</points>
+        </component>
+        <component type="HighlightOnHitComponent"></component>
+    </components>
+</prototype>

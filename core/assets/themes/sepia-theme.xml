@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+    <assets>
+        <asset id="main-atlas">
+            <className>com.badlogic.gdx.graphics.g2d.TextureAtlas</className>
+            <filename>graphics/atlases/sepia-atlas.pack</filename>
+        </asset>
+        <asset id="medium-bullet-shoot-sound">
+            <className>com.badlogic.gdx.audio.Sound</className>
+            <filename>audio/sounds/shoot-0.ogg</filename>
+        </asset>
+        <asset id="large-bullet-shoot-sound">
+            <className>com.badlogic.gdx.audio.Sound</className>
+            <filename>audio/sounds/shoot-1.ogg</filename>
+        </asset>
+        <asset id="small-explosion-sound">
+            <className>com.badlogic.gdx.audio.Sound</className>
+            <filename>audio/sounds/explosion-0.ogg</filename>
+        </asset>
+        <asset id="medium-explosion-sound">
+            <className>com.badlogic.gdx.audio.Sound</className>
+            <filename>audio/sounds/explosion-1.ogg</filename>
+        </asset>
+        <asset id="large-explosion-sound">
+            <className>com.badlogic.gdx.audio.Sound</className>
+            <filename>audio/sounds/explosion-2.ogg</filename>
+        </asset>
+        <asset id="bonus-sound">
+            <className>com.badlogic.gdx.audio.Sound</className>
+            <filename>audio/sounds/bonus-0.ogg</filename>
+        </asset>
+        <asset id="level-start-music">
+            <className>com.badlogic.gdx.audio.Music</className>
+            <filename>audio/music/level-start-0.ogg</filename>
+        </asset>
+    </assets>
+</theme>

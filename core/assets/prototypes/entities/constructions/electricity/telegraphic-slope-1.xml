@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>12</width>
+                            <height>8</height>
+                            <position>
+                                <x>4</x>
+                                <y>0</y>
+                            </position>
+                        </shape>
+                        <filter>
+                            <categoryBit>ObstacleCategory</categoryBit>
+                            <maskBit>ObstacleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="SpriteView" id="StandingDown">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>telegraphic-slope-1</regionName>
+                    </sprite>
+                    <position>
+                        <x>0</x>
+                        <y>16</y>
+                    </position>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="HealthComponent">
+            <health>2</health>
+            <maxHealth>2</maxHealth>
+        </component>
+        <component type="ObstacleLayerComponent"></component>
+        <component type="SpawnOnDestroyComponent">
+            <spawnEntries>
+                <spawnEntry>
+                    <prototypeCode>ExplosionMedium</prototypeCode>
+                </spawnEntry>
+            </spawnEntries>
+        </component>
+        <component type="HighlightOnHitComponent"></component>
+    </components>
+</prototype>

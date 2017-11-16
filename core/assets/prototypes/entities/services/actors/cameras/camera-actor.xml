@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="CircleShape">
+                            <radius>1</radius>
+                        </shape>
+                        <filter>
+                            <categoryBit>ActorCategory</categoryBit>
+                            <maskBit>ActorMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="SpeedComponent">
+            <speed>0.8</speed>
+        </component>
+        <component type="VehicleLayerComponent"></component>
+        <component type="AutoMoveComponent"></component>
+        <component type="CameraTrackingComponent">
+            <position>
+                <x>0</x>
+                <y>0</y>
+            </position>
+        </component>
+        <component type="StateComponent">
+            <state>Moving</state>
+        </component>
+        <component type="ActorComponent"></component>
+    </components>
+</prototype>

@@ -1,0 +1,26 @@
+package remove.tanks.game.level.engine.entity.component.layer.highlight;
+
+import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentType;
+import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
+
+/**
+ * @author Mateusz Długosz
+ */
+public final class HighlightComponentPrototypeXmlLoader
+        implements RegistrableComponentPrototypeXmlLoader<HighlightComponentPrototype>
+{
+    private static final String HIGHLIGHT_TIME_ELEMENT = "highlightTime";
+
+    @Override
+    public HighlightComponentPrototype loadComponentPrototype(XmlReader.Element element) {
+        return new HighlightComponentPrototype(
+                Float.valueOf(element.getChildByName(HIGHLIGHT_TIME_ELEMENT).getText().trim())
+        );
+    }
+
+    @Override
+    public ComponentType getLoaderType() {
+        return ComponentType.HighlightComponent;
+    }
+}

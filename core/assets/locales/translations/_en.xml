@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<translation id="English">
+    <entry key="game.level.hud.lifes">Lifes</entry>
+    <entry key="game.level.hud.points">Points (x%s)</entry>
+    <entry key="game.level.hud.enemies">Enemies</entry>
+    <entry key="game.level.status.victory">Victory</entry>
+    <entry key="game.level.status.defeat">Defeat</entry>
+    <entry key="game.screen.main.menu.button.start">Start</entry>
+    <entry key="game.screen.main.menu.button.options">Options</entry>
+    <entry key="game.screen.main.menu.button.credits">Credits</entry>
+    <entry key="game.screen.main.menu.button.exit">Exit</entry>
+    <entry key="game.screen.options.title">Options</entry>
+    <entry key="game.screen.options.button.sound.volume">Sound volume</entry>
+    <entry key="game.screen.options.button.music.volume">Music volume</entry>
+    <entry key="game.screen.options.button.language">Language</entry>
+    <entry key="game.screen.credits.title">Credits</entry>
+    <entry key="game.screen.credits.content">Graphics and code: Mateusz Długosz</entry>
+    <entry key="game.screen.mode.select.title">Select mode</entry>
+    <entry key="game.screen.operation.title">Select operation</entry>
+    <entry key="game.screen.operation.summary.title">Operation summary</entry>
+    <entry key="game.screen.operation.summary.congratulations">Congratulations, you gained %s points.</entry>
+    <entry key="game.operation.early-morning">Early Morning</entry>
+    <entry key="game.operation.wet-water">Wet Water</entry>
+    <entry key="game.operation.cold-winter">Cold Winter</entry>
+    <entry key="game.operation.green-forest">Green Forest</entry>
+    <entry key="game.operation.late-evening">Late Evening</entry>
+    <entry key="game.mode.operation">Operation</entry>
+    <entry key="game.mode.campaign">Campaign (Available soon)</entry>
+    <entry key="game.mode.arena">Arena (Available soon)</entry>
+    <entry key="game.screen.button.back">Back</entry>
+</translation>

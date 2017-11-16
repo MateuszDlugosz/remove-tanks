@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+            </body>
+            <sensors>
+                <sensor id="HitDetector">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>32</width>
+                            <height>32</height>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>NeutralBulletCategory</categoryBit>
+                            <maskBit>NeutralBulletMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+        </component>
+        <component type="LifetimeComponent">
+            <lifetime>0.1</lifetime>
+        </component>
+        <component type="DamageComponent">
+            <damage>20</damage>
+        </component>
+    </components>
+</prototype>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<repository>
+    <prototypes>
+        <prototype code="BonusStar">prototypes/entities/bonuses/bonus-star.xml</prototype>
+        <prototype code="BonusBombers">prototypes/entities/bonuses/bonus-bombers.xml</prototype>
+        <prototype code="BonusAmmo">prototypes/entities/bonuses/bonus-ammo.xml</prototype>
+        <prototype code="BonusLife">prototypes/entities/bonuses/bonus-life.xml</prototype>
+
+        <prototype code="PlayerMediumTank">prototypes/entities/vehicles/tanks/player-medium-tank.xml</prototype>
+        <prototype code="PlayerMediumTankSpawn">prototypes/entities/vehicles/tanks/player-medium-tank-spawn.xml</prototype>
+
+        <prototype code="PlayerBulletSmallDown">prototypes/entities/bullets/player-bullet-small-down.xml</prototype>
+        <prototype code="PlayerBulletSmallUp">prototypes/entities/bullets/player-bullet-small-up.xml</prototype>
+        <prototype code="PlayerBulletSmallLeft">prototypes/entities/bullets/player-bullet-small-left.xml</prototype>
+        <prototype code="PlayerBulletSmallRight">prototypes/entities/bullets/player-bullet-small-right.xml</prototype>
+        <prototype code="PlayerBulletMediumDown">prototypes/entities/bullets/player-bullet-medium-down.xml</prototype>
+        <prototype code="PlayerBulletMediumUp">prototypes/entities/bullets/player-bullet-medium-up.xml</prototype>
+        <prototype code="PlayerBulletMediumLeft">prototypes/entities/bullets/player-bullet-medium-left.xml</prototype>
+        <prototype code="PlayerBulletMediumRight">prototypes/entities/bullets/player-bullet-medium-right.xml</prototype>
+        <prototype code="PlayerBulletLargeDown">prototypes/entities/bullets/player-bullet-large-down.xml</prototype>
+        <prototype code="PlayerBulletLargeUp">prototypes/entities/bullets/player-bullet-large-up.xml</prototype>
+        <prototype code="PlayerBulletLargeLeft">prototypes/entities/bullets/player-bullet-large-left.xml</prototype>
+        <prototype code="PlayerBulletLargeRight">prototypes/entities/bullets/player-bullet-large-right.xml</prototype>
+
+        <prototype code="EnemyBomberTankSpawn">prototypes/entities/vehicles/tanks/enemy-bomber-tank-spawn.xml</prototype>
+        <prototype code="EnemyBomberTank">prototypes/entities/vehicles/tanks/enemy-bomber-tank.xml</prototype>
+        <prototype code="EnemyLightTankSpawn">prototypes/entities/vehicles/tanks/enemy-light-tank-spawn.xml</prototype>
+        <prototype code="EnemyLightTank">prototypes/entities/vehicles/tanks/enemy-light-tank.xml</prototype>
+        <prototype code="EnemyMediumTankSpawn">prototypes/entities/vehicles/tanks/enemy-medium-tank-spawn.xml</prototype>
+        <prototype code="EnemyMediumTank">prototypes/entities/vehicles/tanks/enemy-medium-tank.xml</prototype>
+        <prototype code="EnemyHeavyTankSpawn">prototypes/entities/vehicles/tanks/enemy-heavy-tank-spawn.xml</prototype>
+        <prototype code="EnemyHeavyTank">prototypes/entities/vehicles/tanks/enemy-heavy-tank.xml</prototype>
+
+        <prototype code="EnemyLightBoatHorizontalDown">prototypes/entities/vehicles/boats/enemy-light-boat-horizontal-down.xml</prototype>
+        <prototype code="EnemyLightBoatHorizontalDownSpawn">prototypes/entities/vehicles/boats/enemy-light-boat-horizontal-down-spawn.xml</prototype>
+        <prototype code="EnemyLightBoatHorizontalUp">prototypes/entities/vehicles/boats/enemy-light-boat-horizontal-up.xml</prototype>
+        <prototype code="EnemyLightBoatHorizontalUpSpawn">prototypes/entities/vehicles/boats/enemy-light-boat-horizontal-up-spawn.xml</prototype>
+
+        <prototype code="EnemyLightTrainHorizontalDown">prototypes/entities/vehicles/trains/enemy-light-train-horizontal-down.xml</prototype>
+        <prototype code="EnemyLightTrainHorizontalDownSpawn">prototypes/entities/vehicles/trains/enemy-light-train-horizontal-down-spawn.xml</prototype>
+
+        <prototype code="EnemyRailroadCannon0">prototypes/entities/vehicles/trains/enemy-railroad-cannon-0.xml</prototype>
+
+        <prototype code="EnemyBulletSmallDown">prototypes/entities/bullets/enemy-bullet-small-down.xml</prototype>
+        <prototype code="EnemyBulletSmallUp">prototypes/entities/bullets/enemy-bullet-small-up.xml</prototype>
+        <prototype code="EnemyBulletSmallLeft">prototypes/entities/bullets/enemy-bullet-small-left.xml</prototype>
+        <prototype code="EnemyBulletSmallRight">prototypes/entities/bullets/enemy-bullet-small-right.xml</prototype>
+        <prototype code="EnemyBulletMediumDown">prototypes/entities/bullets/enemy-bullet-medium-down.xml</prototype>
+        <prototype code="EnemyBulletMediumUp">prototypes/entities/bullets/enemy-bullet-medium-up.xml</prototype>
+        <prototype code="EnemyBulletMediumLeft">prototypes/entities/bullets/enemy-bullet-medium-left.xml</prototype>
+        <prototype code="EnemyBulletMediumRight">prototypes/entities/bullets/enemy-bullet-medium-right.xml</prototype>
+        <prototype code="EnemyBulletLargeDown">prototypes/entities/bullets/enemy-bullet-large-down.xml</prototype>
+        <prototype code="EnemyBulletLargeUp">prototypes/entities/bullets/enemy-bullet-large-up.xml</prototype>
+        <prototype code="EnemyBulletLargeLeft">prototypes/entities/bullets/enemy-bullet-large-left.xml</prototype>
+        <prototype code="EnemyBulletLargeRight">prototypes/entities/bullets/enemy-bullet-large-right.xml</prototype>
+
+        <prototype code="EnemyLandBomb">prototypes/entities/bullets/enemy-land-bomb.xml</prototype>
+        <prototype code="EnemyLandBombDamageArea">prototypes/entities/bullets/enemy-land-bomb-damage-area.xml</prototype>
+
+        <prototype code="ExplosionBonus">prototypes/entities/effects/explosions/explosion-bonus.xml</prototype>
+        <prototype code="ExplosionSmall">prototypes/entities/effects/explosions/explosion-small.xml</prototype>
+        <prototype code="ExplosionMedium">prototypes/entities/effects/explosions/explosion-medium.xml</prototype>
+        <prototype code="ExplosionLarge">prototypes/entities/effects/explosions/explosion-large.xml</prototype>
+
+        <prototype code="Tree0">prototypes/entities/landscape/trees/tree-0.xml</prototype>
+        <prototype code="Tree1">prototypes/entities/landscape/trees/tree-1.xml</prototype>
+
+        <prototype code="AllVehicleBlockadeSmall">prototypes/entities/services/blockades/all-vehicle-blockade-small.xml</prototype>
+        <prototype code="PlayerVehicleBlockadeSmall">prototypes/entities/services/blockades/player-vehicle-blockade-small.xml</prototype>
+        <prototype code="EnemyVehicleBlockadeSmall">prototypes/entities/services/blockades/enemy-vehicle-blockade-small.xml</prototype>
+
+        <prototype code="Bomber0Right">prototypes/entities/vehicles/airplanes/bomber-0-right.xml</prototype>
+        <prototype code="Bomber0Left">prototypes/entities/vehicles/airplanes/bomber-0-left.xml</prototype>
+        <prototype code="Bomber0Up">prototypes/entities/vehicles/airplanes/bomber-0-up.xml</prototype>
+        <prototype code="Bomber0Down">prototypes/entities/vehicles/airplanes/bomber-0-down.xml</prototype>
+
+        <prototype code="BombDamageArea">prototypes/entities/vehicles/airplanes/bombs/bomb-damage-area.xml</prototype>
+
+        <prototype code="Bomb0Right">prototypes/entities/vehicles/airplanes/bombs/bomb-0-right.xml</prototype>
+        <prototype code="Bomb0Down">prototypes/entities/vehicles/airplanes/bombs/bomb-0-down.xml</prototype>
+        <prototype code="Bomb0Left">prototypes/entities/vehicles/airplanes/bombs/bomb-0-left.xml</prototype>
+        <prototype code="Bomb0Up">prototypes/entities/vehicles/airplanes/bombs/bomb-0-up.xml</prototype>
+
+        <prototype code="Bomber0RightSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-right-spawner.xml</prototype>
+        <prototype code="Bomber0DownSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-down-spawner.xml</prototype>
+        <prototype code="Bomber0UpSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-up-spawner.xml</prototype>
+        <prototype code="Bomber0LeftSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-left-spawner.xml</prototype>
+
+        <prototype code="EnemyBunker0Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-intacted.xml</prototype>
+        <prototype code="EnemyBunker1Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-intacted.xml</prototype>
+        <prototype code="EnemyBunker2Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-intacted.xml</prototype>
+        <prototype code="EnemyBunker3Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-intacted.xml</prototype>
+        <prototype code="EnemyBunker4Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-intacted.xml</prototype>
+        <prototype code="EnemyBunker0Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-damaged.xml</prototype>
+        <prototype code="EnemyBunker1Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-damaged.xml</prototype>
+        <prototype code="EnemyBunker2Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-damaged.xml</prototype>
+        <prototype code="EnemyBunker3Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-damaged.xml</prototype>
+        <prototype code="EnemyBunker4Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-damaged.xml</prototype>
+        <prototype code="EnemyBunker0HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker1HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker2HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker3HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker4HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-heavy-damaged.xml</prototype>
+
+        <prototype code="AntiTankBarrier">prototypes/entities/constructions/fortifications/barriers/anti-tank-barrier.xml</prototype>
+        <prototype code="DragonsTeeth">prototypes/entities/constructions/fortifications/barriers/dragons-teeth.xml</prototype>
+        <prototype code="ConcreteBarrierLeft">prototypes/entities/constructions/fortifications/barriers/concrete-barrier-left.xml</prototype>
+        <prototype code="ConcreteBarrierRight">prototypes/entities/constructions/fortifications/barriers/concrete-barrier-right.xml</prototype>
+        <prototype code="BeachBarricade0">prototypes/entities/constructions/fortifications/barriers/beach-barricade-0.xml</prototype>
+
+        <prototype code="RockSmall0">prototypes/entities/landscape/rocks/rock-small-0.xml</prototype>
+        <prototype code="RockMediumHorizontal0">prototypes/entities/landscape/rocks/rock-medium-horizontal-0.xml</prototype>
+        <prototype code="RockMediumVertical0">prototypes/entities/landscape/rocks/rock-medium-vertical-0.xml</prototype>
+        <prototype code="RockPolishedSmall0">prototypes/entities/landscape/rocks/rock-polished-small-0.xml</prototype>
+        <prototype code="RockPolishedSmall1">prototypes/entities/landscape/rocks/rock-polished-small-1.xml</prototype>
+        <prototype code="RockPolishedMediumHorizontal0">prototypes/entities/landscape/rocks/rock-polished-medium-horizontal-0.xml</prototype>
+        <prototype code="RockPolishedMediumVertical0">prototypes/entities/landscape/rocks/rock-polished-medium-vertical-0.xml</prototype>
+        <prototype code="RockPolishedLarge0">prototypes/entities/landscape/rocks/rock-polished-large-0.xml</prototype>
+
+        <prototype code="TrainLeft0">prototypes/entities/vehicles/trains/train-left-0.xml</prototype>
+        <prototype code="TrainRight0">prototypes/entities/vehicles/trains/train-right-0.xml</prototype>
+
+        <prototype code="WagonEmpty0">prototypes/entities/vehicles/trains/wagons/wagon-empty-0.xml</prototype>
+        <prototype code="WagonEmpty1">prototypes/entities/vehicles/trains/wagons/wagon-empty-1.xml</prototype>
+        <prototype code="WagonCrates0">prototypes/entities/vehicles/trains/wagons/wagon-crates-0.xml</prototype>
+        <prototype code="WagonCrates1">prototypes/entities/vehicles/trains/wagons/wagon-crates-1.xml</prototype>
+        <prototype code="WagonCrates2">prototypes/entities/vehicles/trains/wagons/wagon-crates-2.xml</prototype>
+        <prototype code="WagonEnemyTanks0">prototypes/entities/vehicles/trains/wagons/wagon-enemy-tanks-0.xml</prototype>
+        <prototype code="WagonEnemyTanks1">prototypes/entities/vehicles/trains/wagons/wagon-enemy-tanks-1.xml</prototype>
+        <prototype code="WagonPlayerTanks0">prototypes/entities/vehicles/trains/wagons/wagon-player-tanks-0.xml</prototype>
+        <prototype code="WagonPlayerTanks1">prototypes/entities/vehicles/trains/wagons/wagon-player-tanks-1.xml</prototype>
+        <prototype code="WagonOil0">prototypes/entities/vehicles/trains/wagons/wagon-oil-0.xml</prototype>
+        <prototype code="WagonOil1">prototypes/entities/vehicles/trains/wagons/wagon-oil-1.xml</prototype>
+        <prototype code="WagonCoal0">prototypes/entities/vehicles/trains/wagons/wagon-coal-0.xml</prototype>
+        <prototype code="WagonTroops0">prototypes/entities/vehicles/trains/wagons/wagon-troops-0.xml</prototype>
+        <prototype code="WagonAntiTankBarriers0">prototypes/entities/vehicles/trains/wagons/wagon-anti-tank-barriers-0.xml</prototype>
+        <prototype code="WagonSuperHeavyAmmo0">prototypes/entities/vehicles/trains/wagons/wagon-super-heavy-ammo-0.xml</prototype>
+
+        <prototype code="Cloud0">prototypes/entities/landscape/clouds/cloud-0.xml</prototype>
+        <prototype code="Cloud1">prototypes/entities/landscape/clouds/cloud-1.xml</prototype>
+        <prototype code="Cloud2">prototypes/entities/landscape/clouds/cloud-2.xml</prototype>
+        <prototype code="Cloud3">prototypes/entities/landscape/clouds/cloud-3.xml</prototype>
+
+        <prototype code="HouseSmallHorizontal0">prototypes/entities/constructions/houses/house-small-horizontal-0.xml</prototype>
+        <prototype code="HouseSmallHorizontal0Ruined">prototypes/entities/constructions/houses/house-small-horizontal-0-ruined.xml</prototype>
+        <prototype code="HouseSmallVertical0">prototypes/entities/constructions/houses/house-small-vertical-0.xml</prototype>
+        <prototype code="HouseMediumHorizontal0">prototypes/entities/constructions/houses/house-medium-horizontal-0.xml</prototype>
+        <prototype code="HouseMediumHorizontal1">prototypes/entities/constructions/houses/house-medium-horizontal-1.xml</prototype>
+        <prototype code="HouseMediumHorizontal2">prototypes/entities/constructions/houses/house-medium-horizontal-2.xml</prototype>
+        <prototype code="HouseMediumHorizontal3">prototypes/entities/constructions/houses/house-medium-horizontal-3.xml</prototype>
+        <prototype code="HouseMediumHorizontal0Ruined">prototypes/entities/constructions/houses/house-medium-horizontal-0-ruined.xml</prototype>
+        <prototype code="HouseMediumVertical0">prototypes/entities/constructions/houses/house-medium-vertical-0.xml</prototype>
+        <prototype code="HouseMediumVertical0Ruined">prototypes/entities/constructions/houses/house-medium-vertical-0-ruined.xml</prototype>
+        <prototype code="HouseMediumHorizontalLeftTower0">prototypes/entities/constructions/houses/house-medium-horizontal-left-tower-0.xml</prototype>
+        <prototype code="HouseMediumHorizontalRightTower0">prototypes/entities/constructions/houses/house-medium-horizontal-right-tower-0.xml</prototype>
+        <prototype code="HouseMediumLLeftDown0">prototypes/entities/constructions/houses/house-medium-l-left-down-0.xml</prototype>
+        <prototype code="HouseMediumLLeftUp0">prototypes/entities/constructions/houses/house-medium-l-left-up-0.xml</prototype>
+        <prototype code="HouseMediumLRightDown0">prototypes/entities/constructions/houses/house-medium-l-right-down-0.xml</prototype>
+        <prototype code="HouseMediumLRightUp0">prototypes/entities/constructions/houses/house-medium-l-right-up-0.xml</prototype>
+        <prototype code="HouseTower0">prototypes/entities/constructions/houses/house-tower-0.xml</prototype>
+
+        <prototype code="StorageLargeOil0">prototypes/entities/constructions/storage/storage-large-oil-0.xml</prototype>
+
+        <prototype code="FenceWoodenSlope0">prototypes/entities/constructions/fences/fence-wooden-slope-0.xml</prototype>
+        <prototype code="FenceBarrier0">prototypes/entities/constructions/fences/fence-barrier-0.xml</prototype>
+
+        <prototype code="TelegraphicSlope0">prototypes/entities/constructions/electricity/telegraphic-slope-0.xml</prototype>
+        <prototype code="TelegraphicSlope1">prototypes/entities/constructions/electricity/telegraphic-slope-1.xml</prototype>
+        <prototype code="TelegraphicSlope2">prototypes/entities/constructions/electricity/telegraphic-slope-2.xml</prototype>
+
+        <prototype code="Church0Intacted">prototypes/entities/constructions/churches/church-0-intacted.xml</prototype>
+        <prototype code="Church0Damaged">prototypes/entities/constructions/churches/church-0-damaged.xml</prototype>
+        <prototype code="Church0HeavyDamaged">prototypes/entities/constructions/churches/church-0-heavy-damaged.xml</prototype>
+
+        <prototype code="Tombstone0">prototypes/entities/constructions/cemetery/tombstone-0.xml</prototype>
+        <prototype code="Tombstone1">prototypes/entities/constructions/cemetery/tombstone-1.xml</prototype>
+        <prototype code="Tombstone2">prototypes/entities/constructions/cemetery/tombstone-2.xml</prototype>
+        <prototype code="Grave0">prototypes/entities/constructions/cemetery/grave-0.xml</prototype>
+        <prototype code="Grave1">prototypes/entities/constructions/cemetery/grave-1.xml</prototype>
+        <prototype code="Grave2">prototypes/entities/constructions/cemetery/grave-2.xml</prototype>
+
+        <prototype code="AutoSpawnerMediumAlpha">prototypes/entities/services/spawners/auto-spawner-medium-alpha.xml</prototype>
+        <prototype code="AutoSpawnerMediumBravo">prototypes/entities/services/spawners/auto-spawner-medium-bravo.xml</prototype>
+        <prototype code="AutoSpawnerMediumCharlie">prototypes/entities/services/spawners/auto-spawner-medium-charlie.xml</prototype>
+        <prototype code="AutoSpawnerMediumDelta">prototypes/entities/services/spawners/auto-spawner-medium-delta.xml</prototype>
+        <prototype code="AutoSpawnerMediumEcho">prototypes/entities/services/spawners/auto-spawner-medium-echo.xml</prototype>
+        <prototype code="AutoSpawnerMediumFoxtrot">prototypes/entities/services/spawners/auto-spawner-medium-foxtrot.xml</prototype>
+        <prototype code="AutoSpawnerMediumGolf">prototypes/entities/services/spawners/auto-spawner-medium-golf.xml</prototype>
+        <prototype code="AutoSpawnerMediumHotel">prototypes/entities/services/spawners/auto-spawner-medium-hotel.xml</prototype>
+        <prototype code="AutoSpawnerMediumIndia">prototypes/entities/services/spawners/auto-spawner-medium-india.xml</prototype>
+        <prototype code="AutoSpawnerMediumJuliett">prototypes/entities/services/spawners/auto-spawner-medium-juliett.xml</prototype>
+        <prototype code="AutoSpawnerMediumKilo">prototypes/entities/services/spawners/auto-spawner-medium-kilo.xml</prototype>
+        <prototype code="AutoSpawnerMediumLima">prototypes/entities/services/spawners/auto-spawner-medium-lima.xml</prototype>
+        <prototype code="AutoSpawnerMediumMike">prototypes/entities/services/spawners/auto-spawner-medium-mike.xml</prototype>
+        <prototype code="AutoSpawnerMediumNovember">prototypes/entities/services/spawners/auto-spawner-medium-november.xml</prototype>
+        <prototype code="AutoSpawnerMediumOscar">prototypes/entities/services/spawners/auto-spawner-medium-oscar.xml</prototype>
+        <prototype code="AutoSpawnerMediumPapa">prototypes/entities/services/spawners/auto-spawner-medium-papa.xml</prototype>
+        <prototype code="AutoSpawnerMediumQuebec">prototypes/entities/services/spawners/auto-spawner-medium-quebec.xml</prototype>
+        <prototype code="AutoSpawnerMediumRomeo">prototypes/entities/services/spawners/auto-spawner-medium-romeo.xml</prototype>
+        <prototype code="AutoSpawnerMediumSierra">prototypes/entities/services/spawners/auto-spawner-medium-sierra.xml</prototype>
+        <prototype code="AutoSpawnerMediumTango">prototypes/entities/services/spawners/auto-spawner-medium-tango.xml</prototype>
+        <prototype code="AutoSpawnerMediumUniform">prototypes/entities/services/spawners/auto-spawner-medium-uniform.xml</prototype>
+        <prototype code="AutoSpawnerMediumVictor">prototypes/entities/services/spawners/auto-spawner-medium-victor.xml</prototype>
+        <prototype code="AutoSpawnerMediumWhiskey">prototypes/entities/services/spawners/auto-spawner-medium-whiskey.xml</prototype>
+        <prototype code="AutoSpawnerMediumXray">prototypes/entities/services/spawners/auto-spawner-medium-xray.xml</prototype>
+        <prototype code="AutoSpawnerMediumYankee">prototypes/entities/services/spawners/auto-spawner-medium-yankee.xml</prototype>
+        <prototype code="AutoSpawnerMediumZulu">prototypes/entities/services/spawners/auto-spawner-medium-zulu.xml</prototype>
+
+        <prototype code="AutoSpawnerLargeAlpha">prototypes/entities/services/spawners/auto-spawner-large-alpha.xml</prototype>
+        <prototype code="AutoSpawnerLargeBravo">prototypes/entities/services/spawners/auto-spawner-large-bravo.xml</prototype>
+        <prototype code="AutoSpawnerLargeCharlie">prototypes/entities/services/spawners/auto-spawner-large-charlie.xml</prototype>
+        <prototype code="AutoSpawnerLargeDelta">prototypes/entities/services/spawners/auto-spawner-large-delta.xml</prototype>
+        <prototype code="AutoSpawnerLargeEcho">prototypes/entities/services/spawners/auto-spawner-large-echo.xml</prototype>
+        <prototype code="AutoSpawnerLargeFoxtrot">prototypes/entities/services/spawners/auto-spawner-large-foxtrot.xml</prototype>
+        <prototype code="AutoSpawnerLargeGolf">prototypes/entities/services/spawners/auto-spawner-large-golf.xml</prototype>
+        <prototype code="AutoSpawnerLargeHotel">prototypes/entities/services/spawners/auto-spawner-large-hotel.xml</prototype>
+        <prototype code="AutoSpawnerLargeIndia">prototypes/entities/services/spawners/auto-spawner-large-india.xml</prototype>
+        <prototype code="AutoSpawnerLargeJuliett">prototypes/entities/services/spawners/auto-spawner-large-juliett.xml</prototype>
+        <prototype code="AutoSpawnerLargeKilo">prototypes/entities/services/spawners/auto-spawner-large-kilo.xml</prototype>
+        <prototype code="AutoSpawnerLargeLima">prototypes/entities/services/spawners/auto-spawner-large-lima.xml</prototype>
+        <prototype code="AutoSpawnerLargeMike">prototypes/entities/services/spawners/auto-spawner-large-mike.xml</prototype>
+        <prototype code="AutoSpawnerLargeNovember">prototypes/entities/services/spawners/auto-spawner-large-november.xml</prototype>
+        <prototype code="AutoSpawnerLargeOscar">prototypes/entities/services/spawners/auto-spawner-large-oscar.xml</prototype>
+        <prototype code="AutoSpawnerLargePapa">prototypes/entities/services/spawners/auto-spawner-large-papa.xml</prototype>
+        <prototype code="AutoSpawnerLargeQuebec">prototypes/entities/services/spawners/auto-spawner-large-quebec.xml</prototype>
+        <prototype code="AutoSpawnerLargeRomeo">prototypes/entities/services/spawners/auto-spawner-large-romeo.xml</prototype>
+        <prototype code="AutoSpawnerLargeSierra">prototypes/entities/services/spawners/auto-spawner-large-sierra.xml</prototype>
+        <prototype code="AutoSpawnerLargeTango">prototypes/entities/services/spawners/auto-spawner-large-tango.xml</prototype>
+        <prototype code="AutoSpawnerLargeUniform">prototypes/entities/services/spawners/auto-spawner-large-uniform.xml</prototype>
+        <prototype code="AutoSpawnerLargeVictor">prototypes/entities/services/spawners/auto-spawner-large-victor.xml</prototype>
+        <prototype code="AutoSpawnerLargeWhiskey">prototypes/entities/services/spawners/auto-spawner-large-whiskey.xml</prototype>
+        <prototype code="AutoSpawnerLargeXray">prototypes/entities/services/spawners/auto-spawner-large-xray.xml</prototype>
+        <prototype code="AutoSpawnerLargeYankee">prototypes/entities/services/spawners/auto-spawner-large-yankee.xml</prototype>
+        <prototype code="AutoSpawnerLargeZulu">prototypes/entities/services/spawners/auto-spawner-large-zulu.xml</prototype>
+
+        <prototype code="PlayerRespawnMedium">prototypes/entities/services/respawns/player-respawn-medium.xml</prototype>
+
+        <prototype code="TriggerMediumAlpha">prototypes/entities/services/triggers/trigger-medium-alpha.xml</prototype>
+
+        <prototype code="BattleIndicator">prototypes/entities/services/indicators/battle-indicator.xml</prototype>
+
+        <prototype code="ActorControllerMediumDirectionLeft">prototypes/entities/services/actors/controllers/actor-controller-medium-direction-left.xml</prototype>
+        <prototype code="ActorControllerMediumDirectionRight">prototypes/entities/services/actors/controllers/actor-controller-medium-direction-right.xml</prototype>
+        <prototype code="ActorControllerMediumDirectionUp">prototypes/entities/services/actors/controllers/actor-controller-medium-direction-up.xml</prototype>
+        <prototype code="ActorControllerMediumDirectionDown">prototypes/entities/services/actors/controllers/actor-controller-medium-direction-down.xml</prototype>
+
+        <prototype code="EnemyBomberTankActor">prototypes/entities/services/actors/vehicles/tanks/enemy-bomber-tank-actor.xml</prototype>
+        <prototype code="EnemyLightTankActor">prototypes/entities/services/actors/vehicles/tanks/enemy-light-tank-actor.xml</prototype>
+        <prototype code="EnemyMediumTankActor">prototypes/entities/services/actors/vehicles/tanks/enemy-medium-tank-actor.xml</prototype>
+        <prototype code="EnemyHeavyTankActor">prototypes/entities/services/actors/vehicles/tanks/enemy-heavy-tank-actor.xml</prototype>
+        <prototype code="PlayerMediumTankActor">prototypes/entities/services/actors/vehicles/tanks/player-medium-tank-actor.xml</prototype>
+        <prototype code="EnemyLightTrainHorizontalDownActor">prototypes/entities/services/actors/vehicles/trains/enemy-light-train-horizontal-down-actor.xml</prototype>
+        <prototype code="CameraActor">prototypes/entities/services/actors/cameras/camera-actor.xml</prototype>
+    </prototypes>
+</repository>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="PolygonShape">
+                            <vertices>
+                                <vertex x="-3" y="6" />
+                                <vertex x="3" y="6" />
+                                <vertex x="6" y="3" />
+                                <vertex x="6" y="-3" />
+                                <vertex x="3" y="-6" />
+                                <vertex x="-3" y="-6" />
+                                <vertex x="-6" y="-3" />
+                                <vertex x="-6" y="3" />
+                            </vertices>
+                        </shape>
+                        <filter>
+                            <categoryBit>PlayerVehicleCategory</categoryBit>
+                            <maskBit>PlayerVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+            <sensors>
+                <sensor id="Left">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>-6</x>
+                                <y>0</y>
+                            </position>
+                            <width>2</width>
+                            <height>7</height>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>PlayerVehicleCategory</categoryBit>
+                            <maskBit>PlayerVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Right">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>6</x>
+                                <y>0</y>
+                            </position>
+                            <width>2</width>
+                            <height>7</height>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>PlayerVehicleCategory</categoryBit>
+                            <maskBit>PlayerVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Up">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>0</x>
+                                <y>6</y>
+                            </position>
+                            <width>7</width>
+                            <height>2</height>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>PlayerVehicleCategory</categoryBit>
+                            <maskBit>PlayerVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Down">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>0</x>
+                                <y>-6</y>
+                            </position>
+                            <width>7</width>
+                            <height>2</height>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>PlayerVehicleCategory</categoryBit>
+                            <maskBit>PlayerVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+            <lightHandlers>
+                <lightHandler  id="Main">
+                    <light type="PointLight">
+                        <color type="RgbColor">
+                            <r>0</r>
+                            <g>0</g>
+                            <b>0</b>
+                        </color>
+                        <distance>64</distance>
+                        <xRay>true</xRay>
+                    </light>
+                </lightHandler>
+            </lightHandlers>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="AnimationView" id="MovingLeft">
+                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="player-medium-tank-left-0" />
+                        <frame regionName="player-medium-tank-left-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingRight">
+                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="player-medium-tank-right-0" />
+                        <frame regionName="player-medium-tank-right-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingUp">
+                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="player-medium-tank-up-0" />
+                        <frame regionName="player-medium-tank-up-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingDown">
+                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="player-medium-tank-down-0" />
+                        <frame regionName="player-medium-tank-down-1" />
+                    </animation>
+                </view>
+                <view type="SpriteView" id="StandingLeft">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>player-medium-tank-left-0</regionName>
+                    </sprite>
+                </view>
+                <view type="SpriteView" id="StandingRight">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>player-medium-tank-right-0</regionName>
+                    </sprite>
+                </view>
+                <view type="SpriteView" id="StandingUp">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>player-medium-tank-up-0</regionName>
+                    </sprite>
+                </view>
+                <view type="SpriteView" id="StandingDown">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>player-medium-tank-down-0</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="HealthComponent">
+            <health>1</health>
+            <maxHealth>1</maxHealth>
+        </component>
+        <component type="SpeedComponent">
+            <speed>1</speed>
+        </component>
+        <component type="VehicleLayerComponent"></component>
+        <component type="PlayerControlComponent">
+            <shootDelay>0.1</shootDelay>
+        </component>
+        <component type="CameraTrackingComponent">
+            <position>
+                <x>0</x>
+                <y>0</y>
+            </position>
+        </component>
+        <component type="AutoMoveComponent"></component>
+        <component type="AmmoComponent">
+            <currentLevel>1</currentLevel>
+            <maxLevel>3</maxLevel>
+            <ammo level="1">
+                <bullet direction="Down">PlayerBulletSmallDown</bullet>
+                <bullet direction="Up">PlayerBulletSmallUp</bullet>
+                <bullet direction="Left">PlayerBulletSmallLeft</bullet>
+                <bullet direction="Right">PlayerBulletSmallRight</bullet>
+            </ammo>
+            <ammo level="2">
+                <bullet direction="Down">PlayerBulletMediumDown</bullet>
+                <bullet direction="Up">PlayerBulletMediumUp</bullet>
+                <bullet direction="Left">PlayerBulletMediumLeft</bullet>
+                <bullet direction="Right">PlayerBulletMediumRight</bullet>
+            </ammo>
+            <ammo level="3">
+                <bullet direction="Down">PlayerBulletLargeDown</bullet>
+                <bullet direction="Up">PlayerBulletLargeUp</bullet>
+                <bullet direction="Left">PlayerBulletLargeLeft</bullet>
+                <bullet direction="Right">PlayerBulletLargeRight</bullet>
+            </ammo>
+        </component>
+        <component type="SpawnOnDestroyComponent">
+            <spawnEntries>
+                <spawnEntry>
+                    <prototypeCode>ExplosionLarge</prototypeCode>
+                </spawnEntry>
+            </spawnEntries>
+        </component>
+        <component type="PlayerComponent"></component>
+        <component type="HighlightOnHitComponent"></component>
+    </components>
+</prototype>

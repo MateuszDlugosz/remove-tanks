@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <properties>
+        <property name="tiled.map.filename">maps/menu/level-presentation-0.tmx</property>
+        <property name="entity.prototype.repository.filename">prototypes/repositories/main-repository.xml</property>
+        <property name="theme.filename">themes/sepia-theme.xml</property>
+    </properties>
+    <engine>
+        <systems>
+            <system priority="100" type="WorldUpdateSystem"></system>
+            <system priority="200" type="CameraTrackingSystem"></system>
+            <system priority="300" type="CameraUpdateSystem"></system>
+            <system priority="525" type="RandomSpawnSystem"></system>
+            <system priority="600" type="AutoMoveSystem"></system>
+            <system priority="900" type="TiledMapRenderSystem"></system>
+            <system priority="1000" type="ViewUpdateSystem"></system>
+            <system priority="1050" type="GroundLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1100" type="BulletLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1200" type="VehicleLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1225" type="ObstacleLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1235" type="BonusLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1250" type="ExplosionLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1275" type="CloudLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1280" type="BombLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1285" type="BomberLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="3300" type="ActorDirectionControlSystem"></system>
+            <system priority="3100" type="AutoSpawnerSystem">
+                <spawners>
+                    <spawner letter="Alpha">
+                        <active>true</active>
+                        <limit>-1</limit>
+                        <frequency>5</frequency>
+                        <prototypeCodes>
+                            <prototypeCode>Cloud0</prototypeCode>
+                            <prototypeCode>Cloud1</prototypeCode>
+                            <prototypeCode>Cloud2</prototypeCode>
+                            <prototypeCode>Cloud3</prototypeCode>
+                        </prototypeCodes>
+                    </spawner>
+                </spawners>
+            </system>
+        </systems>
+        <listeners>
+        </listeners>
+    </engine>
+</prototype>

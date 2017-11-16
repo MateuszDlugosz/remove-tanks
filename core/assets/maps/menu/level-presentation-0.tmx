@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="8" tileheight="8" nextobjectid="3656">
+ <tileset firstgid="1" source="../../tilesets/sepia-tileset.tsx"/>
+ <layer name="ground_layer" width="90" height="90">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,20,20,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,20,20,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,4,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,9,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,9,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,4,1,4,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,41,41,40,84,20,49,1,17,20,20,20,20,49,1,1,17,20,81,39,113,114,40,52,1,1,1,1,1,1,1,1,1,1,17,20,20,20,20,49,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,41,41,199,9,8,52,1,68,7,9,9,8,52,1,1,68,7,9,200,129,130,40,52,1,1,1,1,1,1,1,1,1,1,68,7,9,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,25,25,25,184,40,52,1,68,23,25,25,24,52,1,1,68,39,113,114,113,114,40,52,1,1,1,1,1,1,1,1,1,1,68,39,183,25,24,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,36,36,97,39,40,52,1,33,36,36,36,36,65,1,1,68,39,129,130,129,130,40,52,1,1,1,1,1,1,1,1,1,1,68,39,40,100,36,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,24,52,1,1,1,1,1,1,1,1,1,68,39,113,114,41,41,40,84,20,49,1,1,4,1,1,1,1,1,68,23,24,52,17,20,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,36,65,1,1,1,1,1,1,1,1,1,68,39,129,130,41,41,199,9,8,52,1,1,1,1,1,1,1,1,33,36,36,65,68,7,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,20,49,1,1,1,1,1,1,17,20,20,49,1,1,68,39,145,146,139,140,181,182,40,84,20,20,20,49,1,1,1,1,1,1,1,1,68,23,24,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,8,52,1,1,1,1,1,1,68,7,8,52,1,1,68,39,161,162,155,156,197,198,199,9,9,9,8,52,1,1,1,1,1,1,1,1,33,36,36,65,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,81,39,40,52,1,1,1,1,1,1,68,39,40,84,20,20,81,39,113,114,43,44,213,214,113,114,113,114,40,84,20,20,20,20,20,49,1,1,17,20,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,4,1,68,7,9,200,40,52,1,1,1,1,1,1,68,39,199,9,9,9,9,200,129,130,59,60,229,230,129,130,129,130,199,9,9,9,9,9,8,52,1,1,68,7,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,25,25,24,52,1,1,1,1,17,20,81,39,41,41,41,41,113,114,113,114,47,48,145,146,113,114,41,41,41,41,41,41,113,114,40,84,20,20,81,39,40,52,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,36,36,36,65,1,1,1,1,68,7,9,200,41,41,41,41,129,130,129,130,63,64,161,162,129,130,41,41,41,41,41,41,129,130,199,9,9,9,9,200,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,20,20,20,20,20,49,1,1,68,39,41,41,113,114,41,41,41,41,41,41,75,76,15,16,41,41,113,114,41,41,41,41,113,114,113,114,41,41,113,114,40,84,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,9,9,9,9,8,52,1,1,68,39,41,41,129,130,41,41,41,41,41,41,91,92,31,32,41,41,129,130,41,41,41,41,129,130,129,130,41,41,129,130,199,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,25,184,41,41,40,84,20,49,68,39,113,114,41,41,113,114,113,114,41,41,145,146,43,44,177,178,179,180,41,41,113,114,41,41,41,41,113,114,41,41,41,41,40,84,20,49,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,97,39,41,88,199,9,8,52,68,39,129,130,41,41,129,130,129,130,41,41,161,162,59,60,193,194,195,196,41,41,129,130,41,41,41,41,129,130,41,41,41,41,199,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,41,104,41,41,40,84,81,39,41,41,11,12,13,14,173,174,175,176,13,14,111,112,77,78,173,174,41,41,41,41,41,41,41,41,113,114,41,41,113,114,113,114,40,52,17,20,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,119,41,41,41,199,9,9,200,41,41,27,28,29,30,189,190,191,192,29,30,127,128,93,94,189,190,41,41,41,41,41,41,41,41,129,130,41,41,129,130,129,130,40,52,68,7,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,81,39,135,41,113,114,113,114,41,41,41,41,47,48,41,41,41,41,113,114,177,178,179,180,41,41,41,41,104,105,41,41,113,114,41,89,41,41,41,41,41,41,41,41,40,84,81,39,40,84,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,9,200,41,41,129,130,129,130,41,41,41,41,63,64,41,41,41,41,129,130,193,194,195,196,41,41,41,41,120,121,41,41,129,130,104,105,41,41,41,41,41,41,41,41,199,9,9,200,199,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,20,49,17,20,81,39,41,41,113,114,41,41,41,41,113,114,113,114,43,44,113,114,113,114,41,41,41,41,113,114,113,114,41,41,41,41,113,114,41,41,41,41,113,114,41,41,41,41,113,114,41,41,41,41,113,114,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,68,7,8,52,68,7,9,200,41,41,129,130,41,41,41,41,129,130,129,130,59,60,129,130,129,130,41,41,41,41,129,130,129,130,41,41,41,41,129,130,41,41,41,41,129,130,41,41,41,41,129,130,41,41,41,41,129,130,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,24,52,68,39,41,41,113,114,41,41,41,41,41,41,175,176,13,14,111,112,13,14,15,16,41,41,41,41,41,41,41,41,113,114,113,114,41,41,41,41,41,41,41,41,113,114,41,41,113,114,113,114,41,41,113,114,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,36,65,68,39,41,41,129,130,41,41,41,41,41,41,191,192,29,30,127,128,29,30,31,32,41,41,41,41,41,41,41,41,129,130,129,130,41,41,41,41,41,41,41,41,129,130,41,41,129,130,129,130,41,41,129,130,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,41,41,113,114,41,41,41,41,41,41,41,41,41,41,41,41,113,114,107,108,113,114,41,41,41,88,89,41,113,114,41,41,177,178,179,180,139,140,113,114,41,41,113,114,41,41,41,41,113,114,41,41,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,41,41,129,130,41,41,41,41,41,41,41,41,41,41,41,41,129,130,123,124,129,130,41,41,103,41,41,41,129,130,41,41,193,194,195,196,155,156,129,130,41,41,129,130,41,41,41,41,129,130,41,41,40,52,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,113,114,41,41,41,41,41,273,274,275,276,41,41,41,113,114,41,41,41,41,113,114,113,114,41,41,41,41,41,41,41,41,11,12,13,14,143,144,41,41,88,41,113,114,113,114,183,25,25,184,113,114,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,17,20,81,39,129,130,41,41,41,41,41,289,290,291,292,41,41,41,129,130,41,41,41,41,129,130,129,130,41,41,41,41,41,41,41,41,27,28,29,30,159,160,41,104,105,41,129,130,129,130,40,100,97,39,129,130,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,9,200,41,41,103,41,41,41,41,305,306,307,308,41,41,41,41,41,113,114,139,140,145,146,41,41,41,41,41,41,41,41,181,182,43,44,145,146,107,108,41,120,121,41,41,41,41,41,40,52,68,23,25,25,24,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,20,20,81,39,41,41,41,41,119,120,41,41,41,321,322,323,324,41,41,41,41,41,129,130,155,156,161,162,41,41,41,41,41,41,41,41,197,198,59,60,161,162,123,124,41,41,136,137,41,41,41,41,40,52,33,36,36,36,36,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,9,9,9,200,113,114,41,41,135,136,113,114,175,176,77,78,13,14,173,174,41,41,175,176,111,112,15,16,177,178,179,180,41,41,41,41,213,214,47,48,41,41,41,41,113,114,41,41,113,114,113,114,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,41,41,41,41,129,130,41,41,41,41,129,130,191,192,93,94,29,30,189,190,41,41,191,192,127,128,31,32,193,194,195,196,41,41,41,41,229,230,63,64,41,41,41,41,129,130,41,41,129,130,129,130,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,113,114,113,114,41,41,113,114,113,114,41,41,41,41,41,41,41,41,41,41,41,41,177,178,179,180,75,76,77,78,13,14,173,174,41,41,175,176,143,144,41,41,113,114,113,114,113,114,113,114,183,25,24,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,129,130,129,130,41,41,129,130,129,130,41,41,104,41,41,41,41,41,41,41,41,41,193,194,195,196,91,92,93,94,29,30,189,190,41,41,191,192,159,160,41,41,129,130,129,130,129,130,129,130,40,100,36,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,41,41,41,41,41,41,41,41,113,114,41,119,41,41,41,41,113,114,41,41,113,114,41,41,113,114,113,114,145,146,113,114,41,41,41,41,145,146,107,108,41,41,41,41,113,114,41,41,183,25,24,52,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,183,25,25,25,25,184,41,41,129,130,41,135,136,41,41,41,129,130,41,41,129,130,41,41,129,130,129,130,161,162,129,130,41,41,41,41,161,162,123,124,41,41,41,41,129,130,41,41,40,100,36,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,40,100,36,36,97,39,113,114,41,41,41,41,41,41,183,25,25,25,25,25,25,25,25,25,25,25,25,25,25,184,41,41,41,41,41,41,113,114,41,41,113,114,113,114,183,25,25,25,24,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,24,52,1,1,68,39,129,130,41,41,41,41,41,41,40,100,36,36,36,36,36,36,36,36,36,36,36,36,97,39,41,41,41,41,41,41,129,130,41,41,129,130,129,130,40,100,36,36,36,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,36,65,1,1,68,23,25,184,113,114,113,114,183,25,24,52,1,1,1,1,1,1,1,1,1,1,1,1,68,23,25,25,25,184,41,41,41,41,113,114,41,41,41,41,40,52,1,1,1,1,17,20,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,4,33,36,97,39,129,130,129,130,40,100,36,65,1,1,1,1,1,1,1,4,1,1,1,1,33,36,36,36,97,39,41,41,41,41,129,130,41,41,41,41,40,52,1,1,1,1,68,7,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,25,184,113,114,40,52,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,68,23,25,184,113,114,41,41,41,41,183,25,24,52,1,1,1,1,68,39,40,84,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,97,39,129,130,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,97,39,129,130,41,41,41,41,40,100,36,65,1,1,1,1,68,39,199,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,17,20,20,49,1,1,1,1,1,1,68,23,25,25,24,52,17,20,20,20,20,49,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,113,114,113,114,41,41,40,52,1,1,1,4,1,1,68,39,113,114,40,52,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,7,8,52,1,1,1,1,1,1,33,36,36,36,36,65,68,7,9,9,8,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,39,129,130,129,130,41,41,40,52,1,1,1,1,1,1,68,39,129,130,40,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,24,52,1,1,1,1,1,1,1,1,1,1,1,1,68,23,25,25,24,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,68,23,25,25,25,25,25,25,24,52,1,1,1,1,1,1,68,23,25,25,24,52,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,33,36,36,65,1,1,1,1,1,1,1,1,1,1,1,1,33,36,36,36,36,65,1,1,1,1,1,1,1,4,1,4,1,1,1,1,33,36,36,36,36,36,36,36,36,65,1,1,1,1,1,1,33,36,36,36,36,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <objectgroup name="objects_layer">
+  <object id="3512" type="bonuses" x="496" y="312" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="CameraActor"/>
+   </properties>
+  </object>
+  <object id="3515" type="trees" x="192" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
+   </properties>
+  </object>
+  <object id="3518" type="trees" x="504" y="248" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionDown"/>
+   </properties>
+  </object>
+  <object id="3519" type="trees" x="192" y="248" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionRight"/>
+   </properties>
+  </object>
+  <object id="3520" type="trees" x="504" y="464" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionLeft"/>
+   </properties>
+  </object>
+  <object id="3522" name="left" type="trees" x="456" y="392" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionLeft"/>
+   </properties>
+  </object>
+  <object id="3523" name="left" type="trees" x="424" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionLeft"/>
+   </properties>
+  </object>
+  <object id="3524" name="down" type="trees" x="408" y="376" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionDown"/>
+   </properties>
+  </object>
+  <object id="3525" name="up" type="trees" x="312" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
+   </properties>
+  </object>
+  <object id="3526" name="left" type="trees" x="328" y="392" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionLeft"/>
+   </properties>
+  </object>
+  <object id="3527" name="up" type="trees" x="296" y="408" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
+   </properties>
+  </object>
+  <object id="3528" type="bonuses" x="456" y="352" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyLightTankActor"/>
+   </properties>
+  </object>
+  <object id="3529" name="left" type="trees" x="312" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionLeft"/>
+   </properties>
+  </object>
+  <object id="3530" name="up" type="trees" x="264" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
+   </properties>
+  </object>
+  <object id="3531" name="right" type="trees" x="280" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionRight"/>
+   </properties>
+  </object>
+  <object id="3532" name="down" type="trees" x="472" y="296" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionDown"/>
+   </properties>
+  </object>
+  <object id="3533" type="trees" x="360" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3534" type="trees" x="376" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3535" type="trees" x="392" y="264" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3536" type="trees" x="376" y="248" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3537" type="trees" x="328" y="312" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3538" type="trees" x="312" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3539" type="trees" x="296" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3540" type="trees" x="328" y="248" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3541" type="trees" x="328" y="200" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3542" type="trees" x="344" y="184" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3543" type="trees" x="344" y="168" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3544" type="trees" x="344" y="376" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3545" type="trees" x="360" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3546" type="trees" x="328" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3547" type="trees" x="312" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3548" type="trees" x="280" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3549" type="trees" x="472" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3550" type="trees" x="472" y="408" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3551" type="trees" x="488" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3552" type="trees" x="504" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3553" type="trees" x="472" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3554" type="trees" x="440" y="456" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3555" type="trees" x="456" y="456" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3556" type="trees" x="424" y="472" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3557" type="trees" x="408" y="488" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3558" type="trees" x="424" y="504" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3559" type="trees" x="408" y="504" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3560" type="trees" x="408" y="456" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3561" type="trees" x="504" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3562" type="trees" x="520" y="376" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3563" type="trees" x="504" y="408" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3564" type="trees" x="520" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3565" type="trees" x="536" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3566" type="trees" x="520" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3567" type="trees" x="472" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3568" type="trees" x="488" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3569" type="trees" x="568" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3570" type="trees" x="568" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3571" type="trees" x="552" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3572" type="trees" x="568" y="376" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3573" type="trees" x="504" y="296" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3574" type="trees" x="520" y="296" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3575" type="trees" x="456" y="264" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3576" type="trees" x="424" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3577" type="trees" x="408" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3578" type="trees" x="424" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3579" type="trees" x="376" y="232" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3580" type="trees" x="392" y="232" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3581" type="trees" x="248" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3582" type="trees" x="216" y="312" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3583" type="trees" x="232" y="312" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3584" type="trees" x="184" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3585" type="trees" x="168" y="376" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3586" type="trees" x="152" y="408" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3587" type="trees" x="136" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3588" type="trees" x="168" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3589" type="trees" x="184" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3590" type="trees" x="248" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="3591" type="trees" x="200" y="488" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3592" type="trees" x="200" y="472" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3593" type="trees" x="184" y="472" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3594" type="trees" x="168" y="456" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3595" type="trees" x="184" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3596" type="trees" x="200" y="408" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3597" type="trees" x="120" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3598" type="trees" x="184" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3599" type="trees" x="200" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3600" type="trees" x="280" y="376" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3601" type="trees" x="296" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3602" type="trees" x="328" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3603" type="trees" x="296" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3604" type="trees" x="392" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3605" type="trees" x="392" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3606" type="trees" x="312" y="248" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3607" type="trees" x="328" y="232" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3608" type="trees" x="328" y="184" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3609" type="trees" x="264" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3610" type="trees" x="280" y="264" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3611" type="trees" x="440" y="312" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3612" type="trees" x="440" y="264" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3613" type="trees" x="440" y="248" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3614" type="trees" x="488" y="264" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3615" type="trees" x="472" y="328" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3616" type="trees" x="504" y="376" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3617" type="trees" x="520" y="408" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3618" type="trees" x="456" y="424" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3619" type="trees" x="536" y="504" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3620" type="houses" x="440" y="392" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="3621" type="houses" x="344" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="3622" type="houses" x="344" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallVertical0"/>
+   </properties>
+  </object>
+  <object id="3623" type="houses" x="328" y="216" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="3624" type="houses" x="376" y="280" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal0"/>
+   </properties>
+  </object>
+  <object id="3625" type="houses" x="424" y="360" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal1"/>
+   </properties>
+  </object>
+  <object id="3626" type="houses" x="344" y="408" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal2"/>
+   </properties>
+  </object>
+  <object id="3627" type="houses" x="360" y="248" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="3628" type="houses" x="408" y="440" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseSmallHorizontal0"/>
+   </properties>
+  </object>
+  <object id="3629" type="houses" x="296" y="424" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal3"/>
+   </properties>
+  </object>
+  <object id="3630" type="houses" x="344" y="312" width="32" height="16">
+   <properties>
+    <property name="prototype.code" value="HouseMediumHorizontal1"/>
+   </properties>
+  </object>
+  <object id="3631" type="trees" x="472" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3632" type="trees" x="472" y="296" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Tree0"/>
+   </properties>
+  </object>
+  <object id="3633" type="houses" x="408" y="392" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0Ruined"/>
+   </properties>
+  </object>
+  <object id="3634" type="houses" x="360" y="216" width="16" height="32">
+   <properties>
+    <property name="prototype.code" value="HouseMediumVertical0"/>
+   </properties>
+  </object>
+  <object id="3635" x="224" y="360" width="32" height="48">
+   <properties>
+    <property name="prototype.code" value="Church0Intacted"/>
+   </properties>
+  </object>
+  <object id="3636" name="spawner_alpha" x="744" y="144" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3637" name="spawner_alpha" x="768" y="168" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3638" name="spawner_alpha" x="744" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3639" name="spawner_alpha" x="768" y="216" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3640" name="spawner_alpha" x="768" y="312" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3641" name="spawner_alpha" x="744" y="240" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3642" name="spawner_alpha" x="744" y="288" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3643" name="spawner_alpha" x="768" y="264" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3644" name="spawner_alpha" x="768" y="408" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3645" name="spawner_alpha" x="744" y="336" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3646" name="spawner_alpha" x="744" y="384" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3647" name="spawner_alpha" x="768" y="360" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3648" name="spawner_alpha" x="768" y="504" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3649" name="spawner_alpha" x="744" y="432" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3650" name="spawner_alpha" x="744" y="480" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3651" name="spawner_alpha" x="768" y="456" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3652" name="spawner_alpha" x="768" y="600" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3653" name="spawner_alpha" x="744" y="528" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3654" name="spawner_alpha" x="744" y="576" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+  <object id="3655" name="spawner_alpha" x="768" y="552" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

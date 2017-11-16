@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>32</width>
+                            <height>48</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>ObstacleCategory</categoryBit>
+                            <maskBit>ObstacleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="SpriteView" id="StandingDown">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>church-0-damaged</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="GroundLayerComponent"></component>
+        <component type="HealthComponent">
+            <health>8</health>
+            <maxHealth>8</maxHealth>
+        </component>
+        <component type="SpawnOnDestroyComponent">
+            <spawnEntries>
+                <spawnEntry>
+                    <prototypeCode>ExplosionLarge</prototypeCode>
+                </spawnEntry>
+                <spawnEntry>
+                    <prototypeCode>Church0HeavyDamaged</prototypeCode>
+                </spawnEntry>
+            </spawnEntries>
+        </component>
+        <component type="HighlightOnHitComponent"></component>
+    </components>
+</prototype>

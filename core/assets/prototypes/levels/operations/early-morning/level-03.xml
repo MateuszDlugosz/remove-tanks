@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <properties>
+        <property name="tiled.map.filename">maps/operations/early-morning/level-03.tmx</property>
+        <property name="entity.prototype.repository.filename">prototypes/repositories/main-repository.xml</property>
+        <property name="theme.filename">themes/sepia-theme.xml</property>
+        <property name="level.enemies">20</property>
+    </properties>
+    <engine>
+        <systems>
+            <system priority="100" type="WorldUpdateSystem"></system>
+            <system priority="150" type="PlayerControlSystem"></system>
+            <system priority="200" type="CameraTrackingSystem"></system>
+            <system priority="300" type="CameraUpdateSystem"></system>
+            <system priority="500" type="RandomDirectionSystem"></system>
+            <system priority="525" type="RandomSpawnSystem"></system>
+            <system priority="550" type="RandomShootSystem"></system>
+            <system priority="575" type="AutoShootSystem"></system>
+            <system priority="600" type="AutoMoveSystem"></system>
+            <system priority="700" type="HealthSystem"></system>
+            <system priority="800" type="LifetimeSystem"></system>
+            <system priority="850" type="DamageSystem">
+                <hitHighlightTime>0.1</hitHighlightTime>
+            </system>
+            <system priority="900" type="TiledMapRenderSystem"></system>
+            <system priority="1000" type="ViewUpdateSystem"></system>
+            <system priority="1050" type="GroundLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1100" type="BulletLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1200" type="VehicleLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1225" type="ObstacleLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1235" type="BonusLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1250" type="ExplosionLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1275" type="CloudLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1280" type="BombLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1285" type="BomberLayerRenderSystem">
+                <highlight>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </highlight>
+            </system>
+            <system priority="1560" type="DestroyOnContactSystem"></system>
+            <system priority="1600" type="DestroySystem"></system>
+            <system priority="3000" type="OperationHudRenderSystem"></system>
+            <system priority="3100" type="AutoSpawnerSystem">
+                <spawners>
+                    <spawner letter="Alpha">
+                        <active>true</active>
+                        <limit>5</limit>
+                        <frequency>5</frequency>
+                        <prototypeCodes>
+                            <prototypeCode>EnemyMediumTankSpawn</prototypeCode>
+                        </prototypeCodes>
+                    </spawner>
+                    <spawner letter="Bravo">
+                        <active>true</active>
+                        <limit>5</limit>
+                        <frequency>5</frequency>
+                        <prototypeCodes>
+                            <prototypeCode>EnemyLightTankSpawn</prototypeCode>
+                        </prototypeCodes>
+                    </spawner>
+                    <spawner letter="Charlie">
+                        <active>true</active>
+                        <limit>5</limit>
+                        <frequency>5</frequency>
+                        <prototypeCodes>
+                            <prototypeCode>EnemyMediumTankSpawn</prototypeCode>
+                        </prototypeCodes>
+                    </spawner>
+                    <spawner letter="Delta">
+                        <active>true</active>
+                        <limit>5</limit>
+                        <frequency>5</frequency>
+                        <prototypeCodes>
+                            <prototypeCode>EnemyLightTankSpawn</prototypeCode>
+                        </prototypeCodes>
+                    </spawner>
+                    <spawner letter="Echo">
+                        <active>true</active>
+                        <limit>-1</limit>
+                        <frequency>5</frequency>
+                        <prototypeCodes>
+                            <prototypeCode>Cloud0</prototypeCode>
+                            <prototypeCode>Cloud1</prototypeCode>
+                            <prototypeCode>Cloud2</prototypeCode>
+                            <prototypeCode>Cloud3</prototypeCode>
+                        </prototypeCodes>
+                    </spawner>
+                </spawners>
+            </system>
+            <system priority="3200" type="PlayerRespawnSystem">
+                <prototypeCode>PlayerMediumTankSpawn</prototypeCode>
+                <respawnTime>3</respawnTime>
+            </system>
+        </systems>
+        <listeners>
+            <listener priority="4000" type="SoundListener"></listener>
+            <listener priority="4000" type="SpawnCycleListener"></listener>
+            <listener priority="4000" type="BonusPickUpListener"></listener>
+            <listener priority="4000" type="BonusLootListener">
+                <chance>3</chance>
+                <prototypeCodes>
+                    <prototypeCode>BonusLife</prototypeCode>
+                    <prototypeCode>BonusAmmo</prototypeCode>
+                    <prototypeCode>BonusStar</prototypeCode>
+                    <prototypeCode>BonusBombers</prototypeCode>
+                </prototypeCodes>
+            </listener>
+            <listener priority="4000" type="PointsListener"></listener>
+            <listener priority="4000" type="EnemyDestroyListener"></listener>
+            <listener priority="4000" type="OperationDefeatListener"></listener>
+            <listener priority="4000" type="OperationVictoryListener"></listener>
+        </listeners>
+    </engine>
+</prototype>
