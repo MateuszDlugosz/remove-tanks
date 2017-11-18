@@ -9,12 +9,12 @@ import static org.junit.Assert.assertEquals;
  */
 public class DividingScaleTest {
     @Test(expected = InvalidScaleValueException.class)
-    public void when_DividingScaleIsInitializedWithZeroValue_Then_Exception() {
+    public void when_DividingScaleIsInitializedWithZeroValue_Then_ThrowsException() {
         new DividingScale(0f);
     }
 
     @Test(expected = InvalidScaleValueException.class)
-    public void when_DividingScaleIsInitializedWithNegativeValue_Then_Exception() {
+    public void when_DividingScaleIsInitializedWithNegativeValue_Then_ThrowsException() {
         new DividingScale(-5f);
     }
 

@@ -41,7 +41,6 @@ public class PositionPrototypeXmlLoaderTest {
     @Test(expected = PositionPrototypeXmlLoadException.class)
     public void when_ElementHasIncorrectlyFormat_Then_ThrowsExceptions() {
         XmlReader.Element element = xmlReader.parse(INCORRECTLY_FORMATTED_XML_ELEMENT);
-
         positionPrototypeXmlLoader.loadPositionPrototype(element);
     }
 }
