@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import remove.tanks.game.audio.music.event.PlayMusicEvent;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityDestroyer;
@@ -33,7 +34,7 @@ public final class LevelController {
 
     private final List<DestroyEntityEvent> destroyEntityEvents = new ArrayList<>();
     private final List<SpawnEntityEvent> spawnEntityEvents = new ArrayList<>();
-    private final List<PlaySoundEvent> playSoundEvents = new ArrayList<>();
+    private final List<Object> eventsToDelegate = new ArrayList<>();
 
     private boolean victory;
     private boolean defeat;
@@ -74,7 +75,7 @@ public final class LevelController {
         resetInput();
         disposeEntities();
         placeEntities();
-        delegatePlaySoundEvents(eventBus);
+        delegateEvents(eventBus);
     }
 
     private void resetInput() {
@@ -99,9 +100,9 @@ public final class LevelController {
         spawnEntityEvents.clear();
     }
 
-    private void delegatePlaySoundEvents(EventBus eventBus) {
-        playSoundEvents.forEach(eventBus::post);
-        playSoundEvents.clear();
+    private void delegateEvents(EventBus eventBus) {
+        eventsToDelegate.forEach(eventBus::post);
+        eventsToDelegate.clear();
     }
 
     public boolean isVictory() {
@@ -129,7 +130,12 @@ public final class LevelController {
 
     @Subscribe
     public void handlePlaySoundEvent(PlaySoundEvent event) {
-        playSoundEvents.add(event);
+        eventsToDelegate.add(event);
+    }
+
+    @Subscribe
+    public void handlePlayMusicEvent(PlayMusicEvent event) {
+        eventsToDelegate.add(event);
     }
 
     @Subscribe

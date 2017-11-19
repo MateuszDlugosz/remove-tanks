@@ -79,8 +79,6 @@ public final class OperationLevelScreen extends GameScreen {
     private void initStage() {
         stage.addActor(window);
         window.add(levelStatusLabel);
-        eventBus.post(new PlayMusicEvent(levelController.getLevel().getResourceRegistry()
-                .getResource("AssetStorage", AssetStorage.class).getAsset("level-start-music", Music.class)));
     }
 
     private Window createWindow() {

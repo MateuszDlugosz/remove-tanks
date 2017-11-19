@@ -37,5 +37,6 @@ public enum SystemType {
     PlayerRespawnSystem,
     ActorDirectionControlSystem,
     OperationVictorySystem,
-    OperationDefeatSystem
+    OperationDefeatSystem,
+    MusicOnStartSystem
 }

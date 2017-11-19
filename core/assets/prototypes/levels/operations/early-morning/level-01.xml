@@ -8,6 +8,11 @@
     </properties>
     <engine>
         <systems>
+            <system priority="1" type="MusicOnStartSystem">
+                <music>
+                    <filename>level-start-music</filename>
+                </music>
+            </system>
             <system priority="100" type="WorldUpdateSystem"></system>
             <system priority="150" type="PlayerControlSystem"></system>
             <system priority="200" type="CameraTrackingSystem"></system>

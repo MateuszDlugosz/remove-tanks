@@ -2,6 +2,8 @@ package remove.tanks.game.configuration.component.level;
 
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
+import remove.tanks.game.audio.music.MusicFactory;
+import remove.tanks.game.audio.music.MusicPrototypeXmlLoader;
 import remove.tanks.game.graphic.effect.EffectFactory;
 import remove.tanks.game.graphic.effect.EffectPrototypeXmlLoader;
 import remove.tanks.game.graphic.view.renderer.ViewRenderer;
@@ -12,6 +14,8 @@ import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.actor.ActorDirectionControlSystemFactory;
 import remove.tanks.game.level.engine.system.actor.ActorDirectionControlSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemFactory;
+import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.camera.CameraTrackingSystemFactory;
 import remove.tanks.game.level.engine.system.camera.CameraTrackingSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.camera.CameraUpdateSystemFactory;
@@ -149,7 +153,10 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerActivatorFactory", SpawnerActivatorFactory.class)
                             ),
                             new OperationDefeatSystemFactory(),
-                            new OperationVictorySystemFactory()
+                            new OperationVictorySystemFactory(),
+                            new MusicOnStartSystemFactory(
+                                    getContext().getComponent("MusicFactory", MusicFactory.class)
+                            )
                     }
             );
         }
@@ -216,7 +223,10 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerActivatorPrototypeXmlLoader", SpawnerActivatorPrototypeXmlLoader.class)
                             ),
                             new OperationDefeatSystemPrototypeXmlLoader(),
-                            new OperationVictorySystemPrototypeXmlLoader()
+                            new OperationVictorySystemPrototypeXmlLoader(),
+                            new MusicOnStartSystemPrototypeXmlLoader(
+                                    getContext().getComponent("MusicPrototypeXmlLoader", MusicPrototypeXmlLoader.class)
+                            )
                     }
             );
         }
