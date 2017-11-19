@@ -4,8 +4,7 @@
         <property name="tiled.map.filename">maps/operations/early-morning/level-00.tmx</property>
         <property name="entity.prototype.repository.filename">prototypes/repositories/main-repository.xml</property>
         <property name="theme.filename">themes/sepia-theme.xml</property>
-        <property name="level.enemies">1</property>
-        <property name="level.lifes">0</property>
+        <property name="level.enemies">10</property>
     </properties>
     <engine>
         <systems>
