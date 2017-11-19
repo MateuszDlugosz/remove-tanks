@@ -4,7 +4,8 @@
         <property name="tiled.map.filename">maps/operations/early-morning/level-00.tmx</property>
         <property name="entity.prototype.repository.filename">prototypes/repositories/main-repository.xml</property>
         <property name="theme.filename">themes/sepia-theme.xml</property>
-        <property name="level.enemies">10</property>
+        <property name="level.enemies">1</property>
+        <property name="level.lifes">0</property>
     </properties>
     <engine>
         <systems>
@@ -150,7 +151,13 @@
             </system>
             <system priority="3200" type="PlayerRespawnSystem">
                 <prototypeCode>PlayerMediumTankSpawn</prototypeCode>
-                <respawnTime>3</respawnTime>
+                <respawnTime>2</respawnTime>
+            </system>
+            <system priority="4000" type="OperationDefeatSystem">
+                <delay>3</delay>
+            </system>
+            <system priority="4000" type="OperationVictorySystem">
+                <delay>3</delay>
             </system>
         </systems>
         <listeners>
@@ -167,8 +174,6 @@
             </listener>
             <listener priority="4000" type="PointsListener"></listener>
             <listener priority="4000" type="EnemyDestroyListener"></listener>
-            <listener priority="4000" type="OperationDefeatListener"></listener>
-            <listener priority="4000" type="OperationVictoryListener"></listener>
         </listeners>
     </engine>
 </prototype>

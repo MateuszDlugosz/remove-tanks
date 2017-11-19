@@ -34,8 +34,5 @@ public final class EnemyDestroyListener extends ExtendedEntityListener {
                         properties.getInt(LevelProperty.LevelEnemies.getName()) - 1
                 ))
         ));
-        if (properties.getInt(LevelProperty.LevelEnemies.getName()) == 0) {
-            eventBus.post(new VictoryEvent());
-        }
     }
 }

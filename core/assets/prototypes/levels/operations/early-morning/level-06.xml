@@ -166,7 +166,13 @@
             </system>
             <system priority="3200" type="PlayerRespawnSystem">
                 <prototypeCode>PlayerMediumTankSpawn</prototypeCode>
-                <respawnTime>3</respawnTime>
+                <respawnTime>2</respawnTime>
+            </system>
+            <system priority="4000" type="OperationDefeatSystem">
+                <delay>3</delay>
+            </system>
+            <system priority="4000" type="OperationVictorySystem">
+                <delay>3</delay>
             </system>
         </systems>
         <listeners>
@@ -174,8 +180,6 @@
             <listener priority="4000" type="SpawnCycleListener"></listener>
             <listener priority="4000" type="PointsListener"></listener>
             <listener priority="4000" type="EnemyDestroyListener"></listener>
-            <listener priority="4000" type="OperationDefeatListener"></listener>
-            <listener priority="4000" type="OperationVictoryListener"></listener>
             <listener priority="4000" type="BonusLootListener">
                 <chance>3</chance>
                 <prototypeCodes>

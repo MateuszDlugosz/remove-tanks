@@ -28,20 +28,12 @@ import remove.tanks.game.utility.time.Timer;
  * @author Mateusz Długosz
  */
 public final class OperationLevelScreen extends GameScreen {
-    private static final float VICTORY_DELAY = 6.0f;
-    private static final float DEFEAT_DELAY = 3.0f;
-    private static final float SWITCH_SCREEN_DELAY = 3.0f;
-
     private final LevelController levelController;
     private final Skin skin;
     private final EventBus eventBus;
     private final Operation operation;
     private final int currentLevelIndex;
     private final Locale locale;
-
-    private final Timer victoryTimer;
-    private final Timer defeatTimer;
-    private final Timer switchScreenTimer;
 
     private String levelStatus;
     private Label levelStatusLabel;
@@ -69,9 +61,6 @@ public final class OperationLevelScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.operation = operation;
         this.currentLevelIndex = currentLevelIndex;
-        this.victoryTimer = new Timer(VICTORY_DELAY);
-        this.defeatTimer = new Timer(DEFEAT_DELAY);
-        this.switchScreenTimer = new Timer(SWITCH_SCREEN_DELAY);
         this.locale = gameApplication.getContext()
                 .getComponent("Locale", Locale.class);
 
@@ -110,53 +99,37 @@ public final class OperationLevelScreen extends GameScreen {
         updateInput();
         levelController.update(delta, eventBus);
         if (levelController.isDefeat()) {
-            if (defeatTimer.isComplete()) {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusDefeat.getName()
                 ).toUpperCase());
                 switchToSummaryScreen(delta);
-            } else {
-                defeatTimer.update(delta);
-            }
         } else if (levelController.isVictory()) {
-            if (victoryTimer.isComplete() && !levelController.isDefeat()) {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusVictory.getName()
                 ).toUpperCase());
                 switchToNextLevel(delta);
-            } else {
-                victoryTimer.update(delta);
-            }
         }
         super.render(delta);
     }
 
     private void switchToNextLevel(float delta) {
-        if (switchScreenTimer.isComplete()) {
-            if (operation.getLevelPrototypeFilenames().size()-1 > currentLevelIndex) {
-                getGameApplication().switchScreen(new OperationLevelLoadingScreen(
-                        getGameApplication(),
-                        operation,
-                        currentLevelIndex+1,
-                        levelController.getLevel()
-                ));
-            } else {
-                switchToSummaryScreen(delta);
-            }
+        if (operation.getLevelPrototypeFilenames().size()-1 > currentLevelIndex) {
+            getGameApplication().switchScreen(new OperationLevelLoadingScreen(
+                    getGameApplication(),
+                    operation,
+                    currentLevelIndex+1,
+                    levelController.getLevel()
+            ));
         } else {
-            switchScreenTimer.update(delta);
+            switchToSummaryScreen(delta);
         }
     }
 
     private void switchToSummaryScreen(float delta) {
-        if (switchScreenTimer.isComplete()) {
-            getGameApplication().switchScreen(new OperationSummaryScreen(
-                    getGameApplication(), levelController.getLevel().getResourceRegistry()
-                            .getResource(LevelResource.Properties.name(), Properties.class)
-            ));
-        } else {
-            switchScreenTimer.update(delta);
-        }
+        getGameApplication().switchScreen(new OperationSummaryScreen(
+                getGameApplication(), levelController.getLevel().getResourceRegistry()
+                        .getResource(LevelResource.Properties.name(), Properties.class)
+        ));
     }
 
     private void updateInput() {

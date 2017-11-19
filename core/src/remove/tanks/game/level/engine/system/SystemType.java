@@ -35,5 +35,7 @@ public enum SystemType {
     RandomSpawnSystem,
     ViewUpdateSystem,
     PlayerRespawnSystem,
-    ActorDirectionControlSystem
+    ActorDirectionControlSystem,
+    OperationVictorySystem,
+    OperationDefeatSystem
 }

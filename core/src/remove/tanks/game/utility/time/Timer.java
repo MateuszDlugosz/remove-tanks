@@ -26,4 +26,12 @@ public final class Timer {
     public boolean isComplete() {
         return time >= completionTime;
     }
+
+    public float getTime() {
+        return time;
+    }
+
+    public float getCompletionTime() {
+        return completionTime;
+    }
 }

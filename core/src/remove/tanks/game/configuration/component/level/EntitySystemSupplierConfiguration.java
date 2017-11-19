@@ -20,6 +20,8 @@ import remove.tanks.game.level.engine.system.control.PlayerControlSystemFactory;
 import remove.tanks.game.level.engine.system.control.PlayerControlSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.damage.DamageSystemFactory;
 import remove.tanks.game.level.engine.system.damage.DamageSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.defeat.OperationDefeatSystemFactory;
+import remove.tanks.game.level.engine.system.defeat.OperationDefeatSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.destroy.DestroyOnContactSystemFactory;
 import remove.tanks.game.level.engine.system.destroy.DestroyOnContactSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.destroy.DestroySystemFactory;
@@ -44,6 +46,8 @@ import remove.tanks.game.level.engine.system.shoot.AutoShootSystemPrototypeXmlLo
 import remove.tanks.game.level.engine.system.shoot.RandomShootSystemFactory;
 import remove.tanks.game.level.engine.system.shoot.RandomShootSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.spawn.*;
+import remove.tanks.game.level.engine.system.victory.OperationVictorySystemFactory;
+import remove.tanks.game.level.engine.system.victory.OperationVictorySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.world.*;
@@ -143,7 +147,9 @@ public final class EntitySystemSupplierConfiguration {
                             new ActorDirectionControlSystemFactory(),
                             new ChainSpawnerActivateSystemFactory(
                                     getContext().getComponent("SpawnerActivatorFactory", SpawnerActivatorFactory.class)
-                            )
+                            ),
+                            new OperationDefeatSystemFactory(),
+                            new OperationVictorySystemFactory()
                     }
             );
         }
@@ -208,7 +214,9 @@ public final class EntitySystemSupplierConfiguration {
                             new ActorDirectionControlSystemPrototypeXmlLoader(),
                             new ChainSpawnerActivateSystemPrototypeXmlLoader(
                                     getContext().getComponent("SpawnerActivatorPrototypeXmlLoader", SpawnerActivatorPrototypeXmlLoader.class)
-                            )
+                            ),
+                            new OperationDefeatSystemPrototypeXmlLoader(),
+                            new OperationVictorySystemPrototypeXmlLoader()
                     }
             );
         }

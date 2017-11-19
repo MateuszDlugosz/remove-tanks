@@ -54,9 +54,7 @@ public final class EntityListenerSupplierConfiguration {
                                             new LifeBonusExecutor()
                                     }
                             ),
-                            new TriggerListenerFactory(),
-                            new OperationDefeatListenerFactory(),
-                            new OperationVictoryListenerFactory()
+                            new TriggerListenerFactory()
                     }
             );
         }
@@ -74,9 +72,7 @@ public final class EntityListenerSupplierConfiguration {
                             new PointsListenerPrototypeXmlLoader(),
                             new BonusLootListenerPrototypeXmlLoader(),
                             new BonusPickUpListenerPrototypeXmlLoader(),
-                            new TriggerListenerPrototypeXmlLoader(),
-                            new OperationDefeatListenerPrototypeXmlLoader(),
-                            new OperationVictoryListenerPrototypeXmlLoader()
+                            new TriggerListenerPrototypeXmlLoader()
                     }
             );
         }

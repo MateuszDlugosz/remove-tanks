@@ -10,7 +10,5 @@ public enum ListenerType {
     PointsListener,
     BonusLootListener,
     BonusPickUpListener,
-    TriggerListener,
-    OperationDefeatListener,
-    OperationVictoryListener
+    TriggerListener
 }

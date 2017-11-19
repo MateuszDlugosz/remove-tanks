@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <operation>
     <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-00.xml</levelPrototypeFilename>
-    <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-01.xml</levelPrototypeFilename>
-    <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-02.xml</levelPrototypeFilename>
-    <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-03.xml</levelPrototypeFilename>
-    <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-04.xml</levelPrototypeFilename>
-    <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-05.xml</levelPrototypeFilename>
-    <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-06.xml</levelPrototypeFilename>
-    <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-07.xml</levelPrototypeFilename>
+    <!--<levelPrototypeFilename>prototypes/levels/operations/early-morning/level-01.xml</levelPrototypeFilename>-->
+    <!--<levelPrototypeFilename>prototypes/levels/operations/early-morning/level-02.xml</levelPrototypeFilename>-->
+    <!--<levelPrototypeFilename>prototypes/levels/operations/early-morning/level-03.xml</levelPrototypeFilename>-->
+    <!--<levelPrototypeFilename>prototypes/levels/operations/early-morning/level-04.xml</levelPrototypeFilename>-->
+    <!--<levelPrototypeFilename>prototypes/levels/operations/early-morning/level-05.xml</levelPrototypeFilename>-->
+    <!--<levelPrototypeFilename>prototypes/levels/operations/early-morning/level-06.xml</levelPrototypeFilename>-->
+    <!--<levelPrototypeFilename>prototypes/levels/operations/early-morning/level-07.xml</levelPrototypeFilename>-->
 </operation>
