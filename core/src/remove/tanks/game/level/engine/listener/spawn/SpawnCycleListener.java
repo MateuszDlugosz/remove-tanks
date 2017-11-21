@@ -7,8 +7,8 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.SpawnOnDestroyComponent;
-import remove.tanks.game.level.engine.event.SpawnEntityEvent;
 import remove.tanks.game.level.engine.listener.ExtendedEntityListener;
+import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 
 /**
  * @author Mateusz Długosz

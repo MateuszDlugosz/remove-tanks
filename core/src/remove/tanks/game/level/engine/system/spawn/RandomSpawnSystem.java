@@ -7,8 +7,8 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.RandomSpawnComponent;
-import remove.tanks.game.level.engine.event.SpawnEntityEvent;
 import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntry;
+import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
 

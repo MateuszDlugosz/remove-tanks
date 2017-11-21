@@ -4,10 +4,9 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.audio.Sound;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.SoundFactory;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
-import remove.tanks.game.utility.properties.Properties;
 
 import java.util.List;
 

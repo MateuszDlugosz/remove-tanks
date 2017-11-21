@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.event;
+package remove.tanks.game.level.event.spawn;
 
 import remove.tanks.game.level.engine.entity.EntityPrototype;
 import remove.tanks.game.utility.position.Position;

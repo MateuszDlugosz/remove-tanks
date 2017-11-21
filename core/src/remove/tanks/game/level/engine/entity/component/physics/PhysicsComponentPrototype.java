@@ -3,11 +3,9 @@ package remove.tanks.game.level.engine.entity.component.physics;
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.entity.component.ComponentPrototype;
 import remove.tanks.game.physics.body.BodyPrototype;
-import remove.tanks.game.physics.fixture.FixturePrototype;
 import remove.tanks.game.physics.fixture.hitbox.HitBoxPrototype;
 import remove.tanks.game.physics.fixture.sensor.SensorPrototype;
 import remove.tanks.game.physics.light.LightHandlerPrototype;
-import remove.tanks.game.physics.light.LightPrototype;
 
 import java.util.List;
 

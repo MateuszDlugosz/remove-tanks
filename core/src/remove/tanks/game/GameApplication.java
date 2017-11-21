@@ -9,7 +9,7 @@ import remove.tanks.game.application.context.ApplicationContext;
 import remove.tanks.game.application.context.Context;
 import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.asset.AssetStorage;
-import remove.tanks.game.level.presentation.LevelPresenter;
+import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.screen.*;
 import remove.tanks.game.screen.switchers.ScreenSwitcher;
 import remove.tanks.game.screen.switchers.storage.ScreenStorage;
@@ -21,7 +21,7 @@ import java.util.HashSet;
 
 public final class GameApplication extends Game {
 	public static final String TITLE = "Remove Tanks!";
-	public static final String VERSION = "0.18.7";
+	public static final String VERSION = "0.18.8";
 
 	private final Configuration configuration;
 

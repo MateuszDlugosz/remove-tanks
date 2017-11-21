@@ -1,6 +1,5 @@
 package remove.tanks.game.physics.fixture.sensor;
 
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.Fixture;
 
 import java.util.ArrayList;

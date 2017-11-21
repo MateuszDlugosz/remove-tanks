@@ -1,11 +1,10 @@
 package remove.tanks.game.level.engine.entity.component.spawn;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
-import remove.tanks.game.utility.properties.Properties;
 
 /**
  * @author Mateusz Długosz

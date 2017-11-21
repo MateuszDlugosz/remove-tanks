@@ -3,10 +3,8 @@ package remove.tanks.game.graphic.view;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.graphic.animation.AnimationFactory;
-import remove.tanks.game.graphic.animation.AnimationPrototype;
 import remove.tanks.game.utility.position.Position;
 import remove.tanks.game.utility.position.PositionFactory;
-import remove.tanks.game.utility.position.PositionPrototype;
 import remove.tanks.game.utility.scale.Scale;
 
 /**

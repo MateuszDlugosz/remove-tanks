@@ -1,4 +1,4 @@
-package remove.tanks.game.constant;
+package remove.tanks.game.level.constant;
 
 /**
  * @author Mateusz Długosz
@@ -15,7 +15,8 @@ public enum LevelProperty {
     LevelEnemies("level.enemies", "0"),
     LevelPoints("level.points", "0"),
     LevelPointsMultiplier("level.points.multiplier", "1"),
-    LevelLifes("level.lifes", "3");
+    LevelLifes("level.lifes", "3"),
+    LevelStatus("level.status", "none");
 
     private final String name;
     private final String defaultValue;

@@ -1,26 +1,23 @@
 package remove.tanks.game.level.engine.entity.component.physics;
 
-import box2dLight.Light;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.World;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.physics.body.BodyFactory;
 import remove.tanks.game.physics.body.BodyPrototype;
-import remove.tanks.game.physics.fixture.FixtureFactory;
-import remove.tanks.game.physics.fixture.FixturePrototype;
 import remove.tanks.game.physics.fixture.hitbox.HitBox;
 import remove.tanks.game.physics.fixture.hitbox.HitBoxFactory;
 import remove.tanks.game.physics.fixture.hitbox.HitBoxPrototype;
 import remove.tanks.game.physics.fixture.sensor.Sensor;
 import remove.tanks.game.physics.fixture.sensor.SensorFactory;
 import remove.tanks.game.physics.fixture.sensor.SensorPrototype;
-import remove.tanks.game.physics.light.*;
+import remove.tanks.game.physics.light.LightHandler;
+import remove.tanks.game.physics.light.LightHandlerFactory;
+import remove.tanks.game.physics.light.LightHandlerPrototype;
 import remove.tanks.game.physics.light.world.WorldLight;
-import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.scale.Scale;
 
 import java.util.List;

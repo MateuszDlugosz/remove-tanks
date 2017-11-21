@@ -3,7 +3,7 @@ package remove.tanks.game.level.engine.system.audio;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.music.MusicFactory;
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 

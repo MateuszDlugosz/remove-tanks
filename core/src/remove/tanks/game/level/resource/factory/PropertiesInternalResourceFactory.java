@@ -1,8 +1,8 @@
 package remove.tanks.game.level.resource.factory;
 
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.level.LevelPropertiesInitializer;
 import remove.tanks.game.level.LevelPrototype;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.resource.AbstractInternalResourceFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.properties.Properties;

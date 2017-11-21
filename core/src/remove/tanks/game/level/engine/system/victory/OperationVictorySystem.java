@@ -2,9 +2,10 @@ package remove.tanks.game.level.engine.system.victory;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelStatus;
 import remove.tanks.game.level.engine.entity.EntityFamily;
-import remove.tanks.game.level.engine.event.VictoryEvent;
+import remove.tanks.game.level.event.property.ModifyPropertyEvent;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
 
@@ -33,7 +34,12 @@ public final class OperationVictorySystem extends EntitySystem {
         if (getEngine().getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily()).size() > 0) {
             if (properties.getInt(LevelProperty.LevelEnemies.getName()) == 0) {
                 if (timer.isComplete()) {
-                    eventBus.post(new VictoryEvent());
+                    eventBus.post(
+                            new ModifyPropertyEvent(
+                                    LevelProperty.LevelStatus,
+                                    LevelStatus.Victory.getName()
+                            )
+                    );
                     getEngine().removeSystem(this);
                 } else {
                     timer.update(deltaTime);

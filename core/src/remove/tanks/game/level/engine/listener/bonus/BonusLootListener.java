@@ -6,8 +6,8 @@ import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.EntityPrototype;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
-import remove.tanks.game.level.engine.event.SpawnEntityEvent;
 import remove.tanks.game.level.engine.listener.ExtendedEntityListener;
+import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 
 import java.util.List;

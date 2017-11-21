@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.engine.entity.EntityFamily;
-import remove.tanks.game.level.engine.event.DestroyEntityEvent;
+import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
 
 /**
  * @author Mateusz Długosz

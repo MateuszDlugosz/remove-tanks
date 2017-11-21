@@ -2,7 +2,7 @@ package remove.tanks.game.level.engine.listener.enemy;
 
 import com.badlogic.ashley.core.Engine;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.properties.Properties;

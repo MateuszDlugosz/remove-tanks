@@ -2,13 +2,12 @@ package remove.tanks.game.level.engine.entity.component.graphic;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.asset.AssetStorage;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.graphic.view.View;
 import remove.tanks.game.graphic.view.ViewFactory;
 import remove.tanks.game.graphic.view.ViewPrototype;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
-import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.scale.Scale;
 
 import java.util.List;

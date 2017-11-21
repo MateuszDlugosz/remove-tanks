@@ -5,14 +5,12 @@ import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 import remove.tanks.game.physics.body.BodyPrototype;
 import remove.tanks.game.physics.body.BodyPrototypeXmlLoader;
-import remove.tanks.game.physics.fixture.FixturePrototypeXmlLoader;
 import remove.tanks.game.physics.fixture.hitbox.HitBoxPrototype;
 import remove.tanks.game.physics.fixture.hitbox.HitBoxPrototypeXmlLoader;
 import remove.tanks.game.physics.fixture.sensor.SensorPrototype;
 import remove.tanks.game.physics.fixture.sensor.SensorPrototypeXmlLoader;
 import remove.tanks.game.physics.light.LightHandlerPrototype;
 import remove.tanks.game.physics.light.LightHandlerPrototypeXmlLoader;
-import remove.tanks.game.physics.light.LightPrototypeXmlLoader;
 
 import java.util.ArrayList;
 import java.util.List;

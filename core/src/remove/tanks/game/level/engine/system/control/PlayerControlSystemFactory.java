@@ -1,6 +1,6 @@
 package remove.tanks.game.level.engine.system.control;
 
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.input.InputMapper;
 import remove.tanks.game.level.resource.ResourceRegistry;

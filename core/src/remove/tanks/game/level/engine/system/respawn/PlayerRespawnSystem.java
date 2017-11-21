@@ -4,12 +4,12 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.EntityPrototype;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
-import remove.tanks.game.level.engine.event.ModifyPropertyEvent;
-import remove.tanks.game.level.engine.event.SpawnEntityEvent;
+import remove.tanks.game.level.event.property.ModifyPropertyEvent;
+import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
 

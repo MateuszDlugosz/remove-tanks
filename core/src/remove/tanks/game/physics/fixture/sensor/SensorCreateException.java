@@ -1,7 +1,5 @@
 package remove.tanks.game.physics.fixture.sensor;
 
-import remove.tanks.game.physics.fixture.FixturePrototype;
-
 /**
  * @author Mateusz Długosz
  */

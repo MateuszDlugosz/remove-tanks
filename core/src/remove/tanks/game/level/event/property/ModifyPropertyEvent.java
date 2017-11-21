@@ -1,6 +1,6 @@
-package remove.tanks.game.level.engine.event;
+package remove.tanks.game.level.event.property;
 
-import remove.tanks.game.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelProperty;
 
 /**
  * @author Mateusz Długosz

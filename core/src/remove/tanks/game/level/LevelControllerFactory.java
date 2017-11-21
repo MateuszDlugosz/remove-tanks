@@ -1,28 +1,28 @@
 package remove.tanks.game.level;
 
-import remove.tanks.game.level.engine.entity.EntityDestroyer;
-import remove.tanks.game.level.engine.entity.EntityFactory;
-import remove.tanks.game.level.engine.entity.EntitySpawner;
+import com.google.common.eventbus.EventBus;
+import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.event.EventExecutor;
 
 /**
  * @author Mateusz Długosz
  */
 public final class LevelControllerFactory {
-    private final EntitySpawner entitySpawner;
-    private final EntityDestroyer entityDestroyer;
-    private final EntityFactory entityFactory;
+    private final EventExecutor eventExecutor;
+    private final LevelUpdater levelUpdater;
 
     public LevelControllerFactory(
-            EntitySpawner entitySpawner,
-            EntityDestroyer entityDestroyer,
-            EntityFactory entityFactory
+            EventExecutor eventExecutor,
+            LevelUpdater levelUpdater
     ) {
-        this.entitySpawner = entitySpawner;
-        this.entityDestroyer = entityDestroyer;
-        this.entityFactory = entityFactory;
+        this.eventExecutor = eventExecutor;
+        this.levelUpdater = levelUpdater;
     }
 
     public LevelController createLevelController(Level level) {
-        return new LevelController(level, entitySpawner, entityDestroyer, entityFactory);
+        LevelController levelController = new LevelController(level, levelUpdater, eventExecutor);
+        level.getResourceRegistry().getResource(LevelResource.EventBus.toString(), EventBus.class)
+                .register(levelController);
+        return levelController;
     }
 }

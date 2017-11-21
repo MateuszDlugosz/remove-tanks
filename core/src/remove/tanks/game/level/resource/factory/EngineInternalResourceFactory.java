@@ -1,8 +1,8 @@
 package remove.tanks.game.level.resource.factory;
 
 import com.badlogic.ashley.core.Engine;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.level.LevelPrototype;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.EngineFactory;
 import remove.tanks.game.level.resource.AbstractInternalResourceFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;

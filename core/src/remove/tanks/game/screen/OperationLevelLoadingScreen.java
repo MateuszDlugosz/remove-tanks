@@ -2,11 +2,11 @@ package remove.tanks.game.screen;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import remove.tanks.game.GameApplication;
-import remove.tanks.game.constant.LevelProperty;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.LevelDisposer;
 import remove.tanks.game.level.LevelLoader;
+import remove.tanks.game.level.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.mode.operation.Operation;
 import remove.tanks.game.utility.properties.Properties;
 

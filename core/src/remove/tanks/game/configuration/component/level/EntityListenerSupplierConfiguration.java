@@ -16,8 +16,6 @@ import remove.tanks.game.level.engine.listener.bonus.executor.AmmoBonusExecutor;
 import remove.tanks.game.level.engine.listener.bonus.executor.BombersBonusExecutor;
 import remove.tanks.game.level.engine.listener.bonus.executor.BonusExecutor;
 import remove.tanks.game.level.engine.listener.bonus.executor.LifeBonusExecutor;
-import remove.tanks.game.level.engine.listener.defeat.OperationDefeatListenerFactory;
-import remove.tanks.game.level.engine.listener.defeat.OperationDefeatListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerFactory;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.point.PointsListenerFactory;
@@ -26,8 +24,6 @@ import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerFactory;
 import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.trigger.TriggerListenerFactory;
 import remove.tanks.game.level.engine.listener.trigger.TriggerListenerPrototypeXmlLoader;
-import remove.tanks.game.level.engine.listener.victory.OperationVictoryListenerFactory;
-import remove.tanks.game.level.engine.listener.victory.OperationVictoryListenerPrototypeXmlLoader;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 
 /**

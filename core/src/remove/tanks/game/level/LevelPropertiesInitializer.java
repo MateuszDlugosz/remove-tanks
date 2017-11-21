@@ -1,6 +1,6 @@
 package remove.tanks.game.level;
 
-import remove.tanks.game.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.utility.properties.Properties;
 
 import java.util.Arrays;

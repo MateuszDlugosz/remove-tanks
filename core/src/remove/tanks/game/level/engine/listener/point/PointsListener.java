@@ -3,11 +3,11 @@ package remove.tanks.game.level.engine.listener.point;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.component.point.PointsComponent;
-import remove.tanks.game.level.engine.event.ModifyPropertyEvent;
 import remove.tanks.game.level.engine.listener.ExtendedEntityListener;
+import remove.tanks.game.level.event.property.ModifyPropertyEvent;
 import remove.tanks.game.utility.properties.Properties;
 
 /**

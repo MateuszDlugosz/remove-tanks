@@ -1,4 +1,4 @@
-package remove.tanks.game.constant;
+package remove.tanks.game.level.constant;
 
 /**
  * @author Mateusz Długosz

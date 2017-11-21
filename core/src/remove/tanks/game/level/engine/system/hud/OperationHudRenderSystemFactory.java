@@ -2,8 +2,8 @@ package remove.tanks.game.level.engine.system.hud;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.graphic.camera.Game2DCamera;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.engine.system.hud.stages.OperationHudStage;
 import remove.tanks.game.level.resource.ResourceRegistry;

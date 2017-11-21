@@ -1,7 +1,7 @@
 package remove.tanks.game.level.engine.system.destroy;
 
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 

@@ -1,6 +1,6 @@
 package remove.tanks.game.level.resource.factory;
 
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepositoryXmlLoader;
 import remove.tanks.game.level.resource.AbstractInternalResourceFactory;

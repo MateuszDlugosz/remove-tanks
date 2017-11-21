@@ -1,6 +1,5 @@
 package remove.tanks.game.graphic.effect;
 
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.graphic.shader.ShaderProgramPrototype;
 import remove.tanks.game.graphic.shader.ShaderProgramPrototypeXmlLoader;

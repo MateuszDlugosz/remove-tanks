@@ -1,7 +1,7 @@
 package remove.tanks.game.level.engine.system.camera;
 
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.graphic.camera.Game2DCamera;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.boundary.Boundaries;

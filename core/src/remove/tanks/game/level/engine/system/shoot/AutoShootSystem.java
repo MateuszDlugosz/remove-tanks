@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.entity.component.direction.DirectionCompon
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 import remove.tanks.game.level.engine.entity.component.shoot.AmmoComponent;
 import remove.tanks.game.level.engine.entity.component.shoot.AutoShootComponent;
-import remove.tanks.game.level.engine.event.SpawnEntityEvent;
+import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 
 /**
  * @author Mateusz Długosz

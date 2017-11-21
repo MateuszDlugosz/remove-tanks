@@ -3,7 +3,6 @@ package remove.tanks.game.level.engine.entity.component.shoot;
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
-import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
 

@@ -1,12 +1,12 @@
 package remove.tanks.game.level;
 
-import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.google.common.collect.ImmutableMap;
 import remove.tanks.game.application.context.Context;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.graphic.camera.Game2DCamera;
+import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.entity.EntityInitializer;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.utility.scale.Scale;
 
@@ -18,23 +18,21 @@ import java.util.Map;
 public final class LevelLoader {
     private final LevelPrototypeXmlLoader levelPrototypeXmlLoader;
     private final LevelFactory levelFactory;
-    private final LevelEntityInitializer levelEntityInitializer;
+    private final EntityInitializer entityInitializer;
 
     public LevelLoader(
             LevelPrototypeXmlLoader levelPrototypeXmlLoader,
             LevelFactory levelFactory,
-            LevelEntityInitializer levelEntityInitializer
+            EntityInitializer entityInitializer
     ) {
         this.levelPrototypeXmlLoader = levelPrototypeXmlLoader;
         this.levelFactory = levelFactory;
-        this.levelEntityInitializer = levelEntityInitializer;
+        this.entityInitializer = entityInitializer;
     }
 
     public final Level loadLevel(String filename, Context context) {
         Level level = levelFactory.createLevel(getResourcesMap(context, filename));
-        levelEntityInitializer.initializeLevelEntities(level).forEach(
-                e -> level.getResourceRegistry().getResource(LevelResource.Engine.toString(), Engine.class).addEntity(e)
-        );
+        entityInitializer.initializeLevelEntities(level);
         return level;
     }
 

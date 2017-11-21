@@ -1,7 +1,7 @@
 package remove.tanks.game.level.resource.factory;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.resource.AbstractExternalResourceFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 

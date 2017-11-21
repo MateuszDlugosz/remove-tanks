@@ -9,10 +9,10 @@ import remove.tanks.game.level.engine.entity.EntityPrototype;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.AutoSpawnerComponent;
-import remove.tanks.game.level.engine.event.DestroyEntityEvent;
-import remove.tanks.game.level.engine.event.SpawnEntityEvent;
 import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 import remove.tanks.game.level.engine.utility.spwan.spawner.Spawner;
+import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
+import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 import remove.tanks.game.physics.fixture.sensor.Sensor;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 

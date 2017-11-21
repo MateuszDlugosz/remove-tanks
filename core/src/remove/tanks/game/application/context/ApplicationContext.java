@@ -1,7 +1,5 @@
 package remove.tanks.game.application.context;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.XmlReader;
 import com.google.common.collect.ImmutableMap;
 import remove.tanks.game.application.context.component.provider.*;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplierInitializer;
@@ -11,8 +9,6 @@ import remove.tanks.game.application.context.component.supplier.validator.Compon
 import remove.tanks.game.application.context.component.supplier.validator.ComponentSupplierClassValidator;
 import remove.tanks.game.application.context.component.supplier.validator.RegistrableComponentSupplierValidator;
 import remove.tanks.game.application.context.configuration.Configuration;
-import remove.tanks.game.application.context.configuration.ConfigurationXmlLoader;
-import sun.awt.AppContext;
 
 import java.util.logging.Logger;
 

@@ -3,7 +3,6 @@ package remove.tanks.game.physics.fixture.sensor;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.physics.fixture.FixturePrototype;
 import remove.tanks.game.physics.fixture.FixturePrototypeXmlLoader;
-import remove.tanks.game.physics.fixture.hitbox.HitBox;
 
 import java.util.Arrays;
 import java.util.List;

@@ -2,7 +2,6 @@ package remove.tanks.game.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -10,19 +9,21 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.GameApplication;
-import remove.tanks.game.asset.AssetStorage;
-import remove.tanks.game.audio.music.event.PlayMusicEvent;
-import remove.tanks.game.constant.LevelResource;
 import remove.tanks.game.constant.TranslationEntryKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.LevelController;
 import remove.tanks.game.level.LevelControllerFactory;
+import remove.tanks.game.level.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelStatus;
 import remove.tanks.game.level.input.InputMapper;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.mode.operation.Operation;
 import remove.tanks.game.utility.properties.Properties;
-import remove.tanks.game.utility.time.Timer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Mateusz Długosz
@@ -34,6 +35,7 @@ public final class OperationLevelScreen extends GameScreen {
     private final Operation operation;
     private final int currentLevelIndex;
     private final Locale locale;
+    private final List<Integer> input;
 
     private String levelStatus;
     private Label levelStatusLabel;
@@ -60,6 +62,7 @@ public final class OperationLevelScreen extends GameScreen {
         this.eventBus = gameApplication.getContext()
                 .getComponent("EventBus", EventBus.class);
         this.operation = operation;
+        this.input = new ArrayList<>();
         this.currentLevelIndex = currentLevelIndex;
         this.locale = gameApplication.getContext()
                 .getComponent("Locale", Locale.class);
@@ -94,23 +97,27 @@ public final class OperationLevelScreen extends GameScreen {
 
     @Override
     public void render(float delta) {
-        updateInput();
+        processInput();
         levelController.update(delta, eventBus);
-        if (levelController.isDefeat()) {
+        if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
+                .getString(LevelProperty.LevelStatus.getName()).equals(LevelStatus.Defeat.getName()))
+        {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusDefeat.getName()
                 ).toUpperCase());
-                switchToSummaryScreen(delta);
-        } else if (levelController.isVictory()) {
+                switchToSummaryScreen();
+        } else if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
+                .getString(LevelProperty.LevelStatus.getName()).equals(LevelStatus.Victory.getName()))
+        {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusVictory.getName()
                 ).toUpperCase());
-                switchToNextLevel(delta);
+                switchToNextLevel();
         }
         super.render(delta);
     }
 
-    private void switchToNextLevel(float delta) {
+    private void switchToNextLevel() {
         if (operation.getLevelPrototypeFilenames().size()-1 > currentLevelIndex) {
             getGameApplication().switchScreen(new OperationLevelLoadingScreen(
                     getGameApplication(),
@@ -119,35 +126,40 @@ public final class OperationLevelScreen extends GameScreen {
                     levelController.getLevel()
             ));
         } else {
-            switchToSummaryScreen(delta);
+            switchToSummaryScreen();
         }
     }
 
-    private void switchToSummaryScreen(float delta) {
+    private void switchToSummaryScreen() {
         getGameApplication().switchScreen(new OperationSummaryScreen(
                 getGameApplication(), levelController.getLevel().getResourceRegistry()
                         .getResource(LevelResource.Properties.name(), Properties.class)
         ));
     }
 
-    private void updateInput() {
+    private void processInput() {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            levelController.getInputMapper().apply(InputMapper.Key.MoveRight);
+            levelController.getLevel().getResourceRegistry().getResource(LevelResource.InputMapper.toString(), InputMapper.class)
+                    .apply(InputMapper.Key.MoveRight);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            levelController.getInputMapper().apply(InputMapper.Key.MoveUp);
+            levelController.getLevel().getResourceRegistry().getResource(LevelResource.InputMapper.toString(), InputMapper.class)
+                    .apply(InputMapper.Key.MoveUp);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            levelController.getInputMapper().apply(InputMapper.Key.MoveLeft);
+            levelController.getLevel().getResourceRegistry().getResource(LevelResource.InputMapper.toString(), InputMapper.class)
+                    .apply(InputMapper.Key.MoveLeft);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            levelController.getInputMapper().apply(InputMapper.Key.MoveDown);
+            levelController.getLevel().getResourceRegistry().getResource(LevelResource.InputMapper.toString(), InputMapper.class)
+                    .apply(InputMapper.Key.MoveDown);
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             getGameApplication().switchScreen(MainMenuScreen.class);
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.CONTROL_LEFT)) {
-            levelController.getInputMapper().apply(InputMapper.Key.Shoot);
+            levelController.getLevel().getResourceRegistry().getResource(LevelResource.InputMapper.toString(), InputMapper.class)
+                    .apply(InputMapper.Key.Shoot);
         }
     }
 

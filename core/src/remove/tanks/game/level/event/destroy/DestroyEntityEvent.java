@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.event;
+package remove.tanks.game.level.event.destroy;
 
 import com.badlogic.ashley.core.Entity;
 

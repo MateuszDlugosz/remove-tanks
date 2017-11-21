@@ -1,9 +1,7 @@
-package remove.tanks.game.level.presentation;
+package remove.tanks.game.level;
 
 import com.badlogic.gdx.utils.Disposable;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.level.LevelController;
-import remove.tanks.game.level.LevelDisposer;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
 

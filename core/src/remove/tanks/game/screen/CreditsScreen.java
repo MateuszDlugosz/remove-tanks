@@ -16,7 +16,7 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.constant.TranslationEntryKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
-import remove.tanks.game.level.presentation.LevelPresenter;
+import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.screen.gui.buttons.Button;
 import remove.tanks.game.screen.gui.buttons.ButtonGroup;

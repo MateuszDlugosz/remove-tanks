@@ -1,10 +1,8 @@
 package remove.tanks.game.level.engine.entity.component.physics;
 
-import box2dLight.Light;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Fixture;
 import com.google.common.collect.ImmutableMap;
 import remove.tanks.game.physics.fixture.hitbox.HitBox;
 import remove.tanks.game.physics.fixture.sensor.Sensor;

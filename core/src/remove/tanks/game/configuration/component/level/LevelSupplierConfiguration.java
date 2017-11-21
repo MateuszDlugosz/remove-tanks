@@ -6,13 +6,9 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.level.*;
 import remove.tanks.game.level.engine.EnginePrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.EntityDestroyer;
-import remove.tanks.game.level.engine.entity.EntityFactory;
-import remove.tanks.game.level.engine.entity.EntitySpawner;
-import remove.tanks.game.level.presentation.LevelPresenter;
+import remove.tanks.game.level.engine.entity.EntityInitializer;
+import remove.tanks.game.level.event.EventExecutor;
 import remove.tanks.game.level.resource.ResourceRegistryFactory;
-import remove.tanks.game.utility.position.PositionFactory;
-import remove.tanks.game.utility.position.PositionPrototypeMapObjectLoader;
 import remove.tanks.game.utility.properties.PropertiesXmlLoader;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 
@@ -47,20 +43,7 @@ public final class LevelSupplierConfiguration {
             return new LevelLoader(
                     getContext().getComponent("LevelPrototypeXmlLoader", LevelPrototypeXmlLoader.class),
                     getContext().getComponent("LevelFactory", LevelFactory.class),
-                    getContext().getComponent("LevelEntityInitializer", LevelEntityInitializer.class)
-            );
-        }
-    }
-
-    @ComponentName("LevelEntityInitializer")
-    public static final class LevelEntityInitializerSupplier extends ComponentSupplier<LevelEntityInitializer> {
-        @Override
-        public LevelEntityInitializer supplyComponent() {
-            return new LevelEntityInitializer(
-                    getContext().getComponent("PositionPrototypeMapObjectLoader", PositionPrototypeMapObjectLoader.class),
-                    getContext().getComponent("EntitySpawner", EntitySpawner.class),
-                    getContext().getComponent("EntityFactory", EntityFactory.class),
-                    getContext().getComponent("PositionFactory", PositionFactory.class)
+                    getContext().getComponent("EntityInitializer", EntityInitializer.class)
             );
         }
     }
@@ -81,14 +64,21 @@ public final class LevelSupplierConfiguration {
         }
     }
 
+    @ComponentName("LevelUpdater")
+    public static final class LevelUpdaterSupplier extends ComponentSupplier<LevelUpdater> {
+        @Override
+        public LevelUpdater supplyComponent() {
+            return new LevelUpdater();
+        }
+    }
+
     @ComponentName("LevelControllerFactory")
     public static final class LevelControllerFactorySupplier extends ComponentSupplier<LevelControllerFactory> {
         @Override
         public LevelControllerFactory supplyComponent() {
             return new LevelControllerFactory(
-                    getContext().getComponent("EntitySpawner", EntitySpawner.class),
-                    getContext().getComponent("EntityDestroyer", EntityDestroyer.class),
-                    getContext().getComponent("EntityFactory", EntityFactory.class)
+                    getContext().getComponent("EventExecutor", EventExecutor.class),
+                    getContext().getComponent("LevelUpdater", LevelUpdater.class)
             );
         }
     }

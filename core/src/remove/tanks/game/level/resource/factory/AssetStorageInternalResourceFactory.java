@@ -3,7 +3,7 @@ package remove.tanks.game.level.resource.factory;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.asset.AssetStorageFactory;
 import remove.tanks.game.asset.theme.ThemeXmlLoader;
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.resource.AbstractInternalResourceFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.properties.Properties;

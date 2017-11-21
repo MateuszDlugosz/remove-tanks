@@ -1,7 +1,7 @@
 package remove.tanks.game.level.engine.system.world;
 
 import com.badlogic.gdx.physics.box2d.World;
-import remove.tanks.game.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.physics.world.updater.WorldUpdater;
