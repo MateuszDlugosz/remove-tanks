@@ -6,6 +6,7 @@ import remove.tanks.game.audio.music.event.PlayMusicEvent;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.level.event.EventExecutor;
 import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
+import remove.tanks.game.level.event.property.ModifyPropertyEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 
 import java.util.ArrayList;
@@ -64,6 +65,11 @@ public final class LevelController {
 
     @Subscribe
     public void handlePlaySoundEvent(PlaySoundEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleModifyPropertyEvent(ModifyPropertyEvent event) {
         otherEvents.add(event);
     }
 }
