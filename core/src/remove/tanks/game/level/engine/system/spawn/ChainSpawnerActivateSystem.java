@@ -12,7 +12,7 @@ import java.util.List;
 public final class ChainSpawnerActivateSystem extends EntitySystem {
     private List<SpawnerActivator> spawnerActivators;
 
-    public ChainSpawnerActivateSystem(List<SpawnerActivator> spawnerActivators, int priority) {
+    public ChainSpawnerActivateSystem(int priority, List<SpawnerActivator> spawnerActivators) {
         super(priority);
         this.spawnerActivators = spawnerActivators;
     }

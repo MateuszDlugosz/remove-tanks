@@ -21,11 +21,11 @@ public abstract class LayerRenderSystem extends IteratingSystem {
     private final Effect highlightEffect;
 
     public LayerRenderSystem(
+            Family family,
+            int priority,
             ViewRenderer viewRenderer,
             SpriteBatch spriteBatch,
-            Effect highlightEffect,
-            Family family,
-            int priority
+            Effect highlightEffect
     ) {
         super(family, priority);
         this.viewRenderer = viewRenderer;

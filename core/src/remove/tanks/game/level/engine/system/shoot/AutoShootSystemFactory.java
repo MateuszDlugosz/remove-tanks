@@ -15,9 +15,9 @@ public final class AutoShootSystemFactory
     @Override
     public AutoShootSystem createEntitySystem(AutoShootSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new AutoShootSystem(
+                prototype.getPriority(),
                 resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class),
-                prototype.getPriority()
+                resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class)
         );
     }
 

@@ -20,10 +20,10 @@ public final class AutoSpawnerSystemPrototypeXmlLoader
     @Override
     protected AutoSpawnerSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new AutoSpawnerSystemPrototype(
+                priority,
                 spawnerPrototypeXmlLoader.loadSpawnerPrototypes(
                         element.getChildByName(SpawnerPrototypeXmlLoader.SPAWNERS_ELEMENT)
-                ),
-                priority
+                )
         );
     }
 

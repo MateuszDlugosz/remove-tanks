@@ -16,9 +16,9 @@ public final class PlayerRespawnSystemPrototypeXmlLoader
     @Override
     protected PlayerRespawnSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new PlayerRespawnSystemPrototype(
+                priority,
                 element.getChildByName(PROTOTYPE_CODE_ELEMENT).getText().trim(),
-                Integer.valueOf(element.getChildByName(RESPAWN_TIME_ELEMENT).getText().trim()),
-                priority
+                Integer.valueOf(element.getChildByName(RESPAWN_TIME_ELEMENT).getText().trim())
         );
     }
 

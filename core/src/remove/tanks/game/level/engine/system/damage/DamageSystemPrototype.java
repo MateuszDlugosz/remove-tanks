@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.system.EntitySystemPrototype;
 public final class DamageSystemPrototype extends EntitySystemPrototype {
     private final float hitHighlightTime;
 
-    public DamageSystemPrototype(float hitHighlightTime, int priority) {
+    public DamageSystemPrototype(int priority, float hitHighlightTime) {
         super(priority);
         this.hitHighlightTime = hitHighlightTime;
     }

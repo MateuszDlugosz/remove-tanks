@@ -11,7 +11,7 @@ public final class DamageSystemFactory
 {
     @Override
     public DamageSystem createEntitySystem(DamageSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new DamageSystem(prototype.getHitHighlightTime(), prototype.getPriority());
+        return new DamageSystem(prototype.getPriority(), prototype.getHitHighlightTime());
     }
 
     @Override

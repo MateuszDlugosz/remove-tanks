@@ -14,8 +14,8 @@ public final class PlayerControlSystemFactory
     @Override
     public PlayerControlSystem createEntitySystem(PlayerControlSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new PlayerControlSystem(
-                resourceRegistry.getResource(LevelResource.InputMapper.toString(), InputMapper.class),
-                prototype.getPriority()
+                prototype.getPriority(),
+                resourceRegistry.getResource(LevelResource.InputMapper.toString(), InputMapper.class)
         );
     }
 

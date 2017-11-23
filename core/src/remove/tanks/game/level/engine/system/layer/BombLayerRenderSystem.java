@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
  * @author Mateusz Długosz
  */
 public final class BombLayerRenderSystem extends LayerRenderSystem {
-    public BombLayerRenderSystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect, int priority) {
-        super(viewRenderer, spriteBatch, highlightEffect, EntityFamily.BombsLayerRenderableFamily.getFamily(), priority);
+    public BombLayerRenderSystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect) {
+        super(EntityFamily.BombsLayerRenderableFamily.getFamily(), priority, viewRenderer, spriteBatch, highlightEffect);
     }
 }

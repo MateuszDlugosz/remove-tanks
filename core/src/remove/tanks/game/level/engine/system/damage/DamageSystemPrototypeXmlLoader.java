@@ -15,8 +15,8 @@ public final class DamageSystemPrototypeXmlLoader
     @Override
     protected DamageSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new DamageSystemPrototype(
-                Float.valueOf(element.getChildByName(HIT_HIGHLIGHT_TIME).getText().trim()),
-                priority
+                priority,
+                Float.valueOf(element.getChildByName(HIT_HIGHLIGHT_TIME).getText().trim())
         );
     }
 

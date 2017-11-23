@@ -21,7 +21,7 @@ public final class BulletLayerRenderSystemFactory
     }
 
     @Override
-    protected BulletLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new BulletLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected BulletLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new BulletLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

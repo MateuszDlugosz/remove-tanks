@@ -25,12 +25,12 @@ public abstract class LayerRenderSystemFactory<T extends LayerRenderSystem, U ex
     @Override
     public final T createEntitySystem(U prototype, ResourceRegistry resourceRegistry) {
         return createEntitySystem(
+                prototype.getPriority(),
                 viewRenderer,
                 resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
-                effectFactory.createEffect(prototype.getEffectPrototype()),
-                prototype.getPriority()
+                effectFactory.createEffect(prototype.getEffectPrototype())
         );
     }
 
-    protected abstract T createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority);
+    protected abstract T createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect);
 }

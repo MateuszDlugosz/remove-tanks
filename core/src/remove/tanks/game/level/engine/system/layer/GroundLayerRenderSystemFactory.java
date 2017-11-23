@@ -21,7 +21,7 @@ public final class GroundLayerRenderSystemFactory
     }
 
     @Override
-    protected GroundLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new GroundLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected GroundLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new GroundLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

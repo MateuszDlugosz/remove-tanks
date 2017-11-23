@@ -11,7 +11,7 @@ public final class CameraUpdateSystem extends EntitySystem {
     private final Game2DCamera game2DCamera;
     private final Boundaries boundaries;
 
-    public CameraUpdateSystem(Game2DCamera game2DCamera, Boundaries boundaries, int priority) {
+    public CameraUpdateSystem(int priority, Game2DCamera game2DCamera, Boundaries boundaries) {
         super(priority);
         this.game2DCamera = game2DCamera;
         this.boundaries = boundaries;

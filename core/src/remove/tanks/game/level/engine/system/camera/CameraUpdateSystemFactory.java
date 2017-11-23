@@ -17,9 +17,9 @@ public final class CameraUpdateSystemFactory
     @Override
     public CameraUpdateSystem createEntitySystem(CameraUpdateSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new CameraUpdateSystem(
+                prototype.getPriority(),
                 resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class),
-                resourceRegistry.getResource(LevelResource.TiledMapBoundaries.toString(), Boundaries.class),
-                prototype.getPriority()
+                resourceRegistry.getResource(LevelResource.TiledMapBoundaries.toString(), Boundaries.class)
         );
     }
 

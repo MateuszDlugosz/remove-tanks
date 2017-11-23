@@ -18,7 +18,7 @@ public final class ViewUpdateSystemFactory
 
     @Override
     public ViewUpdateSystem createEntitySystem(ViewUpdateSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new ViewUpdateSystem(viewUpdater, prototype.getPriority());
+        return new ViewUpdateSystem(prototype.getPriority(), viewUpdater);
     }
 
     @Override

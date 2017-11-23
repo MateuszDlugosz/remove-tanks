@@ -7,8 +7,8 @@ import remove.tanks.game.graphic.effect.EffectPrototype;
  * @author Mateusz Długosz
  */
 public final class BonusLayerRenderSystemPrototype extends LayerRenderSystemPrototype {
-    public BonusLayerRenderSystemPrototype(EffectPrototype effectPrototype, int priority) {
-        super(effectPrototype, priority);
+    public BonusLayerRenderSystemPrototype(int priority, EffectPrototype effectPrototype) {
+        super(priority, effectPrototype);
     }
 
     @Override

@@ -35,14 +35,14 @@ public final class AutoSpawnerSystemFactory
     @Override
     public AutoSpawnerSystem createEntitySystem(AutoSpawnerSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new AutoSpawnerSystem(
+                prototype.getPriority(),
                 randomNumberGenerator,
                 resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(),
                         EntityPrototypeRepository.class),
                 resourceRegistry.getResource(LevelResource.EventBus.toString(),
                         EventBus.class),
                 createSpawnersByLetter(prototype.getSpawnerPrototypes(), false),
-                createSpawnersByLetter(prototype.getSpawnerPrototypes(), true),
-                prototype.getPriority()
+                createSpawnersByLetter(prototype.getSpawnerPrototypes(), true)
         );
     }
 

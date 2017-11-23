@@ -20,7 +20,7 @@ public final class CloudLayerRenderSystemPrototypeXmlLoader
     }
 
     @Override
-    protected CloudLayerRenderSystemPrototype loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority) {
-        return new CloudLayerRenderSystemPrototype(effectPrototype, priority);
+    protected CloudLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
+        return new CloudLayerRenderSystemPrototype(priority, effectPrototype);
     }
 }

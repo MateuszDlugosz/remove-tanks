@@ -21,9 +21,9 @@ public final class WorldUpdateSystemFactory
     @Override
     public WorldUpdateSystem createEntitySystem(WorldUpdateSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new WorldUpdateSystem(
+                prototype.getPriority(),
                 resourceRegistry.getResource(LevelResource.World.toString(), World.class),
-                worldUpdater,
-                prototype.getPriority()
+                worldUpdater
         );
     }
 

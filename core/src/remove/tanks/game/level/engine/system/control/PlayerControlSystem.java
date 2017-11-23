@@ -17,7 +17,7 @@ import remove.tanks.game.level.input.InputMapper;
 public final class PlayerControlSystem extends IteratingSystem {
     private final InputMapper inputMapper;
 
-    public PlayerControlSystem(InputMapper inputMapper, int priority) {
+    public PlayerControlSystem(int priority, InputMapper inputMapper) {
         super(EntityFamily.PlayerControlledFamily.getFamily(), priority);
         this.inputMapper = inputMapper;
     }

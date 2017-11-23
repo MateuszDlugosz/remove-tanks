@@ -11,18 +11,18 @@ import remove.tanks.game.utility.time.Timer;
 /**
  * @author Mateusz Długosz
  */
-public final class PlayerRespawnSystsemFactory
+public final class PlayerRespawnSystemFactory
         implements RegistrableEntitySystemFactory<PlayerRespawnSystem, PlayerRespawnSystemPrototype>
 {
     @Override
     public PlayerRespawnSystem createEntitySystem(PlayerRespawnSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new PlayerRespawnSystem(
+                prototype.getPriority(),
                 new Timer(prototype.getRespawnTime()),
                 resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class),
                 resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
                 resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(),
-                        EntityPrototypeRepository.class).getPrototype(prototype.getPrototypeCode()),
-                prototype.getPriority()
+                        EntityPrototypeRepository.class).getPrototype(prototype.getPrototypeCode())
         );
     }
 

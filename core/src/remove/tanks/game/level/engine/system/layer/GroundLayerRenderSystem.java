@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
  * @author Mateusz Długosz
  */
 public final class GroundLayerRenderSystem extends LayerRenderSystem {
-    public GroundLayerRenderSystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect, int priority) {
-        super(viewRenderer, spriteBatch, highlightEffect, EntityFamily.GroundLayerRenderableFamily.getFamily(), priority);
+    public GroundLayerRenderSystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect) {
+        super(EntityFamily.GroundLayerRenderableFamily.getFamily(), priority, viewRenderer, spriteBatch, highlightEffect);
     }
 }

@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
  * @author Mateusz Długosz
  */
 public final class ObstacleLayerRenderSystem extends LayerRenderSystem {
-    public ObstacleLayerRenderSystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect, int priority) {
-        super(viewRenderer, spriteBatch, highlightEffect, EntityFamily.ObstacleLayerRenderableFamily.getFamily(), priority);
+    public ObstacleLayerRenderSystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect) {
+        super(EntityFamily.ObstacleLayerRenderableFamily.getFamily(), priority, viewRenderer, spriteBatch, highlightEffect);
     }
 }

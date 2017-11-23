@@ -19,6 +19,7 @@ public final class OperationHudRenderSystemFactory
     @Override
     public OperationHudRenderSystem createEntitySystem(OperationHudRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new OperationHudRenderSystem(
+                prototype.getPriority(),
                 new OperationHudStage(
                         resourceRegistry.getResource(LevelResource.Locale.toString(), Locale.class),
                         resourceRegistry.getResource(LevelResource.HudCamera.toString(), Game2DCamera.class),
@@ -26,8 +27,7 @@ public final class OperationHudRenderSystemFactory
                         resourceRegistry.getResource(LevelResource.UiSkin.toString(), Skin.class)
                 ),
                 resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
-                resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class),
-                prototype.getPriority()
+                resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class)
         );
     }
 

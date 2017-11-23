@@ -21,7 +21,7 @@ public final class ObstacleLayerRenderSystemFactory
     }
 
     @Override
-    protected ObstacleLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new ObstacleLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected ObstacleLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new ObstacleLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

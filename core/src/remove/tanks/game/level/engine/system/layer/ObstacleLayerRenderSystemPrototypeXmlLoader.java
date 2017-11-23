@@ -20,7 +20,7 @@ public final class ObstacleLayerRenderSystemPrototypeXmlLoader
     }
 
     @Override
-    protected ObstacleLayerRenderSystemPrototype loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority) {
-        return new ObstacleLayerRenderSystemPrototype(effectPrototype, priority);
+    protected ObstacleLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
+        return new ObstacleLayerRenderSystemPrototype(priority, effectPrototype);
     }
 }

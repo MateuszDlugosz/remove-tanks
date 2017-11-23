@@ -21,7 +21,7 @@ public final class CloudLayerRenderSystemFactory
     }
 
     @Override
-    protected CloudLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new CloudLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected CloudLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new CloudLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

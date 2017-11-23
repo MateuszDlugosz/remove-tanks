@@ -18,7 +18,7 @@ public final class AutoShootSystem extends IteratingSystem {
     private final EntityPrototypeRepository entityPrototypeRepository;
     private final EventBus eventBus;
 
-    public AutoShootSystem(EventBus eventBus, EntityPrototypeRepository entityPrototypeRepository, int priority) {
+    public AutoShootSystem(int priority, EventBus eventBus, EntityPrototypeRepository entityPrototypeRepository) {
         super(EntityFamily.AutoShootFamily.getFamily(), priority);
         this.eventBus = eventBus;
         this.entityPrototypeRepository = entityPrototypeRepository;

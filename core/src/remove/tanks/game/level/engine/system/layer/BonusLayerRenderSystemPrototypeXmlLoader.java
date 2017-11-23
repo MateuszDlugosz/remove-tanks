@@ -20,7 +20,7 @@ public final class BonusLayerRenderSystemPrototypeXmlLoader
     }
 
     @Override
-    protected BonusLayerRenderSystemPrototype loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority) {
-        return new BonusLayerRenderSystemPrototype(effectPrototype, priority);
+    protected BonusLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
+        return new BonusLayerRenderSystemPrototype(priority, effectPrototype);
     }
 }

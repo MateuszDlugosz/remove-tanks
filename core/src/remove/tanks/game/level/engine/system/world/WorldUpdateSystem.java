@@ -11,7 +11,7 @@ public final class WorldUpdateSystem extends EntitySystem {
     private final World world;
     private final WorldUpdater worldUpdater;
 
-    public WorldUpdateSystem(World world, WorldUpdater worldUpdater, int priority) {
+    public WorldUpdateSystem(int priority, World world, WorldUpdater worldUpdater) {
         super(priority);
         this.world = world;
         this.worldUpdater = worldUpdater;

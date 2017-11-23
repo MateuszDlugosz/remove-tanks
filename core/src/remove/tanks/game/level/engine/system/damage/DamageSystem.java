@@ -17,7 +17,7 @@ import remove.tanks.game.utility.time.Timer;
 public final class DamageSystem extends IteratingSystem {
     private final float hitHighlightTime;
 
-    public DamageSystem(float hitHighlightTime, int priority) {
+    public DamageSystem(int priority, float hitHighlightTime) {
         super(EntityFamily.DamagableFamily.getFamily(), priority);
         this.hitHighlightTime = hitHighlightTime;
     }

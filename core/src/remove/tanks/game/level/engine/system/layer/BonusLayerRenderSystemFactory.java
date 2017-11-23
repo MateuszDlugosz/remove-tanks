@@ -21,7 +21,7 @@ public final class BonusLayerRenderSystemFactory
     }
 
     @Override
-    protected BonusLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new BonusLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected BonusLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new BonusLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

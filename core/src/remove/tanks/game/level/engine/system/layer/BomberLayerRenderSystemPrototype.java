@@ -7,8 +7,8 @@ import remove.tanks.game.graphic.effect.EffectPrototype;
  * @author Mateusz Długosz
  */
 public final class BomberLayerRenderSystemPrototype extends LayerRenderSystemPrototype {
-    public BomberLayerRenderSystemPrototype(EffectPrototype effectPrototype, int priority) {
-        super(effectPrototype, priority);
+    public BomberLayerRenderSystemPrototype(int priority, EffectPrototype effectPrototype) {
+        super(priority, effectPrototype);
     }
 
     @Override

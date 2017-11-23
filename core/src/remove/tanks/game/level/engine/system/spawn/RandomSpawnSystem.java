@@ -21,10 +21,10 @@ public final class RandomSpawnSystem extends IteratingSystem {
     private final EntityPrototypeRepository entityPrototypeRepository;
 
     public RandomSpawnSystem(
+            int priority,
             RandomNumberGenerator randomNumberGenerator,
             EventBus eventBus,
-            EntityPrototypeRepository entityPrototypeRepository,
-            int priority
+            EntityPrototypeRepository entityPrototypeRepository
     ) {
         super(EntityFamily.RandomSpawnFamily.getFamily(), priority);
         this.randomNumberGenerator = randomNumberGenerator;

@@ -20,7 +20,7 @@ public final class GroundLayerRenderSystemPrototypeXmlLoader
     }
 
     @Override
-    protected GroundLayerRenderSystemPrototype loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority) {
-        return new GroundLayerRenderSystemPrototype(effectPrototype, priority);
+    protected GroundLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
+        return new GroundLayerRenderSystemPrototype(priority, effectPrototype);
     }
 }

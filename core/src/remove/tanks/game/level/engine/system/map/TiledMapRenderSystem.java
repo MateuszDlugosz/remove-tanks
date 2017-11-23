@@ -11,7 +11,7 @@ public final class TiledMapRenderSystem extends EntitySystem {
     private final TiledMapRenderer tiledMapRenderer;
     private final OrthographicCamera orthographicCamera;
 
-    public TiledMapRenderSystem(TiledMapRenderer tiledMapRenderer, OrthographicCamera orthographicCamera, int priority) {
+    public TiledMapRenderSystem(int priority, TiledMapRenderer tiledMapRenderer, OrthographicCamera orthographicCamera) {
         super(priority);
         this.tiledMapRenderer = tiledMapRenderer;
         this.orthographicCamera = orthographicCamera;

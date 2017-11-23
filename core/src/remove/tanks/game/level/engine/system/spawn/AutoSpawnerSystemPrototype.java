@@ -12,7 +12,7 @@ import java.util.List;
 public final class AutoSpawnerSystemPrototype extends EntitySystemPrototype {
     private final List<SpawnerPrototype> spawnerPrototypes;
 
-    public AutoSpawnerSystemPrototype(List<SpawnerPrototype> spawnerPrototypes, int priority) {
+    public AutoSpawnerSystemPrototype(int priority, List<SpawnerPrototype> spawnerPrototypes) {
         super(priority);
         this.spawnerPrototypes = spawnerPrototypes;
     }

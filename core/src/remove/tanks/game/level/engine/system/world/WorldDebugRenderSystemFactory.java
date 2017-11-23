@@ -22,10 +22,10 @@ public final class WorldDebugRenderSystemFactory
     @Override
     public WorldDebugRenderSystem createEntitySystem(WorldDebugRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new WorldDebugRenderSystem(
+                prototype.getPriority(),
                 worldRenderer,
                 resourceRegistry.getResource(LevelResource.World.toString(), World.class),
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera(),
-                prototype.getPriority()
+                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
         );
     }
 

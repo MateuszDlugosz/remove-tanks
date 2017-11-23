@@ -14,8 +14,8 @@ public final class DestroySystemFactory
     @Override
     public DestroySystem createEntitySystem(DestroySystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new DestroySystem(
-                resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                prototype.getPriority()
+                prototype.getPriority(),
+                resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class)
         );
     }
 

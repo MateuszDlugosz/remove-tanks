@@ -17,7 +17,7 @@ import java.util.List;
 public final class RandomDirectionSystem extends IteratingSystem {
     private final RandomNumberGenerator randomNumberGenerator;
 
-    public RandomDirectionSystem(RandomNumberGenerator randomNumberGenerator, int priority) {
+    public RandomDirectionSystem(int priority, RandomNumberGenerator randomNumberGenerator) {
         super(EntityFamily.RandomDirectionFamily.getFamily(), priority);
         this.randomNumberGenerator = randomNumberGenerator;
     }

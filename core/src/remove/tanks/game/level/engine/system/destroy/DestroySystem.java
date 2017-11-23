@@ -12,7 +12,7 @@ import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
 public final class DestroySystem extends IteratingSystem {
     private final EventBus eventBus;
 
-    public DestroySystem(EventBus eventBus, int priority) {
+    public DestroySystem(int priority, EventBus eventBus) {
         super(EntityFamily.DestroyedFamily.getFamily(), priority);
         this.eventBus = eventBus;
     }

@@ -7,8 +7,8 @@ import remove.tanks.game.graphic.effect.EffectPrototype;
  * @author Mateusz Długosz
  */
 public final class GroundLayerRenderSystemPrototype extends LayerRenderSystemPrototype {
-    public GroundLayerRenderSystemPrototype(EffectPrototype effectPrototype, int priority) {
-        super(effectPrototype, priority);
+    public GroundLayerRenderSystemPrototype(int priority, EffectPrototype effectPrototype) {
+        super(priority, effectPrototype);
     }
 
     @Override

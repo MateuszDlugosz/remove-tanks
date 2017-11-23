@@ -44,7 +44,7 @@ import remove.tanks.game.level.engine.system.map.TiledMapRenderSystemPrototypeXm
 import remove.tanks.game.level.engine.system.move.AutoMoveSystemFactory;
 import remove.tanks.game.level.engine.system.move.AutoMoveSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystsemFactory;
+import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystemFactory;
 import remove.tanks.game.level.engine.system.shoot.AutoShootSystemFactory;
 import remove.tanks.game.level.engine.system.shoot.AutoShootSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.shoot.RandomShootSystemFactory;
@@ -147,7 +147,7 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class),
                                     getContext().getComponent("SpawnerFactory", SpawnerFactory.class)
                             ),
-                            new PlayerRespawnSystsemFactory(),
+                            new PlayerRespawnSystemFactory(),
                             new ActorDirectionControlSystemFactory(),
                             new ChainSpawnerActivateSystemFactory(
                                     getContext().getComponent("SpawnerActivatorFactory", SpawnerActivatorFactory.class)

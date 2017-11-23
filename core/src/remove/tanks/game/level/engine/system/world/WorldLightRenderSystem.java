@@ -14,10 +14,10 @@ public final class WorldLightRenderSystem extends EntitySystem {
     private final OrthographicCamera orthographicCamera;
 
     public WorldLightRenderSystem(
+            int priority,
             WorldLightRenderer worldLightRenderer,
             WorldLight worldLight,
-            OrthographicCamera orthographicCamera,
-            int priority
+            OrthographicCamera orthographicCamera
     ) {
         super(priority);
         this.worldLightRenderer = worldLightRenderer;

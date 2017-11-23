@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
  * @author Mateusz Długosz
  */
 public final class CloudLayerRenderSystem extends LayerRenderSystem {
-    public CloudLayerRenderSystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect, int priority) {
-        super(viewRenderer, spriteBatch, highlightEffect, EntityFamily.CloudLayerRenderableFamily.getFamily(), priority);
+    public CloudLayerRenderSystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect) {
+        super(EntityFamily.CloudLayerRenderableFamily.getFamily(), priority, viewRenderer, spriteBatch, highlightEffect);
     }
 }

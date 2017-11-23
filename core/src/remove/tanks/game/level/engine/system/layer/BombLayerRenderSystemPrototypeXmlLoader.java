@@ -20,7 +20,7 @@ public final class BombLayerRenderSystemPrototypeXmlLoader
     }
 
     @Override
-    protected BombLayerRenderSystemPrototype loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority) {
-        return new BombLayerRenderSystemPrototype(effectPrototype, priority);
+    protected BombLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
+        return new BombLayerRenderSystemPrototype(priority, effectPrototype);
     }
 }

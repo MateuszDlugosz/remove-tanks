@@ -18,7 +18,7 @@ public final class RandomDirectionSystemFactory
 
     @Override
     public RandomDirectionSystem createEntitySystem(RandomDirectionSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new RandomDirectionSystem(randomNumberGenerator, prototype.getPriority());
+        return new RandomDirectionSystem(prototype.getPriority(), randomNumberGenerator);
     }
 
     @Override

@@ -14,7 +14,7 @@ import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 public final class CameraTrackingSystem extends IteratingSystem {
     private final Game2DCamera game2DCamera;
 
-    public CameraTrackingSystem(Game2DCamera game2DCamera, int priority) {
+    public CameraTrackingSystem(int priority, Game2DCamera game2DCamera) {
         super(EntityFamily.CameraTrackingFamily.getFamily(), priority);
         this.game2DCamera = game2DCamera;
     }

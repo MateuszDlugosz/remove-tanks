@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
  * @author Mateusz Długosz
  */
 public final class BonusLayerRenderSystem extends LayerRenderSystem {
-    public BonusLayerRenderSystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect, int priority) {
-        super(viewRenderer, spriteBatch, highlightEffect, EntityFamily.BonusLayerRenderableFamily.getFamily(), priority);
+    public BonusLayerRenderSystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect highlightEffect) {
+        super(EntityFamily.BonusLayerRenderableFamily.getFamily(), priority, sviewRenderer, spriteBatch, highlightEffect);
     }
 }

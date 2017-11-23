@@ -24,11 +24,11 @@ public final class PlayerRespawnSystem extends EntitySystem {
     private boolean freeRespawn;
 
     public PlayerRespawnSystem(
+            int priority,
             Timer respawnTimer,
             Properties properties,
             EventBus eventBus,
-            EntityPrototype playerPrototype,
-            int priority
+            EntityPrototype playerPrototype
     ) {
         super(priority);
         this.respawnTimer = respawnTimer;

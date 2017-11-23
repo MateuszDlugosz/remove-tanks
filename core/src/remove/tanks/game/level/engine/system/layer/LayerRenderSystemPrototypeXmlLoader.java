@@ -22,13 +22,13 @@ public abstract class LayerRenderSystemPrototypeXmlLoader<T extends LayerRenderS
     @Override
     protected final T loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return loadEntitySystemPrototype(
+                priority,
                 effectPrototypeXmlLoader.loadEffectPrototype(
                         element.getChildByName(HIGHLIGHT_ELEMENT)
                                 .getChildByName(EffectPrototypeXmlLoader.EFFECT_ELEMENT)
-                ),
-                priority
+                )
         );
     }
 
-    protected abstract T loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority);
+    protected abstract T loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype);
 }

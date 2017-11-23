@@ -32,12 +32,12 @@ public final class AutoSpawnerSystem extends EntitySystem {
     private final Map<NATOLetter, Spawner> activeSpawners;
 
     public AutoSpawnerSystem(
+            int priority,
             RandomNumberGenerator randomNumberGenerator,
             EntityPrototypeRepository repository,
             EventBus eventBus,
             Map<NATOLetter, Spawner> inactiveSpawners,
-            Map<NATOLetter, Spawner> activeSpawners,
-            int priority
+            Map<NATOLetter, Spawner> activeSpawners
     ) {
         super(priority);
         this.inactiveSpawners = inactiveSpawners;

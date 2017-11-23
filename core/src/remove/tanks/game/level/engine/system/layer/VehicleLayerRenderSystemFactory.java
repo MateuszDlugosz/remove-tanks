@@ -21,7 +21,7 @@ public final class VehicleLayerRenderSystemFactory
     }
 
     @Override
-    protected VehicleLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new VehicleLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected VehicleLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new VehicleLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

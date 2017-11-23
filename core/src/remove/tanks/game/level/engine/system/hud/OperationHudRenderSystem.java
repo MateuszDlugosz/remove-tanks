@@ -14,10 +14,10 @@ public final class OperationHudRenderSystem extends EntitySystem {
     private final Properties properties;
 
     public OperationHudRenderSystem(
+            int priority,
             OperationHudStage operationHudStage,
             SpriteBatch spriteBatch,
-            Properties properties,
-            int priority
+            Properties properties
     ) {
         super(priority);
         this.operationHudStage = operationHudStage;

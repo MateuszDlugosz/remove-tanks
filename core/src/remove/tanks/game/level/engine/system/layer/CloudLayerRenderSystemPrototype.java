@@ -7,8 +7,8 @@ import remove.tanks.game.graphic.effect.EffectPrototype;
  * @author Mateusz Długosz
  */
 public final class CloudLayerRenderSystemPrototype extends LayerRenderSystemPrototype {
-    public CloudLayerRenderSystemPrototype(EffectPrototype effectPrototype, int priority) {
-        super(effectPrototype, priority);
+    public CloudLayerRenderSystemPrototype(int priority, EffectPrototype effectPrototype) {
+        super(priority, effectPrototype);
     }
 
     @Override

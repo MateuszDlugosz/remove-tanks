@@ -10,7 +10,7 @@ public final class PlayerRespawnSystemPrototype extends EntitySystemPrototype {
     private final String prototypeCode;
     private final float respawnTime;
 
-    public PlayerRespawnSystemPrototype(String prototypeCode, float respawnTime, int priority) {
+    public PlayerRespawnSystemPrototype(int priority, String prototypeCode, float respawnTime) {
         super(priority);
         this.prototypeCode = prototypeCode;
         this.respawnTime = respawnTime;

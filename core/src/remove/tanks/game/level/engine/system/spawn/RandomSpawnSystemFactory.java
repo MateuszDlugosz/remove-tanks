@@ -22,10 +22,10 @@ public final class RandomSpawnSystemFactory
     @Override
     public RandomSpawnSystem createEntitySystem(RandomSpawnSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new RandomSpawnSystem(
+                prototype.getPriority(),
                 randomNumberGenerator,
                 resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class),
-                prototype.getPriority()
+                resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class)
         );
     }
 

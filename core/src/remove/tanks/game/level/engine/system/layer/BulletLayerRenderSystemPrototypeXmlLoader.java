@@ -20,7 +20,7 @@ public final class BulletLayerRenderSystemPrototypeXmlLoader
     }
 
     @Override
-    protected BulletLayerRenderSystemPrototype loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority) {
-        return new BulletLayerRenderSystemPrototype(effectPrototype, priority);
+    protected BulletLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
+        return new BulletLayerRenderSystemPrototype(priority, effectPrototype);
     }
 }

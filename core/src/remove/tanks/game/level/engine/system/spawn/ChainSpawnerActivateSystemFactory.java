@@ -19,8 +19,8 @@ public final class ChainSpawnerActivateSystemFactory
     @Override
     public ChainSpawnerActivateSystem createEntitySystem(ChainSpawnerActivateSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new ChainSpawnerActivateSystem(
-                spawnerActivatorFactory.createSpawnerActivators(prototype.getSpawnerActivatorPrototypes()),
-                prototype.getPriority()
+                prototype.getPriority(),
+                spawnerActivatorFactory.createSpawnerActivators(prototype.getSpawnerActivatorPrototypes())
         );
     }
 

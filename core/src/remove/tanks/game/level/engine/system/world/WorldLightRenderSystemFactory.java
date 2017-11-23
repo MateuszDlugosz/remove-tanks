@@ -22,10 +22,10 @@ public final class WorldLightRenderSystemFactory
     @Override
     public WorldLightRenderSystem createEntitySystem(WorldLightRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new WorldLightRenderSystem(
+                prototype.getPriority(),
                 worldLightRenderer,
                 resourceRegistry.getResource(LevelResource.WorldLight.toString(), WorldLight.class),
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera(),
-                prototype.getPriority()
+                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
         );
     }
 

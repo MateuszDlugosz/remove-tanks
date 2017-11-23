@@ -21,7 +21,7 @@ public final class ExplosionLayerRenderSystemFactory
     }
 
     @Override
-    protected ExplosionLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new ExplosionLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected ExplosionLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new ExplosionLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

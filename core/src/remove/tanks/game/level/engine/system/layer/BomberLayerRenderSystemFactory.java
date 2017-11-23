@@ -21,7 +21,7 @@ public final class BomberLayerRenderSystemFactory
     }
 
     @Override
-    protected BomberLayerRenderSystem createEntitySystem(ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect, int priority) {
-        return new BomberLayerRenderSystem(viewRenderer, spriteBatch, effect, priority);
+    protected BomberLayerRenderSystem createEntitySystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch, Effect effect) {
+        return new BomberLayerRenderSystem(priority, viewRenderer, spriteBatch, effect);
     }
 }

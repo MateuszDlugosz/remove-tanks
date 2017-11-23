@@ -18,7 +18,7 @@ public final class RandomShootSystemFactory
 
     @Override
     public RandomShootSystem createEntitySystem(RandomShootSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new RandomShootSystem(randomNumberGenerator, prototype.getPriority());
+        return new RandomShootSystem(prototype.getPriority(), randomNumberGenerator);
     }
 
     @Override

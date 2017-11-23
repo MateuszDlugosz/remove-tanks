@@ -20,7 +20,7 @@ public final class VehicleLayerRenderSystemPrototypeXmlLoader
     }
 
     @Override
-    protected VehicleLayerRenderSystemPrototype loadEntitySystemPrototype(EffectPrototype effectPrototype, int priority) {
-        return new VehicleLayerRenderSystemPrototype(effectPrototype, priority);
+    protected VehicleLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
+        return new VehicleLayerRenderSystemPrototype(priority, effectPrototype);
     }
 }

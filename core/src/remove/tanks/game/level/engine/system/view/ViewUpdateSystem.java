@@ -14,7 +14,7 @@ import remove.tanks.game.level.engine.entity.component.state.StateComponent;
 public final class ViewUpdateSystem extends IteratingSystem {
     private final ViewUpdater viewUpdater;
 
-    public ViewUpdateSystem(ViewUpdater viewUpdater, int priority) {
+    public ViewUpdateSystem(int priority, ViewUpdater viewUpdater) {
         super(EntityFamily.RenderableFamily.getFamily(), priority);
         this.viewUpdater = viewUpdater;
     }

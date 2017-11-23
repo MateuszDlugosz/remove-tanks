@@ -10,7 +10,7 @@ import remove.tanks.game.level.engine.system.EntitySystemPrototype;
 public abstract class LayerRenderSystemPrototype extends EntitySystemPrototype {
     private final EffectPrototype effectPrototype;
 
-    public LayerRenderSystemPrototype(EffectPrototype effectPrototype, int priority) {
+    public LayerRenderSystemPrototype(int priority, EffectPrototype effectPrototype) {
         super(priority);
         this.effectPrototype = effectPrototype;
     }

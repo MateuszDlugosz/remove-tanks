@@ -19,13 +19,13 @@ public final class TiledMapRenderSystemFactory
     @Override
     public TiledMapRenderSystem createEntitySystem(TiledMapRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new TiledMapRenderSystem(
+                prototype.getPriority(),
                 createTiledMapRenderer(
                         resourceRegistry.getResource(LevelResource.TiledMap.toString(), TiledMap.class),
                         resourceRegistry.getResource(LevelResource.WorldScale.toString(), Scale.class),
                         resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class)
                 ),
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera(),
-                prototype.getPriority()
+                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
         );
     }
 

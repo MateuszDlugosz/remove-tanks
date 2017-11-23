@@ -22,10 +22,10 @@ public final class ChainSpawnerActivateSystemPrototypeXmlLoader
     @Override
     protected ChainSpawnerActivateSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new ChainSpawnerActivateSystemPrototype(
+                priority,
                 spawnerActivatorPrototypeXmlLoader.loadSpawnerActivatorPrototypes(
                         element.getChildByName(SpawnerActivatorPrototypeXmlLoader.SPAWNER_ACTIVATORS_ELEMENT)
-                ),
-                priority
+                )
         );
     }
 

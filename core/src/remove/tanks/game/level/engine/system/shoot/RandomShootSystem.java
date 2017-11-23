@@ -14,7 +14,7 @@ import remove.tanks.game.utility.time.Timer;
 public final class RandomShootSystem extends IteratingSystem {
     private final RandomNumberGenerator randomNumberGenerator;
 
-    public RandomShootSystem(RandomNumberGenerator randomNumberGenerator, int priority) {
+    public RandomShootSystem(int priority, RandomNumberGenerator randomNumberGenerator) {
         super(EntityFamily.RandomShootFamily.getFamily(), priority);
         this.randomNumberGenerator = randomNumberGenerator;
     }

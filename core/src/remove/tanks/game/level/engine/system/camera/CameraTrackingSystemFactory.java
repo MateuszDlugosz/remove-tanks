@@ -15,8 +15,8 @@ public final class CameraTrackingSystemFactory
     @Override
     public CameraTrackingSystem createEntitySystem(CameraTrackingSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         return new CameraTrackingSystem(
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class),
-                prototype.getPriority()
+                prototype.getPriority(),
+                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class)
         );
     }
 
