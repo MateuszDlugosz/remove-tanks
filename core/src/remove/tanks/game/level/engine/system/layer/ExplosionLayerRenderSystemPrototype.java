@@ -8,7 +8,7 @@ import remove.tanks.game.graphic.effect.EffectPrototype;
  */
 public final class ExplosionLayerRenderSystemPrototype extends LayerRenderSystemPrototype {
     public ExplosionLayerRenderSystemPrototype(int priority, EffectPrototype effectPrototype) {
-        super(priority, seffectPrototype);
+        super(priority, effectPrototype);
     }
 
     @Override
