@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.GameApplication;
-import remove.tanks.game.constant.TranslationEntryKey;
+import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.LevelController;

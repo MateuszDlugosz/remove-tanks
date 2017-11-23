@@ -1,4 +1,4 @@
-package remove.tanks.game.constant;
+package remove.tanks.game.application.context.configuration.constant;
 
 /**
  * @author Mateusz Długosz

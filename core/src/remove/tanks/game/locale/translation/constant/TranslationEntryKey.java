@@ -1,4 +1,4 @@
-package remove.tanks.game.constant;
+package remove.tanks.game.locale.translation.constant;
 
 /**
  * @author Mateusz Długosz

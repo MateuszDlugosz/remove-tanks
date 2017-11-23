@@ -14,7 +14,7 @@ import com.google.common.eventbus.EventBus;
 import remove.tanks.game.GameApplication;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
-import remove.tanks.game.constant.TranslationEntryKey;
+import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.level.constant.LevelProperty;

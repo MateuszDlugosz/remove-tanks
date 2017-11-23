@@ -14,7 +14,7 @@ import remove.tanks.game.audio.AudioOptions;
 import remove.tanks.game.audio.AudioPlayer;
 import remove.tanks.game.audio.event.ChangeAudioOptionEvent;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
-import remove.tanks.game.constant.TranslationEntryKey;
+import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;

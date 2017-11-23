@@ -6,7 +6,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
-import remove.tanks.game.constant.ConfigurationKey;
+import remove.tanks.game.application.context.configuration.constant.ConfigurationKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.utility.scale.Scale;
 
