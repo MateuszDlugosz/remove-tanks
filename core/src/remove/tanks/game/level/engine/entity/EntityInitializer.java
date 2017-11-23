@@ -5,7 +5,6 @@ import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import remove.tanks.game.level.Level;
-import remove.tanks.game.level.constant.LevelMapLayer;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.utility.position.PositionFactory;
 import remove.tanks.game.utility.position.PositionPrototypeMapObjectLoader;
@@ -18,6 +17,7 @@ import java.util.stream.StreamSupport;
  */
 public final class EntityInitializer {
     private static final String PROTOTYPE_CODE_PROPERTY = "prototype.code";
+    private static final String OBJECTS_MAP_LAYER_NAME = "objects_layer";
 
     private final PositionPrototypeMapObjectLoader positionPrototypeMapObjectLoader;
     private final EntitySpawner entitySpawner;
@@ -41,7 +41,7 @@ public final class EntityInitializer {
                 level,
                 level.getResourceRegistry().getResource(LevelResource.TiledMap.toString(), TiledMap.class)
                         .getLayers()
-                        .get(LevelMapLayer.ObjectsLayer.getName()),
+                        .get(OBJECTS_MAP_LAYER_NAME),
                 level.getResourceRegistry().getResource(LevelResource.WorldScale.toString(), Scale.class)
         );
     }
