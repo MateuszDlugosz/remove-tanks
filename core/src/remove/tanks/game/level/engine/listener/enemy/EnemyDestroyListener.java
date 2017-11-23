@@ -16,7 +16,7 @@ public final class EnemyDestroyListener extends ExtendedEntityListener {
     private final EventBus eventBus;
     private final Properties properties;
 
-    public EnemyDestroyListener(Engine engine, EventBus eventBus, Properties properties, int priority) {
+    public EnemyDestroyListener(int priority, Engine engine, EventBus eventBus, Properties properties) {
         super(priority, EntityFamily.EnemiesFamily.getFamily(), engine);
         this.eventBus = eventBus;
         this.properties = properties;

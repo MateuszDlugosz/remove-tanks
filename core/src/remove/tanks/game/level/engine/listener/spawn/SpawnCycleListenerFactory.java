@@ -16,11 +16,11 @@ public final class SpawnCycleListenerFactory
     @Override
     public SpawnCycleListener createEntityListener(SpawnCycleListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
         return new SpawnCycleListener(
+                prototype.getPriority(),
+                engine,
                 registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
                 registry.getResource(LevelResource.EntityPrototypeRepository.toString(),
-                        EntityPrototypeRepository.class),
-                engine,
-                prototype.getPriority()
+                        EntityPrototypeRepository.class)
         );
     }
 

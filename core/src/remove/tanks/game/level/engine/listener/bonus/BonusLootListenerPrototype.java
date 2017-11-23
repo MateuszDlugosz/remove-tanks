@@ -12,7 +12,7 @@ public final class BonusLootListenerPrototype extends EntityListenerPrototype {
     private final int chance;
     private final List<String> prototypeCodes;
 
-    public BonusLootListenerPrototype(int chance, List<String> prototypeCodes, int priority) {
+    public BonusLootListenerPrototype(int priority, int chance, List<String> prototypeCodes) {
         super(priority);
         this.chance = chance;
         this.prototypeCodes = prototypeCodes;

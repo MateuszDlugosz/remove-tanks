@@ -16,10 +16,10 @@ public final class SoundListenerFactory
     @Override
     public SoundListener createEntityListener(SoundListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
         return new SoundListener(
-                registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                registry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class),
+                prototype.getPriority(),
                 engine,
-                prototype.getPriority()
+                registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
+                registry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class)
         );
     }
 

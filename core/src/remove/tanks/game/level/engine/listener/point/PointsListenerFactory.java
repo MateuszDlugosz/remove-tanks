@@ -16,10 +16,10 @@ public final class PointsListenerFactory
     @Override
     public PointsListener createEntityListener(PointsListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
         return new PointsListener(
+                prototype.getPriority(),
                 engine,
                 registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                registry.getResource(LevelResource.Properties.toString(), Properties.class),
-                prototype.getPriority()
+                registry.getResource(LevelResource.Properties.toString(), Properties.class)
         );
     }
 

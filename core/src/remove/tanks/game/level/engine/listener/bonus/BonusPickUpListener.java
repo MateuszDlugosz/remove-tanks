@@ -24,11 +24,11 @@ public final class BonusPickUpListener extends ExtendedEntityListener {
             = new HashMap<>();
 
     public BonusPickUpListener(
+            int priority,
+            Engine engine,
             BonusExecutor[] executors,
             EventBus eventBus,
-            Engine engine,
-            Properties properties,
-            int priority
+            Properties properties
     ) {
         super(priority, EntityFamily.BonusFamily.getFamily(), engine);
         this.eventBus = eventBus;

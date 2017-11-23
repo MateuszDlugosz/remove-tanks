@@ -23,11 +23,12 @@ public final class BonusPickUpListenerFactory
     @Override
     public BonusPickUpListener createEntityListener(BonusPickUpListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
         return new BonusPickUpListener(
+                prototype.getPriority(),
+                engine,
                 bonusExecutors,
                 registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                engine,
-                registry.getResource(LevelResource.Properties.toString(), Properties.class),
-                prototype.getPriority()
+                registry.getResource(LevelResource.Properties.toString(), Properties.class)
+
         );
     }
 

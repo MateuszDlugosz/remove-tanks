@@ -22,12 +22,12 @@ public final class BonusLootListener extends ExtendedEntityListener {
     private final List<EntityPrototype> availableBonuses;
 
     public BonusLootListener(
+            int priority,
+            Engine engine,
             RandomNumberGenerator randomNumberGenerator,
             EventBus eventBus,
-            Engine engine,
             int chance,
-            List<EntityPrototype> availableBonuses,
-            int priority
+            List<EntityPrototype> availableBonuses
     ) {
         super(priority, EntityFamily.BonusLootFamily.getFamily(), engine);
         this.randomNumberGenerator = randomNumberGenerator;

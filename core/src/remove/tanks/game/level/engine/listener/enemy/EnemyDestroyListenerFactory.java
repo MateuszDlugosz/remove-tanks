@@ -16,10 +16,10 @@ public final class EnemyDestroyListenerFactory
     @Override
     public EnemyDestroyListener createEntityListener(EnemyDestroyListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
         return new EnemyDestroyListener(
+                prototype.getPriority(),
                 engine,
                 registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                registry.getResource(LevelResource.Properties.toString(), Properties.class),
-                prototype.getPriority()
+                registry.getResource(LevelResource.Properties.toString(), Properties.class)
         );
     }
 

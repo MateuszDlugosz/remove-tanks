@@ -17,7 +17,7 @@ public final class PointsListener extends ExtendedEntityListener {
     private final EventBus eventBus;
     private final Properties properties;
 
-    public PointsListener(Engine engine, EventBus eventBus, Properties properties, int priority) {
+    public PointsListener(int priority, Engine engine, EventBus eventBus, Properties properties) {
         super(priority, EntityFamily.PointsFamily.getFamily(), engine);
         this.eventBus = eventBus;
         this.properties = properties;

@@ -25,15 +25,15 @@ public final class BonusLootListenerFactory
     @Override
     public BonusLootListener createEntityListener(BonusLootListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
         return new BonusLootListener(
+                prototype.getPriority(),
+                engine,
                 randomNumberGenerator,
                 registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                engine,
                 prototype.getChance(),
                 prototype.getPrototypeCodes().stream()
                         .map(c -> registry.getResource(LevelResource.EntityPrototypeRepository.toString(),
                                 EntityPrototypeRepository.class).getPrototype(c))
-                        .collect(Collectors.toList()),
-                prototype.getPriority()
+                        .collect(Collectors.toList())
         );
     }
 

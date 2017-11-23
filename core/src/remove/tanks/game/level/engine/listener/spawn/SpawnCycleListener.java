@@ -18,10 +18,10 @@ public final class SpawnCycleListener extends ExtendedEntityListener {
     private final EventBus eventBus;
 
     public SpawnCycleListener(
-            EventBus eventBus,
-            EntityPrototypeRepository entityPrototypeRepository,
+            int priority,
             Engine engine,
-            int priority
+            EventBus eventBus,
+            EntityPrototypeRepository entityPrototypeRepository
     ) {
         super(priority, EntityFamily.LifecycleFamily.getFamily(), engine);
         this.eventBus = eventBus;

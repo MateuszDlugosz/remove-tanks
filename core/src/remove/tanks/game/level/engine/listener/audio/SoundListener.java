@@ -18,7 +18,7 @@ public final class SoundListener extends ExtendedEntityListener {
     private final EventBus eventBus;
     private final Game2DCamera gameCamera;
 
-    public SoundListener(EventBus eventBus, Game2DCamera gameCamera, Engine engine, int priority) {
+    public SoundListener(int priority, Engine engine, EventBus eventBus, Game2DCamera gameCamera) {
         super(priority, EntityFamily.SoundableFamily.getFamily(), engine);
         this.eventBus = eventBus;
         this.gameCamera = gameCamera;
