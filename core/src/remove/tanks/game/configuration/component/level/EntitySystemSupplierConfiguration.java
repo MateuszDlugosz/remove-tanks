@@ -50,6 +50,8 @@ import remove.tanks.game.level.engine.system.shoot.AutoShootSystemPrototypeXmlLo
 import remove.tanks.game.level.engine.system.shoot.RandomShootSystemFactory;
 import remove.tanks.game.level.engine.system.shoot.RandomShootSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.spawn.*;
+import remove.tanks.game.level.engine.system.speed.ModifySpeedSystemFactory;
+import remove.tanks.game.level.engine.system.speed.ModifySpeedSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.victory.OperationVictorySystemFactory;
 import remove.tanks.game.level.engine.system.victory.OperationVictorySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
@@ -156,7 +158,8 @@ public final class EntitySystemSupplierConfiguration {
                             new OperationVictorySystemFactory(),
                             new MusicOnStartSystemFactory(
                                     getContext().getComponent("MusicFactory", MusicFactory.class)
-                            )
+                            ),
+                            new ModifySpeedSystemFactory()
                     }
             );
         }
@@ -226,7 +229,8 @@ public final class EntitySystemSupplierConfiguration {
                             new OperationVictorySystemPrototypeXmlLoader(),
                             new MusicOnStartSystemPrototypeXmlLoader(
                                     getContext().getComponent("MusicPrototypeXmlLoader", MusicPrototypeXmlLoader.class)
-                            )
+                            ),
+                            new ModifySpeedSystemPrototypeXmlLoader()
                     }
             );
         }

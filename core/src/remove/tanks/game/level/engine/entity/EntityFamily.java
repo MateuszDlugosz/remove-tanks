@@ -29,6 +29,7 @@ import remove.tanks.game.level.engine.entity.component.spawn.AutoSpawnerComponen
 import remove.tanks.game.level.engine.entity.component.spawn.BombersSpawnerComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.RandomSpawnComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.SpawnOnDestroyComponent;
+import remove.tanks.game.level.engine.entity.component.speed.ModifySpeedComponent;
 import remove.tanks.game.level.engine.entity.component.speed.SpeedComponent;
 import remove.tanks.game.level.engine.entity.component.state.StateComponent;
 import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponent;
@@ -164,6 +165,9 @@ public enum EntityFamily {
     ).get()),
     ActorDirectionControllerFamily(Family.all(
             PhysicsComponent.class, ActorDirectionControllerComponent.class
+    ).get()),
+    ModifySpeedFamily(Family.all(
+            PhysicsComponent.class, ModifySpeedComponent.class
     ).get());
 
     private final Family family;

@@ -38,5 +38,6 @@ public enum SystemType {
     ActorDirectionControlSystem,
     OperationVictorySystem,
     OperationDefeatSystem,
-    MusicOnStartSystem
+    MusicOnStartSystem,
+    ModifySpeedSystem
 }

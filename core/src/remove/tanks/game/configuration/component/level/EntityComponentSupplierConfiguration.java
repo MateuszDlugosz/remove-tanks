@@ -61,10 +61,7 @@ import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComp
 import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.shoot.*;
 import remove.tanks.game.level.engine.entity.component.spawn.*;
-import remove.tanks.game.level.engine.entity.component.speed.SpeedComponentFactory;
-import remove.tanks.game.level.engine.entity.component.speed.SpeedComponentPrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.component.speed.SpeedModifierComponentFactory;
-import remove.tanks.game.level.engine.entity.component.speed.SpeedModifierComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.speed.*;
 import remove.tanks.game.level.engine.entity.component.state.StateComponentFactory;
 import remove.tanks.game.level.engine.entity.component.state.StateComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponentFactory;
@@ -160,7 +157,8 @@ public final class EntityComponentSupplierConfiguration {
                             new ActorDirectionControllerComponentFactory(),
                             new HighlightComponentFactory(),
                             new HighlightOnHitComponentFactory(),
-                            new SpeedModifierComponentFactory()
+                            new SpeedModifierComponentFactory(),
+                            new ModifySpeedComponentFactory()
                     }
             );
         }
@@ -236,7 +234,8 @@ public final class EntityComponentSupplierConfiguration {
                             new ActorDirectionControllerComponentPrototypeXmlLoader(),
                             new HighlightComponentPrototypeXmlLoader(),
                             new HighlightOnHitComponentPrototypeXmlLoader(),
-                            new SpeedModifierComponentPrototypeXmlLoader()
+                            new SpeedModifierComponentPrototypeXmlLoader(),
+                            new ModifySpeedComponentPrototypeXmlLoader()
                     }
             );
         }
