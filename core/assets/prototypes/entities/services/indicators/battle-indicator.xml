@@ -36,7 +36,7 @@
         </component>
         <component type="GraphicsComponent">
             <views>
-                <view type="AnimationView" id="StandingDown">
+                <view type="AnimationView" id="StandingNone">
                     <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
                         <frame regionName="battle-indicator-0" />
                         <frame regionName="battle-indicator-1" />
@@ -50,7 +50,7 @@
             <state>Standing</state>
         </component>
         <component type="DirectionComponent">
-            <direction>Down</direction>
+            <direction>None</direction>
         </component>
         <component type="BonusLayerComponent"></component>
         <component type="DestroyOnContactComponent"></component>

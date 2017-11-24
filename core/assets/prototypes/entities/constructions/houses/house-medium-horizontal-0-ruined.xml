@@ -22,7 +22,7 @@
         </component>
         <component type="GraphicsComponent">
             <views>
-                <view type="SpriteView" id="StandingDown">
+                <view type="SpriteView" id="StandingNone">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
                         <regionName>house-medium-horizontal-0-ruined</regionName>
@@ -34,7 +34,7 @@
             <state>Standing</state>
         </component>
         <component type="DirectionComponent">
-            <direction>Down</direction>
+            <direction>None</direction>
         </component>
         <component type="HealthComponent">
             <health>3</health>

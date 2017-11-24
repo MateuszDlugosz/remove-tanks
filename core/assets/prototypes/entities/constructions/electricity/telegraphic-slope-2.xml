@@ -26,7 +26,7 @@
         </component>
         <component type="GraphicsComponent">
             <views>
-                <view type="SpriteView" id="StandingDown">
+                <view type="SpriteView" id="StandingNone">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
                         <regionName>telegraphic-slope-2</regionName>
@@ -42,7 +42,7 @@
             <state>Standing</state>
         </component>
         <component type="DirectionComponent">
-            <direction>Down</direction>
+            <direction>None</direction>
         </component>
         <component type="HealthComponent">
             <health>2</health>

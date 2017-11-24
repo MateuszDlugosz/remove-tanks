@@ -35,7 +35,7 @@
         </component>
         <component type="GraphicsComponent">
             <views>
-                <view type="AnimationView" id="StandingDown">
+                <view type="AnimationView" id="StandingNone">
                     <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="NORMAL" frameDuration="0.1f">
                         <frame regionName="explosion-medium-0" />
                         <frame regionName="explosion-medium-1" />
@@ -49,7 +49,7 @@
             <state>Standing</state>
         </component>
         <component type="DirectionComponent">
-            <direction>Down</direction>
+            <direction>None</direction>
         </component>
         <component type="LifetimeComponent">
             <lifetime>0.4</lifetime>
