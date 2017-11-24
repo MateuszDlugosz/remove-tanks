@@ -7,6 +7,7 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.component.direction.DirectionComponent;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 import remove.tanks.game.level.engine.entity.component.speed.SpeedComponent;
+import remove.tanks.game.level.engine.entity.component.speed.SpeedModifierComponent;
 import remove.tanks.game.level.engine.entity.component.state.StateComponent;
 import remove.tanks.game.level.engine.utility.direction.Direction;
 import remove.tanks.game.level.engine.utility.state.State;
@@ -31,25 +32,34 @@ public final class AutoMoveSystem extends IteratingSystem {
             Optional<Sensor> sensor = pc.getSensor(dc.getDirection().toString());
             pc.getBody().setLinearVelocity(
                     sensor
-                            .map(s -> calculateVelocityWithSensor(sc.getSpeed(), dc.getDirection(), s))
-                            .orElseGet(() -> calculateVelocity(sc.getSpeed(), dc.getDirection()))
+                            .map(s -> calculateVelocityWithSensor(sc.getSpeed(), dc.getDirection(), s, getSpeedModifier(entity)))
+                            .orElseGet(() -> calculateVelocity(sc.getSpeed(), dc.getDirection(), getSpeedModifier(entity)))
             );
         } else {
             pc.getBody().setLinearVelocity(Vector2.Zero);
         }
+        entity.remove(SpeedModifierComponent.class);
     }
 
-    private Vector2 calculateVelocityWithSensor(float speed, Direction direction, Sensor sensor) {
-        return (sensor.isContacted()) ? Vector2.Zero : calculateVelocity(speed, direction);
+    private float getSpeedModifier(Entity entity) {
+        float modifier = 1;
+        if (entity.getComponent(SpeedModifierComponent.class) != null) {
+            modifier = entity.getComponent(SpeedModifierComponent.class).getValue();
+        }
+        return modifier;
+    }
+
+    private Vector2 calculateVelocityWithSensor(float speed, Direction direction, Sensor sensor, float modifier) {
+        return (sensor.isContacted()) ? Vector2.Zero : calculateVelocity(speed, direction, modifier);
 
     }
 
-    private Vector2 calculateVelocity(float speed, Direction direction) {
+    private Vector2 calculateVelocity(float speed, Direction direction, float modifier) {
         switch (direction) {
-            case Left: return new Vector2(-speed, 0);
-            case Right: return new Vector2(speed, 0);
-            case Up: return new Vector2(0, speed);
-            case Down: return new Vector2(0, -speed);
+            case Left: return new Vector2(-speed * modifier, 0);
+            case Right: return new Vector2(speed * modifier, 0);
+            case Up: return new Vector2(0, speed * modifier);
+            case Down: return new Vector2(0, -speed * modifier);
             default: return Vector2.Zero;
         }
     }

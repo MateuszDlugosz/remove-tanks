@@ -63,6 +63,8 @@ import remove.tanks.game.level.engine.entity.component.shoot.*;
 import remove.tanks.game.level.engine.entity.component.spawn.*;
 import remove.tanks.game.level.engine.entity.component.speed.SpeedComponentFactory;
 import remove.tanks.game.level.engine.entity.component.speed.SpeedComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.speed.SpeedModifierComponentFactory;
+import remove.tanks.game.level.engine.entity.component.speed.SpeedModifierComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.state.StateComponentFactory;
 import remove.tanks.game.level.engine.entity.component.state.StateComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponentFactory;
@@ -157,7 +159,8 @@ public final class EntityComponentSupplierConfiguration {
                             new ActorComponentFactory(),
                             new ActorDirectionControllerComponentFactory(),
                             new HighlightComponentFactory(),
-                            new HighlightOnHitComponentFactory()
+                            new HighlightOnHitComponentFactory(),
+                            new SpeedModifierComponentFactory()
                     }
             );
         }
@@ -232,7 +235,8 @@ public final class EntityComponentSupplierConfiguration {
                             new ActorComponentPrototypeXmlLoader(),
                             new ActorDirectionControllerComponentPrototypeXmlLoader(),
                             new HighlightComponentPrototypeXmlLoader(),
-                            new HighlightOnHitComponentPrototypeXmlLoader()
+                            new HighlightOnHitComponentPrototypeXmlLoader(),
+                            new SpeedModifierComponentPrototypeXmlLoader()
                     }
             );
         }
