@@ -45,8 +45,6 @@ public enum ComponentType {
     AutoSpawnerComponent,
     TriggerComponent,
     PlayerRespawnComponent,
-    ActorComponent,
-    ActorDirectionControllerComponent,
     HighlightComponent,
     HighlightOnHitComponent,
     ChangeBehaviorComponent
