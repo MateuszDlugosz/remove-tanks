@@ -2,7 +2,10 @@ package remove.tanks.game.level.engine.entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototype;
 import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoader;
+
+import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz
@@ -26,7 +29,7 @@ public final class EntityPrototypeXmlLoader {
                     filename,
                     componentPrototypeXmlLoader.loadComponentsPrototypes(
                             element.getChildByName(ComponentPrototypeXmlLoader.COMPONENTS_ELEMENT)
-                    )
+                    ).stream().collect(Collectors.toMap(ComponentPrototype::getClass, c -> c))
             );
         } catch (Exception e) {
             throw new EntityPrototypeXmlLoadException(filename, e);

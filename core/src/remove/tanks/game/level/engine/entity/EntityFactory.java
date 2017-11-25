@@ -17,7 +17,7 @@ public final class EntityFactory {
     public Entity createEntity(EntityPrototype prototype, Level level) {
         try {
             Entity entity = new Entity();
-            prototype.getComponentsPrototypes()
+            prototype.getComponentPrototypes().values()
                     .forEach(c -> entity.add(componentFactory.createComponent(c, level, entity)));
             return entity;
         } catch (Exception e) {
