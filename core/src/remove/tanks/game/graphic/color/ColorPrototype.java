@@ -6,4 +6,5 @@ import java.io.Serializable;
  * @author Mateusz Długosz
  */
 public interface ColorPrototype extends Serializable {
+    String toString();
 }

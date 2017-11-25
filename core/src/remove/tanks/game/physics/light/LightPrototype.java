@@ -10,4 +10,5 @@ import java.io.Serializable;
 public interface LightPrototype extends Serializable {
     ColorPrototype getColorPrototype();
     boolean getXRay();
+    String toString();
 }

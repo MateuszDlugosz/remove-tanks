@@ -9,4 +9,5 @@ import java.io.Serializable;
  */
 public interface ShapePrototype extends Serializable {
     PositionPrototype getPositionPrototype();
+    String toString();
 }

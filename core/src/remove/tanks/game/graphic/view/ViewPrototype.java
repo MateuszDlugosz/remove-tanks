@@ -10,4 +10,5 @@ import java.io.Serializable;
 public interface ViewPrototype extends Serializable {
     String getId();
     PositionPrototype getPositionPrototype();
+    String toString();
 }

@@ -8,4 +8,5 @@ import java.io.Serializable;
 public interface SpritePrototype extends Serializable {
     boolean getFlipX();
     boolean getFlipY();
+    String toString();
 }
