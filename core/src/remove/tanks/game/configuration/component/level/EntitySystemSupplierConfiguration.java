@@ -12,8 +12,6 @@ import remove.tanks.game.level.engine.system.EntitySystemFactory;
 import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.actor.ActorDirectionControlSystemFactory;
-import remove.tanks.game.level.engine.system.actor.ActorDirectionControlSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemFactory;
 import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemFactory;
@@ -150,7 +148,6 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerFactory", SpawnerFactory.class)
                             ),
                             new PlayerRespawnSystemFactory(),
-                            new ActorDirectionControlSystemFactory(),
                             new ChainSpawnerActivateSystemFactory(
                                     getContext().getComponent("SpawnerActivatorFactory", SpawnerActivatorFactory.class)
                             ),
@@ -221,7 +218,6 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerPrototypeXmlLoader", SpawnerPrototypeXmlLoader.class)
                             ),
                             new PlayerRespawnSystemPrototypeXmlLoader(),
-                            new ActorDirectionControlSystemPrototypeXmlLoader(),
                             new ChainSpawnerActivateSystemPrototypeXmlLoader(
                                     getContext().getComponent("SpawnerActivatorPrototypeXmlLoader", SpawnerActivatorPrototypeXmlLoader.class)
                             ),

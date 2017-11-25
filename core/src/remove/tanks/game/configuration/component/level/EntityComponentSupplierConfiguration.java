@@ -10,10 +10,6 @@ import remove.tanks.game.level.engine.entity.component.ComponentFactory;
 import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.component.actor.ActorComponentFactory;
-import remove.tanks.game.level.engine.entity.component.actor.ActorComponentPrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.component.actor.ActorDirectionControllerComponentFactory;
-import remove.tanks.game.level.engine.entity.component.actor.ActorDirectionControllerComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyComponentFactory;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponentFactory;
@@ -158,8 +154,6 @@ public final class EntityComponentSupplierConfiguration {
                             new TriggerComponentFactory(),
                             new BombersSpawnerComponentFactory(),
                             new PlayerRespawnComponentFactory(),
-                            new ActorComponentFactory(),
-                            new ActorDirectionControllerComponentFactory(),
                             new HighlightComponentFactory(),
                             new HighlightOnHitComponentFactory(),
                             new SpeedModifierComponentFactory(),
@@ -243,8 +237,6 @@ public final class EntityComponentSupplierConfiguration {
                             new TriggerComponentPrototypeXmlLoader(),
                             new BombersSpawnerComponentPrototypeXmlLoader(),
                             new PlayerRespawnComponentPrototypeXmlLoader(),
-                            new ActorComponentPrototypeXmlLoader(),
-                            new ActorDirectionControllerComponentPrototypeXmlLoader(),
                             new HighlightComponentPrototypeXmlLoader(),
                             new HighlightOnHitComponentPrototypeXmlLoader(),
                             new SpeedModifierComponentPrototypeXmlLoader(),
