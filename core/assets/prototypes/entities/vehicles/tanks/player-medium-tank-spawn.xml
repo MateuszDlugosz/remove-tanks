@@ -52,7 +52,7 @@
             <direction>Down</direction>
         </component>
         <component type="LifetimeComponent">
-            <lifetime>0.8</lifetime>
+            <lifetime>0.7</lifetime>
         </component>
         <component type="VehicleLayerComponent"></component>
         <component type="SpawnOnDestroyComponent">

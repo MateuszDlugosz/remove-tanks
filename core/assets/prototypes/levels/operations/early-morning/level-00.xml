@@ -23,13 +23,11 @@
             <system priority="575" type="AutoShootSystem"></system>
             <system priority="600" type="AutoMoveSystem"></system>
             <system priority="700" type="HealthSystem"></system>
-            <system priority="800" type="LifetimeSystem"></system>
             <system priority="850" type="DamageSystem">
                 <hitHighlightTime>0.1</hitHighlightTime>
             </system>
             <system priority="899" type="ChangeBehaviorSystem"></system>
             <system priority="900" type="TiledMapRenderSystem"></system>
-            <system priority="1000" type="ViewUpdateSystem"></system>
             <system priority="1050" type="GroundLayerRenderSystem">
                 <highlight>
                     <effect type="ShaderEffect">
@@ -120,6 +118,8 @@
                     </effect>
                 </highlight>
             </system>
+            <system priority="1500" type="ViewUpdateSystem"></system>
+            <system priority="1510" type="LifetimeSystem"></system>
             <system priority="1560" type="DestroyOnContactSystem"></system>
             <system priority="1600" type="DestroySystem"></system>
             <system priority="2000" type="WorldDebugRenderSystem"></system>
