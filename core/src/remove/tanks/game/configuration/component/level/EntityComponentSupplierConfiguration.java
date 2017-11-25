@@ -42,6 +42,8 @@ import remove.tanks.game.level.engine.entity.component.graphic.GraphicsComponent
 import remove.tanks.game.level.engine.entity.component.graphic.GraphicsComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.health.HealthComponentFactory;
 import remove.tanks.game.level.engine.entity.component.health.HealthComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.id.IdentityComponentFactory;
+import remove.tanks.game.level.engine.entity.component.id.IdentityComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.layer.*;
 import remove.tanks.game.level.engine.entity.component.layer.highlight.HighlightComponentFactory;
 import remove.tanks.game.level.engine.entity.component.layer.highlight.HighlightComponentPrototypeXmlLoader;
@@ -165,7 +167,8 @@ public final class EntityComponentSupplierConfiguration {
                                                     new DirectionComponentFactory()
                                             }
                                     )
-                            )
+                            ),
+                            new IdentityComponentFactory()
                     }
             );
         }
@@ -250,7 +253,8 @@ public final class EntityComponentSupplierConfiguration {
                                                     )
                                             }
                                     )
-                            )
+                            ),
+                            new IdentityComponentPrototypeXmlLoader()
                     }
             );
         }

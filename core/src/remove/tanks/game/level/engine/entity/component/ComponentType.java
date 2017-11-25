@@ -47,5 +47,6 @@ public enum ComponentType {
     PlayerRespawnComponent,
     HighlightComponent,
     HighlightOnHitComponent,
-    ChangeBehaviorComponent
+    ChangeBehaviorComponent,
+    IdentityComponent
 }
