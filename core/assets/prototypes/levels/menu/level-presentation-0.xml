@@ -105,7 +105,6 @@
                     </effect>
                 </highlight>
             </system>
-            <system priority="3300" type="ActorDirectionControlSystem"></system>
             <system priority="3100" type="AutoSpawnerSystem">
                 <spawners>
                     <spawner letter="Alpha">

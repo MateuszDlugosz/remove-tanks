@@ -1,7 +1,6 @@
 package remove.tanks.game.level.engine.entity;
 
 import com.badlogic.ashley.core.Family;
-import remove.tanks.game.level.engine.entity.component.actor.ActorDirectionControllerComponent;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyComponent;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponent;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponent;
@@ -125,7 +124,7 @@ public enum EntityFamily {
             PhysicsComponent.class, GraphicsComponent.class,
             StateComponent.class, DirectionComponent.class
     ).get()),
-    DamagableFamily(Family.all(
+    DamageableFamily(Family.all(
             PhysicsComponent.class, DamageComponent.class
     ).get()),
     SoundableFamily(Family.all(
@@ -162,9 +161,6 @@ public enum EntityFamily {
     ).get()),
     PlayerRespawnFamily(Family.all(
             PhysicsComponent.class, PlayerRespawnComponent.class
-    ).get()),
-    ActorDirectionControllerFamily(Family.all(
-            PhysicsComponent.class, ActorDirectionControllerComponent.class
     ).get()),
     ChangeBehaviorFamily(Family.all(
             PhysicsComponent.class, ChangeBehaviorComponent.class

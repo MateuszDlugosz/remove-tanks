@@ -36,6 +36,5 @@
         <component type="StateComponent">
             <state>Moving</state>
         </component>
-        <component type="ActorComponent"></component>
     </components>
 </prototype>

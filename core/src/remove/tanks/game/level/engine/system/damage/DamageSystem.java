@@ -18,7 +18,7 @@ public final class DamageSystem extends IteratingSystem {
     private final float hitHighlightTime;
 
     public DamageSystem(int priority, float hitHighlightTime) {
-        super(EntityFamily.DamagableFamily.getFamily(), priority);
+        super(EntityFamily.DamageableFamily.getFamily(), priority);
         this.hitHighlightTime = hitHighlightTime;
     }
 
