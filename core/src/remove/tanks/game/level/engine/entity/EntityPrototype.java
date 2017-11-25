@@ -4,7 +4,6 @@ import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.entity.component.ComponentPrototype;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 
 /**

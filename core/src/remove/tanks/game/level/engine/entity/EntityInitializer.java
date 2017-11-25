@@ -49,13 +49,14 @@ public final class EntityInitializer {
     private void initializeEntitiesFromMapLayer(Level level, MapLayer layer, Scale scale) {
         StreamSupport.stream(layer.getObjects().spliterator(), false).forEach(mapObject ->
                 entitySpawner.spawnEntity(
-                initializeEntity(
-                        mapObject,
-                        level.getResourceRegistry().getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class),
+                        initializeEntity(
+                                mapObject,
+                                level.getResourceRegistry().getResource(LevelResource.EntityPrototypeRepository.toString(),
+                                        EntityPrototypeRepository.class),
+                                level
+                        ),
+                        positionFactory.createPosition(positionPrototypeMapObjectLoader.loadPositionPrototype(mapObject), scale),
                         level
-                ),
-                positionFactory.createPosition(positionPrototypeMapObjectLoader.loadPositionPrototype(mapObject), scale),
-                level
         ));
     }
 

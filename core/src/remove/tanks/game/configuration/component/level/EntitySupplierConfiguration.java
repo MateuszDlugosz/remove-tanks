@@ -78,8 +78,8 @@ public final class EntitySupplierConfiguration {
                     getContext().getComponent("PositionPrototypeMapObjectLoader", PositionPrototypeMapObjectLoader.class),
                     getContext().getComponent("EntitySpawner", EntitySpawner.class),
                     getContext().getComponent("EntityFactory", EntityFactory.class),
-                    getContext().getComponent("PositionFactory", PositionFactory.class)
-            );
+                    getContext().getComponent("PositionFactory", PositionFactory.class),
+                    componentPrototypeXmlLoader, componentFactory);
         }
     }
 }

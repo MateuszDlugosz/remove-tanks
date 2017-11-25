@@ -1579,6 +1579,11 @@
   <object id="1402" x="288" y="224" width="16" height="16">
    <properties>
     <property name="prototype.code" value="Mud0"/>
+    <property name="prototype.components">&lt;components&gt;
+	&lt;component type=&quot;DirectionComponent&quot;&gt;
+		&lt;direction&gt;Left&lt;/direction&gt;
+	&lt;/component&gt;
+&lt;/components&gt;</property>
    </properties>
   </object>
  </objectgroup>
