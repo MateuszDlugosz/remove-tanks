@@ -18,8 +18,7 @@ public enum CategoryBit {
     NeutralBulletCategory((short) 128),
     ObstacleCategory((short) 256),
     AllVehicleBlockadeCategory((short) 512),
-    ActorCategory((short) 1024),
-    ActorControllerCategory((short) 2048);
+    ActorCategory((short) 1024);
 
     private final short bit;
 

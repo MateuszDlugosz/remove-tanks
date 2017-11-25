@@ -39,5 +39,5 @@ public enum SystemType {
     OperationVictorySystem,
     OperationDefeatSystem,
     MusicOnStartSystem,
-    ModifySpeedSystem
+    ChangeBehaviorSystem
 }

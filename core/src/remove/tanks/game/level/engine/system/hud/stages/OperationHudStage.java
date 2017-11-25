@@ -6,10 +6,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Disposable;
-import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.locale.Locale;
+import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.utility.properties.Properties;
 
 /**

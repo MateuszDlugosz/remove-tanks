@@ -18,6 +18,8 @@ import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyCompo
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponentFactory;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponentFactory;
+import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusComponentFactory;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponentFactory;
@@ -61,7 +63,10 @@ import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComp
 import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.shoot.*;
 import remove.tanks.game.level.engine.entity.component.spawn.*;
-import remove.tanks.game.level.engine.entity.component.speed.*;
+import remove.tanks.game.level.engine.entity.component.speed.SpeedComponentFactory;
+import remove.tanks.game.level.engine.entity.component.speed.SpeedComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.speed.SpeedModifierComponentFactory;
+import remove.tanks.game.level.engine.entity.component.speed.SpeedModifierComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.state.StateComponentFactory;
 import remove.tanks.game.level.engine.entity.component.state.StateComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponentFactory;
@@ -158,7 +163,15 @@ public final class EntityComponentSupplierConfiguration {
                             new HighlightComponentFactory(),
                             new HighlightOnHitComponentFactory(),
                             new SpeedModifierComponentFactory(),
-                            new ModifySpeedComponentFactory()
+                            new ChangeBehaviorComponentFactory(
+                                    new ComponentFactory(
+                                            new RegistrableComponentFactory[] {
+                                                    new SpeedComponentFactory(),
+                                                    new SpeedModifierComponentFactory(),
+                                                    new DirectionComponentFactory()
+                                            }
+                                    )
+                            )
                     }
             );
         }
@@ -235,7 +248,17 @@ public final class EntityComponentSupplierConfiguration {
                             new HighlightComponentPrototypeXmlLoader(),
                             new HighlightOnHitComponentPrototypeXmlLoader(),
                             new SpeedModifierComponentPrototypeXmlLoader(),
-                            new ModifySpeedComponentPrototypeXmlLoader()
+                            new ChangeBehaviorComponentPrototypeXmlLoader(
+                                    new ComponentPrototypeXmlLoader(
+                                            new RegistrableComponentPrototypeXmlLoader[] {
+                                                    new SpeedComponentPrototypeXmlLoader(),
+                                                    new SpeedModifierComponentPrototypeXmlLoader(),
+                                                    new DirectionComponentPrototypeXmlLoader(
+                                                            getContext().getComponent("DirectionXmlLoader", DirectionXmlLoader.class)
+                                                    )
+                                            }
+                                    )
+                            )
                     }
             );
         }

@@ -14,6 +14,7 @@
             <system priority="600" type="AutoMoveSystem"></system>
             <system priority="900" type="TiledMapRenderSystem"></system>
             <system priority="1000" type="ViewUpdateSystem"></system>
+            <system priority="899" type="ChangeBehaviorSystem"></system>
             <system priority="1050" type="GroundLayerRenderSystem">
                 <highlight>
                     <effect type="ShaderEffect">

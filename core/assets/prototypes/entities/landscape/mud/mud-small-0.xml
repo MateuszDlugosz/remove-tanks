@@ -6,7 +6,7 @@
                 <type>StaticBody</type>
             </body>
             <sensors>
-                <sensor id="HitDetector">
+                <sensor id="Detector">
                     <fixture>
                         <shape type="RectangleShape">
                             <width>16</width>
@@ -14,8 +14,8 @@
                         </shape>
                         <isSensor>true</isSensor>
                         <filter>
-                            <categoryBit>ActorCategory</categoryBit>
-                            <maskBit>ActorMask</maskBit>
+                            <categoryBit>AllVehicleBlockadeCategory</categoryBit>
+                            <maskBit>AllVehicleBlockadeMask</maskBit>
                         </filter>
                     </fixture>
                 </sensor>
@@ -23,8 +23,8 @@
         </component>
         <component type="ChangeBehaviorComponent">
             <components>
-                <component type="DirectionComponent">
-                    <direction>Up</direction>
+                <component type="SpeedModifierComponent">
+                    <value>0.5</value>
                 </component>
             </components>
         </component>

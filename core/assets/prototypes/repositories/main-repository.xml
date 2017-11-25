@@ -251,5 +251,7 @@
         <prototype code="PlayerMediumTankActor">prototypes/entities/services/actors/vehicles/tanks/player-medium-tank-actor.xml</prototype>
         <prototype code="EnemyLightTrainHorizontalDownActor">prototypes/entities/services/actors/vehicles/trains/enemy-light-train-horizontal-down-actor.xml</prototype>
         <prototype code="CameraActor">prototypes/entities/services/actors/cameras/camera-actor.xml</prototype>
+
+        <prototype code="Mud0">prototypes/entities/landscape/mud/mud-small-0.xml</prototype>
     </prototypes>
 </repository>

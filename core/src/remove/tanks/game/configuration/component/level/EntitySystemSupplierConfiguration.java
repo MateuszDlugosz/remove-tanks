@@ -16,6 +16,8 @@ import remove.tanks.game.level.engine.system.actor.ActorDirectionControlSystemFa
 import remove.tanks.game.level.engine.system.actor.ActorDirectionControlSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemFactory;
 import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemFactory;
+import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.camera.CameraTrackingSystemFactory;
 import remove.tanks.game.level.engine.system.camera.CameraTrackingSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.camera.CameraUpdateSystemFactory;
@@ -43,15 +45,13 @@ import remove.tanks.game.level.engine.system.map.TiledMapRenderSystemFactory;
 import remove.tanks.game.level.engine.system.map.TiledMapRenderSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.move.AutoMoveSystemFactory;
 import remove.tanks.game.level.engine.system.move.AutoMoveSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystemFactory;
+import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.shoot.AutoShootSystemFactory;
 import remove.tanks.game.level.engine.system.shoot.AutoShootSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.shoot.RandomShootSystemFactory;
 import remove.tanks.game.level.engine.system.shoot.RandomShootSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.spawn.*;
-import remove.tanks.game.level.engine.system.speed.ModifySpeedSystemFactory;
-import remove.tanks.game.level.engine.system.speed.ModifySpeedSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.victory.OperationVictorySystemFactory;
 import remove.tanks.game.level.engine.system.victory.OperationVictorySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
@@ -159,7 +159,7 @@ public final class EntitySystemSupplierConfiguration {
                             new MusicOnStartSystemFactory(
                                     getContext().getComponent("MusicFactory", MusicFactory.class)
                             ),
-                            new ModifySpeedSystemFactory()
+                            new ChangeBehaviorSystemFactory()
                     }
             );
         }
@@ -230,7 +230,7 @@ public final class EntitySystemSupplierConfiguration {
                             new MusicOnStartSystemPrototypeXmlLoader(
                                     getContext().getComponent("MusicPrototypeXmlLoader", MusicPrototypeXmlLoader.class)
                             ),
-                            new ModifySpeedSystemPrototypeXmlLoader()
+                            new ChangeBehaviorSystemPrototypeXmlLoader()
                     }
             );
         }

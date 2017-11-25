@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Family;
 import remove.tanks.game.level.engine.entity.component.actor.ActorDirectionControllerComponent;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyComponent;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponent;
+import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponent;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusComponent;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponent;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackingComponent;
@@ -29,7 +30,6 @@ import remove.tanks.game.level.engine.entity.component.spawn.AutoSpawnerComponen
 import remove.tanks.game.level.engine.entity.component.spawn.BombersSpawnerComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.RandomSpawnComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.SpawnOnDestroyComponent;
-import remove.tanks.game.level.engine.entity.component.speed.ModifySpeedComponent;
 import remove.tanks.game.level.engine.entity.component.speed.SpeedComponent;
 import remove.tanks.game.level.engine.entity.component.state.StateComponent;
 import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponent;
@@ -166,8 +166,8 @@ public enum EntityFamily {
     ActorDirectionControllerFamily(Family.all(
             PhysicsComponent.class, ActorDirectionControllerComponent.class
     ).get()),
-    ModifySpeedFamily(Family.all(
-            PhysicsComponent.class, ModifySpeedComponent.class
+    ChangeBehaviorFamily(Family.all(
+            PhysicsComponent.class, ChangeBehaviorComponent.class
     ).get());
 
     private final Family family;

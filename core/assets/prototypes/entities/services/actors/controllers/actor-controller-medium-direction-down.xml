@@ -14,15 +14,19 @@
                         </shape>
                         <isSensor>true</isSensor>
                         <filter>
-                            <categoryBit>ActorControllerCategory</categoryBit>
-                            <maskBit>ActorControllerMask</maskBit>
+                            <categoryBit>ActorCategory</categoryBit>
+                            <maskBit>ActorMask</maskBit>
                         </filter>
                     </fixture>
                 </sensor>
             </sensors>
         </component>
-        <component type="ActorDirectionControllerComponent">
-            <newDirection>Down</newDirection>
+        <component type="ChangeBehaviorComponent">
+            <components>
+                <component type="DirectionComponent">
+                    <direction>Down</direction>
+                </component>
+            </components>
         </component>
     </components>
 </prototype>

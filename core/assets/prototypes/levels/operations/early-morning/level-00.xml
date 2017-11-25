@@ -27,6 +27,7 @@
             <system priority="850" type="DamageSystem">
                 <hitHighlightTime>0.1</hitHighlightTime>
             </system>
+            <system priority="899" type="ChangeBehaviorSystem"></system>
             <system priority="900" type="TiledMapRenderSystem"></system>
             <system priority="1000" type="ViewUpdateSystem"></system>
             <system priority="1050" type="GroundLayerRenderSystem">
@@ -121,6 +122,7 @@
             </system>
             <system priority="1560" type="DestroyOnContactSystem"></system>
             <system priority="1600" type="DestroySystem"></system>
+            <system priority="2000" type="WorldDebugRenderSystem"></system>
             <system priority="3000" type="OperationHudRenderSystem"></system>
             <system priority="3100" type="AutoSpawnerSystem">
                 <spawners>

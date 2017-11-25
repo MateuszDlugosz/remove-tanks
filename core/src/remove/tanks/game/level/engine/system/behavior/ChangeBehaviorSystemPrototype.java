@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.speed;
+package remove.tanks.game.level.engine.system.behavior;
 
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.system.EntitySystemPrototype;
@@ -6,8 +6,8 @@ import remove.tanks.game.level.engine.system.EntitySystemPrototype;
 /**
  * @author Mateusz Długosz
  */
-public final class ModifySpeedSystemPrototype extends EntitySystemPrototype {
-    public ModifySpeedSystemPrototype(int priority) {
+public final class ChangeBehaviorSystemPrototype extends EntitySystemPrototype {
+    public ChangeBehaviorSystemPrototype(int priority) {
         super(priority);
     }
 

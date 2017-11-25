@@ -48,5 +48,6 @@ public enum ComponentType {
     ActorComponent,
     ActorDirectionControllerComponent,
     HighlightComponent,
-    HighlightOnHitComponent
+    HighlightOnHitComponent,
+    ChangeBehaviorComponent
 }

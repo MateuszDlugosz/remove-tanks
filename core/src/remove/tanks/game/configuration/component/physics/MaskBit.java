@@ -57,12 +57,7 @@ public enum MaskBit {
             CategoryBit.EnemyVehicleCategory.getBit() |
                     CategoryBit.PlayerVehicleCategory.getBit()
     )),
-    ActorMask((short) (
-            CategoryBit.ActorControllerCategory.getBit()
-    )),
-    ActorControllerMask((short) (
-            CategoryBit.ActorCategory.getBit()
-    ));
+    ActorMask(CategoryBit.ActorCategory.getBit());
 
     private final short bit;
 
