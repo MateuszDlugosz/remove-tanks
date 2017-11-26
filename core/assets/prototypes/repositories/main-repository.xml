@@ -252,6 +252,9 @@
         <prototype code="EnemyLightTrainHorizontalDownActor">prototypes/entities/services/actors/vehicles/trains/enemy-light-train-horizontal-down-actor.xml</prototype>
         <prototype code="CameraActor">prototypes/entities/services/actors/cameras/camera-actor.xml</prototype>
 
-        <prototype code="Mud0">prototypes/entities/landscape/mud/mud-small-0.xml</prototype>
+        <prototype code="MudSmall0">prototypes/entities/landscape/mud/mud-small-0.xml</prototype>
+        <prototype code="MudSmall1">prototypes/entities/landscape/mud/mud-small-1.xml</prototype>
+        <prototype code="MudSmall2">prototypes/entities/landscape/mud/mud-small-2.xml</prototype>
+        <prototype code="MudSmall3">prototypes/entities/landscape/mud/mud-small-3.xml</prototype>
     </prototypes>
 </repository>
