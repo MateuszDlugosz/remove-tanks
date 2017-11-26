@@ -256,5 +256,8 @@
         <prototype code="MudSmall1">prototypes/entities/landscape/mud/mud-small-1.xml</prototype>
         <prototype code="MudSmall2">prototypes/entities/landscape/mud/mud-small-2.xml</prototype>
         <prototype code="MudSmall3">prototypes/entities/landscape/mud/mud-small-3.xml</prototype>
+
+        <prototype code="LandingBargeSmallAnchored0Up">prototypes/entities/vehicles/barges/landing-barge-small-anchored-0-up.xml</prototype>
+        <prototype code="LandingBargeLargeAnchored0Up">prototypes/entities/vehicles/barges/landing-barge-large-anchored-0-up.xml</prototype>
     </prototypes>
 </repository>

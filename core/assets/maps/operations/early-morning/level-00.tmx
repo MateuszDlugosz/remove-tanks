@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1413">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1414">
  <tileset firstgid="1" source="../../../tilesets/sepia-tileset.tsx"/>
  <layer name="ground_layer" width="70" height="50">
   <data encoding="csv">
@@ -91,9 +91,9 @@
     <property name="prototype.code" value="MudSmall3"/>
    </properties>
   </object>
-  <object id="1410" name="player_respawn" x="288" y="168" width="16" height="16">
+  <object id="1410" name="player_respawn" x="240" y="224" width="16" height="16">
    <properties>
-    <property name="prototype.code" value="MudSmall2"/>
+    <property name="prototype.code" value="LandingBargeSmallAnchored0Up"/>
    </properties>
   </object>
   <object id="1411" name="player_respawn" x="288" y="152" width="16" height="16">
@@ -104,6 +104,11 @@
   <object id="1412" name="player_respawn" x="304" y="152" width="16" height="16">
    <properties>
     <property name="prototype.code" value="MudSmall1"/>
+   </properties>
+  </object>
+  <object id="1413" name="player_respawn" x="360" y="224" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="LandingBargeLargeAnchored0Up"/>
    </properties>
   </object>
  </objectgroup>
