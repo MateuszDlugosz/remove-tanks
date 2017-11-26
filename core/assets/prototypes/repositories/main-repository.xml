@@ -259,5 +259,7 @@
 
         <prototype code="LandingBargeSmallAnchored0Up">prototypes/entities/vehicles/barges/landing-barge-small-anchored-0-up.xml</prototype>
         <prototype code="LandingBargeLargeAnchored0Up">prototypes/entities/vehicles/barges/landing-barge-large-anchored-0-up.xml</prototype>
+
+        <prototype code="MovingDamageableBlockSmall0">prototypes/entities/constructions/obstacles/moving-damageable-block-small-0.xml</prototype>
     </prototypes>
 </repository>
