@@ -9,7 +9,7 @@
                 <hitBox id="HitBox">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>32</width>
+                            <width>48</width>
                             <height>32</height>
                         </shape>
                         <filter>
@@ -38,7 +38,7 @@
                 <view type="SpriteView" id="StandingDown">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>enemy-bunker-0-heavy-damaged</regionName>
+                        <regionName>enemy-bunker-1-down-intacted</regionName>
                     </sprite>
                 </view>
             </views>
@@ -51,31 +51,45 @@
         </component>
         <component type="GroundLayerComponent"></component>
         <component type="HealthComponent">
-            <health>5</health>
-            <maxHealth>5</maxHealth>
+            <health>10</health>
+            <maxHealth>10</maxHealth>
         </component>
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>
                     <prototypeCode>ExplosionLarge</prototypeCode>
                 </spawnEntry>
+                <spawnEntry>
+                    <prototypeCode>EnemyBunker1DownDamaged</prototypeCode>
+                </spawnEntry>
             </spawnEntries>
         </component>
         <component type="RandomSpawnComponent">
-            <minSpawnFrequency>2</minSpawnFrequency>
-            <maxSpawnFrequency>2</maxSpawnFrequency>
+            <minSpawnFrequency>0.3</minSpawnFrequency>
+            <maxSpawnFrequency>0.4</maxSpawnFrequency>
             <spawnEntries>
                 <spawnEntry>
-                    <prototypeCode>EnemyBulletMediumDown</prototypeCode>
+                    <prototypeCode>EnemyBulletSmallDown</prototypeCode>
                     <position>
                         <x>0</x>
                         <y>-12</y>
                     </position>
                 </spawnEntry>
+                <spawnEntry>
+                    <prototypeCode>EnemyBulletSmallDown</prototypeCode>
+                    <position>
+                        <x>-16</x>
+                        <y>-12</y>
+                    </position>
+                </spawnEntry>
+                <spawnEntry>
+                    <prototypeCode>EnemyBulletSmallDown</prototypeCode>
+                    <position>
+                        <x>16</x>
+                        <y>-12</y>
+                    </position>
+                </spawnEntry>
             </spawnEntries>
-        </component>
-        <component type="PointsComponent">
-            <points>30</points>
         </component>
         <component type="HighlightOnHitComponent"></component>
     </components>

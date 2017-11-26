@@ -9,8 +9,8 @@
                 <hitBox id="HitBox">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>48</width>
-                            <height>48</height>
+                            <width>32</width>
+                            <height>32</height>
                         </shape>
                         <filter>
                             <categoryBit>EnemyVehicleCategory</categoryBit>
@@ -27,7 +27,7 @@
                             <g>0</g>
                             <b>0</b>
                         </color>
-                        <distance>128</distance>
+                        <distance>64</distance>
                         <xRay>true</xRay>
                     </light>
                 </lightHandler>
@@ -38,7 +38,7 @@
                 <view type="SpriteView" id="StandingDown">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>enemy-bunker-4-damaged</regionName>
+                        <regionName>enemy-bunker-0-down-intacted</regionName>
                     </sprite>
                 </view>
             </views>
@@ -51,8 +51,8 @@
         </component>
         <component type="GroundLayerComponent"></component>
         <component type="HealthComponent">
-            <health>10</health>
-            <maxHealth>10</maxHealth>
+            <health>5</health>
+            <maxHealth>5</maxHealth>
         </component>
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
@@ -60,19 +60,19 @@
                     <prototypeCode>ExplosionLarge</prototypeCode>
                 </spawnEntry>
                 <spawnEntry>
-                    <prototypeCode>EnemyBunker4HeavyDamaged</prototypeCode>
+                    <prototypeCode>EnemyBunker0DownDamaged</prototypeCode>
                 </spawnEntry>
             </spawnEntries>
         </component>
         <component type="RandomSpawnComponent">
-            <minSpawnFrequency>5</minSpawnFrequency>
-            <maxSpawnFrequency>5</maxSpawnFrequency>
+            <minSpawnFrequency>1</minSpawnFrequency>
+            <maxSpawnFrequency>1</maxSpawnFrequency>
             <spawnEntries>
                 <spawnEntry>
-                    <prototypeCode>EnemyBulletLargeDown</prototypeCode>
+                    <prototypeCode>EnemyBulletMediumDown</prototypeCode>
                     <position>
                         <x>0</x>
-                        <y>-16</y>
+                        <y>-12</y>
                     </position>
                 </spawnEntry>
             </spawnEntries>

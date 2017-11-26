@@ -86,21 +86,21 @@
         <prototype code="Bomber0UpSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-up-spawner.xml</prototype>
         <prototype code="Bomber0LeftSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-left-spawner.xml</prototype>
 
-        <prototype code="EnemyBunker0Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-intacted.xml</prototype>
-        <prototype code="EnemyBunker1Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-intacted.xml</prototype>
-        <prototype code="EnemyBunker2Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-intacted.xml</prototype>
-        <prototype code="EnemyBunker3Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-intacted.xml</prototype>
-        <prototype code="EnemyBunker4Intacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-intacted.xml</prototype>
-        <prototype code="EnemyBunker0Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-damaged.xml</prototype>
-        <prototype code="EnemyBunker1Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-damaged.xml</prototype>
-        <prototype code="EnemyBunker2Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-damaged.xml</prototype>
-        <prototype code="EnemyBunker3Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-damaged.xml</prototype>
-        <prototype code="EnemyBunker4Damaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-damaged.xml</prototype>
-        <prototype code="EnemyBunker0HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-heavy-damaged.xml</prototype>
-        <prototype code="EnemyBunker1HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-heavy-damaged.xml</prototype>
-        <prototype code="EnemyBunker2HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-heavy-damaged.xml</prototype>
-        <prototype code="EnemyBunker3HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-heavy-damaged.xml</prototype>
-        <prototype code="EnemyBunker4HeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker0DownIntacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-down-intacted.xml</prototype>
+        <prototype code="EnemyBunker1DownIntacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-down-intacted.xml</prototype>
+        <prototype code="EnemyBunker2DownIntacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-down-intacted.xml</prototype>
+        <prototype code="EnemyBunker3DownIntacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-down-intacted.xml</prototype>
+        <prototype code="EnemyBunker4DownIntacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-down-intacted.xml</prototype>
+        <prototype code="EnemyBunker0DownDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-down-damaged.xml</prototype>
+        <prototype code="EnemyBunker1DownDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-down-damaged.xml</prototype>
+        <prototype code="EnemyBunker2DownDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-down-damaged.xml</prototype>
+        <prototype code="EnemyBunker3DownDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-down-damaged.xml</prototype>
+        <prototype code="EnemyBunker4DownDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-down-damaged.xml</prototype>
+        <prototype code="EnemyBunker0DownHeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-down-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker1DownHeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-down-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker2DownHeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-2-down-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker3DownHeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-3-down-heavy-damaged.xml</prototype>
+        <prototype code="EnemyBunker4DownHeavyDamaged">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-4-down-heavy-damaged.xml</prototype>
 
         <prototype code="AntiTankBarrier">prototypes/entities/constructions/fortifications/barriers/anti-tank-barrier.xml</prototype>
         <prototype code="DragonsTeeth">prototypes/entities/constructions/fortifications/barriers/dragons-teeth.xml</prototype>

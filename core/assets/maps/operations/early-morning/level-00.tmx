@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1404">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1409">
  <tileset firstgid="1" source="../../../tilesets/sepia-tileset.tsx"/>
  <layer name="ground_layer" width="70" height="50">
   <data encoding="csv">
@@ -1579,6 +1579,31 @@
   <object id="1402" x="288" y="224" width="16" height="16">
    <properties>
     <property name="prototype.code" value="Mud0"/>
+   </properties>
+  </object>
+  <object id="1404" x="184" y="288" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker0DownIntacted"/>
+   </properties>
+  </object>
+  <object id="1405" x="224" y="288" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker1DownIntacted"/>
+   </properties>
+  </object>
+  <object id="1406" x="312" y="288" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker2DownIntacted"/>
+   </properties>
+  </object>
+  <object id="1407" x="352" y="288" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker3DownIntacted"/>
+   </properties>
+  </object>
+  <object id="1408" x="272" y="344" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyBunker4DownIntacted"/>
    </properties>
   </object>
  </objectgroup>

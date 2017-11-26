@@ -38,7 +38,7 @@
                 <view type="SpriteView" id="StandingDown">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>enemy-bunker-2-heavy-damaged</regionName>
+                        <regionName>enemy-bunker-3-down-damaged</regionName>
                     </sprite>
                 </view>
             </views>
@@ -59,11 +59,14 @@
                 <spawnEntry>
                     <prototypeCode>ExplosionLarge</prototypeCode>
                 </spawnEntry>
+                <spawnEntry>
+                    <prototypeCode>EnemyBunker3DownHeavyDamaged</prototypeCode>
+                </spawnEntry>
             </spawnEntries>
         </component>
         <component type="RandomSpawnComponent">
-            <minSpawnFrequency>0.7</minSpawnFrequency>
-            <maxSpawnFrequency>0.8</maxSpawnFrequency>
+            <minSpawnFrequency>0.5</minSpawnFrequency>
+            <maxSpawnFrequency>0.6</maxSpawnFrequency>
             <spawnEntries>
                 <spawnEntry>
                     <prototypeCode>EnemyBulletSmallDown</prototypeCode>
@@ -87,9 +90,6 @@
                     </position>
                 </spawnEntry>
             </spawnEntries>
-        </component>
-        <component type="PointsComponent">
-            <points>50</points>
         </component>
         <component type="HighlightOnHitComponent"></component>
     </components>
