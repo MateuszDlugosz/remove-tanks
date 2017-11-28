@@ -18,8 +18,12 @@ public final class EventFactory {
     public Event createEvent(EventPrototype prototype) {
         String type = prototype.getClass().getName();
         if (!factories.containsKey(type)) {
-            throw new EventCreateException(prototype);
+            throw new EventFactoryNotFoundException(type);
         }
-        return factories.get(type).createEvent(prototype);
+        try {
+            return factories.get(type).createEvent(prototype);
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 }

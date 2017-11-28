@@ -25,8 +25,12 @@ public final class EventPrototypeXmlLoader {
     public EventPrototype loadEventPrototype(XmlReader.Element element) {
         String type = element.getAttribute(TYPE_ATTRIBUTE).trim();
         if (!loaders.containsKey(type)) {
-            throw new EventPrototypeXmlLoadException(element);
+            throw new EventPrototypeXmlLoaderNotFoundException(type);
         }
-        return loaders.get(type).loadEventPrototype(element);
+        try {
+            return loaders.get(type).loadEventPrototype(element);
+        } catch (Exception e) {
+            throw new EventPrototypeXmlLoadException(element, e);
+        }
     }
 }
