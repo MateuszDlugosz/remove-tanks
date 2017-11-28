@@ -1,11 +1,12 @@
 package remove.tanks.game.level.event.property;
 
 import remove.tanks.game.level.constant.LevelProperty;
+import remove.tanks.game.level.event.Event;
 
 /**
  * @author Mateusz Długosz
  */
-public final class ModifyPropertyEvent {
+public final class ModifyPropertyEvent implements Event {
     private final LevelProperty levelProperty;
     private final String newValue;
 
