@@ -73,6 +73,8 @@ import remove.tanks.game.level.engine.utility.direction.AvailableDirectionsXmlLo
 import remove.tanks.game.level.engine.utility.direction.DirectionXmlLoader;
 import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryFactory;
 import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryPrototypeXmlLoader;
+import remove.tanks.game.level.event.EventFactory;
+import remove.tanks.game.level.event.EventPrototypeXmlLoader;
 import remove.tanks.game.physics.body.BodyFactory;
 import remove.tanks.game.physics.body.BodyPrototypeXmlLoader;
 import remove.tanks.game.physics.fixture.hitbox.HitBoxFactory;
@@ -153,7 +155,9 @@ public final class EntityComponentSupplierConfiguration {
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
                             new AutoSpawnerComponentFactory(),
-                            new TriggerComponentFactory(),
+                            new TriggerComponentFactory(
+                                    getContext().getComponent("EventFactory", EventFactory.class)
+                            ),
                             new BombersSpawnerComponentFactory(),
                             new PlayerRespawnComponentFactory(),
                             new HighlightComponentFactory(),
@@ -237,7 +241,9 @@ public final class EntityComponentSupplierConfiguration {
                                     getContext().getComponent("SpawnEntryPrototypeXmlLoader", SpawnEntryPrototypeXmlLoader.class)
                             ),
                             new AutoSpawnerComponentPrototypeXmlLoader(),
-                            new TriggerComponentPrototypeXmlLoader(),
+                            new TriggerComponentPrototypeXmlLoader(
+                                    getContext().getComponent("EventPrototypeXmlLoader", EventPrototypeXmlLoader.class)
+                            ),
                             new BombersSpawnerComponentPrototypeXmlLoader(),
                             new PlayerRespawnComponentPrototypeXmlLoader(),
                             new HighlightComponentPrototypeXmlLoader(),

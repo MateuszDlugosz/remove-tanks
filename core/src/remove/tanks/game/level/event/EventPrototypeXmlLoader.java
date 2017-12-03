@@ -4,14 +4,17 @@ import com.badlogic.gdx.utils.XmlReader;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz
  */
 public final class EventPrototypeXmlLoader {
-    private static final String EVENTS_ELEMENT = "events";
-    private static final String EVENT_ELEMENT = "event";
+    public static final String EVENTS_ELEMENT = "events";
+    public static final String EVENT_ELEMENT = "event";
 
     private static final String TYPE_ATTRIBUTE = "type";
 
@@ -20,6 +23,12 @@ public final class EventPrototypeXmlLoader {
 
     public EventPrototypeXmlLoader(RegistrableEventPrototypeXmlLoader[] loaders) {
         Arrays.stream(loaders).forEach(loader -> this.loaders.put(loader.getLoaderType().toString(), loader));
+    }
+
+    public List<EventPrototype> loadEventPrototypes(XmlReader.Element element) {
+        return Arrays.stream(element.getChildrenByName(EVENT_ELEMENT).toArray())
+                .map(this::loadEventPrototype)
+                .collect(Collectors.toList());
     }
 
     public EventPrototype loadEventPrototype(XmlReader.Element element) {

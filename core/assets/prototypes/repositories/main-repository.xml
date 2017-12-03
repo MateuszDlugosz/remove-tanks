@@ -235,7 +235,7 @@
 
         <prototype code="PlayerRespawnMedium">prototypes/entities/services/respawns/player-respawn-medium.xml</prototype>
 
-        <prototype code="TriggerMediumAlpha">prototypes/entities/services/triggers/trigger-medium-alpha.xml</prototype>
+        <prototype code="TriggerMedium">prototypes/entities/services/triggers/trigger-medium.xml</prototype>
 
         <prototype code="BattleIndicator">prototypes/entities/services/indicators/battle-indicator.xml</prototype>
 

@@ -21,10 +21,6 @@ public final class TriggerListener extends ExtendedEntityListener {
 
     @Override
     public void entityRemoved(Entity entity) {
-        TriggerComponent tg = TriggerComponent.MAPPER.get(entity);
-        NATOLetter letter = tg.getLetter();
-        if (getEngine().getSystem(AutoSpawnerSystem.class) != null) {
-            getEngine().getSystem(AutoSpawnerSystem.class).activateSpawner(letter);
-        }
+
     }
 }

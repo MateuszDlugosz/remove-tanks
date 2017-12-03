@@ -5,8 +5,7 @@ import remove.tanks.game.application.context.component.supplier.annotation.Compo
 import remove.tanks.game.level.engine.entity.EntityDestroyer;
 import remove.tanks.game.level.engine.entity.EntityFactory;
 import remove.tanks.game.level.engine.entity.EntitySpawner;
-import remove.tanks.game.level.event.EventExecutor;
-import remove.tanks.game.level.event.RegistrableEventExecutor;
+import remove.tanks.game.level.event.*;
 import remove.tanks.game.level.event.destroy.DestroyEntityEventExecutor;
 import remove.tanks.game.level.event.property.ModifyPropertyEventExecutor;
 import remove.tanks.game.level.event.spawn.SpawnEntityEventExecutor;
@@ -16,7 +15,7 @@ import remove.tanks.game.level.event.spawn.SpawnEntityEventExecutor;
  */
 public final class EventSupplierConfiguration {
     @ComponentName("EventExecutor")
-    public static final class LevelEventExecutorSupplier extends ComponentSupplier<EventExecutor> {
+    public static final class EventExecutorSupplier extends ComponentSupplier<EventExecutor> {
         @Override
         public EventExecutor supplyComponent() {
             return new EventExecutor(
@@ -29,6 +28,30 @@ public final class EventSupplierConfiguration {
                             new DestroyEntityEventExecutor(
                                     getContext().getComponent("EntityDestroyer", EntityDestroyer.class)
                             )
+                    }
+            );
+        }
+    }
+
+    @ComponentName("EventFactory")
+    public static final class EventFactorySupplier extends ComponentSupplier<EventFactory> {
+        @Override
+        public EventFactory supplyComponent() {
+            return new EventFactory(
+                    new RegistrableEventFactory[] {
+
+                    }
+            );
+        }
+    }
+
+    @ComponentName("EventPrototypeXmlLoader")
+    public static final class EventPrototypeXmlLoaderSupplier extends ComponentSupplier<EventPrototypeXmlLoader> {
+        @Override
+        public EventPrototypeXmlLoader supplyComponent() {
+            return new EventPrototypeXmlLoader(
+                    new RegistrableEventPrototypeXmlLoader[] {
+
                     }
             );
         }

@@ -22,8 +22,5 @@
             </sensors>
         </component>
         <component type="DestroyOnContactComponent"></component>
-        <component type="TriggerComponent">
-            <letter>Alpha</letter>
-        </component>
     </components>
 </prototype>
