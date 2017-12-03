@@ -60,7 +60,7 @@ public final class OperationHudStage implements Disposable {
         table.add(lifesLabelText).expandX();
         table.add(enemiesLabelText).expandX();
         table.add(pointsLabelText).expandX();
-        table.row().padTop(20);;
+        table.row().padTop(20);
         table.add(lifesLabelValue).expandX();
         table.add(enemiesLabelValue).expandX();
         table.add(pointsLabelValue).expandX();

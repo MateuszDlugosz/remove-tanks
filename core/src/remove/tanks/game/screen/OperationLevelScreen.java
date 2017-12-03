@@ -35,7 +35,6 @@ public final class OperationLevelScreen extends GameScreen {
     private final Operation operation;
     private final int currentLevelIndex;
     private final Locale locale;
-    private final List<Integer> input;
 
     private String levelStatus;
     private Label levelStatusLabel;
@@ -62,7 +61,6 @@ public final class OperationLevelScreen extends GameScreen {
         this.eventBus = gameApplication.getContext()
                 .getComponent("EventBus", EventBus.class);
         this.operation = operation;
-        this.input = new ArrayList<>();
         this.currentLevelIndex = currentLevelIndex;
         this.locale = gameApplication.getContext()
                 .getComponent("Locale", Locale.class);

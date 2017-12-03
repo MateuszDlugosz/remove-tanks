@@ -29,9 +29,7 @@ public final class SoundListener extends ExtendedEntityListener {
         if (entity.getComponent(SoundOnSpawnComponent.class) != null) {
             PhysicsComponent pc = PhysicsComponent.MAPPER.get(entity);
             if (gameCamera.getCameraBoundaries().isInBoundaries(pc.getPosition())) {
-                SoundOnSpawnComponent.MAPPER.get(entity).getSounds().forEach(s -> {
-                    eventBus.post(new PlaySoundEvent(s));
-                });
+                SoundOnSpawnComponent.MAPPER.get(entity).getSounds().forEach(s -> eventBus.post(new PlaySoundEvent(s)));
             }
         }
     }
@@ -41,9 +39,7 @@ public final class SoundListener extends ExtendedEntityListener {
         if (entity.getComponent(SoundOnDestroyComponent.class) != null) {
             PhysicsComponent pc = PhysicsComponent.MAPPER.get(entity);
             if (gameCamera.getCameraBoundaries().isInBoundaries(pc.getPosition())) {
-                SoundOnDestroyComponent.MAPPER.get(entity).getSounds().forEach(s -> {
-                    eventBus.post(new PlaySoundEvent(s));
-                });
+                SoundOnDestroyComponent.MAPPER.get(entity).getSounds().forEach(s -> eventBus.post(new PlaySoundEvent(s)));
             }
         }
     }

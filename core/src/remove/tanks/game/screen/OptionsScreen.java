@@ -343,20 +343,14 @@ public final class OptionsScreen extends GameScreen {
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> {
-                l.keyDown(Input.Keys.ENTER);
-            });
+            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> l.keyDown(Input.Keys.ENTER));
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
-            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> {
-                l.keyDown(Input.Keys.LEFT);
-            });
+            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> l.keyDown(Input.Keys.LEFT));
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
-            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> {
-                l.keyDown(Input.Keys.RIGHT);
-            });
+            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> l.keyDown(Input.Keys.RIGHT));
         }
 
         super.render(delta);

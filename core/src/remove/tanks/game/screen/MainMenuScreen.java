@@ -240,9 +240,7 @@ public final class MainMenuScreen extends GameScreen {
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> {
-                l.keyDown(Input.Keys.ENTER);
-            });
+            buttonGroup.getActiveButton().getKeyListener().ifPresent(l -> l.keyDown(Input.Keys.ENTER));
         }
 
         super.render(delta);

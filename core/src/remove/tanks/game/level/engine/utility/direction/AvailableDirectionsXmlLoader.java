@@ -21,7 +21,7 @@ public final class AvailableDirectionsXmlLoader {
 
     public List<Direction> loadAvailableDirections(XmlReader.Element element) {
         return Arrays.stream(element.getChildrenByName(DirectionXmlLoader.DIRECTION_ELEMENT).toArray())
-                .map(e -> directionXmlLoader.loadDirection(e))
+                .map(directionXmlLoader::loadDirection)
                 .collect(Collectors.toList());
     }
 }
