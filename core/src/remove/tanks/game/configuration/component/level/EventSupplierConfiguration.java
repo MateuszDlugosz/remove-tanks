@@ -9,6 +9,9 @@ import remove.tanks.game.level.event.*;
 import remove.tanks.game.level.event.destroy.DestroyEntityEventExecutor;
 import remove.tanks.game.level.event.property.ModifyPropertyEventExecutor;
 import remove.tanks.game.level.event.spawn.SpawnEntityEventExecutor;
+import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventExecutor;
+import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventFactory;
+import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventPrototypeXmlLoader;
 
 /**
  * @author Mateusz Długosz
@@ -27,7 +30,8 @@ public final class EventSupplierConfiguration {
                             ),
                             new DestroyEntityEventExecutor(
                                     getContext().getComponent("EntityDestroyer", EntityDestroyer.class)
-                            )
+                            ),
+                            new ActivateAutoSpawnerEventExecutor()
                     }
             );
         }
@@ -39,7 +43,7 @@ public final class EventSupplierConfiguration {
         public EventFactory supplyComponent() {
             return new EventFactory(
                     new RegistrableEventFactory[] {
-
+                            new ActivateAutoSpawnerEventFactory()
                     }
             );
         }
@@ -51,7 +55,7 @@ public final class EventSupplierConfiguration {
         public EventPrototypeXmlLoader supplyComponent() {
             return new EventPrototypeXmlLoader(
                     new RegistrableEventPrototypeXmlLoader[] {
-
+                            new ActivateAutoSpawnerEventPrototypeXmlLoader()
                     }
             );
         }

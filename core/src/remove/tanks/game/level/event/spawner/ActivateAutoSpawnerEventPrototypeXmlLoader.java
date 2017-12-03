@@ -19,6 +19,6 @@ public final class ActivateAutoSpawnerEventPrototypeXmlLoader
 
     @Override
     public EventType getLoaderType() {
-        return EventType.ActivateSpawnerEvent;
+        return EventType.ActivateAutoSpawnerEvent;
     }
 }

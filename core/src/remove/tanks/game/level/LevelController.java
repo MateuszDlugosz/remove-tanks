@@ -8,6 +8,7 @@ import remove.tanks.game.level.event.EventExecutor;
 import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
 import remove.tanks.game.level.event.property.ModifyPropertyEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
+import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,11 @@ public final class LevelController {
 
     @Subscribe
     public void handleModifyPropertyEvent(ModifyPropertyEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleActivateAutoSpawnerEvent(ActivateAutoSpawnerEvent event) {
         otherEvents.add(event);
     }
 }

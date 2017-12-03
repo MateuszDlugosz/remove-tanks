@@ -126,7 +126,7 @@
             <system priority="3000" type="OperationHudRenderSystem"></system>
             <system priority="3100" type="AutoSpawnerSystem">
                 <spawners>
-                    <spawner letter="Alpha">
+                    <spawner id="Alpha">
                         <active>false</active>
                         <limit>10</limit>
                         <frequency>5</frequency>
@@ -134,10 +134,10 @@
                             <prototypeCode>EnemyMediumTankSpawn</prototypeCode>
                         </prototypeCodes>
                     </spawner>
-                    <spawner letter="Charlie">
-                        <active>true</active>
+                    <spawner id="Charlie">
+                        <active>false</active>
                         <limit>-1</limit>
-                        <frequency>5</frequency>
+                        <frequency>0.1</frequency>
                         <prototypeCodes>
                             <prototypeCode>Cloud0</prototypeCode>
                             <prototypeCode>Cloud1</prototypeCode>
@@ -146,14 +146,6 @@
                         </prototypeCodes>
                     </spawner>
                 </spawners>
-            </system>
-            <system type="ChainSpawnerActivateSystem" priority="3500">
-                <spawnerActivators>
-                    <spawnerActivator>
-                        <letter>Alpha</letter>
-                        <delay>3</delay>
-                    </spawnerActivator>
-                </spawnerActivators>
             </system>
             <system priority="3200" type="PlayerRespawnSystem">
                 <prototypeCode>PlayerMediumTankSpawn</prototypeCode>
@@ -180,6 +172,7 @@
             </listener>
             <listener priority="4000" type="PointsListener"></listener>
             <listener priority="4000" type="EnemyDestroyListener"></listener>
+            <listener priority="5000" type="TriggerListener"></listener>
         </listeners>
     </engine>
 </prototype>
