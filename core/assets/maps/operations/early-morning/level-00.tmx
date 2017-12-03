@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1418">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1422">
  <tileset firstgid="1" source="../../../tilesets/sepia-tileset.tsx"/>
  <layer name="ground_layer" width="70" height="50">
   <data encoding="csv">
@@ -119,6 +119,21 @@
   <object id="1417" name="player_respawn" x="344" y="208" width="16" height="16">
    <properties>
     <property name="prototype.code" value="MudSmall0"/>
+   </properties>
+  </object>
+  <object id="1418" x="328" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="BonusPromotion"/>
+   </properties>
+  </object>
+  <object id="1419" x="304" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="BonusStar"/>
+   </properties>
+  </object>
+  <object id="1421" x="352" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="BonusStar"/>
    </properties>
   </object>
  </objectgroup>

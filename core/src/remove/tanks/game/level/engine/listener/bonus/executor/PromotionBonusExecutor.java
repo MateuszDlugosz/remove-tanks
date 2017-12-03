@@ -12,17 +12,19 @@ import remove.tanks.game.level.event.property.ModifyPropertyEvent;
 /**
  * @author Mateusz Długosz
  */
-public final class LifeBonusExecutor implements BonusExecutor {
+public final class PromotionBonusExecutor implements BonusExecutor {
     @Override
     public void executeBonus(Entity bonusEntity, BonusPickUpListener listener) {
-        listener.getEventBus().post(new ModifyPropertyEvent(
-                LevelProperty.LevelLifes,
-                String.valueOf((listener.getProperties().getInt(LevelProperty.LevelLifes.getName()) + 1))
-        ));
+        listener.getEventBus().post(
+                new ModifyPropertyEvent(
+                        LevelProperty.LevelPointsMultiplier,
+                        String.valueOf(listener.getProperties().getInt(LevelProperty.LevelPointsMultiplier.getName()) + 1)
+                )
+        );
     }
 
     @Override
     public BonusType getExecutorType() {
-        return BonusType.LifeBonus;
+        return BonusType.PromotionBonus;
     }
 }

@@ -12,10 +12,7 @@ import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerFactory;
 import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.bonus.BonusPickUpListenerFactory;
 import remove.tanks.game.level.engine.listener.bonus.BonusPickUpListenerPrototypeXmlLoader;
-import remove.tanks.game.level.engine.listener.bonus.executor.AmmoBonusExecutor;
-import remove.tanks.game.level.engine.listener.bonus.executor.BombersBonusExecutor;
-import remove.tanks.game.level.engine.listener.bonus.executor.BonusExecutor;
-import remove.tanks.game.level.engine.listener.bonus.executor.LifeBonusExecutor;
+import remove.tanks.game.level.engine.listener.bonus.executor.*;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerFactory;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.point.PointsListenerFactory;
@@ -47,7 +44,8 @@ public final class EntityListenerSupplierConfiguration {
                                     new BonusExecutor[] {
                                             new AmmoBonusExecutor(),
                                             new BombersBonusExecutor(),
-                                            new LifeBonusExecutor()
+                                            new LifeBonusExecutor(),
+                                            new PromotionBonusExecutor()
                                     }
                             ),
                             new TriggerListenerFactory()

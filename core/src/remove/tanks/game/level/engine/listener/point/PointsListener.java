@@ -28,10 +28,12 @@ public final class PointsListener extends ExtendedEntityListener {
 
     @Override
     public void entityRemoved(Entity entity) {
+        int pointsValue = properties.getInt(LevelProperty.LevelPoints.getName()) +
+                PointsComponent.MAPPER.get(entity).getPoints() *
+                properties.getInt(LevelProperty.LevelPointsMultiplier.getName());
         eventBus.post(new ModifyPropertyEvent(
                 LevelProperty.LevelPoints,
-                String.valueOf((properties.getInt(LevelProperty.LevelPoints.getName())
-                        + PointsComponent.MAPPER.get(entity).getPoints()))
+                String.valueOf(pointsValue)
         ));
     }
 }

@@ -5,6 +5,7 @@
         <prototype code="BonusBombers">prototypes/entities/bonuses/bonus-bombers.xml</prototype>
         <prototype code="BonusAmmo">prototypes/entities/bonuses/bonus-ammo.xml</prototype>
         <prototype code="BonusLife">prototypes/entities/bonuses/bonus-life.xml</prototype>
+        <prototype code="BonusPromotion">prototypes/entities/bonuses/bonus-promotion.xml</prototype>
 
         <prototype code="PlayerMediumTank">prototypes/entities/vehicles/tanks/player-medium-tank.xml</prototype>
         <prototype code="PlayerMediumTankSpawn">prototypes/entities/vehicles/tanks/player-medium-tank-spawn.xml</prototype>

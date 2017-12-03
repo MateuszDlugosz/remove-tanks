@@ -7,5 +7,6 @@ public enum BonusType {
     BombersBonus,
     AmmoBonus,
     LifeBonus,
-    StarBonus
+    StarBonus,
+    PromotionBonus
 }
