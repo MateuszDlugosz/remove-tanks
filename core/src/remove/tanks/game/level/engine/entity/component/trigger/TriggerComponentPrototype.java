@@ -2,7 +2,6 @@ package remove.tanks.game.level.engine.entity.component.trigger;
 
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.entity.component.ComponentPrototype;
-import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 import remove.tanks.game.level.event.EventPrototype;
 
 import java.util.List;

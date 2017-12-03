@@ -2,7 +2,6 @@ package remove.tanks.game.level.engine.entity.component.spawn;
 
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.entity.component.ComponentPrototype;
-import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 
 /**
  * @author Mateusz Długosz

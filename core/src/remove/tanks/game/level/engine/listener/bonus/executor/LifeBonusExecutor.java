@@ -3,9 +3,6 @@ package remove.tanks.game.level.engine.listener.bonus.executor;
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusType;
-import remove.tanks.game.level.engine.entity.component.control.PlayerControlComponent;
-import remove.tanks.game.level.engine.entity.component.destroy.DestroyOnContactComponent;
-import remove.tanks.game.level.engine.entity.component.health.HealthComponent;
 import remove.tanks.game.level.engine.listener.bonus.BonusPickUpListener;
 import remove.tanks.game.level.event.property.ModifyPropertyEvent;
 

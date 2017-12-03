@@ -1,7 +1,6 @@
 package remove.tanks.game.level.engine.utility.spwan.spawner;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 
 import java.util.Arrays;
 import java.util.List;

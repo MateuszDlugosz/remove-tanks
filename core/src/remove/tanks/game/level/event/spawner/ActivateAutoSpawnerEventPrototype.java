@@ -1,6 +1,5 @@
 package remove.tanks.game.level.event.spawner;
 
-import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 import remove.tanks.game.level.event.EventPrototype;
 
 /**

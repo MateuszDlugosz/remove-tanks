@@ -2,7 +2,6 @@ package remove.tanks.game.level.engine.entity.component.spawn;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
-import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 
 /**
  * @author Mateusz Długosz

@@ -1,7 +1,6 @@
 package remove.tanks.game.level.engine.utility.spwan.spawner;
 
 import com.google.common.base.MoreObjects;
-import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 
 import java.io.Serializable;
 import java.util.List;
