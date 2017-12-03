@@ -107,7 +107,7 @@
             </system>
             <system priority="3100" type="AutoSpawnerSystem">
                 <spawners>
-                    <spawner letter="Alpha">
+                    <spawner id="Alpha">
                         <active>true</active>
                         <limit>-1</limit>
                         <frequency>5</frequency>

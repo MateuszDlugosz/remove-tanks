@@ -11,12 +11,12 @@ import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 public final class AutoSpawnerComponentPrototypeXmlLoader
         implements RegistrableComponentPrototypeXmlLoader<AutoSpawnerComponentPrototype>
 {
-    private static final String LETTER_ELEMENT = "letter";
+    private static final String ID_ELEMENT = "id";
 
     @Override
     public AutoSpawnerComponentPrototype loadComponentPrototype(XmlReader.Element element) {
         return new AutoSpawnerComponentPrototype(
-                NATOLetter.valueOf(element.getChildByName(LETTER_ELEMENT).getText().trim())
+                element.getChildByName(ID_ELEMENT).getText().trim()
         );
     }
 

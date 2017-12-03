@@ -9,8 +9,8 @@
                 <sensor id="HitDetector0">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>16</width>
-                            <height>16</height>
+                            <width>32</width>
+                            <height>32</height>
                         </shape>
                         <isSensor>true</isSensor>
                         <filter>
@@ -22,7 +22,19 @@
                 <sensor id="HitDetector1">
                     <fixture>
                         <shape type="CircleShape">
-                            <radius>6</radius>
+                            <radius>13</radius>
+                        </shape>
+                        <isSensor>true</isSensor>
+                        <filter>
+                            <categoryBit>AllVehicleBlockadeCategory</categoryBit>
+                            <maskBit>AllVehicleBlockadeMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="HitDetector2">
+                    <fixture>
+                        <shape type="CircleShape">
+                            <radius>4</radius>
                         </shape>
                         <isSensor>true</isSensor>
                         <filter>
@@ -34,7 +46,7 @@
             </sensors>
         </component>
         <component type="AutoSpawnerComponent">
-            <letter>Oscar</letter>
+            <id>default</id>
         </component>
     </components>
 </prototype>

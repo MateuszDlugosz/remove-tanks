@@ -9,7 +9,6 @@ import remove.tanks.game.level.engine.entity.EntityPrototype;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.AutoSpawnerComponent;
-import remove.tanks.game.level.engine.utility.letter.NATOLetter;
 import remove.tanks.game.level.engine.utility.spwan.spawner.Spawner;
 import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
@@ -27,17 +26,17 @@ public final class AutoSpawnerSystem extends EntitySystem {
     private final RandomNumberGenerator randomNumberGenerator;
     private final EntityPrototypeRepository repository;
     private final EventBus eventBus;
-    private final List<NATOLetter> spawnersToDeactivate;
-    private final Map<NATOLetter, Spawner> inactiveSpawners;
-    private final Map<NATOLetter, Spawner> activeSpawners;
+    private final List<String> spawnersToDeactivate;
+    private final Map<String, Spawner> inactiveSpawners;
+    private final Map<String, Spawner> activeSpawners;
 
     public AutoSpawnerSystem(
             int priority,
             RandomNumberGenerator randomNumberGenerator,
             EntityPrototypeRepository repository,
             EventBus eventBus,
-            Map<NATOLetter, Spawner> inactiveSpawners,
-            Map<NATOLetter, Spawner> activeSpawners
+            Map<String, Spawner> inactiveSpawners,
+            Map<String, Spawner> activeSpawners
     ) {
         super(priority);
         this.inactiveSpawners = inactiveSpawners;
@@ -48,9 +47,9 @@ public final class AutoSpawnerSystem extends EntitySystem {
         this.spawnersToDeactivate = new ArrayList<>();
     }
 
-    public void activateSpawner(NATOLetter letter) {
-        if (inactiveSpawners.containsKey(letter)) {
-            activeSpawners.put(letter, inactiveSpawners.remove(letter));
+    public void activateSpawner(String id) {
+        if (inactiveSpawners.containsKey(id)) {
+            activeSpawners.put(id, inactiveSpawners.remove(id));
         }
     }
 
@@ -61,7 +60,7 @@ public final class AutoSpawnerSystem extends EntitySystem {
                 if (spawnEntity(s)) {
                     s.getCounter().update();
                     if (s.getCounter().isComplete()) {
-                        spawnersToDeactivate.add(s.getLetter());
+                        spawnersToDeactivate.add(s.getId());
                     }
                 }
                 s.getTimer().reset();
@@ -77,7 +76,7 @@ public final class AutoSpawnerSystem extends EntitySystem {
         EntityPrototype prototype = repository.getPrototype(spawner.getPrototypeCodes().get(
                 randomNumberGenerator.getRandomInt(0, spawner.getPrototypeCodes().size()-1)
         ));
-        List<Entity> spawners = getSpawnersEntitiesForLetter(spawner.getLetter());
+        List<Entity> spawners = getSpawnersEntitiesForLetter(spawner.getId());
         if (spawners.size() > 0) {
             Entity entity = getRandomSpawnerEntity(spawners);
             PhysicsComponent pc = PhysicsComponent.MAPPER.get(entity);
@@ -90,12 +89,12 @@ public final class AutoSpawnerSystem extends EntitySystem {
         return false;
     }
 
-    private List<Entity> getSpawnersEntitiesForLetter(NATOLetter letter) {
+    private List<Entity> getSpawnersEntitiesForLetter(String id) {
         List<Entity> spawners = new ArrayList<>();
         ImmutableArray<Entity> allSpawners
                 = getEngine().getEntitiesFor(EntityFamily.SpawnerFamily.getFamily());
         allSpawners.forEach(s -> {
-            if (AutoSpawnerComponent.MAPPER.get(s).getLetter() == letter) {
+            if (AutoSpawnerComponent.MAPPER.get(s).getId().equals(id)) {
                 spawners.add(s);
             }
         });
@@ -108,14 +107,14 @@ public final class AutoSpawnerSystem extends EntitySystem {
         ));
     }
 
-    private void deactivateSpawner(NATOLetter letter) {
+    private void deactivateSpawner(String id) {
         getEngine().getEntitiesFor(EntityFamily.SpawnerFamily.getFamily()).forEach(
                 e -> {
-                    if (AutoSpawnerComponent.MAPPER.get(e).getLetter().equals(letter)) {
+                    if (AutoSpawnerComponent.MAPPER.get(e).getId().equals(id)) {
                         eventBus.post(new DestroyEntityEvent(e));
                     }
                 });
-        inactiveSpawners.remove(letter);
-        activeSpawners.remove(letter);
+        inactiveSpawners.remove(id);
+        activeSpawners.remove(id);
     }
 }

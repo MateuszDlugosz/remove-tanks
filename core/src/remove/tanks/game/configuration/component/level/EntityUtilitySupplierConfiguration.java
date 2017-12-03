@@ -4,8 +4,6 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.level.engine.utility.direction.AvailableDirectionsXmlLoader;
 import remove.tanks.game.level.engine.utility.direction.DirectionXmlLoader;
-import remove.tanks.game.level.engine.utility.spwan.activator.SpawnerActivatorFactory;
-import remove.tanks.game.level.engine.utility.spwan.activator.SpawnerActivatorPrototypeXmlLoader;
 import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryFactory;
 import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryPrototypeXmlLoader;
 import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerFactory;
@@ -68,22 +66,6 @@ public final class EntityUtilitySupplierConfiguration {
         @Override
         public SpawnerFactory supplyComponent() {
             return new SpawnerFactory();
-        }
-    }
-
-    @ComponentName("SpawnerActivatorPrototypeXmlLoader")
-    public static final class SpawnerActivatorPrototypeXmlLoaderSupplier extends ComponentSupplier<SpawnerActivatorPrototypeXmlLoader> {
-        @Override
-        public SpawnerActivatorPrototypeXmlLoader supplyComponent() {
-            return new SpawnerActivatorPrototypeXmlLoader();
-        }
-    }
-
-    @ComponentName("SpawnerActivatorFactory")
-    public static final class SpawnerActivatorFactorySupplier extends ComponentSupplier<SpawnerActivatorFactory> {
-        @Override
-        public SpawnerActivatorFactory supplyComponent() {
-            return new SpawnerActivatorFactory();
         }
     }
 }

@@ -10,7 +10,7 @@ public final class SpawnerFactory {
     public Spawner createSpawner(SpawnerPrototype prototype) {
         try {
             return new Spawner(
-                    prototype.getLetter(),
+                    prototype.getId(),
                     prototype.getPrototypeCodes(),
                     new Counter(prototype.getLimit()),
                     new Timer(prototype.getFrequency())

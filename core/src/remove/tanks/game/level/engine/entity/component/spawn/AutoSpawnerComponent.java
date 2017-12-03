@@ -11,13 +11,13 @@ public final class AutoSpawnerComponent implements Component {
     public static final ComponentMapper<AutoSpawnerComponent> MAPPER
             = ComponentMapper.getFor(AutoSpawnerComponent.class);
 
-    private final NATOLetter letter;
+    private final String id;
 
-    public AutoSpawnerComponent(NATOLetter letter) {
-        this.letter = letter;
+    public AutoSpawnerComponent(String id) {
+        this.id = id;
     }
 
-    public NATOLetter getLetter() {
-        return letter;
+    public String getId() {
+        return id;
     }
 }

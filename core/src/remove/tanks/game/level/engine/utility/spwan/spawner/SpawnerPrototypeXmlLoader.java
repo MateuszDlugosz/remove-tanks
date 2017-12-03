@@ -14,7 +14,7 @@ public final class SpawnerPrototypeXmlLoader {
     public static final String SPAWNER_ELEMENT = "spawner";
     public static final String SPAWNERS_ELEMENT = "spawners";
 
-    private static final String LETTER_ATTRIBUTE = "letter";
+    private static final String ID_ATTRIBUTE = "id";
     private static final String ACTIVE_ELEMENT = "active";
     private static final String LIMIT_ELEMENT = "limit";
     private static final String FREQUENCY_ELEMENT = "frequency";
@@ -30,7 +30,7 @@ public final class SpawnerPrototypeXmlLoader {
     public SpawnerPrototype loadSpawnerPrototype(XmlReader.Element element) {
         try {
             return new SpawnerPrototype(
-                    NATOLetter.valueOf(element.getAttribute(LETTER_ATTRIBUTE).trim()),
+                    element.getAttribute(ID_ATTRIBUTE).trim(),
                     Boolean.valueOf(element.getChildByName(ACTIVE_ELEMENT).getText().trim()),
                     Integer.valueOf(element.getChildByName(LIMIT_ELEMENT).getText().trim()),
                     Float.valueOf(element.getChildByName(FREQUENCY_ELEMENT).getText().trim()),

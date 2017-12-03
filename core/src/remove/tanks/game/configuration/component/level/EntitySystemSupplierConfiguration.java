@@ -55,8 +55,6 @@ import remove.tanks.game.level.engine.system.victory.OperationVictorySystemProto
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.world.*;
-import remove.tanks.game.level.engine.utility.spwan.activator.SpawnerActivatorFactory;
-import remove.tanks.game.level.engine.utility.spwan.activator.SpawnerActivatorPrototypeXmlLoader;
 import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerFactory;
 import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerPrototypeXmlLoader;
 import remove.tanks.game.physics.light.world.renderer.WorldLightRenderer;
@@ -148,9 +146,6 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerFactory", SpawnerFactory.class)
                             ),
                             new PlayerRespawnSystemFactory(),
-                            new ChainSpawnerActivateSystemFactory(
-                                    getContext().getComponent("SpawnerActivatorFactory", SpawnerActivatorFactory.class)
-                            ),
                             new OperationDefeatSystemFactory(),
                             new OperationVictorySystemFactory(),
                             new MusicOnStartSystemFactory(
@@ -218,9 +213,6 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerPrototypeXmlLoader", SpawnerPrototypeXmlLoader.class)
                             ),
                             new PlayerRespawnSystemPrototypeXmlLoader(),
-                            new ChainSpawnerActivateSystemPrototypeXmlLoader(
-                                    getContext().getComponent("SpawnerActivatorPrototypeXmlLoader", SpawnerActivatorPrototypeXmlLoader.class)
-                            ),
                             new OperationDefeatSystemPrototypeXmlLoader(),
                             new OperationVictorySystemPrototypeXmlLoader(),
                             new MusicOnStartSystemPrototypeXmlLoader(

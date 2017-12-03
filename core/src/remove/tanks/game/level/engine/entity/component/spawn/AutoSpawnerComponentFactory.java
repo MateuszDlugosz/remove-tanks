@@ -12,7 +12,7 @@ public final class AutoSpawnerComponentFactory
 {
     @Override
     public AutoSpawnerComponent createComponent(AutoSpawnerComponentPrototype prototype, Level level, Entity entity) {
-        return new AutoSpawnerComponent(prototype.getLetter());
+        return new AutoSpawnerComponent(prototype.getId());
     }
 
     @Override

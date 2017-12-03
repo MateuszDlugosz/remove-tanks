@@ -46,12 +46,12 @@ public final class AutoSpawnerSystemFactory
         );
     }
 
-    private Map<NATOLetter, Spawner> createSpawnersByLetter(List<SpawnerPrototype> prototypes, boolean active) {
+    private Map<String, Spawner> createSpawnersByLetter(List<SpawnerPrototype> prototypes, boolean active) {
         return prototypes.stream()
                 .filter(p -> p.isActive() == active)
                 .map(spawnerFactory::createSpawner)
                 .collect(Collectors.toMap(
-                        Spawner::getLetter,
+                        Spawner::getId,
                         s -> s
                 ));
     }

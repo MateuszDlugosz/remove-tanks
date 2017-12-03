@@ -10,28 +10,28 @@ import java.util.List;
  * @author Mateusz Długosz
  */
 public final class SpawnerPrototype implements Serializable {
-    private final NATOLetter letter;
+    private final String id;
     private final boolean active;
     private final int limit;
     private final float frequency;
     private final List<String> prototypeCodes;
 
     public SpawnerPrototype(
-            NATOLetter letter,
+            String id,
             boolean active,
             int limit,
             float frequency,
             List<String> prototypeCodes
     ) {
-        this.letter = letter;
+        this.id = id;
         this.active = active;
         this.limit = limit;
         this.frequency = frequency;
         this.prototypeCodes = prototypeCodes;
     }
 
-    public NATOLetter getLetter() {
-        return letter;
+    public String getId() {
+        return id;
     }
 
     public boolean isActive() {
@@ -53,7 +53,7 @@ public final class SpawnerPrototype implements Serializable {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("letter", letter)
+                .add("id", id)
                 .add("active", active)
                 .add("limit", limit)
                 .add("frequency", frequency)

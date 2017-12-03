@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="8" tileheight="8" nextobjectid="3656">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="8" tileheight="8" nextobjectid="3657">
  <tileset firstgid="1" source="../../tilesets/sepia-tileset.tsx"/>
  <layer name="ground_layer" width="90" height="90">
   <data encoding="csv">
@@ -691,104 +691,24 @@
     <property name="prototype.code" value="Church0Intacted"/>
    </properties>
   </object>
-  <object id="3636" name="spawner_alpha" x="744" y="144" width="16" height="16">
+  <object id="3636" name="spawner_alpha" x="632" y="352" width="16" height="16">
    <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+    <property name="prototype.code" value="AutoSpawnerMedium"/>
+    <property name="prototype.components">&lt;components&gt;
+	&lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+		&lt;id&gt;Alpha&lt;/id&gt;
+	&lt;/component&gt;
+&lt;/components&gt; </property>
    </properties>
   </object>
-  <object id="3637" name="spawner_alpha" x="768" y="168" width="16" height="16">
+  <object id="3656" name="spawner_alpha" x="632" y="424" width="16" height="16">
    <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3638" name="spawner_alpha" x="744" y="192" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3639" name="spawner_alpha" x="768" y="216" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3640" name="spawner_alpha" x="768" y="312" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3641" name="spawner_alpha" x="744" y="240" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3642" name="spawner_alpha" x="744" y="288" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3643" name="spawner_alpha" x="768" y="264" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3644" name="spawner_alpha" x="768" y="408" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3645" name="spawner_alpha" x="744" y="336" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3646" name="spawner_alpha" x="744" y="384" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3647" name="spawner_alpha" x="768" y="360" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3648" name="spawner_alpha" x="768" y="504" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3649" name="spawner_alpha" x="744" y="432" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3650" name="spawner_alpha" x="744" y="480" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3651" name="spawner_alpha" x="768" y="456" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3652" name="spawner_alpha" x="768" y="600" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3653" name="spawner_alpha" x="744" y="528" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3654" name="spawner_alpha" x="744" y="576" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
-   </properties>
-  </object>
-  <object id="3655" name="spawner_alpha" x="768" y="552" width="16" height="16">
-   <properties>
-    <property name="prototype.code" value="AutoSpawnerMediumAlpha"/>
+    <property name="prototype.code" value="AutoSpawnerMedium"/>
+    <property name="prototype.components">&lt;components&gt;
+	&lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+		&lt;id&gt;Alpha&lt;/id&gt;
+	&lt;/component&gt;
+&lt;/components&gt; </property>
    </properties>
   </object>
  </objectgroup>
