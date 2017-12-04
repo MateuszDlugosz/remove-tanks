@@ -71,8 +71,8 @@ import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponentF
 import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.utility.direction.AvailableDirectionsXmlLoader;
 import remove.tanks.game.level.engine.utility.direction.DirectionXmlLoader;
-import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryFactory;
-import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryPrototypeXmlLoader;
+import remove.tanks.game.level.engine.utility.spawn.entry.SpawnEntryFactory;
+import remove.tanks.game.level.engine.utility.spawn.entry.SpawnEntryPrototypeXmlLoader;
 import remove.tanks.game.level.event.EventFactory;
 import remove.tanks.game.level.event.EventPrototypeXmlLoader;
 import remove.tanks.game.physics.body.BodyFactory;

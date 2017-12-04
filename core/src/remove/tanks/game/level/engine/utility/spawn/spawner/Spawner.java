@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.utility.spwan.spawner;
+package remove.tanks.game.level.engine.utility.spawn.spawner;
 
 import remove.tanks.game.utility.counter.Counter;
 import remove.tanks.game.utility.time.Timer;

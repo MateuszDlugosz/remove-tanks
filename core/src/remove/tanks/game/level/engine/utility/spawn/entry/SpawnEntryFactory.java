@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.utility.spwan.entry;
+package remove.tanks.game.level.engine.utility.spawn.entry;
 
 import remove.tanks.game.utility.position.PositionFactory;
 import remove.tanks.game.utility.scale.Scale;

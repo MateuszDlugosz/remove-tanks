@@ -4,10 +4,10 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.level.engine.utility.direction.AvailableDirectionsXmlLoader;
 import remove.tanks.game.level.engine.utility.direction.DirectionXmlLoader;
-import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryFactory;
-import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryPrototypeXmlLoader;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerFactory;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerPrototypeXmlLoader;
+import remove.tanks.game.level.engine.utility.spawn.entry.SpawnEntryFactory;
+import remove.tanks.game.level.engine.utility.spawn.entry.SpawnEntryPrototypeXmlLoader;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerFactory;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerPrototypeXmlLoader;
 import remove.tanks.game.utility.position.PositionFactory;
 import remove.tanks.game.utility.position.PositionPrototypeXmlLoader;
 

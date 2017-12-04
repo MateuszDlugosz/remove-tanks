@@ -3,7 +3,7 @@ package remove.tanks.game.level.engine.system.spawn;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerPrototypeXmlLoader;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerPrototypeXmlLoader;
 
 /**
  * @author Mateusz Długosz

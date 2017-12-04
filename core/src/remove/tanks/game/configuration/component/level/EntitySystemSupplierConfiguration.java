@@ -58,8 +58,8 @@ import remove.tanks.game.level.engine.system.victory.OperationVictorySystemProto
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.world.*;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerFactory;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerPrototypeXmlLoader;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerFactory;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerPrototypeXmlLoader;
 import remove.tanks.game.physics.light.world.renderer.WorldLightRenderer;
 import remove.tanks.game.physics.world.renderer.WorldRenderer;
 import remove.tanks.game.physics.world.updater.WorldUpdater;

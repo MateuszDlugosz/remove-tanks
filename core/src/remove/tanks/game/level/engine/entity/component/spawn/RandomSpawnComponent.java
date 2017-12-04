@@ -2,7 +2,7 @@ package remove.tanks.game.level.engine.entity.component.spawn;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
-import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntry;
+import remove.tanks.game.level.engine.utility.spawn.entry.SpawnEntry;
 import remove.tanks.game.utility.time.Timer;
 
 import java.util.List;

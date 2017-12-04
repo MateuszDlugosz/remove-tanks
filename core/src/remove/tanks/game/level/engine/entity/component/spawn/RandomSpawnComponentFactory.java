@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
-import remove.tanks.game.level.engine.utility.spwan.entry.SpawnEntryFactory;
+import remove.tanks.game.level.engine.utility.spawn.entry.SpawnEntryFactory;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 import remove.tanks.game.utility.scale.Scale;
 import remove.tanks.game.utility.time.Timer;

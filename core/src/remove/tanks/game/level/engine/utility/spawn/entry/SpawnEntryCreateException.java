@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.utility.spwan.entry;
+package remove.tanks.game.level.engine.utility.spawn.entry;
 
 /**
  * @author Mateusz Długosz

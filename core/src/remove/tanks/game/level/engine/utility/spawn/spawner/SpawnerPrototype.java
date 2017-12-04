@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.utility.spwan.spawner;
+package remove.tanks.game.level.engine.utility.spawn.spawner;
 
 import com.google.common.base.MoreObjects;
 

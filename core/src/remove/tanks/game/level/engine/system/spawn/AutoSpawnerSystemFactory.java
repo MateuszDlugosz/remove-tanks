@@ -4,9 +4,9 @@ import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
-import remove.tanks.game.level.engine.utility.spwan.spawner.Spawner;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerFactory;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerPrototype;
+import remove.tanks.game.level.engine.utility.spawn.spawner.Spawner;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerFactory;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerPrototype;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 

@@ -2,7 +2,7 @@ package remove.tanks.game.level.engine.system.spawn;
 
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.system.EntitySystemPrototype;
-import remove.tanks.game.level.engine.utility.spwan.spawner.SpawnerPrototype;
+import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerPrototype;
 
 import java.util.List;
 
