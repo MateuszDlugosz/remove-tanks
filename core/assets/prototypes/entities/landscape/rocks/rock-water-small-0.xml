@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="Detector">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>16</width>
+                            <height>16</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>ObstacleCategory</categoryBit>
+                            <maskBit>ObstacleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="AnimationView" id="StandingNone">
+                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.3f">
+                        <frame regionName="rock-water-small-0-1" />
+                        <frame regionName="rock-water-small-0-0" />
+                        <frame regionName="rock-water-small-0-1" />
+                        <frame regionName="rock-water-small-0-2" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="DirectionComponent">
+            <direction>None</direction>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="ObstacleLayerComponent"></component>
+    </components>
+</prototype>

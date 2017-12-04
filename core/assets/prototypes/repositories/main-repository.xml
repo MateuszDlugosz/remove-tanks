@@ -117,6 +117,7 @@
         <prototype code="RockPolishedMediumHorizontal0">prototypes/entities/landscape/rocks/rock-polished-medium-horizontal-0.xml</prototype>
         <prototype code="RockPolishedMediumVertical0">prototypes/entities/landscape/rocks/rock-polished-medium-vertical-0.xml</prototype>
         <prototype code="RockPolishedLarge0">prototypes/entities/landscape/rocks/rock-polished-large-0.xml</prototype>
+        <prototype code="RockWaterSmall0">prototypes/entities/landscape/rocks/rock-water-small-0.xml</prototype>
 
         <prototype code="TrainLeft0">prototypes/entities/vehicles/trains/train-left-0.xml</prototype>
         <prototype code="TrainRight0">prototypes/entities/vehicles/trains/train-right-0.xml</prototype>
