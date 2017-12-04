@@ -32,46 +32,31 @@
                     </fixture>
                 </hitBox>
             </hitBoxes>
-            <sensors>
-                <sensor id="HitDetector">
-                    <fixture>
-                        <shape type="RectangleShape">
-                            <width>19</width>
-                            <height>19</height>
-                        </shape>
-                        <isSensor>true</isSensor>
-                        <filter>
-                            <categoryBit>ObstacleCategory</categoryBit>
-                            <maskBit>ObstacleMask</maskBit>
-                        </filter>
-                    </fixture>
-                </sensor>
-            </sensors>
         </component>
         <component type="GraphicsComponent">
             <views>
                 <view type="SpriteView" id="MovingLeft">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-pushing-block-small-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingRight">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-pushing-block-small-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingUp">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-pushing-block-small-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingDown">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-pushing-block-small-0</regionName>
                     </sprite>
                 </view>
             </views>
@@ -86,9 +71,6 @@
             <speed>1</speed>
         </component>
         <component type="ObstacleLayerComponent"></component>
-        <component type="DamageComponent">
-            <damage>100</damage>
-        </component>
         <component type="AutoMoveComponent"></component>
     </components>
 </prototype>

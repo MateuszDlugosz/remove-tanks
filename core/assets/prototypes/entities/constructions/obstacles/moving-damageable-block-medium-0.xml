@@ -9,8 +9,8 @@
                 <hitBox id="HitBox0">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>16</width>
-                            <height>16</height>
+                            <width>32</width>
+                            <height>32</height>
                         </shape>
                         <density>1000</density>
                         <filter>
@@ -22,8 +22,8 @@
                 <hitBox id="HitBox1">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>16</width>
-                            <height>16</height>
+                            <width>32</width>
+                            <height>32</height>
                         </shape>
                         <filter>
                             <categoryBit>ActorCategory</categoryBit>
@@ -36,8 +36,8 @@
                 <sensor id="HitDetector">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>19</width>
-                            <height>19</height>
+                            <width>36</width>
+                            <height>36</height>
                         </shape>
                         <isSensor>true</isSensor>
                         <filter>
@@ -53,25 +53,25 @@
                 <view type="SpriteView" id="MovingLeft">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-damageable-block-medium-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingRight">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-damageable-block-medium-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingUp">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-damageable-block-medium-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingDown">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>moving-damageable-block-small-0</regionName>
+                        <regionName>moving-damageable-block-medium-0</regionName>
                     </sprite>
                 </view>
             </views>
@@ -83,7 +83,7 @@
             <direction>Down</direction>
         </component>
         <component type="SpeedComponent">
-            <speed>1</speed>
+            <speed>0.7</speed>
         </component>
         <component type="ObstacleLayerComponent"></component>
         <component type="DamageComponent">

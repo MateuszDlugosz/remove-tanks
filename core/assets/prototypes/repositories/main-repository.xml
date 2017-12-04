@@ -208,5 +208,8 @@
         <prototype code="LandingBargeLargeAnchored0Up">prototypes/entities/vehicles/barges/landing-barge-large-anchored-0-up.xml</prototype>
 
         <prototype code="MovingDamageableBlockSmall0">prototypes/entities/constructions/obstacles/moving-damageable-block-small-0.xml</prototype>
+        <prototype code="MovingDamageableBlockMedium0">prototypes/entities/constructions/obstacles/moving-damageable-block-medium-0.xml</prototype>
+        <prototype code="MovingPushingBlockSmall0">prototypes/entities/constructions/obstacles/moving-pushing-block-small-0.xml</prototype>
+        <prototype code="MovingPushingBlockMedium0">prototypes/entities/constructions/obstacles/moving-pushing-block-medium-0.xml</prototype>
     </prototypes>
 </repository>

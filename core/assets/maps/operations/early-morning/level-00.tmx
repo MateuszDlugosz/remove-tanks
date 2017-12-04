@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1423">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1432">
  <tileset firstgid="1" source="../../../tilesets/sepia-tileset.tsx"/>
  <layer name="ground_layer" width="70" height="50">
   <data encoding="csv">
@@ -71,7 +71,7 @@
 &lt;/components&gt;</property>
    </properties>
   </object>
-  <object id="1410" name="player_respawn" x="240" y="280" width="16" height="16">
+  <object id="1410" x="240" y="280" width="16" height="16">
    <properties>
     <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
    </properties>
@@ -81,12 +81,12 @@
     <property name="prototype.code" value="MudSmall0"/>
    </properties>
   </object>
-  <object id="1413" name="player_respawn" x="240" y="184" width="16" height="16">
+  <object id="1413" x="240" y="184" width="16" height="16">
    <properties>
     <property name="prototype.code" value="MovingDamageableBlockSmall0"/>
    </properties>
   </object>
-  <object id="1414" name="player_respawn" x="240" y="120" width="16" height="16">
+  <object id="1414" x="240" y="120" width="16" height="16">
    <properties>
     <property name="prototype.code" value="ActorControllerMediumDirectionDown"/>
    </properties>
@@ -133,6 +133,51 @@
 		&lt;/events&gt;
 	&lt;/component&gt;
 &lt;/components&gt;</property>
+   </properties>
+  </object>
+  <object id="1423" x="192" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
+   </properties>
+  </object>
+  <object id="1424" x="192" y="120" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionDown"/>
+   </properties>
+  </object>
+  <object id="1425" x="192" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="MovingPushingBlockSmall0"/>
+   </properties>
+  </object>
+  <object id="1426" x="152" y="120" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionDown"/>
+   </properties>
+  </object>
+  <object id="1427" x="96" y="120" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionDown"/>
+   </properties>
+  </object>
+  <object id="1428" x="152" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
+   </properties>
+  </object>
+  <object id="1429" x="96" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="ActorControllerMediumDirectionUp"/>
+   </properties>
+  </object>
+  <object id="1430" x="152" y="192" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="MovingPushingBlockMedium0"/>
+   </properties>
+  </object>
+  <object id="1431" x="96" y="176" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="MovingDamageableBlockMedium0"/>
    </properties>
   </object>
  </objectgroup>
