@@ -9,8 +9,8 @@
                 <hitBox id="HitBox0">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>16</width>
-                            <height>16</height>
+                            <width>14</width>
+                            <height>14</height>
                         </shape>
                         <density>1000</density>
                         <filter>
