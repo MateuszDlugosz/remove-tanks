@@ -682,11 +682,25 @@ house-medium-l-right-down-0
   orig: 32, 32
   offset: 0, 0
   index: -1
+button-0-0
+  rotate: false
+  xy: 330, 318
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
 moving-pushing-block-medium-0
   rotate: false
-  xy: 450, 358
+  xy: 348, 314
   size: 32, 32
   orig: 32, 32
+  offset: 0, 0
+  index: -1
+telegraphic-slope-0
+  rotate: false
+  xy: 450, 358
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 cloud-1
@@ -696,156 +710,107 @@ cloud-1
   orig: 32, 16
   offset: 0, 0
   index: -1
-telegraphic-slope-0
+rock-polished-medium-vertical-0
   rotate: false
-  xy: 484, 358
+  xy: 382, 314
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
 cloud-0
   rotate: false
-  xy: 508, 392
+  xy: 468, 374
   size: 32, 16
   orig: 32, 16
   offset: 0, 0
   index: -1
-rock-polished-medium-vertical-0
-  rotate: false
-  xy: 542, 394
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
 rock-medium-vertical-0
   rotate: false
-  xy: 502, 358
+  xy: 400, 314
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
 telegraphic-slope-1
   rotate: false
-  xy: 520, 358
+  xy: 418, 314
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
 house-medium-horizontal-1
   rotate: false
-  xy: 450, 340
-  size: 32, 16
-  orig: 32, 16
-  offset: 0, 0
-  index: -1
-rock-polished-medium-horizontal-0
-  rotate: false
-  xy: 484, 340
-  size: 32, 16
-  orig: 32, 16
-  offset: 0, 0
-  index: -1
-moving-pushing-block-small-0
-  rotate: false
-  xy: 330, 322
-  size: 22, 22
-  orig: 22, 22
-  offset: 0, 0
-  index: -1
-house-medium-horizontal-0
-  rotate: false
-  xy: 354, 330
-  size: 32, 16
-  orig: 32, 16
-  offset: 0, 0
-  index: -1
-house-medium-horizontal-2
-  rotate: false
-  xy: 388, 330
-  size: 32, 16
-  orig: 32, 16
-  offset: 0, 0
-  index: -1
-rock-medium-horizontal-0
-  rotate: false
-  xy: 354, 312
+  xy: 508, 392
   size: 32, 16
   orig: 32, 16
   offset: 0, 0
   index: -1
 house-tower-0
   rotate: false
-  xy: 538, 358
+  xy: 542, 394
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
+rock-polished-medium-horizontal-0
+  rotate: false
+  xy: 502, 374
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-horizontal-0
+  rotate: false
+  xy: 346, 296
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-horizontal-2
+  rotate: false
+  xy: 380, 296
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+rock-medium-horizontal-0
+  rotate: false
+  xy: 468, 356
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-vertical-0-ruined
+  rotate: false
+  xy: 436, 314
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+moving-pushing-block-small-0
+  rotate: false
+  xy: 414, 290
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+button-0-1
+  rotate: false
+  xy: 438, 286
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
 enemy-medium-tank-up-1
   rotate: false
-  xy: 518, 340
+  xy: 502, 356
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 bonus-promotion-0
   rotate: false
-  xy: 422, 328
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-player-medium-tank-up-0
-  rotate: false
-  xy: 536, 340
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bomb-0-up-1
-  rotate: false
-  xy: 388, 312
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-grave-0
-  rotate: false
-  xy: 440, 330
-  size: 8, 16
-  orig: 8, 16
-  offset: 0, 0
-  index: -1
-house-medium-vertical-0-ruined
-  rotate: false
-  xy: 560, 392
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-beach-barricade-0
-  rotate: false
-  xy: 578, 403
-  size: 16, 21
-  orig: 16, 21
-  offset: 0, 0
-  index: -1
-bonus-promotion-1
-  rotate: false
-  xy: 596, 406
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-grave-2
-  rotate: false
-  xy: 614, 408
-  size: 8, 16
-  orig: 8, 16
-  offset: 0, 0
-  index: -1
-bonus-bombers-2
-  rotate: false
-  xy: 556, 372
+  xy: 520, 354
   size: 16, 18
   orig: 16, 18
   offset: 0, 0
@@ -878,11 +843,123 @@ enemy-land-bomb-1
   orig: 8, 12
   offset: 0, 0
   index: -1
-enemy-bomber-tank-spawn-3
+button-0-2
   rotate: false
-  xy: 556, 354
+  xy: 350, 268
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
+beach-barricade-0
+  rotate: false
+  xy: 368, 273
+  size: 16, 21
+  orig: 16, 21
+  offset: 0, 0
+  index: -1
+player-medium-tank-up-0
+  rotate: false
+  xy: 350, 250
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+bonus-promotion-1
+  rotate: false
+  xy: 386, 276
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-bombers-2
+  rotate: false
+  xy: 368, 253
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-star-0
+  rotate: false
+  xy: 386, 256
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+grave-0
+  rotate: false
+  xy: 404, 278
+  size: 8, 16
+  orig: 8, 16
+  offset: 0, 0
+  index: -1
+bonus-star-2
+  rotate: false
+  xy: 354, 230
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-promotion-2
+  rotate: false
+  xy: 354, 210
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-ammo-2
+  rotate: false
+  xy: 354, 190
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-bombers-0
+  rotate: false
+  xy: 354, 170
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-ammo-0
+  rotate: false
+  xy: 354, 150
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-life-0
+  rotate: false
+  xy: 354, 130
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-life-2
+  rotate: false
+  xy: 354, 110
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-bombers-1
+  rotate: false
+  xy: 354, 90
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-star-1
+  rotate: false
+  xy: 354, 70
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-life-1
+  rotate: false
+  xy: 354, 50
+  size: 16, 18
+  orig: 16, 18
   offset: 0, 0
   index: -1
 bullet-large-left
@@ -899,546 +976,252 @@ bullet-large-right
   orig: 9, 8
   offset: 0, 0
   index: -1
-dragons-teeth
+bonus-ammo-1
   rotate: false
-  xy: 554, 336
+  xy: 372, 233
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bomb-0-up-1
+  rotate: false
+  xy: 372, 215
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-fence-wooden-slope-0
+enemy-bomber-tank-spawn-3
   rotate: false
-  xy: 204, 2
-  size: 8, 8
-  orig: 8, 8
+  xy: 372, 197
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-bonus-star-0
+dragons-teeth
   rotate: false
-  xy: 346, 292
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-star-2
-  rotate: false
-  xy: 364, 292
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-promotion-2
-  rotate: false
-  xy: 382, 292
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-ammo-2
-  rotate: false
-  xy: 350, 272
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-bombers-0
-  rotate: false
-  xy: 350, 252
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-ammo-0
-  rotate: false
-  xy: 368, 272
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-life-0
-  rotate: false
-  xy: 368, 252
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-life-2
-  rotate: false
-  xy: 354, 232
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-bombers-1
-  rotate: false
-  xy: 354, 212
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-star-1
-  rotate: false
-  xy: 354, 192
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-life-1
-  rotate: false
-  xy: 354, 172
-  size: 16, 18
-  orig: 16, 18
-  offset: 0, 0
-  index: -1
-bonus-ammo-1
-  rotate: false
-  xy: 354, 152
-  size: 16, 18
-  orig: 16, 18
+  xy: 372, 179
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
 rock-small-0
   rotate: false
-  xy: 354, 134
+  xy: 372, 161
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 player-medium-tank-left-1
   rotate: false
-  xy: 354, 116
+  xy: 372, 143
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 bomb-0-right-2
   rotate: false
-  xy: 354, 98
+  xy: 372, 125
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 mud-small-0-4
   rotate: false
-  xy: 354, 80
+  xy: 372, 107
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 enemy-bomber-tank-right-0
   rotate: false
-  xy: 354, 62
+  xy: 372, 89
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-down-0
-  rotate: false
-  xy: 386, 274
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
 bullet-medium-left
   rotate: false
-  xy: 386, 256
+  xy: 372, 71
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 bomb-0-right-0
   rotate: false
-  xy: 372, 234
+  xy: 372, 53
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-anti-tank-barrier
+mud-tiny-0-2
   rotate: false
-  xy: 372, 216
-  size: 16, 16
-  orig: 16, 16
+  xy: 204, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-enemy-bomber-tank-up-1
-  rotate: false
-  xy: 372, 198
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-spikes-small-0-1
-  rotate: false
-  xy: 372, 180
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bomb-0-down-0
-  rotate: false
-  xy: 372, 162
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-explosion-small-0
-  rotate: false
-  xy: 372, 144
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-right-1
-  rotate: false
-  xy: 372, 126
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-up-0
-  rotate: false
-  xy: 372, 108
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-spawn-1
-  rotate: false
-  xy: 372, 90
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bullet-medium-right
-  rotate: false
-  xy: 372, 72
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-tombstone-0
+fence-wooden-slope-0
   rotate: false
   xy: 214, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-tombstone-1
+mud-tiny-0-0
   rotate: false
   xy: 224, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-tombstone-2
+anti-tank-barrier
+  rotate: false
+  xy: 414, 272
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+grave-2
+  rotate: false
+  xy: 404, 260
+  size: 8, 16
+  orig: 8, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-up-1
+  rotate: false
+  xy: 414, 254
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-1
+  rotate: false
+  xy: 432, 268
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-down-0
+  rotate: false
+  xy: 432, 250
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-tiny-0-4
   rotate: false
   xy: 234, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-enemy-medium-tank-spawn-3
+tombstone-0
   rotate: false
-  xy: 578, 385
-  size: 16, 16
-  orig: 16, 16
+  xy: 244, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-bomb-0-down-1
+tombstone-1
   rotate: false
-  xy: 596, 388
-  size: 16, 16
-  orig: 16, 16
+  xy: 254, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-explosion-small-1
+tombstone-2
   rotate: false
-  xy: 574, 367
-  size: 16, 16
-  orig: 16, 16
+  xy: 264, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-explosion-medium-0
+mud-tiny-0-3
   rotate: false
-  xy: 574, 349
-  size: 16, 16
-  orig: 16, 16
+  xy: 274, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-enemy-medium-tank-left-1
+mud-tiny-0-1
   rotate: false
-  xy: 572, 331
-  size: 16, 16
-  orig: 16, 16
+  xy: 284, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-battle-indicator-0
-  rotate: false
-  xy: 614, 390
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-explosion-bonus-1
-  rotate: false
-  xy: 631, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-mud-small-0-0
-  rotate: false
-  xy: 649, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-left-0
-  rotate: false
-  xy: 667, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-mud-small-0-6
-  rotate: false
-  xy: 685, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bomb-0-right-1
-  rotate: false
-  xy: 703, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-player-medium-tank-spawn-0
-  rotate: false
-  xy: 721, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-house-small-horizontal-0
-  rotate: false
-  xy: 739, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-tree-0
-  rotate: false
-  xy: 757, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-down-0
-  rotate: false
-  xy: 775, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bomb-0-up-2
-  rotate: false
-  xy: 793, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-right-0
-  rotate: false
-  xy: 811, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-player-medium-tank-left-0
-  rotate: false
-  xy: 829, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-player-medium-tank-spawn-1
-  rotate: false
-  xy: 847, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-spawn-2
-  rotate: false
-  xy: 865, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-down-1
-  rotate: false
-  xy: 883, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-spikes-small-0-2
-  rotate: false
-  xy: 901, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-up-0
-  rotate: false
-  xy: 919, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-rock-polished-small-1
-  rotate: false
-  xy: 937, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-player-medium-tank-down-1
-  rotate: false
-  xy: 955, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-player-medium-tank-up-1
-  rotate: false
-  xy: 973, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-explosion-medium-1
-  rotate: false
-  xy: 991, 392
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-light-tank-spawn-2
+enemy-light-tank-down-0
   rotate: false
   xy: 390, 238
   size: 15, 16
   orig: 15, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-up-1
+explosion-small-0
   rotate: false
   xy: 390, 220
-  size: 15, 16
-  orig: 15, 16
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-up-0
+enemy-medium-tank-right-1
   rotate: false
   xy: 390, 202
-  size: 15, 16
-  orig: 15, 16
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-battle-indicator-1
+enemy-medium-tank-up-0
   rotate: false
   xy: 390, 184
-  size: 15, 16
-  orig: 15, 16
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-down-1
+enemy-medium-tank-spawn-1
   rotate: false
   xy: 390, 166
-  size: 15, 16
-  orig: 15, 16
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-spawn-1
+bullet-medium-right
   rotate: false
   xy: 390, 148
-  size: 15, 16
-  orig: 15, 16
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-bomb-0-left-1
+enemy-medium-tank-spawn-3
   rotate: false
   xy: 390, 130
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-player-medium-tank-down-0
+bomb-0-down-1
   rotate: false
   xy: 390, 112
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-bomb-0-left-0
+explosion-small-1
   rotate: false
   xy: 390, 94
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-concrete-barrier-left
+explosion-medium-0
   rotate: false
   xy: 390, 76
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-left-1
-  rotate: false
-  xy: 450, 323
-  size: 16, 15
-  orig: 16, 15
-  offset: 0, 0
-  index: -1
-player-medium-tank-spawn-3
-  rotate: false
-  xy: 468, 322
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-mud-small-0-5
-  rotate: false
-  xy: 486, 322
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-player-medium-tank-right-1
-  rotate: false
-  xy: 504, 322
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-down-1
-  rotate: false
-  xy: 522, 322
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-spawn-2
-  rotate: false
-  xy: 372, 54
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-explosion-bonus-0
+enemy-medium-tank-left-1
   rotate: false
   xy: 390, 58
   size: 16, 16
@@ -1447,267 +1230,547 @@ explosion-bonus-0
   index: -1
 grave-1
   rotate: false
-  xy: 406, 312
+  xy: 560, 410
   size: 8, 16
   orig: 8, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-spawn-0
+explosion-bonus-1
   rotate: false
-  xy: 400, 294
+  xy: 570, 408
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-0
+  rotate: false
+  xy: 588, 408
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-left-0
+  rotate: false
+  xy: 606, 408
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+battle-indicator-0
+  rotate: false
+  xy: 536, 374
   size: 15, 16
   orig: 15, 16
   offset: 0, 0
   index: -1
-explosion-bonus-2
+enemy-light-tank-spawn-2
   rotate: false
-  xy: 403, 276
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bullet-medium-down
-  rotate: false
-  xy: 404, 258
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-left-1
-  rotate: false
-  xy: 407, 240
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-right-1
-  rotate: false
-  xy: 407, 222
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-tree-1
-  rotate: false
-  xy: 407, 204
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-spikes-small-0-0
-  rotate: false
-  xy: 407, 186
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-house-small-vertical-0
-  rotate: false
-  xy: 407, 168
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bullet-medium-up
-  rotate: false
-  xy: 407, 150
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bomb-0-down-2
-  rotate: false
-  xy: 408, 132
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-explosion-small-2
-  rotate: false
-  xy: 408, 114
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-explosion-medium-2
-  rotate: false
-  xy: 408, 96
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-left-0
-  rotate: false
-  xy: 408, 78
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-bomb-0-up-0
-  rotate: false
-  xy: 408, 60
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-light-tank-right-1
-  rotate: false
-  xy: 390, 41
-  size: 16, 15
-  orig: 16, 15
-  offset: 0, 0
-  index: -1
-bomb-0-left-2
-  rotate: false
-  xy: 408, 42
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-house-small-horizontal-0-ruined
-  rotate: false
-  xy: 592, 367
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-bomber-tank-spawn-0
-  rotate: false
-  xy: 592, 349
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-mud-small-0-1
-  rotate: false
-  xy: 590, 331
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-player-medium-tank-right-0
-  rotate: false
-  xy: 366, 36
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-medium-tank-down-0
-  rotate: false
-  xy: 366, 18
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-explosion-bonus-3
-  rotate: false
-  xy: 384, 23
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-enemy-light-tank-spawn-3
-  rotate: false
-  xy: 402, 23
+  xy: 538, 356
   size: 15, 16
   orig: 15, 16
   offset: 0, 0
   index: -1
-bullet-small
+mud-small-0-6
   rotate: false
-  xy: 419, 24
+  xy: 450, 268
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-right-0
+bomb-0-right-1
   rotate: false
-  xy: 384, 6
-  size: 16, 15
-  orig: 16, 15
+  xy: 450, 250
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-enemy-light-tank-left-0
+player-medium-tank-spawn-0
   rotate: false
-  xy: 402, 6
-  size: 16, 15
-  orig: 16, 15
+  xy: 390, 40
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-spikes-small-0-3
+house-small-horizontal-0
   rotate: false
-  xy: 420, 6
+  xy: 372, 35
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tree-0
+  rotate: false
+  xy: 366, 17
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-down-0
+  rotate: false
+  xy: 384, 17
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-up-2
+  rotate: false
+  xy: 553, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-right-0
+  rotate: false
+  xy: 555, 358
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 bullet-large-down
   rotate: false
-  xy: 42, 5
+  xy: 560, 399
   size: 8, 9
   orig: 8, 9
   offset: 0, 0
   index: -1
-bullet-large-up
+player-medium-tank-left-0
   rotate: false
-  xy: 540, 329
-  size: 8, 9
-  orig: 8, 9
+  xy: 571, 390
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-spawn-1
+  rotate: false
+  xy: 589, 390
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-up-1
+  rotate: false
+  xy: 607, 390
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-spawn-2
+  rotate: false
+  xy: 624, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-down-1
+  rotate: false
+  xy: 642, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-2
+  rotate: false
+  xy: 660, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-up-0
+  rotate: false
+  xy: 678, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+rock-polished-small-1
+  rotate: false
+  xy: 696, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-down-1
+  rotate: false
+  xy: 714, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-up-1
+  rotate: false
+  xy: 732, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-medium-1
+  rotate: false
+  xy: 750, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-left-1
+  rotate: false
+  xy: 768, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-down-0
+  rotate: false
+  xy: 786, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-left-0
+  rotate: false
+  xy: 804, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+concrete-barrier-left
+  rotate: false
+  xy: 822, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-spawn-3
+  rotate: false
+  xy: 840, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-5
+  rotate: false
+  xy: 858, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-right-1
+  rotate: false
+  xy: 876, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-down-1
+  rotate: false
+  xy: 894, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+button-0-pushed
+  rotate: false
+  xy: 912, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-spawn-2
+  rotate: false
+  xy: 930, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-bonus-0
+  rotate: false
+  xy: 948, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-bonus-2
+  rotate: false
+  xy: 966, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet-medium-down
+  rotate: false
+  xy: 984, 392
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-up-0
+  rotate: false
+  xy: 1002, 392
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-left-1
+  rotate: false
+  xy: 573, 372
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-right-1
+  rotate: false
+  xy: 591, 372
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+battle-indicator-1
+  rotate: false
+  xy: 609, 372
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+tree-1
+  rotate: false
+  xy: 626, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-0
+  rotate: false
+  xy: 644, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+house-small-vertical-0
+  rotate: false
+  xy: 662, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet-medium-up
+  rotate: false
+  xy: 680, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-down-2
+  rotate: false
+  xy: 698, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-small-2
+  rotate: false
+  xy: 716, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-medium-2
+  rotate: false
+  xy: 734, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-left-0
+  rotate: false
+  xy: 752, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-up-0
+  rotate: false
+  xy: 770, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-left-2
+  rotate: false
+  xy: 788, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+house-small-horizontal-0-ruined
+  rotate: false
+  xy: 806, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-spawn-0
+  rotate: false
+  xy: 824, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-1
+  rotate: false
+  xy: 842, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-right-0
+  rotate: false
+  xy: 860, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-down-0
+  rotate: false
+  xy: 878, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-bonus-3
+  rotate: false
+  xy: 896, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet-small
+  rotate: false
+  xy: 914, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-3
+  rotate: false
+  xy: 932, 374
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
 player-medium-tank-spawn-2
   rotate: false
-  xy: 550, 318
+  xy: 950, 374
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 concrete-barrier-right
   rotate: false
-  xy: 568, 313
+  xy: 968, 374
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 mud-small-0-3
   rotate: false
-  xy: 586, 313
+  xy: 986, 374
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-mud-small-0-2
+enemy-light-tank-down-1
   rotate: false
-  xy: 604, 313
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-battle-indicator-2
-  rotate: false
-  xy: 608, 331
+  xy: 1004, 374
   size: 15, 16
   orig: 15, 16
   offset: 0, 0
   index: -1
+enemy-light-tank-left-1
+  rotate: false
+  xy: 573, 355
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-right-1
+  rotate: false
+  xy: 591, 355
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-spawn-1
+  rotate: false
+  xy: 609, 354
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-2
+  rotate: false
+  xy: 626, 356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
 rock-polished-small-0
   rotate: false
-  xy: 622, 313
+  xy: 644, 356
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 enemy-medium-tank-spawn-0
   rotate: false
-  xy: 631, 374
+  xy: 662, 356
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 enemy-bomber-tank-spawn-1
   rotate: false
-  xy: 649, 374
+  xy: 680, 356
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-spawn-0
+  rotate: false
+  xy: 698, 356
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-right-0
+  rotate: false
+  xy: 715, 357
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-left-0
+  rotate: false
+  xy: 733, 357
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-spawn-3
+  rotate: false
+  xy: 751, 356
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+battle-indicator-2
+  rotate: false
+  xy: 768, 356
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+bullet-large-up
+  rotate: false
+  xy: 42, 5
+  size: 8, 9
+  orig: 8, 9
   offset: 0, 0
   index: -1

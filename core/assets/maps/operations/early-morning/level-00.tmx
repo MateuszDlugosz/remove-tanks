@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1436">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1438">
  <tileset firstgid="1" source="../../../tilesets/sepia-tileset.tsx"/>
  <layer name="ground_layer" width="70" height="50">
   <data encoding="csv">
@@ -195,9 +195,23 @@
     <property name="prototype.code" value="SpikesSmall0"/>
    </properties>
   </object>
-  <object id="1435" x="184" y="64" width="16" height="16">
+  <object id="1436" name="player_respawn" x="320" y="224" width="7.45455" height="7.81818">
    <properties>
-    <property name="prototype.code" value="RockWaterSmall0"/>
+    <property name="prototype.code" value="MudTiny0"/>
+   </properties>
+  </object>
+  <object id="1437" x="304" y="280" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="Button0"/>
+    <property name="prototype.components">&lt;components&gt;
+	&lt;component type=&quot;TriggerComponent&quot;&gt;
+		&lt;events&gt;
+			&lt;event type=&quot;ActivateAutoSpawnerEvent&quot;&gt;
+				&lt;id&gt;Charlie&lt;/id&gt;
+			&lt;/event&gt;
+		&lt;/events&gt;
+	&lt;/component&gt;
+&lt;/components&gt;</property>
    </properties>
   </object>
  </objectgroup>

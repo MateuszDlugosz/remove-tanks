@@ -202,6 +202,7 @@
         <prototype code="EnemyLightTrainHorizontalDownActor">prototypes/entities/services/actors/vehicles/trains/enemy-light-train-horizontal-down-actor.xml</prototype>
         <prototype code="CameraActor">prototypes/entities/services/actors/cameras/camera-actor.xml</prototype>
 
+        <prototype code="MudTiny0">prototypes/entities/landscape/mud/mud-tiny-0.xml</prototype>
         <prototype code="MudSmall0">prototypes/entities/landscape/mud/mud-small-0.xml</prototype>
 
         <prototype code="LandingBargeSmallAnchored0Up">prototypes/entities/vehicles/barges/landing-barge-small-anchored-0-up.xml</prototype>
@@ -213,5 +214,8 @@
         <prototype code="MovingPushingBlockMedium0">prototypes/entities/constructions/obstacles/moving-pushing-block-medium-0.xml</prototype>
 
         <prototype code="SpikesSmall0">prototypes/entities/constructions/obstacles/spikes-small-0.xml</prototype>
+
+        <prototype code="Button0">prototypes/entities/services/buttons/button-0.xml</prototype>
+        <prototype code="Button0Pushed">prototypes/entities/services/buttons/button-0-pushed.xml</prototype>
     </prototypes>
 </repository>
