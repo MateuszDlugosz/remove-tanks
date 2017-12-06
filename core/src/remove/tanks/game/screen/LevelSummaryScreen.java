@@ -28,7 +28,7 @@ import remove.tanks.game.utility.properties.Properties;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationSummaryScreen extends GameScreen {
+public final class LevelSummaryScreen extends GameScreen {
     private final Locale locale;
     private final LevelPresenter levelPresenter;
     private final Skin skin;
@@ -47,7 +47,7 @@ public final class OperationSummaryScreen extends GameScreen {
 
     private ButtonGroup buttonGroup;
 
-    public OperationSummaryScreen(GameApplication gameApplication, Properties properties) {
+    public LevelSummaryScreen(GameApplication gameApplication, Properties properties) {
         super(gameApplication);
         this.stage = new Stage(
                 gameApplication.getContext()

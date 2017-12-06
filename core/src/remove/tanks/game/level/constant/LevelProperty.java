@@ -16,7 +16,7 @@ public enum LevelProperty {
     LevelPoints("level.points", "0"),
     LevelPointsMultiplier("level.points.multiplier", "1"),
     LevelLifes("level.lifes", "3"),
-    LevelStatus("level.status", "none");
+    LevelState("level.state", "none");
 
     private final String name;
     private final String defaultValue;

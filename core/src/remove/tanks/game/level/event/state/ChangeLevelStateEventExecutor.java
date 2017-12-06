@@ -15,7 +15,7 @@ public final class ChangeLevelStateEventExecutor
     @Override
     public void executeEvent(ChangeLevelStateEvent event, Level level) {
         level.getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .putString(LevelProperty.LevelStatus.getName(), event.getLevelState().getName());
+                .putString(LevelProperty.LevelState.getName(), event.getLevelState().getName());
     }
 
     @Override

@@ -25,7 +25,7 @@ import remove.tanks.game.utility.properties.Properties;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationLevelScreen extends GameScreen {
+public final class LevelScreen extends GameScreen {
     private final LevelController levelController;
     private final Skin skin;
     private final EventBus eventBus;
@@ -39,7 +39,7 @@ public final class OperationLevelScreen extends GameScreen {
     private Stage stage;
     private Window window;
 
-    public OperationLevelScreen(
+    public LevelScreen(
             GameApplication gameApplication,
             Operation operation,
             int currentLevelIndex,
@@ -95,20 +95,20 @@ public final class OperationLevelScreen extends GameScreen {
         processInput();
         levelController.update(delta, eventBus);
         if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelStatus.getName()).equals(LevelState.Defeat.getName()))
+                .getString(LevelProperty.LevelState.getName()).equals(LevelState.Defeat.getName()))
         {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusDefeat.getName()
                 ).toUpperCase());
         } else if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelStatus.getName()).equals(LevelState.Victory.getName()))
+                .getString(LevelProperty.LevelState.getName()).equals(LevelState.Victory.getName()))
         {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusVictory.getName()
                 ).toUpperCase());
         }
         if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelStatus.getName()).equals(LevelState.End.getName()))
+                .getString(LevelProperty.LevelState.getName()).equals(LevelState.End.getName()))
         {
             switchToSummaryScreen();
         }
@@ -117,7 +117,7 @@ public final class OperationLevelScreen extends GameScreen {
 
     private void switchToNextLevel() {
         if (operation.getLevelPrototypeFilenames().size() - 1 > currentLevelIndex) {
-            getGameApplication().switchScreen(new OperationLevelLoadingScreen(
+            getGameApplication().switchScreen(new LevelLoadingScreen(
                     getGameApplication(),
                     operation,
                     currentLevelIndex + 1,
@@ -129,7 +129,7 @@ public final class OperationLevelScreen extends GameScreen {
     }
 
     private void switchToSummaryScreen() {
-        getGameApplication().switchScreen(new OperationSummaryScreen(
+        getGameApplication().switchScreen(new LevelSummaryScreen(
                 getGameApplication(), levelController.getLevel().getResourceRegistry()
                         .getResource(LevelResource.Properties.name(), Properties.class)
         ));

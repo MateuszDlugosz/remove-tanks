@@ -15,7 +15,7 @@ import java.util.Optional;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationLevelLoadingScreen extends GameScreen {
+public final class LevelLoadingScreen extends GameScreen {
     private final LevelLoader levelLoader;
     private final int levelIndex;
     private final Operation operation;
@@ -29,7 +29,7 @@ public final class OperationLevelLoadingScreen extends GameScreen {
     private boolean levelDisposed;
     private boolean levelLoaded;
 
-    public OperationLevelLoadingScreen(
+    public LevelLoadingScreen(
             GameApplication gameApplication,
             Operation operation,
             int levelIndex,
@@ -75,7 +75,7 @@ public final class OperationLevelLoadingScreen extends GameScreen {
                     .merge(previousLevelProperties);
 
             getGameApplication().switchScreen(
-                    new OperationLevelScreen(
+                    new LevelScreen(
                             getGameApplication(),
                             operation,
                             levelIndex,

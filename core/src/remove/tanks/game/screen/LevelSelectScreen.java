@@ -27,7 +27,7 @@ import remove.tanks.game.screen.gui.listeners.KeyListener;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationSelectScreen extends GameScreen {
+public final class LevelSelectScreen extends GameScreen {
     private final Locale locale;
     private final LevelPresenter levelPresenter;
     private final Skin skin;
@@ -45,7 +45,7 @@ public final class OperationSelectScreen extends GameScreen {
     private Button operationEarlyMorningButton;
     private Button backButton;
 
-    public OperationSelectScreen(GameApplication gameApplication) {
+    public LevelSelectScreen(GameApplication gameApplication) {
         super(gameApplication);
         this.stage = new Stage(
                 gameApplication.getContext()
@@ -154,7 +154,7 @@ public final class OperationSelectScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreen(new OperationLevelLoadingScreen(
+                    getGameApplication().switchScreen(new LevelLoadingScreen(
                             getGameApplication(),
                             operation,
                             0,
