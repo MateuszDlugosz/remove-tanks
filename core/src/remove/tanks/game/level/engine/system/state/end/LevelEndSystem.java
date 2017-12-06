@@ -21,7 +21,9 @@ public final class LevelEndSystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        if (properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.Victory.getName())) {
+        if (properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.Victory.getName())
+                || properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.Defeat.getName()))
+        {
             if (timer.isComplete()) {
                 properties.putString(LevelProperty.LevelState.getName(), LevelState.End.getName());
                 getEngine().removeSystem(this);

@@ -16,7 +16,6 @@ public final class ActivateAutoSpawnerEventExecutor
     public void executeEvent(ActivateAutoSpawnerEvent event, Level level) {
         AutoSpawnerSystem system = level.getResourceRegistry().getResource(LevelResource.Engine.toString(), Engine.class)
                 .getSystem(AutoSpawnerSystem.class);
-        System.out.println(system);
         if (system != null) {
             system.activateSpawner(event.getId());
         }

@@ -16,9 +16,9 @@ public final class RemoveLifeEventExecutor
     public void executeEvent(RemoveLifeEvent event, Level level) {
         Properties properties = level.getResourceRegistry().getResource(LevelResource.Properties.toString(),
                 Properties.class);
-        if (properties.getInt(LevelProperty.LevelLifes.toString()) > 0) {
-            properties.putInt(LevelProperty.LevelLifes.toString(),
-                    properties.getInt(LevelProperty.LevelLifes.toString()) - 1);
+        if (properties.getInt(LevelProperty.LevelLifes.getName()) > 0) {
+            properties.putInt(LevelProperty.LevelLifes.getName(),
+                    properties.getInt(LevelProperty.LevelLifes.getName()) - 1);
         }
     }
 

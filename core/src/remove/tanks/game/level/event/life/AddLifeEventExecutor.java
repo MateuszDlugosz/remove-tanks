@@ -16,8 +16,8 @@ public final class AddLifeEventExecutor
     public void executeEvent(AddLifeEvent event, Level level) {
         Properties properties = level.getResourceRegistry().getResource(LevelResource.Properties.toString(),
                 Properties.class);
-        properties.putInt(LevelProperty.LevelLifes.toString(),
-                properties.getInt(LevelProperty.LevelLifes.toString()) + 1);
+        properties.putInt(LevelProperty.LevelLifes.getName(),
+                properties.getInt(LevelProperty.LevelLifes.getName()) + 1);
     }
 
     @Override
