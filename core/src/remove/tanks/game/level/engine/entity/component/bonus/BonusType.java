@@ -8,5 +8,6 @@ public enum BonusType {
     AmmoBonus,
     LifeBonus,
     StarBonus,
-    PromotionBonus
+    PromotionBonus,
+    GrenadeBonus
 }

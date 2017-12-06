@@ -45,7 +45,8 @@ public final class EntityListenerSupplierConfiguration {
                                             new AmmoBonusExecutor(),
                                             new BombersBonusExecutor(),
                                             new LifeBonusExecutor(),
-                                            new PromotionBonusExecutor()
+                                            new PromotionBonusExecutor(),
+                                            new GrenadeBonusExecutor()
                                     }
                             ),
                             new TriggerListenerFactory()

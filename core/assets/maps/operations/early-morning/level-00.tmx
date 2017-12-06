@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1438">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="70" height="50" tilewidth="8" tileheight="8" nextobjectid="1456">
  <tileset firstgid="1" source="../../../tilesets/sepia-tileset.tsx"/>
  <layer name="ground_layer" width="70" height="50">
   <data encoding="csv">
@@ -212,6 +212,86 @@
 		&lt;/events&gt;
 	&lt;/component&gt;
 &lt;/components&gt;</property>
+   </properties>
+  </object>
+  <object id="1438" x="280" y="128" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="BonusGrenade"/>
+   </properties>
+  </object>
+  <object id="1439" x="248" y="80" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1442" x="264" y="72" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1443" x="256" y="56" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1444" x="240" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1445" x="304" y="80" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1446" x="320" y="72" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1447" x="312" y="56" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1448" x="296" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1449" x="192" y="80" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1450" x="208" y="72" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1451" x="200" y="56" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1452" x="184" y="64" width="8" height="8">
+   <properties>
+    <property name="prototype.code" value="AllVehicleBlockadeSmall"/>
+   </properties>
+  </object>
+  <object id="1453" x="192" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyLightTank"/>
+   </properties>
+  </object>
+  <object id="1454" x="248" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyLightTank"/>
+   </properties>
+  </object>
+  <object id="1455" x="304" y="64" width="16" height="16">
+   <properties>
+    <property name="prototype.code" value="EnemyLightTank"/>
    </properties>
   </object>
  </objectgroup>
