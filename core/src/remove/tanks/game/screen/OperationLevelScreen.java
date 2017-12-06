@@ -15,15 +15,12 @@ import remove.tanks.game.level.LevelController;
 import remove.tanks.game.level.LevelControllerFactory;
 import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.constant.LevelStatus;
+import remove.tanks.game.level.constant.LevelState;
 import remove.tanks.game.level.input.InputMapper;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.mode.operation.Operation;
 import remove.tanks.game.utility.properties.Properties;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Mateusz Długosz
@@ -98,14 +95,14 @@ public final class OperationLevelScreen extends GameScreen {
         processInput();
         levelController.update(delta, eventBus);
         if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelStatus.getName()).equals(LevelStatus.Defeat.getName()))
+                .getString(LevelProperty.LevelStatus.getName()).equals(LevelState.Defeat.getName()))
         {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusDefeat.getName()
                 ).toUpperCase());
                 switchToSummaryScreen();
         } else if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelStatus.getName()).equals(LevelStatus.Victory.getName()))
+                .getString(LevelProperty.LevelStatus.getName()).equals(LevelState.Victory.getName()))
         {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusVictory.getName()

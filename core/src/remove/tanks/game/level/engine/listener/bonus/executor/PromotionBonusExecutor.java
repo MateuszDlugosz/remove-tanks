@@ -1,10 +1,9 @@
 package remove.tanks.game.level.engine.listener.bonus.executor;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusType;
 import remove.tanks.game.level.engine.listener.bonus.BonusPickUpListener;
-import remove.tanks.game.level.event.property.ModifyPropertyEvent;
+import remove.tanks.game.level.event.points.IncreasePointsMultiplierEvent;
 
 /**
  * @author Mateusz Długosz
@@ -12,12 +11,7 @@ import remove.tanks.game.level.event.property.ModifyPropertyEvent;
 public final class PromotionBonusExecutor implements BonusExecutor {
     @Override
     public void executeBonus(Entity bonusEntity, BonusPickUpListener listener) {
-        listener.getEventBus().post(
-                new ModifyPropertyEvent(
-                        LevelProperty.LevelPointsMultiplier,
-                        String.valueOf(listener.getProperties().getInt(LevelProperty.LevelPointsMultiplier.getName()) + 1)
-                )
-        );
+        listener.getEventBus().post(new IncreasePointsMultiplierEvent());
     }
 
     @Override

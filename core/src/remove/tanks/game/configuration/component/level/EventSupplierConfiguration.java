@@ -7,11 +7,16 @@ import remove.tanks.game.level.engine.entity.EntityFactory;
 import remove.tanks.game.level.engine.entity.EntitySpawner;
 import remove.tanks.game.level.event.*;
 import remove.tanks.game.level.event.destroy.DestroyEntityEventExecutor;
-import remove.tanks.game.level.event.property.ModifyPropertyEventExecutor;
+import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventExecutor;
+import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventFactory;
+import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventPrototypeXmlLoader;
+import remove.tanks.game.level.event.life.*;
+import remove.tanks.game.level.event.points.*;
 import remove.tanks.game.level.event.spawn.SpawnEntityEventExecutor;
 import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventExecutor;
 import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventFactory;
 import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventPrototypeXmlLoader;
+import remove.tanks.game.level.event.state.ChangeLevelStateEventExecutor;
 
 /**
  * @author Mateusz Długosz
@@ -23,7 +28,6 @@ public final class EventSupplierConfiguration {
         public EventExecutor supplyComponent() {
             return new EventExecutor(
                     new RegistrableEventExecutor[] {
-                            new ModifyPropertyEventExecutor(),
                             new SpawnEntityEventExecutor(
                                     getContext().getComponent("EntitySpawner", EntitySpawner.class),
                                     getContext().getComponent("EntityFactory", EntityFactory.class)
@@ -31,7 +35,13 @@ public final class EventSupplierConfiguration {
                             new DestroyEntityEventExecutor(
                                     getContext().getComponent("EntityDestroyer", EntityDestroyer.class)
                             ),
-                            new ActivateAutoSpawnerEventExecutor()
+                            new ActivateAutoSpawnerEventExecutor(),
+                            new IncreasePointsMultiplierEventExecutor(),
+                            new DecreaseEnemiesCounterEventExecutor(),
+                            new AddPointsEventExecutor(),
+                            new AddLifeEventExecutor(),
+                            new RemoveLifeEventExecutor(),
+                            new ChangeLevelStateEventExecutor()
                     }
             );
         }
@@ -43,7 +53,12 @@ public final class EventSupplierConfiguration {
         public EventFactory supplyComponent() {
             return new EventFactory(
                     new RegistrableEventFactory[] {
-                            new ActivateAutoSpawnerEventFactory()
+                            new ActivateAutoSpawnerEventFactory(),
+                            new IncreasePointsMultiplierEventFactory(),
+                            new DecreaseEnemiesCounterEventFactory(),
+                            new AddPointsEventFactory(),
+                            new AddLifeEventFactory(),
+                            new RemoveLifeEventFactory()
                     }
             );
         }
@@ -55,7 +70,12 @@ public final class EventSupplierConfiguration {
         public EventPrototypeXmlLoader supplyComponent() {
             return new EventPrototypeXmlLoader(
                     new RegistrableEventPrototypeXmlLoader[] {
-                            new ActivateAutoSpawnerEventPrototypeXmlLoader()
+                            new ActivateAutoSpawnerEventPrototypeXmlLoader(),
+                            new IncreasePointsMultiplierEventPrototypeXmlLoader(),
+                            new DecreaseEnemiesCounterEventPrototypeXmlLoader(),
+                            new AddPointsEventPrototypeXmlLoader(),
+                            new AddLifeEventPrototypeXmlLoader(),
+                            new RemoveLifeEventPrototypeXmlLoader()
                     }
             );
         }

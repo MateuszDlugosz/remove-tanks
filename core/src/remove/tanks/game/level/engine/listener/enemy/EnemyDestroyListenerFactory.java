@@ -5,7 +5,6 @@ import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
-import remove.tanks.game.utility.properties.Properties;
 
 /**
  * @author Mateusz Długosz
@@ -18,8 +17,7 @@ public final class EnemyDestroyListenerFactory
         return new EnemyDestroyListener(
                 prototype.getPriority(),
                 engine,
-                registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                registry.getResource(LevelResource.Properties.toString(), Properties.class)
+                registry.getResource(LevelResource.EventBus.toString(), EventBus.class)
         );
     }
 

@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.listener.point;
+package remove.tanks.game.level.engine.listener.points;
 
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.listener.EntityListenerPrototype;

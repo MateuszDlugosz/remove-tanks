@@ -15,8 +15,8 @@ import remove.tanks.game.level.engine.listener.bonus.BonusPickUpListenerPrototyp
 import remove.tanks.game.level.engine.listener.bonus.executor.*;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerFactory;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerPrototypeXmlLoader;
-import remove.tanks.game.level.engine.listener.point.PointsListenerFactory;
-import remove.tanks.game.level.engine.listener.point.PointsListenerPrototypeXmlLoader;
+import remove.tanks.game.level.engine.listener.points.PointsListenerFactory;
+import remove.tanks.game.level.engine.listener.points.PointsListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerFactory;
 import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.trigger.TriggerListenerFactory;

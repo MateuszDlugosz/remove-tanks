@@ -6,9 +6,14 @@ import remove.tanks.game.audio.music.event.PlayMusicEvent;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.level.event.EventExecutor;
 import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
-import remove.tanks.game.level.event.property.ModifyPropertyEvent;
+import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEvent;
+import remove.tanks.game.level.event.life.AddLifeEvent;
+import remove.tanks.game.level.event.life.RemoveLifeEvent;
+import remove.tanks.game.level.event.points.AddPointsEvent;
+import remove.tanks.game.level.event.points.IncreasePointsMultiplierEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEvent;
+import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +48,8 @@ public final class LevelController {
         levelUpdater.updateLevel(deltaTime, level);
         eventExecutor.executeEvents(destroyEntityEvents, level);
         eventExecutor.executeEvents(spawnEntityEvents, level);
-        eventExecutor.executeEvents(otherEvents, level).forEach(eventBus::post);
+        eventExecutor.executeEvents(otherEvents, level)
+                .forEach(eventBus::post);
         destroyEntityEvents.clear();
         spawnEntityEvents.clear();
         otherEvents.clear();
@@ -70,12 +76,37 @@ public final class LevelController {
     }
 
     @Subscribe
-    public void handleModifyPropertyEvent(ModifyPropertyEvent event) {
+    public void handleActivateAutoSpawnerEvent(ActivateAutoSpawnerEvent event) {
         otherEvents.add(event);
     }
 
     @Subscribe
-    public void handleActivateAutoSpawnerEvent(ActivateAutoSpawnerEvent event) {
+    public void handleDecreaseEnemiesCounterEvent(DecreaseEnemiesCounterEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleAddLifeEvent(AddLifeEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleRemoveLifeEvent(RemoveLifeEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleAddPointsEvent(AddPointsEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleIncreasePointsMultiplierEvent(IncreasePointsMultiplierEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleChangeLevelStateEvent(ChangeLevelStateEvent event) {
         otherEvents.add(event);
     }
 }

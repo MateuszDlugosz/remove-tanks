@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.listener.point;
+package remove.tanks.game.level.engine.listener.points;
 
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.engine.listener.ListenerType;

@@ -8,7 +8,7 @@ import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.EntityPrototype;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
-import remove.tanks.game.level.event.property.ModifyPropertyEvent;
+import remove.tanks.game.level.event.life.RemoveLifeEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
@@ -67,10 +67,7 @@ public final class PlayerRespawnSystem extends EntitySystem {
         ));
 
         if (!freeRespawn) {
-            eventBus.post(new ModifyPropertyEvent(
-                    LevelProperty.LevelLifes,
-                    String.valueOf(properties.getInt(LevelProperty.LevelLifes.getName()) - 1)
-            ));
+            eventBus.post(new RemoveLifeEvent());
         } else {
             freeRespawn = false;
         }

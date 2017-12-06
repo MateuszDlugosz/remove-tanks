@@ -3,9 +3,9 @@ package remove.tanks.game.level.engine.system.defeat;
 import com.badlogic.ashley.core.EntitySystem;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelProperty;
-import remove.tanks.game.level.constant.LevelStatus;
+import remove.tanks.game.level.constant.LevelState;
 import remove.tanks.game.level.engine.entity.EntityFamily;
-import remove.tanks.game.level.event.property.ModifyPropertyEvent;
+import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
 
@@ -34,10 +34,7 @@ public final class OperationDefeatSystem extends EntitySystem {
         if (getEngine().getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily()).size() < 1) {
             if (properties.getInt(LevelProperty.LevelLifes.getName()) == 0) {
                 if (timer.isComplete()) {
-                    eventBus.post(new ModifyPropertyEvent(
-                            LevelProperty.LevelStatus,
-                            LevelStatus.Defeat.getName()
-                    ));
+                    eventBus.post(new ChangeLevelStateEvent(LevelState.Defeat));
                     getEngine().removeSystem(this);
                 } else {
                     timer.update(deltaTime);

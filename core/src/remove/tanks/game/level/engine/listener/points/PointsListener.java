@@ -1,20 +1,21 @@
-package remove.tanks.game.level.engine.listener.enemy;
+package remove.tanks.game.level.engine.listener.points;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.engine.entity.EntityFamily;
+import remove.tanks.game.level.engine.entity.component.point.PointsComponent;
 import remove.tanks.game.level.engine.listener.ExtendedEntityListener;
-import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEvent;
+import remove.tanks.game.level.event.points.AddPointsEvent;
 
 /**
  * @author Mateusz Długosz
  */
-public final class EnemyDestroyListener extends ExtendedEntityListener {
+public final class PointsListener extends ExtendedEntityListener {
     private final EventBus eventBus;
 
-    public EnemyDestroyListener(int priority, Engine engine, EventBus eventBus) {
-        super(priority, EntityFamily.EnemiesFamily.getFamily(), engine);
+    public PointsListener(int priority, Engine engine, EventBus eventBus) {
+        super(priority, EntityFamily.PointsFamily.getFamily(), engine);
         this.eventBus = eventBus;
     }
 
@@ -23,6 +24,6 @@ public final class EnemyDestroyListener extends ExtendedEntityListener {
 
     @Override
     public void entityRemoved(Entity entity) {
-        eventBus.post(new DecreaseEnemiesCounterEvent());
+        eventBus.post(new AddPointsEvent(PointsComponent.MAPPER.get(entity).getPoints()));
     }
 }

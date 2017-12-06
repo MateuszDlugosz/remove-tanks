@@ -1,11 +1,10 @@
-package remove.tanks.game.level.engine.listener.point;
+package remove.tanks.game.level.engine.listener.points;
 
 import com.badlogic.ashley.core.Engine;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
-import remove.tanks.game.utility.properties.Properties;
 
 /**
  * @author Mateusz Długosz
@@ -18,8 +17,7 @@ public final class PointsListenerFactory
         return new PointsListener(
                 prototype.getPriority(),
                 engine,
-                registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                registry.getResource(LevelResource.Properties.toString(), Properties.class)
+                registry.getResource(LevelResource.EventBus.toString(), EventBus.class)
         );
     }
 
