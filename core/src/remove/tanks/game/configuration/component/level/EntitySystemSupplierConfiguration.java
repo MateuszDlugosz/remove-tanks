@@ -24,8 +24,8 @@ import remove.tanks.game.level.engine.system.control.PlayerControlSystemFactory;
 import remove.tanks.game.level.engine.system.control.PlayerControlSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.damage.DamageSystemFactory;
 import remove.tanks.game.level.engine.system.damage.DamageSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.defeat.OperationDefeatSystemFactory;
-import remove.tanks.game.level.engine.system.defeat.OperationDefeatSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.state.defeat.OperationDefeatSystemFactory;
+import remove.tanks.game.level.engine.system.state.defeat.OperationDefeatSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.destroy.DestroyOnContactSystemFactory;
 import remove.tanks.game.level.engine.system.destroy.DestroyOnContactSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.destroy.DestroySystemFactory;
@@ -53,8 +53,10 @@ import remove.tanks.game.level.engine.system.spawn.AutoSpawnerSystemFactory;
 import remove.tanks.game.level.engine.system.spawn.AutoSpawnerSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.spawn.RandomSpawnSystemFactory;
 import remove.tanks.game.level.engine.system.spawn.RandomSpawnSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.victory.OperationVictorySystemFactory;
-import remove.tanks.game.level.engine.system.victory.OperationVictorySystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.state.end.LevelEndSystemFactory;
+import remove.tanks.game.level.engine.system.state.end.LevelEndSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.state.victory.OperationVictorySystemFactory;
+import remove.tanks.game.level.engine.system.state.victory.OperationVictorySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.world.*;
@@ -154,7 +156,8 @@ public final class EntitySystemSupplierConfiguration {
                             new MusicOnStartSystemFactory(
                                     getContext().getComponent("MusicFactory", MusicFactory.class)
                             ),
-                            new ChangeBehaviorSystemFactory()
+                            new ChangeBehaviorSystemFactory(),
+                            new LevelEndSystemFactory()
                     }
             );
         }
@@ -221,7 +224,8 @@ public final class EntitySystemSupplierConfiguration {
                             new MusicOnStartSystemPrototypeXmlLoader(
                                     getContext().getComponent("MusicPrototypeXmlLoader", MusicPrototypeXmlLoader.class)
                             ),
-                            new ChangeBehaviorSystemPrototypeXmlLoader()
+                            new ChangeBehaviorSystemPrototypeXmlLoader(),
+                            new LevelEndSystemPrototypeXmlLoader()
                     }
             );
         }

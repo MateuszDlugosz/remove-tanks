@@ -63,7 +63,7 @@ public final class OperationLevelScreen extends GameScreen {
                 .getComponent("Locale", Locale.class);
 
         this.levelStatus = "";
-        this.levelStatusLabel = createLevelStatusLabel();
+        this.levelStatusLabel = createLevelStateLabel();
 
         this.window = createWindow();
         initStage();
@@ -86,7 +86,7 @@ public final class OperationLevelScreen extends GameScreen {
         return window;
     }
 
-    private Label createLevelStatusLabel() {
+    private Label createLevelStateLabel() {
         return new Label(levelStatus, skin);
     }
 
@@ -100,24 +100,27 @@ public final class OperationLevelScreen extends GameScreen {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusDefeat.getName()
                 ).toUpperCase());
-                switchToSummaryScreen();
         } else if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
                 .getString(LevelProperty.LevelStatus.getName()).equals(LevelState.Victory.getName()))
         {
                 levelStatusLabel.setText(locale.getTranslation().getEntry(
                         TranslationEntryKey.GameLevelStatusVictory.getName()
                 ).toUpperCase());
-                switchToNextLevel();
+        }
+        if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
+                .getString(LevelProperty.LevelStatus.getName()).equals(LevelState.End.getName()))
+        {
+            switchToSummaryScreen();
         }
         super.render(delta);
     }
 
     private void switchToNextLevel() {
-        if (operation.getLevelPrototypeFilenames().size()-1 > currentLevelIndex) {
+        if (operation.getLevelPrototypeFilenames().size() - 1 > currentLevelIndex) {
             getGameApplication().switchScreen(new OperationLevelLoadingScreen(
                     getGameApplication(),
                     operation,
-                    currentLevelIndex+1,
+                    currentLevelIndex + 1,
                     levelController.getLevel()
             ));
         } else {

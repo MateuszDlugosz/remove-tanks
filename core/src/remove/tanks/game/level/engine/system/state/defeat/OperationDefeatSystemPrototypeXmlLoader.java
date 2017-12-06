@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.victory;
+package remove.tanks.game.level.engine.system.state.defeat;
 
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
@@ -7,14 +7,14 @@ import remove.tanks.game.level.engine.system.SystemType;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationVictorySystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<OperationVictorySystemPrototype>
+public final class OperationDefeatSystemPrototypeXmlLoader
+        extends RegistrableEntitySystemPrototypeXmlLoader<OperationDefeatSystemPrototype>
 {
     private static final String DELAY_ELEMENT = "delay";
 
     @Override
-    protected OperationVictorySystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new OperationVictorySystemPrototype(
+    protected OperationDefeatSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+        return new OperationDefeatSystemPrototype(
                 priority,
                 Float.valueOf(element.getChildByName(DELAY_ELEMENT).getText().trim())
         );
@@ -22,6 +22,6 @@ public final class OperationVictorySystemPrototypeXmlLoader
 
     @Override
     public SystemType getLoaderType() {
-        return SystemType.OperationVictorySystem;
+        return SystemType.OperationDefeatSystem;
     }
 }

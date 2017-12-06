@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.victory;
+package remove.tanks.game.level.engine.system.state.defeat;
 
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
@@ -10,12 +10,12 @@ import remove.tanks.game.utility.time.Timer;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationVictorySystemFactory
-        implements RegistrableEntitySystemFactory<OperationVictorySystem, OperationVictorySystemPrototype>
+public final class OperationDefeatSystemFactory
+        implements RegistrableEntitySystemFactory<OperationDefeatSystem, OperationDefeatSystemPrototype>
 {
     @Override
-    public OperationVictorySystem createEntitySystem(OperationVictorySystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new OperationVictorySystem(
+    public OperationDefeatSystem createEntitySystem(OperationDefeatSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+        return new OperationDefeatSystem(
                 prototype.getPriority(),
                 resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class),
                 resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
@@ -24,7 +24,7 @@ public final class OperationVictorySystemFactory
     }
 
     @Override
-    public Class<OperationVictorySystemPrototype> getFactoryType() {
-        return OperationVictorySystemPrototype.class;
+    public Class<OperationDefeatSystemPrototype> getFactoryType() {
+        return OperationDefeatSystemPrototype.class;
     }
 }

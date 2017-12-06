@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.victory;
+package remove.tanks.game.level.engine.system.state.victory;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.google.common.eventbus.EventBus;
