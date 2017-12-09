@@ -17,11 +17,11 @@ public final class ColorPrototypeXmlLoader {
 
     private static final String TYPE_ATTRIBUTE = "type";
 
-    private final Map<ColorType, RegistrableColorPrototypeXmlLoader> subLoaders
+    private final Map<ColorType, RegistrableColorPrototypeXmlLoader> loaders
             = new EnumMap<>(ColorType.class);
 
-    public ColorPrototypeXmlLoader(RegistrableColorPrototypeXmlLoader[] subLoaders) {
-        Arrays.stream(subLoaders).forEach(s -> this.subLoaders.put(s.getLoaderType(), s));
+    public ColorPrototypeXmlLoader(RegistrableColorPrototypeXmlLoader[] loaders) {
+        Arrays.stream(loaders).forEach(s -> this.loaders.put(s.getLoaderType(), s));
     }
 
     public List<ColorPrototype> loadColorPrototypes(XmlReader.Element element) {
@@ -32,9 +32,9 @@ public final class ColorPrototypeXmlLoader {
 
     public ColorPrototype loadColorPrototype(XmlReader.Element element) {
         ColorType type = ColorType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
+        if (!loaders.containsKey(type)) {
             throw new ColorPrototypeLoaderNotFoundException(type);
         }
-        return subLoaders.get(type).loadColorPrototype(element);
+        return loaders.get(type).loadColorPrototype(element);
     }
 }

@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ParameterPrototypeXmlLoader {
     public static final String PARAMETERS_ELEMENT = "parameters";
     public static final String PARAMETER_ELEMENT = "parameter";

@@ -10,6 +10,7 @@ import remove.tanks.game.utility.scale.Scale;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class FileAnimationFactory implements RegistrableAnimationFactory<FileAnimationPrototype> {
     @Override
     public Animation createAnimation(FileAnimationPrototype prototype, AssetStorage assetStorage, Scale scale) {

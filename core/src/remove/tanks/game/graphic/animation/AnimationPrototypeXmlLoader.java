@@ -17,11 +17,11 @@ public final class AnimationPrototypeXmlLoader {
 
     private static final String TYPE_ATTRIBUTE = "type";
 
-    private final Map<AnimationType, RegistrableAnimationPrototypeXmlLoader> subLoaders
+    private final Map<AnimationType, RegistrableAnimationPrototypeXmlLoader> loaders
             = new EnumMap<>(AnimationType.class);
 
-    public AnimationPrototypeXmlLoader(RegistrableAnimationPrototypeXmlLoader[] subLoaders) {
-        Arrays.stream(subLoaders).forEach(l -> this.subLoaders.put(l.getLoaderType(), l));
+    public AnimationPrototypeXmlLoader(RegistrableAnimationPrototypeXmlLoader[] loaders) {
+        Arrays.stream(loaders).forEach(l -> this.loaders.put(l.getLoaderType(), l));
     }
 
     public List<AnimationPrototype> loadAnimationPrototypes(XmlReader.Element element) {
@@ -32,9 +32,9 @@ public final class AnimationPrototypeXmlLoader {
 
     public AnimationPrototype loadAnimationPrototype(XmlReader.Element element) {
         AnimationType type = AnimationType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
+        if (!loaders.containsKey(type)) {
             throw new AnimationPrototypeLoaderNotFoundException(type);
         }
-        return subLoaders.get(type).loadAnimationPrototype(element);
+        return loaders.get(type).loadAnimationPrototype(element);
     }
 }

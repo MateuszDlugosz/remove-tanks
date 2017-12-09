@@ -14,17 +14,17 @@ public final class RgbaColorFactory implements RegistrableColorFactory<RgbaColor
     public Color createColor(RgbaColorPrototype prototype) {
         try {
             return new Color(
-                    prepareColorValue(prototype.getR()),
-                    prepareColorValue(prototype.getG()),
-                    prepareColorValue(prototype.getB()),
-                    prepareColorValue(prototype.getA())
+                    createColorValue(prototype.getR()),
+                    createColorValue(prototype.getG()),
+                    createColorValue(prototype.getB()),
+                    createColorValue(prototype.getA())
             );
         } catch (Exception e) {
             throw new ColorCreateException(prototype, e);
         }
     }
 
-    private float prepareColorValue(float value) {
+    private float createColorValue(float value) {
         return MathUtils.clamp(value, MIN_COLOR_VALUE, MAX_COLOR_VALUE) / MAX_COLOR_VALUE;
     }
 

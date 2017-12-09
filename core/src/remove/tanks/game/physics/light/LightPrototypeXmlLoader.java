@@ -17,11 +17,11 @@ public final class LightPrototypeXmlLoader {
 
     private static final String TYPE_ATTRIBUTE = "type";
 
-    private final Map<LightType, RegistrableLightPrototypeXmlLoader> subLoaders
+    private final Map<LightType, RegistrableLightPrototypeXmlLoader> loaders
             = new EnumMap<>(LightType.class);
 
-    public LightPrototypeXmlLoader(RegistrableLightPrototypeXmlLoader[] subLoaders) {
-        Arrays.stream(subLoaders).forEach(s -> this.subLoaders.put(s.getLoaderType(), s));
+    public LightPrototypeXmlLoader(RegistrableLightPrototypeXmlLoader[] loaders) {
+        Arrays.stream(loaders).forEach(s -> this.loaders.put(s.getLoaderType(), s));
     }
 
     public List<LightPrototype> loadLightPrototypes(XmlReader.Element element) {
@@ -32,9 +32,9 @@ public final class LightPrototypeXmlLoader {
 
     public LightPrototype loadLightPrototype(XmlReader.Element element) {
         LightType type = LightType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
+        if (!loaders.containsKey(type)) {
             throw new LightPrototypeLoaderNotFoundException(type);
         }
-        return subLoaders.get(type).loadLightPrototype(element);
+        return loaders.get(type).loadLightPrototype(element);
     }
 }

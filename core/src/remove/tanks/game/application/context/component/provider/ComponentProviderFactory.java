@@ -10,19 +10,18 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 public final class ComponentProviderFactory {
-    private final ImmutableMap<Scope, RegistrableComponentProviderFactory> componentProviderFactories;
+    private final ImmutableMap<Scope, RegistrableComponentProviderFactory> factories;
 
-    public ComponentProviderFactory(RegistrableComponentProviderFactory[] subFactories) {
-        componentProviderFactories = ImmutableMap.copyOf(
-                Arrays.stream(subFactories)
+    public ComponentProviderFactory(RegistrableComponentProviderFactory[] factories) {
+        this.factories = ImmutableMap.copyOf(Arrays.stream(factories)
                         .collect(Collectors.toMap(RegistrableComponentProviderFactory::getFactoryType, s -> s)));
     }
 
     public ComponentProvider createComponentProvider(ComponentSupplier componentSupplier) {
-        if (!componentProviderFactories.containsKey(componentSupplier.getComponentScope())) {
+        if (!factories.containsKey(componentSupplier.getComponentScope())) {
             throw new ComponentProviderFactoryNotFoundException(componentSupplier.getComponentScope());
         }
-        return componentProviderFactories.get(componentSupplier.getComponentScope())
+        return factories.get(componentSupplier.getComponentScope())
                 .createComponentProvider(componentSupplier);
     }
 }

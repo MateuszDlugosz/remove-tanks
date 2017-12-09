@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ParameterFactory {
     private final Map<Class<? extends AssetLoaderParameters>, RegistrableParameterFactory> subFactories
             = new HashMap<>();

@@ -9,12 +9,13 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class EffectFactory {
-    private final Map<Class<? extends EffectPrototype>, RegistrableEffectFactory> subFactories
+    private final Map<Class<? extends EffectPrototype>, RegistrableEffectFactory> factories
             = new HashMap<>();
 
-    public EffectFactory(RegistrableEffectFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public EffectFactory(RegistrableEffectFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
     public List<Effect> createEffects(List<EffectPrototype> prototypes) {
@@ -25,9 +26,9 @@ public final class EffectFactory {
 
     public Effect createEffect(EffectPrototype prototype) {
         Class<? extends EffectPrototype> prototypeClass = prototype.getClass();
-        if (!subFactories.containsKey(prototypeClass)) {
+        if (!factories.containsKey(prototypeClass)) {
             throw new EffectFactoryNotFoundException(prototypeClass.toString());
         }
-        return subFactories.get(prototypeClass).createEffect(prototype);
+        return factories.get(prototypeClass).createEffect(prototype);
     }
 }

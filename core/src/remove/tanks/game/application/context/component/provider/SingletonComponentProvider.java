@@ -13,6 +13,7 @@ public final class SingletonComponentProvider<T> implements ComponentProvider<T>
         this.componentSupplier = componentSupplier;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public T provideComponent() {
         if (providedComponent == null) {

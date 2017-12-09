@@ -70,6 +70,7 @@ public final class ApplicationContext implements Context {
         return providers.get(name).provideComponent();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T getComponent(Class<T> type) {
         if (!providers.containsKey(type.toString())) {
@@ -78,6 +79,7 @@ public final class ApplicationContext implements Context {
         return (T) providers.get(type.toString()).provideComponent();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T getComponent(String name, Class<T> type) {
         if (!providers.containsKey(name)) {

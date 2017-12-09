@@ -14,12 +14,13 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class LightFactory {
-    private final Map<Class<? extends LightPrototype>, RegistrableLightFactory> subFactories
+    private final Map<Class<? extends LightPrototype>, RegistrableLightFactory> factories
             = new HashMap<>();
 
-    public LightFactory(RegistrableLightFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public LightFactory(RegistrableLightFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
     public List<Light> createLights(List<LightPrototype> prototypes, WorldLight worldLight, Scale scale) {
@@ -30,10 +31,10 @@ public final class LightFactory {
 
     public Light createLight(LightPrototype prototype, WorldLight worldLight, Scale scale) {
         Class<? extends LightPrototype> prototypeClass = prototype.getClass();
-        if (!subFactories.containsKey(prototypeClass)) {
+        if (!factories.containsKey(prototypeClass)) {
             throw new LightFactoryNotFoundException(prototypeClass.toString());
         }
-        return subFactories.get(prototypeClass).createLight(prototype, worldLight, scale);
+        return factories.get(prototypeClass).createLight(prototype, worldLight, scale);
     }
 
     public List<Light> createLights(List<LightPrototype> prototypes, WorldLight worldLight, Body body, Scale scale) {
@@ -44,9 +45,9 @@ public final class LightFactory {
 
     public Light createLight(LightPrototype prototype, WorldLight worldLight, Body body, Scale scale) {
         Class<? extends LightPrototype> prototypeClass = prototype.getClass();
-        if (!subFactories.containsKey(prototypeClass)) {
+        if (!factories.containsKey(prototypeClass)) {
             throw new LightFactoryNotFoundException(prototypeClass.toString());
         }
-        return subFactories.get(prototypeClass).createLight(prototype, worldLight, body, scale);
+        return factories.get(prototypeClass).createLight(prototype, worldLight, body, scale);
     }
 }

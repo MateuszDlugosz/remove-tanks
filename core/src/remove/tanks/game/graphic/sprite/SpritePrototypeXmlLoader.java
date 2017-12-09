@@ -17,11 +17,11 @@ public final class SpritePrototypeXmlLoader {
 
     private static final String TYPE_ATTRIBUTE = "type";
 
-    private final Map<SpriteType, RegistrableSpritePrototypeXmlLoader> subLoaders
+    private final Map<SpriteType, RegistrableSpritePrototypeXmlLoader> loaders
             = new EnumMap<>(SpriteType.class);
 
-    public SpritePrototypeXmlLoader(RegistrableSpritePrototypeXmlLoader[] subLoaders) {
-        Arrays.stream(subLoaders).forEach(s -> this.subLoaders.put(s.getLoaderType(), s));
+    public SpritePrototypeXmlLoader(RegistrableSpritePrototypeXmlLoader[] loaders) {
+        Arrays.stream(loaders).forEach(s -> this.loaders.put(s.getLoaderType(), s));
     }
 
     public List<SpritePrototype> loadSpritePrototypes(XmlReader.Element element) {
@@ -32,9 +32,9 @@ public final class SpritePrototypeXmlLoader {
 
     public SpritePrototype loadSpritePrototype(XmlReader.Element element) {
         SpriteType type = SpriteType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
+        if (!loaders.containsKey(type)) {
             throw new SpritePrototypeLoaderNotFoundException(type);
         }
-        return subLoaders.get(type).loadSpritePrototype(element);
+        return loaders.get(type).loadSpritePrototype(element);
     }
 }

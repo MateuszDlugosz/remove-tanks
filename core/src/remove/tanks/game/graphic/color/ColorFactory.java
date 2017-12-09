@@ -11,12 +11,13 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ColorFactory {
-    private final Map<Class<? extends ColorPrototype>, RegistrableColorFactory> subFactories
+    private final Map<Class<? extends ColorPrototype>, RegistrableColorFactory> factories
             = new HashMap<>();
 
-    public ColorFactory(RegistrableColorFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public ColorFactory(RegistrableColorFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
     public List<Color> createColors(List<ColorPrototype> prototypes) {
@@ -26,9 +27,9 @@ public final class ColorFactory {
     }
 
     public Color createColor(ColorPrototype colorPrototype) {
-        if (!subFactories.containsKey(colorPrototype.getClass())) {
+        if (!factories.containsKey(colorPrototype.getClass())) {
             throw new ColorFactoryNotFoundException(colorPrototype.getClass().toString());
         }
-        return subFactories.get(colorPrototype.getClass()).createColor(colorPrototype);
+        return factories.get(colorPrototype.getClass()).createColor(colorPrototype);
     }
 }

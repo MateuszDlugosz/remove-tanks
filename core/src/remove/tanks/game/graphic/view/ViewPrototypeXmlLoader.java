@@ -11,17 +11,18 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ViewPrototypeXmlLoader {
     public static final String VIEW_ELEMENT = "view";
     public static final String VIEWS_ELEMENT = "views";
 
     private static final String TYPE_ATTRIBUTE = "type";
 
-    private final Map<ViewType, RegistrableViewPrototypeXmlLoader> subLoaders
+    private final Map<ViewType, RegistrableViewPrototypeXmlLoader> loaders
             = new EnumMap<>(ViewType.class);
 
-    public ViewPrototypeXmlLoader(RegistrableViewPrototypeXmlLoader[] subLoaders) {
-        Arrays.stream(subLoaders).forEach(s -> this.subLoaders.put(s.getLoaderType(), s));
+    public ViewPrototypeXmlLoader(RegistrableViewPrototypeXmlLoader[] loaders) {
+        Arrays.stream(loaders).forEach(s -> this.loaders.put(s.getLoaderType(), s));
     }
 
     public List<ViewPrototype> loadViewPrototypes(XmlReader.Element element) {
@@ -32,9 +33,9 @@ public final class ViewPrototypeXmlLoader {
 
     public ViewPrototype loadViewPrototype(XmlReader.Element element) {
         ViewType type = ViewType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
+        if (!loaders.containsKey(type)) {
             throw new ViewPrototypeLoaderNotFoundException(type);
         }
-        return subLoaders.get(type).loadViewPrototype(element);
+        return loaders.get(type).loadViewPrototype(element);
     }
 }

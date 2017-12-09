@@ -37,31 +37,28 @@ public final class ComponentSupplierInitializer {
         }
     }
 
-    private ComponentSupplier initializeComponentSupplier(ComponentSupplier supplier, Class<? extends ComponentSupplier> supplierClass, Context context) {
+    private ComponentSupplier initializeComponentSupplier(ComponentSupplier componentSupplier, Class<? extends ComponentSupplier> supplierClass, Context context) {
         try {
             Field contextField = supplierClass.getSuperclass().getDeclaredField(CONTEXT_FIELD);
             Field componentNameField = supplierClass.getSuperclass().getDeclaredField(COMPONENT_NAME_FIELD);
             Field componentScopeField = supplierClass.getSuperclass().getDeclaredField(COMPONENT_SCOPE_FIELD);
 
             contextField.setAccessible(true);
-            contextField.set(supplier, context);
+            contextField.set(componentSupplier, context);
             componentNameField.setAccessible(true);
-            componentNameField.set(supplier, getComponentSupplierName(supplierClass));
+            componentNameField.set(componentSupplier, getComponentSupplierName(supplierClass));
             componentScopeField.setAccessible(true);
-            componentScopeField.set(supplier, getComponentSupplierScope(supplierClass));
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            componentScopeField.set(componentSupplier, getComponentSupplierScope(supplierClass));
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new ComponentSupplierInitializationException(e);
         }
-        return supplier;
+        return componentSupplier;
     }
 
     private String getComponentSupplierName(Class<? extends ComponentSupplier> supplierClass) {
         if (supplierClass.getAnnotation(ComponentName.class) != null) {
             return supplierClass.getAnnotation(ComponentName.class).value();
         }
-
         try {
             return supplierClass.getMethod(SUPPLY_COMPONENT_METHOD_NAME).getReturnType().toString();
         } catch (NoSuchMethodException e) {

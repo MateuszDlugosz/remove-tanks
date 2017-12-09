@@ -12,6 +12,7 @@ public final class PrototypeComponentProvider<T> implements ComponentProvider<T>
         this.componentSupplier = componentSupplier;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public T provideComponent() {
         return (T) componentSupplier.supplyComponent();

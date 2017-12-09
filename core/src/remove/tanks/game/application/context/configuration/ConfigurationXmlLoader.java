@@ -5,16 +5,18 @@ import com.badlogic.gdx.utils.XmlReader;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz
  */
 public final class ConfigurationXmlLoader {
-    public static final String OPTIONS_ELEMENT = "options";
-    public static final String OPTION_ELEMENT = "option";
+    private static final String OPTIONS_ELEMENT = "options";
+    private static final String OPTION_ELEMENT = "option";
 
-    public static final String KEY_ATTRIBUTE = "key";
+    private static final String KEY_ATTRIBUTE = "key";
 
     public static final String COMPONENT_SUPPLIER_PACKAGES_ELEMENT = "componentSupplierPackages";
     public static final String COMPONENT_SUPPLIER_PACKAGE_ELEMENT = "componentSupplierPackage";
@@ -27,23 +29,31 @@ public final class ConfigurationXmlLoader {
 
     public Configuration loadConfiguration(FileHandle fileHandle) {
         try {
-            XmlReader.Element rootElement = xmlReader.parse(fileHandle);
+            XmlReader.Element element = xmlReader.parse(fileHandle);
             return new Configuration(
-                    Arrays.stream(rootElement.getChildByName(OPTIONS_ELEMENT)
-                            .getChildrenByName(OPTION_ELEMENT)
-                            .toArray())
-                            .collect(Collectors.toMap(
-                                    e -> e.getAttribute(KEY_ATTRIBUTE),
-                                    XmlReader.Element::getText
-                            )),
-                    Arrays.stream(rootElement.getChildByName(COMPONENT_SUPPLIER_PACKAGES_ELEMENT)
-                            .getChildrenByName(COMPONENT_SUPPLIER_PACKAGE_ELEMENT)
-                            .toArray())
-                            .map(e -> e.getText().trim())
-                            .collect(Collectors.toList())
+                    loadOptions(element),
+                    loadComponentSupplierPackages(element)
             );
         } catch (IOException e) {
             throw new ConfigurationXmlLoadException(e);
         }
+    }
+
+    private Map<String, String> loadOptions(XmlReader.Element element) {
+        return Arrays.stream(element.getChildByName(OPTIONS_ELEMENT)
+                .getChildrenByName(OPTION_ELEMENT)
+                .toArray())
+                .collect(Collectors.toMap(
+                        e -> e.getAttribute(KEY_ATTRIBUTE),
+                        XmlReader.Element::getText
+                ));
+    }
+
+    private List<String> loadComponentSupplierPackages(XmlReader.Element element) {
+        return Arrays.stream(element.getChildByName(COMPONENT_SUPPLIER_PACKAGES_ELEMENT)
+                .getChildrenByName(COMPONENT_SUPPLIER_PACKAGE_ELEMENT)
+                .toArray())
+                .map(e -> e.getText().trim())
+                .collect(Collectors.toList());
     }
 }

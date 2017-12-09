@@ -11,19 +11,20 @@ import java.util.Map;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ViewRenderer {
-    private final Map<Class<? extends View>, RegistrableViewRenderer> subRenderers
+    private final Map<Class<? extends View>, RegistrableViewRenderer> renderers
             = new HashMap<>();
 
-    public ViewRenderer(RegistrableViewRenderer[] subRenderers) {
-        Arrays.stream(subRenderers).forEach(s -> this.subRenderers.put(s.getRendererType(), s));
+    public ViewRenderer(RegistrableViewRenderer[] renderers) {
+        Arrays.stream(renderers).forEach(s -> this.renderers.put(s.getRendererType(), s));
     }
 
     public void render(View view, SpriteBatch spriteBatch, Position position, float angle) {
         Class<? extends View> viewClass = view.getClass();
-        if (!subRenderers.containsKey(viewClass)) {
+        if (!renderers.containsKey(viewClass)) {
             throw new ViewRendererNotFoundException(viewClass.toString());
         }
-        subRenderers.get(viewClass).render(view, spriteBatch, position, angle);
+        renderers.get(viewClass).render(view, spriteBatch, position, angle);
     }
 }

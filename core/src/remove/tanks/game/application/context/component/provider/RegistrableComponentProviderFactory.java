@@ -6,6 +6,6 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
  * @author Mateusz Długosz
  */
 public interface RegistrableComponentProviderFactory<T extends ComponentProvider> {
-    T createComponentProvider(ComponentSupplier supplier);
+    T createComponentProvider(ComponentSupplier componentSupplier);
     Scope getFactoryType();
 }

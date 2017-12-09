@@ -10,6 +10,7 @@ import remove.tanks.game.utility.scale.Scale;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class AtlasAnimationFactory implements RegistrableAnimationFactory<AtlasAnimationPrototype> {
     @Override
     public Animation createAnimation(AtlasAnimationPrototype prototype, AssetStorage assetStorage, Scale scale) {

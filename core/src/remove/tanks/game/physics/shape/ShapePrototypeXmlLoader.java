@@ -17,11 +17,11 @@ public final class ShapePrototypeXmlLoader {
 
     private static final String TYPE_ATTRIBUTE = "type";
 
-    private final Map<ShapeType, RegistrableShapePrototypeXmlLoader> subLoaders
+    private final Map<ShapeType, RegistrableShapePrototypeXmlLoader> loaders
             = new EnumMap<>(ShapeType.class);
 
-    public ShapePrototypeXmlLoader(RegistrableShapePrototypeXmlLoader[] subLoaders) {
-        Arrays.stream(subLoaders).forEach(l -> this.subLoaders.put(l.getLoaderType(), l));
+    public ShapePrototypeXmlLoader(RegistrableShapePrototypeXmlLoader[] loaders) {
+        Arrays.stream(loaders).forEach(l -> this.loaders.put(l.getLoaderType(), l));
     }
 
     public List<ShapePrototype> loadShapePrototypes(XmlReader.Element element) {
@@ -32,9 +32,9 @@ public final class ShapePrototypeXmlLoader {
 
     public ShapePrototype loadShapePrototype(XmlReader.Element element) {
         ShapeType type = ShapeType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
+        if (!loaders.containsKey(type)) {
             throw new ShapePrototypeLoaderNotFoundException(type);
         }
-        return subLoaders.get(type).loadShapePrototype(element);
+        return loaders.get(type).loadShapePrototype(element);
     }
 }

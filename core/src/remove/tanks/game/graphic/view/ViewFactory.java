@@ -12,12 +12,13 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ViewFactory {
-    private final Map<Class<? extends ViewPrototype>, RegistrableViewFactory> subFactories
+    private final Map<Class<? extends ViewPrototype>, RegistrableViewFactory> factories
             = new HashMap<>();
 
-    public ViewFactory(RegistrableViewFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public ViewFactory(RegistrableViewFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
     public List<View> createViews(List<ViewPrototype> prototypes, AssetStorage assetStorage, Scale scale) {
@@ -28,9 +29,9 @@ public final class ViewFactory {
 
     public View createView(ViewPrototype prototype, AssetStorage assetStorage, Scale scale) {
         Class<? extends ViewPrototype> prototypeClass = prototype.getClass();
-        if (!subFactories.containsKey(prototypeClass)) {
+        if (!factories.containsKey(prototypeClass)) {
             throw new ViewFactoryNotFoundException(prototypeClass.toString());
         }
-        return subFactories.get(prototypeClass).createView(prototype, assetStorage, scale);
+        return factories.get(prototypeClass).createView(prototype, assetStorage, scale);
     }
 }

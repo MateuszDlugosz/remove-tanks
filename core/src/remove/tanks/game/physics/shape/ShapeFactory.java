@@ -11,13 +11,14 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ShapeFactory {
-    private final Map<Class<? extends ShapePrototype>, RegistrableShapeFactory> subFactories
+    private final Map<Class<? extends ShapePrototype>, RegistrableShapeFactory> factories
             = new HashMap<>();
 
-    public ShapeFactory(RegistrableShapeFactory[] subFactories) {
-        for (RegistrableShapeFactory subFactory : subFactories) {
-            this.subFactories.put(subFactory.getFactoryType(), subFactory);
+    public ShapeFactory(RegistrableShapeFactory[] factories) {
+        for (RegistrableShapeFactory subFactory : factories) {
+            this.factories.put(subFactory.getFactoryType(), subFactory);
         }
     }
 
@@ -29,9 +30,9 @@ public final class ShapeFactory {
 
     public Shape createShape(ShapePrototype prototype, Scale scale) {
         Class<? extends ShapePrototype> prototypeClass = prototype.getClass();
-        if (!subFactories.containsKey(prototypeClass)) {
+        if (!factories.containsKey(prototypeClass)) {
             throw new ShapeFactoryNotFoundException(prototypeClass.toString());
         }
-        return subFactories.get(prototypeClass).createShape(prototype, scale);
+        return factories.get(prototypeClass).createShape(prototype, scale);
     }
 }

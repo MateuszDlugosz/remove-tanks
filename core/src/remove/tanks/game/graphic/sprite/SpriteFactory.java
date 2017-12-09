@@ -13,12 +13,13 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class SpriteFactory {
-    private final Map<Class<? extends SpritePrototype>, RegistrableSpriteFactory> subFactories
+    private final Map<Class<? extends SpritePrototype>, RegistrableSpriteFactory> factories
             = new HashMap<>();
 
-    public SpriteFactory(RegistrableSpriteFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public SpriteFactory(RegistrableSpriteFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
     public List<Sprite> createSprites(List<SpritePrototype> prototypes, AssetStorage assetStorage, Scale scale) {
@@ -29,9 +30,9 @@ public final class SpriteFactory {
 
     public Sprite createSprite(SpritePrototype prototype, AssetStorage assetStorage, Scale scale) {
         Class<? extends SpritePrototype> prototypeClass = prototype.getClass();
-        if (!subFactories.containsKey(prototypeClass)) {
+        if (!factories.containsKey(prototypeClass)) {
             throw new SpriteFactoryNotFoundException(prototypeClass.toString());
         }
-        return subFactories.get(prototypeClass).createSprite(prototype, assetStorage, scale);
+        return factories.get(prototypeClass).createSprite(prototype, assetStorage, scale);
     }
 }

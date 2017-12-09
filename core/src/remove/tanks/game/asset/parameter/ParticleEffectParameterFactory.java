@@ -9,9 +9,9 @@ import com.badlogic.gdx.assets.loaders.ParticleEffectLoader;
 public final class ParticleEffectParameterFactory
         implements RegistrableParameterFactory<ParticleEffectLoader.ParticleEffectParameter>
 {
-    public static final String ATLAS_FILE_PARAMETER = "atlasFile";
-    public static final String ATLAS_PREFIX_PARAMETER = "atlasPrefix";
-    public static final String IMAGES_DIR_PARAMETER = "imagesDir";
+    private static final String ATLAS_FILE_PARAMETER = "atlasFile";
+    private static final String ATLAS_PREFIX_PARAMETER = "atlasPrefix";
+    private static final String IMAGES_DIR_PARAMETER = "imagesDir";
 
     @Override
     public ParticleEffectLoader.ParticleEffectParameter createParameters(ParameterPrototype prototype) {
