@@ -37,7 +37,6 @@ public enum ComponentType {
     RandomShootComponent,
     SpeedComponent,
     SpeedModifierComponent,
-    ModifySpeedComponent,
     StateComponent,
     SpawnOnDestroyComponent,
     RandomSpawnComponent,

@@ -205,11 +205,11 @@
     <property name="prototype.code" value="Button0"/>
     <property name="prototype.components">&lt;components&gt;
 	&lt;component type=&quot;TriggerComponent&quot;&gt;
-		&lt;events&gt;
+		&lt;destroyEvents&gt;
 			&lt;event type=&quot;ActivateAutoSpawnerEvent&quot;&gt;
 				&lt;id&gt;Charlie&lt;/id&gt;
 			&lt;/event&gt;
-		&lt;/events&gt;
+		&lt;/destroyEvents&gt;
 	&lt;/component&gt;
 &lt;/components&gt;</property>
    </properties>

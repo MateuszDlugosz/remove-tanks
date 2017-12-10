@@ -19,10 +19,12 @@ public final class TriggerListener extends ExtendedEntityListener {
     }
 
     @Override
-    public void entityAdded(Entity entity) {}
+    public void entityAdded(Entity entity) {
+        TriggerComponent.MAPPER.get(entity).getCreateEvents().forEach(eventBus::post);
+    }
 
     @Override
     public void entityRemoved(Entity entity) {
-        TriggerComponent.MAPPER.get(entity).getEvents().forEach(eventBus::post);
+        TriggerComponent.MAPPER.get(entity).getDestroyEvents().forEach(eventBus::post);
     }
 }

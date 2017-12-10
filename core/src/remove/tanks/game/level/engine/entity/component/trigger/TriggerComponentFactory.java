@@ -19,7 +19,10 @@ public final class TriggerComponentFactory
 
     @Override
     public TriggerComponent createComponent(TriggerComponentPrototype prototype, Level level, Entity entity) {
-        return new TriggerComponent(eventFactory.createEvents(prototype.getEventPrototypes()));
+        return new TriggerComponent(
+                eventFactory.createEvents(prototype.getCreateEventPrototypes()),
+                eventFactory.createEvents(prototype.getDestroyEventPrototypes())
+        );
     }
 
     @Override

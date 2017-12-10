@@ -13,13 +13,19 @@ public final class TriggerComponent implements Component {
     public static final ComponentMapper<TriggerComponent> MAPPER
             = ComponentMapper.getFor(TriggerComponent.class);
 
-    private final List<Event> events;
+    private final List<Event> createEvents;
+    private final List<Event> destroyEvents;
 
-    public TriggerComponent(List<Event> events) {
-        this.events = events;
+    public TriggerComponent(List<Event> createEvents, List<Event> destroyEvents) {
+        this.createEvents = createEvents;
+        this.destroyEvents = destroyEvents;
     }
 
-    public List<Event> getEvents() {
-        return events;
+    public List<Event> getCreateEvents() {
+        return createEvents;
+    }
+
+    public List<Event> getDestroyEvents() {
+        return destroyEvents;
     }
 }
