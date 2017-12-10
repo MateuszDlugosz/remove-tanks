@@ -19,8 +19,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -29,8 +29,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -39,8 +39,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -49,8 +49,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -59,8 +59,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -69,8 +69,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -79,8 +79,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -89,8 +89,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>
@@ -99,8 +99,8 @@
                 <highlight>
                     <effect type="ShaderEffect">
                         <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vshader</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.fshader</fragmentShaderFilename>
+                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
+                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
                         </shaderProgram>
                     </effect>
                 </highlight>

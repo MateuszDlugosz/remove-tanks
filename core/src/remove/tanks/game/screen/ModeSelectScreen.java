@@ -15,9 +15,9 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
+import remove.tanks.game.level.LevelSequenceXmlLoader;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
-import remove.tanks.game.mode.operation.OperationXmlLoader;
 import remove.tanks.game.screen.gui.buttons.Button;
 import remove.tanks.game.screen.gui.buttons.ButtonGroup;
 import remove.tanks.game.screen.gui.labels.Label;
@@ -32,7 +32,7 @@ public final class ModeSelectScreen extends GameScreen {
     private final Skin skin;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
-    private final OperationXmlLoader operationXmlLoader;
+    private final LevelSequenceXmlLoader levelSequenceXmlLoader;
 
     private Stage stage;
     private Window window;
@@ -59,8 +59,8 @@ public final class ModeSelectScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
-        this.operationXmlLoader = gameApplication.getContext()
-                .getComponent("OperationXmlLoader", OperationXmlLoader.class);
+        this.levelSequenceXmlLoader = gameApplication.getContext()
+                .getComponent("LevelSequenceXmlLoader", LevelSequenceXmlLoader.class);
 
         this.operationModeButton = createOperationModeButton();
         this.titleLabel = createTitleLabel();

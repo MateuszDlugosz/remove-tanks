@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<operation>
+<levelSequence>
     <levelPrototypeFilename>prototypes/levels/operations/early-morning/level-00.xml</levelPrototypeFilename>
-</operation>
+</levelSequence>

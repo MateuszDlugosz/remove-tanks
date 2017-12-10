@@ -13,13 +13,13 @@ import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.LevelController;
 import remove.tanks.game.level.LevelControllerFactory;
+import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.constant.LevelState;
 import remove.tanks.game.level.input.InputMapper;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
-import remove.tanks.game.mode.operation.Operation;
 import remove.tanks.game.utility.properties.Properties;
 
 /**
@@ -29,7 +29,7 @@ public final class LevelScreen extends GameScreen {
     private final LevelController levelController;
     private final Skin skin;
     private final EventBus eventBus;
-    private final Operation operation;
+    private final LevelSequence levelSequence;
     private final int currentLevelIndex;
     private final Locale locale;
 
@@ -41,7 +41,7 @@ public final class LevelScreen extends GameScreen {
 
     public LevelScreen(
             GameApplication gameApplication,
-            Operation operation,
+            LevelSequence levelSequence,
             int currentLevelIndex,
             Level level
     ) {
@@ -57,7 +57,7 @@ public final class LevelScreen extends GameScreen {
         this.skin = gameApplication.getContext().getComponent("UiSkin", Skin.class);
         this.eventBus = gameApplication.getContext()
                 .getComponent("EventBus", EventBus.class);
-        this.operation = operation;
+        this.levelSequence = levelSequence;
         this.currentLevelIndex = currentLevelIndex;
         this.locale = gameApplication.getContext()
                 .getComponent("Locale", Locale.class);
@@ -116,10 +116,10 @@ public final class LevelScreen extends GameScreen {
     }
 
     private void switchToNextLevel() {
-        if (operation.getLevelPrototypeFilenames().size() - 1 > currentLevelIndex) {
+        if (levelSequence.getLevelPrototypeFilenames().size() - 1 > currentLevelIndex) {
             getGameApplication().switchScreen(new LevelLoadingScreen(
                     getGameApplication(),
-                    operation,
+                    levelSequence,
                     currentLevelIndex + 1,
                     levelController.getLevel()
             ));

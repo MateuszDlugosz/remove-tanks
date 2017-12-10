@@ -1,4 +1,4 @@
-package remove.tanks.game.mode.operation;
+package remove.tanks.game.level;
 
 import com.google.common.base.MoreObjects;
 
@@ -7,12 +7,12 @@ import java.util.List;
 /**
  * @author Mateusz Długosz
  */
-public final class Operation {
+public final class LevelSequence {
     private final List<String> levelPrototypeFilenames;
 
-    public Operation(List<String> levelPrototypeFilenames) {
+    public LevelSequence(List<String> levelPrototypeFilenames) {
         if (levelPrototypeFilenames.size() == 0) {
-            throw new IllegalArgumentException("Operation must contains at least one level filename.");
+            throw new IllegalArgumentException("LevelSequence must contains at least one level filename.");
         }
         this.levelPrototypeFilenames = levelPrototypeFilenames;
     }

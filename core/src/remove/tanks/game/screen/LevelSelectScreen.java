@@ -15,10 +15,10 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
+import remove.tanks.game.level.LevelSequence;
+import remove.tanks.game.level.LevelSequenceXmlLoader;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
-import remove.tanks.game.mode.operation.Operation;
-import remove.tanks.game.mode.operation.OperationXmlLoader;
 import remove.tanks.game.screen.gui.buttons.Button;
 import remove.tanks.game.screen.gui.buttons.ButtonGroup;
 import remove.tanks.game.screen.gui.labels.Label;
@@ -33,7 +33,7 @@ public final class LevelSelectScreen extends GameScreen {
     private final Skin skin;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
-    private final OperationXmlLoader operationXmlLoader;
+    private final LevelSequenceXmlLoader levelSequenceXmlLoader;
 
     private Stage stage;
     private Window window;
@@ -60,8 +60,8 @@ public final class LevelSelectScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
-        this.operationXmlLoader = gameApplication.getContext()
-                .getComponent("OperationXmlLoader", OperationXmlLoader.class);
+        this.levelSequenceXmlLoader = gameApplication.getContext()
+                .getComponent("LevelSequenceXmlLoader", LevelSequenceXmlLoader.class);
 
         this.operationEarlyMorningButton = createOperationButton(
                 "prototypes/operations/early-morning-operation.xml",
@@ -149,14 +149,14 @@ public final class LevelSelectScreen extends GameScreen {
 
     private Button createOperationButton(String operationFilename, String operationName) {
         Button textButton = new Button(operationName.toUpperCase(), skin);
-        Operation operation = operationXmlLoader.loadCampaign(operationFilename);
+        LevelSequence levelSequence = levelSequenceXmlLoader.loadCampaign(operationFilename);
         textButton.setKeyListener(new KeyListener() {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
                     getGameApplication().switchScreen(new LevelLoadingScreen(
                             getGameApplication(),
-                            operation,
+                            levelSequence,
                             0,
                             null
                     ));
