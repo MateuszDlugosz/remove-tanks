@@ -7,7 +7,6 @@ import remove.tanks.game.level.resource.AbstractInternalResourceFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.physics.light.world.WorldLight;
 import remove.tanks.game.physics.light.world.WorldLightFactory;
-import remove.tanks.game.physics.world.WorldFactory;
 import remove.tanks.game.utility.properties.Properties;
 
 /**

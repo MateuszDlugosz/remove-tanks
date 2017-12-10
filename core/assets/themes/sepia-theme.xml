@@ -37,5 +37,9 @@
             <className>com.badlogic.gdx.audio.Music</className>
             <filename>audio/music/level-start-0.ogg</filename>
         </asset>
+        <asset id="highlight-effect">
+            <className>remove.tanks.game.graphic.effect.Effect</className>
+            <filename>prototypes/effects/grayscale-shader-effect.xml</filename>
+        </asset>
     </assets>
 </theme>

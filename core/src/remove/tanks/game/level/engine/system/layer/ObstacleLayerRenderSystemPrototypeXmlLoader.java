@@ -1,7 +1,5 @@
 package remove.tanks.game.level.engine.system.layer;
 
-import remove.tanks.game.graphic.effect.EffectPrototype;
-import remove.tanks.game.graphic.effect.EffectPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
 /**
@@ -10,17 +8,13 @@ import remove.tanks.game.level.engine.system.SystemType;
 public final class ObstacleLayerRenderSystemPrototypeXmlLoader
         extends LayerRenderSystemPrototypeXmlLoader<ObstacleLayerRenderSystemPrototype>
 {
-    public ObstacleLayerRenderSystemPrototypeXmlLoader(EffectPrototypeXmlLoader effectPrototypeXmlLoader) {
-        super(effectPrototypeXmlLoader);
-    }
-
     @Override
     public SystemType getLoaderType() {
         return SystemType.ObstacleLayerRenderSystem;
     }
 
     @Override
-    protected ObstacleLayerRenderSystemPrototype loadEntitySystemPrototype(int priority, EffectPrototype effectPrototype) {
-        return new ObstacleLayerRenderSystemPrototype(priority, effectPrototype);
+    protected ObstacleLayerRenderSystemPrototype loadEntitySystemPrototype(int priority) {
+        return new ObstacleLayerRenderSystemPrototype(priority);
     }
 }

@@ -2,7 +2,6 @@ package remove.tanks.game.level.engine.system.layer;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import remove.tanks.game.graphic.effect.Effect;
-import remove.tanks.game.graphic.effect.EffectFactory;
 import remove.tanks.game.graphic.view.renderer.ViewRenderer;
 
 /**
@@ -11,8 +10,8 @@ import remove.tanks.game.graphic.view.renderer.ViewRenderer;
 public final class BomberLayerRenderSystemFactory
         extends LayerRenderSystemFactory<BomberLayerRenderSystem, BomberLayerRenderSystemPrototype>
 {
-    public BomberLayerRenderSystemFactory(ViewRenderer viewRenderer, EffectFactory effectFactory) {
-        super(viewRenderer, effectFactory);
+    public BomberLayerRenderSystemFactory(ViewRenderer viewRenderer) {
+        super(viewRenderer);
     }
 
     @Override

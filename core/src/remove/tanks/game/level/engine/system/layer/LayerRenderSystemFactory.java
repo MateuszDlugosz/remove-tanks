@@ -1,8 +1,8 @@
 package remove.tanks.game.level.engine.system.layer;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.graphic.effect.Effect;
-import remove.tanks.game.graphic.effect.EffectFactory;
 import remove.tanks.game.graphic.view.renderer.ViewRenderer;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
@@ -15,11 +15,9 @@ public abstract class LayerRenderSystemFactory<T extends LayerRenderSystem, U ex
         implements RegistrableEntitySystemFactory<T, U>
 {
     private final ViewRenderer viewRenderer;
-    private final EffectFactory effectFactory;
 
-    public LayerRenderSystemFactory(ViewRenderer viewRenderer, EffectFactory effectFactory) {
+    public LayerRenderSystemFactory(ViewRenderer viewRenderer) {
         this.viewRenderer = viewRenderer;
-        this.effectFactory = effectFactory;
     }
 
     @Override
@@ -28,7 +26,8 @@ public abstract class LayerRenderSystemFactory<T extends LayerRenderSystem, U ex
                 prototype.getPriority(),
                 viewRenderer,
                 resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
-                effectFactory.createEffect(prototype.getEffectPrototype())
+                resourceRegistry.getResource(LevelResource.AssetStorage.toString(), AssetStorage.class)
+                        .getAsset("highlight-effect", Effect.class)
         );
     }
 

@@ -15,7 +15,7 @@ public final class AlphaEffectPrototypeXmlLoader
         try {
             return new AlphaEffectPrototype(loadAlphaValue(element));
         } catch (Exception e) {
-            throw new EffectPrototypeXmlLoadException(element, e);
+            throw new EffectPrototypeXmlLoadException(e);
         }
     }
 

@@ -1,14 +1,13 @@
 package remove.tanks.game.level.engine.system.layer;
 
 import com.google.common.base.MoreObjects;
-import remove.tanks.game.graphic.effect.EffectPrototype;
 
 /**
  * @author Mateusz Długosz
  */
 public final class ExplosionLayerRenderSystemPrototype extends LayerRenderSystemPrototype {
-    public ExplosionLayerRenderSystemPrototype(int priority, EffectPrototype effectPrototype) {
-        super(priority, effectPrototype);
+    public ExplosionLayerRenderSystemPrototype(int priority) {
+        super(priority);
     }
 
     @Override

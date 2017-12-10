@@ -12,16 +12,22 @@ import java.util.Map;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class AssetStorageFactory {
     private final ParameterFactory parameterFactory;
+    private final AssetManagerFactory assetManagerFactory;
 
-    public AssetStorageFactory(ParameterFactory parameterFactory) {
+    public AssetStorageFactory(
+            ParameterFactory parameterFactory,
+            AssetManagerFactory assetManagerFactory
+    ) {
         this.parameterFactory = parameterFactory;
+        this.assetManagerFactory = assetManagerFactory;
     }
 
     public AssetStorage createAssetStorage(List<AssetPrototype> prototypes) {
-        AssetManager assetManager = new AssetManager();
         Map<String, String> idPathMap = new HashMap<>();
+        AssetManager assetManager = assetManagerFactory.createAssetManager();
         try {
             prototypes.forEach(p -> {
                 if (!assetManager.isLoaded(p.getFilename(), p.getClassName())) {

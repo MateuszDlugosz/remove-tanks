@@ -28,96 +28,17 @@
             </system>
             <system priority="899" type="ChangeBehaviorSystem"></system>
             <system priority="900" type="TiledMapRenderSystem"></system>
-            <system priority="1050" type="GroundLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1100" type="BulletLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1200" type="VehicleLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1225" type="ObstacleLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1235" type="BonusLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1250" type="ExplosionLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1275" type="CloudLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1280" type="BombLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1285" type="BomberLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
+
+            <system priority="1050" type="GroundLayerRenderSystem"></system>
+            <system priority="1100" type="BulletLayerRenderSystem"></system>
+            <system priority="1200" type="VehicleLayerRenderSystem"></system>
+            <system priority="1225" type="ObstacleLayerRenderSystem"></system>
+            <system priority="1235" type="BonusLayerRenderSystem"></system>
+            <system priority="1250" type="ExplosionLayerRenderSystem"></system>
+            <system priority="1275" type="CloudLayerRenderSystem"></system>
+            <system priority="1280" type="BombLayerRenderSystem"></system>
+            <system priority="1285" type="BomberLayerRenderSystem"></system>
+            
             <system priority="1500" type="ViewUpdateSystem"></system>
             <system priority="1510" type="LifetimeSystem"></system>
             <system priority="1560" type="DestroyOnContactSystem"></system>

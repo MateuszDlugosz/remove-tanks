@@ -1,5 +1,6 @@
 package remove.tanks.game.graphic.effect;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
 
 import java.util.Arrays;
@@ -17,10 +18,12 @@ public final class EffectPrototypeXmlLoader {
 
     private static final String TYPE_ATTRIBUTE = "type";
 
+    private final XmlReader xmlReader;
     private final Map<EffectType, RegistrableEffectPrototypeXmlLoader> loaders
             = new EnumMap<>(EffectType.class);
 
-    public EffectPrototypeXmlLoader(RegistrableEffectPrototypeXmlLoader[] loaders) {
+    public EffectPrototypeXmlLoader(RegistrableEffectPrototypeXmlLoader[] loaders, XmlReader xmlReader) {
+        this.xmlReader = xmlReader;
         Arrays.stream(loaders).forEach(s -> this.loaders.put(s.getLoaderType(), s));
     }
 
@@ -28,6 +31,15 @@ public final class EffectPrototypeXmlLoader {
         return Arrays.stream(element.getChildrenByName(EFFECT_ELEMENT).toArray())
                 .map(this::loadEffectPrototype)
                 .collect(Collectors.toList());
+    }
+
+    public EffectPrototype loadEffectPrototype(String filename) {
+        try {
+            XmlReader.Element element = xmlReader.parse(Gdx.files.internal(filename));
+            return loadEffectPrototype(element);
+        } catch (Exception e) {
+            throw new EffectPrototypeXmlLoadException(e);
+        }
     }
 
     public EffectPrototype loadEffectPrototype(XmlReader.Element element) {

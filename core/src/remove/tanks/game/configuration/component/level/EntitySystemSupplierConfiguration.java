@@ -4,8 +4,6 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.audio.music.MusicFactory;
 import remove.tanks.game.audio.music.MusicPrototypeXmlLoader;
-import remove.tanks.game.graphic.effect.EffectFactory;
-import remove.tanks.game.graphic.effect.EffectPrototypeXmlLoader;
 import remove.tanks.game.graphic.view.renderer.ViewRenderer;
 import remove.tanks.game.graphic.view.updater.ViewUpdater;
 import remove.tanks.game.level.engine.system.EntitySystemFactory;
@@ -108,40 +106,31 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
                             new BomberLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new BombLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new BonusLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new BulletLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new CloudLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new ExplosionLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new GroundLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new ObstacleLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new VehicleLayerRenderSystemFactory(
-                                    getContext().getComponent("ViewRenderer", ViewRenderer.class),
-                                    getContext().getComponent("EffectFactory", EffectFactory.class)
+                                    getContext().getComponent("ViewRenderer", ViewRenderer.class)
                             ),
                             new RandomSpawnSystemFactory(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
@@ -187,33 +176,15 @@ public final class EntitySystemSupplierConfiguration {
                             new ViewUpdateSystemPrototypeXmlLoader(),
                             new AutoShootSystemPrototypeXmlLoader(),
                             new RandomShootSystemPrototypeXmlLoader(),
-                            new BomberLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new BombLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new BonusLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new BulletLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new CloudLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new ExplosionLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new GroundLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new ObstacleLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
-                            new VehicleLayerRenderSystemPrototypeXmlLoader(
-                                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class)
-                            ),
+                            new BomberLayerRenderSystemPrototypeXmlLoader(),
+                            new BombLayerRenderSystemPrototypeXmlLoader(),
+                            new BonusLayerRenderSystemPrototypeXmlLoader(),
+                            new BulletLayerRenderSystemPrototypeXmlLoader(),
+                            new CloudLayerRenderSystemPrototypeXmlLoader(),
+                            new ExplosionLayerRenderSystemPrototypeXmlLoader(),
+                            new GroundLayerRenderSystemPrototypeXmlLoader(),
+                            new ObstacleLayerRenderSystemPrototypeXmlLoader(),
+                            new VehicleLayerRenderSystemPrototypeXmlLoader(),
                             new RandomSpawnSystemPrototypeXmlLoader(),
                             new AutoSpawnerSystemPrototypeXmlLoader(
                                     getContext().getComponent("SpawnerPrototypeXmlLoader", SpawnerPrototypeXmlLoader.class)

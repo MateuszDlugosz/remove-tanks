@@ -1,5 +1,6 @@
 package remove.tanks.game.configuration.component.graphic;
 
+import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.graphic.color.ColorFactory;
@@ -43,7 +44,8 @@ public final class EffectSupplierConfiguration {
                             new ShaderEffectPrototypeXmlLoader(
                                     getContext().getComponent("ShaderProgramPrototypeXmlLoader", ShaderProgramPrototypeXmlLoader.class)
                             )
-                    }
+                    },
+                    getContext().getComponent("XmlReader", XmlReader.class)
             );
         }
     }

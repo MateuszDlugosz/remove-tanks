@@ -1,21 +1,26 @@
 package remove.tanks.game.configuration.component.asset;
 
+import com.badlogic.gdx.assets.loaders.AssetLoader;
+import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
-import remove.tanks.game.asset.AssetPrototype;
-import remove.tanks.game.asset.AssetPrototypeXmlLoader;
-import remove.tanks.game.asset.AssetStorage;
-import remove.tanks.game.asset.AssetStorageFactory;
+import remove.tanks.game.asset.*;
 import remove.tanks.game.asset.parameter.ParameterFactory;
 import remove.tanks.game.asset.parameter.ParameterPrototypeXmlLoader;
 import remove.tanks.game.asset.parameter.ParticleEffectParameterFactory;
 import remove.tanks.game.asset.parameter.RegistrableParameterFactory;
 import remove.tanks.game.asset.theme.ThemeXmlLoader;
+import remove.tanks.game.graphic.effect.Effect;
+import remove.tanks.game.graphic.effect.EffectAssetLoader;
+import remove.tanks.game.graphic.effect.EffectFactory;
+import remove.tanks.game.graphic.effect.EffectPrototypeXmlLoader;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mateusz Długosz
@@ -56,7 +61,8 @@ public final class AssetSuppliersConfiguration {
         @Override
         public AssetStorageFactory supplyComponent() {
             return new AssetStorageFactory(
-                    getContext().getComponent("AssetLoaderParameterFactory", ParameterFactory.class)
+                    getContext().getComponent("AssetLoaderParameterFactory", ParameterFactory.class),
+                    getContext().getComponent("AssetManagerFactory", AssetManagerFactory.class)
             );
         }
     }
@@ -87,6 +93,20 @@ public final class AssetSuppliersConfiguration {
                     getContext().getComponent("XmlReader", XmlReader.class),
                     getContext().getComponent("AssetPrototypeXmlLoader", AssetPrototypeXmlLoader.class)
             );
+        }
+    }
+
+    @ComponentName("AssetManagerFactory")
+    public static final class AssetManagerFactorySupplier extends ComponentSupplier<AssetManagerFactory> {
+        @Override
+        public AssetManagerFactory supplyComponent() {
+            Map<Class<?>, AssetLoader> assetLoaders = new HashMap<>();
+            assetLoaders.put(Effect.class, new EffectAssetLoader(
+                    new InternalFileHandleResolver(),
+                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class),
+                    getContext().getComponent("EffectFactory", EffectFactory.class)
+            ));
+            return new AssetManagerFactory(assetLoaders);
         }
     }
 }
