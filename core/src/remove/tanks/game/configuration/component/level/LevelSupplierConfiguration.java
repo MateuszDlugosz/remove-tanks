@@ -103,4 +103,14 @@ public final class LevelSupplierConfiguration {
             );
         }
     }
+
+    @ComponentName("LevelSequenceXmlLoader")
+    public static final class OperationXmlLoaderSupplier extends ComponentSupplier<LevelSequenceXmlLoader> {
+        @Override
+        public LevelSequenceXmlLoader supplyComponent() {
+            return new LevelSequenceXmlLoader(
+                    getContext().getComponent("XmlReader", XmlReader.class)
+            );
+        }
+    }
 }

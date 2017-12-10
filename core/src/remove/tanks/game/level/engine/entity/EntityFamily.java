@@ -16,6 +16,7 @@ import remove.tanks.game.level.engine.entity.component.direction.RandomDirection
 import remove.tanks.game.level.engine.entity.component.faction.EnemyComponent;
 import remove.tanks.game.level.engine.entity.component.graphic.GraphicsComponent;
 import remove.tanks.game.level.engine.entity.component.health.HealthComponent;
+import remove.tanks.game.level.engine.entity.component.id.IdentityComponent;
 import remove.tanks.game.level.engine.entity.component.layer.*;
 import remove.tanks.game.level.engine.entity.component.lifetime.LifetimeComponent;
 import remove.tanks.game.level.engine.entity.component.move.AutoMoveComponent;
@@ -164,6 +165,9 @@ public enum EntityFamily {
     ).get()),
     ChangeBehaviorFamily(Family.all(
             PhysicsComponent.class, ChangeBehaviorComponent.class
+    ).get()),
+    IdentifiableFamily(Family.all(
+            PhysicsComponent.class, IdentityComponent.class
     ).get());
 
     private final Family family;

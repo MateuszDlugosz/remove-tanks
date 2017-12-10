@@ -6,6 +6,9 @@ import remove.tanks.game.level.engine.entity.EntityDestroyer;
 import remove.tanks.game.level.engine.entity.EntityFactory;
 import remove.tanks.game.level.engine.entity.EntitySpawner;
 import remove.tanks.game.level.event.*;
+import remove.tanks.game.level.event.destroy.DestroyEntityByIdEventExecutor;
+import remove.tanks.game.level.event.destroy.DestroyEntityByIdEventFactory;
+import remove.tanks.game.level.event.destroy.DestroyEntityByIdEventPrototypeXmlLoader;
 import remove.tanks.game.level.event.destroy.DestroyEntityEventExecutor;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventExecutor;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventFactory;
@@ -41,7 +44,8 @@ public final class EventSupplierConfiguration {
                             new AddPointsEventExecutor(),
                             new AddLifeEventExecutor(),
                             new RemoveLifeEventExecutor(),
-                            new ChangeLevelStateEventExecutor()
+                            new ChangeLevelStateEventExecutor(),
+                            new DestroyEntityByIdEventExecutor()
                     }
             );
         }
@@ -58,7 +62,8 @@ public final class EventSupplierConfiguration {
                             new DecreaseEnemiesCounterEventFactory(),
                             new AddPointsEventFactory(),
                             new AddLifeEventFactory(),
-                            new RemoveLifeEventFactory()
+                            new RemoveLifeEventFactory(),
+                            new DestroyEntityByIdEventFactory()
                     }
             );
         }
@@ -75,7 +80,8 @@ public final class EventSupplierConfiguration {
                             new DecreaseEnemiesCounterEventPrototypeXmlLoader(),
                             new AddPointsEventPrototypeXmlLoader(),
                             new AddLifeEventPrototypeXmlLoader(),
-                            new RemoveLifeEventPrototypeXmlLoader()
+                            new RemoveLifeEventPrototypeXmlLoader(),
+                            new DestroyEntityByIdEventPrototypeXmlLoader()
                     }
             );
         }
