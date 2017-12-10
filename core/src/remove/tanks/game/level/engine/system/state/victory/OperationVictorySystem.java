@@ -38,9 +38,9 @@ public final class OperationVictorySystem extends EntitySystem {
             if (properties.getInt(LevelProperty.LevelEnemies.getName()) == 0) {
                 if (timer.isComplete()) {
                     eventBus.post(new ChangeLevelStateEvent(LevelState.Victory));
-                    getEngine().removeSystem(this);
                     Optional.ofNullable(getEngine().getSystem(PlayerRespawnSystem.class))
                             .ifPresent(s -> getEngine().removeSystem(s));
+                    getEngine().removeSystem(this);
                 } else {
                     timer.update(deltaTime);
                 }
