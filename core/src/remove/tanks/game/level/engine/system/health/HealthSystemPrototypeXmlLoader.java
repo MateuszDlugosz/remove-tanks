@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class HealthSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<HealthSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<HealthSystemPrototype>
 {
     @Override
-    protected HealthSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public HealthSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new HealthSystemPrototype(priority);
     }
 

@@ -7,105 +7,24 @@
     </properties>
     <engine>
         <systems>
-            <system priority="100" type="WorldUpdateSystem"></system>
-            <system priority="200" type="CameraTrackingSystem"></system>
-            <system priority="300" type="CameraUpdateSystem"></system>
-            <system priority="525" type="RandomSpawnSystem"></system>
-            <system priority="600" type="AutoMoveSystem"></system>
-            <system priority="900" type="TiledMapRenderSystem"></system>
-            <system priority="1000" type="ViewUpdateSystem"></system>
-            <system priority="899" type="ChangeBehaviorSystem"></system>
-            <system priority="1050" type="GroundLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1100" type="BulletLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1200" type="VehicleLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1225" type="ObstacleLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1235" type="BonusLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1250" type="ExplosionLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1275" type="CloudLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1280" type="BombLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="1285" type="BomberLayerRenderSystem">
-                <highlight>
-                    <effect type="ShaderEffect">
-                        <shaderProgram>
-                            <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-                            <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-                        </shaderProgram>
-                    </effect>
-                </highlight>
-            </system>
-            <system priority="3100" type="AutoSpawnerSystem">
+            <system type="WorldUpdateSystem" />
+            <system type="CameraTrackingSystem" />
+            <system type="CameraUpdateSystem" />
+            <system type="RandomSpawnSystem" />
+            <system type="AutoMoveSystem" />
+            <system type="TiledMapRenderSystem" />
+            <system type="ViewUpdateSystem" />
+            <system type="ChangeBehaviorSystem" />
+            <system type="GroundLayerRenderSystem" />
+            <system type="BulletLayerRenderSystem" />
+            <system type="VehicleLayerRenderSystem" />
+            <system type="ObstacleLayerRenderSystem" />
+            <system type="BonusLayerRenderSystem" />
+            <system type="ExplosionLayerRenderSystem" />
+            <system type="CloudLayerRenderSystem" />
+            <system type="BombLayerRenderSystem" />
+            <system type="BomberLayerRenderSystem" />
+            <system type="AutoSpawnerSystem">
                 <spawners>
                     <spawner id="Alpha">
                         <active>true</active>

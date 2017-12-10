@@ -37,7 +37,7 @@ public final class EntitySystemPrototypeXmlLoader {
             throw new EntitySystemLoaderNotFoundException(type);
         }
         try {
-            return subLoaders.get(type).loadEntitySystemPrototype(element);
+            return subLoaders.get(type).loadEntitySystemPrototype(element, type.getPriority());
         } catch (Exception e) {
             throw new EntitySystemPrototypeXmlLoadException(element, e);
         }

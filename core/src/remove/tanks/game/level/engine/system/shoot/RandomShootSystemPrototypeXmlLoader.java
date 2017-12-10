@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class RandomShootSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<RandomShootSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<RandomShootSystemPrototype>
 {
     @Override
-    protected RandomShootSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public RandomShootSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new RandomShootSystemPrototype(priority);
     }
 

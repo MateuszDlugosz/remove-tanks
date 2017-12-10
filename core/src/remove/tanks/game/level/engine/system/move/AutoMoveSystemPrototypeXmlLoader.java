@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class AutoMoveSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<AutoMoveSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<AutoMoveSystemPrototype>
 {
     @Override
-    protected AutoMoveSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public AutoMoveSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new AutoMoveSystemPrototype(priority);
     }
 

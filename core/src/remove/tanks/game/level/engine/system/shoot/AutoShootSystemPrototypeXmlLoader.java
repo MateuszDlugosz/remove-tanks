@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class AutoShootSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<AutoShootSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<AutoShootSystemPrototype>
 {
     @Override
-    protected AutoShootSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public AutoShootSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new AutoShootSystemPrototype(priority);
     }
 

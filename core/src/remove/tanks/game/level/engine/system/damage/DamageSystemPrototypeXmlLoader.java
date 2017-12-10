@@ -8,12 +8,12 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class DamageSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<DamageSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<DamageSystemPrototype>
 {
     private static final String HIT_HIGHLIGHT_TIME = "hitHighlightTime";
 
     @Override
-    protected DamageSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public DamageSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new DamageSystemPrototype(
                 priority,
                 Float.valueOf(element.getChildByName(HIT_HIGHLIGHT_TIME).getText().trim())

@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class PlayerControlSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<PlayerControlSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<PlayerControlSystemPrototype>
 {
     @Override
-    protected PlayerControlSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public PlayerControlSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new PlayerControlSystemPrototype(priority);
     }
 

@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class OperationHudRenderSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<OperationHudRenderSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<OperationHudRenderSystemPrototype>
 {
     @Override
-    protected OperationHudRenderSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public OperationHudRenderSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new OperationHudRenderSystemPrototype(priority);
     }
 

@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerPrototypeXmlL
  * @author Mateusz Długosz
  */
 public final class AutoSpawnerSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<AutoSpawnerSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<AutoSpawnerSystemPrototype>
 {
     private final SpawnerPrototypeXmlLoader spawnerPrototypeXmlLoader;
 
@@ -18,7 +18,7 @@ public final class AutoSpawnerSystemPrototypeXmlLoader
     }
 
     @Override
-    protected AutoSpawnerSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public AutoSpawnerSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new AutoSpawnerSystemPrototype(
                 priority,
                 spawnerPrototypeXmlLoader.loadSpawnerPrototypes(

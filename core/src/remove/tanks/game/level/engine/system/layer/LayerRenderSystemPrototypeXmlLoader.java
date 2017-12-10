@@ -7,10 +7,10 @@ import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXml
  * @author Mateusz Długosz
  */
 public abstract class LayerRenderSystemPrototypeXmlLoader<T extends LayerRenderSystemPrototype>
-        extends RegistrableEntitySystemPrototypeXmlLoader<T>
+        implements RegistrableEntitySystemPrototypeXmlLoader<T>
 {
     @Override
-    protected final T loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public final T loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return loadEntitySystemPrototype(priority);
     }
 

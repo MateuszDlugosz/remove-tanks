@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class DestroySystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<DestroySystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<DestroySystemPrototype>
 {
     @Override
-    protected DestroySystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public DestroySystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new DestroySystemPrototype(priority);
     }
 

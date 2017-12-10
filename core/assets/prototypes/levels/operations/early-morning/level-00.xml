@@ -8,44 +8,43 @@
     </properties>
     <engine>
         <systems>
-            <system priority="1" type="MusicOnStartSystem">
+            <system type="MusicOnStartSystem">
                 <music>
                     <filename>level-start-music</filename>
                 </music>
             </system>
-            <system priority="100" type="WorldUpdateSystem"></system>
-            <system priority="150" type="PlayerControlSystem"></system>
-            <system priority="200" type="CameraTrackingSystem"></system>
-            <system priority="300" type="CameraUpdateSystem"></system>
-            <system priority="500" type="RandomDirectionSystem"></system>
-            <system priority="525" type="RandomSpawnSystem"></system>
-            <system priority="550" type="RandomShootSystem"></system>
-            <system priority="575" type="AutoShootSystem"></system>
-            <system priority="600" type="AutoMoveSystem"></system>
-            <system priority="700" type="HealthSystem"></system>
-            <system priority="850" type="DamageSystem">
+            <system type="WorldUpdateSystem" />
+            <system type="PlayerControlSystem" />
+            <system type="CameraTrackingSystem" />
+            <system type="CameraUpdateSystem" />
+            <system type="RandomDirectionSystem" />
+            <system type="RandomSpawnSystem" />
+            <system type="RandomShootSystem" />
+            <system type="AutoShootSystem" />
+            <system type="AutoMoveSystem" />
+            <system type="HealthSystem" />
+            <system type="DamageSystem">
                 <hitHighlightTime>0.1</hitHighlightTime>
             </system>
-            <system priority="899" type="ChangeBehaviorSystem"></system>
-            <system priority="900" type="TiledMapRenderSystem"></system>
+            <system type="ChangeBehaviorSystem" />
+            <system type="TiledMapRenderSystem" />
 
-            <system priority="1050" type="GroundLayerRenderSystem"></system>
-            <system priority="1100" type="BulletLayerRenderSystem"></system>
-            <system priority="1200" type="VehicleLayerRenderSystem"></system>
-            <system priority="1225" type="ObstacleLayerRenderSystem"></system>
-            <system priority="1235" type="BonusLayerRenderSystem"></system>
-            <system priority="1250" type="ExplosionLayerRenderSystem"></system>
-            <system priority="1275" type="CloudLayerRenderSystem"></system>
-            <system priority="1280" type="BombLayerRenderSystem"></system>
-            <system priority="1285" type="BomberLayerRenderSystem"></system>
-            
-            <system priority="1500" type="ViewUpdateSystem"></system>
-            <system priority="1510" type="LifetimeSystem"></system>
-            <system priority="1560" type="DestroyOnContactSystem"></system>
-            <system priority="1600" type="DestroySystem"></system>
-            <system priority="2000" type="WorldDebugRenderSystem"></system>
-            <system priority="3000" type="OperationHudRenderSystem"></system>
-            <system priority="3100" type="AutoSpawnerSystem">
+            <system type="GroundLayerRenderSystem" />
+            <system type="BulletLayerRenderSystem" />
+            <system type="VehicleLayerRenderSystem" />
+            <system type="ObstacleLayerRenderSystem" />
+            <system type="BonusLayerRenderSystem" />
+            <system type="ExplosionLayerRenderSystem" />
+            <system type="CloudLayerRenderSystem" />
+            <system type="BombLayerRenderSystem" />
+            <system type="BomberLayerRenderSystem" />
+            <system type="ViewUpdateSystem" />
+            <system type="LifetimeSystem" />
+            <system type="DestroyOnContactSystem" />
+            <system type="DestroySystem" />
+            <system type="WorldDebugRenderSystem" />
+            <system type="OperationHudRenderSystem" />
+            <system type="AutoSpawnerSystem">
                 <spawners>
                     <spawner id="Alpha">
                         <active>false</active>
@@ -68,17 +67,17 @@
                     </spawner>
                 </spawners>
             </system>
-            <system priority="3200" type="PlayerRespawnSystem">
+            <system type="PlayerRespawnSystem">
                 <prototypeCode>PlayerMediumTankSpawn</prototypeCode>
                 <respawnTime>2</respawnTime>
             </system>
-            <system priority="4000" type="OperationDefeatSystem">
+            <system type="OperationDefeatSystem">
                 <delay>3</delay>
             </system>
-            <system priority="4000" type="OperationVictorySystem">
+            <system type="OperationVictorySystem">
                 <delay>3</delay>
             </system>
-            <system priority="5000" type="LevelEndSystem">
+            <system type="LevelEndSystem">
                 <endTime>3</endTime>
             </system>
         </systems>

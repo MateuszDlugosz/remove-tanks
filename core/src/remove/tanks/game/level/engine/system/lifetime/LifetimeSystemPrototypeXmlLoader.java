@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class LifetimeSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<LifetimeSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<LifetimeSystemPrototype>
 {
     @Override
-    protected LifetimeSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public LifetimeSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new LifetimeSystemPrototype(priority);
     }
 

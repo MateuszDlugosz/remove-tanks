@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class ViewUpdateSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<ViewUpdateSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<ViewUpdateSystemPrototype>
 {
     @Override
-    protected ViewUpdateSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public ViewUpdateSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new ViewUpdateSystemPrototype(priority);
     }
 

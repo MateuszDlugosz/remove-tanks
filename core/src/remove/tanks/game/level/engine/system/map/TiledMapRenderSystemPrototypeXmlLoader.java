@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class TiledMapRenderSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<TiledMapRenderSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<TiledMapRenderSystemPrototype>
 {
     @Override
-    protected TiledMapRenderSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public TiledMapRenderSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new TiledMapRenderSystemPrototype(priority);
     }
 

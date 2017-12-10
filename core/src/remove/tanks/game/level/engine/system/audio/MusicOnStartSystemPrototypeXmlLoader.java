@@ -9,7 +9,7 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class MusicOnStartSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<MusicOnStartSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<MusicOnStartSystemPrototype>
 {
     private final MusicPrototypeXmlLoader musicPrototypeXmlLoader;
 
@@ -18,7 +18,7 @@ public final class MusicOnStartSystemPrototypeXmlLoader
     }
 
     @Override
-    protected MusicOnStartSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public MusicOnStartSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new MusicOnStartSystemPrototype(
                 priority,
                 musicPrototypeXmlLoader.loadMusicPrototype(

@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class ChangeBehaviorSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<ChangeBehaviorSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<ChangeBehaviorSystemPrototype>
 {
     @Override
-    protected ChangeBehaviorSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public ChangeBehaviorSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new ChangeBehaviorSystemPrototype(priority);
     }
 

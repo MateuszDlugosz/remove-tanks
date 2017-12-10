@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class RandomDirectionSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<RandomDirectionSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<RandomDirectionSystemPrototype>
 {
     @Override
-    protected RandomDirectionSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public RandomDirectionSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new RandomDirectionSystemPrototype(priority);
     }
 

@@ -8,12 +8,12 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class OperationDefeatSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<OperationDefeatSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<OperationDefeatSystemPrototype>
 {
     private static final String DELAY_ELEMENT = "delay";
 
     @Override
-    protected OperationDefeatSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public OperationDefeatSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new OperationDefeatSystemPrototype(
                 priority,
                 Float.valueOf(element.getChildByName(DELAY_ELEMENT).getText().trim())

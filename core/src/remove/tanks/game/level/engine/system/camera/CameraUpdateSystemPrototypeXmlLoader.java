@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.system.SystemType;
  * @author Mateusz Długosz
  */
 public final class CameraUpdateSystemPrototypeXmlLoader
-        extends RegistrableEntitySystemPrototypeXmlLoader<CameraUpdateSystemPrototype>
+        implements RegistrableEntitySystemPrototypeXmlLoader<CameraUpdateSystemPrototype>
 {
     @Override
-    protected CameraUpdateSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public CameraUpdateSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         return new CameraUpdateSystemPrototype(priority);
     }
 
