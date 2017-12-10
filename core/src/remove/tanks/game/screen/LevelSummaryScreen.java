@@ -134,7 +134,7 @@ public final class LevelSummaryScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreen(MainMenuScreen.class);
+                    getGameApplication().switchScreenWithTransition(MainMenuScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));

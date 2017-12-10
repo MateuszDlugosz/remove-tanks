@@ -117,7 +117,7 @@ public final class LevelScreen extends GameScreen {
 
     private void switchToNextLevel() {
         if (levelSequence.getLevelPrototypeFilenames().size() - 1 > currentLevelIndex) {
-            getGameApplication().switchScreen(new LevelLoadingScreen(
+            getGameApplication().switchScreenWithTransition(new LevelLoadingScreen(
                     getGameApplication(),
                     levelSequence,
                     currentLevelIndex + 1,
@@ -129,7 +129,7 @@ public final class LevelScreen extends GameScreen {
     }
 
     private void switchToSummaryScreen() {
-        getGameApplication().switchScreen(new LevelSummaryScreen(
+        getGameApplication().switchScreenWithTransition(new LevelSummaryScreen(
                 getGameApplication(), levelController.getLevel().getResourceRegistry()
                         .getResource(LevelResource.Properties.name(), Properties.class)
         ));
@@ -153,7 +153,7 @@ public final class LevelScreen extends GameScreen {
                     .apply(InputMapper.Key.MoveDown);
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            getGameApplication().switchScreen(MainMenuScreen.class);
+            getGameApplication().switchScreenWithTransition(MainMenuScreen.class);
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.CONTROL_LEFT)) {
             levelController.getLevel().getResourceRegistry().getResource(LevelResource.InputMapper.toString(), InputMapper.class)

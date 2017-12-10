@@ -109,7 +109,7 @@ public final class LevelSelectScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreen(ModeSelectScreen.class);
+                    getGameApplication().switchScreenWithTransition(ModeSelectScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
@@ -154,7 +154,7 @@ public final class LevelSelectScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreen(new LevelLoadingScreen(
+                    getGameApplication().switchScreenWithTransition(new LevelLoadingScreen(
                             getGameApplication(),
                             levelSequence,
                             0,

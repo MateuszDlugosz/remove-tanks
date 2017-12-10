@@ -11,17 +11,17 @@ import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.screen.*;
-import remove.tanks.game.screen.switchers.ScreenSwitcher;
-import remove.tanks.game.screen.switchers.storage.ScreenStorage;
-import remove.tanks.game.screen.switchers.transitions.FadeInStageActionFactory;
-import remove.tanks.game.screen.switchers.transitions.FadeOutStageActionFactory;
+import remove.tanks.game.screen.switcher.ScreenSwitcher;
+import remove.tanks.game.screen.switcher.storage.ScreenStorage;
+import remove.tanks.game.screen.switcher.transitions.FadeInStageActionFactory;
+import remove.tanks.game.screen.switcher.transitions.FadeOutStageActionFactory;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
 public final class GameApplication extends Game {
 	public static final String TITLE = "Remove Tanks!";
-	public static final String VERSION = "0.18.61";
+	public static final String VERSION = "0.18.62";
 
 	private final Configuration configuration;
 
@@ -46,19 +46,23 @@ public final class GameApplication extends Game {
 				new FadeOutStageActionFactory(0.5f),
 				new FadeInStageActionFactory(0.5f)
 		);
-		this.screenSwitcher.switchScreenTo(MainMenuScreen.class, this);
+		this.screenSwitcher.switchScreenWithTransition(MainMenuScreen.class, this);
 	}
 
 	public Context getContext() {
 		return context;
 	}
 
-	public void switchScreen(Class<? extends GameScreen> screenClass) {
-		this.screenSwitcher.switchScreenTo(screenClass, this);
+	public void switchScreenWithTransition(Class<? extends GameScreen> screenClass) {
+		this.screenSwitcher.switchScreenWithTransition(screenClass, this);
 	}
 
-	public void switchScreen(GameScreen screen) {
-		this.screenSwitcher.switchScreenTo(screen, this);
+	public void switchScreenWithTransition(GameScreen screen) {
+		this.screenSwitcher.switchScreenWithTransition(screen, this);
+	}
+
+	public void switchScreenWithoutTransition(Class<? extends GameScreen> screenClass) {
+		this.screenSwitcher.switchScreenWithoutTransition(screenClass, this);
 	}
 
 	@Override

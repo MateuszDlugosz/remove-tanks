@@ -1,4 +1,4 @@
-package remove.tanks.game.screen.switchers.transitions;
+package remove.tanks.game.screen.switcher.transitions;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Stage;

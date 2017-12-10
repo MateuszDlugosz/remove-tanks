@@ -74,7 +74,7 @@ public final class LevelLoadingScreen extends GameScreen {
             newLevel.getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
                     .merge(previousLevelProperties);
 
-            getGameApplication().switchScreen(
+            getGameApplication().switchScreenWithTransition(
                     new LevelScreen(
                             getGameApplication(),
                             levelSequence,

@@ -1,4 +1,4 @@
-package remove.tanks.game.screen.switchers.storage;
+package remove.tanks.game.screen.switcher.storage;
 
 import remove.tanks.game.screen.GameScreen;
 

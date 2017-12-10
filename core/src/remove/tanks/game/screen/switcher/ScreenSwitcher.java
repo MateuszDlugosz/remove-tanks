@@ -1,12 +1,12 @@
-package remove.tanks.game.screen.switchers;
+package remove.tanks.game.screen.switcher;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import remove.tanks.game.screen.GameScreen;
-import remove.tanks.game.screen.switchers.storage.ScreenStorage;
-import remove.tanks.game.screen.switchers.transitions.StageActionFactory;
+import remove.tanks.game.screen.switcher.storage.ScreenStorage;
+import remove.tanks.game.screen.switcher.transitions.StageActionFactory;
 
 /**
  * @author Mateusz Długosz
@@ -26,11 +26,11 @@ public final class ScreenSwitcher {
         this.defaultShowStageActionFactory = defaultShowStageActionFactory;
     }
 
-    public void switchScreenTo(Class<? extends GameScreen> screenClass, Game game) {
-        switchScreenTo(screenStorage.getScreen(screenClass), game);
+    public void switchScreenWithTransition(Class<? extends GameScreen> screenClass, Game game) {
+        switchScreenWithTransition(screenStorage.getScreen(screenClass), game);
     }
 
-    public void switchScreenTo(GameScreen screen, Game game) {
+    public void switchScreenWithTransition(GameScreen screen, Game game) {
         if (game.getScreen() == null) {
             screen.getStage().addAction(defaultShowStageActionFactory.createStageAction(screen.getStage()));
             Gdx.input.setInputProcessor(screen.getStage());
@@ -45,5 +45,13 @@ public final class ScreenSwitcher {
             }));
             ((GameScreen) game.getScreen()).getStage().getRoot().addAction(action);
         }
+    }
+
+    public void switchScreenWithoutTransition(Class<? extends GameScreen> screenClass, Game game) {
+        game.setScreen(screenStorage.getScreen(screenClass));
+    }
+
+    public void switchScreenWithoutTransition(GameScreen screen, Game game) {
+        game.setScreen(screen);
     }
 }
