@@ -1,5 +1,6 @@
 package remove.tanks.game.level.resource.factory;
 
+import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepositoryXmlLoader;
@@ -13,9 +14,6 @@ import remove.tanks.game.utility.properties.Properties;
 public final class EntityPrototypeRepositoryInternalResourceFactory
         extends AbstractInternalResourceFactory<EntityPrototypeRepository>
 {
-    public static final String ENTITY_PROTOTYPE_REPOSITORY_FILENAME_PROPERTY
-            = "entity.prototype.repository.filename";
-
     private final EntityPrototypeRepositoryXmlLoader entityPrototypeRepositoryXmlLoader;
 
     public EntityPrototypeRepositoryInternalResourceFactory(
@@ -33,7 +31,7 @@ public final class EntityPrototypeRepositoryInternalResourceFactory
     protected EntityPrototypeRepository getResourceObject(ResourceRegistry registry) {
         return entityPrototypeRepositoryXmlLoader.loadPrototypeRepository(
                 registry.getResource(LevelResource.Properties.toString(), Properties.class)
-                        .getString(ENTITY_PROTOTYPE_REPOSITORY_FILENAME_PROPERTY)
+                        .getString(LevelProperty.LevelResourceEntityPrototypeRepositoryFilename.getName())
         );
     }
 

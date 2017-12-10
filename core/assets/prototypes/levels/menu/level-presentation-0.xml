@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <prototype>
     <properties>
-        <property name="tiled.map.filename">maps/menu/level-presentation-0.tmx</property>
-        <property name="entity.prototype.repository.filename">prototypes/repositories/main-repository.xml</property>
-        <property name="theme.filename">themes/sepia-theme.xml</property>
+        <property name="level.resource.tiled-map.filename">maps/menu/level-presentation-0.tmx</property>
+        <property name="level.resource.entity-prototype-repository.filename">prototypes/repositories/main-repository.xml</property>
+        <property name="level.resource.theme.filename">themes/sepia-theme.xml</property>
     </properties>
     <engine>
         <systems>

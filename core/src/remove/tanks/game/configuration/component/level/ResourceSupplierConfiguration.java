@@ -6,6 +6,7 @@ import remove.tanks.game.application.context.component.supplier.annotation.Compo
 import remove.tanks.game.asset.AssetStorageFactory;
 import remove.tanks.game.asset.theme.ThemeXmlLoader;
 import remove.tanks.game.level.LevelPropertiesInitializer;
+import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.engine.EngineFactory;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepositoryXmlLoader;
 import remove.tanks.game.level.resource.AbstractExternalResourceFactory;
@@ -41,10 +42,9 @@ public final class ResourceSupplierConfiguration {
                             new PropertiesInternalResourceFactory(
                                     new PropertyExistsValidator(
                                             new String[] {
-                                                    AssetStorageInternalResourceFactory.THEME_FILENAME_PROPERTY,
-                                                    TiledMapInternalResourceFactory.TILED_MAP_FILENAME_PROPERTY,
-                                                    EntityPrototypeRepositoryInternalResourceFactory
-                                                            .ENTITY_PROTOTYPE_REPOSITORY_FILENAME_PROPERTY
+                                                    LevelProperty.LevelResourceThemeFilename.getName(),
+                                                    LevelProperty.LevelResourceTiledMapFilename.getName(),
+                                                    LevelProperty.LevelResourceEntityPrototypeRepositoryFilename.getName()
                                             }
                                     ),
                                     getContext().getComponent("LevelPropertiesInitializer", LevelPropertiesInitializer.class)

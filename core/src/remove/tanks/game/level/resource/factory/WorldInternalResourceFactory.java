@@ -1,6 +1,7 @@
 package remove.tanks.game.level.resource.factory;
 
 import com.badlogic.gdx.physics.box2d.World;
+import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.contact.SensorContactListener;
 import remove.tanks.game.level.resource.AbstractInternalResourceFactory;
@@ -28,9 +29,32 @@ public final class WorldInternalResourceFactory
     @Override
     protected World getResourceObject(ResourceRegistry registry) {
         World world = worldFactory.createWorld(
-                registry.getResource(LevelResource.Properties.toString(), Properties.class));
+                createProperties(
+                        registry.getResource(LevelResource.Properties.toString(), Properties.class)
+                )
+        );
         world.setContactListener(new SensorContactListener());
         return world;
+    }
+
+    private Properties createProperties(Properties properties) {
+        Properties resourceProperties = new Properties();
+        resourceProperties.putFloat(
+                WorldFactory.GRAVITY_X_PROPERTY,
+                properties.getFloat(LevelProperty.LevelResourceWorldGravityX.getName(),
+                        WorldFactory.GRAVITY_X_DEFAULT_VALUE)
+        );
+        resourceProperties.putFloat(
+                WorldFactory.GRAVITY_Y_PROPERTY,
+                properties.getFloat(LevelProperty.LevelResourceWorldGravityY.getName(),
+                        WorldFactory.GRAVITY_Y_DEFAULT_VALUE)
+        );
+        resourceProperties.putBoolean(
+                WorldFactory.ALLOW_SLEEP_PROPERTY,
+                properties.getBoolean(LevelProperty.LevelResourceWorldAllowSleep.getName(),
+                        WorldFactory.ALLOW_SLEEP_DEFAULT_VALUE)
+        );
+        return resourceProperties;
     }
 
     @Override

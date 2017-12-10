@@ -8,18 +8,18 @@ import remove.tanks.game.utility.properties.Properties;
  * @author Mateusz Długosz
  */
 public final class WorldLightFactory {
-    private static final String NUMBER_OF_RAYS_PROPERTY = "world.light.number.of.rays";
-    private static final int NUMBER_OF_RAYS_PROPERTY_DEFAULT_VALUE = 100;
-    private static final String AMBIENT_LIGHT_R_PROPERTY = "world.light.ambient.r";
-    private static final float AMBIENT_LIGHT_R_DEFAULT_VALUE = 0f;
-    private static final String AMBIENT_LIGHT_G_PROPERTY = "world.light.ambient.g";
-    private static final float AMBIENT_LIGHT_G_DEFAULT_VALUE = 0f;
-    private static final String AMBIENT_LIGHT_B_PROPERTY = "world.light.ambient.b";
-    private static final float AMBIENT_LIGHT_B_DEFAULT_VALUE = 0f;
-    private static final String AMBIENT_LIGHT_A_PROPERTY = "world.light.ambient.a";
-    private static final float AMBIENT_LIGHT_A_DEFAULT_VALUE = 0.5f;
-    private static final float AMBIENT_LIGHT_COLOR_MIN_VALUE = 0f;
-    private static final float AMBIENT_LIGHT_COLOR_MAX_VALUE = 255f;
+    public static final String NUMBER_OF_RAYS_PROPERTY = "world.light.number.of.rays";
+    public static final int NUMBER_OF_RAYS_PROPERTY_DEFAULT_VALUE = 100;
+    public static final String AMBIENT_LIGHT_R_PROPERTY = "world.light.ambient.r";
+    public static final float AMBIENT_LIGHT_R_DEFAULT_VALUE = 0f;
+    public static final String AMBIENT_LIGHT_G_PROPERTY = "world.light.ambient.g";
+    public static final float AMBIENT_LIGHT_G_DEFAULT_VALUE = 0f;
+    public static final String AMBIENT_LIGHT_B_PROPERTY = "world.light.ambient.b";
+    public static final float AMBIENT_LIGHT_B_DEFAULT_VALUE = 0f;
+    public static final String AMBIENT_LIGHT_A_PROPERTY = "world.light.ambient.a";
+    public static final float AMBIENT_LIGHT_A_DEFAULT_VALUE = 0.5f;
+    public static final float AMBIENT_LIGHT_COLOR_MIN_VALUE = 0f;
+    public static final float AMBIENT_LIGHT_COLOR_MAX_VALUE = 255f;
 
     public WorldLight createWorldLight(World world) {
         return createWorldLight(world, new Properties());
