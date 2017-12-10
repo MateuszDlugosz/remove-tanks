@@ -4,6 +4,7 @@
         <component type="PhysicsComponent">
             <body>
                 <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
             </body>
             <sensors>
                 <sensor id="HitDetector">

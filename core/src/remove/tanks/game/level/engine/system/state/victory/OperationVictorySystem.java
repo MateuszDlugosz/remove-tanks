@@ -5,9 +5,12 @@ import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelState;
 import remove.tanks.game.level.engine.entity.EntityFamily;
+import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystem;
 import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
+
+import java.util.Optional;
 
 /**
  * @author Mateusz Długosz
@@ -36,6 +39,8 @@ public final class OperationVictorySystem extends EntitySystem {
                 if (timer.isComplete()) {
                     eventBus.post(new ChangeLevelStateEvent(LevelState.Victory));
                     getEngine().removeSystem(this);
+                    Optional.ofNullable(getEngine().getSystem(PlayerRespawnSystem.class))
+                            .ifPresent(s -> getEngine().removeSystem(s));
                 } else {
                     timer.update(deltaTime);
                 }

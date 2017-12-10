@@ -5,6 +5,7 @@
             <body>
                 <type>DynamicBody</type>
                 <bullet>true</bullet>
+                <gravityScale>0</gravityScale>
             </body>
             <sensors>
                 <sensor id="HitDetector">
