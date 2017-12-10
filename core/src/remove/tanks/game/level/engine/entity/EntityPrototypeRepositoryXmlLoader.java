@@ -3,7 +3,6 @@ package remove.tanks.game.level.engine.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -38,8 +37,8 @@ public final class EntityPrototypeRepositoryXmlLoader {
                             e -> entityPrototypeXmlLoader.loadEntityPrototype(e.getText())
                     ))
             );
-        } catch (IOException e) {
-            throw new EntityPrototypeRepositoryFileNotFoundException(filename);
+        } catch (Exception e) {
+            throw new EntityPrototypeRepositoryXmlLoadException(e);
         }
     }
 }

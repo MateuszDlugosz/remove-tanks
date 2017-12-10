@@ -34,7 +34,7 @@ public final class ConfigurationXmlLoader {
                     loadOptions(element),
                     loadComponentSupplierPackages(element)
             );
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new ConfigurationXmlLoadException(e);
         }
     }

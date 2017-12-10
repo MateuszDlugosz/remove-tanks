@@ -5,7 +5,6 @@ import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.engine.EnginePrototypeXmlLoader;
 import remove.tanks.game.utility.properties.PropertiesXmlLoader;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,8 +46,8 @@ public final class LevelPrototypeXmlLoader {
                             element.getChildByName(PropertiesXmlLoader.PROPERTIES_ELEMENT)
                     )
             );
-        } catch (IOException e) {
-            throw new LevelPrototypeFileNotFoundException(filename);
+        } catch (Exception e) {
+            throw new LevelPrototypeXmlLoadException(e);
         }
     }
 }

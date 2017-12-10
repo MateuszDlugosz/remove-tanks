@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.asset.AssetPrototypeXmlLoader;
 
-import java.io.IOException;
-
 /**
  * @author Mateusz Długosz
  */
@@ -25,8 +23,8 @@ public final class ThemeXmlLoader {
                             xmlReader.parse(Gdx.files.internal(filename))
                                     .getChildByName(AssetPrototypeXmlLoader.ASSETS_ELEMENT))
             );
-        } catch (IOException e) {
-            throw new ThemeFileNotFoundException(filename);
+        } catch (Exception e) {
+            throw new ThemeXmlLoadException(e);
         }
     }
 }

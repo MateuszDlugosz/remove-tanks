@@ -27,6 +27,7 @@ public final class ResourceRegistry implements Disposable {
         return resources.get(name);
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T getResource(String name, Class<T> type) {
         if (!resources.containsKey(name)) {
             throw new ResourceNotFoundException(name);
