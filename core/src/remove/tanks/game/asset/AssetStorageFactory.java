@@ -26,9 +26,9 @@ public final class AssetStorageFactory {
     }
 
     public AssetStorage createAssetStorage(List<AssetPrototype> prototypes) {
-        Map<String, String> idPathMap = new HashMap<>();
-        AssetManager assetManager = assetManagerFactory.createAssetManager();
         try {
+            Map<String, String> idPathMap = new HashMap<>();
+            AssetManager assetManager = assetManagerFactory.createAssetManager();
             prototypes.forEach(p -> {
                 if (!assetManager.isLoaded(p.getFilename(), p.getClassName())) {
                     if (p.getParameterPrototype().isPresent()) {
@@ -47,10 +47,10 @@ public final class AssetStorageFactory {
                     idPathMap.put(p.getId(), p.getFilename());
                 }
             });
+            return new AssetStorage(assetManager, idPathMap);
         } catch (Exception e) {
             throw new AssetStorageCreateException(e);
         }
-        return new AssetStorage(assetManager, idPathMap);
     }
 
     private void loadAssetWithoutParameters(AssetManager assetManager, String filename, Class<?> className) {

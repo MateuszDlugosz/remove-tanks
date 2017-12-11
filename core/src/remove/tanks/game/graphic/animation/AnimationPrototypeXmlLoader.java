@@ -31,10 +31,14 @@ public final class AnimationPrototypeXmlLoader {
     }
 
     public AnimationPrototype loadAnimationPrototype(XmlReader.Element element) {
-        AnimationType type = AnimationType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!loaders.containsKey(type)) {
-            throw new AnimationPrototypeLoaderNotFoundException(type);
+        try {
+            AnimationType type = AnimationType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!loaders.containsKey(type)) {
+                throw new AnimationPrototypeLoaderNotFoundException(type);
+            }
+            return loaders.get(type).loadAnimationPrototype(element);
+        } catch (Exception e) {
+            throw new AnimationPrototypeXmlLoadException(element, e);
         }
-        return loaders.get(type).loadAnimationPrototype(element);
     }
 }

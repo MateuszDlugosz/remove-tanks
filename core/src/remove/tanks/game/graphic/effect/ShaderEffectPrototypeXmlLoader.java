@@ -21,7 +21,7 @@ public final class ShaderEffectPrototypeXmlLoader
         try {
             return new ShaderEffectPrototype(loadShaderProgramPrototype(element));
         } catch (Exception e) {
-            throw new EffectPrototypeXmlLoadException(e);
+            throw new EffectPrototypeXmlLoadException(element, e);
         }
     }
 

@@ -31,10 +31,14 @@ public final class ColorPrototypeXmlLoader {
     }
 
     public ColorPrototype loadColorPrototype(XmlReader.Element element) {
-        ColorType type = ColorType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!loaders.containsKey(type)) {
-            throw new ColorPrototypeLoaderNotFoundException(type);
+        try {
+            ColorType type = ColorType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!loaders.containsKey(type)) {
+                throw new ColorPrototypeLoaderNotFoundException(type);
+            }
+            return loaders.get(type).loadColorPrototype(element);
+        } catch (Exception e) {
+            throw new ColorPrototypeXmlLoadException(element, e);
         }
-        return loaders.get(type).loadColorPrototype(element);
     }
 }

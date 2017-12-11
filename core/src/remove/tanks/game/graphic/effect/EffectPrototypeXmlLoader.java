@@ -34,19 +34,18 @@ public final class EffectPrototypeXmlLoader {
     }
 
     public EffectPrototype loadEffectPrototype(String filename) {
-        try {
-            XmlReader.Element element = xmlReader.parse(Gdx.files.internal(filename));
-            return loadEffectPrototype(element);
-        } catch (Exception e) {
-            throw new EffectPrototypeXmlLoadException(e);
-        }
+        return loadEffectPrototype(xmlReader.parse(Gdx.files.internal(filename)));
     }
 
     public EffectPrototype loadEffectPrototype(XmlReader.Element element) {
-        EffectType type = EffectType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!loaders.containsKey(type)) {
-            throw new EffectPrototypeLoaderNotFoundException(type);
+        try {
+            EffectType type = EffectType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!loaders.containsKey(type)) {
+                throw new EffectPrototypeLoaderNotFoundException(type);
+            }
+            return loaders.get(type).loadEffectPrototype(element);
+        } catch (Exception e) {
+            throw new EffectPrototypeXmlLoadException(element, e);
         }
-        return loaders.get(type).loadEffectPrototype(element);
     }
 }

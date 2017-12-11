@@ -29,10 +29,14 @@ public final class AnimationFactory {
     }
 
     public Animation createAnimation(AnimationPrototype prototype, AssetStorage storage, Scale scale) {
-        Class<? extends AnimationPrototype> prototypeClass = prototype.getClass();
-        if (!factories.containsKey(prototypeClass)) {
-            throw new AnimationFactoryNotFoundException(prototypeClass.toString());
+        try {
+            Class<? extends AnimationPrototype> prototypeClass = prototype.getClass();
+            if (!factories.containsKey(prototypeClass)) {
+                throw new AnimationFactoryNotFoundException(prototypeClass.toString());
+            }
+            return factories.get(prototypeClass).createAnimation(prototype, storage, scale);
+        } catch (Exception e) {
+            throw new AnimationCreateException(prototype, e);
         }
-        return factories.get(prototypeClass).createAnimation(prototype, storage, scale);
     }
 }

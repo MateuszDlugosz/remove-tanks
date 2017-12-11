@@ -31,10 +31,14 @@ public final class SpritePrototypeXmlLoader {
     }
 
     public SpritePrototype loadSpritePrototype(XmlReader.Element element) {
-        SpriteType type = SpriteType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!loaders.containsKey(type)) {
-            throw new SpritePrototypeLoaderNotFoundException(type);
+        try {
+            SpriteType type = SpriteType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!loaders.containsKey(type)) {
+                throw new SpritePrototypeLoaderNotFoundException(type);
+            }
+            return loaders.get(type).loadSpritePrototype(element);
+        } catch (Exception e) {
+            throw new SpritePrototypeXmlLoadException(element, e);
         }
-        return loaders.get(type).loadSpritePrototype(element);
     }
 }

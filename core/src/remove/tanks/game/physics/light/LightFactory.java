@@ -44,10 +44,14 @@ public final class LightFactory {
     }
 
     public Light createLight(LightPrototype prototype, WorldLight worldLight, Body body, Scale scale) {
-        Class<? extends LightPrototype> prototypeClass = prototype.getClass();
-        if (!factories.containsKey(prototypeClass)) {
-            throw new LightFactoryNotFoundException(prototypeClass.toString());
+        try {
+            Class<? extends LightPrototype> prototypeClass = prototype.getClass();
+            if (!factories.containsKey(prototypeClass)) {
+                throw new LightFactoryNotFoundException(prototypeClass.toString());
+            }
+            return factories.get(prototypeClass).createLight(prototype, worldLight, body, scale);
+        } catch (Exception e) {
+            throw new LightCreateException(prototype, e);
         }
-        return factories.get(prototypeClass).createLight(prototype, worldLight, body, scale);
     }
 }

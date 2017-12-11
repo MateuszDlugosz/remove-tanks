@@ -31,10 +31,14 @@ public final class ShapePrototypeXmlLoader {
     }
 
     public ShapePrototype loadShapePrototype(XmlReader.Element element) {
-        ShapeType type = ShapeType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!loaders.containsKey(type)) {
-            throw new ShapePrototypeLoaderNotFoundException(type);
+        try {
+            ShapeType type = ShapeType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!loaders.containsKey(type)) {
+                throw new ShapePrototypeLoaderNotFoundException(type);
+            }
+            return loaders.get(type).loadShapePrototype(element);
+        } catch (Exception e) {
+            throw new ShapePrototypeXmlLoadException(element, e);
         }
-        return loaders.get(type).loadShapePrototype(element);
     }
 }

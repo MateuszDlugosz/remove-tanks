@@ -21,7 +21,7 @@ public final class TintEffectPrototypeXmlLoader
         try {
             return new TintEffectPrototype(loadColorPrototype(element));
         } catch (Exception e) {
-            throw new EffectPrototypeXmlLoadException(e);
+            throw new EffectPrototypeXmlLoadException(element, e);
         }
     }
 

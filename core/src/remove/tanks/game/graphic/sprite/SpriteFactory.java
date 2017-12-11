@@ -29,10 +29,14 @@ public final class SpriteFactory {
     }
 
     public Sprite createSprite(SpritePrototype prototype, AssetStorage assetStorage, Scale scale) {
-        Class<? extends SpritePrototype> prototypeClass = prototype.getClass();
-        if (!factories.containsKey(prototypeClass)) {
-            throw new SpriteFactoryNotFoundException(prototypeClass.toString());
+        try {
+            Class<? extends SpritePrototype> prototypeClass = prototype.getClass();
+            if (!factories.containsKey(prototypeClass)) {
+                throw new SpriteFactoryNotFoundException(prototypeClass.toString());
+            }
+            return factories.get(prototypeClass).createSprite(prototype, assetStorage, scale);
+        } catch (Exception e) {
+            throw new SpriteCreateException(prototype, e);
         }
-        return factories.get(prototypeClass).createSprite(prototype, assetStorage, scale);
     }
 }

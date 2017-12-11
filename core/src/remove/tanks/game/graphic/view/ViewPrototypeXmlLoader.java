@@ -32,10 +32,14 @@ public final class ViewPrototypeXmlLoader {
     }
 
     public ViewPrototype loadViewPrototype(XmlReader.Element element) {
-        ViewType type = ViewType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!loaders.containsKey(type)) {
-            throw new ViewPrototypeLoaderNotFoundException(type);
+        try {
+            ViewType type = ViewType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!loaders.containsKey(type)) {
+                throw new ViewPrototypeLoaderNotFoundException(type);
+            }
+            return loaders.get(type).loadViewPrototype(element);
+        } catch (Exception e) {
+            throw new ViewPrototypeXmlLoadException(element, e);
         }
-        return loaders.get(type).loadViewPrototype(element);
     }
 }

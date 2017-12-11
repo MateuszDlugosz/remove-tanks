@@ -31,10 +31,14 @@ public final class LightPrototypeXmlLoader {
     }
 
     public LightPrototype loadLightPrototype(XmlReader.Element element) {
-        LightType type = LightType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!loaders.containsKey(type)) {
-            throw new LightPrototypeLoaderNotFoundException(type);
+        try {
+            LightType type = LightType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!loaders.containsKey(type)) {
+                throw new LightPrototypeLoaderNotFoundException(type);
+            }
+            return loaders.get(type).loadLightPrototype(element);
+        } catch (Exception e) {
+            throw new LightPrototypeXmlLoadException(element, e);
         }
-        return loaders.get(type).loadLightPrototype(element);
     }
 }

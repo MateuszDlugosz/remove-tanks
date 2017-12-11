@@ -26,10 +26,14 @@ public final class ColorFactory {
                 .collect(Collectors.toList());
     }
 
-    public Color createColor(ColorPrototype colorPrototype) {
-        if (!factories.containsKey(colorPrototype.getClass())) {
-            throw new ColorFactoryNotFoundException(colorPrototype.getClass().toString());
+    public Color createColor(ColorPrototype prototype) {
+        try {
+            if (!factories.containsKey(prototype.getClass())) {
+                throw new ColorFactoryNotFoundException(prototype.getClass().toString());
+            }
+            return factories.get(prototype.getClass()).createColor(prototype);
+        } catch (Exception e) {
+            throw new ColorCreateException(prototype, e);
         }
-        return factories.get(colorPrototype.getClass()).createColor(colorPrototype);
     }
 }
