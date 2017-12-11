@@ -8,9 +8,6 @@ public final class Timer {
     private float time;
 
     public Timer(float completionTime) {
-        if (completionTime < 0) {
-            throw new IllegalArgumentException("Completion time cannot be lower than zero.");
-        }
         this.completionTime = completionTime;
         this.time = 0;
     }
@@ -24,7 +21,7 @@ public final class Timer {
     }
 
     public boolean isComplete() {
-        return time >= completionTime;
+        return !(time < 0) && time >= completionTime;
     }
 
     public float getTime() {

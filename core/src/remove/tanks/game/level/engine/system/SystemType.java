@@ -38,7 +38,8 @@ public enum SystemType {
     PlayerRespawnSystem(3200),
     OperationDefeatSystem(3300),
     OperationVictorySystem(3400),
-    LevelEndSystem(3500);
+    LevelEndSystem(3500),
+    TimelineSystem(3600);
 
     private final int priority;
 
