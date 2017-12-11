@@ -7,13 +7,13 @@ import remove.tanks.game.utility.position.Position;
 /**
  * @author Mateusz Długosz
  */
-public final class CameraTrackingComponent implements Component {
-    public static final ComponentMapper<CameraTrackingComponent> MAPPER
-            = ComponentMapper.getFor(CameraTrackingComponent.class);
+public final class CameraTrackComponent implements Component {
+    public static final ComponentMapper<CameraTrackComponent> MAPPER
+            = ComponentMapper.getFor(CameraTrackComponent.class);
 
     private final Position position;
 
-    public CameraTrackingComponent(Position position) {
+    public CameraTrackComponent(Position position) {
         this.position = position;
     }
 

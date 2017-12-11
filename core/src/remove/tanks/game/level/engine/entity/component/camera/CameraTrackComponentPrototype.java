@@ -7,10 +7,10 @@ import remove.tanks.game.utility.position.PositionPrototype;
 /**
  * @author Mateusz Długosz
  */
-public final class CameraTrackingComponentPrototype implements ComponentPrototype {
+public final class CameraTrackComponentPrototype implements ComponentPrototype {
     private final PositionPrototype positionPrototype;
 
-    public CameraTrackingComponentPrototype(PositionPrototype positionPrototype) {
+    public CameraTrackComponentPrototype(PositionPrototype positionPrototype) {
         this.positionPrototype = positionPrototype;
     }
 

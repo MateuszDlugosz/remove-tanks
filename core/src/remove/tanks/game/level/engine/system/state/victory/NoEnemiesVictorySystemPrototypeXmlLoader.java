@@ -7,14 +7,14 @@ import remove.tanks.game.level.engine.system.SystemType;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationVictorySystemPrototypeXmlLoader
-        implements RegistrableEntitySystemPrototypeXmlLoader<OperationVictorySystemPrototype>
+public final class NoEnemiesVictorySystemPrototypeXmlLoader
+        implements RegistrableEntitySystemPrototypeXmlLoader<NoEnemiesVictorySystemPrototype>
 {
     private static final String DELAY_ELEMENT = "delay";
 
     @Override
-    public OperationVictorySystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new OperationVictorySystemPrototype(
+    public NoEnemiesVictorySystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+        return new NoEnemiesVictorySystemPrototype(
                 priority,
                 Float.valueOf(element.getChildByName(DELAY_ELEMENT).getText().trim())
         );

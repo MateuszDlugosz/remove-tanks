@@ -8,7 +8,7 @@
     <engine>
         <systems>
             <system type="WorldUpdateSystem" />
-            <system type="CameraTrackingSystem" />
+            <system type="CameraTrackSystem" />
             <system type="CameraUpdateSystem" />
             <system type="RandomSpawnSystem" />
             <system type="AutoMoveSystem" />

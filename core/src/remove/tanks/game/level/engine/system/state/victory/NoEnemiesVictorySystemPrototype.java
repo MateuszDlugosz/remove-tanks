@@ -6,10 +6,10 @@ import remove.tanks.game.level.engine.system.EntitySystemPrototype;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationVictorySystemPrototype extends EntitySystemPrototype {
+public final class NoEnemiesVictorySystemPrototype extends EntitySystemPrototype {
     private final float delay;
 
-    public OperationVictorySystemPrototype(int priority, float delay) {
+    public NoEnemiesVictorySystemPrototype(int priority, float delay) {
         super(priority);
         this.delay = delay;
     }

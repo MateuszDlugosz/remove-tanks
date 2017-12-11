@@ -20,8 +20,8 @@ import remove.tanks.game.level.engine.entity.component.bonus.BonusComponentFacto
 import remove.tanks.game.level.engine.entity.component.bonus.BonusComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponentFactory;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponentPrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.component.camera.CameraTrackingComponentFactory;
-import remove.tanks.game.level.engine.entity.component.camera.CameraTrackingComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponentFactory;
+import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.control.PlayerControlComponentFactory;
 import remove.tanks.game.level.engine.entity.component.control.PlayerControlComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.damage.DamageComponentFactory;
@@ -105,7 +105,7 @@ public final class EntityComponentSupplierConfiguration {
                             ),
                             new BonusComponentFactory(),
                             new BonusLootComponentFactory(),
-                            new CameraTrackingComponentFactory(
+                            new CameraTrackComponentFactory(
                                     getContext().getComponent("PositionFactory", PositionFactory.class)
                             ),
                             new DamageComponentFactory(),
@@ -192,7 +192,7 @@ public final class EntityComponentSupplierConfiguration {
                             ),
                             new BonusComponentPrototypeXmlLoader(),
                             new BonusLootComponentPrototypeXmlLoader(),
-                            new CameraTrackingComponentPrototypeXmlLoader(
+                            new CameraTrackComponentPrototypeXmlLoader(
                                     getContext().getComponent("PositionPrototypeXmlLoader", PositionPrototypeXmlLoader.class)
                             ),
                             new DamageComponentPrototypeXmlLoader(),

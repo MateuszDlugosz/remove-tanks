@@ -7,7 +7,7 @@ public enum SystemType {
     MusicOnStartSystem(100),
     WorldUpdateSystem(200),
     PlayerControlSystem(300),
-    CameraTrackingSystem(400),
+    CameraTrackSystem(400),
     CameraUpdateSystem(500),
     RandomDirectionSystem(600),
     RandomSpawnSystem(700),

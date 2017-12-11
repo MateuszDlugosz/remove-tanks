@@ -6,7 +6,7 @@ import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnCompone
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponent;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusComponent;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponent;
-import remove.tanks.game.level.engine.entity.component.camera.CameraTrackingComponent;
+import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponent;
 import remove.tanks.game.level.engine.entity.component.control.PlayerControlComponent;
 import remove.tanks.game.level.engine.entity.component.damage.DamageComponent;
 import remove.tanks.game.level.engine.entity.component.destroy.DestroyComponent;
@@ -58,7 +58,7 @@ public enum EntityFamily {
             AutoShootComponent.class, AmmoComponent.class
     ).get()),
     CameraTrackingFamily(Family.all(
-            PhysicsComponent.class, CameraTrackingComponent.class
+            PhysicsComponent.class, CameraTrackComponent.class
     ).get()),
     GroundLayerRenderableFamily(Family.all(
             PhysicsComponent.class, GraphicsComponent.class,

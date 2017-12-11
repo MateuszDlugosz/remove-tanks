@@ -14,8 +14,8 @@ import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemFactory;
 import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemFactory;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.camera.CameraTrackingSystemFactory;
-import remove.tanks.game.level.engine.system.camera.CameraTrackingSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.camera.CameraTrackSystemFactory;
+import remove.tanks.game.level.engine.system.camera.CameraTrackSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.camera.CameraUpdateSystemFactory;
 import remove.tanks.game.level.engine.system.camera.CameraUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.control.PlayerControlSystemFactory;
@@ -49,12 +49,12 @@ import remove.tanks.game.level.engine.system.spawn.AutoSpawnerSystemFactory;
 import remove.tanks.game.level.engine.system.spawn.AutoSpawnerSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.spawn.RandomSpawnSystemFactory;
 import remove.tanks.game.level.engine.system.spawn.RandomSpawnSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.state.defeat.OperationDefeatSystemFactory;
-import remove.tanks.game.level.engine.system.state.defeat.OperationDefeatSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.state.defeat.NoLifesDefeatSystemFactory;
+import remove.tanks.game.level.engine.system.state.defeat.NoLifesDefeatSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.state.end.LevelEndSystemFactory;
 import remove.tanks.game.level.engine.system.state.end.LevelEndSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.state.victory.OperationVictorySystemFactory;
-import remove.tanks.game.level.engine.system.state.victory.OperationVictorySystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.state.victory.NoEnemiesVictorySystemFactory;
+import remove.tanks.game.level.engine.system.state.victory.NoEnemiesVictorySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.world.*;
@@ -84,7 +84,7 @@ public final class EntitySystemSupplierConfiguration {
                             new WorldLightRenderSystemFactory(
                                     getContext().getComponent("WorldLightRenderer", WorldLightRenderer.class)
                             ),
-                            new CameraTrackingSystemFactory(),
+                            new CameraTrackSystemFactory(),
                             new CameraUpdateSystemFactory(),
                             new DamageSystemFactory(),
                             new DestroyOnContactSystemFactory(),
@@ -140,8 +140,8 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerFactory", SpawnerFactory.class)
                             ),
                             new PlayerRespawnSystemFactory(),
-                            new OperationDefeatSystemFactory(),
-                            new OperationVictorySystemFactory(),
+                            new NoLifesDefeatSystemFactory(),
+                            new NoEnemiesVictorySystemFactory(),
                             new MusicOnStartSystemFactory(
                                     getContext().getComponent("MusicFactory", MusicFactory.class)
                             ),
@@ -161,7 +161,7 @@ public final class EntitySystemSupplierConfiguration {
                             new WorldDebugRenderSystemPrototypeXmlLoader(),
                             new WorldUpdateSystemPrototypeXmlLoader(),
                             new WorldLightRenderSystemPrototypeXmlLoader(),
-                            new CameraTrackingSystemPrototypeXmlLoader(),
+                            new CameraTrackSystemPrototypeXmlLoader(),
                             new CameraUpdateSystemPrototypeXmlLoader(),
                             new DamageSystemPrototypeXmlLoader(),
                             new DestroyOnContactSystemPrototypeXmlLoader(),
@@ -190,8 +190,8 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("SpawnerPrototypeXmlLoader", SpawnerPrototypeXmlLoader.class)
                             ),
                             new PlayerRespawnSystemPrototypeXmlLoader(),
-                            new OperationDefeatSystemPrototypeXmlLoader(),
-                            new OperationVictorySystemPrototypeXmlLoader(),
+                            new NoLifesDefeatSystemPrototypeXmlLoader(),
+                            new NoEnemiesVictorySystemPrototypeXmlLoader(),
                             new MusicOnStartSystemPrototypeXmlLoader(
                                     getContext().getComponent("MusicPrototypeXmlLoader", MusicPrototypeXmlLoader.class)
                             ),

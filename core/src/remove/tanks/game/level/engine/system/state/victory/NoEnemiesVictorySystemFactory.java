@@ -10,12 +10,12 @@ import remove.tanks.game.utility.time.Timer;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationVictorySystemFactory
-        implements RegistrableEntitySystemFactory<OperationVictorySystem, OperationVictorySystemPrototype>
+public final class NoEnemiesVictorySystemFactory
+        implements RegistrableEntitySystemFactory<NoEnemiesVictorySystem, NoEnemiesVictorySystemPrototype>
 {
     @Override
-    public OperationVictorySystem createEntitySystem(OperationVictorySystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new OperationVictorySystem(
+    public NoEnemiesVictorySystem createEntitySystem(NoEnemiesVictorySystemPrototype prototype, ResourceRegistry resourceRegistry) {
+        return new NoEnemiesVictorySystem(
                 prototype.getPriority(),
                 resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class),
                 resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
@@ -24,7 +24,7 @@ public final class OperationVictorySystemFactory
     }
 
     @Override
-    public Class<OperationVictorySystemPrototype> getFactoryType() {
-        return OperationVictorySystemPrototype.class;
+    public Class<NoEnemiesVictorySystemPrototype> getFactoryType() {
+        return NoEnemiesVictorySystemPrototype.class;
     }
 }

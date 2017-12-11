@@ -6,8 +6,8 @@ import remove.tanks.game.level.engine.system.EntitySystemPrototype;
 /**
  * @author Mateusz Długosz
  */
-public final class CameraTrackingSystemPrototype extends EntitySystemPrototype {
-    public CameraTrackingSystemPrototype(int priority) {
+public final class CameraTrackSystemPrototype extends EntitySystemPrototype {
+    public CameraTrackSystemPrototype(int priority) {
         super(priority);
     }
 

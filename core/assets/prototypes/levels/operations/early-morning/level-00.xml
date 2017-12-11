@@ -15,7 +15,7 @@
             </system>
             <system type="WorldUpdateSystem" />
             <system type="PlayerControlSystem" />
-            <system type="CameraTrackingSystem" />
+            <system type="CameraTrackSystem" />
             <system type="CameraUpdateSystem" />
             <system type="RandomDirectionSystem" />
             <system type="RandomSpawnSystem" />

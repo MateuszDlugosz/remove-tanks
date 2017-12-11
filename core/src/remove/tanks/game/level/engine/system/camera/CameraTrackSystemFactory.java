@@ -8,20 +8,20 @@ import remove.tanks.game.level.resource.ResourceRegistry;
 /**
  * @author Mateusz Długosz
  */
-public final class CameraTrackingSystemFactory
-        implements RegistrableEntitySystemFactory<CameraTrackingSystem, CameraTrackingSystemPrototype>
+public final class CameraTrackSystemFactory
+        implements RegistrableEntitySystemFactory<CameraTrackSystem, CameraTrackSystemPrototype>
 {
 
     @Override
-    public CameraTrackingSystem createEntitySystem(CameraTrackingSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new CameraTrackingSystem(
+    public CameraTrackSystem createEntitySystem(CameraTrackSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+        return new CameraTrackSystem(
                 prototype.getPriority(),
                 resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class)
         );
     }
 
     @Override
-    public Class<CameraTrackingSystemPrototype> getFactoryType() {
-        return CameraTrackingSystemPrototype.class;
+    public Class<CameraTrackSystemPrototype> getFactoryType() {
+        return CameraTrackSystemPrototype.class;
     }
 }

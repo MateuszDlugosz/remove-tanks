@@ -8,18 +8,18 @@ import remove.tanks.game.utility.position.PositionPrototypeXmlLoader;
 /**
  * @author Mateusz Długosz
  */
-public final class CameraTrackingComponentPrototypeXmlLoader
-        implements RegistrableComponentPrototypeXmlLoader<CameraTrackingComponentPrototype>
+public final class CameraTrackComponentPrototypeXmlLoader
+        implements RegistrableComponentPrototypeXmlLoader<CameraTrackComponentPrototype>
 {
     private final PositionPrototypeXmlLoader positionPrototypeXmlLoader;
 
-    public CameraTrackingComponentPrototypeXmlLoader(PositionPrototypeXmlLoader positionPrototypeXmlLoader) {
+    public CameraTrackComponentPrototypeXmlLoader(PositionPrototypeXmlLoader positionPrototypeXmlLoader) {
         this.positionPrototypeXmlLoader = positionPrototypeXmlLoader;
     }
 
     @Override
-    public CameraTrackingComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new CameraTrackingComponentPrototype(
+    public CameraTrackComponentPrototype loadComponentPrototype(XmlReader.Element element) {
+        return new CameraTrackComponentPrototype(
                 positionPrototypeXmlLoader.loadPositionPrototype(
                         element.getChildByName(PositionPrototypeXmlLoader.POSITION_ELEMENT)
                 )
@@ -28,6 +28,6 @@ public final class CameraTrackingComponentPrototypeXmlLoader
 
     @Override
     public ComponentType getLoaderType() {
-        return ComponentType.CameraTrackingComponent;
+        return ComponentType.CameraTrackComponent;
     }
 }

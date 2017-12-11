@@ -10,18 +10,18 @@ import remove.tanks.game.utility.scale.Scale;
 /**
  * @author Mateusz Długosz
  */
-public final class CameraTrackingComponentFactory
-        implements RegistrableComponentFactory<CameraTrackingComponent, CameraTrackingComponentPrototype>
+public final class CameraTrackComponentFactory
+        implements RegistrableComponentFactory<CameraTrackComponent, CameraTrackComponentPrototype>
 {
     private final PositionFactory positionFactory;
 
-    public CameraTrackingComponentFactory(PositionFactory positionFactory) {
+    public CameraTrackComponentFactory(PositionFactory positionFactory) {
         this.positionFactory = positionFactory;
     }
 
     @Override
-    public CameraTrackingComponent createComponent(CameraTrackingComponentPrototype prototype, Level level, Entity entity) {
-        return new CameraTrackingComponent(
+    public CameraTrackComponent createComponent(CameraTrackComponentPrototype prototype, Level level, Entity entity) {
+        return new CameraTrackComponent(
                 positionFactory.createPosition(
                         prototype.getPositionPrototype(),
                         level.getResourceRegistry().getResource(
@@ -33,7 +33,7 @@ public final class CameraTrackingComponentFactory
     }
 
     @Override
-    public Class<CameraTrackingComponentPrototype> getFactoryType() {
-        return CameraTrackingComponentPrototype.class;
+    public Class<CameraTrackComponentPrototype> getFactoryType() {
+        return CameraTrackComponentPrototype.class;
     }
 }

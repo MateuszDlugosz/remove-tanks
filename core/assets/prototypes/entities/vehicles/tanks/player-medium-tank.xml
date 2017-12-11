@@ -180,7 +180,7 @@
         <component type="PlayerControlComponent">
             <shootDelay>0.1</shootDelay>
         </component>
-        <component type="CameraTrackingComponent">
+        <component type="CameraTrackComponent">
             <position>
                 <x>0</x>
                 <y>0</y>

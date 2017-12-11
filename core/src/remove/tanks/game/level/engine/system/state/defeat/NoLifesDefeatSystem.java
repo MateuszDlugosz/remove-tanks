@@ -1,26 +1,23 @@
-package remove.tanks.game.level.engine.system.state.victory;
+package remove.tanks.game.level.engine.system.state.defeat;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelState;
 import remove.tanks.game.level.engine.entity.EntityFamily;
-import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystem;
 import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
 
-import java.util.Optional;
-
 /**
  * @author Mateusz Długosz
  */
-public final class OperationVictorySystem extends EntitySystem {
+public final class NoLifesDefeatSystem extends EntitySystem {
     private final Properties properties;
     private final EventBus eventBus;
     private final Timer timer;
 
-    public OperationVictorySystem(
+    public NoLifesDefeatSystem(
             int priority,
             Properties properties,
             EventBus eventBus,
@@ -34,12 +31,10 @@ public final class OperationVictorySystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        if (getEngine().getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily()).size() > 0) {
-            if (properties.getInt(LevelProperty.LevelEnemies.getName()) == 0) {
+        if (getEngine().getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily()).size() < 1) {
+            if (properties.getInt(LevelProperty.LevelLifes.getName()) == 0) {
                 if (timer.isComplete()) {
-                    eventBus.post(new ChangeLevelStateEvent(LevelState.Victory));
-                    Optional.ofNullable(getEngine().getSystem(PlayerRespawnSystem.class))
-                            .ifPresent(s -> getEngine().removeSystem(s));
+                    eventBus.post(new ChangeLevelStateEvent(LevelState.Defeat));
                     getEngine().removeSystem(this);
                 } else {
                     timer.update(deltaTime);

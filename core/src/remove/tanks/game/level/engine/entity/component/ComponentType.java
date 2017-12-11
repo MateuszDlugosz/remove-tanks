@@ -8,7 +8,7 @@ public enum ComponentType {
     SoundOnDestroyComponent,
     BonusComponent,
     BonusLootComponent,
-    CameraTrackingComponent,
+    CameraTrackComponent,
     DamageComponent,
     DestroyComponent,
     DestroyOnContactComponent,
