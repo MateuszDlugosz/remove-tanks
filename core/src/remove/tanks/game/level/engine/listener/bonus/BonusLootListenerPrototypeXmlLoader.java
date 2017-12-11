@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 public final class BonusLootListenerPrototypeXmlLoader
-        extends RegistrableEntityListenerPrototypeXmlLoader<BonusLootListenerPrototype>
+        implements RegistrableEntityListenerPrototypeXmlLoader<BonusLootListenerPrototype>
 {
     private static final String CHANCE_ELEMENT = "chance";
     private static final String PROTOTYPE_CODES_ELEMENT = "prototypeCodes";
     private static final String PROTOTYPE_CODE_ELEMENT = "prototypeCode";
 
     @Override
-    protected BonusLootListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
+    public BonusLootListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
         return new BonusLootListenerPrototype(
                 priority,
                 Integer.valueOf(element.getChildByName(CHANCE_ELEMENT).getText().trim()),

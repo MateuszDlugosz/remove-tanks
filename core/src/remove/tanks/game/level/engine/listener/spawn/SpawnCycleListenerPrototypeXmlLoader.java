@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototyp
  * @author Mateusz Długosz
  */
 public final class SpawnCycleListenerPrototypeXmlLoader
-        extends RegistrableEntityListenerPrototypeXmlLoader<SpawnCycleListenerPrototype>
+        implements RegistrableEntityListenerPrototypeXmlLoader<SpawnCycleListenerPrototype>
 {
     @Override
-    protected SpawnCycleListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
+    public SpawnCycleListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
         return new SpawnCycleListenerPrototype(priority);
     }
 

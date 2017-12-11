@@ -28,7 +28,6 @@
             </system>
             <system type="ChangeBehaviorSystem" />
             <system type="TiledMapRenderSystem" />
-
             <system type="GroundLayerRenderSystem" />
             <system type="BulletLayerRenderSystem" />
             <system type="VehicleLayerRenderSystem" />
@@ -82,10 +81,10 @@
             </system>
         </systems>
         <listeners>
-            <listener priority="4000" type="SoundListener"></listener>
-            <listener priority="4000" type="SpawnCycleListener"></listener>
-            <listener priority="4000" type="BonusPickUpListener"></listener>
-            <listener priority="4000" type="BonusLootListener">
+            <listener type="SoundListener" />
+            <listener type="SpawnCycleListener" />
+            <listener type="BonusPickUpListener" />
+            <listener type="BonusLootListener">
                 <chance>3</chance>
                 <prototypeCodes>
                     <prototypeCode>BonusLife</prototypeCode>
@@ -93,9 +92,9 @@
                     <prototypeCode>BonusStar</prototypeCode>
                 </prototypeCodes>
             </listener>
-            <listener priority="4000" type="PointsListener"></listener>
-            <listener priority="4000" type="EnemyDestroyListener"></listener>
-            <listener priority="5000" type="TriggerListener"></listener>
+            <listener type="PointsListener" />
+            <listener type="EnemyDestroyListener"/>
+            <listener type="TriggerListener" />
         </listeners>
     </engine>
 </prototype>

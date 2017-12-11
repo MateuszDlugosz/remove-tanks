@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototyp
  * @author Mateusz Długosz
  */
 public final class TriggerListenerPrototypeXmlLoader
-        extends RegistrableEntityListenerPrototypeXmlLoader<TriggerListenerPrototype>
+        implements RegistrableEntityListenerPrototypeXmlLoader<TriggerListenerPrototype>
 {
     @Override
-    protected TriggerListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
+    public TriggerListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
         return new TriggerListenerPrototype(priority);
     }
 

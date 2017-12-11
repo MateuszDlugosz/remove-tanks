@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototyp
  * @author Mateusz Długosz
  */
 public final class EnemyDestroyListenerPrototypeXmlLoader
-        extends RegistrableEntityListenerPrototypeXmlLoader<EnemyDestroyListenerPrototype>
+        implements RegistrableEntityListenerPrototypeXmlLoader<EnemyDestroyListenerPrototype>
 {
     @Override
-    protected EnemyDestroyListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
+    public EnemyDestroyListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
         return new EnemyDestroyListenerPrototype(priority);
     }
 

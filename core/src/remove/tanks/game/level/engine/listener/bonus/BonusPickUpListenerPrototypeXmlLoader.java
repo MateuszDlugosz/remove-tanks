@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototyp
  * @author Mateusz Długosz
  */
 public final class BonusPickUpListenerPrototypeXmlLoader
-        extends RegistrableEntityListenerPrototypeXmlLoader<BonusPickUpListenerPrototype>
+        implements RegistrableEntityListenerPrototypeXmlLoader<BonusPickUpListenerPrototype>
 {
     @Override
-    protected BonusPickUpListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
+    public BonusPickUpListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
         return new BonusPickUpListenerPrototype(priority);
     }
 

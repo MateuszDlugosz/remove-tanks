@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototyp
  * @author Mateusz Długosz
  */
 public final class SoundListenerPrototypeXmlLoader
-        extends RegistrableEntityListenerPrototypeXmlLoader<SoundListenerPrototype>
+        implements RegistrableEntityListenerPrototypeXmlLoader<SoundListenerPrototype>
 {
     @Override
-    protected SoundListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
+    public SoundListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
         return new SoundListenerPrototype(priority);
     }
 

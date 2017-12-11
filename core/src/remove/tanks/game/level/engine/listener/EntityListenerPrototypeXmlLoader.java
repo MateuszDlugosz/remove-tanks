@@ -32,12 +32,12 @@ public final class EntityListenerPrototypeXmlLoader {
     }
 
     public EntityListenerPrototype loadEntityListenerPrototype(XmlReader.Element element) {
-        ListenerType type = ListenerType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
-            throw new EntityListenerLoaderNotFoundException(type);
-        }
         try {
-            return subLoaders.get(type).loadEntityListenerPrototype(element);
+            ListenerType type = ListenerType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!subLoaders.containsKey(type)) {
+                throw new EntityListenerLoaderNotFoundException(type);
+            }
+            return subLoaders.get(type).loadEntityListenerPrototype(element, type.getPriority());
         } catch (Exception e) {
             throw new EntityListenerPrototypeXmlLoadException(element, e);
         }

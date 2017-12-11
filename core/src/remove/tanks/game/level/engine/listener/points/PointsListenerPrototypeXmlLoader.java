@@ -8,10 +8,10 @@ import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototyp
  * @author Mateusz Długosz
  */
 public final class PointsListenerPrototypeXmlLoader
-        extends RegistrableEntityListenerPrototypeXmlLoader<PointsListenerPrototype>
+        implements RegistrableEntityListenerPrototypeXmlLoader<PointsListenerPrototype>
 {
     @Override
-    protected PointsListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
+    public PointsListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
         return new PointsListenerPrototype(priority);
     }
 
