@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.entity.component.point;
+package remove.tanks.game.level.engine.entity.component.points;
 
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.entity.component.ComponentPrototype;

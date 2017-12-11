@@ -21,7 +21,7 @@ import remove.tanks.game.level.engine.entity.component.layer.*;
 import remove.tanks.game.level.engine.entity.component.lifetime.LifetimeComponent;
 import remove.tanks.game.level.engine.entity.component.move.AutoMoveComponent;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
-import remove.tanks.game.level.engine.entity.component.point.PointsComponent;
+import remove.tanks.game.level.engine.entity.component.points.PointsComponent;
 import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComponent;
 import remove.tanks.game.level.engine.entity.component.shoot.AmmoComponent;
 import remove.tanks.game.level.engine.entity.component.shoot.AutoShootComponent;

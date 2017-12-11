@@ -55,8 +55,8 @@ import remove.tanks.game.level.engine.entity.component.move.AutoMoveComponentFac
 import remove.tanks.game.level.engine.entity.component.move.AutoMoveComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponentFactory;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponentPrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.component.point.PointsComponentFactory;
-import remove.tanks.game.level.engine.entity.component.point.PointsComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.points.PointsComponentFactory;
+import remove.tanks.game.level.engine.entity.component.points.PointsComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComponentFactory;
 import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.shoot.*;

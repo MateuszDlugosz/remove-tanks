@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.entity.component.point;
+package remove.tanks.game.level.engine.entity.component.points;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;

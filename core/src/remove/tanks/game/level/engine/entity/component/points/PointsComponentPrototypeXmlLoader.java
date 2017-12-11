@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.entity.component.point;
+package remove.tanks.game.level.engine.entity.component.points;
 
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
