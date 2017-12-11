@@ -27,7 +27,7 @@ public final class HitBoxFactory {
         try {
             return new HitBox(
                     prototype.getId(),
-                    fixtureFactory.createFixture(prototype.getFixturePrototype(), body, scale)
+                    fixtureFactory.createFixtureAsHitBox(prototype.getFixturePrototype(), body, scale)
             );
         } catch (Exception e) {
             throw new HitBoxCreateException(prototype, e);

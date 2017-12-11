@@ -45,7 +45,7 @@ public final class SensorPrototypeXmlLoader {
     }
 
     private FixturePrototype loadFixturePrototype(XmlReader.Element element) {
-        return fixturePrototypeXmlLoader.loadFixturePrototype(
+        return fixturePrototypeXmlLoader.loadFixturePrototypeAsSensor(
                 element.getChildByName(FixturePrototypeXmlLoader.FIXTURE_ELEMENT)
         );
     }

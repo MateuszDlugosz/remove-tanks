@@ -24,6 +24,26 @@ public final class FixtureFactory {
         }
     }
 
+    public Fixture createFixtureAsHitBox(FixturePrototype prototype, Body body, Scale scale) {
+        try {
+            FixtureDef fixtureDef = createFixtureDef(prototype, scale);
+            fixtureDef.isSensor = false;
+            return body.createFixture(fixtureDef);
+        } catch (Exception e) {
+            throw new FixtureCreateException(prototype, e);
+        }
+    }
+
+    public Fixture createFixtureAsSensor(FixturePrototype prototype, Body body, Scale scale) {
+        try {
+            FixtureDef fixtureDef = createFixtureDef(prototype, scale);
+            fixtureDef.isSensor = true;
+            return body.createFixture(fixtureDef);
+        } catch (Exception e) {
+            throw new FixtureCreateException(prototype, e);
+        }
+    }
+
     private FixtureDef createFixtureDef(FixturePrototype prototype, Scale scale) {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.isSensor = prototype.isSensor();

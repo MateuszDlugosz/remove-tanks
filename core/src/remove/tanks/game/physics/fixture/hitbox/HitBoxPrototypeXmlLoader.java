@@ -45,7 +45,7 @@ public final class HitBoxPrototypeXmlLoader {
     }
 
     private FixturePrototype loadFixturePrototype(XmlReader.Element element) {
-        return fixturePrototypeXmlLoader.loadFixturePrototype(
+        return fixturePrototypeXmlLoader.loadFixturePrototypeAsHitBox(
                 element.getChildByName(FixturePrototypeXmlLoader.FIXTURE_ELEMENT)
         );
     }

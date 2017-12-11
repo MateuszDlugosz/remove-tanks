@@ -59,6 +59,36 @@ public final class FixturePrototypeXmlLoader {
         }
     }
 
+    public FixturePrototype loadFixturePrototypeAsHitBox(XmlReader.Element element) {
+        try {
+            return new FixturePrototype(
+                    loadFilterPrototype(element),
+                    loadShapePrototype(element),
+                    loadRestitution(element),
+                    loadDensity(element),
+                    loadFriction(element),
+                    false
+            );
+        } catch (Exception e) {
+            throw new FixturePrototypeXmlLoadException(element, e);
+        }
+    }
+
+    public FixturePrototype loadFixturePrototypeAsSensor(XmlReader.Element element) {
+        try {
+            return new FixturePrototype(
+                    loadFilterPrototype(element),
+                    loadShapePrototype(element),
+                    loadRestitution(element),
+                    loadDensity(element),
+                    loadFriction(element),
+                    false
+            );
+        } catch (Exception e) {
+            throw new FixturePrototypeXmlLoadException(element, e);
+        }
+    }
+
     private FilterPrototype loadFilterPrototype(XmlReader.Element element) {
         return filterPrototypeXmlLoader.loadFilterPrototype(
                 element.getChildByName(FilterPrototypeXmlLoader.FILTER_ELEMENT)

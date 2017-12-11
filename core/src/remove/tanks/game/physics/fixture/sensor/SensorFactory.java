@@ -27,7 +27,7 @@ public final class SensorFactory {
         try {
             return new Sensor(
                     prototype.getId(),
-                    fixtureFactory.createFixture(
+                    fixtureFactory.createFixtureAsSensor(
                             prototype.getFixturePrototype(), body, scale
                     )
             );
