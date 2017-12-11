@@ -95,7 +95,7 @@ public final class LevelLoadingScreen extends GameScreen {
 
     private void extractPreviousLevelProperties() {
         previousLevelProperties = new Properties();
-        Optional.ofNullable(previousLevel).ifPresent(level -> {
+        Optional.ofNullable(previousLevel).ifPresent(l -> {
             Properties properties = previousLevel.getResourceRegistry().getResource(
                     LevelResource.Properties.toString(), Properties.class
             );

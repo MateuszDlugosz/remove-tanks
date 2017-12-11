@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class EntityListenerFactory {
     private final Map<Class<? extends EntityListenerPrototype>, RegistrableEntityListenerFactory> subFactories
             = new HashMap<>();
@@ -30,10 +31,10 @@ public final class EntityListenerFactory {
     }
 
     public ExtendedEntityListener createEntityListener(EntityListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
-        if (!subFactories.containsKey(prototype.getClass())) {
-            throw new EntityListenerFactoryNotFoundException(prototype.getClass());
-        }
         try {
+            if (!subFactories.containsKey(prototype.getClass())) {
+                throw new EntityListenerFactoryNotFoundException(prototype.getClass());
+            }
             return subFactories.get(prototype.getClass()).createEntityListener(prototype, registry, engine);
         } catch (Exception e) {
             throw new EntityListenerCreateException(prototype, e);

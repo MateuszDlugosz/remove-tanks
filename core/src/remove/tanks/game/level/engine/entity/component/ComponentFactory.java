@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class ComponentFactory {
     private final Map<Class<? extends ComponentPrototype>, RegistrableComponentFactory> subFactories
             = new HashMap<>();
@@ -28,10 +29,10 @@ public final class ComponentFactory {
     }
 
     public Component createComponent(ComponentPrototype prototype, Level level, Entity entity) {
-        if (!subFactories.containsKey(prototype.getClass())) {
-            throw new ComponentFactoryNotFoundException(prototype.getClass().toString());
-        }
         try {
+            if (!subFactories.containsKey(prototype.getClass())) {
+                throw new ComponentFactoryNotFoundException(prototype.getClass().toString());
+            }
             return subFactories.get(prototype.getClass()).createComponent(prototype, level, entity);
         } catch (Exception e) {
             throw new ComponentCreateException(prototype, e);

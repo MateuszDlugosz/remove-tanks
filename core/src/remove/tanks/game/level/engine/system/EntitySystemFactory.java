@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class EntitySystemFactory {
     private final Map<Class<? extends EntitySystemPrototype>, RegistrableEntitySystemFactory> subFactories
             = new HashMap<>();
@@ -27,10 +28,10 @@ public final class EntitySystemFactory {
     }
 
     public EntitySystem createEntitySystem(EntitySystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        if (!subFactories.containsKey(prototype.getClass())) {
-            throw new EntitySystemFactoryNotFoundException(prototype.getClass());
-        }
         try {
+            if (!subFactories.containsKey(prototype.getClass())) {
+                throw new EntitySystemFactoryNotFoundException(prototype.getClass());
+            }
             return subFactories.get(prototype.getClass()).createEntitySystem(prototype, resourceRegistry);
         } catch (Exception e) {
             throw new EntitySystemCreateException(prototype, e);

@@ -7,21 +7,22 @@ import java.util.*;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class EventExecutor {
     private final Map<Class<? extends Event>, RegistrableEventExecutor> executors
             = new HashMap<>();
 
     public EventExecutor(RegistrableEventExecutor[] executors) {
-        Arrays.stream(executors).forEach(executor -> this.executors.put(executor.getExecutorType(), executor));
+        Arrays.stream(executors).forEach(e -> this.executors.put(e.getExecutorType(), e));
     }
 
     public List<Object> executeEvents(List<Object> events, Level level) {
         List<Object> deadEvents = new ArrayList<>();
-        events.forEach(event -> {
-            if (executors.containsKey(event.getClass())) {
-                executors.get(event.getClass()).executeEvent(event, level);
+        events.forEach(e -> {
+            if (executors.containsKey(e.getClass())) {
+                executors.get(e.getClass()).executeEvent(e, level);
             } else {
-                deadEvents.add(event);
+                deadEvents.add(e);
             }
         });
         return deadEvents;

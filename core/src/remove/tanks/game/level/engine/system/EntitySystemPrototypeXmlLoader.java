@@ -32,11 +32,11 @@ public final class EntitySystemPrototypeXmlLoader {
     }
 
     public EntitySystemPrototype loadEntitySystemPrototype(XmlReader.Element element) {
-        SystemType type = SystemType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
-            throw new EntitySystemLoaderNotFoundException(type);
-        }
         try {
+            SystemType type = SystemType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!subLoaders.containsKey(type)) {
+                throw new EntitySystemLoaderNotFoundException(type);
+            }
             return subLoaders.get(type).loadEntitySystemPrototype(element, type.getPriority());
         } catch (Exception e) {
             throw new EntitySystemPrototypeXmlLoadException(element, e);

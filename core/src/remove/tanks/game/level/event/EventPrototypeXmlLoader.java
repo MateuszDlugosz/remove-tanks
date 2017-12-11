@@ -21,7 +21,7 @@ public final class EventPrototypeXmlLoader {
             = new HashMap<>();
 
     public EventPrototypeXmlLoader(RegistrableEventPrototypeXmlLoader[] loaders) {
-        Arrays.stream(loaders).forEach(loader -> this.loaders.put(loader.getLoaderType().toString(), loader));
+        Arrays.stream(loaders).forEach(l -> this.loaders.put(l.getLoaderType().toString(), l));
     }
 
     public List<EventPrototype> loadEventPrototypes(XmlReader.Element element) {
@@ -31,11 +31,11 @@ public final class EventPrototypeXmlLoader {
     }
 
     public EventPrototype loadEventPrototype(XmlReader.Element element) {
-        String type = element.getAttribute(TYPE_ATTRIBUTE).trim();
-        if (!loaders.containsKey(type)) {
-            throw new EventPrototypeXmlLoaderNotFoundException(type);
-        }
         try {
+            String type = element.getAttribute(TYPE_ATTRIBUTE).trim();
+            if (!loaders.containsKey(type)) {
+                throw new EventPrototypeXmlLoaderNotFoundException(type);
+            }
             return loaders.get(type).loadEventPrototype(element);
         } catch (Exception e) {
             throw new EventPrototypeXmlLoadException(element, e);

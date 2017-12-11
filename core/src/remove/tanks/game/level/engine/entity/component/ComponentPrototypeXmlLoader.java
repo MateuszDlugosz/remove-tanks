@@ -31,11 +31,11 @@ public final class ComponentPrototypeXmlLoader {
     }
 
     public ComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        ComponentType type = ComponentType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
-        if (!subLoaders.containsKey(type)) {
-            throw new ComponentPrototypeLoaderNotFoundException(type);
-        }
         try {
+            ComponentType type = ComponentType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());
+            if (!subLoaders.containsKey(type)) {
+                throw new ComponentPrototypeLoaderNotFoundException(type);
+            }
             return subLoaders.get(type).loadComponentPrototype(element);
         } catch (Exception e) {
             throw new ComponentPrototypeXmlLoadException(element, e);
