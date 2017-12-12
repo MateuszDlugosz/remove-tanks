@@ -28,6 +28,8 @@ import remove.tanks.game.level.engine.system.destroy.DestroySystemFactory;
 import remove.tanks.game.level.engine.system.destroy.DestroySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.direction.RandomDirectionSystemFactory;
 import remove.tanks.game.level.engine.system.direction.RandomDirectionSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.environment.WeatherSystemFactory;
+import remove.tanks.game.level.engine.system.environment.WeatherSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.health.HealthSystemFactory;
 import remove.tanks.game.level.engine.system.health.HealthSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.OperationHudRenderSystemFactory;
@@ -146,7 +148,8 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("MusicFactory", MusicFactory.class)
                             ),
                             new ChangeBehaviorSystemFactory(),
-                            new LevelEndSystemFactory()
+                            new LevelEndSystemFactory(),
+                            new WeatherSystemFactory()
                     }
             );
         }
@@ -196,7 +199,8 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("MusicPrototypeXmlLoader", MusicPrototypeXmlLoader.class)
                             ),
                             new ChangeBehaviorSystemPrototypeXmlLoader(),
-                            new LevelEndSystemPrototypeXmlLoader()
+                            new LevelEndSystemPrototypeXmlLoader(),
+                            new WeatherSystemPrototypeXmlLoader()
                     }
             );
         }

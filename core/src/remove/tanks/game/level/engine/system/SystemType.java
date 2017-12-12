@@ -33,6 +33,7 @@ public enum SystemType {
     DestroySystem(2700),
     WorldLightRenderSystem(2800),
     WorldDebugRenderSystem(2900),
+    WeatherSystem(2950),
     OperationHudRenderSystem(3000),
     AutoSpawnerSystem(3100),
     PlayerRespawnSystem(3200),

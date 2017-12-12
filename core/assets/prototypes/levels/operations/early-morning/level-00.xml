@@ -79,6 +79,7 @@
             <system type="LevelEndSystem">
                 <endTime>3</endTime>
             </system>
+            <system type="WeatherSystem" />
         </systems>
         <listeners>
             <listener type="SoundListener" />
