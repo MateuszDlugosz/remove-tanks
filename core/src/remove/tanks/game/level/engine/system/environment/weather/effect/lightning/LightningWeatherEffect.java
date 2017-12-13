@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.environment.weather.effect;
+package remove.tanks.game.level.engine.system.environment.weather.effect.lightning;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
+import remove.tanks.game.level.engine.system.environment.weather.effect.WeatherEffect;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
 

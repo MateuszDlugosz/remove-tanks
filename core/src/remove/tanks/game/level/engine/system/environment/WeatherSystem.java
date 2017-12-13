@@ -5,7 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.level.engine.system.environment.weather.effect.LightningWeatherEffect;
+import remove.tanks.game.level.engine.system.environment.weather.effect.lightning.LightningWeatherEffect;
 import remove.tanks.game.level.engine.system.environment.weather.effect.WeatherEffect;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 
