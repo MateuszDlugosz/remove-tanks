@@ -6,7 +6,7 @@ package remove.tanks.game.graphic.sprite;
 public final class SpriteFactoryNotFoundException extends RuntimeException {
     private static final String MESSAGE_TEMPLATE = "Sprite factory of prototype %s not found.";
 
-    public SpriteFactoryNotFoundException(String prototypeClassName) {
-        super(String.format(MESSAGE_TEMPLATE, prototypeClassName));
+    public SpriteFactoryNotFoundException(Class<? extends SpritePrototype> prototypeClass) {
+        super(String.format(MESSAGE_TEMPLATE, prototypeClass));
     }
 }

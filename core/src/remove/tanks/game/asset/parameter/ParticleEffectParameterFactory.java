@@ -15,13 +15,17 @@ public final class ParticleEffectParameterFactory
 
     @Override
     public ParticleEffectLoader.ParticleEffectParameter createParameters(ParameterPrototype prototype) {
-        ParticleEffectLoader.ParticleEffectParameter pep = new ParticleEffectLoader.ParticleEffectParameter();
-        pep.atlasFile = prototype.getParameters().get(ATLAS_FILE_PARAMETER);
-        pep.atlasPrefix = prototype.getParameters().get(ATLAS_PREFIX_PARAMETER);
-        if (prototype.getParameters().get(IMAGES_DIR_PARAMETER) != null) {
-            pep.imagesDir = Gdx.files.internal(prototype.getParameters().get(IMAGES_DIR_PARAMETER));
+        try {
+            ParticleEffectLoader.ParticleEffectParameter pep = new ParticleEffectLoader.ParticleEffectParameter();
+            pep.atlasFile = prototype.getParameters().get(ATLAS_FILE_PARAMETER);
+            pep.atlasPrefix = prototype.getParameters().get(ATLAS_PREFIX_PARAMETER);
+            if (prototype.getParameters().get(IMAGES_DIR_PARAMETER) != null) {
+                pep.imagesDir = Gdx.files.internal(prototype.getParameters().get(IMAGES_DIR_PARAMETER));
+            }
+            return pep;
+        } catch (Exception e) {
+            throw new ParameterCreateException(prototype, e);
         }
-        return pep;
     }
 
     @Override

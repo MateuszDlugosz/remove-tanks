@@ -15,8 +15,6 @@ public final class EffectAssetLoader extends SynchronousAssetLoader<Effect, Effe
     private final EffectPrototypeXmlLoader effectPrototypeXmlLoader;
     private final EffectFactory effectFactory;
 
-    private Effect effect;
-
     public EffectAssetLoader(
             FileHandleResolver resolver,
             EffectPrototypeXmlLoader effectPrototypeXmlLoader,

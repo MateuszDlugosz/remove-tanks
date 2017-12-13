@@ -30,11 +30,14 @@ public final class LightFactory {
     }
 
     public Light createLight(LightPrototype prototype, WorldLight worldLight, Scale scale) {
-        Class<? extends LightPrototype> prototypeClass = prototype.getClass();
-        if (!factories.containsKey(prototypeClass)) {
-            throw new LightFactoryNotFoundException(prototypeClass.toString());
+        try {
+            if (!factories.containsKey(prototype.getClass())) {
+                throw new LightFactoryNotFoundException(prototype.getClass());
+            }
+            return factories.get(prototype.getClass()).createLight(prototype, worldLight, scale);
+        } catch (Exception e) {
+            throw new LightCreateException(prototype, e);
         }
-        return factories.get(prototypeClass).createLight(prototype, worldLight, scale);
     }
 
     public List<Light> createLights(List<LightPrototype> prototypes, WorldLight worldLight, Body body, Scale scale) {
@@ -45,11 +48,10 @@ public final class LightFactory {
 
     public Light createLight(LightPrototype prototype, WorldLight worldLight, Body body, Scale scale) {
         try {
-            Class<? extends LightPrototype> prototypeClass = prototype.getClass();
-            if (!factories.containsKey(prototypeClass)) {
-                throw new LightFactoryNotFoundException(prototypeClass.toString());
+            if (!factories.containsKey(prototype.getClass())) {
+                throw new LightFactoryNotFoundException(prototype.getClass());
             }
-            return factories.get(prototypeClass).createLight(prototype, worldLight, body, scale);
+            return factories.get(prototype.getClass()).createLight(prototype, worldLight, body, scale);
         } catch (Exception e) {
             throw new LightCreateException(prototype, e);
         }

@@ -21,10 +21,13 @@ public final class ViewRenderer {
     }
 
     public void render(View view, SpriteBatch spriteBatch, Position position, float angle) {
-        Class<? extends View> viewClass = view.getClass();
-        if (!renderers.containsKey(viewClass)) {
-            throw new ViewRendererNotFoundException(viewClass.toString());
+        try {
+            if (!renderers.containsKey(view.getClass())) {
+                throw new ViewRendererNotFoundException(view.getClass());
+            }
+            renderers.get(view.getClass()).render(view, spriteBatch, position, angle);
+        } catch (Exception e) {
+            throw new ViewRenderException(view, e);
         }
-        renderers.get(viewClass).render(view, spriteBatch, position, angle);
     }
 }

@@ -29,11 +29,10 @@ public final class ViewFactory {
 
     public View createView(ViewPrototype prototype, AssetStorage assetStorage, Scale scale) {
         try {
-            Class<? extends ViewPrototype> prototypeClass = prototype.getClass();
-            if (!factories.containsKey(prototypeClass)) {
-                throw new ViewFactoryNotFoundException(prototypeClass.toString());
+            if (!factories.containsKey(prototype.getClass())) {
+                throw new ViewFactoryNotFoundException(prototype.getClass());
             }
-            return factories.get(prototypeClass).createView(prototype, assetStorage, scale);
+            return factories.get(prototype.getClass()).createView(prototype, assetStorage, scale);
         } catch (Exception e) {
             throw new ViewCreateException(prototype, e);
         }

@@ -15,9 +15,9 @@ public final class RgbColorFactory implements RegistrableColorFactory<RgbColorPr
     public Color createColor(RgbColorPrototype prototype) {
         try {
             return new Color(
-                    prepareColorValue(prototype.getR()),
-                    prepareColorValue(prototype.getG()),
-                    prepareColorValue(prototype.getB()),
+                    createColorValue(prototype.getR()),
+                    createColorValue(prototype.getG()),
+                    createColorValue(prototype.getB()),
                     ALPHA_COLOR_VALUE
             );
         } catch (Exception e) {
@@ -25,7 +25,7 @@ public final class RgbColorFactory implements RegistrableColorFactory<RgbColorPr
         }
     }
 
-    private float prepareColorValue(float value) {
+    private float createColorValue(float value) {
         return MathUtils.clamp(value, MIN_COLOR_VALUE, MAX_COLOR_VALUE) / MAX_COLOR_VALUE;
     }
 

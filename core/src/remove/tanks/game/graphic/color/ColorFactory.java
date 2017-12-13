@@ -29,7 +29,7 @@ public final class ColorFactory {
     public Color createColor(ColorPrototype prototype) {
         try {
             if (!factories.containsKey(prototype.getClass())) {
-                throw new ColorFactoryNotFoundException(prototype.getClass().toString());
+                throw new ColorFactoryNotFoundException(prototype.getClass());
             }
             return factories.get(prototype.getClass()).createColor(prototype);
         } catch (Exception e) {

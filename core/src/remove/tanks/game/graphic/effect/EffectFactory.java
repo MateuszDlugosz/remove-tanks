@@ -25,10 +25,13 @@ public final class EffectFactory {
     }
 
     public Effect createEffect(EffectPrototype prototype) {
-        Class<? extends EffectPrototype> prototypeClass = prototype.getClass();
-        if (!factories.containsKey(prototypeClass)) {
-            throw new EffectFactoryNotFoundException(prototypeClass.toString());
+        try {
+            if (!factories.containsKey(prototype.getClass())) {
+                throw new EffectFactoryNotFoundException(prototype.getClass());
+            }
+            return factories.get(prototype.getClass()).createEffect(prototype);
+        } catch (Exception e) {
+            throw new EffectCreateException(prototype, e);
         }
-        return factories.get(prototypeClass).createEffect(prototype);
     }
 }

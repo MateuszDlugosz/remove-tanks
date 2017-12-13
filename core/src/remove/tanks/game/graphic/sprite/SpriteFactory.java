@@ -30,11 +30,10 @@ public final class SpriteFactory {
 
     public Sprite createSprite(SpritePrototype prototype, AssetStorage assetStorage, Scale scale) {
         try {
-            Class<? extends SpritePrototype> prototypeClass = prototype.getClass();
-            if (!factories.containsKey(prototypeClass)) {
-                throw new SpriteFactoryNotFoundException(prototypeClass.toString());
+            if (!factories.containsKey(prototype.getClass())) {
+                throw new SpriteFactoryNotFoundException(prototype.getClass());
             }
-            return factories.get(prototypeClass).createSprite(prototype, assetStorage, scale);
+            return factories.get(prototype.getClass()).createSprite(prototype, assetStorage, scale);
         } catch (Exception e) {
             throw new SpriteCreateException(prototype, e);
         }

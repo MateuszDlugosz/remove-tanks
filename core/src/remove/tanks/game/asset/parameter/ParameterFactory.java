@@ -19,9 +19,13 @@ public final class ParameterFactory {
     }
 
     public AssetLoaderParameters createAssetLoaderParameters(ParameterPrototype prototype) {
-        if (!subFactories.containsKey(prototype.getClassName())) {
-            throw new ParameterFactoryNotFoundException(prototype.getClassName());
+        try {
+            if (!subFactories.containsKey(prototype.getClassName())) {
+                throw new ParameterFactoryNotFoundException(prototype.getClassName());
+            }
+            return subFactories.get(prototype.getClassName()).createParameters(prototype);
+        } catch (Exception e) {
+            throw new ParameterCreateException(prototype, e);
         }
-        return subFactories.get(prototype.getClassName()).createParameters(prototype);
     }
 }

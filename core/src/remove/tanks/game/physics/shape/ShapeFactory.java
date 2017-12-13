@@ -30,11 +30,10 @@ public final class ShapeFactory {
 
     public Shape createShape(ShapePrototype prototype, Scale scale) {
         try {
-            Class<? extends ShapePrototype> prototypeClass = prototype.getClass();
-            if (!factories.containsKey(prototypeClass)) {
-                throw new ShapeFactoryNotFoundException(prototypeClass.toString());
+            if (!factories.containsKey(prototype.getClass())) {
+                throw new ShapeFactoryNotFoundException(prototype.getClass());
             }
-            return factories.get(prototypeClass).createShape(prototype, scale);
+            return factories.get(prototype.getClass()).createShape(prototype, scale);
         } catch (Exception e) {
             throw new ShapeCreateException(prototype, e);
         }

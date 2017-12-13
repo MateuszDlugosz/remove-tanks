@@ -12,13 +12,13 @@ public final class AlphaEffectFactory implements RegistrableEffectFactory<AlphaE
     @Override
     public AlphaEffect createEffect(AlphaEffectPrototype prototype) {
         try {
-            return new AlphaEffect(prepareAlphaValue(prototype));
+            return new AlphaEffect(createAlphaValue(prototype));
         } catch (Exception e) {
             throw new EffectCreateException(prototype, e);
         }
     }
 
-    private float prepareAlphaValue(AlphaEffectPrototype prototype) {
+    private float createAlphaValue(AlphaEffectPrototype prototype) {
         return MathUtils.clamp(
                 prototype.getAlphaValue(),
                 MIN_ALPHA_VALUE,

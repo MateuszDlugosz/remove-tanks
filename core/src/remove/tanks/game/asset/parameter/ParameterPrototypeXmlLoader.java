@@ -20,17 +20,21 @@ public final class ParameterPrototypeXmlLoader {
     private static final String NAME_ATTRIBUTE = "name";
 
     public ParameterPrototype loadParametersPrototype(XmlReader.Element element) {
-        return new ParameterPrototype(
-                loadAssetLoaderParametersClass(element),
-                loadParameters(element.getChildrenByName(PARAMETER_ELEMENT))
-        );
+        try {
+            return new ParameterPrototype(
+                    loadAssetLoaderParametersClass(element),
+                    loadParameters(element.getChildrenByName(PARAMETER_ELEMENT))
+            );
+        } catch (Exception e) {
+            throw new ParameterXmlLoadException(element, e);
+        }
     }
 
     private Class<? extends AssetLoaderParameters> loadAssetLoaderParametersClass(XmlReader.Element element) {
         try {
             return (Class<? extends AssetLoaderParameters>) Class.forName(element.getAttribute(CLASS_NAME_ATTRIBUTE).trim());
-        } catch (ClassNotFoundException e) {
-            throw new ParameterClassNotFoundException(e);
+        } catch (Exception e) {
+            throw new ParameterXmlLoadException(element, e);
         }
     }
 

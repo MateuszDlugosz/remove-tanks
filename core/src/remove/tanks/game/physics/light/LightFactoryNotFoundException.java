@@ -6,7 +6,7 @@ package remove.tanks.game.physics.light;
 public final class LightFactoryNotFoundException extends RuntimeException {
     private static final String MESSAGE_TEMPLATE = "Light factory of prototype %s not found.";
 
-    public LightFactoryNotFoundException(String prototypeClassName) {
-        super(String.format(MESSAGE_TEMPLATE, prototypeClassName));
+    public LightFactoryNotFoundException(Class<? extends LightPrototype> prototypeClass) {
+        super(String.format(MESSAGE_TEMPLATE, prototypeClass));
     }
 }
