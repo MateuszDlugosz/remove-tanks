@@ -30,6 +30,8 @@ import remove.tanks.game.level.engine.system.direction.RandomDirectionSystemFact
 import remove.tanks.game.level.engine.system.direction.RandomDirectionSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.environment.WeatherSystemFactory;
 import remove.tanks.game.level.engine.system.environment.WeatherSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.environment.weather.WeatherFactory;
+import remove.tanks.game.level.engine.system.environment.weather.WeatherPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.health.HealthSystemFactory;
 import remove.tanks.game.level.engine.system.health.HealthSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.OperationHudRenderSystemFactory;
@@ -149,7 +151,9 @@ public final class EntitySystemSupplierConfiguration {
                             ),
                             new ChangeBehaviorSystemFactory(),
                             new LevelEndSystemFactory(),
-                            new WeatherSystemFactory()
+                            new WeatherSystemFactory(
+                                    getContext().getComponent("WeatherFactory", WeatherFactory.class)
+                            )
                     }
             );
         }
@@ -200,7 +204,9 @@ public final class EntitySystemSupplierConfiguration {
                             ),
                             new ChangeBehaviorSystemPrototypeXmlLoader(),
                             new LevelEndSystemPrototypeXmlLoader(),
-                            new WeatherSystemPrototypeXmlLoader()
+                            new WeatherSystemPrototypeXmlLoader(
+                                    getContext().getComponent("WeatherPrototypeXmlLoader", WeatherPrototypeXmlLoader.class)
+                            )
                     }
             );
         }

@@ -79,7 +79,26 @@
             <system type="LevelEndSystem">
                 <endTime>3</endTime>
             </system>
-            <system type="WeatherSystem" />
+            <system type="WeatherSystem">
+                <weather>
+                    <weatherEffects>
+                        <weatherEffect type="LightningWeatherEffect">
+                            <minFrequency>1</minFrequency>
+                            <maxFrequency>2</maxFrequency>
+                            <minDuration>0.1</minDuration>
+                            <maxDuration>0.1</maxDuration>
+                            <sound>
+                                <filename>thunder-0</filename>
+                            </sound>
+                            <color type="RgbColor">
+                                <r>255</r>
+                                <g>255</g>
+                                <b>255</b>
+                            </color>
+                        </weatherEffect>
+                    </weatherEffects>
+                </weather>
+            </system>
         </systems>
         <listeners>
             <listener type="SoundListener" />
