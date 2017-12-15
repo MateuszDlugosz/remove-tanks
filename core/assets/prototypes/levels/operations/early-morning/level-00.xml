@@ -83,8 +83,8 @@
                 <weather>
                     <weatherEffects>
                         <weatherEffect type="LightningWeatherEffect">
-                            <minFrequency>1</minFrequency>
-                            <maxFrequency>2</maxFrequency>
+                            <minFrequency>8</minFrequency>
+                            <maxFrequency>16</maxFrequency>
                             <minDuration>0.1</minDuration>
                             <maxDuration>0.1</maxDuration>
                             <sound>
