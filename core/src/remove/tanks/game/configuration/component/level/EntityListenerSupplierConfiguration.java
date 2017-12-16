@@ -10,8 +10,6 @@ import remove.tanks.game.level.engine.listener.audio.SoundListenerFactory;
 import remove.tanks.game.level.engine.listener.audio.SoundListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerFactory;
 import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerPrototypeXmlLoader;
-import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerFactory;
-import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerFactory;
 import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.trigger.TriggerListenerFactory;
@@ -30,7 +28,6 @@ public final class EntityListenerSupplierConfiguration {
                     new RegistrableEntityListenerFactory[] {
                             new SpawnCycleListenerFactory(),
                             new SoundListenerFactory(),
-                            new EnemyDestroyListenerFactory(),
                             new BonusLootListenerFactory(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
@@ -48,7 +45,6 @@ public final class EntityListenerSupplierConfiguration {
                     new RegistrableEntityListenerPrototypeXmlLoader[] {
                             new SpawnCycleListenerPrototypeXmlLoader(),
                             new SoundListenerPrototypeXmlLoader(),
-                            new EnemyDestroyListenerPrototypeXmlLoader(),
                             new BonusLootListenerPrototypeXmlLoader(),
                             new TriggerListenerPrototypeXmlLoader()
                     }

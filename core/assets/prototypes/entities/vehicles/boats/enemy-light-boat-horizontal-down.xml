@@ -127,6 +127,7 @@
                 <event type="AddPointsEvent">
                     <points>20</points>
                 </event>
+                <event type="DecreaseEnemiesCounterEvent" />
             </destroyEvents>
         </component>
         <component type="RandomSpawnComponent">

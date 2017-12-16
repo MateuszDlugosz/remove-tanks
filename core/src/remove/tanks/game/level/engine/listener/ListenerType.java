@@ -6,9 +6,8 @@ package remove.tanks.game.level.engine.listener;
 public enum ListenerType {
     SpawnCycleListener(100),
     SoundListener(200),
-    EnemyDestroyListener(300),
-    BonusLootListener(400),
-    TriggerListener(500);
+    BonusLootListener(300),
+    TriggerListener(400);
 
     private final int priority;
 

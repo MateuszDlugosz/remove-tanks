@@ -16,7 +16,6 @@ public final class AmmoUpEventExecutor
 {
     @Override
     public void executeEvent(AmmoUpEvent event, Level level) {
-        System.out.println(123);
         level.getResourceRegistry().getResource(LevelResource.Engine.toString(), Engine.class)
                 .getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily())
                 .forEach(e -> {

@@ -111,7 +111,6 @@
                     <prototypeCode>BonusStar</prototypeCode>
                 </prototypeCodes>
             </listener>
-            <listener type="EnemyDestroyListener"/>
             <listener type="TriggerListener" />
         </listeners>
     </engine>

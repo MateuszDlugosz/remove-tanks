@@ -185,6 +185,7 @@
                 <event type="AddPointsEvent">
                     <points>10</points>
                 </event>
+                <event type="DecreaseEnemiesCounterEvent" />
             </destroyEvents>
         </component>
         <component type="EnemyComponent" />
