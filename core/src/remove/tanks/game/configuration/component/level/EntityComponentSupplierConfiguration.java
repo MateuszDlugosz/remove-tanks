@@ -16,8 +16,6 @@ import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnCompone
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponentFactory;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponentPrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.component.bonus.BonusComponentFactory;
-import remove.tanks.game.level.engine.entity.component.bonus.BonusComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponentFactory;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponentPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponentFactory;
@@ -103,7 +101,6 @@ public final class EntityComponentSupplierConfiguration {
                             new SoundOnDestroyComponentFactory(
                                     getContext().getComponent("SoundFactory", SoundFactory.class)
                             ),
-                            new BonusComponentFactory(),
                             new BonusLootComponentFactory(),
                             new CameraTrackComponentFactory(
                                     getContext().getComponent("PositionFactory", PositionFactory.class)
@@ -190,7 +187,6 @@ public final class EntityComponentSupplierConfiguration {
                             new SoundOnDestroyComponentPrototypeXmlLoader(
                                     getContext().getComponent("SoundPrototypeXmlLoader", SoundPrototypeXmlLoader.class)
                             ),
-                            new BonusComponentPrototypeXmlLoader(),
                             new BonusLootComponentPrototypeXmlLoader(),
                             new CameraTrackComponentPrototypeXmlLoader(
                                     getContext().getComponent("PositionPrototypeXmlLoader", PositionPrototypeXmlLoader.class)

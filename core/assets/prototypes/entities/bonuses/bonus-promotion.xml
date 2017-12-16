@@ -55,8 +55,10 @@
                 </sound>
             </sounds>
         </component>
-        <component type="BonusComponent">
-            <bonusType>PromotionBonus</bonusType>
+        <component type="TriggerComponent">
+            <destroyEvents>
+                <event type="IncreasePointsMultiplierEvent" />
+            </destroyEvents>
         </component>
     </components>
 </prototype>

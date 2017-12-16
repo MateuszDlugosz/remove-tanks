@@ -55,8 +55,10 @@
                 </sound>
             </sounds>
         </component>
-        <component type="BonusComponent">
-            <bonusType>AmmoBonus</bonusType>
+        <component type="TriggerComponent">
+            <destroyEvents>
+                <event type="AmmoUpEvent" />
+            </destroyEvents>
         </component>
     </components>
 </prototype>

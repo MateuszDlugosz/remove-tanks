@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.Family;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyComponent;
 import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponent;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponent;
-import remove.tanks.game.level.engine.entity.component.bonus.BonusComponent;
 import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponent;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponent;
 import remove.tanks.game.level.engine.entity.component.control.PlayerControlComponent;
@@ -143,10 +142,6 @@ public enum EntityFamily {
     ).get()),
     BonusLootFamily(Family.all(
             PhysicsComponent.class, BonusLootComponent.class
-    ).get()),
-    BonusFamily(Family.all(
-            PhysicsComponent.class, BonusComponent.class,
-            DestroyOnContactComponent.class
     ).get()),
     PointsFamily(Family.all(
             PhysicsComponent.class, PointsComponent.class

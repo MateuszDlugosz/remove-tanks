@@ -6,7 +6,6 @@ package remove.tanks.game.level.engine.entity.component;
 public enum ComponentType {
     SoundOnSpawnComponent,
     SoundOnDestroyComponent,
-    BonusComponent,
     BonusLootComponent,
     CameraTrackComponent,
     DamageComponent,

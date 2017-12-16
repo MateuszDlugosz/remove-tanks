@@ -10,9 +10,6 @@ import remove.tanks.game.level.engine.listener.audio.SoundListenerFactory;
 import remove.tanks.game.level.engine.listener.audio.SoundListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerFactory;
 import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerPrototypeXmlLoader;
-import remove.tanks.game.level.engine.listener.bonus.BonusPickUpListenerFactory;
-import remove.tanks.game.level.engine.listener.bonus.BonusPickUpListenerPrototypeXmlLoader;
-import remove.tanks.game.level.engine.listener.bonus.executor.*;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerFactory;
 import remove.tanks.game.level.engine.listener.enemy.EnemyDestroyListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.points.PointsListenerFactory;
@@ -40,15 +37,6 @@ public final class EntityListenerSupplierConfiguration {
                             new BonusLootListenerFactory(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
-                            new BonusPickUpListenerFactory(
-                                    new BonusExecutor[] {
-                                            new AmmoBonusExecutor(),
-                                            new BombersBonusExecutor(),
-                                            new LifeBonusExecutor(),
-                                            new PromotionBonusExecutor(),
-                                            new GrenadeBonusExecutor()
-                                    }
-                            ),
                             new TriggerListenerFactory()
                     }
             );
@@ -66,7 +54,6 @@ public final class EntityListenerSupplierConfiguration {
                             new EnemyDestroyListenerPrototypeXmlLoader(),
                             new PointsListenerPrototypeXmlLoader(),
                             new BonusLootListenerPrototypeXmlLoader(),
-                            new BonusPickUpListenerPrototypeXmlLoader(),
                             new TriggerListenerPrototypeXmlLoader()
                     }
             );

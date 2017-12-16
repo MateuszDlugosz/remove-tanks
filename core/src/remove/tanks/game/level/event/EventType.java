@@ -11,5 +11,8 @@ public enum EventType {
     IncreasePointsMultiplierEvent,
     ChangeLevelStateEvent,
     DecreaseEnemiesCounterEvent,
-    DestroyEntityByIdEvent
+    DestroyEntityByIdEvent,
+    DestroyAllEnemiesEvent,
+    AmmoUpEvent,
+    SpawnBomberEvent
 }

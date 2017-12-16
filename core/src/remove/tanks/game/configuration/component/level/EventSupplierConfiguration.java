@@ -6,15 +6,18 @@ import remove.tanks.game.level.engine.entity.EntityDestroyer;
 import remove.tanks.game.level.engine.entity.EntityFactory;
 import remove.tanks.game.level.engine.entity.EntitySpawner;
 import remove.tanks.game.level.event.*;
-import remove.tanks.game.level.event.destroy.DestroyEntityByIdEventExecutor;
-import remove.tanks.game.level.event.destroy.DestroyEntityByIdEventFactory;
-import remove.tanks.game.level.event.destroy.DestroyEntityByIdEventPrototypeXmlLoader;
-import remove.tanks.game.level.event.destroy.DestroyEntityEventExecutor;
+import remove.tanks.game.level.event.ammo.AmmoUpEventExecutor;
+import remove.tanks.game.level.event.ammo.AmmoUpEventFactory;
+import remove.tanks.game.level.event.ammo.AmmoUpEventPrototypeXmlLoader;
+import remove.tanks.game.level.event.destroy.*;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventExecutor;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventFactory;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventPrototypeXmlLoader;
 import remove.tanks.game.level.event.life.*;
 import remove.tanks.game.level.event.points.*;
+import remove.tanks.game.level.event.spawn.SpawnBomberEventExecutor;
+import remove.tanks.game.level.event.spawn.SpawnBomberEventFactory;
+import remove.tanks.game.level.event.spawn.SpawnBomberEventPrototypeXmlLoader;
 import remove.tanks.game.level.event.spawn.SpawnEntityEventExecutor;
 import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventExecutor;
 import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEventFactory;
@@ -45,7 +48,10 @@ public final class EventSupplierConfiguration {
                             new AddLifeEventExecutor(),
                             new RemoveLifeEventExecutor(),
                             new ChangeLevelStateEventExecutor(),
-                            new DestroyEntityByIdEventExecutor()
+                            new DestroyEntityByIdEventExecutor(),
+                            new DestroyAllEnemiesEventExecutor(),
+                            new AmmoUpEventExecutor(),
+                            new SpawnBomberEventExecutor()
                     }
             );
         }
@@ -63,7 +69,10 @@ public final class EventSupplierConfiguration {
                             new AddPointsEventFactory(),
                             new AddLifeEventFactory(),
                             new RemoveLifeEventFactory(),
-                            new DestroyEntityByIdEventFactory()
+                            new DestroyEntityByIdEventFactory(),
+                            new DestroyAllEnemiesEventFactory(),
+                            new AmmoUpEventFactory(),
+                            new SpawnBomberEventFactory()
                     }
             );
         }
@@ -81,7 +90,10 @@ public final class EventSupplierConfiguration {
                             new AddPointsEventPrototypeXmlLoader(),
                             new AddLifeEventPrototypeXmlLoader(),
                             new RemoveLifeEventPrototypeXmlLoader(),
-                            new DestroyEntityByIdEventPrototypeXmlLoader()
+                            new DestroyEntityByIdEventPrototypeXmlLoader(),
+                            new DestroyAllEnemiesEventPrototypeXmlLoader(),
+                            new AmmoUpEventPrototypeXmlLoader(),
+                            new SpawnBomberEventPrototypeXmlLoader()
                     }
             );
         }

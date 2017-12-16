@@ -5,12 +5,15 @@ import com.google.common.eventbus.Subscribe;
 import remove.tanks.game.audio.music.event.PlayMusicEvent;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.level.event.EventExecutor;
+import remove.tanks.game.level.event.ammo.AmmoUpEvent;
+import remove.tanks.game.level.event.destroy.DestroyAllEnemiesEvent;
 import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEvent;
 import remove.tanks.game.level.event.life.AddLifeEvent;
 import remove.tanks.game.level.event.life.RemoveLifeEvent;
 import remove.tanks.game.level.event.points.AddPointsEvent;
 import remove.tanks.game.level.event.points.IncreasePointsMultiplierEvent;
+import remove.tanks.game.level.event.spawn.SpawnBomberEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
 import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEvent;
 import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
@@ -28,9 +31,10 @@ public final class LevelController {
 
     private final List<Object> spawnEntityEvents = new ArrayList<>();
     private final List<Object> destroyEntityEvents = new ArrayList<>();
+    private final List<Object> externalEvents = new ArrayList<>();
     private final List<Object> otherEvents = new ArrayList<>();
 
-    public LevelController(
+    LevelController(
             Level level,
             LevelUpdater levelUpdater,
             EventExecutor eventExecutor
@@ -47,12 +51,13 @@ public final class LevelController {
     public void update(float deltaTime, EventBus eventBus) {
         levelUpdater.updateLevel(deltaTime, level);
         eventExecutor.executeEvents(destroyEntityEvents, level);
-        eventExecutor.executeEvents(spawnEntityEvents, level);
-        eventExecutor.executeEvents(otherEvents, level)
-                .forEach(eventBus::post);
         destroyEntityEvents.clear();
+        eventExecutor.executeEvents(spawnEntityEvents, level);
         spawnEntityEvents.clear();
+        eventExecutor.executeEvents(otherEvents, level);
         otherEvents.clear();
+        externalEvents.forEach(eventBus::post);
+        externalEvents.clear();
     }
 
     @Subscribe
@@ -67,12 +72,12 @@ public final class LevelController {
 
     @Subscribe
     public void handlePlayMusicEvent(PlayMusicEvent event) {
-        otherEvents.add(event);
+        externalEvents.add(event);
     }
 
     @Subscribe
     public void handlePlaySoundEvent(PlaySoundEvent event) {
-        otherEvents.add(event);
+        externalEvents.add(event);
     }
 
     @Subscribe
@@ -107,6 +112,21 @@ public final class LevelController {
 
     @Subscribe
     public void handleChangeLevelStateEvent(ChangeLevelStateEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleDestroyAllEnemiesEvent(DestroyAllEnemiesEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleAmmoUpEvent(AmmoUpEvent event) {
+        otherEvents.add(event);
+    }
+
+    @Subscribe
+    public void handleSpawnBomberEvent(SpawnBomberEvent event) {
         otherEvents.add(event);
     }
 }

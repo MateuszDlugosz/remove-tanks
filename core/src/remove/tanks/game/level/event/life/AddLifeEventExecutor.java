@@ -22,6 +22,6 @@ public final class AddLifeEventExecutor
 
     @Override
     public Class<AddLifeEvent> getExecutorType() {
-        return null;
+        return AddLifeEvent.class;
     }
 }

@@ -55,11 +55,12 @@
                 </sound>
             </sounds>
         </component>
-        <component type="BonusComponent">
-            <bonusType>StarBonus</bonusType>
-        </component>
-        <component type="PointsComponent">
-            <points>100</points>
+        <component type="TriggerComponent">
+            <destroyEvents>
+                <event type="AddPointsEvent">
+                    <points>100</points>
+                </event>
+            </destroyEvents>
         </component>
     </components>
 </prototype>

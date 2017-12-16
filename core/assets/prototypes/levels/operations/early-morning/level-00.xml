@@ -103,7 +103,6 @@
         <listeners>
             <listener type="SoundListener" />
             <listener type="SpawnCycleListener" />
-            <listener type="BonusPickUpListener" />
             <listener type="BonusLootListener">
                 <chance>3</chance>
                 <prototypeCodes>
