@@ -15,10 +15,10 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
-import remove.tanks.game.level.LevelSequence;
-import remove.tanks.game.level.LevelSequenceXmlLoader;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
+import remove.tanks.game.mode.campaign.Campaign;
+import remove.tanks.game.mode.campaign.CampaignXmlLoader;
 import remove.tanks.game.screen.gui.buttons.Button;
 import remove.tanks.game.screen.gui.buttons.ButtonGroup;
 import remove.tanks.game.screen.gui.labels.Label;
@@ -27,13 +27,13 @@ import remove.tanks.game.screen.gui.listeners.KeyListener;
 /**
  * @author Mateusz Długosz
  */
-public final class LevelSelectScreen extends GameScreen {
+public final class CampaignSelectScreen extends GameScreen {
     private final Locale locale;
     private final LevelPresenter levelPresenter;
     private final Skin skin;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
-    private final LevelSequenceXmlLoader levelSequenceXmlLoader;
+    private final CampaignXmlLoader campaignXmlLoader;
 
     private Stage stage;
     private Window window;
@@ -45,7 +45,7 @@ public final class LevelSelectScreen extends GameScreen {
     private Button operationEarlyMorningButton;
     private Button backButton;
 
-    public LevelSelectScreen(GameApplication gameApplication) {
+    public CampaignSelectScreen(GameApplication gameApplication) {
         super(gameApplication);
         this.stage = new Stage(
                 gameApplication.getContext()
@@ -60,12 +60,12 @@ public final class LevelSelectScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
-        this.levelSequenceXmlLoader = gameApplication.getContext()
-                .getComponent("LevelSequenceXmlLoader", LevelSequenceXmlLoader.class);
+        this.campaignXmlLoader = gameApplication.getContext()
+                .getComponent("CampaignXmlLoader", CampaignXmlLoader.class);
 
-        this.operationEarlyMorningButton = createOperationButton(
-                "prototypes/operations/early-morning-operation.xml",
-                locale.getTranslation().getEntry(TranslationEntryKey.GameOperationEarlyMorning.getName())
+        this.operationEarlyMorningButton = createCampaignButton(
+                "prototypes/campaigns/early-morning-campaign.xml",
+                locale.getTranslation().getEntry(String.format(TranslationEntryKey.GameCampaignName.getName(), "early-morning"))
         );
 
         this.titleLabel = createTitleLabel();
@@ -143,20 +143,20 @@ public final class LevelSelectScreen extends GameScreen {
 
     private Label createTitleLabel() {
         return new Label(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameScreenOperationTitle.getName()
+                TranslationEntryKey.GameScreenCampaignTitle.getName()
         ).toUpperCase(), skin);
     }
 
-    private Button createOperationButton(String operationFilename, String operationName) {
+    private Button createCampaignButton(String campaignFilename, String operationName) {
         Button textButton = new Button(operationName.toUpperCase(), skin);
-        LevelSequence levelSequence = levelSequenceXmlLoader.loadCampaign(operationFilename);
+        Campaign campaign = campaignXmlLoader.loadCampaign(campaignFilename);
         textButton.setKeyListener(new KeyListener() {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
                     getGameApplication().switchScreenWithTransition(new LevelLoadingScreen(
                             getGameApplication(),
-                            levelSequence,
+                            campaign,
                             0,
                             null
                     ));
@@ -175,10 +175,10 @@ public final class LevelSelectScreen extends GameScreen {
     public void render(float delta) {
         levelPresenter.update(delta, eventBus);
         titleLabel.setText(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameScreenOperationTitle.getName()
+                TranslationEntryKey.GameScreenCampaignTitle.getName()
         ).toUpperCase());
         operationEarlyMorningButton.setText(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameOperationEarlyMorning.getName()
+                String.format(TranslationEntryKey.GameCampaignName.getName(), "early-morning")
         ).toUpperCase());
         backButton.setText(locale.getTranslation().getEntry(
                 TranslationEntryKey.GameScreenButtonBack.getName()).toUpperCase());

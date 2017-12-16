@@ -1,33 +1,34 @@
 package remove.tanks.game.level;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz
  */
 public final class LevelSequenceXmlLoader {
+    public static final String LEVEL_SEQUENCE_ELEMENT = "levelSequence";
+
+    private static final String LEVEL_PROTOTYPE_FILENAMES_ELEMENT = "levelPrototypeFilenames";
     private static final String LEVEL_PROTOTYPE_FILENAME_ELEMENT = "levelPrototypeFilename";
 
-    private final XmlReader xmlReader;
-
-    public LevelSequenceXmlLoader(XmlReader xmlReader) {
-        this.xmlReader = xmlReader;
-    }
-
-    public LevelSequence loadCampaign(String filename) {
+    public LevelSequence loadLevelSequence(XmlReader.Element element) {
         try {
-            XmlReader.Element element = xmlReader.parse(Gdx.files.internal(filename));
             return new LevelSequence(
-                    Arrays.stream(element.getChildrenByName(LEVEL_PROTOTYPE_FILENAME_ELEMENT).toArray())
-                            .map(e -> e.getText().trim())
-                            .collect(Collectors.toList())
+                    loadLevelPrototypeFilenames(element)
             );
         } catch (Exception e) {
-            throw new LevelSequenceXmlLoadException(filename, e);
+            throw new LevelSequenceXmlLoadException(element, e);
         }
+    }
+
+    private List<String> loadLevelPrototypeFilenames(XmlReader.Element element) {
+        return Arrays.stream(element.getChildByName(LEVEL_PROTOTYPE_FILENAMES_ELEMENT)
+                .getChildrenByName(LEVEL_PROTOTYPE_FILENAME_ELEMENT).toArray())
+                .map(e -> e.getText().trim())
+                .collect(Collectors.toList());
     }
 }

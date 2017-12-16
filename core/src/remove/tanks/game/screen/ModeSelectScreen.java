@@ -15,7 +15,6 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
-import remove.tanks.game.level.LevelSequenceXmlLoader;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.screen.gui.buttons.Button;
@@ -32,7 +31,6 @@ public final class ModeSelectScreen extends GameScreen {
     private final Skin skin;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
-    private final LevelSequenceXmlLoader levelSequenceXmlLoader;
 
     private Stage stage;
     private Window window;
@@ -41,7 +39,7 @@ public final class ModeSelectScreen extends GameScreen {
 
     private ButtonGroup buttonGroup;
 
-    private Button operationModeButton;
+    private Button campaignModeButton;
     private Button backButton;
 
     public ModeSelectScreen(GameApplication gameApplication) {
@@ -59,10 +57,8 @@ public final class ModeSelectScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
-        this.levelSequenceXmlLoader = gameApplication.getContext()
-                .getComponent("LevelSequenceXmlLoader", LevelSequenceXmlLoader.class);
 
-        this.operationModeButton = createOperationModeButton();
+        this.campaignModeButton = createCampaignModeButton();
         this.titleLabel = createTitleLabel();
         this.backButton = createBackButton();
         this.buttonGroup = createButtonGroup();
@@ -86,7 +82,7 @@ public final class ModeSelectScreen extends GameScreen {
         window.pad(70);
         window.add(titleLabel.pad(5));
         window.row().padTop(80);
-        window.add(operationModeButton.pad(5));
+        window.add(campaignModeButton.pad(5));
         window.row().padTop(80);
         window.add(backButton.pad(5));
         window.pack();
@@ -117,7 +113,7 @@ public final class ModeSelectScreen extends GameScreen {
 
     private ButtonGroup createButtonGroup() {
         return new ButtonGroup(Lists.newArrayList(
-                operationModeButton,
+                campaignModeButton,
                 backButton
             )
         );
@@ -141,15 +137,15 @@ public final class ModeSelectScreen extends GameScreen {
         ).toUpperCase(), skin);
     }
 
-    private Button createOperationModeButton() {
+    private Button createCampaignModeButton() {
         Button textButton = new Button(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameModeOperation.getName()
+                TranslationEntryKey.GameModeCampaign.getName()
         ).toUpperCase(), skin);
         textButton.setKeyListener(new KeyListener() {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(LevelSelectScreen.class);
+                    getGameApplication().switchScreenWithTransition(CampaignSelectScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
@@ -166,8 +162,8 @@ public final class ModeSelectScreen extends GameScreen {
         titleLabel.setText(locale.getTranslation().getEntry(
                 TranslationEntryKey.GameScreenModeSelectTitle.getName()
         ).toUpperCase());
-        operationModeButton.setText(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameModeOperation.getName()
+        campaignModeButton.setText(locale.getTranslation().getEntry(
+                TranslationEntryKey.GameModeCampaign.getName()
         ).toUpperCase());
         backButton.setText(locale.getTranslation().getEntry(
                 TranslationEntryKey.GameScreenButtonBack.getName()).toUpperCase());

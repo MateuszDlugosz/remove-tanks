@@ -5,9 +5,9 @@ import remove.tanks.game.GameApplication;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.LevelDisposer;
 import remove.tanks.game.level.LevelLoader;
-import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.mode.GameMode;
 import remove.tanks.game.utility.properties.Properties;
 
 import java.util.Optional;
@@ -18,7 +18,7 @@ import java.util.Optional;
 public final class LevelLoadingScreen extends GameScreen {
     private final LevelLoader levelLoader;
     private final int levelIndex;
-    private final LevelSequence levelSequence;
+    private final GameMode gameMode;
     private final LevelDisposer levelDisposer;
     private final Stage stage;
 
@@ -31,7 +31,7 @@ public final class LevelLoadingScreen extends GameScreen {
 
     public LevelLoadingScreen(
             GameApplication gameApplication,
-            LevelSequence levelSequence,
+            GameMode gameMode,
             int levelIndex,
             Level previousLevel
     ) {
@@ -42,7 +42,7 @@ public final class LevelLoadingScreen extends GameScreen {
                 .getComponent("LevelDisposer", LevelDisposer.class);
         this.levelIndex = levelIndex;
         this.previousLevel = previousLevel;
-        this.levelSequence = levelSequence;
+        this.gameMode = gameMode;
         this.propertiesExtracted = false;
         this.levelDisposed = false;
         this.levelLoaded = false;
@@ -68,7 +68,7 @@ public final class LevelLoadingScreen extends GameScreen {
 
         if (!levelLoaded) {
             Level newLevel = levelLoader.loadLevel(
-                    levelSequence.getLevelPrototypeFilenames().get(levelIndex),
+                    gameMode.getLevelSequence().getLevelPrototypeFilenames().get(levelIndex),
                     getGameApplication().getContext()
             );
             newLevel.getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
@@ -77,7 +77,7 @@ public final class LevelLoadingScreen extends GameScreen {
             getGameApplication().switchScreenWithTransition(
                     new LevelScreen(
                             getGameApplication(),
-                            levelSequence,
+                            gameMode,
                             levelIndex,
                             newLevel
                     )

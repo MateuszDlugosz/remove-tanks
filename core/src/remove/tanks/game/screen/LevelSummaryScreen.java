@@ -114,13 +114,13 @@ public final class LevelSummaryScreen extends GameScreen {
 
     private TextButton createTitleLabel() {
         return new Label(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameScreenOperationSummaryTitle.getName()
+                TranslationEntryKey.GameScreenSummaryTitle.getName()
         ).toUpperCase(), skin);
     }
 
     private TextButton createContentLabel() {
         return new Button(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameScreenOperationSummaryCongratulations.getName()
+                TranslationEntryKey.GameScreenSummaryCongratulations.getName()
         ).toUpperCase(), skin);
     }
 
@@ -153,13 +153,13 @@ public final class LevelSummaryScreen extends GameScreen {
     public void render(float delta) {
         levelPresenter.update(delta, eventBus);
         this.titleLabel.setText(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameScreenOperationSummaryTitle.getName()
+                TranslationEntryKey.GameScreenSummaryTitle.getName()
         ).toUpperCase());
         this.backButton.setText(locale.getTranslation().getEntry(
                 TranslationEntryKey.GameScreenButtonBack.getName()
         ).toUpperCase());
         this.contentLabel.setText(locale.getTranslation().getFormattedEntry(
-                TranslationEntryKey.GameScreenOperationSummaryCongratulations.getName(),
+                TranslationEntryKey.GameScreenSummaryCongratulations.getName(),
                 properties.getString(LevelProperty.LevelPoints.getName())
         ).toUpperCase());
 

@@ -1,7 +1,5 @@
 package remove.tanks.game.level;
 
-import com.google.common.base.MoreObjects;
-
 import java.util.List;
 
 /**
@@ -19,12 +17,5 @@ public final class LevelSequence {
 
     public List<String> getLevelPrototypeFilenames() {
         return levelPrototypeFilenames;
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("levelPrototypes", levelPrototypeFilenames)
-                .toString();
     }
 }

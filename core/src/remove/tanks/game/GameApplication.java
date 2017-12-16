@@ -21,7 +21,7 @@ import java.util.HashSet;
 
 public final class GameApplication extends Game {
 	public static final String TITLE = "Remove Tanks!";
-	public static final String VERSION = "0.18.83";
+	public static final String VERSION = "0.18.84";
 
 	private final Configuration configuration;
 
@@ -40,7 +40,7 @@ public final class GameApplication extends Game {
 						new MainMenuScreen(this),
 						new CreditsScreen(this),
 						new OptionsScreen(this),
-						new LevelSelectScreen(this),
+						new CampaignSelectScreen(this),
 						new ModeSelectScreen(this)
 				))),
 				new FadeOutStageActionFactory(0.5f),

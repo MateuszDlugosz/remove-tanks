@@ -21,7 +21,7 @@ public final class OperationHudStage implements Disposable {
     private Label lifesLabelText;
     private Label enemiesLabelText;
     private Label pointsLabelText;
-    private Label lifesLabelValue;
+    private Label lifeLabelValue;
     private Label enemiesLabelValue;
     private Label pointsLabelValue;
 
@@ -43,12 +43,12 @@ public final class OperationHudStage implements Disposable {
 
     private void initLabels(Skin skin) {
         lifesLabelText = new Label(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameLevelHudLifes.getName()), skin);
+                TranslationEntryKey.GameLevelHudLife.getName()), skin);
         enemiesLabelText = new Label(locale.getTranslation().getEntry(
                 TranslationEntryKey.GameLevelHudEnemies.getName()), skin);
         pointsLabelText = new Label(locale.getTranslation().getEntry(
                 TranslationEntryKey.GameLevelHudPoints.getName()), skin);
-        lifesLabelValue = new Label("", skin);
+        lifeLabelValue = new Label("", skin);
         enemiesLabelValue = new Label("", skin);
         pointsLabelValue = new Label("", skin);
     }
@@ -61,7 +61,7 @@ public final class OperationHudStage implements Disposable {
         table.add(enemiesLabelText).expandX();
         table.add(pointsLabelText).expandX();
         table.row().padTop(20);
-        table.add(lifesLabelValue).expandX();
+        table.add(lifeLabelValue).expandX();
         table.add(enemiesLabelValue).expandX();
         table.add(pointsLabelValue).expandX();
         table.setDebug(false);
@@ -73,10 +73,10 @@ public final class OperationHudStage implements Disposable {
                 TranslationEntryKey.GameLevelHudPoints.getName(),
                 properties.getString(LevelProperty.LevelPointsMultiplier.getName())).toUpperCase());
         lifesLabelText.setText(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameLevelHudLifes.getName()).toUpperCase());
+                TranslationEntryKey.GameLevelHudLife.getName()).toUpperCase());
         enemiesLabelText.setText(locale.getTranslation().getFormattedEntry(
                 TranslationEntryKey.GameLevelHudEnemies.getName()).toUpperCase());
-        lifesLabelValue.setText(
+        lifeLabelValue.setText(
                 properties.getString(LevelProperty.LevelLifes.getName()));
         enemiesLabelValue.setText(
                 properties.getString(LevelProperty.LevelEnemies.getName()));

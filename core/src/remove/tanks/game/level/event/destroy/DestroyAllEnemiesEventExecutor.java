@@ -15,7 +15,6 @@ public final class DestroyAllEnemiesEventExecutor
 {
     @Override
     public void executeEvent(DestroyAllEnemiesEvent event, Level level) {
-        System.out.println(123);
         level.getResourceRegistry().getResource(LevelResource.Engine.toString(), Engine.class)
                 .getEntitiesFor(EntityFamily.EnemiesFamily.getFamily())
                 .forEach(e -> e.add(new DestroyComponent()));

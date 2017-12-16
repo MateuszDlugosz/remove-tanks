@@ -4,9 +4,13 @@ package remove.tanks.game.locale.translation.constant;
  * @author Mateusz Długosz
  */
 public enum TranslationEntryKey {
-    GameLevelHudLifes("game.level.hud.lifes"),
+    GameLevelHudLife("game.level.hud.life"),
     GameLevelHudPoints("game.level.hud.points"),
     GameLevelHudEnemies("game.level.hud.enemies"),
+    GameLevelStatusVictory("game.level.status.victory"),
+    GameLevelStatusDefeat("game.level.status.defeat"),
+    GameCampaignName("game.campaign.%s"),
+    GameModeCampaign("game.mode.campaign"),
     GameScreenMainMenuButtonStart("game.screen.main.menu.button.start"),
     GameScreenMainMenuButtonOptions("game.screen.main.menu.button.options"),
     GameScreenMainMenuButtonCredits("game.screen.main.menu.button.credits"),
@@ -18,20 +22,10 @@ public enum TranslationEntryKey {
     GameScreenCreditsTitle("game.screen.credits.title"),
     GameScreenCreditsContent("game.screen.credits.content"),
     GameScreenModeSelectTitle("game.screen.mode.select.title"),
+    GameScreenCampaignTitle("game.screen.campaign.title"),
     GameScreenButtonBack("game.screen.button.back"),
-    GameScreenOperationTitle("game.screen.operation.title"),
-    GameScreenOperationSummaryTitle("game.screen.operation.summary.title"),
-    GameScreenOperationSummaryCongratulations("game.screen.operation.summary.congratulations"),
-    GameOperationEarlyMorning("game.operation.early-morning"),
-    GameOperationWetWater("game.operation.wet-water"),
-    GameOperationColdWinter("game.operation.cold-winter"),
-    GameOperationGreenForest("game.operation.green-forest"),
-    GameOperationLateEvening("game.operation.late-evening"),
-    GameLevelStatusVictory("game.level.status.victory"),
-    GameLevelStatusDefeat("game.level.status.defeat"),
-    GameModeOperation("game.mode.operation"),
-    GameModeArena("game.mode.arena"),
-    GameModeCampaign("game.mode.campaign");
+    GameScreenSummaryTitle("game.screen.summary.title"),
+    GameScreenSummaryCongratulations("game.screen.summary.congratulations");
 
     private final String name;
 
