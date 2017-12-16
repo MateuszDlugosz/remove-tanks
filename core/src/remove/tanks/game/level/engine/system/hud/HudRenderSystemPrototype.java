@@ -6,8 +6,8 @@ import remove.tanks.game.level.engine.system.EntitySystemPrototype;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationHudRenderSystemPrototype extends EntitySystemPrototype {
-    public OperationHudRenderSystemPrototype(int priority) {
+public final class HudRenderSystemPrototype extends EntitySystemPrototype {
+    public HudRenderSystemPrototype(int priority) {
         super(priority);
     }
 

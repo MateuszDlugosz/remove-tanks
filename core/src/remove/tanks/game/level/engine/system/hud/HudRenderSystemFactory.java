@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
-import remove.tanks.game.level.engine.system.hud.stages.OperationHudStage;
+import remove.tanks.game.level.engine.system.hud.stages.HudStage;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.utility.properties.Properties;
@@ -13,14 +13,14 @@ import remove.tanks.game.utility.properties.Properties;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationHudRenderSystemFactory
-        implements RegistrableEntitySystemFactory<OperationHudRenderSystem, OperationHudRenderSystemPrototype>
+public final class HudRenderSystemFactory
+        implements RegistrableEntitySystemFactory<HudRenderSystem, HudRenderSystemPrototype>
 {
     @Override
-    public OperationHudRenderSystem createEntitySystem(OperationHudRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new OperationHudRenderSystem(
+    public HudRenderSystem createEntitySystem(HudRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+        return new HudRenderSystem(
                 prototype.getPriority(),
-                new OperationHudStage(
+                new HudStage(
                         resourceRegistry.getResource(LevelResource.Locale.toString(), Locale.class),
                         resourceRegistry.getResource(LevelResource.HudCamera.toString(), Game2DCamera.class),
                         resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
@@ -32,7 +32,7 @@ public final class OperationHudRenderSystemFactory
     }
 
     @Override
-    public Class<OperationHudRenderSystemPrototype> getFactoryType() {
-        return OperationHudRenderSystemPrototype.class;
+    public Class<HudRenderSystemPrototype> getFactoryType() {
+        return HudRenderSystemPrototype.class;
     }
 }

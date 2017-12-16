@@ -34,11 +34,11 @@ public enum SystemType {
     WorldLightRenderSystem(2800),
     WorldDebugRenderSystem(2900),
     WeatherSystem(2950),
-    OperationHudRenderSystem(3000),
+    HudRenderSystem(3000),
     AutoSpawnerSystem(3100),
     PlayerRespawnSystem(3200),
-    OperationDefeatSystem(3300),
-    OperationVictorySystem(3400),
+    NoLifesDefeatSystem(3300),
+    NoEnemiesVictorySystem(3400),
     LevelEndSystem(3500),
     TimelineSystem(3600);
 

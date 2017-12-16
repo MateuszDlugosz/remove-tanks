@@ -42,7 +42,7 @@
             <system type="DestroyOnContactSystem" />
             <system type="DestroySystem" />
             <system type="WorldDebugRenderSystem" />
-            <system type="OperationHudRenderSystem" />
+            <system type="HudRenderSystem" />
             <system type="AutoSpawnerSystem">
                 <spawners>
                     <spawner id="Alpha">

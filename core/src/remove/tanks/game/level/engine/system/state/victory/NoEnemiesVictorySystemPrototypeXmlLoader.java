@@ -22,6 +22,6 @@ public final class NoEnemiesVictorySystemPrototypeXmlLoader
 
     @Override
     public SystemType getLoaderType() {
-        return SystemType.OperationVictorySystem;
+        return SystemType.NoEnemiesVictorySystem;
     }
 }

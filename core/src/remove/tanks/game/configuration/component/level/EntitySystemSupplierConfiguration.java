@@ -34,8 +34,8 @@ import remove.tanks.game.level.engine.system.environment.weather.WeatherFactory;
 import remove.tanks.game.level.engine.system.environment.weather.WeatherPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.health.HealthSystemFactory;
 import remove.tanks.game.level.engine.system.health.HealthSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.hud.OperationHudRenderSystemFactory;
-import remove.tanks.game.level.engine.system.hud.OperationHudRenderSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.HudRenderSystemFactory;
+import remove.tanks.game.level.engine.system.hud.HudRenderSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.layer.*;
 import remove.tanks.game.level.engine.system.lifetime.LifetimeSystemFactory;
 import remove.tanks.game.level.engine.system.lifetime.LifetimeSystemPrototypeXmlLoader;
@@ -97,7 +97,7 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
                             new HealthSystemFactory(),
-                            new OperationHudRenderSystemFactory(),
+                            new HudRenderSystemFactory(),
                             new PlayerControlSystemFactory(),
                             new LifetimeSystemFactory(),
                             new TiledMapRenderSystemFactory(),
@@ -175,7 +175,7 @@ public final class EntitySystemSupplierConfiguration {
                             new DestroySystemPrototypeXmlLoader(),
                             new RandomDirectionSystemPrototypeXmlLoader(),
                             new HealthSystemPrototypeXmlLoader(),
-                            new OperationHudRenderSystemPrototypeXmlLoader(),
+                            new HudRenderSystemPrototypeXmlLoader(),
                             new PlayerControlSystemPrototypeXmlLoader(),
                             new LifetimeSystemPrototypeXmlLoader(),
                             new TiledMapRenderSystemPrototypeXmlLoader(),

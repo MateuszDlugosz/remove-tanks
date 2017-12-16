@@ -22,6 +22,6 @@ public final class NoLifesDefeatSystemPrototypeXmlLoader
 
     @Override
     public SystemType getLoaderType() {
-        return SystemType.OperationDefeatSystem;
+        return SystemType.NoLifesDefeatSystem;
     }
 }

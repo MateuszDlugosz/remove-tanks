@@ -15,7 +15,7 @@ import remove.tanks.game.utility.properties.Properties;
 /**
  * @author Mateusz Długosz
  */
-public final class OperationHudStage implements Disposable {
+public final class HudStage implements Disposable {
     private final Locale locale;
 
     private Label lifesLabelText;
@@ -28,7 +28,7 @@ public final class OperationHudStage implements Disposable {
     private final Stage stage;
     private final Table table;
 
-    public OperationHudStage(
+    public HudStage(
             Locale locale,
             Game2DCamera game2DCamera,
             SpriteBatch spriteBatch,
