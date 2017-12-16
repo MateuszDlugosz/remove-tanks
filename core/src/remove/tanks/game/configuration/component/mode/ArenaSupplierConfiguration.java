@@ -16,7 +16,7 @@ public final class ArenaSupplierConfiguration {
         public ArenaXmlLoader supplyComponent() {
             return new ArenaXmlLoader(
                     getContext().getComponent("XmlReader", XmlReader.class),
-                    getContext().getComponent("LevelSeqenceXmlLoader", LevelSequenceXmlLoader.class)
+                    getContext().getComponent("LevelSequenceXmlLoader", LevelSequenceXmlLoader.class)
             );
         }
     }

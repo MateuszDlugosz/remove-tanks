@@ -16,7 +16,7 @@ public final class OperationSupplierConfiguration {
         public OperationXmlLoader supplyComponent() {
             return new OperationXmlLoader(
                     getContext().getComponent("XmlReader", XmlReader.class),
-                    getContext().getComponent("LevelSeqenceXmlLoader", LevelSequenceXmlLoader.class)
+                    getContext().getComponent("LevelSequenceXmlLoader", LevelSequenceXmlLoader.class)
             );
         }
     }
