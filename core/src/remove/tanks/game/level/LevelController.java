@@ -2,21 +2,10 @@ package remove.tanks.game.level;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import remove.tanks.game.audio.music.event.PlayMusicEvent;
-import remove.tanks.game.audio.sound.event.PlaySoundEvent;
+import remove.tanks.game.level.event.Event;
 import remove.tanks.game.level.event.EventExecutor;
-import remove.tanks.game.level.event.ammo.AmmoUpEvent;
-import remove.tanks.game.level.event.destroy.DestroyAllEnemiesEvent;
 import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
-import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEvent;
-import remove.tanks.game.level.event.life.AddLifeEvent;
-import remove.tanks.game.level.event.life.RemoveLifeEvent;
-import remove.tanks.game.level.event.points.AddPointsEvent;
-import remove.tanks.game.level.event.points.IncreasePointsMultiplierEvent;
-import remove.tanks.game.level.event.spawn.SpawnBomberEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
-import remove.tanks.game.level.event.spawner.ActivateAutoSpawnerEvent;
-import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,84 +38,51 @@ public final class LevelController {
     }
 
     public void update(float deltaTime, EventBus eventBus) {
-        levelUpdater.updateLevel(deltaTime, level);
+        updateLevel(deltaTime);
+        executeDestroyEntityEvents();
+        executeSpawnEntityEvents();
+        executeOtherEvents();
+        executeExternalEvents(eventBus);
+    }
+
+    private void updateLevel(float delta) {
+        levelUpdater.updateLevel(delta, level);
+    }
+
+    private void executeDestroyEntityEvents() {
         eventExecutor.executeEvents(destroyEntityEvents, level);
         destroyEntityEvents.clear();
-        eventExecutor.executeEvents(spawnEntityEvents, level);
-        spawnEntityEvents.clear();
+    }
+
+    private void executeOtherEvents() {
         eventExecutor.executeEvents(otherEvents, level);
         otherEvents.clear();
+    }
+
+    private void executeSpawnEntityEvents() {
+        eventExecutor.executeEvents(spawnEntityEvents, level);
+        spawnEntityEvents.clear();
+    }
+
+    private void executeExternalEvents(EventBus eventBus) {
         externalEvents.forEach(eventBus::post);
         externalEvents.clear();
     }
 
     @Subscribe
-    public void handleSpawnEntityEvent(SpawnEntityEvent event) {
-        spawnEntityEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleDestroyEntityEvent(DestroyEntityEvent event) {
-        destroyEntityEvents.add(event);
-    }
-
-    @Subscribe
-    public void handlePlayMusicEvent(PlayMusicEvent event) {
+    public <T extends Event> void handleEvent(T event) {
+        if (event instanceof SpawnEntityEvent) {
+            spawnEntityEvents.add(event);
+            return;
+        }
+        if (event instanceof DestroyEntityEvent) {
+            destroyEntityEvents.add(event);
+            return;
+        }
+        if (eventExecutor.getSupportedEventClasses().contains(event.getClass())) {
+            otherEvents.add(event);
+            return;
+        }
         externalEvents.add(event);
-    }
-
-    @Subscribe
-    public void handlePlaySoundEvent(PlaySoundEvent event) {
-        externalEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleActivateAutoSpawnerEvent(ActivateAutoSpawnerEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleDecreaseEnemiesCounterEvent(DecreaseEnemiesCounterEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleAddLifeEvent(AddLifeEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleRemoveLifeEvent(RemoveLifeEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleAddPointsEvent(AddPointsEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleIncreasePointsMultiplierEvent(IncreasePointsMultiplierEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleChangeLevelStateEvent(ChangeLevelStateEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleDestroyAllEnemiesEvent(DestroyAllEnemiesEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleAmmoUpEvent(AmmoUpEvent event) {
-        otherEvents.add(event);
-    }
-
-    @Subscribe
-    public void handleSpawnBomberEvent(SpawnBomberEvent event) {
-        otherEvents.add(event);
     }
 }

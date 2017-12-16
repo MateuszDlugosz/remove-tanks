@@ -14,5 +14,6 @@ public enum EventType {
     DestroyEntityByIdEvent,
     DestroyAllEnemiesEvent,
     AmmoUpEvent,
-    SpawnBomberEvent
+    SpawnBomberEvent,
+    PlaySoundEvent
 }

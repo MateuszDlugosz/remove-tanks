@@ -27,4 +27,8 @@ public final class EventExecutor {
         });
         return deadEvents;
     }
+
+    public Set<Class<? extends Event>> getSupportedEventClasses() {
+        return executors.keySet();
+    }
 }
