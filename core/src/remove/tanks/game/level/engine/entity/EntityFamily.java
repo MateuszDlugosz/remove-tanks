@@ -20,7 +20,6 @@ import remove.tanks.game.level.engine.entity.component.layer.*;
 import remove.tanks.game.level.engine.entity.component.lifetime.LifetimeComponent;
 import remove.tanks.game.level.engine.entity.component.move.AutoMoveComponent;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
-import remove.tanks.game.level.engine.entity.component.points.PointsComponent;
 import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComponent;
 import remove.tanks.game.level.engine.entity.component.shoot.AmmoComponent;
 import remove.tanks.game.level.engine.entity.component.shoot.AutoShootComponent;
@@ -142,9 +141,6 @@ public enum EntityFamily {
     ).get()),
     BonusLootFamily(Family.all(
             PhysicsComponent.class, BonusLootComponent.class
-    ).get()),
-    PointsFamily(Family.all(
-            PhysicsComponent.class, PointsComponent.class
     ).get()),
     EnemiesFamily(Family.all(
             PhysicsComponent.class, EnemyComponent.class

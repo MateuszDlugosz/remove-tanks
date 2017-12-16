@@ -75,8 +75,12 @@
                 </spawnEntry>
             </spawnEntries>
         </component>
-        <component type="PointsComponent">
-            <points>30</points>
+        <component type="TriggerComponent">
+            <destroyEvents>
+                <event type="AddPointsEvent">
+                    <points>30</points>
+                </event>
+            </destroyEvents>
         </component>
         <component type="HighlightOnHitComponent" />
     </components>

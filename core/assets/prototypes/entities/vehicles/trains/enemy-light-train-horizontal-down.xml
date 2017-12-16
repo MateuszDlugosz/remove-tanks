@@ -126,8 +126,12 @@
             </spawnEntries>
         </component>
         <component type="BonusLootComponent" />
-        <component type="PointsComponent">
-            <points>20</points>
+        <component type="TriggerComponent">
+            <destroyEvents>
+                <event type="AddPointsEvent">
+                    <points>20</points>
+                </event>
+            </destroyEvents>
         </component>
         <component type="RandomSpawnComponent">
             <minSpawnFrequency>0.3</minSpawnFrequency>

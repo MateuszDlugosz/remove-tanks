@@ -180,8 +180,12 @@
             </spawnEntries>
         </component>
         <component type="BonusLootComponent" />
-        <component type="PointsComponent">
-            <points>25</points>
+        <component type="TriggerComponent">
+            <destroyEvents>
+                <event type="AddPointsEvent">
+                    <points>25</points>
+                </event>
+            </destroyEvents>
         </component>
         <component type="EnemyComponent" />
         <component type="HighlightOnHitComponent" />

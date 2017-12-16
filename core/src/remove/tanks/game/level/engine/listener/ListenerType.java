@@ -7,10 +7,8 @@ public enum ListenerType {
     SpawnCycleListener(100),
     SoundListener(200),
     EnemyDestroyListener(300),
-    PointsListener(400),
-    BonusLootListener(500),
-    BonusPickUpListener(600),
-    TriggerListener(700);
+    BonusLootListener(400),
+    TriggerListener(500);
 
     private final int priority;
 

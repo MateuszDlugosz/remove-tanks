@@ -21,7 +21,6 @@ public enum ComponentType {
     LifetimeComponent,
     AutoMoveComponent,
     PhysicsComponent,
-    PointsComponent,
     BomberLayerComponent,
     BombLayerComponent,
     BulletLayerComponent,
