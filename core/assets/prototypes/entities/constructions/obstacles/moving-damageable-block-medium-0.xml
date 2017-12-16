@@ -40,7 +40,6 @@
                             <width>36</width>
                             <height>36</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>ObstacleCategory</categoryBit>
                             <maskBit>ObstacleMask</maskBit>

@@ -13,7 +13,6 @@
                             <width>8</width>
                             <height>8</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>AllVehicleBlockadeCategory</categoryBit>
                             <maskBit>AllVehicleBlockadeMask</maskBit>

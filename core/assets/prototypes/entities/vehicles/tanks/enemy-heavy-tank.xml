@@ -31,7 +31,6 @@
                             <width>2</width>
                             <height>24</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>EnemyVehicleCategory</categoryBit>
                             <maskBit>EnemyVehicleMask</maskBit>
@@ -48,7 +47,6 @@
                             <width>2</width>
                             <height>24</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>EnemyVehicleCategory</categoryBit>
                             <maskBit>EnemyVehicleMask</maskBit>
@@ -65,7 +63,6 @@
                             <width>24</width>
                             <height>2</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>EnemyVehicleCategory</categoryBit>
                             <maskBit>EnemyVehicleMask</maskBit>
@@ -82,7 +79,6 @@
                             <width>24</width>
                             <height>2</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>EnemyVehicleCategory</categoryBit>
                             <maskBit>EnemyVehicleMask</maskBit>

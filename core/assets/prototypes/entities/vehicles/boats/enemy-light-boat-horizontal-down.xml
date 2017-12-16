@@ -31,7 +31,6 @@
                             <width>2</width>
                             <height>16</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>EnemyVehicleCategory</categoryBit>
                             <maskBit>EnemyVehicleMask</maskBit>
@@ -48,7 +47,6 @@
                             <width>2</width>
                             <height>16</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>EnemyVehicleCategory</categoryBit>
                             <maskBit>EnemyVehicleMask</maskBit>

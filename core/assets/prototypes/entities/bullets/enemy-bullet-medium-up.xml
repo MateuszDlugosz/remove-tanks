@@ -13,7 +13,6 @@
                         <shape type="CircleShape">
                             <radius>1</radius>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>EnemyBulletCategory</categoryBit>
                             <maskBit>EnemyBulletMask</maskBit>

@@ -38,7 +38,6 @@
                             <width>2</width>
                             <height>7</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>PlayerVehicleCategory</categoryBit>
                             <maskBit>PlayerVehicleMask</maskBit>
@@ -55,7 +54,6 @@
                             <width>2</width>
                             <height>7</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>PlayerVehicleCategory</categoryBit>
                             <maskBit>PlayerVehicleMask</maskBit>
@@ -72,7 +70,6 @@
                             <width>7</width>
                             <height>2</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>PlayerVehicleCategory</categoryBit>
                             <maskBit>PlayerVehicleMask</maskBit>
@@ -89,7 +86,6 @@
                             <width>7</width>
                             <height>2</height>
                         </shape>
-                        <isSensor>true</isSensor>
                         <filter>
                             <categoryBit>PlayerVehicleCategory</categoryBit>
                             <maskBit>PlayerVehicleMask</maskBit>
