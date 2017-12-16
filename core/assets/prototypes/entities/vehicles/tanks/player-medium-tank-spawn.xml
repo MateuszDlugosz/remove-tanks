@@ -54,7 +54,7 @@
         <component type="LifetimeComponent">
             <lifetime>0.7</lifetime>
         </component>
-        <component type="VehicleLayerComponent"></component>
+        <component type="VehicleLayerComponent" />
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>

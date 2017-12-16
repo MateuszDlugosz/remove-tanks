@@ -55,6 +55,6 @@
         <component type="LifetimeComponent">
             <lifetime>0.4</lifetime>
         </component>
-        <component type="ExplosionLayerComponent"></component>
+        <component type="ExplosionLayerComponent" />
     </components>
 </prototype>

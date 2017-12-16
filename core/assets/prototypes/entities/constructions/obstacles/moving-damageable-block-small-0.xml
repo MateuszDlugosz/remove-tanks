@@ -86,10 +86,10 @@
         <component type="SpeedComponent">
             <speed>1</speed>
         </component>
-        <component type="ObstacleLayerComponent"></component>
+        <component type="ObstacleLayerComponent" />
         <component type="DamageComponent">
             <damage>100</damage>
         </component>
-        <component type="AutoMoveComponent"></component>
+        <component type="AutoMoveComponent" />
     </components>
 </prototype>

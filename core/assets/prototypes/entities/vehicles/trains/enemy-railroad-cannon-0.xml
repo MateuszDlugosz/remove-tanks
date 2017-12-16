@@ -41,7 +41,7 @@
         <component type="DirectionComponent">
             <direction>Left</direction>
         </component>
-        <component type="ObstacleLayerComponent"></component>
-        <component type="BonusLootComponent"></component>
+        <component type="ObstacleLayerComponent" />
+        <component type="BonusLootComponent" />
     </components>
 </prototype>

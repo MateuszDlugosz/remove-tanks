@@ -176,7 +176,7 @@
         <component type="SpeedComponent">
             <speed>1</speed>
         </component>
-        <component type="VehicleLayerComponent"></component>
+        <component type="VehicleLayerComponent" />
         <component type="PlayerControlComponent">
             <shootDelay>0.1</shootDelay>
         </component>
@@ -186,7 +186,7 @@
                 <y>0</y>
             </position>
         </component>
-        <component type="AutoMoveComponent"></component>
+        <component type="AutoMoveComponent" />
         <component type="AmmoComponent">
             <currentLevel>1</currentLevel>
             <maxLevel>3</maxLevel>
@@ -216,7 +216,7 @@
                 </spawnEntry>
             </spawnEntries>
         </component>
-        <component type="PlayerComponent"></component>
-        <component type="HighlightOnHitComponent"></component>
+        <component type="PlayerComponent" />
+        <component type="HighlightOnHitComponent" />
     </components>
 </prototype>

@@ -38,7 +38,7 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="GroundLayerComponent"></component>
+        <component type="GroundLayerComponent" />
         <component type="SoundOnSpawnComponent">
             <sounds>
                 <sound>

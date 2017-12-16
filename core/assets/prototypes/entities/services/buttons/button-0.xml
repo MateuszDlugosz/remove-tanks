@@ -50,7 +50,7 @@
                 </spawnEntry>
             </spawnEntries>
         </component>
-        <component type="DestroyOnContactComponent"></component>
-        <component type="ObstacleLayerComponent"></component>
+        <component type="DestroyOnContactComponent" />
+        <component type="ObstacleLayerComponent" />
     </components>
 </prototype>

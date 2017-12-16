@@ -50,7 +50,7 @@
         <component type="DirectionComponent">
             <direction>Down</direction>
         </component>
-        <component type="GroundLayerComponent"></component>
+        <component type="GroundLayerComponent" />
         <component type="HealthComponent">
             <health>10</health>
             <maxHealth>10</maxHealth>
@@ -92,6 +92,6 @@
         <component type="PointsComponent">
             <points>50</points>
         </component>
-        <component type="HighlightOnHitComponent"></component>
+        <component type="HighlightOnHitComponent" />
     </components>
 </prototype>

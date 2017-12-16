@@ -43,7 +43,7 @@
         <component type="StateComponent">
             <state>Standing</state>
         </component>
-        <component type="GroundLayerComponent"></component>
+        <component type="GroundLayerComponent" />
         <component type="ChangeBehaviorComponent">
             <components>
                 <component type="SpeedModifierComponent">

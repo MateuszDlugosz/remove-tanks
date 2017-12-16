@@ -53,7 +53,7 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="GroundLayerComponent"></component>
+        <component type="GroundLayerComponent" />
         <component type="LifetimeComponent">
             <lifetime>0.8</lifetime>
         </component>

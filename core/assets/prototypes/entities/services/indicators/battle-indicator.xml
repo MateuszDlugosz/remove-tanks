@@ -53,8 +53,8 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="BonusLayerComponent"></component>
-        <component type="DestroyOnContactComponent"></component>
+        <component type="BonusLayerComponent" />
+        <component type="DestroyOnContactComponent" />
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>

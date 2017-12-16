@@ -22,6 +22,6 @@
                 </sensor>
             </sensors>
         </component>
-        <component type="PlayerRespawnComponent"></component>
+        <component type="PlayerRespawnComponent" />
     </components>
 </prototype>

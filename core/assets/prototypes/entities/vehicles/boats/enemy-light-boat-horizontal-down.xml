@@ -115,8 +115,8 @@
                 <direction>Right</direction>
             </availableDirections>
         </component>
-        <component type="VehicleLayerComponent"></component>
-        <component type="AutoMoveComponent"></component>
+        <component type="VehicleLayerComponent" />
+        <component type="AutoMoveComponent" />
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>
@@ -136,7 +136,7 @@
                 </spawnEntry>
             </spawnEntries>
         </component>
-        <component type="EnemyComponent"></component>
-        <component type="HighlightOnHitComponent"></component>
+        <component type="EnemyComponent" />
+        <component type="HighlightOnHitComponent" />
     </components>
 </prototype>

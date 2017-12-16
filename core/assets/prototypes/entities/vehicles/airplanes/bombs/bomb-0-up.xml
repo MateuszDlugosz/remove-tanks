@@ -38,14 +38,14 @@
         <component type="DirectionComponent">
             <direction>Up</direction>
         </component>
-        <component type="AutoMoveComponent"></component>
+        <component type="AutoMoveComponent" />
         <component type="SpeedComponent">
             <speed>-0.6</speed>
         </component>
         <component type="LifetimeComponent">
             <lifetime>0.6</lifetime>
         </component>
-        <component type="BombLayerComponent"></component>
+        <component type="BombLayerComponent" />
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>

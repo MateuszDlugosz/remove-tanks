@@ -37,14 +37,14 @@
         <component type="DirectionComponent">
             <direction>Down</direction>
         </component>
-        <component type="AutoMoveComponent"></component>
+        <component type="AutoMoveComponent" />
         <component type="SpeedComponent">
             <speed>1.2</speed>
         </component>
         <component type="LifetimeComponent">
             <lifetime>20</lifetime>
         </component>
-        <component type="BomberLayerComponent"></component>
+        <component type="BomberLayerComponent" />
         <component type="RandomSpawnComponent">
             <minSpawnFrequency>0.5</minSpawnFrequency>
             <maxSpawnFrequency>1.5</maxSpawnFrequency>

@@ -71,7 +71,7 @@
         <component type="SpeedComponent">
             <speed>1</speed>
         </component>
-        <component type="ObstacleLayerComponent"></component>
-        <component type="AutoMoveComponent"></component>
+        <component type="ObstacleLayerComponent" />
+        <component type="AutoMoveComponent" />
     </components>
 </prototype>

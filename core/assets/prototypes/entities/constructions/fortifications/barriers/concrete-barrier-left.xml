@@ -37,6 +37,6 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="ObstacleLayerComponent"></component>
+        <component type="ObstacleLayerComponent" />
     </components>
 </prototype>

@@ -37,7 +37,7 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="GroundLayerComponent"></component>
+        <component type="GroundLayerComponent" />
         <component type="HealthComponent">
             <health>8</health>
             <maxHealth>8</maxHealth>
@@ -49,6 +49,6 @@
                 </spawnEntry>
             </spawnEntries>
         </component>
-        <component type="HighlightOnHitComponent"></component>
+        <component type="HighlightOnHitComponent" />
     </components>
 </prototype>

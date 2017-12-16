@@ -155,8 +155,8 @@
                 <direction>Down</direction>
             </availableDirections>
         </component>
-        <component type="VehicleLayerComponent"></component>
-        <component type="AutoMoveComponent"></component>
+        <component type="VehicleLayerComponent" />
+        <component type="AutoMoveComponent" />
         <component type="AmmoComponent">
             <currentLevel>3</currentLevel>
             <maxLevel>3</maxLevel>
@@ -178,11 +178,11 @@
                 </spawnEntry>
             </spawnEntries>
         </component>
-        <component type="BonusLootComponent"></component>
+        <component type="BonusLootComponent" />
         <component type="PointsComponent">
             <points>100</points>
         </component>
-        <component type="EnemyComponent"></component>
-        <component type="HighlightOnHitComponent"></component>
+        <component type="EnemyComponent" />
+        <component type="HighlightOnHitComponent" />
     </components>
 </prototype>

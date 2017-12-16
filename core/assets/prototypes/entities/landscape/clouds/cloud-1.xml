@@ -37,13 +37,13 @@
         <component type="DirectionComponent">
             <direction>Left</direction>
         </component>
-        <component type="AutoMoveComponent"></component>
+        <component type="AutoMoveComponent" />
         <component type="SpeedComponent">
             <speed>1.1</speed>
         </component>
         <component type="LifetimeComponent">
             <lifetime>60</lifetime>
         </component>
-        <component type="CloudLayerComponent"></component>
+        <component type="CloudLayerComponent" />
     </components>
 </prototype>

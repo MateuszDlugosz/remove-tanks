@@ -26,8 +26,8 @@
         <component type="SpeedComponent">
             <speed>0.8</speed>
         </component>
-        <component type="VehicleLayerComponent"></component>
-        <component type="AutoMoveComponent"></component>
+        <component type="VehicleLayerComponent" />
+        <component type="AutoMoveComponent" />
         <component type="CameraTrackComponent">
             <position>
                 <x>0</x>

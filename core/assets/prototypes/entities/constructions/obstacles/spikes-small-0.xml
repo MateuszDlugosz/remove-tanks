@@ -40,7 +40,7 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="GroundLayerComponent"></component>
+        <component type="GroundLayerComponent" />
         <component type="DamageComponent">
             <damage>100</damage>
         </component>

@@ -89,6 +89,6 @@
         <component type="DirectionComponent">
             <direction>Up</direction>
         </component>
-        <component type="GroundLayerComponent"></component>
+        <component type="GroundLayerComponent" />
     </components>
 </prototype>

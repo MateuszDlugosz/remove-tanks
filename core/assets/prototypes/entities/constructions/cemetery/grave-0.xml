@@ -41,7 +41,7 @@
             <health>2</health>
             <maxHealth>2</maxHealth>
         </component>
-        <component type="ObstacleLayerComponent"></component>
+        <component type="ObstacleLayerComponent" />
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>
@@ -49,6 +49,6 @@
                 </spawnEntry>
             </spawnEntries>
         </component>
-        <component type="HighlightOnHitComponent"></component>
+        <component type="HighlightOnHitComponent" />
     </components>
 </prototype>
