@@ -70,10 +70,10 @@
                 <prototypeCode>PlayerMediumTankSpawn</prototypeCode>
                 <respawnTime>2</respawnTime>
             </system>
-            <system type="OperationDefeatSystem">
+            <system type="NoLifesDefeatSystem">
                 <delay>3</delay>
             </system>
-            <system type="OperationVictorySystem">
+            <system type="NoEnemiesVictorySystem">
                 <delay>3</delay>
             </system>
             <system type="LevelEndSystem">

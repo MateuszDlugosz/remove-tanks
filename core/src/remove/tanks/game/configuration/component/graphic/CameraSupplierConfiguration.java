@@ -8,7 +8,15 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.application.context.configuration.constant.ConfigurationKey;
 import remove.tanks.game.graphic.camera.Game2DCamera;
+import remove.tanks.game.graphic.camera.effect.CameraEffectFactory;
+import remove.tanks.game.graphic.camera.effect.CameraEffectPrototypeXmlLoader;
+import remove.tanks.game.graphic.camera.effect.RegistrableCameraEffectFactory;
+import remove.tanks.game.graphic.camera.effect.RegistrableCameraEffectPrototypeXmlLoader;
+import remove.tanks.game.graphic.camera.effect.shake.ShakeCameraEffectFactory;
+import remove.tanks.game.graphic.camera.effect.shake.ShakeCameraEffectPrototypeXmlLoader;
 import remove.tanks.game.utility.scale.Scale;
+
+import java.util.Random;
 
 /**
  * @author Mateusz Długosz
@@ -90,6 +98,32 @@ public final class CameraSupplierConfiguration {
             );
             Viewport viewport = new ScreenViewport(camera);
             return new Game2DCamera(camera, viewport);
+        }
+    }
+
+    @ComponentName("CameraEffectPrototypeXmlLoader")
+    public static final class CameraEffectPrototypeXmlLoaderSupplier extends ComponentSupplier<CameraEffectPrototypeXmlLoader> {
+        @Override
+        public CameraEffectPrototypeXmlLoader supplyComponent() {
+            return new CameraEffectPrototypeXmlLoader(
+                    new RegistrableCameraEffectPrototypeXmlLoader[] {
+                            new ShakeCameraEffectPrototypeXmlLoader()
+                    }
+            );
+        }
+    }
+
+    @ComponentName("CameraEffectFactory")
+    public static final class CameraEffectFactorySupplier extends ComponentSupplier<CameraEffectFactory> {
+        @Override
+        public CameraEffectFactory supplyComponent() {
+            return new CameraEffectFactory(
+                    new RegistrableCameraEffectFactory[] {
+                            new ShakeCameraEffectFactory(
+                                    getContext().getComponent("Random", Random.class)
+                            )
+                    }
+            );
         }
     }
 }

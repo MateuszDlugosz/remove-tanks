@@ -14,10 +14,7 @@ import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemFactory;
 import remove.tanks.game.level.engine.system.audio.MusicOnStartSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemFactory;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.camera.CameraTrackSystemFactory;
-import remove.tanks.game.level.engine.system.camera.CameraTrackSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.camera.CameraUpdateSystemFactory;
-import remove.tanks.game.level.engine.system.camera.CameraUpdateSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.camera.*;
 import remove.tanks.game.level.engine.system.control.PlayerControlSystemFactory;
 import remove.tanks.game.level.engine.system.control.PlayerControlSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.damage.DamageSystemFactory;
@@ -153,7 +150,8 @@ public final class EntitySystemSupplierConfiguration {
                             new LevelEndSystemFactory(),
                             new WeatherSystemFactory(
                                     getContext().getComponent("WeatherFactory", WeatherFactory.class)
-                            )
+                            ),
+                            new CameraEffectSystemFactory()
                     }
             );
         }
@@ -206,7 +204,8 @@ public final class EntitySystemSupplierConfiguration {
                             new LevelEndSystemPrototypeXmlLoader(),
                             new WeatherSystemPrototypeXmlLoader(
                                     getContext().getComponent("WeatherPrototypeXmlLoader", WeatherPrototypeXmlLoader.class)
-                            )
+                            ),
+                            new CameraEffectSystemPrototypeXmlLoader()
                     }
             );
         }

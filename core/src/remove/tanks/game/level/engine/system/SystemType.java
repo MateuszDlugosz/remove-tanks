@@ -8,6 +8,7 @@ public enum SystemType {
     WorldUpdateSystem(200),
     PlayerControlSystem(300),
     CameraTrackSystem(400),
+    CameraEffectSystem(450),
     CameraUpdateSystem(500),
     RandomDirectionSystem(600),
     RandomSpawnSystem(700),

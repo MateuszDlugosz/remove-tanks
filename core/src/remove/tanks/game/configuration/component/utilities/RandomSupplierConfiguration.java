@@ -10,6 +10,14 @@ import java.util.Random;
  * @author Mateusz Długosz
  */
 public final class RandomSupplierConfiguration {
+    @ComponentName("Random")
+    public static final class RandomSupplier extends ComponentSupplier<Random> {
+        @Override
+        public Random supplyComponent() {
+            return new Random();
+        }
+    }
+
     @ComponentName("RandomNumberGenerator")
     public static final class RandomNumberGeneratorSupplier extends ComponentSupplier<RandomNumberGenerator> {
         @Override
