@@ -70,7 +70,7 @@ public final class LevelController {
     }
 
     @Subscribe
-    public <T extends Event> void handleEvent(T event) {
+    public void handleEvent(Object event) {
         if (event instanceof SpawnEntityEvent) {
             spawnEntityEvents.add(event);
             return;
