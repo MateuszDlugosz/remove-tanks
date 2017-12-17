@@ -37,7 +37,7 @@ public final class ParticleEffectViewFactory implements RegistrableViewFactory<P
     }
 
     private ParticleEffect createParticleEffect(ParticleEffectViewPrototype prototype, AssetStorage assetStorage, Scale scale) {
-        return particleEffectFactory.createParticleEffect(prototype.getParticleEffectPrototype(), assetStorage);
+        return particleEffectFactory.createParticleEffect(prototype.getParticleEffectPrototype(), assetStorage, scale);
     }
 
     @Override

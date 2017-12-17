@@ -3,6 +3,7 @@ package remove.tanks.game.configuration.component.asset;
 import com.badlogic.gdx.assets.loaders.AssetLoader;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
@@ -16,6 +17,8 @@ import remove.tanks.game.graphic.effect.Effect;
 import remove.tanks.game.graphic.effect.EffectAssetLoader;
 import remove.tanks.game.graphic.effect.EffectFactory;
 import remove.tanks.game.graphic.effect.EffectPrototypeXmlLoader;
+import remove.tanks.game.graphic.particle.ParticleFile;
+import remove.tanks.game.graphic.particle.ParticleFileAssetLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -101,11 +104,20 @@ public final class AssetSuppliersConfiguration {
         @Override
         public AssetManagerFactory supplyComponent() {
             Map<Class<?>, AssetLoader> assetLoaders = new HashMap<>();
-            assetLoaders.put(Effect.class, new EffectAssetLoader(
-                    new InternalFileHandleResolver(),
-                    getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class),
-                    getContext().getComponent("EffectFactory", EffectFactory.class)
-            ));
+            assetLoaders.put(
+                    Effect.class,
+                    new EffectAssetLoader(
+                            new InternalFileHandleResolver(),
+                            getContext().getComponent("EffectPrototypeXmlLoader", EffectPrototypeXmlLoader.class),
+                            getContext().getComponent("EffectFactory", EffectFactory.class)
+                    )
+            );
+            assetLoaders.put(
+                    ParticleFile.class,
+                    new ParticleFileAssetLoader(
+                            new InternalFileHandleResolver()
+                    )
+            );
             return new AssetManagerFactory(assetLoaders);
         }
     }

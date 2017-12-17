@@ -11,7 +11,9 @@ public final class ParticleEffectViewRenderer implements RegistrableViewRenderer
     @Override
     public void render(ParticleEffectView view, SpriteBatch spriteBatch, Position position, float angle) {
         view.getParticleEffect().setPosition(position.getX(), position.getY());
+        spriteBatch.begin();
         view.getParticleEffect().draw(spriteBatch);
+        spriteBatch.end();
     }
 
     @Override
