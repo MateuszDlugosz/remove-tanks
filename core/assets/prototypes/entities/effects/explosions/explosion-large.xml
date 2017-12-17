@@ -63,5 +63,15 @@
                 </sound>
             </sounds>
         </component>
+        <component type="TriggerComponent">
+            <createEvents>
+                <event type="AddCameraEffectEvent">
+                    <cameraEffect type="ShakeCameraEffect">
+                        <time>0.3</time>
+                        <power>0.1</power>
+                    </cameraEffect>
+                </event>
+            </createEvents>
+        </component>
     </components>
 </prototype>

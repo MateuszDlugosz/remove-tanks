@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <prototype>
     <properties>
-        <property name="level.resource.tiled-map.filename">maps/operations/early-morning/level-00.tmx</property>
+        <property name="level.resource.tiled-map.filename">maps/campaigns/early-morning/level-00.tmx</property>
         <property name="level.resource.entity-prototype-repository.filename">prototypes/repositories/main-repository.xml</property>
         <property name="level.resource.theme.filename">themes/sepia-theme.xml</property>
         <property name="level.enemies">3</property>
@@ -16,6 +16,7 @@
             <system type="WorldUpdateSystem" />
             <system type="PlayerControlSystem" />
             <system type="CameraTrackSystem" />
+            <system type="CameraEffectSystem" />
             <system type="CameraUpdateSystem" />
             <system type="RandomDirectionSystem" />
             <system type="RandomSpawnSystem" />

@@ -34,7 +34,7 @@ public final class CameraEffectSystem extends EntitySystem {
         effectsToRemove.clear();
     }
 
-    public void addEffect(CameraEffect effect) {
+    public void addCameraEffect(CameraEffect effect) {
         effects.add(effect);
     }
 }

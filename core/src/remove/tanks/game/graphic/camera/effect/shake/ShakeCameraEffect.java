@@ -31,8 +31,10 @@ public final class ShakeCameraEffect implements CameraEffect {
     public void update(float delta, Game2DCamera camera) {
         if (!timer.isCompleted()) {
             currentPower = computeCurrentPower();
-            camera.getCamera().position.x = randCameraPosition();
-            camera.getCamera().position.y = randCameraPosition();
+            camera.getCamera().translate(
+                    randCameraPosition(),
+                    randCameraPosition()
+            );
             timer.update(delta);
         }
     }

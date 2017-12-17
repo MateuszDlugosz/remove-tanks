@@ -2,6 +2,8 @@ package remove.tanks.game.configuration.component.level;
 
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
+import remove.tanks.game.graphic.camera.effect.CameraEffectFactory;
+import remove.tanks.game.graphic.camera.effect.CameraEffectPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.EntityDestroyer;
 import remove.tanks.game.level.engine.entity.EntityFactory;
 import remove.tanks.game.level.engine.entity.EntitySpawner;
@@ -9,6 +11,9 @@ import remove.tanks.game.level.event.*;
 import remove.tanks.game.level.event.ammo.AmmoUpEventExecutor;
 import remove.tanks.game.level.event.ammo.AmmoUpEventFactory;
 import remove.tanks.game.level.event.ammo.AmmoUpEventPrototypeXmlLoader;
+import remove.tanks.game.level.event.camera.AddCameraEffectEventExecutor;
+import remove.tanks.game.level.event.camera.AddCameraEffectEventFactory;
+import remove.tanks.game.level.event.camera.AddCameraEffectEventPrototypeXmlLoader;
 import remove.tanks.game.level.event.destroy.*;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventExecutor;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventFactory;
@@ -51,7 +56,8 @@ public final class EventSupplierConfiguration {
                             new DestroyEntityByIdEventExecutor(),
                             new DestroyAllEnemiesEventExecutor(),
                             new AmmoUpEventExecutor(),
-                            new SpawnBomberEventExecutor()
+                            new SpawnBomberEventExecutor(),
+                            new AddCameraEffectEventExecutor()
                     }
             );
         }
@@ -72,7 +78,10 @@ public final class EventSupplierConfiguration {
                             new DestroyEntityByIdEventFactory(),
                             new DestroyAllEnemiesEventFactory(),
                             new AmmoUpEventFactory(),
-                            new SpawnBomberEventFactory()
+                            new SpawnBomberEventFactory(),
+                            new AddCameraEffectEventFactory(
+                                    getContext().getComponent("CameraEffectFactory", CameraEffectFactory.class)
+                            )
                     }
             );
         }
@@ -93,7 +102,10 @@ public final class EventSupplierConfiguration {
                             new DestroyEntityByIdEventPrototypeXmlLoader(),
                             new DestroyAllEnemiesEventPrototypeXmlLoader(),
                             new AmmoUpEventPrototypeXmlLoader(),
-                            new SpawnBomberEventPrototypeXmlLoader()
+                            new SpawnBomberEventPrototypeXmlLoader(),
+                            new AddCameraEffectEventPrototypeXmlLoader(
+                                    getContext().getComponent("CameraEffectPrototypeXmlLoader", CameraEffectPrototypeXmlLoader.class)
+                            )
                     }
             );
         }

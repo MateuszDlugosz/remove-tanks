@@ -10,6 +10,9 @@ import java.util.Map;
  * @author Mateusz Długosz
  */
 public final class CameraEffectPrototypeXmlLoader {
+    public static final String CAMERA_EFFECT_ELEMENT = "cameraEffect";
+    public static final String CAMERA_EFFECTS_ELEMENT = "cameraEffects";
+
     private static final String TYPE_ATTRIBUTE = "type";
 
     private final Map<CameraEffectType, RegistrableCameraEffectPrototypeXmlLoader> loaders
