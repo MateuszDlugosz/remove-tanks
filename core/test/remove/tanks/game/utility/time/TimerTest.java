@@ -14,7 +14,7 @@ public class TimerTest {
         Timer timer = new Timer(10f);
         timer.update(10f);
 
-        assertTrue(timer.isComplete());
+        assertTrue(timer.isCompleted());
     }
 
     @Test
@@ -23,6 +23,6 @@ public class TimerTest {
         timer.update(1f);
         timer.update(5f);
 
-        assertFalse(timer.isComplete());
+        assertFalse(timer.isCompleted());
     }
 }

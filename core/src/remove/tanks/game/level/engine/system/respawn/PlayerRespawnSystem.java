@@ -42,7 +42,7 @@ public final class PlayerRespawnSystem extends EntitySystem {
     public void update(float deltaTime) {
         if (!playerExists()) {
             if (isAvailableLife() || freeRespawn) {
-                if (respawnTimer.isComplete()) {
+                if (respawnTimer.isCompleted()) {
                     respawnPlayer();
                     respawnTimer.reset();
                 } else {

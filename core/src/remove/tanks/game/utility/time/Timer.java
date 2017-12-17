@@ -20,7 +20,7 @@ public final class Timer {
         this.time = 0;
     }
 
-    public boolean isComplete() {
+    public boolean isCompleted() {
         return !(time < 0) && time >= completionTime;
     }
 

@@ -22,7 +22,7 @@ public final class RandomShootSystem extends IteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         RandomShootComponent rsc = RandomShootComponent.MAPPER.get(entity);
-        if (rsc.getTimer().isComplete()) {
+        if (rsc.getTimer().isCompleted()) {
             entity.add(new AutoShootComponent());
             entity.add(new RandomShootComponent(
                     rsc.getMinShootFrequency(),

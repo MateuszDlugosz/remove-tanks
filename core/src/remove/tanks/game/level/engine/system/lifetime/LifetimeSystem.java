@@ -16,7 +16,7 @@ public final class LifetimeSystem extends IteratingSystem {
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        if (LifetimeComponent.MAPPER.get(entity).getTimer().isComplete())
+        if (LifetimeComponent.MAPPER.get(entity).getTimer().isCompleted())
             entity.add(new DestroyComponent());
         else LifetimeComponent.MAPPER.get(entity).getTimer().update(deltaTime);
     }

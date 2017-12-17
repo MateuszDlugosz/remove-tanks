@@ -33,7 +33,7 @@ public final class LevelPresenter implements Disposable {
     }
 
     public void update(float delta, EventBus eventBus) {
-        if (timer.isComplete()) {
+        if (timer.isCompleted()) {
             currentLevelIndex = getRandomIndex();
             timer.reset();
         } else {

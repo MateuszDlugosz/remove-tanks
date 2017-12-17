@@ -33,7 +33,7 @@ public final class NoLifesDefeatSystem extends EntitySystem {
     public void update(float deltaTime) {
         if (getEngine().getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily()).size() < 1) {
             if (properties.getInt(LevelProperty.LevelLifes.getName()) == 0) {
-                if (timer.isComplete()) {
+                if (timer.isCompleted()) {
                     eventBus.post(new ChangeLevelStateEvent(LevelState.Defeat));
                     getEngine().removeSystem(this);
                 } else {

@@ -44,7 +44,7 @@ public final class PlayerControlSystem extends IteratingSystem {
         pcc.getTimer().update(deltaTime);
 
         if (inputMapper.isKeyPressed(InputMapper.Key.Shoot)) {
-            if (pcc.getTimer().isComplete()) {
+            if (pcc.getTimer().isCompleted()) {
                 entity.add(new AutoShootComponent());
                 pcc.getTimer().reset();
             }

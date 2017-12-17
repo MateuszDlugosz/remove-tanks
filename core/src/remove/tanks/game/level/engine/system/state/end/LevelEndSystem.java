@@ -24,7 +24,7 @@ public final class LevelEndSystem extends EntitySystem {
         if (properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.Victory.getName())
                 || properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.Defeat.getName()))
         {
-            if (timer.isComplete()) {
+            if (timer.isCompleted()) {
                 properties.putString(LevelProperty.LevelState.getName(), LevelState.End.getName());
                 getEngine().removeSystem(this);
             } else {

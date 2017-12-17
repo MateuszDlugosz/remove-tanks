@@ -56,7 +56,7 @@ public final class AutoSpawnerSystem extends EntitySystem {
     @Override
     public void update(float deltaTime) {
         activeSpawners.values().forEach(s -> {
-            if (s.getTimer().isComplete()) {
+            if (s.getTimer().isCompleted()) {
                 if (spawnEntity(s)) {
                     s.getCounter().update();
                     if (s.getCounter().isComplete()) {

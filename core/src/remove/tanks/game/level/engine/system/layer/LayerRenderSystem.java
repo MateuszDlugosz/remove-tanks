@@ -47,7 +47,7 @@ public abstract class LayerRenderSystem extends IteratingSystem {
                     viewRenderer.render(v, spriteBatch, pc.getPosition(), pc.getBody().getAngle());
                     highlightEffect.end(spriteBatch);
                     hc.getTimer().update(deltaTime);
-                    if (hc.getTimer().isComplete()) {
+                    if (hc.getTimer().isCompleted()) {
                         entity.remove(HighlightComponent.class);
                     }
                 } else {

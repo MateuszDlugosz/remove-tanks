@@ -52,9 +52,9 @@ public final class LightningWeatherEffect implements WeatherEffect {
 
     @Override
     public void update(float delta) {
-        if (frequencyTimer.isComplete()) {
+        if (frequencyTimer.isCompleted()) {
             clearScreen();
-            if (durationTimer.isComplete()) {
+            if (durationTimer.isCompleted()) {
                 durationTimer = createTimer(minDuration, maxDuration);
                 frequencyTimer = createTimer(minFrequency, maxFrequency);
                 eventBus.post(new PlaySoundEvent(sound));

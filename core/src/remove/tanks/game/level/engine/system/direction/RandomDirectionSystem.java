@@ -25,7 +25,7 @@ public final class RandomDirectionSystem extends IteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         RandomDirectionComponent rdc = RandomDirectionComponent.MAPPER.get(entity);
-        if (rdc.getTimer().isComplete()) {
+        if (rdc.getTimer().isCompleted()) {
             entity.add(new DirectionComponent(getRandomDirection(rdc.getAvailableDirections())));
             entity.add(new RandomDirectionComponent(
                     rdc.getChangeDirectionMinFrequency(),

@@ -35,7 +35,7 @@ public final class RandomSpawnSystem extends IteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         RandomSpawnComponent rsc = RandomSpawnComponent.MAPPER.get(entity);
-        if (rsc.getTimer().isComplete()) {
+        if (rsc.getTimer().isCompleted()) {
             SpawnEntry spawnEntry = rsc.getSpawnEntries().get(
                     randomNumberGenerator.getRandomInt(0, rsc.getSpawnEntries().size()-1)
             );

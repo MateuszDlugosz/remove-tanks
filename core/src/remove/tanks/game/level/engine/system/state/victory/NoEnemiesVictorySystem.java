@@ -36,7 +36,7 @@ public final class NoEnemiesVictorySystem extends EntitySystem {
     public void update(float deltaTime) {
         if (getEngine().getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily()).size() > 0) {
             if (properties.getInt(LevelProperty.LevelEnemies.getName()) == 0) {
-                if (timer.isComplete()) {
+                if (timer.isCompleted()) {
                     eventBus.post(new ChangeLevelStateEvent(LevelState.Victory));
                     Optional.ofNullable(getEngine().getSystem(PlayerRespawnSystem.class))
                             .ifPresent(s -> getEngine().removeSystem(s));
