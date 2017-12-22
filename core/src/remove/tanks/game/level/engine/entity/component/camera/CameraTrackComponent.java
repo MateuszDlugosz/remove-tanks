@@ -12,12 +12,18 @@ public final class CameraTrackComponent implements Component {
             = ComponentMapper.getFor(CameraTrackComponent.class);
 
     private final Position position;
+    private final int priority;
 
-    public CameraTrackComponent(Position position) {
+    public CameraTrackComponent(Position position, int priority) {
         this.position = position;
+        this.priority = priority;
     }
 
     public Position getPosition() {
         return position;
+    }
+
+    public int getPriority() {
+        return priority;
     }
 }
