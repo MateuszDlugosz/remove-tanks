@@ -56,7 +56,6 @@ public final class HudStageFactory {
         Table table = new Table();
         table.setFillParent(true);
         table.top();
-        table.setDebug(true);
         return table;
     }
 
