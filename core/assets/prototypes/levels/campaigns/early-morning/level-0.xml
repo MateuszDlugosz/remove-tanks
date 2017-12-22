@@ -43,7 +43,34 @@
             <system type="DestroyOnContactSystem" />
             <system type="DestroySystem" />
             <system type="WorldDebugRenderSystem" />
-            <system type="HudRenderSystem" />
+            <system type="HudRenderSystem">
+                <stage>
+                    <widgets>
+                        <widget type="PropertyPresenterWidget">
+                            <titleEntry>GameLevelHudLife</titleEntry>
+                            <property>LevelLifes</property>
+                        </widget>
+                        <widget type="PropertyPresenterWidget">
+                            <titleEntry>GameLevelHudEnemies</titleEntry>
+                            <property>LevelEnemies</property>
+                        </widget>
+                        <widget type="PropertyPresenterWidget">
+                            <titleEntry>GameLevelHudPoints</titleEntry>
+                            <property>LevelPoints</property>
+                        </widget>
+                        <widget type="PropertyPresenterWidget">
+                            <titleEntry>GameLevelHudPointsMultiplier</titleEntry>
+                            <property>LevelPointsMultiplier</property>
+                        </widget>
+                    </widgets>
+                    <stateBar>
+                        <displayableStates>
+                            <displayableState>Defeat</displayableState>
+                            <displayableState>Victory</displayableState>
+                        </displayableStates>
+                    </stateBar>
+                </stage>
+            </system>
             <system type="AutoSpawnerSystem">
                 <spawners>
                     <spawner id="Alpha">

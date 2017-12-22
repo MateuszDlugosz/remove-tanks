@@ -5,8 +5,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.utility.scale.Scale;
 
-import java.util.Arrays;
-
 /**
  * @author Mateusz Długosz
  */

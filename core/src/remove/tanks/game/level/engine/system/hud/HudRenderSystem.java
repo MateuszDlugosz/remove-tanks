@@ -3,7 +3,7 @@ package remove.tanks.game.level.engine.system.hud;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import remove.tanks.game.level.engine.system.hud.stages.HudStage;
-import remove.tanks.game.utility.properties.Properties;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
@@ -11,23 +11,23 @@ import remove.tanks.game.utility.properties.Properties;
 public final class HudRenderSystem extends EntitySystem {
     private final HudStage hudStage;
     private final SpriteBatch spriteBatch;
-    private final Properties properties;
+    private final ResourceRegistry resourceRegistry;
 
     public HudRenderSystem(
             int priority,
             HudStage hudStage,
             SpriteBatch spriteBatch,
-            Properties properties
+            ResourceRegistry resourceRegistry
     ) {
         super(priority);
         this.hudStage = hudStage;
         this.spriteBatch = spriteBatch;
-        this.properties = properties;
+        this.resourceRegistry =resourceRegistry;
     }
 
     @Override
     public void update(float deltaTime) {
-        hudStage.updateLabelValues(properties);
+        hudStage.update(deltaTime, resourceRegistry);
         hudStage.getStage().getCamera().update();
         spriteBatch.setProjectionMatrix(hudStage.getStage().getCamera().combined);
         hudStage.getStage().act(deltaTime);

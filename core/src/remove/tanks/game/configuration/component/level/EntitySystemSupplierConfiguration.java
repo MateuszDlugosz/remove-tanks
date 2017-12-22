@@ -33,6 +33,8 @@ import remove.tanks.game.level.engine.system.health.HealthSystemFactory;
 import remove.tanks.game.level.engine.system.health.HealthSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.HudRenderSystemFactory;
 import remove.tanks.game.level.engine.system.hud.HudRenderSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.HudStageFactory;
+import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.layer.*;
 import remove.tanks.game.level.engine.system.lifetime.LifetimeSystemFactory;
 import remove.tanks.game.level.engine.system.lifetime.LifetimeSystemPrototypeXmlLoader;
@@ -94,7 +96,9 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
                             new HealthSystemFactory(),
-                            new HudRenderSystemFactory(),
+                            new HudRenderSystemFactory(
+                                    getContext().getComponent("HudStageFactory", HudStageFactory.class)
+                            ),
                             new PlayerControlSystemFactory(),
                             new LifetimeSystemFactory(),
                             new TiledMapRenderSystemFactory(),
@@ -173,7 +177,9 @@ public final class EntitySystemSupplierConfiguration {
                             new DestroySystemPrototypeXmlLoader(),
                             new RandomDirectionSystemPrototypeXmlLoader(),
                             new HealthSystemPrototypeXmlLoader(),
-                            new HudRenderSystemPrototypeXmlLoader(),
+                            new HudRenderSystemPrototypeXmlLoader(
+                                    getContext().getComponent("HudStagePrototypeXmlLoader", HudStagePrototypeXmlLoader.class)
+                            ),
                             new PlayerControlSystemPrototypeXmlLoader(),
                             new LifetimeSystemPrototypeXmlLoader(),
                             new TiledMapRenderSystemPrototypeXmlLoader(),

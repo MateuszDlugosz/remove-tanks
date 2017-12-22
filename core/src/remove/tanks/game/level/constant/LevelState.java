@@ -4,10 +4,10 @@ package remove.tanks.game.level.constant;
  * @author Mateusz Długosz
  */
 public enum LevelState {
-    Playing("playing"),
-    Victory("victory"),
-    Defeat("defeat"),
-    End("end");
+    Playing("Playing"),
+    Victory("Victory"),
+    Defeat("Defeat"),
+    End("End");
 
     private final String name;
 

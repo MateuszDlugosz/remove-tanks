@@ -18,9 +18,9 @@ public enum LevelProperty {
             "entity-prototype-repository-filename"),
     LevelEnemies("level.enemies", "0"),
     LevelPoints("level.points", "0"),
-    LevelPointsMultiplier("level.points.multiplier", "1"),
+    LevelPointsMultiplier("level.points-multiplier", "1"),
     LevelLifes("level.lifes", "3"),
-    LevelState("level.state", "none");
+    LevelState("level.state", "Playing");
 
     private final String name;
     private final String defaultValue;

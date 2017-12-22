@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <translation id="Polski">
     <entry key="game.level.hud.life">Życia</entry>
-    <entry key="game.level.hud.points">Punkty (x%s)</entry>
+    <entry key="game.level.hud.points">Punkty</entry>
+    <entry key="game.level.hud.points-multiplier">Mnożnik</entry>
     <entry key="game.level.hud.enemies">Wrogowie</entry>
-    <entry key="game.level.status.victory">Zwycięstwo</entry>
-    <entry key="game.level.status.defeat">Porażka</entry>
+    <entry key="game.level.state.victory">Zwycięstwo</entry>
+    <entry key="game.level.state.defeat">Porażka</entry>
+    <entry key="game.level.state.playing">Rozgrywany</entry>
+    <entry key="game.level.state.end">Zakończony</entry>
     <entry key="game.campaign.early-morning">Wczesny Ranek</entry>
     <entry key="game.mode.campaign">Kampania</entry>
     <entry key="game.screen.main.menu.button.start">Start</entry>

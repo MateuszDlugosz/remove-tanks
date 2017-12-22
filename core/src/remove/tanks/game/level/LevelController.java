@@ -2,10 +2,13 @@ package remove.tanks.game.level;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import remove.tanks.game.level.event.Event;
+import remove.tanks.game.level.constant.LevelProperty;
+import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.constant.LevelState;
 import remove.tanks.game.level.event.EventExecutor;
 import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
 import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
+import remove.tanks.game.utility.properties.Properties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,5 +87,10 @@ public final class LevelController {
             return;
         }
         externalEvents.add(event);
+    }
+
+    public boolean isEnded() {
+        return level.getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
+                .getString(LevelProperty.LevelState.getName()).equals(LevelState.End.getName());
     }
 }

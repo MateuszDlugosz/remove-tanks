@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.google.common.eventbus.EventBus;
@@ -13,12 +12,8 @@ import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.LevelController;
 import remove.tanks.game.level.LevelControllerFactory;
-import remove.tanks.game.level.constant.LevelProperty;
 import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.constant.LevelState;
 import remove.tanks.game.level.input.InputMapper;
-import remove.tanks.game.locale.Locale;
-import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
 import remove.tanks.game.mode.GameMode;
 import remove.tanks.game.utility.properties.Properties;
 
@@ -31,10 +26,6 @@ public final class LevelScreen extends GameScreen {
     private final EventBus eventBus;
     private final GameMode gameMode;
     private final int currentLevelIndex;
-    private final Locale locale;
-
-    private String levelStatus;
-    private Label levelStatusLabel;
 
     private Stage stage;
     private Window window;
@@ -59,11 +50,6 @@ public final class LevelScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.gameMode = gameMode;
         this.currentLevelIndex = currentLevelIndex;
-        this.locale = gameApplication.getContext()
-                .getComponent("Locale", Locale.class);
-
-        this.levelStatus = "";
-        this.levelStatusLabel = createLevelStateLabel();
 
         this.window = createWindow();
         initStage();
@@ -76,7 +62,6 @@ public final class LevelScreen extends GameScreen {
 
     private void initStage() {
         stage.addActor(window);
-        window.add(levelStatusLabel);
     }
 
     private Window createWindow() {
@@ -86,30 +71,11 @@ public final class LevelScreen extends GameScreen {
         return window;
     }
 
-    private Label createLevelStateLabel() {
-        return new Label(levelStatus, skin);
-    }
-
     @Override
     public void render(float delta) {
         processInput();
         levelController.update(delta, eventBus);
-        if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelState.getName()).equals(LevelState.Defeat.getName()))
-        {
-                levelStatusLabel.setText(locale.getTranslation().getEntry(
-                        TranslationEntryKey.GameLevelStatusDefeat.getName()
-                ).toUpperCase());
-        } else if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelState.getName()).equals(LevelState.Victory.getName()))
-        {
-                levelStatusLabel.setText(locale.getTranslation().getEntry(
-                        TranslationEntryKey.GameLevelStatusVictory.getName()
-                ).toUpperCase());
-        }
-        if (levelController.getLevel().getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelState.getName()).equals(LevelState.End.getName()))
-        {
+        if (levelController.isEnded()) {
             switchToSummaryScreen();
         }
         super.render(delta);
