@@ -11,7 +11,7 @@ import remove.tanks.game.application.context.configuration.ConfigurationXmlLoade
 
 import java.util.logging.LogManager;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Mateusz Długosz

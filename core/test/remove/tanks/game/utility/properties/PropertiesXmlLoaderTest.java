@@ -6,7 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import remove.tanks.game.LibGDXTest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Mateusz Długosz

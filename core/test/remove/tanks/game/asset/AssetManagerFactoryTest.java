@@ -11,7 +11,7 @@ import remove.tanks.game.LibGDXTest;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Mateusz Długosz

@@ -165,6 +165,7 @@
 
         <prototype code="FenceWoodenSlope0">prototypes/entities/constructions/fences/fence-wooden-slope-0.xml</prototype>
         <prototype code="FenceBarrier0">prototypes/entities/constructions/fences/fence-barrier-0.xml</prototype>
+        <prototype code="FenceBarrier0Opened">prototypes/entities/constructions/fences/fence-barrier-0-opened.xml</prototype>
 
         <prototype code="TelegraphicSlope0">prototypes/entities/constructions/electricity/telegraphic-slope-0.xml</prototype>
         <prototype code="TelegraphicSlope1">prototypes/entities/constructions/electricity/telegraphic-slope-1.xml</prototype>

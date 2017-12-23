@@ -2,8 +2,6 @@ package remove.tanks.game.utility.properties;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author Mateusz Długosz
  */
