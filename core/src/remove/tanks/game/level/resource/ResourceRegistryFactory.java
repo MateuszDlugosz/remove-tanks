@@ -26,6 +26,7 @@ public final class ResourceRegistryFactory {
         return registry;
     }
 
+    @SuppressWarnings("unchecked")
     private void createExternalResources(ResourceRegistry registry, Map<String, Object> externalObjects) {
         externalObjects.forEach((k, v) -> {
             if (!externalFactories.containsKey(k)) {

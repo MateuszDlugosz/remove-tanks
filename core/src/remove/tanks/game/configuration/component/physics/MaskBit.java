@@ -22,7 +22,7 @@ public enum MaskBit {
             CategoryBit.EnemyVehicleCategory.getBit() |
                     CategoryBit.ObstacleCategory.getBit()
     )),
-    PlayerVehicleBlockadeMask((short) (
+    PlayerVehicleBlockadeMask((
             CategoryBit.PlayerVehicleCategory.getBit()
     )),
     EnemyVehicleMask((short) (
@@ -38,7 +38,7 @@ public enum MaskBit {
             CategoryBit.ObstacleCategory.getBit() |
                     CategoryBit.PlayerVehicleCategory.getBit()
     )),
-    EnemyVehicleBlockadeMask((short) (
+    EnemyVehicleBlockadeMask((
             CategoryBit.EnemyVehicleCategory.getBit()
     )),
     NeutralBulletMask((short) (

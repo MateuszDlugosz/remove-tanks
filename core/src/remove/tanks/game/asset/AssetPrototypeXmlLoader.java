@@ -42,7 +42,7 @@ public final class AssetPrototypeXmlLoader {
                     )
             );
         } catch (Exception e) {
-            throw new AssetXmlLoadException(element, e);
+            throw new AssetPrototypeXmlLoadException(element, e);
         }
     }
 

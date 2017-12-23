@@ -16,16 +16,12 @@ public final class EventExecutor {
         Arrays.stream(executors).forEach(e -> this.executors.put(e.getExecutorType(), e));
     }
 
-    public List<Object> executeEvents(List<Object> events, Level level) {
-        List<Object> deadEvents = new ArrayList<>();
+    public void executeEvents(List<Object> events, Level level) {
         events.forEach(e -> {
             if (executors.containsKey(e.getClass())) {
                 executors.get(e.getClass()).executeEvent(e, level);
-            } else {
-                deadEvents.add(e);
             }
         });
-        return deadEvents;
     }
 
     public Set<Class<? extends Event>> getSupportedEventClasses() {

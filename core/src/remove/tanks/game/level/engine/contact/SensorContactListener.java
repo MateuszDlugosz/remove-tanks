@@ -25,10 +25,10 @@ public final class SensorContactListener implements ContactListener {
         Fixture fixtureA = contact.getFixtureA();
         Fixture fixtureB = contact.getFixtureB();
         if (fixtureA.getUserData() instanceof Sensor && fixtureB.getUserData() instanceof Entity) {
-            ((Sensor) fixtureA.getUserData()).endContact((Entity) fixtureB.getUserData());
+            ((Sensor) fixtureA.getUserData()).endContact(fixtureB.getUserData());
         }
         if (fixtureB.getUserData() instanceof Sensor && fixtureA.getUserData() instanceof Entity) {
-            ((Sensor) fixtureB.getUserData()).endContact((Entity) fixtureA.getUserData());
+            ((Sensor) fixtureB.getUserData()).endContact(fixtureA.getUserData());
         }
     }
 

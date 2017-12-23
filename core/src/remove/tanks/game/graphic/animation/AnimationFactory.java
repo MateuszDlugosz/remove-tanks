@@ -6,9 +6,7 @@ import remove.tanks.game.utility.scale.Scale;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz
@@ -20,12 +18,6 @@ public final class AnimationFactory {
 
     public AnimationFactory(RegistrableAnimationFactory[] factories) {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
-    }
-
-    public List<Animation> createAnimations(List<AnimationPrototype> prototypes, AssetStorage storage, Scale scale) {
-        return prototypes.stream()
-                .map(p -> createAnimation(p, storage, scale))
-                .collect(Collectors.toList());
     }
 
     public Animation createAnimation(AnimationPrototype prototype, AssetStorage storage, Scale scale) {
