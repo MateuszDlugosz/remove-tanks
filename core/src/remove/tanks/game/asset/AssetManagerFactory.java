@@ -16,8 +16,12 @@ public final class AssetManagerFactory {
     }
 
     public AssetManager createAssetManager() {
-        AssetManager assetManager = new AssetManager();
-        assetLoaders.forEach(assetManager::setLoader);
-        return assetManager;
+        try {
+            AssetManager assetManager = new AssetManager();
+            assetLoaders.forEach(assetManager::setLoader);
+            return assetManager;
+        } catch (Exception e) {
+            throw new AssetManagerCreateException(e);
+        }
     }
 }

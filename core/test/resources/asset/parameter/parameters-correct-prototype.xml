@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters className="com.badlogic.gdx.assets.loaders.ParticleEffectLoader$ParticleEffectParameter">
-    <parameter name="atlasFile">remove/tanks/game/asset/parameter/test-atlas-file.pack</parameter>
+    <parameter name="atlasFile">remove/tanks/game/graphic/textures/atlases/test-atlas-file.pack</parameter>
     <parameter name="atlasPrefix">testPrefix</parameter>
-    <parameter name="imagesDir">asset</parameter>
+    <parameter name="imagesDir">remove/tanks/game/graphic/textures/images</parameter>
 </parameters>

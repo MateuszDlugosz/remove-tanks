@@ -38,7 +38,9 @@ public class ParticleEffectParametersFactoryTest extends LibGDXTest {
                 = (ParticleEffectLoader.ParticleEffectParameter) parameters;
 
         assertEquals("testPrefix", peParameter.atlasPrefix);
-        assertEquals("remove/tanks/game/asset/parameter/test-atlas-file.pack", peParameter.atlasFile);
-        assertTrue(Gdx.files.internal("asset").equals(peParameter.imagesDir));
+        assertEquals("remove/tanks/game/graphic/textures/atlases/test-atlas-file.pack",
+                peParameter.atlasFile);
+        assertTrue(Gdx.files.internal("remove/tanks/game/graphic/textures/images")
+                .equals(peParameter.imagesDir));
     }
 }

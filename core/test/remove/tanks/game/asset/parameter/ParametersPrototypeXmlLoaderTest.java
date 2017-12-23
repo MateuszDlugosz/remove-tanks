@@ -31,7 +31,7 @@ public class ParametersPrototypeXmlLoaderTest extends LibGDXTest {
         ParametersPrototype prototype = parametersPrototypeXmlLoader.loadParametersPrototype(
                 xmlReader.parse(Gdx.files.internal(CORRECT_PARAMETER_PROTOTYPE_FILE)));
 
-        assertEquals("remove/tanks/game/asset/parameter/test-atlas-file.pack",
+        assertEquals("remove/tanks/game/graphic/textures/atlases/test-atlas-file.pack",
                 prototype.getParameters().get("atlasFile"));
     }
 
