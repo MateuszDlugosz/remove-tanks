@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <options>
+        <option key="option-0">value-0</option>
+        <option key="option-1">value-1</option>
+    </options>
+    <componentSupplierPackages>
+        <componentSupplierPackage>remove.tanks.game.application.test</componentSupplierPackage>
+    </componentSupplierPackages>
+</configuration>
