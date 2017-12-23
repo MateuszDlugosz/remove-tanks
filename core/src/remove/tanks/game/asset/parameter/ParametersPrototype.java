@@ -9,11 +9,11 @@ import java.util.Map;
 /**
  * @author Mateusz Długosz
  */
-public final class ParameterPrototype implements Serializable {
+public final class ParametersPrototype implements Serializable {
     private final Class<? extends AssetLoaderParameters> className;
     private final Map<String, String> parameters;
 
-    public ParameterPrototype(
+    public ParametersPrototype(
             Class<? extends AssetLoaderParameters> className,
             Map<String, String> parameters
     ) {

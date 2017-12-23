@@ -2,8 +2,7 @@ package remove.tanks.game.asset;
 
 import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.AssetManager;
-import remove.tanks.game.asset.parameter.AssetIdDuplicateException;
-import remove.tanks.game.asset.parameter.ParameterFactory;
+import remove.tanks.game.asset.parameter.ParametersFactory;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,14 +13,14 @@ import java.util.Map;
  */
 @SuppressWarnings("unchecked")
 public final class AssetStorageFactory {
-    private final ParameterFactory parameterFactory;
+    private final ParametersFactory parametersFactory;
     private final AssetManagerFactory assetManagerFactory;
 
     public AssetStorageFactory(
-            ParameterFactory parameterFactory,
+            ParametersFactory parametersFactory,
             AssetManagerFactory assetManagerFactory
     ) {
-        this.parameterFactory = parameterFactory;
+        this.parametersFactory = parametersFactory;
         this.assetManagerFactory = assetManagerFactory;
     }
 
@@ -31,12 +30,12 @@ public final class AssetStorageFactory {
             AssetManager assetManager = assetManagerFactory.createAssetManager();
             prototypes.forEach(p -> {
                 if (!assetManager.isLoaded(p.getFilename(), p.getClassName())) {
-                    if (p.getParameterPrototype().isPresent()) {
+                    if (p.getParametersPrototype().isPresent()) {
                         loadAssetWithParameters(
                                 assetManager,
                                 p.getFilename(),
                                 p.getClassName(),
-                                parameterFactory.createAssetLoaderParameters(p.getParameterPrototype().get())
+                                parametersFactory.createAssetLoaderParameters(p.getParametersPrototype().get())
                         );
                     } else {
                         loadAssetWithoutParameters(assetManager, p.getFilename(), p.getClassName());

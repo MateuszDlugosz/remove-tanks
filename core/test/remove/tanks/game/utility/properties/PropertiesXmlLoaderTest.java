@@ -31,7 +31,7 @@ public class PropertiesXmlLoaderTest extends LibGDXTest {
     }
 
     @Test
-    public void when_ElementHasCorrectlyFormat_Then_LoadProperties() {
+    public void when_ElementIsCorrectlyFormatted_Then_LoadProperties() {
         XmlReader.Element element = xmlReader.parse(Gdx.files.internal(CORRECT_PROPERTIES_FILE_0));
         Properties properties = propertiesXmlLoader.loadProperties(element);
 
@@ -57,7 +57,7 @@ public class PropertiesXmlLoaderTest extends LibGDXTest {
     }
 
     @Test(expected = PropertiesXmlLoadException.class)
-    public void when_ElementHasIncorrectlyFormat_Then_ThrowException() {
+    public void when_ElementIsIncorrectlyFormatted_Then_ThrowException() {
         Properties properties = propertiesXmlLoader.loadProperties(
                 xmlReader.parse(Gdx.files.internal(INCORRECT_PROPERTIES_FILE)));
     }

@@ -1,4 +1,4 @@
-package remove.tanks.game.asset.parameter;
+package remove.tanks.game.asset;
 
 /**
  * @author Mateusz Długosz

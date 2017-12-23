@@ -7,10 +7,9 @@ import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.asset.*;
-import remove.tanks.game.asset.parameter.ParameterFactory;
-import remove.tanks.game.asset.parameter.ParameterPrototypeXmlLoader;
-import remove.tanks.game.asset.parameter.ParticleEffectParameterFactory;
-import remove.tanks.game.asset.parameter.RegistrableParameterFactory;
+import remove.tanks.game.asset.parameter.ParametersFactory;
+import remove.tanks.game.asset.parameter.ParametersPrototypeXmlLoader;
+import remove.tanks.game.asset.parameter.ParticleEffectParametersFactory;
 import remove.tanks.game.asset.theme.ThemeXmlLoader;
 import remove.tanks.game.graphic.effect.Effect;
 import remove.tanks.game.graphic.effect.EffectAssetLoader;
@@ -28,11 +27,11 @@ import java.util.Map;
  * @author Mateusz Długosz
  */
 public final class AssetSuppliersConfiguration {
-    @ComponentName("ParameterPrototypeXmlLoader")
-    public static final class ParameterPrototypeXmlLoaderSupplier extends ComponentSupplier<ParameterPrototypeXmlLoader> {
+    @ComponentName("ParametersPrototypeXmlLoader")
+    public static final class ParameterPrototypeXmlLoaderSupplier extends ComponentSupplier<ParametersPrototypeXmlLoader> {
         @Override
-        public ParameterPrototypeXmlLoader supplyComponent() {
-            return new ParameterPrototypeXmlLoader();
+        public ParametersPrototypeXmlLoader supplyComponent() {
+            return new ParametersPrototypeXmlLoader();
         }
     }
 
@@ -41,20 +40,18 @@ public final class AssetSuppliersConfiguration {
         @Override
         public AssetPrototypeXmlLoader supplyComponent() {
             return new AssetPrototypeXmlLoader(
-                    getContext().getComponent("ParameterPrototypeXmlLoader", ParameterPrototypeXmlLoader.class)
+                    getContext().getComponent("ParametersPrototypeXmlLoader", ParametersPrototypeXmlLoader.class)
             );
         }
     }
 
     @ComponentName("AssetLoaderParameterFactory")
-    public static final class ParameterFactorySupplier extends ComponentSupplier<ParameterFactory> {
+    public static final class ParameterFactorySupplier extends ComponentSupplier<ParametersFactory> {
         @Override
-        public ParameterFactory supplyComponent() {
-            return new ParameterFactory(
-                    new RegistrableParameterFactory[] {
-                            new ParticleEffectParameterFactory()
-                    }
-            );
+        public ParametersFactory supplyComponent() {
+            ParametersFactory parametersFactory = new ParametersFactory();
+            parametersFactory.registerFactory(new ParticleEffectParametersFactory());
+            return parametersFactory;
         }
     }
 
@@ -63,7 +60,7 @@ public final class AssetSuppliersConfiguration {
         @Override
         public AssetStorageFactory supplyComponent() {
             return new AssetStorageFactory(
-                    getContext().getComponent("AssetLoaderParameterFactory", ParameterFactory.class),
+                    getContext().getComponent("AssetLoaderParameterFactory", ParametersFactory.class),
                     getContext().getComponent("AssetManagerFactory", AssetManagerFactory.class)
             );
         }

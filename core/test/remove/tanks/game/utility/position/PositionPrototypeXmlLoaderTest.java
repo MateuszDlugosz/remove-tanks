@@ -27,7 +27,7 @@ public class PositionPrototypeXmlLoaderTest extends LibGDXTest {
     }
 
     @Test
-    public void when_ElementHasCorrectlyFormat_Then_LoadPositionPrototype() {
+    public void when_ElementIsCorrectlyFormatted_Then_LoadPositionPrototype() {
         XmlReader.Element element = xmlReader.parse(Gdx.files.internal(CORRECT_POSITION_PROTOTYPE_FILE));
         PositionPrototype positionPrototype = positionPrototypeXmlLoader.loadPositionPrototype(element);
 
@@ -36,7 +36,7 @@ public class PositionPrototypeXmlLoaderTest extends LibGDXTest {
     }
 
     @Test(expected = PositionPrototypeXmlLoadException.class)
-    public void when_ElementHasIncorrectlyFormat_Then_ThrowsExceptions() {
+    public void when_ElementIsIncorrectlyFormated_Then_ThrowException() {
         XmlReader.Element element = xmlReader.parse(Gdx.files.internal(INCORRECT_POSITION_PROTOTYPE_FILE));
         positionPrototypeXmlLoader.loadPositionPrototype(element);
     }

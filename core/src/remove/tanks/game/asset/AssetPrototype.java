@@ -1,7 +1,7 @@
 package remove.tanks.game.asset;
 
 import com.google.common.base.MoreObjects;
-import remove.tanks.game.asset.parameter.ParameterPrototype;
+import remove.tanks.game.asset.parameter.ParametersPrototype;
 
 import java.io.Serializable;
 import java.util.Optional;
@@ -13,18 +13,18 @@ public final class AssetPrototype implements Serializable {
     private final String id;
     private final Class<?> className;
     private final String filename;
-    private final ParameterPrototype parameterPrototype;
+    private final ParametersPrototype parametersPrototype;
 
     public AssetPrototype(
             String id,
             Class<?> className,
             String filename,
-            ParameterPrototype parameterPrototype
+            ParametersPrototype parametersPrototype
     ) {
         this.id = id;
         this.className = className;
         this.filename = filename;
-        this.parameterPrototype = parameterPrototype;
+        this.parametersPrototype = parametersPrototype;
     }
 
     public String getId() {
@@ -39,8 +39,8 @@ public final class AssetPrototype implements Serializable {
         return filename;
     }
 
-    public Optional<ParameterPrototype> getParameterPrototype() {
-        return Optional.ofNullable(parameterPrototype);
+    public Optional<ParametersPrototype> getParametersPrototype() {
+        return Optional.ofNullable(parametersPrototype);
     }
 
     @Override
@@ -49,7 +49,7 @@ public final class AssetPrototype implements Serializable {
                 .add("id", id)
                 .add("className", className)
                 .add("filename", filename)
-                .add("parameterPrototype", parameterPrototype)
+                .add("parametersPrototype", parametersPrototype)
                 .toString();
     }
 }

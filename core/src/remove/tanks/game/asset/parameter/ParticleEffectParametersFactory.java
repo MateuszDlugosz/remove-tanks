@@ -6,15 +6,15 @@ import com.badlogic.gdx.assets.loaders.ParticleEffectLoader;
 /**
  * @author Mateusz Długosz
  */
-public final class ParticleEffectParameterFactory
-        implements RegistrableParameterFactory<ParticleEffectLoader.ParticleEffectParameter>
+public final class ParticleEffectParametersFactory
+        implements RegistrableParametersFactory<ParticleEffectLoader.ParticleEffectParameter>
 {
     private static final String ATLAS_FILE_PARAMETER = "atlasFile";
     private static final String ATLAS_PREFIX_PARAMETER = "atlasPrefix";
     private static final String IMAGES_DIR_PARAMETER = "imagesDir";
 
     @Override
-    public ParticleEffectLoader.ParticleEffectParameter createParameters(ParameterPrototype prototype) {
+    public ParticleEffectLoader.ParticleEffectParameter createParameters(ParametersPrototype prototype) {
         try {
             ParticleEffectLoader.ParticleEffectParameter pep = new ParticleEffectLoader.ParticleEffectParameter();
             pep.atlasFile = prototype.getParameters().get(ATLAS_FILE_PARAMETER);
@@ -24,7 +24,7 @@ public final class ParticleEffectParameterFactory
             }
             return pep;
         } catch (Exception e) {
-            throw new ParameterCreateException(prototype, e);
+            throw new ParametersCreateException(prototype, e);
         }
     }
 

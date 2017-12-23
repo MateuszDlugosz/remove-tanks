@@ -1,8 +1,8 @@
 package remove.tanks.game.asset;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.asset.parameter.ParameterPrototype;
-import remove.tanks.game.asset.parameter.ParameterPrototypeXmlLoader;
+import remove.tanks.game.asset.parameter.ParametersPrototype;
+import remove.tanks.game.asset.parameter.ParametersPrototypeXmlLoader;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,10 +19,10 @@ public final class AssetPrototypeXmlLoader {
     private static final String CLASS_NAME_ELEMENT = "className";
     private static final String FILENAME_ELEMENT = "filename";
 
-    private final ParameterPrototypeXmlLoader parameterPrototypeXmlLoader;
+    private final ParametersPrototypeXmlLoader parametersPrototypeXmlLoader;
 
-    public AssetPrototypeXmlLoader(ParameterPrototypeXmlLoader parameterPrototypeXmlLoader) {
-        this.parameterPrototypeXmlLoader = parameterPrototypeXmlLoader;
+    public AssetPrototypeXmlLoader(ParametersPrototypeXmlLoader parametersPrototypeXmlLoader) {
+        this.parametersPrototypeXmlLoader = parametersPrototypeXmlLoader;
     }
 
     public List<AssetPrototype> loadAssetPrototypes(XmlReader.Element element) {
@@ -38,7 +38,7 @@ public final class AssetPrototypeXmlLoader {
                     Class.forName(element.getChildByName(CLASS_NAME_ELEMENT).getText().trim()),
                     element.getChildByName(FILENAME_ELEMENT).getText().trim(),
                     loadParametersPrototype(element
-                            .getChildByName(ParameterPrototypeXmlLoader.PARAMETERS_ELEMENT)
+                            .getChildByName(ParametersPrototypeXmlLoader.PARAMETERS_ELEMENT)
                     )
             );
         } catch (Exception e) {
@@ -46,10 +46,10 @@ public final class AssetPrototypeXmlLoader {
         }
     }
 
-    private ParameterPrototype loadParametersPrototype(XmlReader.Element element) {
+    private ParametersPrototype loadParametersPrototype(XmlReader.Element element) {
         if (element == null) {
             return null;
         }
-        return parameterPrototypeXmlLoader.loadParametersPrototype(element);
+        return parametersPrototypeXmlLoader.loadParametersPrototype(element);
     }
 }

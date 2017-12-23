@@ -27,7 +27,7 @@ public class BoundariesPrototypeXmlLoaderTest extends LibGDXTest {
     }
 
     @Test
-    public void when_ElementHasCorrectStructure_Then_LoadBoundariesPrototype() {
+    public void when_ElementIsCorrectlyFormatted_Then_LoadBoundariesPrototype() {
         XmlReader.Element element = xmlReader.parse(Gdx.files.internal(CORRECT_BOUNDARIES_PROTOTYPE_FILE));
         BoundariesPrototype prototype = boundariesPrototypeXmlLoader.loadBoundariesPrototype(element);
 
@@ -38,7 +38,7 @@ public class BoundariesPrototypeXmlLoaderTest extends LibGDXTest {
     }
 
     @Test(expected = BoundariesPrototypeXmlLoadException.class)
-    public void when_ElementHasIncorrectStructure_Then_ThrowException() {
+    public void when_ElementHasIncorrectlyFormatted_Then_ThrowException() {
         XmlReader.Element element = xmlReader.parse(Gdx.files.internal(INCORRECT_BOUNDARIES_PROTOTYPE_FILE));
         BoundariesPrototype prototype = boundariesPrototypeXmlLoader.loadBoundariesPrototype(element);
     }

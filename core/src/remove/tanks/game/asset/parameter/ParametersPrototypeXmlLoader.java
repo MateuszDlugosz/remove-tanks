@@ -12,21 +12,21 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 @SuppressWarnings("unchecked")
-public final class ParameterPrototypeXmlLoader {
+public final class ParametersPrototypeXmlLoader {
     public static final String PARAMETERS_ELEMENT = "parameters";
     public static final String PARAMETER_ELEMENT = "parameter";
 
     private static final String CLASS_NAME_ATTRIBUTE = "className";
     private static final String NAME_ATTRIBUTE = "name";
 
-    public ParameterPrototype loadParametersPrototype(XmlReader.Element element) {
+    public ParametersPrototype loadParametersPrototype(XmlReader.Element element) {
         try {
-            return new ParameterPrototype(
+            return new ParametersPrototype(
                     loadAssetLoaderParametersClass(element),
                     loadParameters(element.getChildrenByName(PARAMETER_ELEMENT))
             );
         } catch (Exception e) {
-            throw new ParameterXmlLoadException(element, e);
+            throw new ParametersPrototypeXmlLoadException(element, e);
         }
     }
 
@@ -34,7 +34,7 @@ public final class ParameterPrototypeXmlLoader {
         try {
             return (Class<? extends AssetLoaderParameters>) Class.forName(element.getAttribute(CLASS_NAME_ATTRIBUTE).trim());
         } catch (Exception e) {
-            throw new ParameterXmlLoadException(element, e);
+            throw new ParametersPrototypeXmlLoadException(element, e);
         }
     }
 
