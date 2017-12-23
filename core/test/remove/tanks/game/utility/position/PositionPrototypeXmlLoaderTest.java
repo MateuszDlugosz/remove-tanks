@@ -1,24 +1,21 @@
 package remove.tanks.game.utility.position;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
 import org.junit.Before;
 import org.junit.Test;
+import remove.tanks.game.LibGDXTest;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * @author Mateusz Długosz
  */
-public class PositionPrototypeXmlLoaderTest {
-    private static final String CORRECTLY_FORMATTED_XML_ELEMENT =
-            "<position>" +
-                    "<x>10</x>" +
-                    "<y>4</y>" +
-            "</position>";
-    private static final String INCORRECTLY_FORMATTED_XML_ELEMENT =
-            "<position>" +
-                    "<x>10</x>" +
-            "</position>";
+public class PositionPrototypeXmlLoaderTest extends LibGDXTest {
+    private static final String CORRECT_POSITION_PROTOTYPE_FILE
+            = "prototypes/utility/position/position-correct-prototype.xml";
+    private static final String INCORRECT_POSITION_PROTOTYPE_FILE
+            = "prototypes/utility/position/position-incorrect-prototype.xml";
 
     private XmlReader xmlReader;
     private PositionPrototypeXmlLoader positionPrototypeXmlLoader;
@@ -31,7 +28,7 @@ public class PositionPrototypeXmlLoaderTest {
 
     @Test
     public void when_ElementHasCorrectlyFormat_Then_LoadPositionPrototype() {
-        XmlReader.Element element = xmlReader.parse(CORRECTLY_FORMATTED_XML_ELEMENT);
+        XmlReader.Element element = xmlReader.parse(Gdx.files.internal(CORRECT_POSITION_PROTOTYPE_FILE));
         PositionPrototype positionPrototype = positionPrototypeXmlLoader.loadPositionPrototype(element);
 
         assertEquals(10, positionPrototype.getX(), 0.001f);
@@ -40,7 +37,7 @@ public class PositionPrototypeXmlLoaderTest {
 
     @Test(expected = PositionPrototypeXmlLoadException.class)
     public void when_ElementHasIncorrectlyFormat_Then_ThrowsExceptions() {
-        XmlReader.Element element = xmlReader.parse(INCORRECTLY_FORMATTED_XML_ELEMENT);
+        XmlReader.Element element = xmlReader.parse(Gdx.files.internal(INCORRECT_POSITION_PROTOTYPE_FILE));
         positionPrototypeXmlLoader.loadPositionPrototype(element);
     }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<proeprties>
+    <property name="property-string">value</property>
+    <property name="property-integer">1</property>
+    <property name="property-float">0.11</property>
+    <property name="property-long">1001</property>
+    <property name="property-short">9090</property>
+    <property name="property-boolean">true</property>
+</proeprties>

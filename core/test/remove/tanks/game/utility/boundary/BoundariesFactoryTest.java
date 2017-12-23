@@ -48,7 +48,6 @@ public class BoundariesFactoryTest {
     @Test(expected = BoundariesCreateException.class)
     public void when_PrototypeHasIncorrectData_Then_ThrowsException() {
         BoundariesPrototype prototype = new BoundariesPrototype(5, 1, 4, 2);
-
         boundariesFactory.createBoundaries(prototype, multiplyingScale);
     }
 }

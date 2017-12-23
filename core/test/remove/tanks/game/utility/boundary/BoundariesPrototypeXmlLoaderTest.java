@@ -1,27 +1,21 @@
 package remove.tanks.game.utility.boundary;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
 import org.junit.Before;
 import org.junit.Test;
+import remove.tanks.game.LibGDXTest;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * @author Mateusz Długosz
  */
-public class BoundariesPrototypeXmlLoaderTest {
-    private static final String CORRECTLY_FORMATTED_XML_ELEMENT =
-            "<boundaries>" +
-                    "<minX>1</minX>" +
-                    "<maxX>4</maxX>" +
-                    "<minY>2</minY>" +
-                    "<maxY>5</maxY>" +
-            "</boundaries>";
-
-    private static final String INCORRECTLY_FORMATTED_XML_ELEMENT =
-            "<boundaries>" +
-                    "<minX>9</minX>" +
-            "</boundaries>";
+public class BoundariesPrototypeXmlLoaderTest extends LibGDXTest {
+    private static final String CORRECT_BOUNDARIES_PROTOTYPE_FILE
+            = "prototypes/utility/boundaries/boundaries-correct-prototype.xml";
+    private static final String INCORRECT_BOUNDARIES_PROTOTYPE_FILE
+            = "prototypes/utility/boundaries/boundaries-incorrect-prototype.xml";
 
     private XmlReader xmlReader;
     private BoundariesPrototypeXmlLoader boundariesPrototypeXmlLoader;
@@ -33,20 +27,19 @@ public class BoundariesPrototypeXmlLoaderTest {
     }
 
     @Test
-    public void when_ElementHasCorrectlyFormat_Then_LoadBoundariesPrototype() {
-        XmlReader.Element element = xmlReader.parse(CORRECTLY_FORMATTED_XML_ELEMENT);
+    public void when_ElementHasCorrectStructure_Then_LoadBoundariesPrototype() {
+        XmlReader.Element element = xmlReader.parse(Gdx.files.internal(CORRECT_BOUNDARIES_PROTOTYPE_FILE));
         BoundariesPrototype prototype = boundariesPrototypeXmlLoader.loadBoundariesPrototype(element);
 
-        assertEquals(1, prototype.getMinX(), 0.001f);
-        assertEquals(4, prototype.getMaxX(), 0.001f);
+        assertEquals(0, prototype.getMinX(), 0.001f);
+        assertEquals(10, prototype.getMaxX(), 0.001f);
         assertEquals(2, prototype.getMinY(), 0.001f);
-        assertEquals(5, prototype.getMaxY(), 0.001f);
+        assertEquals(80, prototype.getMaxY(), 0.001f);
     }
 
     @Test(expected = BoundariesPrototypeXmlLoadException.class)
-    public void when_ElementHasIncorrectlyFormat_Then_ThrowsExceptions() {
-        XmlReader.Element element = xmlReader.parse(INCORRECTLY_FORMATTED_XML_ELEMENT);
-
-        boundariesPrototypeXmlLoader.loadBoundariesPrototype(element);
+    public void when_ElementHasIncorrectStructure_Then_ThrowException() {
+        XmlReader.Element element = xmlReader.parse(Gdx.files.internal(INCORRECT_BOUNDARIES_PROTOTYPE_FILE));
+        BoundariesPrototype prototype = boundariesPrototypeXmlLoader.loadBoundariesPrototype(element);
     }
 }
