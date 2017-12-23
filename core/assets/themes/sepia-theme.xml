@@ -2,7 +2,7 @@
 <theme>
     <assets>
         <asset id="main-atlas">
-            <className>com.badlogic.gdx.graphic.g2d.TextureAtlas</className>
+            <className>com.badlogic.gdx.graphics.g2d.TextureAtlas</className>
             <filename>graphics/atlases/sepia-atlas.pack</filename>
         </asset>
         <asset id="medium-bullet-shoot-sound">
