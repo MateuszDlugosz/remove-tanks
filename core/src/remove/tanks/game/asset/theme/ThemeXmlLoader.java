@@ -1,8 +1,12 @@
 package remove.tanks.game.asset.theme;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.asset.AssetPrototype;
 import remove.tanks.game.asset.AssetPrototypeXmlLoader;
+
+import java.util.List;
 
 /**
  * @author Mateusz Długosz
@@ -19,12 +23,20 @@ public final class ThemeXmlLoader {
     public Theme loadTheme(String filename) {
         try {
             return new Theme(
-                    assetPrototypeXmlLoader.loadAssetPrototypes(
-                            xmlReader.parse(Gdx.files.internal(filename))
-                                    .getChildByName(AssetPrototypeXmlLoader.ASSETS_ELEMENT))
+                    loadAssetPrototypes(filename)
             );
         } catch (Exception e) {
             throw new ThemeXmlLoadException(e);
         }
+    }
+
+    private List<AssetPrototype> loadAssetPrototypes(String filename) {
+        return assetPrototypeXmlLoader.loadAssetPrototypes(
+                xmlReader.parse(loadFile(filename))
+                        .getChildByName(AssetPrototypeXmlLoader.ASSETS_ELEMENT));
+    }
+
+    private FileHandle loadFile(String filename) {
+        return Gdx.files.internal(filename);
     }
 }

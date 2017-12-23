@@ -1,0 +1,36 @@
+package remove.tanks.game.asset;
+
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import org.junit.Before;
+import org.junit.Test;
+import remove.tanks.game.LibGDXTest;
+import remove.tanks.game.asset.parameter.ParametersFactory;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+/**
+ * @author Mateusz Długosz
+ */
+public class AssetStorageTest {
+    private AssetStorageFactory assetStorageFactory;
+
+    @Before
+    public void initTestObjects() {
+        assetStorageFactory = new AssetStorageFactory(
+                new ParametersFactory(),
+                new AssetManagerFactory(
+                        new HashMap<>()
+                )
+        );
+    }
+
+    @Test(expected = AssetIdNotExistsException.class)
+    public void when_AssetIdIsNotExists_Then_ThrowException() {
+        AssetStorage assetStorage = assetStorageFactory.createAssetStorage(new ArrayList<>());
+        assetStorage.getAsset("testId0", TextureAtlas.class);
+    }
+}

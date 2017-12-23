@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+    <assets>
+        <asset id="testId0">
+            <className>com.badlogic.gdx.graphics.g2d.TextureAtlas</className>
+            <filename>graphics/textures/atlases/test-atlas-file.pack</filename>
+        </asset>
+        <asset id="testId1">
+        </asset>
+    </assets>
+</theme>

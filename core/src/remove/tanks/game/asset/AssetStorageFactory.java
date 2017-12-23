@@ -29,6 +29,9 @@ public final class AssetStorageFactory {
             Map<String, String> idPathMap = new HashMap<>();
             AssetManager assetManager = assetManagerFactory.createAssetManager();
             prototypes.forEach(p -> {
+                if (idPathMap.containsKey(p.getId())) {
+                    throw new AssetIdDuplicateException(p.getId());
+                }
                 if (!assetManager.isLoaded(p.getFilename(), p.getClassName())) {
                     if (p.getParametersPrototype().isPresent()) {
                         loadAssetWithParameters(
@@ -39,9 +42,6 @@ public final class AssetStorageFactory {
                         );
                     } else {
                         loadAssetWithoutParameters(assetManager, p.getFilename(), p.getClassName());
-                    }
-                    if (idPathMap.containsKey(p.getId())) {
-                        throw new AssetIdDuplicateException(p.getId());
                     }
                     idPathMap.put(p.getId(), p.getFilename());
                 }

@@ -24,9 +24,6 @@ public final class AssetStorage implements Disposable {
         if (!idPathMap.containsKey(id)) {
             throw new AssetIdNotExistsException(id);
         }
-        if (!assetManager.isLoaded(idPathMap.get(id), className)) {
-            throw new AssetNotLoadedException(id, idPathMap.get(id), className);
-        }
         return assetManager.get(idPathMap.get(id), className);
     }
 
