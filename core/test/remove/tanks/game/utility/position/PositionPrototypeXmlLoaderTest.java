@@ -13,9 +13,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class PositionPrototypeXmlLoaderTest extends LibGDXTest {
     private static final String CORRECT_POSITION_PROTOTYPE_FILE
-            = "prototypes/utility/position/position-correct-prototype.xml";
+            = "utility/position/position-correct-prototype.xml";
     private static final String INCORRECT_POSITION_PROTOTYPE_FILE
-            = "prototypes/utility/position/position-incorrect-prototype.xml";
+            = "utility/position/position-incorrect-prototype.xml";
 
     private XmlReader xmlReader;
     private PositionPrototypeXmlLoader positionPrototypeXmlLoader;

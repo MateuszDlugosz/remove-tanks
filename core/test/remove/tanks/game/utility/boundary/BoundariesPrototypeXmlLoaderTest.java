@@ -13,9 +13,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class BoundariesPrototypeXmlLoaderTest extends LibGDXTest {
     private static final String CORRECT_BOUNDARIES_PROTOTYPE_FILE
-            = "prototypes/utility/boundaries/boundaries-correct-prototype.xml";
+            = "utility/boundaries/boundaries-correct-prototype.xml";
     private static final String INCORRECT_BOUNDARIES_PROTOTYPE_FILE
-            = "prototypes/utility/boundaries/boundaries-incorrect-prototype.xml";
+            = "utility/boundaries/boundaries-incorrect-prototype.xml";
 
     private XmlReader xmlReader;
     private BoundariesPrototypeXmlLoader boundariesPrototypeXmlLoader;

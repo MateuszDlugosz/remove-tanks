@@ -33,7 +33,7 @@
             <className>com.badlogic.gdx.audio.Sound</className>
             <filename>audio/sounds/button-push-0.ogg</filename>
         </asset>
-        <asset id="thunder-0">
+        <asset id="thunder-sound">
             <className>com.badlogic.gdx.audio.Sound</className>
             <filename>audio/sounds/thunder-0.ogg</filename>
         </asset>

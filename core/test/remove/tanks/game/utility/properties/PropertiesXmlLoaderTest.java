@@ -13,13 +13,13 @@ import static org.junit.Assert.*;
  */
 public class PropertiesXmlLoaderTest extends LibGDXTest {
     private static final String CORRECT_PROPERTIES_FILE_0
-            = "prototypes/utility/properties/properties-correct-0.xml";
+            = "utility/properties/properties-correct-0.xml";
     private static final String CORRECT_PROPERTIES_FILE_1
-            = "prototypes/utility/properties/properties-correct-1.xml";
+            = "utility/properties/properties-correct-1.xml";
     private static final String CORRECT_PROPERTIES_FILE_2
-            = "prototypes/utility/properties/properties-correct-2.xml";
+            = "utility/properties/properties-correct-2.xml";
     private static final String INCORRECT_PROPERTIES_FILE
-            = "prototypes/utility/properties/properties-incorrect.xml";
+            = "utility/properties/properties-incorrect.xml";
 
     private XmlReader xmlReader;
     private PropertiesXmlLoader propertiesXmlLoader;

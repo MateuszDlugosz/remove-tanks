@@ -116,7 +116,7 @@
                             <minDuration>0.1</minDuration>
                             <maxDuration>0.1</maxDuration>
                             <sound>
-                                <filename>thunder-0</filename>
+                                <filename>thunder-sound</filename>
                             </sound>
                             <color type="RgbColor">
                                 <r>255</r>
