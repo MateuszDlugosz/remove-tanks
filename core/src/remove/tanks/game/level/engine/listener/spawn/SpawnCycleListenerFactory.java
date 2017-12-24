@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Engine;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
+import remove.tanks.game.level.engine.listener.EntityListenerCreateException;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -15,13 +16,17 @@ public final class SpawnCycleListenerFactory
 {
     @Override
     public SpawnCycleListener createEntityListener(SpawnCycleListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
-        return new SpawnCycleListener(
-                prototype.getPriority(),
-                engine,
-                registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                registry.getResource(LevelResource.EntityPrototypeRepository.toString(),
-                        EntityPrototypeRepository.class)
-        );
+        try {
+            return new SpawnCycleListener(
+                    prototype.getPriority(),
+                    engine,
+                    registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
+                    registry.getResource(LevelResource.EntityPrototypeRepository.toString(),
+                            EntityPrototypeRepository.class)
+            );
+        } catch (Exception e) {
+            throw new EntityListenerCreateException(prototype, e);
+        }
     }
 
     @Override

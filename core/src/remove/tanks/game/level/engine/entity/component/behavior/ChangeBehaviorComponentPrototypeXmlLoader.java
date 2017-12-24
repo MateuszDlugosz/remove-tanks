@@ -1,9 +1,9 @@
 package remove.tanks.game.level.engine.entity.component.behavior;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoader;
-import remove.tanks.game.level.engine.entity.component.ComponentType;
-import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.*;
+
+import java.util.List;
 
 /**
  * @author Mateusz Długosz
@@ -19,10 +19,18 @@ public final class ChangeBehaviorComponentPrototypeXmlLoader
 
     @Override
     public ChangeBehaviorComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new ChangeBehaviorComponentPrototype(
-                componentPrototypeXmlLoader.loadComponentsPrototypes(
-                        element.getChildByName(ComponentPrototypeXmlLoader.COMPONENTS_ELEMENT)
-                )
+        try {
+            return new ChangeBehaviorComponentPrototype(
+                    loadComponentPrototypes(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private List<ComponentPrototype> loadComponentPrototypes(XmlReader.Element element) {
+        return componentPrototypeXmlLoader.loadComponentsPrototypes(
+                element.getChildByName(ComponentPrototypeXmlLoader.COMPONENTS_ELEMENT)
         );
     }
 

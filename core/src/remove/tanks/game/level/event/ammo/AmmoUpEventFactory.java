@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.ammo;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class AmmoUpEventFactory
 {
     @Override
     public AmmoUpEvent createEvent(AmmoUpEventPrototype prototype) {
-        return new AmmoUpEvent();
+        try {
+            return new AmmoUpEvent();
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

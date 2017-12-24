@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.layer.highlight;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.utility.time.Timer;
 
@@ -13,7 +14,17 @@ public final class HighlightComponentFactory
 {
     @Override
     public HighlightComponent createComponent(HighlightComponentPrototype prototype, Level level, Entity entity) {
-        return new HighlightComponent(new Timer(prototype.getHighlightTime()));
+        try {
+            return new HighlightComponent(
+                    createTimer(prototype.getHighlightTime())
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
+    }
+
+    private Timer createTimer(float time) {
+        return new Timer(time);
     }
 
     @Override

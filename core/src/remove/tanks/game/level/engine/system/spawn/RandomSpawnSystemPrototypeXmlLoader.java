@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.spawn;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -12,7 +13,11 @@ public final class RandomSpawnSystemPrototypeXmlLoader
 {
     @Override
     public RandomSpawnSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new RandomSpawnSystemPrototype(priority);
+        try {
+            return new RandomSpawnSystemPrototype(priority);
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

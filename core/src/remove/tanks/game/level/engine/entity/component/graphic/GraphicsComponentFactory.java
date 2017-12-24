@@ -7,6 +7,7 @@ import remove.tanks.game.graphic.view.ViewFactory;
 import remove.tanks.game.graphic.view.ViewPrototype;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.utility.scale.Scale;
 
@@ -28,15 +29,19 @@ public final class GraphicsComponentFactory
 
     @Override
     public GraphicsComponent createComponent(GraphicsComponentPrototype prototype, Level level, Entity entity) {
-        return new GraphicsComponent(
-                createViewIdMap(
-                        prototype.getViewPrototypes(),
-                        level.getResourceRegistry()
-                                .getResource(LevelResource.AssetStorage.toString(), AssetStorage.class),
-                        level.getResourceRegistry()
-                                .getResource(LevelResource.WorldScale.toString(), Scale.class)
-                )
-        );
+        try {
+            return new GraphicsComponent(
+                    createViewIdMap(
+                            prototype.getViewPrototypes(),
+                            level.getResourceRegistry()
+                                    .getResource(LevelResource.AssetStorage.toString(), AssetStorage.class),
+                            level.getResourceRegistry()
+                                    .getResource(LevelResource.WorldScale.toString(), Scale.class)
+                    )
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     private Map<String, View> createViewIdMap(List<ViewPrototype> prototypes, AssetStorage assetStorage, Scale scale) {

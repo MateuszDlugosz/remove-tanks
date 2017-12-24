@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.scale.Scale;
@@ -18,15 +19,19 @@ public final class TiledMapRenderSystemFactory
 {
     @Override
     public TiledMapRenderSystem createEntitySystem(TiledMapRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new TiledMapRenderSystem(
-                prototype.getPriority(),
-                createTiledMapRenderer(
-                        resourceRegistry.getResource(LevelResource.TiledMap.toString(), TiledMap.class),
-                        resourceRegistry.getResource(LevelResource.WorldScale.toString(), Scale.class),
-                        resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class)
-                ),
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
-        );
+        try {
+            return new TiledMapRenderSystem(
+                    prototype.getPriority(),
+                    createTiledMapRenderer(
+                            resourceRegistry.getResource(LevelResource.TiledMap.toString(), TiledMap.class),
+                            resourceRegistry.getResource(LevelResource.WorldScale.toString(), Scale.class),
+                            resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class)
+                    ),
+                    resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     private TiledMapRenderer createTiledMapRenderer(TiledMap tiledMap, Scale scale, SpriteBatch spriteBatch) {

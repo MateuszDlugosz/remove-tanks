@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.direction;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
@@ -20,17 +21,23 @@ public final class RandomDirectionComponentFactory
 
     @Override
     public RandomDirectionComponent createComponent(RandomDirectionComponentPrototype prototype, Level level, Entity entity) {
-        return new RandomDirectionComponent(
-                prototype.getChangeDirectionMinFrequency(),
-                prototype.getChangeDirectionMaxFrequency(),
-                prototype.getAvailableDirections(),
-                new Timer(
-                        randomNumberGenerator.getRandomFloat(
-                                prototype.getChangeDirectionMinFrequency(),
-                                prototype.getChangeDirectionMaxFrequency()
-                        )
-                )
-        );
+        try {
+            return new RandomDirectionComponent(
+                    prototype.getChangeDirectionMinFrequency(),
+                    prototype.getChangeDirectionMaxFrequency(),
+                    prototype.getAvailableDirections(),
+                    createTimer(
+                            prototype.getChangeDirectionMinFrequency(),
+                            prototype.getChangeDirectionMaxFrequency()
+                    )
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
+    }
+
+    private Timer createTimer(float min, float max) {
+        return new Timer(randomNumberGenerator.getRandomFloat(min, max));
     }
 
     @Override

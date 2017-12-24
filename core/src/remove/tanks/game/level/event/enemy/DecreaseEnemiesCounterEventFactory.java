@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.enemy;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class DecreaseEnemiesCounterEventFactory
 {
     @Override
     public DecreaseEnemiesCounterEvent createEvent(DecreaseEnemiesCounterEventPrototype prototype) {
-        return new DecreaseEnemiesCounterEvent();
+        try {
+            return new DecreaseEnemiesCounterEvent();
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

@@ -3,6 +3,7 @@ package remove.tanks.game.level.engine.system.world;
 import com.badlogic.gdx.physics.box2d.World;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.physics.world.renderer.WorldRenderer;
@@ -21,12 +22,16 @@ public final class WorldDebugRenderSystemFactory
 
     @Override
     public WorldDebugRenderSystem createEntitySystem(WorldDebugRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new WorldDebugRenderSystem(
-                prototype.getPriority(),
-                worldRenderer,
-                resourceRegistry.getResource(LevelResource.World.toString(), World.class),
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
-        );
+        try {
+            return new WorldDebugRenderSystem(
+                    prototype.getPriority(),
+                    worldRenderer,
+                    resourceRegistry.getResource(LevelResource.World.toString(), World.class),
+                    resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package remove.tanks.game.level.engine.system.environment;
 
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.engine.system.environment.weather.Weather;
 import remove.tanks.game.level.engine.system.environment.weather.WeatherFactory;
@@ -20,10 +21,14 @@ public final class WeatherSystemFactory
 
     @Override
     public WeatherSystem createEntitySystem(WeatherSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new WeatherSystem(
-                prototype.getPriority(),
-                createWeather(prototype.getWeatherPrototype(), resourceRegistry)
-        );
+        try {
+            return new WeatherSystem(
+                    prototype.getPriority(),
+                    createWeather(prototype.getWeatherPrototype(), resourceRegistry)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     private Weather createWeather(WeatherPrototype prototype, ResourceRegistry resourceRegistry) {

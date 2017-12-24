@@ -29,17 +29,37 @@ public final class SpawnerPrototypeXmlLoader {
     public SpawnerPrototype loadSpawnerPrototype(XmlReader.Element element) {
         try {
             return new SpawnerPrototype(
-                    element.getAttribute(ID_ATTRIBUTE).trim(),
-                    Boolean.valueOf(element.getChildByName(ACTIVE_ELEMENT).getText().trim()),
-                    Integer.valueOf(element.getChildByName(LIMIT_ELEMENT).getText().trim()),
-                    Float.valueOf(element.getChildByName(FREQUENCY_ELEMENT).getText().trim()),
-                    Arrays.stream(element.getChildByName(PROTOTYPE_CODES_ELEMENT)
-                            .getChildrenByName(PROTOTYPE_CODE_ELEMENT).toArray())
-                            .map(e -> e.getText().trim())
-                            .collect(Collectors.toList())
+                    loadId(element),
+                    loadActive(element),
+                    loadLimit(element),
+                    loadFrequency(element),
+                    loadPrototypeCodes(element)
             );
         } catch (Exception e) {
             throw new SpawnerPrototypeXmlLoadException(element, e);
         }
+    }
+
+    private String loadId(XmlReader.Element element) {
+        return element.getAttribute(ID_ATTRIBUTE).trim();
+    }
+
+    private boolean loadActive(XmlReader.Element element) {
+        return Boolean.valueOf(element.getChildByName(ACTIVE_ELEMENT).getText().trim());
+    }
+
+    private int loadLimit(XmlReader.Element element) {
+        return Integer.valueOf(element.getChildByName(LIMIT_ELEMENT).getText().trim());
+    }
+
+    private float loadFrequency(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(FREQUENCY_ELEMENT).getText().trim());
+    }
+
+    private List<String> loadPrototypeCodes(XmlReader.Element element) {
+        return Arrays.stream(element.getChildByName(PROTOTYPE_CODES_ELEMENT)
+                .getChildrenByName(PROTOTYPE_CODE_ELEMENT).toArray())
+                .map(e -> e.getText().trim())
+                .collect(Collectors.toList());
     }
 }

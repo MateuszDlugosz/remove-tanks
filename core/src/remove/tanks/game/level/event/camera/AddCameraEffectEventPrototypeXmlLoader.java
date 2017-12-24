@@ -3,6 +3,7 @@ package remove.tanks.game.level.event.camera;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.graphic.camera.effect.CameraEffectPrototype;
 import remove.tanks.game.graphic.camera.effect.CameraEffectPrototypeXmlLoader;
+import remove.tanks.game.level.event.EventPrototypeXmlLoadException;
 import remove.tanks.game.level.event.EventType;
 import remove.tanks.game.level.event.RegistrableEventPrototypeXmlLoader;
 
@@ -22,9 +23,13 @@ public final class AddCameraEffectEventPrototypeXmlLoader
 
     @Override
     public AddCameraEffectEventPrototype loadEventPrototype(XmlReader.Element element) {
-        return new AddCameraEffectEventPrototype(
-                loadCameraEffectPrototype(element)
-        );
+        try {
+            return new AddCameraEffectEventPrototype(
+                    loadCameraEffectPrototype(element)
+            );
+        } catch (Exception e) {
+            throw new EventPrototypeXmlLoadException(element, e);
+        }
     }
 
     private CameraEffectPrototype loadCameraEffectPrototype(XmlReader.Element element) {

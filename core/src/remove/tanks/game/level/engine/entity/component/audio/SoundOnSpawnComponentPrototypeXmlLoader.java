@@ -3,6 +3,7 @@ package remove.tanks.game.level.engine.entity.component.audio;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.audio.sound.SoundPrototype;
 import remove.tanks.game.audio.sound.SoundPrototypeXmlLoader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 
@@ -23,9 +24,13 @@ public final class SoundOnSpawnComponentPrototypeXmlLoader
 
     @Override
     public SoundOnSpawnComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new SoundOnSpawnComponentPrototype(
-                loadSoundPrototypes(element)
-        );
+        try {
+            return new SoundOnSpawnComponentPrototype(
+                    loadSoundPrototypes(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
     }
 
     private List<SoundPrototype> loadSoundPrototypes(XmlReader.Element element) {

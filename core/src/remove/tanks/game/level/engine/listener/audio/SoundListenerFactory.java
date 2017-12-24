@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Engine;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.listener.EntityListenerCreateException;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -15,12 +16,16 @@ public final class SoundListenerFactory
 {
     @Override
     public SoundListener createEntityListener(SoundListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
-        return new SoundListener(
-                prototype.getPriority(),
-                engine,
-                registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                registry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class)
-        );
+        try {
+            return new SoundListener(
+                    prototype.getPriority(),
+                    engine,
+                    registry.getResource(LevelResource.EventBus.toString(), EventBus.class),
+                    registry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class)
+            );
+        } catch (Exception e) {
+            throw new EntityListenerCreateException(prototype, e);
+        }
     }
 
     @Override

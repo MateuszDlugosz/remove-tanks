@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.id;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 
@@ -14,7 +15,17 @@ public final class IdentityComponentPrototypeXmlLoader
 
     @Override
     public IdentityComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new IdentityComponentPrototype(element.getChildByName(ID_ELEMENT).getText().trim());
+        try {
+            return new IdentityComponentPrototype(
+                    loadId(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private String loadId(XmlReader.Element element) {
+        return element.getChildByName(ID_ELEMENT).getText().trim();
     }
 
     @Override

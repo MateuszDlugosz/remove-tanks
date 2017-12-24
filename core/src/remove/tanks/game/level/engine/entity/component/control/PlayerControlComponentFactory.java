@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.control;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.utility.time.Timer;
 
@@ -13,7 +14,18 @@ public final class PlayerControlComponentFactory
 {
     @Override
     public PlayerControlComponent createComponent(PlayerControlComponentPrototype prototype, Level level, Entity entity) {
-        return new PlayerControlComponent(prototype.getShootDelay(), new Timer(prototype.getShootDelay()));
+        try {
+            return new PlayerControlComponent(
+                    prototype.getShootDelay(),
+                    createTimer(prototype.getShootDelay())
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
+    }
+
+    private Timer createTimer(float time) {
+        return new Timer(time);
     }
 
     @Override

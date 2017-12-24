@@ -12,11 +12,19 @@ public final class SpawnerFactory {
             return new Spawner(
                     prototype.getId(),
                     prototype.getPrototypeCodes(),
-                    new Counter(prototype.getLimit()),
-                    new Timer(prototype.getFrequency())
+                    createCounter(prototype.getLimit()),
+                    createTimer(prototype.getFrequency())
             );
         } catch (Exception e) {
             throw new SpawnerCreateException(prototype, e);
         }
+    }
+
+    private Counter createCounter(int limit) {
+        return new Counter(limit);
+    }
+
+    private Timer createTimer(float time) {
+        return new Timer(time);
     }
 }

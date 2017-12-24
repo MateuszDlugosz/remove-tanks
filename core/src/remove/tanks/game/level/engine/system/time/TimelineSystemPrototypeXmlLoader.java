@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.time;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 import remove.tanks.game.level.engine.system.time.timeline.TimelinePrototype;
@@ -20,10 +21,14 @@ public final class TimelineSystemPrototypeXmlLoader
 
     @Override
     public TimelineSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new TimelineSystemPrototype(
-                priority,
-                loadTimelinePrototype(element)
-        );
+        try {
+            return new TimelineSystemPrototype(
+                    priority,
+                    loadTimelinePrototype(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     private TimelinePrototype loadTimelinePrototype(XmlReader.Element element) {

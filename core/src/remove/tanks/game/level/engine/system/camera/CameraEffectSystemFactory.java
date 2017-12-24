@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.system.camera;
 
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -13,10 +14,14 @@ public final class CameraEffectSystemFactory
 {
     @Override
     public CameraEffectSystem createEntitySystem(CameraEffectSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new CameraEffectSystem(
-                prototype.getPriority(),
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class)
-        );
+        try {
+            return new CameraEffectSystem(
+                    prototype.getPriority(),
+                    resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

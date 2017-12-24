@@ -3,16 +3,12 @@ package remove.tanks.game.asset;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import org.junit.Before;
 import org.junit.Test;
-import remove.tanks.game.LibGDXTest;
 import remove.tanks.game.asset.parameter.ParametersFactory;
 import remove.tanks.game.asset.parameter.ParticleEffectParametersFactory;
 import remove.tanks.game.asset.parameter.RegistrableParametersFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @author Mateusz Długosz

@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.shoot;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 
@@ -12,7 +13,11 @@ public final class AutoShootComponentPrototypeXmlLoader
 {
     @Override
     public AutoShootComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new AutoShootComponentPrototype();
+        try {
+            return new AutoShootComponentPrototype();
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

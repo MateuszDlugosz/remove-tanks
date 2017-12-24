@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.shoot;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 
 /**
@@ -12,7 +13,11 @@ public final class AutoShootComponentFactory
 {
     @Override
     public AutoShootComponent createComponent(AutoShootComponentPrototype prototype, Level level, Entity entity) {
-        return new AutoShootComponent();
+        try {
+            return new AutoShootComponent();
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     @Override

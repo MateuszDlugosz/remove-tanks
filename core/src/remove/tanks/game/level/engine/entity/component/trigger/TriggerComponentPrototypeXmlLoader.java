@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.trigger;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 import remove.tanks.game.level.event.EventPrototype;
@@ -26,10 +27,14 @@ public final class TriggerComponentPrototypeXmlLoader
 
     @Override
     public TriggerComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new TriggerComponentPrototype(
-                loadCreateEventPrototypes(element),
-                loadDestroyEventPrototypes(element)
-        );
+        try {
+            return new TriggerComponentPrototype(
+                    loadCreateEventPrototypes(element),
+                    loadDestroyEventPrototypes(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
     }
 
     private List<EventPrototype> loadCreateEventPrototypes(XmlReader.Element element) {

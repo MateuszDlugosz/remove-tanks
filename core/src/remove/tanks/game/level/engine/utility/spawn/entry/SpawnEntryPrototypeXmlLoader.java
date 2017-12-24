@@ -34,7 +34,7 @@ public final class SpawnEntryPrototypeXmlLoader {
         try {
             return new SpawnEntryPrototype(
                     loadSpawnEntryPositionPrototype(element),
-                    element.getChildByName(PROTOTYPE_CODE_ELEMENT).getText().trim()
+                    loadPrototypeCode(element)
             );
         } catch (Exception e) {
             throw new SpawnEntryPrototypeXmlLoadException(element, e);
@@ -47,5 +47,9 @@ public final class SpawnEntryPrototypeXmlLoader {
                 : positionPrototypeXmlLoader.loadPositionPrototype(
                 element.getChildByName(PositionPrototypeXmlLoader.POSITION_ELEMENT)
         );
+    }
+
+    private String loadPrototypeCode(XmlReader.Element element) {
+        return element.getChildByName(PROTOTYPE_CODE_ELEMENT).getText().trim();
     }
 }

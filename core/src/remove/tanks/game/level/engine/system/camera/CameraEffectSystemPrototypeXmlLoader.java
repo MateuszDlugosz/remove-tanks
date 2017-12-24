@@ -1,6 +1,8 @@
 package remove.tanks.game.level.engine.system.camera;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.EntityPrototypeXmlLoadException;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -12,7 +14,11 @@ public final class CameraEffectSystemPrototypeXmlLoader
 {
     @Override
     public CameraEffectSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new CameraEffectSystemPrototype(priority);
+        try {
+            return new CameraEffectSystemPrototype(priority);
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

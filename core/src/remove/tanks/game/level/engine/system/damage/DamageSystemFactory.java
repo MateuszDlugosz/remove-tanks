@@ -1,5 +1,6 @@
 package remove.tanks.game.level.engine.system.damage;
 
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -11,7 +12,14 @@ public final class DamageSystemFactory
 {
     @Override
     public DamageSystem createEntitySystem(DamageSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new DamageSystem(prototype.getPriority(), prototype.getHitHighlightTime());
+        try {
+            return new DamageSystem(
+                    prototype.getPriority(),
+                    prototype.getHitHighlightTime()
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

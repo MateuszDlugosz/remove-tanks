@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.state.end;
 
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.properties.Properties;
@@ -14,11 +15,19 @@ public final class LevelEndSystemFactory
 {
     @Override
     public LevelEndSystem createEntitySystem(LevelEndSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new LevelEndSystem(
-                prototype.getPriority(),
-                new Timer(prototype.getEndTime()),
-                resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class)
-        );
+        try {
+            return new LevelEndSystem(
+                    prototype.getPriority(),
+                    createTimer(prototype.getEndTime()),
+                    resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
+    }
+
+    private Timer createTimer(float time) {
+        return new Timer(time);
     }
 
     @Override

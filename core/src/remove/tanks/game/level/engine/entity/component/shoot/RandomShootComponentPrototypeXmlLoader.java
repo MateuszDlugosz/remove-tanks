@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.shoot;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 
@@ -15,10 +16,22 @@ public final class RandomShootComponentPrototypeXmlLoader
 
     @Override
     public RandomShootComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new RandomShootComponentPrototype(
-                Float.valueOf(element.getChildByName(MIN_SHOOT_FREQUENCY_ELEMENT).getText().trim()),
-                Float.valueOf(element.getChildByName(MAX_SHOOT_FREQUENCY_ELEMENT).getText().trim())
-        );
+        try {
+            return new RandomShootComponentPrototype(
+                    loadMinShootFrequency(element),
+                    loadMaxShootFrequency(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private float loadMinShootFrequency(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(MIN_SHOOT_FREQUENCY_ELEMENT).getText().trim());
+    }
+
+    private float loadMaxShootFrequency(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(MAX_SHOOT_FREQUENCY_ELEMENT).getText().trim());
     }
 
     @Override

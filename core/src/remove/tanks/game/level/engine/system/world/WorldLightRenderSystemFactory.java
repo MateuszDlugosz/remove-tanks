@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.system.world;
 
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.physics.light.world.WorldLight;
@@ -21,12 +22,16 @@ public final class WorldLightRenderSystemFactory
 
     @Override
     public WorldLightRenderSystem createEntitySystem(WorldLightRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new WorldLightRenderSystem(
-                prototype.getPriority(),
-                worldLightRenderer,
-                resourceRegistry.getResource(LevelResource.WorldLight.toString(), WorldLight.class),
-                resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
-        );
+        try {
+            return new WorldLightRenderSystem(
+                    prototype.getPriority(),
+                    worldLightRenderer,
+                    resourceRegistry.getResource(LevelResource.WorldLight.toString(), WorldLight.class),
+                    resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

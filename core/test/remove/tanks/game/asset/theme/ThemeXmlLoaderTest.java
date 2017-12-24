@@ -7,7 +7,7 @@ import remove.tanks.game.LibGDXTest;
 import remove.tanks.game.asset.AssetPrototypeXmlLoader;
 import remove.tanks.game.asset.parameter.ParametersPrototypeXmlLoader;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Mateusz Długosz

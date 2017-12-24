@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.physics;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 import remove.tanks.game.physics.body.BodyPrototype;
@@ -40,12 +41,16 @@ public final class PhysicsComponentPrototypeXmlLoader
 
     @Override
     public PhysicsComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new PhysicsComponentPrototype(
-                loadBody(element),
-                loadHitBoxPrototypes(element),
-                loadSensorPrototypes(element),
-                loadLightHandlerPrototypes(element)
-        );
+        try {
+            return new PhysicsComponentPrototype(
+                    loadBody(element),
+                    loadHitBoxPrototypes(element),
+                    loadSensorPrototypes(element),
+                    loadLightHandlerPrototypes(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
     }
 
     private BodyPrototype loadBody(XmlReader.Element element) {

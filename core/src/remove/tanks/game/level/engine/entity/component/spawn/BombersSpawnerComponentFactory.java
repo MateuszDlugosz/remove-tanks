@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 
 /**
@@ -14,10 +15,14 @@ public final class BombersSpawnerComponentFactory
 {
     @Override
     public BombersSpawnerComponent createComponent(BombersSpawnerComponentPrototype prototype, Level level, Entity entity) {
-        return new BombersSpawnerComponent(
-                level.getResourceRegistry().getResource(LevelResource.EntityPrototypeRepository.toString(),
-                        EntityPrototypeRepository.class).getPrototype(prototype.getPrototypeCode())
-        );
+        try {
+            return new BombersSpawnerComponent(
+                    level.getResourceRegistry().getResource(LevelResource.EntityPrototypeRepository.toString(),
+                            EntityPrototypeRepository.class).getPrototype(prototype.getPrototypeCode())
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     @Override

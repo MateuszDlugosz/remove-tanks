@@ -3,6 +3,7 @@ package remove.tanks.game.level.engine.system.spawn;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.engine.utility.spawn.spawner.Spawner;
 import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerFactory;
@@ -33,16 +34,20 @@ public final class AutoSpawnerSystemFactory
 
     @Override
     public AutoSpawnerSystem createEntitySystem(AutoSpawnerSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new AutoSpawnerSystem(
-                prototype.getPriority(),
-                randomNumberGenerator,
-                resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(),
-                        EntityPrototypeRepository.class),
-                resourceRegistry.getResource(LevelResource.EventBus.toString(),
-                        EventBus.class),
-                createSpawnersByLetter(prototype.getSpawnerPrototypes(), false),
-                createSpawnersByLetter(prototype.getSpawnerPrototypes(), true)
-        );
+        try {
+            return new AutoSpawnerSystem(
+                    prototype.getPriority(),
+                    randomNumberGenerator,
+                    resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(),
+                            EntityPrototypeRepository.class),
+                    resourceRegistry.getResource(LevelResource.EventBus.toString(),
+                            EventBus.class),
+                    createSpawnersByLetter(prototype.getSpawnerPrototypes(), false),
+                    createSpawnersByLetter(prototype.getSpawnerPrototypes(), true)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     private Map<String, Spawner> createSpawnersByLetter(List<SpawnerPrototype> prototypes, boolean active) {

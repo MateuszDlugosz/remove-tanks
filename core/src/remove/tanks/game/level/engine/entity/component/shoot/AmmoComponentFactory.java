@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.shoot;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 
 /**
@@ -12,11 +13,15 @@ public final class AmmoComponentFactory
 {
     @Override
     public AmmoComponent createComponent(AmmoComponentPrototype prototype, Level level, Entity entity) {
-        return new AmmoComponent(
-                prototype.getCurrentLevel(),
-                prototype.getMaxLevel(),
-                prototype.getPrototypeCodes()
-        );
+        try {
+            return new AmmoComponent(
+                    prototype.getCurrentLevel(),
+                    prototype.getMaxLevel(),
+                    prototype.getPrototypeCodes()
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     @Override

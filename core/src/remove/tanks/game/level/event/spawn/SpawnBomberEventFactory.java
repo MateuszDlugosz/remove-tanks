@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.spawn;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class SpawnBomberEventFactory
 {
     @Override
     public SpawnBomberEvent createEvent(SpawnBomberEventPrototype prototype) {
-        return new SpawnBomberEvent();
+        try {
+            return new SpawnBomberEvent();
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.map;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -12,7 +13,11 @@ public final class TiledMapRenderSystemPrototypeXmlLoader
 {
     @Override
     public TiledMapRenderSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new TiledMapRenderSystemPrototype(priority);
+        try {
+            return new TiledMapRenderSystemPrototype(priority);
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

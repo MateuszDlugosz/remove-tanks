@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.damage;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -14,10 +15,18 @@ public final class DamageSystemPrototypeXmlLoader
 
     @Override
     public DamageSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new DamageSystemPrototype(
-                priority,
-                Float.valueOf(element.getChildByName(HIT_HIGHLIGHT_TIME).getText().trim())
-        );
+        try {
+            return new DamageSystemPrototype(
+                    priority,
+                    loadHitHighlightTime(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private float loadHitHighlightTime(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(HIT_HIGHLIGHT_TIME).getText().trim());
     }
 
     @Override

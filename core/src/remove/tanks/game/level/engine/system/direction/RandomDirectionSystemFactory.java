@@ -1,5 +1,6 @@
 package remove.tanks.game.level.engine.system.direction;
 
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
@@ -18,7 +19,14 @@ public final class RandomDirectionSystemFactory
 
     @Override
     public RandomDirectionSystem createEntitySystem(RandomDirectionSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new RandomDirectionSystem(prototype.getPriority(), randomNumberGenerator);
+        try {
+            return new RandomDirectionSystem(
+                    prototype.getPriority(),
+                    randomNumberGenerator
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

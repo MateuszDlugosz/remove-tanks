@@ -3,6 +3,7 @@ package remove.tanks.game.level.engine.system.shoot;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -14,11 +15,15 @@ public final class AutoShootSystemFactory
 {
     @Override
     public AutoShootSystem createEntitySystem(AutoShootSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new AutoShootSystem(
-                prototype.getPriority(),
-                resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class)
-        );
+        try {
+            return new AutoShootSystem(
+                    prototype.getPriority(),
+                    resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
+                    resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

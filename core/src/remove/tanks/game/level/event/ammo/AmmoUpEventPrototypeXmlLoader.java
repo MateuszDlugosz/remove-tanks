@@ -1,6 +1,7 @@
 package remove.tanks.game.level.event.ammo;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.event.EventPrototypeXmlLoadException;
 import remove.tanks.game.level.event.EventType;
 import remove.tanks.game.level.event.RegistrableEventPrototypeXmlLoader;
 
@@ -12,7 +13,11 @@ public final class AmmoUpEventPrototypeXmlLoader
 {
     @Override
     public AmmoUpEventPrototype loadEventPrototype(XmlReader.Element element) {
-        return new AmmoUpEventPrototype();
+        try {
+            return new AmmoUpEventPrototype();
+        } catch (Exception e) {
+            throw new EventPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

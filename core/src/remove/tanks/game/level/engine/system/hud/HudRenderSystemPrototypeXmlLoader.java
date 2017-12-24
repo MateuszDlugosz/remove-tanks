@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.hud;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototype;
@@ -20,10 +21,14 @@ public final class HudRenderSystemPrototypeXmlLoader
 
     @Override
     public HudRenderSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new HudRenderSystemPrototype(
-                priority,
-                loadHudStagePrototype(element)
-        );
+        try {
+            return new HudRenderSystemPrototype(
+                    priority,
+                    loadHudStagePrototype(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     private HudStagePrototype loadHudStagePrototype(XmlReader.Element element) {

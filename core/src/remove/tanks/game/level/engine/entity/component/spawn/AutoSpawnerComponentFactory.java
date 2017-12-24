@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.spawn;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 
 /**
@@ -12,7 +13,13 @@ public final class AutoSpawnerComponentFactory
 {
     @Override
     public AutoSpawnerComponent createComponent(AutoSpawnerComponentPrototype prototype, Level level, Entity entity) {
-        return new AutoSpawnerComponent(prototype.getId());
+        try {
+            return new AutoSpawnerComponent(
+                    prototype.getId()
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     @Override

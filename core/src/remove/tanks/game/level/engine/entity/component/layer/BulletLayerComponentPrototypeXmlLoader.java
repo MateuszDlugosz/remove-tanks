@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.layer;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 
@@ -12,7 +13,11 @@ public final class BulletLayerComponentPrototypeXmlLoader
 {
     @Override
     public BulletLayerComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new BulletLayerComponentPrototype();
+        try {
+            return new BulletLayerComponentPrototype();
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

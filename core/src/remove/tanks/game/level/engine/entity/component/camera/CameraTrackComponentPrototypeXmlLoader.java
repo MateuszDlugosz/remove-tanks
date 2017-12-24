@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.camera;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 import remove.tanks.game.utility.position.PositionPrototype;
@@ -22,10 +23,14 @@ public final class CameraTrackComponentPrototypeXmlLoader
 
     @Override
     public CameraTrackComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new CameraTrackComponentPrototype(
-                loadPositionPrototype(element),
-                loadPriority(element)
-        );
+        try {
+            return new CameraTrackComponentPrototype(
+                    loadPositionPrototype(element),
+                    loadPriority(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
     }
 
     private PositionPrototype loadPositionPrototype(XmlReader.Element element) {

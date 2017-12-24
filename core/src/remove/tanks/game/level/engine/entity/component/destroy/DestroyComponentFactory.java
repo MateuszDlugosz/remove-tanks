@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.destroy;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 
 /**
@@ -12,7 +13,11 @@ public final class DestroyComponentFactory
 {
     @Override
     public DestroyComponent createComponent(DestroyComponentPrototype prototype, Level level, Entity entity) {
-        return new DestroyComponent();
+        try {
+            return new DestroyComponent();
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     @Override

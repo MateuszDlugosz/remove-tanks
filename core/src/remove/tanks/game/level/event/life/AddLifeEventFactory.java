@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.life;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class AddLifeEventFactory
 {
     @Override
     public AddLifeEvent createEvent(AddLifeEventPrototype prototype) {
-        return new AddLifeEvent();
+        try {
+            return new AddLifeEvent();
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

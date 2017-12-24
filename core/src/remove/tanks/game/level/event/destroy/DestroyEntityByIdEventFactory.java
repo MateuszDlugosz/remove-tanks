@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.destroy;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class DestroyEntityByIdEventFactory
 {
     @Override
     public DestroyEntityByIdEvent createEvent(DestroyEntityByIdEventPrototype prototype) {
-        return new DestroyEntityByIdEvent(prototype.getId());
+        try {
+            return new DestroyEntityByIdEvent(prototype.getId());
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

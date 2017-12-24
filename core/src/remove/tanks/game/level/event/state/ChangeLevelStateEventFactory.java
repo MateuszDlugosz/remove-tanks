@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.state;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class ChangeLevelStateEventFactory
 {
     @Override
     public ChangeLevelStateEvent createEvent(ChangeLevelStateEventPrototype prototype) {
-        return new ChangeLevelStateEvent(prototype.getLevelState());
+        try {
+            return new ChangeLevelStateEvent(prototype.getLevelState());
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

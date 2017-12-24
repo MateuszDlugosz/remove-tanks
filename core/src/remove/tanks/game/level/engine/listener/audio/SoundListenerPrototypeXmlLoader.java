@@ -1,6 +1,8 @@
 package remove.tanks.game.level.engine.listener.audio;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.listener.EntityListenerCreateException;
+import remove.tanks.game.level.engine.listener.EntityListenerPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.listener.ListenerType;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototypeXmlLoader;
 
@@ -12,7 +14,11 @@ public final class SoundListenerPrototypeXmlLoader
 {
     @Override
     public SoundListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
-        return new SoundListenerPrototype(priority);
+        try {
+            return new SoundListenerPrototype(priority);
+        } catch (Exception e) {
+            throw new EntityListenerPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

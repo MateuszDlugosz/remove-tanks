@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.system.time;
 
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.engine.system.time.timeline.Timeline;
 import remove.tanks.game.level.engine.system.time.timeline.TimelineFactory;
@@ -23,12 +24,20 @@ public final class TimelineSystemFactory
 
     @Override
     public TimelineSystem createEntitySystem(TimelineSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new TimelineSystem(
-                prototype.getPriority(),
-                createTimeline(prototype.getTimelinePrototype()),
-                new Timer(-1),
-                resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class)
-        );
+        try {
+            return new TimelineSystem(
+                    prototype.getPriority(),
+                    createTimeline(prototype.getTimelinePrototype()),
+                    createTimer(-1),
+                    resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
+    }
+
+    private Timer createTimer(float time) {
+        return new Timer(time);
     }
 
     private Timeline createTimeline(TimelinePrototype prototype) {

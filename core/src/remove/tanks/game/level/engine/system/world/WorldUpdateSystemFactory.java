@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.system.world;
 
 import com.badlogic.gdx.physics.box2d.World;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.physics.world.updater.WorldUpdater;
@@ -20,11 +21,15 @@ public final class WorldUpdateSystemFactory
 
     @Override
     public WorldUpdateSystem createEntitySystem(WorldUpdateSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new WorldUpdateSystem(
-                prototype.getPriority(),
-                resourceRegistry.getResource(LevelResource.World.toString(), World.class),
-                worldUpdater
-        );
+        try {
+            return new WorldUpdateSystem(
+                    prototype.getPriority(),
+                    resourceRegistry.getResource(LevelResource.World.toString(), World.class),
+                    worldUpdater
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

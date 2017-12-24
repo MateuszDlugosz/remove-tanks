@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.state.defeat;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -14,10 +15,18 @@ public final class NoLifesDefeatSystemPrototypeXmlLoader
 
     @Override
     public NoLifesDefeatSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new NoLifesDefeatSystemPrototype(
-                priority,
-                Float.valueOf(element.getChildByName(DELAY_ELEMENT).getText().trim())
-        );
+        try {
+            return new NoLifesDefeatSystemPrototype(
+                    priority,
+                    loadDelay(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private float loadDelay(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(DELAY_ELEMENT).getText().trim());
     }
 
     @Override

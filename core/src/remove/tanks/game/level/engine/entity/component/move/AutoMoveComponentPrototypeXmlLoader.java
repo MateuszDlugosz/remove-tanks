@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.move;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 
@@ -14,7 +15,11 @@ public final class AutoMoveComponentPrototypeXmlLoader
 
     @Override
     public AutoMoveComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new AutoMoveComponentPrototype();
+        try {
+            return new AutoMoveComponentPrototype();
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package remove.tanks.game.level.engine.system.destroy;
 
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -11,9 +12,13 @@ public final class DestroyOnContactSystemFactory
 {
     @Override
     public DestroyOnContactSystem createEntitySystem(DestroyOnContactSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new DestroyOnContactSystem(
-                prototype.getPriority()
-        );
+        try {
+            return new DestroyOnContactSystem(
+                    prototype.getPriority()
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

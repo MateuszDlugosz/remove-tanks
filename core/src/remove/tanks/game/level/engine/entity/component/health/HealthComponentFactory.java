@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.health;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 
 /**
@@ -12,7 +13,14 @@ public final class HealthComponentFactory
 {
     @Override
     public HealthComponent createComponent(HealthComponentPrototype prototype, Level level, Entity entity) {
-        return new HealthComponent(prototype.getHealth(), prototype.getMaxHealth());
+        try {
+            return new HealthComponent(
+                    prototype.getHealth(),
+                    prototype.getMaxHealth()
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     @Override

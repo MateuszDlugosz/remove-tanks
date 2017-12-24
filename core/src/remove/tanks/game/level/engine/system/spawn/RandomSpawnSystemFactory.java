@@ -3,6 +3,7 @@ package remove.tanks.game.level.engine.system.spawn;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
@@ -21,12 +22,16 @@ public final class RandomSpawnSystemFactory
 
     @Override
     public RandomSpawnSystem createEntitySystem(RandomSpawnSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new RandomSpawnSystem(
-                prototype.getPriority(),
-                randomNumberGenerator,
-                resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
-                resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class)
-        );
+        try {
+            return new RandomSpawnSystem(
+                    prototype.getPriority(),
+                    randomNumberGenerator,
+                    resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class),
+                    resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(), EntityPrototypeRepository.class)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package remove.tanks.game.level.event.enemy;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.event.EventPrototypeXmlLoadException;
 import remove.tanks.game.level.event.EventType;
 import remove.tanks.game.level.event.RegistrableEventPrototypeXmlLoader;
 
@@ -12,7 +13,11 @@ public final class DecreaseEnemiesCounterEventPrototypeXmlLoader
 {
     @Override
     public DecreaseEnemiesCounterEventPrototype loadEventPrototype(XmlReader.Element element) {
-        return new DecreaseEnemiesCounterEventPrototype();
+        try {
+            return new DecreaseEnemiesCounterEventPrototype();
+        } catch (Exception e) {
+            throw new EventPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

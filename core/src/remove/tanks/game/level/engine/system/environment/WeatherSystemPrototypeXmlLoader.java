@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.environment;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 import remove.tanks.game.level.engine.system.environment.weather.WeatherPrototype;
@@ -20,10 +21,14 @@ public final class WeatherSystemPrototypeXmlLoader
 
     @Override
     public WeatherSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new WeatherSystemPrototype(
-                priority,
-                loadWeatherPrototype(element)
-        );
+        try {
+            return new WeatherSystemPrototype(
+                    priority,
+                    loadWeatherPrototype(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     private WeatherPrototype loadWeatherPrototype(XmlReader.Element element) {

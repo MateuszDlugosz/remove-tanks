@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.points;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class IncreasePointsMultiplierEventFactory
 {
     @Override
     public IncreasePointsMultiplierEvent createEvent(IncreasePointsMultiplierEventPrototype prototype) {
-        return new IncreasePointsMultiplierEvent();
+        try {
+            return new IncreasePointsMultiplierEvent();
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.health;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -12,7 +13,11 @@ public final class HealthSystemPrototypeXmlLoader
 {
     @Override
     public HealthSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new HealthSystemPrototype(priority);
+        try {
+            return new HealthSystemPrototype(priority);
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

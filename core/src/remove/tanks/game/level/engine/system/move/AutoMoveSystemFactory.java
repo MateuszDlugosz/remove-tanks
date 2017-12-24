@@ -1,5 +1,6 @@
 package remove.tanks.game.level.engine.system.move;
 
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -11,7 +12,11 @@ public final class AutoMoveSystemFactory
 {
     @Override
     public AutoMoveSystem createEntitySystem(AutoMoveSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new AutoMoveSystem(prototype.getPriority());
+        try {
+            return new AutoMoveSystem(prototype.getPriority());
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.view;
 
 import remove.tanks.game.graphic.view.updater.ViewUpdater;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -18,7 +19,11 @@ public final class ViewUpdateSystemFactory
 
     @Override
     public ViewUpdateSystem createEntitySystem(ViewUpdateSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new ViewUpdateSystem(prototype.getPriority(), viewUpdater);
+        try {
+            return new ViewUpdateSystem(prototype.getPriority(), viewUpdater);
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

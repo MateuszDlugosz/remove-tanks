@@ -1,5 +1,6 @@
 package remove.tanks.game.level.event.spawner;
 
+import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 
 /**
@@ -10,7 +11,11 @@ public final class ActivateAutoSpawnerEventFactory
 {
     @Override
     public ActivateAutoSpawnerEvent createEvent(ActivateAutoSpawnerEventPrototype prototype) {
-        return new ActivateAutoSpawnerEvent(prototype.getId());
+        try {
+            return new ActivateAutoSpawnerEvent(prototype.getId());
+        } catch (Exception e) {
+            throw new EventCreateException(prototype, e);
+        }
     }
 
     @Override

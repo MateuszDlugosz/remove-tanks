@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity.component.lifetime;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.entity.component.ComponentPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.entity.component.ComponentType;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentPrototypeXmlLoader;
 
@@ -14,9 +15,17 @@ public final class LifetimeComponentPrototypeXmlLoader
 
     @Override
     public LifetimeComponentPrototype loadComponentPrototype(XmlReader.Element element) {
-        return new LifetimeComponentPrototype(
-                Float.valueOf(element.getChildByName(LIFETIME_ELEMENT).getText().trim())
-        );
+        try {
+            return new LifetimeComponentPrototype(
+                    loadLifetime(element)
+            );
+        } catch (Exception e) {
+            throw new ComponentPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private float loadLifetime(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(LIFETIME_ELEMENT).getText().trim());
     }
 
     @Override

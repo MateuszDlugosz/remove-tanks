@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import remove.tanks.game.level.Level;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.physics.body.BodyFactory;
 import remove.tanks.game.physics.body.BodyPrototype;
@@ -49,21 +50,26 @@ public final class PhysicsComponentFactory
 
     @Override
     public PhysicsComponent createComponent(PhysicsComponentPrototype prototype, Level level, Entity entity) {
-        World world = level.getResourceRegistry()
-                .getResource(LevelResource.World.toString(), World.class);
-        WorldLight worldLight = level.getResourceRegistry()
-                .getResource(LevelResource.WorldLight.toString(), WorldLight.class);
-        Scale worldScale = level.getResourceRegistry()
-                .getResource(LevelResource.WorldScale.toString(), Scale.class);
+        try {
+            World world = level.getResourceRegistry()
+                    .getResource(LevelResource.World.toString(), World.class);
+            WorldLight worldLight = level.getResourceRegistry()
+                    .getResource(LevelResource.WorldLight.toString(), WorldLight.class);
+            Scale worldScale = level.getResourceRegistry()
+                    .getResource(LevelResource.WorldScale.toString(), Scale.class);
 
-        Body body = createBody(prototype.getBodyPrototype(), world);
-        body.setUserData(entity);
-        return new PhysicsComponent(
-                body,
-                createHitBoxIdMap(prototype.getHitBoxPrototypes(), body, entity, worldScale),
-                createSensorIdMap(prototype.getSensorPrototypes(), body, worldScale),
-                createLightHandlerIdMap(prototype.getLightHandlerPrototypes(), worldLight, body, worldScale)
-        );
+            Body body = createBody(prototype.getBodyPrototype(), world);
+            body.setUserData(entity);
+
+            return new PhysicsComponent(
+                    body,
+                    createHitBoxIdMap(prototype.getHitBoxPrototypes(), body, entity, worldScale),
+                    createSensorIdMap(prototype.getSensorPrototypes(), body, worldScale),
+                    createLightHandlerIdMap(prototype.getLightHandlerPrototypes(), worldLight, body, worldScale)
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     private Body createBody(BodyPrototype prototype, World world) {

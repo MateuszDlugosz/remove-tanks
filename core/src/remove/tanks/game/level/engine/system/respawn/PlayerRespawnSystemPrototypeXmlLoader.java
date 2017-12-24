@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.respawn;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -15,11 +16,23 @@ public final class PlayerRespawnSystemPrototypeXmlLoader
 
     @Override
     public PlayerRespawnSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new PlayerRespawnSystemPrototype(
-                priority,
-                element.getChildByName(PROTOTYPE_CODE_ELEMENT).getText().trim(),
-                Integer.valueOf(element.getChildByName(RESPAWN_TIME_ELEMENT).getText().trim())
-        );
+        try {
+            return new PlayerRespawnSystemPrototype(
+                    priority,
+                    loadPrototypeCode(element),
+                    loadRespawnTime(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private String loadPrototypeCode(XmlReader.Element element) {
+        return element.getChildByName(PROTOTYPE_CODE_ELEMENT).getText().trim();
+    }
+
+    private float loadRespawnTime(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(RESPAWN_TIME_ELEMENT).getText().trim());
     }
 
     @Override

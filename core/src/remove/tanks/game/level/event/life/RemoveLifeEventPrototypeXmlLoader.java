@@ -1,6 +1,7 @@
 package remove.tanks.game.level.event.life;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.event.EventPrototypeXmlLoadException;
 import remove.tanks.game.level.event.EventType;
 import remove.tanks.game.level.event.RegistrableEventPrototypeXmlLoader;
 
@@ -12,7 +13,11 @@ public final class RemoveLifeEventPrototypeXmlLoader
 {
     @Override
     public RemoveLifeEventPrototype loadEventPrototype(XmlReader.Element element) {
-        return new RemoveLifeEventPrototype();
+        try {
+            return new RemoveLifeEventPrototype();
+        } catch (Exception e) {
+            throw new EventPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

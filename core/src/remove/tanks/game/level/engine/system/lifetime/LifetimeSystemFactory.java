@@ -1,5 +1,6 @@
 package remove.tanks.game.level.engine.system.lifetime;
 
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
@@ -11,7 +12,11 @@ public final class LifetimeSystemFactory
 {
     @Override
     public LifetimeSystem createEntitySystem(LifetimeSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new LifetimeSystem(prototype.getPriority());
+        try {
+            return new LifetimeSystem(prototype.getPriority());
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     @Override

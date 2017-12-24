@@ -1,6 +1,7 @@
 package remove.tanks.game.level.event.destroy;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.event.EventPrototypeXmlLoadException;
 import remove.tanks.game.level.event.EventType;
 import remove.tanks.game.level.event.RegistrableEventPrototypeXmlLoader;
 
@@ -14,7 +15,17 @@ public final class DestroyEntityByIdEventPrototypeXmlLoader
 
     @Override
     public DestroyEntityByIdEventPrototype loadEventPrototype(XmlReader.Element element) {
-        return new DestroyEntityByIdEventPrototype(element.getChildByName(ID_ELEMENT).getText().trim());
+        try {
+            return new DestroyEntityByIdEventPrototype(
+                    loadId(element)
+            );
+        } catch (Exception e) {
+            throw new EventPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private String loadId(XmlReader.Element element) {
+        return element.getChildByName(ID_ELEMENT).getText().trim();
     }
 
     @Override

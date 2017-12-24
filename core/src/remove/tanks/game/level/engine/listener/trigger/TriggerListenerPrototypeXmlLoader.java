@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.listener.trigger;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.listener.EntityListenerPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.listener.ListenerType;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototypeXmlLoader;
 
@@ -12,7 +13,11 @@ public final class TriggerListenerPrototypeXmlLoader
 {
     @Override
     public TriggerListenerPrototype loadEntityListenerPrototype(XmlReader.Element element, int priority) {
-        return new TriggerListenerPrototype(priority);
+        try {
+            return new TriggerListenerPrototype(priority);
+        } catch (Exception e) {
+            throw new EntityListenerPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

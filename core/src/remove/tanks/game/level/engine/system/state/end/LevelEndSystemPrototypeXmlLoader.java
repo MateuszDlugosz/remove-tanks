@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.state.end;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -14,10 +15,18 @@ public final class LevelEndSystemPrototypeXmlLoader
 
     @Override
     public LevelEndSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new LevelEndSystemPrototype(
-                priority,
-                Float.valueOf(element.getChildByName(END_TIME_ELEMENT).getText().trim())
-        );
+        try {
+            return new LevelEndSystemPrototype(
+                    priority,
+                    loadEndTime(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private float loadEndTime(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(END_TIME_ELEMENT).getText().trim());
     }
 
     @Override

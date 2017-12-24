@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.lifetime;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -12,7 +13,11 @@ public final class LifetimeSystemPrototypeXmlLoader
 {
     @Override
     public LifetimeSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new LifetimeSystemPrototype(priority);
+        try {
+            return new LifetimeSystemPrototype(priority);
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

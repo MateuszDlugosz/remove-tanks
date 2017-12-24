@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.speed;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 
 /**
@@ -12,7 +13,13 @@ public final class SpeedComponentFactory
 {
     @Override
     public SpeedComponent createComponent(SpeedComponentPrototype prototype, Level level, Entity entity) {
-        return new SpeedComponent(prototype.getSpeed());
+        try {
+            return new SpeedComponent(
+                    prototype.getSpeed()
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
     }
 
     @Override

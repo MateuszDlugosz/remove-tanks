@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.behavior;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -12,7 +13,11 @@ public final class ChangeBehaviorSystemPrototypeXmlLoader
 {
     @Override
     public ChangeBehaviorSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new ChangeBehaviorSystemPrototype(priority);
+        try {
+            return new ChangeBehaviorSystemPrototype(priority);
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
     }
 
     @Override

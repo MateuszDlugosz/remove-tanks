@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.system.hud;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
 import remove.tanks.game.level.engine.system.hud.stages.HudStage;
 import remove.tanks.game.level.engine.system.hud.stages.HudStageFactory;
@@ -22,12 +23,16 @@ public final class HudRenderSystemFactory
 
     @Override
     public HudRenderSystem createEntitySystem(HudRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
-        return new HudRenderSystem(
-                prototype.getPriority(),
-                createHudStage(prototype.getHudStagePrototype(), resourceRegistry),
-                resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
-                resourceRegistry
-        );
+        try {
+            return new HudRenderSystem(
+                    prototype.getPriority(),
+                    createHudStage(prototype.getHudStagePrototype(), resourceRegistry),
+                    resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
+                    resourceRegistry
+            );
+        } catch (Exception e) {
+            throw new EntitySystemCreateException(prototype, e);
+        }
     }
 
     private HudStage createHudStage(HudStagePrototype prototype, ResourceRegistry resourceRegistry) {

@@ -2,6 +2,7 @@ package remove.tanks.game.level.engine.entity.component.shoot;
 
 import com.badlogic.ashley.core.Entity;
 import remove.tanks.game.level.Level;
+import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
@@ -20,14 +21,22 @@ public final class RandomShootComponentFactory
 
     @Override
     public RandomShootComponent createComponent(RandomShootComponentPrototype prototype, Level level, Entity entity) {
-        return new RandomShootComponent(
-                prototype.getMinShootFrequency(),
-                prototype.getMaxShootFrequency(),
-                new Timer(randomNumberGenerator.getRandomFloat(
-                        prototype.getMinShootFrequency(),
-                        prototype.getMaxShootFrequency()
-                ))
-        );
+        try {
+            return new RandomShootComponent(
+                    prototype.getMinShootFrequency(),
+                    prototype.getMaxShootFrequency(),
+                    createTimer(
+                            prototype.getMinShootFrequency(),
+                            prototype.getMaxShootFrequency()
+                    )
+            );
+        } catch (Exception e) {
+            throw new ComponentCreateException(prototype, e);
+        }
+    }
+
+    private Timer createTimer(float min, float max) {
+        return new Timer(randomNumberGenerator.getRandomFloat(min, max));
     }
 
     @Override

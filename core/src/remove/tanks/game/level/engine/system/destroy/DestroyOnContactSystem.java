@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.systems.IteratingSystem;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.component.destroy.DestroyComponent;
-import remove.tanks.game.level.engine.entity.component.destroy.DestroyOnContactComponent;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 
 /**
@@ -21,7 +20,6 @@ public final class DestroyOnContactSystem extends IteratingSystem {
         pc.getSensors().values().forEach(s -> {
             if (s.isContacted()) {
                 entity.add(new DestroyComponent());
-                entity.add(new DestroyOnContactComponent((Entity) s.getContacts().get(0)));
             }
         });
     }

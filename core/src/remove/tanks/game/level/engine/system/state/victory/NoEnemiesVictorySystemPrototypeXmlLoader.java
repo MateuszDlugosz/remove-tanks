@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.state.victory;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;
 
@@ -14,10 +15,18 @@ public final class NoEnemiesVictorySystemPrototypeXmlLoader
 
     @Override
     public NoEnemiesVictorySystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
-        return new NoEnemiesVictorySystemPrototype(
-                priority,
-                Float.valueOf(element.getChildByName(DELAY_ELEMENT).getText().trim())
-        );
+        try {
+            return new NoEnemiesVictorySystemPrototype(
+                    priority,
+                    loadDelay(element)
+            );
+        } catch (Exception e) {
+            throw new EntitySystemPrototypeXmlLoadException(element, e);
+        }
+    }
+
+    private float loadDelay(XmlReader.Element element) {
+        return Float.valueOf(element.getChildByName(DELAY_ELEMENT).getText().trim());
     }
 
     @Override
