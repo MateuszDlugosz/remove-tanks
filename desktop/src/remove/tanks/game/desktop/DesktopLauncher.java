@@ -28,9 +28,9 @@ public class DesktopLauncher {
 
 		Map<String, String> configuration = new HashMap<>();
 		configuration.put("game.level.world.scale", "32");
-		configuration.put("game.display.scale", "0.2");
-		configuration.put("game.display.width", "1920");
-		configuration.put("game.display.height", "1080");
+		configuration.put("game.display.scale", "1");
+		configuration.put("game.display.width", "320");
+		configuration.put("game.display.height", "175");
 
 		List<String> scanPackages = new ArrayList<>();
 		scanPackages.add("remove.tanks.game.configuration");
