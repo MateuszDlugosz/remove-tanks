@@ -56,7 +56,7 @@ public class SoundFactoryTest extends LibGDXTest {
     @Test(expected = SoundCreateException.class)
     public void when_SoundNotExistsInAssetStorage_Then_ThrowException() {
         AssetStorage assetStorage = assetStorageFactory.createAssetStorage(new ArrayList<>());
-        SoundPrototype prototype = new SoundPrototype("textFilename");
+        SoundPrototype prototype = new SoundPrototype("testFilename");
         soundFactory.createSound(prototype, assetStorage);
     }
 
