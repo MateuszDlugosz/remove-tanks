@@ -10,6 +10,7 @@ import remove.tanks.game.asset.*;
 import remove.tanks.game.asset.parameter.ParametersFactory;
 import remove.tanks.game.asset.parameter.ParametersPrototypeXmlLoader;
 import remove.tanks.game.asset.parameter.ParticleEffectParametersFactory;
+import remove.tanks.game.asset.parameter.RegistrableParametersFactory;
 import remove.tanks.game.asset.theme.ThemeXmlLoader;
 import remove.tanks.game.graphic.effect.Effect;
 import remove.tanks.game.graphic.effect.EffectAssetLoader;
@@ -49,9 +50,11 @@ public final class AssetSuppliersConfiguration {
     public static final class ParameterFactorySupplier extends ComponentSupplier<ParametersFactory> {
         @Override
         public ParametersFactory supplyComponent() {
-            ParametersFactory parametersFactory = new ParametersFactory();
-            parametersFactory.registerFactory(new ParticleEffectParametersFactory());
-            return parametersFactory;
+            return new ParametersFactory(
+                    new RegistrableParametersFactory[] {
+                            new ParticleEffectParametersFactory()
+                    }
+            );
         }
     }
 

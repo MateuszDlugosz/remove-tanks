@@ -2,6 +2,7 @@ package remove.tanks.game.asset.parameter;
 
 import com.badlogic.gdx.assets.AssetLoaderParameters;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,8 +14,8 @@ public final class ParametersFactory {
     private final Map<Class<? extends AssetLoaderParameters>, RegistrableParametersFactory> factories
             = new HashMap<>();
 
-    public void registerFactory(RegistrableParametersFactory factory) {
-        factories.put(factory.getFactoryType(), factory);
+    public ParametersFactory(RegistrableParametersFactory[] factories) {
+        Arrays.stream(factories).forEach(f -> this.factories.put(f.getFactoryType(), f));
     }
 
     public AssetLoaderParameters createAssetLoaderParameters(ParametersPrototype prototype) {

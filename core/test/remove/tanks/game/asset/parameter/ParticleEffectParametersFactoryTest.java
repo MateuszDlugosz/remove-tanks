@@ -26,8 +26,11 @@ public class ParticleEffectParametersFactoryTest extends LibGDXTest {
     public void initTestObjects() {
         xmlReader = new XmlReader();
         parametersPrototypeXmlLoader = new ParametersPrototypeXmlLoader();
-        parametersFactory = new ParametersFactory();
-        parametersFactory.registerFactory(new ParticleEffectParametersFactory());
+        parametersFactory = new ParametersFactory(
+                new RegistrableParametersFactory[] {
+                        new ParticleEffectParametersFactory()
+                }
+        );
     }
 
     @Test

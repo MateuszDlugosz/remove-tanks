@@ -9,6 +9,8 @@ import remove.tanks.game.asset.AssetPrototype;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.asset.AssetStorageFactory;
 import remove.tanks.game.asset.parameter.ParametersFactory;
+import remove.tanks.game.asset.parameter.ParticleEffectParametersFactory;
+import remove.tanks.game.asset.parameter.RegistrableParametersFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +28,11 @@ public class SoundFactoryTest extends LibGDXTest {
     @Before
     public void initTestObjects() {
         assetStorageFactory = new AssetStorageFactory(
-                new ParametersFactory(),
+                new ParametersFactory(
+                        new RegistrableParametersFactory[] {
+                                new ParticleEffectParametersFactory()
+                        }
+                ),
                 new AssetManagerFactory(
                         new HashMap<>()
                 )

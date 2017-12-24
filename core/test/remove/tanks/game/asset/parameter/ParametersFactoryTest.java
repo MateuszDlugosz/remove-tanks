@@ -21,8 +21,11 @@ public class ParametersFactoryTest {
 
     @Before
     public void initTestObjects() {
-        parametersFactory = new ParametersFactory();
-        parametersFactory.registerFactory(new ParticleEffectParametersFactory());
+        parametersFactory = new ParametersFactory(
+                new RegistrableParametersFactory[] {
+                        new ParticleEffectParametersFactory()
+                }
+        );
 
         Map<String, String> parametersMap0 = new HashMap<>();
         parametersMap0.put("atlasFile", "sample-file");
