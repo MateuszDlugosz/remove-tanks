@@ -26,9 +26,13 @@ public enum TranslationEntryKey {
     GameScreenCreditsContent("game.screen.credits.content"),
     GameScreenModeSelectTitle("game.screen.mode.select.title"),
     GameScreenCampaignTitle("game.screen.campaign.title"),
-    GameScreenButtonBack("game.screen.button.back"),
     GameScreenSummaryTitle("game.screen.summary.title"),
-    GameScreenSummaryCongratulations("game.screen.summary.congratulations");
+    GameScreenSummaryCongratulations("game.screen.summary.congratulations"),
+    GameScreenPauseTitle("game.screen.pause.title"),
+    GameScreenPauseContent("game.screen.pause.content"),
+    GameScreenButtonYes("game.screen.button.yes"),
+    GameScreenButtonNo("game.screen.button.no"),
+    GameScreenButtonBack("game.screen.button.back");
 
     private final String name;
 

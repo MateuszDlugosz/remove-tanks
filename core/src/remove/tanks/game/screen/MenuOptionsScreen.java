@@ -27,7 +27,7 @@ import remove.tanks.game.screen.gui.listeners.KeyListener;
 /**
  * @author Mateusz Długosz
  */
-public final class OptionsScreen extends GameScreen {
+public final class MenuOptionsScreen extends GameScreen {
     private static final int SOUND_VOLUME_STEP = 5;
     private static final int MUSIC_VOLUME_STEP = 5;
 
@@ -58,7 +58,7 @@ public final class OptionsScreen extends GameScreen {
 
     private ButtonGroup buttonGroup;
 
-    public OptionsScreen(GameApplication gameApplication) {
+    public MenuOptionsScreen(GameApplication gameApplication) {
         super(gameApplication);
         this.stage = new Stage(
                 gameApplication.getContext()
@@ -135,7 +135,7 @@ public final class OptionsScreen extends GameScreen {
         window.pad(70);
         window.add(titleLabel.pad(5));
         window.row().padTop(80);
-        window.add(optionsGroup);
+        window.add(optionsGroup.pad(5));
         window.row().padTop(80);
         window.add(backButton.pad(5));
         window.pack();
@@ -286,7 +286,7 @@ public final class OptionsScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(MainMenuScreen.class);
+                    getGameApplication().switchScreenWithoutTransition(MenuMainScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));

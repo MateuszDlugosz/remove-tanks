@@ -26,7 +26,7 @@ import remove.tanks.game.screen.gui.listeners.KeyListener;
 /**
  * @author Mateusz Długosz
  */
-public final class CreditsScreen extends GameScreen {
+public final class MenuCreditsScreen extends GameScreen {
     private final Locale locale;
     private final LevelPresenter levelPresenter;
     private final Skin skin;
@@ -43,7 +43,7 @@ public final class CreditsScreen extends GameScreen {
 
     private ButtonGroup buttonGroup;
 
-    public CreditsScreen(GameApplication gameApplication) {
+    public MenuCreditsScreen(GameApplication gameApplication) {
         super(gameApplication);
         this.stage = new Stage(
                 gameApplication.getContext()
@@ -131,7 +131,7 @@ public final class CreditsScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(MainMenuScreen.class);
+                    getGameApplication().switchScreenWithoutTransition(MenuMainScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));

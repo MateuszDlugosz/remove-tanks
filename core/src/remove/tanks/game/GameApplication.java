@@ -21,7 +21,7 @@ import java.util.HashSet;
 
 public final class GameApplication extends Game {
 	public static final String TITLE = "Remove Tanks!";
-	public static final String VERSION = "0.18.111";
+	public static final String VERSION = "0.18.112";
 
 	private final Configuration configuration;
 
@@ -37,16 +37,16 @@ public final class GameApplication extends Game {
 		this.context = new ApplicationContext(configuration);
 		this.screenSwitcher = new ScreenSwitcher(
 				new ScreenStorage(new HashSet<>(Arrays.asList(
-						new MainMenuScreen(this),
-						new CreditsScreen(this),
-						new OptionsScreen(this),
-						new CampaignSelectScreen(this),
-						new ModeSelectScreen(this)
+						new MenuMainScreen(this),
+						new MenuCreditsScreen(this),
+						new MenuOptionsScreen(this),
+						new MenuCampaignSelectScreen(this),
+						new MenuModeSelectScreen(this)
 				))),
-				new FadeOutStageActionFactory(0.5f),
-				new FadeInStageActionFactory(0.5f)
+				new FadeOutStageActionFactory(0.3f),
+				new FadeInStageActionFactory(0.3f)
 		);
-		this.screenSwitcher.switchScreenWithTransition(MainMenuScreen.class, this);
+		this.screenSwitcher.switchScreenWithTransition(MenuMainScreen.class, this);
 	}
 
 	public Context getContext() {
@@ -63,6 +63,10 @@ public final class GameApplication extends Game {
 
 	public void switchScreenWithoutTransition(Class<? extends GameScreen> screenClass) {
 		this.screenSwitcher.switchScreenWithoutTransition(screenClass, this);
+	}
+
+	public void switchScreenWithoutTransition(GameScreen screen) {
+		this.screenSwitcher.switchScreenWithoutTransition(screen, this);
 	}
 
 	@Override

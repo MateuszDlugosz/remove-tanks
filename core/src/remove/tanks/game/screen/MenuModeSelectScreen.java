@@ -17,8 +17,6 @@ import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
-import remove.tanks.game.mode.campaign.Campaign;
-import remove.tanks.game.mode.campaign.CampaignXmlLoader;
 import remove.tanks.game.screen.gui.buttons.Button;
 import remove.tanks.game.screen.gui.buttons.ButtonGroup;
 import remove.tanks.game.screen.gui.labels.Label;
@@ -27,13 +25,12 @@ import remove.tanks.game.screen.gui.listeners.KeyListener;
 /**
  * @author Mateusz Długosz
  */
-public final class CampaignSelectScreen extends GameScreen {
+public final class MenuModeSelectScreen extends GameScreen {
     private final Locale locale;
     private final LevelPresenter levelPresenter;
     private final Skin skin;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
-    private final CampaignXmlLoader campaignXmlLoader;
 
     private Stage stage;
     private Window window;
@@ -42,10 +39,10 @@ public final class CampaignSelectScreen extends GameScreen {
 
     private ButtonGroup buttonGroup;
 
-    private Button operationEarlyMorningButton;
+    private Button campaignModeButton;
     private Button backButton;
 
-    public CampaignSelectScreen(GameApplication gameApplication) {
+    public MenuModeSelectScreen(GameApplication gameApplication) {
         super(gameApplication);
         this.stage = new Stage(
                 gameApplication.getContext()
@@ -60,14 +57,8 @@ public final class CampaignSelectScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
-        this.campaignXmlLoader = gameApplication.getContext()
-                .getComponent("CampaignXmlLoader", CampaignXmlLoader.class);
 
-        this.operationEarlyMorningButton = createCampaignButton(
-                "prototypes/campaigns/early-morning-campaign.xml",
-                locale.getTranslation().getEntry(String.format(TranslationEntryKey.GameCampaignName.getName(), "early-morning"))
-        );
-
+        this.campaignModeButton = createCampaignModeButton();
         this.titleLabel = createTitleLabel();
         this.backButton = createBackButton();
         this.buttonGroup = createButtonGroup();
@@ -91,7 +82,7 @@ public final class CampaignSelectScreen extends GameScreen {
         window.pad(70);
         window.add(titleLabel.pad(5));
         window.row().padTop(80);
-        window.add(operationEarlyMorningButton.pad(5));
+        window.add(campaignModeButton.pad(5));
         window.row().padTop(80);
         window.add(backButton.pad(5));
         window.pack();
@@ -109,7 +100,7 @@ public final class CampaignSelectScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(ModeSelectScreen.class);
+                    getGameApplication().switchScreenWithoutTransition(MenuMainScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
@@ -121,11 +112,10 @@ public final class CampaignSelectScreen extends GameScreen {
     }
 
     private ButtonGroup createButtonGroup() {
-        return new ButtonGroup(
-                Lists.newArrayList(
-                        operationEarlyMorningButton,
-                        backButton
-                )
+        return new ButtonGroup(Lists.newArrayList(
+                campaignModeButton,
+                backButton
+            )
         );
     }
 
@@ -143,23 +133,19 @@ public final class CampaignSelectScreen extends GameScreen {
 
     private Label createTitleLabel() {
         return new Label(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameScreenCampaignTitle.getName()
+                TranslationEntryKey.GameScreenModeSelectTitle.getName()
         ).toUpperCase(), skin);
     }
 
-    private Button createCampaignButton(String campaignFilename, String operationName) {
-        Button textButton = new Button(operationName.toUpperCase(), skin);
-        Campaign campaign = campaignXmlLoader.loadCampaign(campaignFilename);
+    private Button createCampaignModeButton() {
+        Button textButton = new Button(locale.getTranslation().getEntry(
+                TranslationEntryKey.GameModeCampaign.getName()
+        ).toUpperCase(), skin);
         textButton.setKeyListener(new KeyListener() {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(new LevelLoadingScreen(
-                            getGameApplication(),
-                            campaign,
-                            0,
-                            null
-                    ));
+                    getGameApplication().switchScreenWithoutTransition(MenuCampaignSelectScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
@@ -167,7 +153,6 @@ public final class CampaignSelectScreen extends GameScreen {
                 }
             }
         });
-        textButton.setChecked(true);
         return textButton;
     }
 
@@ -175,10 +160,10 @@ public final class CampaignSelectScreen extends GameScreen {
     public void render(float delta) {
         levelPresenter.update(delta, eventBus);
         titleLabel.setText(locale.getTranslation().getEntry(
-                TranslationEntryKey.GameScreenCampaignTitle.getName()
+                TranslationEntryKey.GameScreenModeSelectTitle.getName()
         ).toUpperCase());
-        operationEarlyMorningButton.setText(locale.getTranslation().getEntry(
-                String.format(TranslationEntryKey.GameCampaignName.getName(), "early-morning")
+        campaignModeButton.setText(locale.getTranslation().getEntry(
+                TranslationEntryKey.GameModeCampaign.getName()
         ).toUpperCase());
         backButton.setText(locale.getTranslation().getEntry(
                 TranslationEntryKey.GameScreenButtonBack.getName()).toUpperCase());

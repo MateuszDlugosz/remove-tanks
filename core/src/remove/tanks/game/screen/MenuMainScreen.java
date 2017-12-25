@@ -25,7 +25,7 @@ import remove.tanks.game.screen.gui.listeners.KeyListener;
 /**
  * @author Mateusz Długosz
  */
-public final class MainMenuScreen extends GameScreen {
+public final class MenuMainScreen extends GameScreen {
     private final Locale locale;
     private final LevelPresenter levelPresenter;
     private final Skin skin;
@@ -46,7 +46,7 @@ public final class MainMenuScreen extends GameScreen {
 
     private ButtonGroup buttonGroup;
 
-    public MainMenuScreen(GameApplication gameApplication) {
+    public MenuMainScreen(GameApplication gameApplication) {
         super(gameApplication);
         this.stage = new Stage(
                 gameApplication.getContext()
@@ -135,7 +135,7 @@ public final class MainMenuScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(ModeSelectScreen.class);
+                    getGameApplication().switchScreenWithoutTransition(MenuModeSelectScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
@@ -156,7 +156,7 @@ public final class MainMenuScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(OptionsScreen.class);
+                    getGameApplication().switchScreenWithoutTransition(MenuOptionsScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
@@ -177,7 +177,7 @@ public final class MainMenuScreen extends GameScreen {
             @Override
             public void keyDown(int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    getGameApplication().switchScreenWithTransition(CreditsScreen.class);
+                    getGameApplication().switchScreenWithoutTransition(MenuCreditsScreen.class);
                     eventBus.post(new PlaySoundEvent(
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
