@@ -23,6 +23,10 @@
     <entry key="game.screen.mode.select.title">Wybór trybu</entry>
     <entry key="game.screen.campaign.title">Wybór kampanii</entry>
     <entry key="game.screen.button.back">Powrót</entry>
+    <entry key="game.screen.button.yes">Tak</entry>
+    <entry key="game.screen.button.no">Nie</entry>
+    <entry key="game.screen.pause.title">Pauza</entry>
+    <entry key="game.screen.pause.content">Powrót do menu głównego?</entry>
     <entry key="game.screen.summary.title">Podsumowanie</entry>
     <entry key="game.screen.summary.congratulations">Gratulacje, zdobyłeś %s punktów.</entry>
 </translation>

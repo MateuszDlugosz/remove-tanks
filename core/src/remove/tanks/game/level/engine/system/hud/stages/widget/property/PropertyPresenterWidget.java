@@ -51,8 +51,8 @@ public final class PropertyPresenterWidget implements Widget {
     @Override
     public void update(float delta, ResourceRegistry resourceRegistry) {
         titleLabel.setText(resourceRegistry.getResource(LevelResource.Locale.toString(), Locale.class)
-                .getTranslation().getEntry(titleEntry.getName()));
+                .getTranslation().getEntry(titleEntry.getName()).toUpperCase());
         valueLabel.setText(resourceRegistry.getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(property.getName()));
+                .getString(property.getName()).toUpperCase());
     }
 }

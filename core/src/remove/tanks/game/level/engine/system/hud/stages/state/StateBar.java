@@ -45,7 +45,7 @@ public final class StateBar {
                             TRANSLATION_ENTRY_TEMPLATE,
                             properties.getString(LevelProperty.LevelState.getName())
                     ).toLowerCase()
-            ));
+            ).toUpperCase());
         } else {
             label.setText(EMPTY_STATE_TEMPLATE);
         }
