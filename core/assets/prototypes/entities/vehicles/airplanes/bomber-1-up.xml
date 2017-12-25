@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>1</width>
+                            <height>1</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>SceneryCategory</categoryBit>
+                            <maskBit>SceneryMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="SpriteView" id="MovingUp">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>bomber-1-up</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Moving</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Up</direction>
+        </component>
+        <component type="AutoMoveComponent" />
+        <component type="SpeedComponent">
+            <speed>2.4</speed>
+        </component>
+        <component type="LifetimeComponent">
+            <lifetime>10</lifetime>
+        </component>
+        <component type="BomberLayerComponent" />
+        <component type="RandomSpawnComponent">
+            <minSpawnFrequency>0.5</minSpawnFrequency>
+            <maxSpawnFrequency>0.7</maxSpawnFrequency>
+            <spawnEntries>
+                <spawnEntry>
+                    <prototypeCode>Bomb0Up</prototypeCode>
+                </spawnEntry>
+            </spawnEntries>
+        </component>
+    </components>
+</prototype>

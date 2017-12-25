@@ -72,9 +72,13 @@
         <prototype code="EnemyVehicleBlockadeSmall">prototypes/entities/services/blockades/enemy-vehicle-blockade-small.xml</prototype>
 
         <prototype code="Bomber0Right">prototypes/entities/vehicles/airplanes/bomber-0-right.xml</prototype>
+        <prototype code="Bomber1Right">prototypes/entities/vehicles/airplanes/bomber-1-right.xml</prototype>
         <prototype code="Bomber0Left">prototypes/entities/vehicles/airplanes/bomber-0-left.xml</prototype>
+        <prototype code="Bomber1Left">prototypes/entities/vehicles/airplanes/bomber-1-left.xml</prototype>
         <prototype code="Bomber0Up">prototypes/entities/vehicles/airplanes/bomber-0-up.xml</prototype>
+        <prototype code="Bomber1Up">prototypes/entities/vehicles/airplanes/bomber-1-up.xml</prototype>
         <prototype code="Bomber0Down">prototypes/entities/vehicles/airplanes/bomber-0-down.xml</prototype>
+        <prototype code="Bomber1Down">prototypes/entities/vehicles/airplanes/bomber-1-down.xml</prototype>
 
         <prototype code="BombDamageArea">prototypes/entities/vehicles/airplanes/bombs/bomb-damage-area.xml</prototype>
 
@@ -84,9 +88,13 @@
         <prototype code="Bomb0Up">prototypes/entities/vehicles/airplanes/bombs/bomb-0-up.xml</prototype>
 
         <prototype code="Bomber0RightSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-right-spawner.xml</prototype>
+        <prototype code="Bomber1RightSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-1-right-spawner.xml</prototype>
         <prototype code="Bomber0DownSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-down-spawner.xml</prototype>
+        <prototype code="Bomber1DownSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-1-down-spawner.xml</prototype>
         <prototype code="Bomber0UpSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-up-spawner.xml</prototype>
+        <prototype code="Bomber1UpSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-1-up-spawner.xml</prototype>
         <prototype code="Bomber0LeftSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-0-left-spawner.xml</prototype>
+        <prototype code="Bomber1LeftSpawner">prototypes/entities/vehicles/airplanes/spawners/bomber-1-left-spawner.xml</prototype>
 
         <prototype code="EnemyBunker0DownIntacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-0-down-intacted.xml</prototype>
         <prototype code="EnemyBunker1DownIntacted">prototypes/entities/constructions/fortifications/bunkers/enemy-bunker-1-down-intacted.xml</prototype>
