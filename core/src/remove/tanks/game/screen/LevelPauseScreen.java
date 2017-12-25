@@ -12,6 +12,7 @@ import remove.tanks.game.GameApplication;
 import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphic.camera.Game2DCamera;
+import remove.tanks.game.level.LevelDisposer;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.constant.TranslationEntryKey;
@@ -25,6 +26,7 @@ import remove.tanks.game.screen.gui.listeners.KeyListener;
  */
 public final class LevelPauseScreen extends GameScreen {
     private final LevelPresenter levelPresenter;
+    private final LevelDisposer levelDisposer;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
     private final LevelScreen levelScreen;
@@ -56,6 +58,7 @@ public final class LevelPauseScreen extends GameScreen {
                         .getComponent("SpriteBatch", SpriteBatch.class));
 
         this.levelPresenter = gameApplication.getContext().getComponent("MenuLevelPresenter", LevelPresenter.class);
+        this.levelDisposer = gameApplication.getContext().getComponent("LevelDisposer", LevelDisposer.class);
         this.eventBus = gameApplication.getContext().getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext().getComponent("MainAssetStorage", AssetStorage.class);
         this.locale = gameApplication.getContext().getComponent("Locale", Locale.class);
@@ -163,6 +166,7 @@ public final class LevelPauseScreen extends GameScreen {
                             assetStorage.getAsset("button-select", Sound.class)
                     ));
                     buttonGroup.lockButtons();
+                    levelDisposer.disposeLevel(levelScreen.getLevelController().getLevel());
                 }
             }
         });

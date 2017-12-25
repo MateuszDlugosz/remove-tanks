@@ -105,6 +105,10 @@ public final class LevelScreen extends GameScreen {
         ));
     }
 
+    public LevelController getLevelController() {
+        return levelController;
+    }
+
     private void processInput() {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             levelController.getLevel().getResourceRegistry().getResource(LevelResource.InputMapper.toString(), InputMapper.class)
