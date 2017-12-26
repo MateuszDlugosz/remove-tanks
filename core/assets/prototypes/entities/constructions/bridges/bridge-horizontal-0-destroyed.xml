@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prototype>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>32</width>
+                            <height>32</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>AllVehicleBlockadeCategory</categoryBit>
+                            <maskBit>AllVehicleBlockadeMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="GraphicsComponent">
+            <views>
+                <view type="SpriteView" id="StandingNone">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>main-atlas</atlasFilename>
+                        <regionName>bridge-horizontal-0-destroyed</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>None</direction>
+        </component>
+        <component type="GroundLayerComponent" />s
+    </components>
+</prototype>

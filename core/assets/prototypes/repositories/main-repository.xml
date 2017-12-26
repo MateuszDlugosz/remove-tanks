@@ -227,5 +227,8 @@
 
         <prototype code="Button0">prototypes/entities/services/buttons/button-0.xml</prototype>
         <prototype code="Button0Pushed">prototypes/entities/services/buttons/button-0-pushed.xml</prototype>
+
+        <prototype code="BridgeVertical0Destroyed">prototypes/entities/constructions/bridges/bridge-vertical-0-destroyed.xml</prototype>
+        <prototype code="BridgeHorizontal0Destroyed">prototypes/entities/constructions/bridges/bridge-horizontal-0-destroyed.xml</prototype>
     </prototypes>
 </repository>
