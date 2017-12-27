@@ -2,11 +2,12 @@ package remove.tanks.game.level.engine.system.hud.stages;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBar;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarFactory;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBar;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBarFactory;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBar;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarFactory;
 import remove.tanks.game.level.engine.system.hud.stages.widget.Widget;
@@ -82,8 +83,12 @@ public final class HudStageFactory {
 
     private MessageBar createMessageBar(HudStagePrototype prototype, Table table, ResourceRegistry resourceRegistry, int colSpan) {
         MessageBar messageBar = messageBarFactory.createMessageBar(prototype.getMessageBarPrototype(), resourceRegistry);
-        table.row().expand().pad(20);
-        table.add(messageBar.getMessageLabel()).right().bottom().colspan(colSpan);
+        Table helperTable = new Table();
+        helperTable.add(messageBar.getImage()).right().bottom().padRight(20);
+        helperTable.row();
+        helperTable.add(messageBar.getMessageLabel()).right().bottom().pad(20);
+        table.row().expand().colspan(colSpan);
+        table.add(helperTable).right().bottom().pad(20);
         return messageBar;
     }
 }

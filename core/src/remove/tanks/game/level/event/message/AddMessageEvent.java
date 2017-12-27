@@ -1,6 +1,6 @@
 package remove.tanks.game.level.event.message;
 
-import remove.tanks.game.level.engine.system.hud.stages.message.Message;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.Message;
 import remove.tanks.game.level.event.Event;
 
 /**

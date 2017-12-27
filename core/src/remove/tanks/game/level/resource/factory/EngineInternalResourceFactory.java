@@ -45,7 +45,7 @@ public final class EngineInternalResourceFactory
                 LevelResource.Properties.toString(),
                 LevelResource.LevelPrototype.toString(),
                 LevelResource.WorldScale.toString(),
-                LevelResource.DisplayScale.toString(),
+                LevelResource.UiScale.toString(),
                 LevelResource.AssetStorage.toString(),
                 LevelResource.TiledMap.toString(),
                 LevelResource.TiledMapBoundaries.toString(),

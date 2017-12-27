@@ -14,7 +14,7 @@ public enum LevelResource {
     LevelPrototype,
     UiSkin,
     WorldScale,
-    DisplayScale,
+    UiScale,
     InputMapper,
     AssetStorage,
     TiledMap,

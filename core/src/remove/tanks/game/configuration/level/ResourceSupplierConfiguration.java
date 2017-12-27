@@ -36,7 +36,7 @@ public final class ResourceSupplierConfiguration {
                             new ConfigurationExternalResourceFactory(),
                             new LocaleExternalResourceFactory(),
                             new WorldScaleExternalResourceFactory(),
-                            new DisplayScaleExternalResourceFactory()
+                            new UiScaleExternalResourceFactory()
                     },
                     new AbstractInternalResourceFactory[] {
                             new PropertiesInternalResourceFactory(

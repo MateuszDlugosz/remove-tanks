@@ -1,8 +1,8 @@
 package remove.tanks.game.level.event.message;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessagePrototype;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessagePrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessagePrototype;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessagePrototypeXmlLoader;
 import remove.tanks.game.level.event.EventPrototypeXmlLoadException;
 import remove.tanks.game.level.event.EventType;
 import remove.tanks.game.level.event.RegistrableEventPrototypeXmlLoader;

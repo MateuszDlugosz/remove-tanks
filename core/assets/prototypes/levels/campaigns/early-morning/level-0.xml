@@ -71,6 +71,20 @@
                     </stateBar>
                     <messageBar>
                         <defaultMessage> </defaultMessage>
+                        <messagePrinter>
+                            <time>0.05</time>
+                            <sound>
+                                <filename>print-sound</filename>
+                            </sound>
+                        </messagePrinter>
+                        <faces>
+                            <face id="Face0">
+                                <sprite type="AtlasSprite">
+                                    <atlasFilename>face-atlas</atlasFilename>
+                                    <regionName>face-0</regionName>
+                                </sprite>
+                            </face>
+                        </faces>
                     </messageBar>
                 </stage>
             </system>

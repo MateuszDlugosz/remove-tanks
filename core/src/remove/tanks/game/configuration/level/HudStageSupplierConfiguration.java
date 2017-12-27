@@ -2,12 +2,20 @@ package remove.tanks.game.configuration.level;
 
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
+import remove.tanks.game.audio.sound.SoundFactory;
+import remove.tanks.game.audio.sound.SoundPrototypeXmlLoader;
+import remove.tanks.game.graphic.sprite.SpriteFactory;
+import remove.tanks.game.graphic.sprite.SpritePrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.HudStageFactory;
 import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarFactory;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageFactory;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessagePrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBarFactory;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBarPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.broker.face.FaceFactory;
+import remove.tanks.game.level.engine.system.hud.stages.broker.face.FacePrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessageFactory;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessagePrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.broker.printer.MessagePrinterFactory;
+import remove.tanks.game.level.engine.system.hud.stages.broker.printer.MessagePrinterPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarFactory;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.widget.RegistrableWidgetFactory;
@@ -89,7 +97,10 @@ public final class HudStageSupplierConfiguration {
     public static final class MessageBarPrototypeXmlLoaderSupplier extends ComponentSupplier<MessageBarPrototypeXmlLoader> {
         @Override
         public MessageBarPrototypeXmlLoader supplyComponent() {
-            return new MessageBarPrototypeXmlLoader();
+            return new MessageBarPrototypeXmlLoader(
+                    getContext().getComponent("MessagePrinterPrototypeXmlLoader", MessagePrinterPrototypeXmlLoader.class),
+                    getContext().getComponent("FacePrototypeXmlLoader", FacePrototypeXmlLoader.class)
+            );
         }
     }
 
@@ -97,7 +108,10 @@ public final class HudStageSupplierConfiguration {
     public static final class MessageBarFactorySupplier extends ComponentSupplier<MessageBarFactory> {
         @Override
         public MessageBarFactory supplyComponent() {
-            return new MessageBarFactory();
+            return new MessageBarFactory(
+                    getContext().getComponent("MessagePrinterFactory", MessagePrinterFactory.class),
+                    getContext().getComponent("FaceFactory", FaceFactory.class)
+            );
         }
     }
 
@@ -114,6 +128,46 @@ public final class HudStageSupplierConfiguration {
         @Override
         public MessageFactory supplyComponent() {
             return new MessageFactory();
+        }
+    }
+
+    @ComponentName("MessagePrinterPrototypeXmlLoader")
+    public static final class MessagePrinterPrototypeXmlLoaderSupplier extends ComponentSupplier<MessagePrinterPrototypeXmlLoader> {
+        @Override
+        public MessagePrinterPrototypeXmlLoader supplyComponent() {
+            return new MessagePrinterPrototypeXmlLoader(
+                    getContext().getComponent("SoundPrototypeXmlLoader", SoundPrototypeXmlLoader.class)
+            );
+        }
+    }
+
+    @ComponentName("MessagePrinterFactory")
+    public static final class MessagePrinterFactorySupplier extends ComponentSupplier<MessagePrinterFactory> {
+        @Override
+        public MessagePrinterFactory supplyComponent() {
+            return new MessagePrinterFactory(
+                    getContext().getComponent("SoundFactory", SoundFactory.class)
+            );
+        }
+    }
+
+    @ComponentName("FacePrototypeXmlLoader")
+    public static final class FacePrototypeXmlLoaderSupplier extends ComponentSupplier<FacePrototypeXmlLoader> {
+        @Override
+        public FacePrototypeXmlLoader supplyComponent() {
+            return new FacePrototypeXmlLoader(
+                    getContext().getComponent("SpritePrototypeXmlLoader", SpritePrototypeXmlLoader.class)
+            );
+        }
+    }
+
+    @ComponentName("FaceFactory")
+    public static final class FaceFactorySupplier extends ComponentSupplier<FaceFactory> {
+        @Override
+        public FaceFactory supplyComponent() {
+            return new FaceFactory(
+                    getContext().getComponent("SpriteFactory", SpriteFactory.class)
+            );
         }
     }
 }

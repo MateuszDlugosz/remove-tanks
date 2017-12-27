@@ -1,8 +1,8 @@
 package remove.tanks.game.level.engine.system.hud.stages;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarPrototype;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBarPrototype;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBarPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarPrototype;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.widget.WidgetPrototype;

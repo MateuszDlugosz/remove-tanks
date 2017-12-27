@@ -5,6 +5,10 @@
             <className>com.badlogic.gdx.graphics.g2d.TextureAtlas</className>
             <filename>graphics/atlases/sepia-entity-atlas.pack</filename>
         </asset>
+        <asset id="face-atlas">
+            <className>com.badlogic.gdx.graphics.g2d.TextureAtlas</className>
+            <filename>graphics/atlases/sepia-face-atlas.pack</filename>
+        </asset>
         <asset id="medium-bullet-shoot-sound">
             <className>com.badlogic.gdx.audio.Sound</className>
             <filename>audio/sounds/shoot-0.ogg</filename>
@@ -36,6 +40,10 @@
         <asset id="thunder-sound">
             <className>com.badlogic.gdx.audio.Sound</className>
             <filename>audio/sounds/thunder-0.ogg</filename>
+        </asset>
+        <asset id="print-sound">
+            <className>com.badlogic.gdx.audio.Sound</className>
+            <filename>audio/sounds/print-0.ogg</filename>
         </asset>
         <asset id="level-start-music">
             <className>com.badlogic.gdx.audio.Music</className>

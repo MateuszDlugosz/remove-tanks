@@ -1,7 +1,7 @@
 package remove.tanks.game.level.engine.system.hud.stages;
 
 import com.google.common.base.MoreObjects;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarPrototype;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBarPrototype;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarPrototype;
 import remove.tanks.game.level.engine.system.hud.stages.widget.WidgetPrototype;
 

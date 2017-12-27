@@ -1,8 +1,8 @@
 package remove.tanks.game.level.event.message;
 
-import remove.tanks.game.level.engine.system.hud.stages.message.Message;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageFactory;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessagePrototype;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.Message;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessageFactory;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessagePrototype;
 import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.RegistrableEventFactory;
 

@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.hud.stages.message;
+package remove.tanks.game.level.engine.system.hud.stages.broker.message;
 
 import remove.tanks.game.utility.time.Timer;
 
@@ -10,7 +10,8 @@ public final class MessageFactory {
         try {
             return new Message(
                     createTimer(prototype.getTime()),
-                    prototype.getEntryKey()
+                    prototype.getEntryKey(),
+                    prototype.getFaceId()
             );
         } catch (Exception e) {
             throw new MessageCreateException(prototype, e);

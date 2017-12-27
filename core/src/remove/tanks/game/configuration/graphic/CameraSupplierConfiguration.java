@@ -27,18 +27,17 @@ public final class CameraSupplierConfiguration {
         @Override
         public Game2DCamera supplyComponent() {
             return create2DCamera(
-                    getContext().getComponent("DisplayScale", Scale.class),
                     getContext().getComponent("WorldScale", Scale.class)
             );
         }
 
-        private Game2DCamera create2DCamera(Scale displayScale, Scale worldScale) {
+        private Game2DCamera create2DCamera(Scale worldScale) {
             float displayWidth
-                    = displayScale.scaleValue(Float.valueOf(getContext().getConfiguration().getOption(
-                    ConfigurationKey.GameDisplayWidth.getKey())));
+                    = Float.valueOf(getContext().getConfiguration().getOption(
+                    ConfigurationKey.GameDisplayWidth.getKey()));
             float displayHeight
-                    = displayScale.scaleValue(Float.valueOf(getContext().getConfiguration().getOption(
-                    ConfigurationKey.GameDisplayHeight.getKey())));
+                    = Float.valueOf(getContext().getConfiguration().getOption(
+                    ConfigurationKey.GameDisplayHeight.getKey()));
             OrthographicCamera camera = createOrthographicCamera(displayWidth, displayHeight, worldScale);
             Viewport viewport = createViewport(displayWidth, displayHeight, worldScale, camera);
             return new Game2DCamera(camera, viewport);

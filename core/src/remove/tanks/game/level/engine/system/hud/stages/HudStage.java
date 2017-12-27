@@ -2,8 +2,8 @@ package remove.tanks.game.level.engine.system.hud.stages;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Disposable;
-import remove.tanks.game.level.engine.system.hud.stages.message.Message;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessageBar;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.Message;
+import remove.tanks.game.level.engine.system.hud.stages.broker.MessageBar;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBar;
 import remove.tanks.game.level.engine.system.hud.stages.widget.Widget;
 import remove.tanks.game.level.resource.ResourceRegistry;

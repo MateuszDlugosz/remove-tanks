@@ -5,7 +5,7 @@ package remove.tanks.game.application.context.configuration.constant;
  */
 public enum ConfigurationKey {
     GameLevelWorldScale("game.level.world.scale"),
-    GameDisplayScale("game.display.scale"),
+    GameUiScale("game.ui.scale"),
     GameDisplayWidth("game.display.width"),
     GameDisplayHeight("game.display.height");
 

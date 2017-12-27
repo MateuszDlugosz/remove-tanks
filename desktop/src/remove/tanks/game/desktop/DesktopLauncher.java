@@ -28,7 +28,7 @@ public class DesktopLauncher {
 
 		Map<String, String> configuration = new HashMap<>();
 		configuration.put("game.level.world.scale", "32");
-		configuration.put("game.display.scale", "1");
+		configuration.put("game.ui.scale", "2");
 		configuration.put("game.display.width", "320");
 		configuration.put("game.display.height", "175");
 

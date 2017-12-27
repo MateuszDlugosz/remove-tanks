@@ -8,12 +8,12 @@ import remove.tanks.game.utility.scale.Scale;
 /**
  * @author Mateusz Długosz
  */
-public final class DisplayScaleExternalResourceFactory
+public final class UiScaleExternalResourceFactory
         extends AbstractExternalResourceFactory<Scale>
 {
     @Override
     public String getResourceName() {
-        return LevelResource.DisplayScale.toString();
+        return LevelResource.UiScale.toString();
     }
 
     @Override

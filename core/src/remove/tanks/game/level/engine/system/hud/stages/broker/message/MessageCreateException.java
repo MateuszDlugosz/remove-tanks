@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.hud.stages.message;
+package remove.tanks.game.level.engine.system.hud.stages.broker.message;
 
 /**
  * @author Mateusz Długosz

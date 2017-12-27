@@ -19,11 +19,11 @@ public final class ScaleSupplierConfiguration {
         }
     }
 
-    @ComponentName("DisplayScale")
+    @ComponentName("UiScale")
     public static final class DisplayScaleSupplier extends ComponentSupplier<Scale> {
         @Override
         public Scale supplyComponent() {
-            return new MultiplyingScale(Float.valueOf(getContext().getConfiguration().getOption(ConfigurationKey.GameDisplayScale.getKey())));
+            return new MultiplyingScale(Float.valueOf(getContext().getConfiguration().getOption(ConfigurationKey.GameUiScale.getKey())));
         }
     }
 }

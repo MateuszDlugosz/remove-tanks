@@ -1,7 +1,7 @@
 package remove.tanks.game.level.event.message;
 
 import com.google.common.base.MoreObjects;
-import remove.tanks.game.level.engine.system.hud.stages.message.MessagePrototype;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessagePrototype;
 import remove.tanks.game.level.event.EventPrototype;
 
 /**

@@ -45,7 +45,7 @@ public final class LevelLoader {
                 .put(LevelResource.Locale.toString(), context.getComponent("Locale", Locale.class))
                 .put(LevelResource.SpriteBatch.toString(), context.getComponent("SpriteBatch", SpriteBatch.class))
                 .put(LevelResource.WorldScale.toString(), context.getComponent("WorldScale", Scale.class))
-                .put(LevelResource.DisplayScale.toString(), context.getComponent("DisplayScale", Scale.class))
+                .put(LevelResource.UiScale.toString(), context.getComponent("UiScale", Scale.class))
                 .put(LevelResource.LevelPrototype.toString(), levelPrototypeXmlLoader.loadLevelPrototype(filename))
                 .build();
     }

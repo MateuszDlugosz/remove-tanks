@@ -231,6 +231,14 @@
 				&lt;message&gt;
 					&lt;time&gt;3&lt;/time&gt;
 &lt;entryKey&gt;GameMessageTest&lt;/entryKey&gt;
+&lt;faceId&gt;Face0&lt;/faceId&gt;
+				
+				&lt;/message&gt;
+			&lt;/event&gt;
+&lt;event type=&quot;AddMessageEvent&quot;&gt;
+				&lt;message&gt;
+					&lt;time&gt;3&lt;/time&gt;
+&lt;entryKey&gt;GameMessageTest&lt;/entryKey&gt;
 				
 				&lt;/message&gt;
 			&lt;/event&gt;

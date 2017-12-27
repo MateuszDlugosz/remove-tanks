@@ -3,7 +3,7 @@ package remove.tanks.game.level.engine.system.hud;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import remove.tanks.game.level.engine.system.hud.stages.HudStage;
-import remove.tanks.game.level.engine.system.hud.stages.message.Message;
+import remove.tanks.game.level.engine.system.hud.stages.broker.message.Message;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
