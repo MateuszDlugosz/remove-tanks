@@ -24,7 +24,7 @@
         <component type="GraphicsComponent">
             <views>
                 <view type="AnimationView" id="MovingRight">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="NORMAL" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="NORMAL" frameDuration="0.2f">
                         <frame regionName="bomb-0-right-0" />
                         <frame regionName="bomb-0-right-1" />
                         <frame regionName="bomb-0-right-2" />

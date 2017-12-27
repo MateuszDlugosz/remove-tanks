@@ -29,7 +29,7 @@
             <views>
                 <view type="SpriteView" id="StandingNone">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>telegraphic-slope-1</regionName>
                     </sprite>
                     <position>

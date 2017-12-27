@@ -71,7 +71,7 @@
         <component type="GraphicsComponent">
             <views>
                 <view type="AnimationView" id="MovingLeft">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="LOOP" frameDuration="0.2f">
                         <frame regionName="enemy-light-boat-horizontal-down-left-0" />
                         <frame regionName="enemy-light-boat-horizontal-down-left-1" />
                     </animation>
@@ -81,7 +81,7 @@
                     </position>
                 </view>
                 <view type="AnimationView" id="MovingRight">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="LOOP" frameDuration="0.2f">
                         <frame regionName="enemy-light-boat-horizontal-down-right-0" />
                         <frame regionName="enemy-light-boat-horizontal-down-right-1" />
                     </animation>

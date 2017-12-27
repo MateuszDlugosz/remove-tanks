@@ -45,7 +45,7 @@
             <views>
                 <view type="SpriteView" id="StandingNone">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>fence-barrier-0-opened</regionName>
                     </sprite>
                     <position>

@@ -77,7 +77,7 @@
             <views>
                 <view type="SpriteView" id="StandingUp">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>landing-barge-large-anchored-0-up</regionName>
                     </sprite>
                 </view>

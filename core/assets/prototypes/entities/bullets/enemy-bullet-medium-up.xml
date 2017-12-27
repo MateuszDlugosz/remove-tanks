@@ -38,7 +38,7 @@
             <views>
                 <view type="SpriteView" id="MovingUp">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>bullet-medium-up</regionName>
                     </sprite>
                 </view>

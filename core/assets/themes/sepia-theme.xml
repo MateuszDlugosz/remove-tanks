@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <theme>
     <assets>
-        <asset id="main-atlas">
+        <asset id="entity-atlas">
             <className>com.badlogic.gdx.graphics.g2d.TextureAtlas</className>
-            <filename>graphics/atlases/sepia-atlas.pack</filename>
+            <filename>graphics/atlases/sepia-entity-atlas.pack</filename>
         </asset>
         <asset id="medium-bullet-shoot-sound">
             <className>com.badlogic.gdx.audio.Sound</className>

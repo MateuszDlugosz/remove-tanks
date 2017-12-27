@@ -37,7 +37,7 @@
         <component type="GraphicsComponent">
             <views>
                 <view type="AnimationView" id="StandingNone">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="NORMAL" frameDuration="0.1f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="NORMAL" frameDuration="0.1f">
                         <frame regionName="explosion-small-0" />
                         <frame regionName="explosion-small-1" />
                         <frame regionName="explosion-small-2" />

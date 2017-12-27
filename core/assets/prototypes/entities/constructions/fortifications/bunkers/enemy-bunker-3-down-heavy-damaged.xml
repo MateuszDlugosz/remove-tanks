@@ -38,7 +38,7 @@
             <views>
                 <view type="SpriteView" id="StandingDown">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>enemy-bunker-3-down-heavy-damaged</regionName>
                     </sprite>
                 </view>

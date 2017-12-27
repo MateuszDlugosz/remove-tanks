@@ -25,7 +25,7 @@
             <views>
                 <view type="SpriteView" id="StandingNone">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>rock-polished-small-1</regionName>
                     </sprite>
                 </view>

@@ -38,7 +38,7 @@
             <views>
                 <view type="SpriteView" id="MovingLeft">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>bullet-small</regionName>
                     </sprite>
                 </view>

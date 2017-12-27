@@ -25,7 +25,7 @@
             <views>
                 <view type="SpriteView" id="MovingRight">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>bomber-0-right</regionName>
                     </sprite>
                 </view>

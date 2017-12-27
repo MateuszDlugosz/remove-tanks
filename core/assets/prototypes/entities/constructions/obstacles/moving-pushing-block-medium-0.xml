@@ -38,25 +38,25 @@
             <views>
                 <view type="SpriteView" id="MovingLeft">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>moving-pushing-block-medium-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingRight">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>moving-pushing-block-medium-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingUp">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>moving-pushing-block-medium-0</regionName>
                     </sprite>
                 </view>
                 <view type="SpriteView" id="MovingDown">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>moving-pushing-block-medium-0</regionName>
                     </sprite>
                 </view>

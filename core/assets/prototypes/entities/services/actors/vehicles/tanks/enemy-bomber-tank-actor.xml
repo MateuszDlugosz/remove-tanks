@@ -36,25 +36,25 @@
         <component type="GraphicsComponent">
             <views>
                 <view type="AnimationView" id="MovingLeft">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="LOOP" frameDuration="0.2f">
                         <frame regionName="enemy-bomber-tank-left-0" />
                         <frame regionName="enemy-bomber-tank-left-1" />
                     </animation>
                 </view>
                 <view type="AnimationView" id="MovingRight">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="LOOP" frameDuration="0.2f">
                         <frame regionName="enemy-bomber-tank-right-0" />
                         <frame regionName="enemy-bomber-tank-right-1" />
                     </animation>
                 </view>
                 <view type="AnimationView" id="MovingUp">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="LOOP" frameDuration="0.2f">
                         <frame regionName="enemy-bomber-tank-up-0" />
                         <frame regionName="enemy-bomber-tank-up-1" />
                     </animation>
                 </view>
                 <view type="AnimationView" id="MovingDown">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="LOOP" frameDuration="0.2f">
                         <frame regionName="enemy-bomber-tank-down-0" />
                         <frame regionName="enemy-bomber-tank-down-1" />
                     </animation>

@@ -38,7 +38,7 @@
             <views>
                 <view type="SpriteView" id="MovingRight">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>bullet-medium-right</regionName>
                     </sprite>
                 </view>

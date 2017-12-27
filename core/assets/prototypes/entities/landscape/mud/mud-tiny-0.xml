@@ -24,7 +24,7 @@
         <component type="GraphicsComponent">
             <views>
                 <view type="AnimationView" id="StandingNone">
-                    <animation type="AtlasAnimation" atlasFilename="main-atlas" playMode="LOOP" frameDuration="0.1f">
+                    <animation type="AtlasAnimation" atlasFilename="entity-atlas" playMode="LOOP" frameDuration="0.1f">
                         <frame regionName="mud-tiny-0-0" />
                         <frame regionName="mud-tiny-0-1" />
                         <frame regionName="mud-tiny-0-2" />

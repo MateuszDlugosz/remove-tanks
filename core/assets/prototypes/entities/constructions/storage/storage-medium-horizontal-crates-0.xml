@@ -25,7 +25,7 @@
             <views>
                 <view type="SpriteView" id="StandingNone">
                     <sprite type="AtlasSprite">
-                        <atlasFilename>main-atlas</atlasFilename>
+                        <atlasFilename>entity-atlas</atlasFilename>
                         <regionName>storage-medium-horizontal-crates-0</regionName>
                     </sprite>
                 </view>
