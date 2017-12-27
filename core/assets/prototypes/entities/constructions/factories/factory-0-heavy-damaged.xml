@@ -11,7 +11,7 @@
                     <fixture>
                         <shape type="RectangleShape">
                             <width>32</width>
-                            <height>48</height>
+                            <height>32</height>
                         </shape>
                         <filter>
                             <categoryBit>ObstacleCategory</categoryBit>
@@ -26,8 +26,12 @@
                 <view type="SpriteView" id="StandingNone">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>church-0-damaged</regionName>
+                        <regionName>factory-0-heavy-damaged</regionName>
                     </sprite>
+                    <position>
+                        <x>0</x>
+                        <y>16</y>
+                    </position>
                 </view>
             </views>
         </component>
@@ -39,16 +43,13 @@
         </component>
         <component type="ObstacleLayerComponent" />
         <component type="HealthComponent">
-            <health>8</health>
-            <maxHealth>8</maxHealth>
+            <health>7</health>
+            <maxHealth>7</maxHealth>
         </component>
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>
                     <prototypeCode>ExplosionLarge</prototypeCode>
-                </spawnEntry>
-                <spawnEntry>
-                    <prototypeCode>Church0HeavyDamaged</prototypeCode>
                 </spawnEntry>
             </spawnEntries>
         </component>

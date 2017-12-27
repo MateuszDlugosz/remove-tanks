@@ -37,7 +37,7 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="GroundLayerComponent" />
+        <component type="ObstacleLayerComponent" />
         <component type="HealthComponent">
             <health>8</health>
             <maxHealth>8</maxHealth>

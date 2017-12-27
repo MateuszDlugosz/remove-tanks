@@ -10,8 +10,8 @@
                 <hitBox id="HitBox">
                     <fixture>
                         <shape type="RectangleShape">
-                            <width>32</width>
-                            <height>48</height>
+                            <width>26</width>
+                            <height>26</height>
                         </shape>
                         <filter>
                             <categoryBit>ObstacleCategory</categoryBit>
@@ -23,10 +23,10 @@
         </component>
         <component type="GraphicsComponent">
             <views>
-                <view type="SpriteView" id="StandingNone">
+                <view type="SpriteView" id="StandingDown">
                     <sprite type="AtlasSprite">
                         <atlasFilename>main-atlas</atlasFilename>
-                        <regionName>church-0-damaged</regionName>
+                        <regionName>enemy-heavy-tank-down-covered</regionName>
                     </sprite>
                 </view>
             </views>
@@ -35,23 +35,21 @@
             <state>Standing</state>
         </component>
         <component type="DirectionComponent">
-            <direction>None</direction>
+            <direction>Down</direction>
         </component>
-        <component type="ObstacleLayerComponent" />
         <component type="HealthComponent">
             <health>8</health>
             <maxHealth>8</maxHealth>
         </component>
+        <component type="ObstacleLayerComponent" />
         <component type="SpawnOnDestroyComponent">
             <spawnEntries>
                 <spawnEntry>
                     <prototypeCode>ExplosionLarge</prototypeCode>
                 </spawnEntry>
-                <spawnEntry>
-                    <prototypeCode>Church0HeavyDamaged</prototypeCode>
-                </spawnEntry>
             </spawnEntries>
         </component>
+        <component type="BonusLootComponent" />
         <component type="HighlightOnHitComponent" />
     </components>
 </prototype>

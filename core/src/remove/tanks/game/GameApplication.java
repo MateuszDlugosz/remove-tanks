@@ -21,7 +21,7 @@ import java.util.HashSet;
 
 public final class GameApplication extends Game {
 	public static final String TITLE = "Remove Tanks!";
-	public static final String VERSION = "0.18.116";
+	public static final String VERSION = "0.18.117";
 
 	private final Configuration configuration;
 
@@ -63,10 +63,6 @@ public final class GameApplication extends Game {
 
 	public void switchScreenWithoutTransition(Class<? extends GameScreen> screenClass) {
 		this.screenSwitcher.switchScreenWithoutTransition(screenClass, this);
-	}
-
-	public void switchScreenWithoutTransition(GameScreen screen) {
-		this.screenSwitcher.switchScreenWithoutTransition(screen, this);
 	}
 
 	@Override
