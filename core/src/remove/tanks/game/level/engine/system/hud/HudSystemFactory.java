@@ -12,19 +12,19 @@ import remove.tanks.game.level.resource.ResourceRegistry;
 /**
  * @author Mateusz Długosz
  */
-public final class HudRenderSystemFactory
-        implements RegistrableEntitySystemFactory<HudRenderSystem, HudRenderSystemPrototype>
+public final class HudSystemFactory
+        implements RegistrableEntitySystemFactory<HudSystem, HudSystemPrototype>
 {
     private final HudStageFactory hudStageFactory;
 
-    public HudRenderSystemFactory(HudStageFactory hudStageFactory) {
+    public HudSystemFactory(HudStageFactory hudStageFactory) {
         this.hudStageFactory = hudStageFactory;
     }
 
     @Override
-    public HudRenderSystem createEntitySystem(HudRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public HudSystem createEntitySystem(HudSystemPrototype prototype, ResourceRegistry resourceRegistry) {
         try {
-            return new HudRenderSystem(
+            return new HudSystem(
                     prototype.getPriority(),
                     createHudStage(prototype.getHudStagePrototype(), resourceRegistry),
                     resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
@@ -40,7 +40,7 @@ public final class HudRenderSystemFactory
     }
 
     @Override
-    public Class<HudRenderSystemPrototype> getFactoryType() {
-        return HudRenderSystemPrototype.class;
+    public Class<HudSystemPrototype> getFactoryType() {
+        return HudSystemPrototype.class;
     }
 }

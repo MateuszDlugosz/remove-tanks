@@ -7,10 +7,10 @@ import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototype;
 /**
  * @author Mateusz Długosz
  */
-public final class HudRenderSystemPrototype extends EntitySystemPrototype {
+public final class HudSystemPrototype extends EntitySystemPrototype {
     private final HudStagePrototype hudStagePrototype;
 
-    public HudRenderSystemPrototype(int priority, HudStagePrototype hudStagePrototype) {
+    public HudSystemPrototype(int priority, HudStagePrototype hudStagePrototype) {
         super(priority);
         this.hudStagePrototype = hudStagePrototype;
     }

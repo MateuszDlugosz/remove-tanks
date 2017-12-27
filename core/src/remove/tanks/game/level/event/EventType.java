@@ -15,5 +15,6 @@ public enum EventType {
     DestroyAllEnemiesEvent,
     AmmoUpEvent,
     SpawnBomberEvent,
-    AddCameraEffectEvent
+    AddCameraEffectEvent,
+    AddMessageEvent
 }

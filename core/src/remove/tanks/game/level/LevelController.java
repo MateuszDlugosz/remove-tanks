@@ -1,6 +1,5 @@
 package remove.tanks.game.level;
 
-import com.badlogic.gdx.utils.Disposable;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import remove.tanks.game.level.constant.LevelProperty;

@@ -35,7 +35,7 @@ public enum SystemType {
     WorldLightRenderSystem(2800),
     WorldDebugRenderSystem(2900),
     WeatherSystem(2950),
-    HudRenderSystem(3000),
+    HudSystem(3000),
     AutoSpawnerSystem(3100),
     PlayerRespawnSystem(3200),
     NoLifesDefeatSystem(3300),

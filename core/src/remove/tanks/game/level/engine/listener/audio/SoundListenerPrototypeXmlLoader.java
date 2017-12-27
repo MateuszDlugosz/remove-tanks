@@ -1,7 +1,6 @@
 package remove.tanks.game.level.engine.listener.audio;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.level.engine.listener.EntityListenerCreateException;
 import remove.tanks.game.level.engine.listener.EntityListenerPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.listener.ListenerType;
 import remove.tanks.game.level.engine.listener.RegistrableEntityListenerPrototypeXmlLoader;

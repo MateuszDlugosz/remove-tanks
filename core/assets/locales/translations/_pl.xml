@@ -29,4 +29,5 @@
     <entry key="game.screen.pause.content">Powrót do menu głównego?</entry>
     <entry key="game.screen.summary.title">Podsumowanie</entry>
     <entry key="game.screen.summary.congratulations">Gratulacje, zdobyłeś %s punktów.</entry>
+    <entry key="game.message-test">Wiadomość testowa</entry>
 </translation>

@@ -32,7 +32,8 @@ public enum TranslationEntryKey {
     GameScreenPauseContent("game.screen.pause.content"),
     GameScreenButtonYes("game.screen.button.yes"),
     GameScreenButtonNo("game.screen.button.no"),
-    GameScreenButtonBack("game.screen.button.back");
+    GameScreenButtonBack("game.screen.button.back"),
+    GameMessageTest("game.message-test");
 
     private final String name;
 

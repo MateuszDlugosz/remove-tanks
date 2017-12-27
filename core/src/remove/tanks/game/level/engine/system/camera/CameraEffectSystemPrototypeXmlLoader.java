@@ -1,7 +1,6 @@
 package remove.tanks.game.level.engine.system.camera;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.level.engine.entity.EntityPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.SystemType;

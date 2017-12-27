@@ -10,19 +10,19 @@ import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototypeXmlLoad
 /**
  * @author Mateusz Długosz
  */
-public final class HudRenderSystemPrototypeXmlLoader
-        implements RegistrableEntitySystemPrototypeXmlLoader<HudRenderSystemPrototype>
+public final class HudSystemPrototypeXmlLoader
+        implements RegistrableEntitySystemPrototypeXmlLoader<HudSystemPrototype>
 {
     private final HudStagePrototypeXmlLoader hudStagePrototypeXmlLoader;
 
-    public HudRenderSystemPrototypeXmlLoader(HudStagePrototypeXmlLoader hudStagePrototypeXmlLoader) {
+    public HudSystemPrototypeXmlLoader(HudStagePrototypeXmlLoader hudStagePrototypeXmlLoader) {
         this.hudStagePrototypeXmlLoader = hudStagePrototypeXmlLoader;
     }
 
     @Override
-    public HudRenderSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
+    public HudSystemPrototype loadEntitySystemPrototype(XmlReader.Element element, int priority) {
         try {
-            return new HudRenderSystemPrototype(
+            return new HudSystemPrototype(
                     priority,
                     loadHudStagePrototype(element)
             );
@@ -39,6 +39,6 @@ public final class HudRenderSystemPrototypeXmlLoader
 
     @Override
     public SystemType getLoaderType() {
-        return SystemType.HudRenderSystem;
+        return SystemType.HudSystem;
     }
 }

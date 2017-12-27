@@ -7,6 +7,8 @@ import remove.tanks.game.graphic.camera.effect.CameraEffectPrototypeXmlLoader;
 import remove.tanks.game.level.engine.entity.EntityDestroyer;
 import remove.tanks.game.level.engine.entity.EntityFactory;
 import remove.tanks.game.level.engine.entity.EntitySpawner;
+import remove.tanks.game.level.engine.system.hud.stages.message.MessageFactory;
+import remove.tanks.game.level.engine.system.hud.stages.message.MessagePrototypeXmlLoader;
 import remove.tanks.game.level.event.*;
 import remove.tanks.game.level.event.ammo.AmmoUpEventExecutor;
 import remove.tanks.game.level.event.ammo.AmmoUpEventFactory;
@@ -19,6 +21,9 @@ import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventExecutor;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventFactory;
 import remove.tanks.game.level.event.enemy.DecreaseEnemiesCounterEventPrototypeXmlLoader;
 import remove.tanks.game.level.event.life.*;
+import remove.tanks.game.level.event.message.AddMessageEventExecutor;
+import remove.tanks.game.level.event.message.AddMessageEventFactory;
+import remove.tanks.game.level.event.message.AddMessageEventPrototypeXmlLoader;
 import remove.tanks.game.level.event.points.*;
 import remove.tanks.game.level.event.spawn.SpawnBomberEventExecutor;
 import remove.tanks.game.level.event.spawn.SpawnBomberEventFactory;
@@ -57,7 +62,8 @@ public final class EventSupplierConfiguration {
                             new DestroyAllEnemiesEventExecutor(),
                             new AmmoUpEventExecutor(),
                             new SpawnBomberEventExecutor(),
-                            new AddCameraEffectEventExecutor()
+                            new AddCameraEffectEventExecutor(),
+                            new AddMessageEventExecutor()
                     }
             );
         }
@@ -81,6 +87,9 @@ public final class EventSupplierConfiguration {
                             new SpawnBomberEventFactory(),
                             new AddCameraEffectEventFactory(
                                     getContext().getComponent("CameraEffectFactory", CameraEffectFactory.class)
+                            ),
+                            new AddMessageEventFactory(
+                                    getContext().getComponent("MessageFactory", MessageFactory.class)
                             )
                     }
             );
@@ -105,6 +114,9 @@ public final class EventSupplierConfiguration {
                             new SpawnBomberEventPrototypeXmlLoader(),
                             new AddCameraEffectEventPrototypeXmlLoader(
                                     getContext().getComponent("CameraEffectPrototypeXmlLoader", CameraEffectPrototypeXmlLoader.class)
+                            ),
+                            new AddMessageEventPrototypeXmlLoader(
+                                    getContext().getComponent("MessagePrototypeXmlLoader", MessagePrototypeXmlLoader.class)
                             )
                     }
             );

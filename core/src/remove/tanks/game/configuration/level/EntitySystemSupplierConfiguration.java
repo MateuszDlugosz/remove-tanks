@@ -31,8 +31,8 @@ import remove.tanks.game.level.engine.system.environment.weather.WeatherFactory;
 import remove.tanks.game.level.engine.system.environment.weather.WeatherPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.health.HealthSystemFactory;
 import remove.tanks.game.level.engine.system.health.HealthSystemPrototypeXmlLoader;
-import remove.tanks.game.level.engine.system.hud.HudRenderSystemFactory;
-import remove.tanks.game.level.engine.system.hud.HudRenderSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.HudSystemFactory;
+import remove.tanks.game.level.engine.system.hud.HudSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.HudStageFactory;
 import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.layer.*;
@@ -96,7 +96,7 @@ public final class EntitySystemSupplierConfiguration {
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
                             new HealthSystemFactory(),
-                            new HudRenderSystemFactory(
+                            new HudSystemFactory(
                                     getContext().getComponent("HudStageFactory", HudStageFactory.class)
                             ),
                             new PlayerControlSystemFactory(),
@@ -177,7 +177,7 @@ public final class EntitySystemSupplierConfiguration {
                             new DestroySystemPrototypeXmlLoader(),
                             new RandomDirectionSystemPrototypeXmlLoader(),
                             new HealthSystemPrototypeXmlLoader(),
-                            new HudRenderSystemPrototypeXmlLoader(
+                            new HudSystemPrototypeXmlLoader(
                                     getContext().getComponent("HudStagePrototypeXmlLoader", HudStagePrototypeXmlLoader.class)
                             ),
                             new PlayerControlSystemPrototypeXmlLoader(),

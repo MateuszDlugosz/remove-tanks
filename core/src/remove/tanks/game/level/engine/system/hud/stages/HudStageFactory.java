@@ -5,12 +5,12 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import remove.tanks.game.graphic.camera.Game2DCamera;
 import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.level.engine.system.hud.stages.message.MessageBar;
+import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarFactory;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBar;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarFactory;
-import remove.tanks.game.level.engine.system.hud.stages.state.StateBarPrototype;
 import remove.tanks.game.level.engine.system.hud.stages.widget.Widget;
 import remove.tanks.game.level.engine.system.hud.stages.widget.WidgetFactory;
-import remove.tanks.game.level.engine.system.hud.stages.widget.WidgetPrototype;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
 import java.util.List;
@@ -21,13 +21,16 @@ import java.util.List;
 public final class HudStageFactory {
     private final WidgetFactory widgetFactory;
     private final StateBarFactory stateBarFactory;
+    private final MessageBarFactory messageBarFactory;
 
     public HudStageFactory(
             WidgetFactory widgetFactory,
-            StateBarFactory stateBarFactory
+            StateBarFactory stateBarFactory,
+            MessageBarFactory messageBarFactory
     ) {
         this.widgetFactory = widgetFactory;
         this.stateBarFactory = stateBarFactory;
+        this.messageBarFactory = messageBarFactory;
     }
 
     public HudStage createHudStage(HudStagePrototype prototype, ResourceRegistry resourceRegistry) {
@@ -40,8 +43,9 @@ public final class HudStageFactory {
             stage.addActor(table);
             return new HudStage(
                     stage,
-                    createWidgets(prototype.getWidgetPrototypes(), table, resourceRegistry),
-                    createStateBar(prototype.getStateBarPrototype(), table, resourceRegistry, prototype.getWidgetPrototypes().size())
+                    createWidgets(prototype, table, resourceRegistry),
+                    createStateBar(prototype, table, resourceRegistry, prototype.getWidgetPrototypes().size()),
+                    createMessageBar(prototype, table, resourceRegistry, prototype.getWidgetPrototypes().size())
             );
         } catch (Exception e) {
             throw new HudStageCreateException(prototype, e);
@@ -55,12 +59,13 @@ public final class HudStageFactory {
     private Table createTable() {
         Table table = new Table();
         table.setFillParent(true);
+        table.setDebug(true);
         table.top();
         return table;
     }
 
-    private List<Widget> createWidgets(List<WidgetPrototype> widgetPrototypes, Table table, ResourceRegistry resourceRegistry) {
-        List<Widget> widgets = widgetFactory.createWidgets(widgetPrototypes, table, resourceRegistry);
+    private List<Widget> createWidgets(HudStagePrototype prototype, Table table, ResourceRegistry resourceRegistry) {
+        List<Widget> widgets = widgetFactory.createWidgets(prototype.getWidgetPrototypes(), table, resourceRegistry);
         table.row().padTop(20);
         widgets.forEach(w -> table.add(w.getTitleLabel()).expandX());
         table.row().padTop(20);
@@ -68,10 +73,17 @@ public final class HudStageFactory {
         return widgets;
     }
 
-    private StateBar createStateBar(StateBarPrototype prototype, Table table, ResourceRegistry resourceRegistry, int colSpan) {
-        StateBar stateBar = stateBarFactory.createStateBar(prototype, resourceRegistry);
+    private StateBar createStateBar(HudStagePrototype prototype, Table table, ResourceRegistry resourceRegistry, int colSpan) {
+        StateBar stateBar = stateBarFactory.createStateBar(prototype.getStateBarPrototype(), resourceRegistry);
         table.row().expandY();
         table.add(stateBar.getLabel()).colspan(colSpan);
         return stateBar;
+    }
+
+    private MessageBar createMessageBar(HudStagePrototype prototype, Table table, ResourceRegistry resourceRegistry, int colSpan) {
+        MessageBar messageBar = messageBarFactory.createMessageBar(prototype.getMessageBarPrototype(), resourceRegistry);
+        table.row().expand().pad(20);
+        table.add(messageBar.getMessageLabel()).right().bottom().colspan(colSpan);
+        return messageBar;
     }
 }

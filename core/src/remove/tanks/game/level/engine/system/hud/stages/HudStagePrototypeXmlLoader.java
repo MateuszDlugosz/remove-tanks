@@ -1,6 +1,8 @@
 package remove.tanks.game.level.engine.system.hud.stages;
 
 import com.badlogic.gdx.utils.XmlReader;
+import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarPrototype;
+import remove.tanks.game.level.engine.system.hud.stages.message.MessageBarPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarPrototype;
 import remove.tanks.game.level.engine.system.hud.stages.state.StateBarPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.widget.WidgetPrototype;
@@ -16,20 +18,24 @@ public final class HudStagePrototypeXmlLoader {
 
     private final WidgetPrototypeXmlLoader widgetPrototypeXmlLoader;
     private final StateBarPrototypeXmlLoader stateBarPrototypeXmlLoader;
+    private final MessageBarPrototypeXmlLoader messageBarPrototypeXmlLoader;
 
     public HudStagePrototypeXmlLoader(
             WidgetPrototypeXmlLoader widgetPrototypeXmlLoader,
-            StateBarPrototypeXmlLoader stateBarPrototypeXmlLoader
+            StateBarPrototypeXmlLoader stateBarPrototypeXmlLoader,
+            MessageBarPrototypeXmlLoader messageBarPrototypeXmlLoader
     ) {
         this.widgetPrototypeXmlLoader = widgetPrototypeXmlLoader;
         this.stateBarPrototypeXmlLoader = stateBarPrototypeXmlLoader;
+        this.messageBarPrototypeXmlLoader = messageBarPrototypeXmlLoader;
     }
 
     public HudStagePrototype loadHudStagePrototype(XmlReader.Element element) {
         try {
             return new HudStagePrototype(
                     loadWidgetPrototypes(element),
-                    loadStateBarPrototype(element)
+                    loadStateBarPrototype(element),
+                    loadMessageBarPrototype(element)
             );
         } catch (Exception e) {
             throw new HudStagePrototypeXmlLoadException(element, e);
@@ -45,6 +51,12 @@ public final class HudStagePrototypeXmlLoader {
     private StateBarPrototype loadStateBarPrototype(XmlReader.Element element) {
         return stateBarPrototypeXmlLoader.loadStateBarPrototype(
                 element.getChildByName(StateBarPrototypeXmlLoader.STATE_BAR_ELEMENT)
+        );
+    }
+
+    private MessageBarPrototype loadMessageBarPrototype(XmlReader.Element element) {
+        return messageBarPrototypeXmlLoader.loadMessageBarPrototype(
+                element.getChildByName(MessageBarPrototypeXmlLoader.MESSAGE_BAR_ELEMENT)
         );
     }
 }

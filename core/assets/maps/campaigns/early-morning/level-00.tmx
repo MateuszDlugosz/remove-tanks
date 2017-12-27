@@ -226,11 +226,15 @@
     <property name="prototype.code" value="TriggerMedium"/>
     <property name="prototype.components">&lt;components&gt;
 	&lt;component type=&quot;TriggerComponent&quot;&gt;
-		&lt;events&gt;
-			&lt;event type=&quot;ActivateAutoSpawnerEvent&quot;&gt;
-				&lt;id&gt;Charlie&lt;/id&gt;
+		&lt;destroyEvents&gt;
+			&lt;event type=&quot;AddMessageEvent&quot;&gt;
+				&lt;message&gt;
+					&lt;time&gt;3&lt;/time&gt;
+&lt;entryKey&gt;GameMessageTest&lt;/entryKey&gt;
+				
+				&lt;/message&gt;
 			&lt;/event&gt;
-		&lt;/events&gt;
+		&lt;/destroyEvents&gt;
 	&lt;/component&gt;
 &lt;/components&gt;</property>
    </properties>
