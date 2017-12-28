@@ -42,7 +42,7 @@
             <system type="LifetimeSystem" />
             <system type="DestroyOnContactSystem" />
             <system type="DestroySystem" />
-            <system type="WorldDebugRenderSystem" />
+            <!--<system type="WorldDebugRenderSystem" />-->
             <system type="HudSystem">
                 <stage>
                     <widgets>
@@ -54,14 +54,7 @@
                             <titleEntry>GameLevelHudEnemies</titleEntry>
                             <property>LevelEnemies</property>
                         </widget>
-                        <widget type="PropertyPresenterWidget">
-                            <titleEntry>GameLevelHudPoints</titleEntry>
-                            <property>LevelPoints</property>
-                        </widget>
-                        <widget type="PropertyPresenterWidget">
-                            <titleEntry>GameLevelHudPointsMultiplier</titleEntry>
-                            <property>LevelPointsMultiplier</property>
-                        </widget>
+                        <widget type="PointsPresenterWidget" />
                     </widgets>
                     <stateBar>
                         <displayableStates>

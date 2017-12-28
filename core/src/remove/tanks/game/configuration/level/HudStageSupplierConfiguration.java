@@ -22,6 +22,8 @@ import remove.tanks.game.level.engine.system.hud.stages.widget.RegistrableWidget
 import remove.tanks.game.level.engine.system.hud.stages.widget.RegistrableWidgetPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.widget.WidgetFactory;
 import remove.tanks.game.level.engine.system.hud.stages.widget.WidgetPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.hud.stages.widget.points.PointsPresenterWidgetFactory;
+import remove.tanks.game.level.engine.system.hud.stages.widget.points.PointsPresenterWidgetPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.widget.property.PropertyPresenterWidgetFactory;
 import remove.tanks.game.level.engine.system.hud.stages.widget.property.PropertyPresenterWidgetPrototypeXmlLoader;
 
@@ -59,7 +61,8 @@ public final class HudStageSupplierConfiguration {
         public WidgetFactory supplyComponent() {
             return new WidgetFactory(
                     new RegistrableWidgetFactory[] {
-                            new PropertyPresenterWidgetFactory()
+                            new PropertyPresenterWidgetFactory(),
+                            new PointsPresenterWidgetFactory()
                     }
             );
         }
@@ -71,7 +74,8 @@ public final class HudStageSupplierConfiguration {
         public WidgetPrototypeXmlLoader supplyComponent() {
             return new WidgetPrototypeXmlLoader(
                     new RegistrableWidgetPrototypeXmlLoader[] {
-                            new PropertyPresenterWidgetPrototypeXmlLoader()
+                            new PropertyPresenterWidgetPrototypeXmlLoader(),
+                            new PointsPresenterWidgetPrototypeXmlLoader()
                     }
             );
         }

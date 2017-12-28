@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <translation id="English">
     <entry key="game.level.hud.life">Life</entry>
-    <entry key="game.level.hud.points">Points</entry>
+    <entry key="game.level.hud.points">Points (x%s)</entry>
     <entry key="game.level.hud.points-multiplier">Multiplier</entry>
     <entry key="game.level.hud.enemies">Enemies</entry>
     <entry key="game.level.state.victory">Victory</entry>
