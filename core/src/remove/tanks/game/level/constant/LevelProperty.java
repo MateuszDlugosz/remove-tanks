@@ -20,7 +20,8 @@ public enum LevelProperty {
     LevelPoints("level.points", "0"),
     LevelPointsMultiplier("level.points-multiplier", "1"),
     LevelLifes("level.lifes", "3"),
-    LevelState("level.state", "Playing");
+    LevelState("level.state", "Playing"),
+    LevelTimeLeft("level.time.left", "0.0");
 
     private final String name;
     private final String defaultValue;

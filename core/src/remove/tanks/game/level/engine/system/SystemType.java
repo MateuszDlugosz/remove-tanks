@@ -39,6 +39,7 @@ public enum SystemType {
     AutoSpawnerSystem(3100),
     PlayerRespawnSystem(3200),
     NoLifesDefeatSystem(3300),
+    TimeEndDefeatSystem(3350),
     NoEnemiesVictorySystem(3400),
     LevelEndSystem(3500),
     TimelineSystem(3600);
