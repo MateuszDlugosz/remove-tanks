@@ -8,6 +8,7 @@ public enum TranslationEntryKey {
     GameLevelHudPoints("game.level.hud.points"),
     GameLevelHudEnemies("game.level.hud.enemies"),
     GameLevelHudPointsMultiplier("game.level.hud.points-multiplier"),
+    GameLevelHudTimeLeft("game.level.hud.time-left"),
     GameLevelStateVictory("game.level.state.victory"),
     GameLevelStateDefeat("game.level.state.defeat"),
     GameLevelStatePlaying("game.level.state.playing"),

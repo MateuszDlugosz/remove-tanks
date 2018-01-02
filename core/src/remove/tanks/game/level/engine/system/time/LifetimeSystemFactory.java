@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.lifetime;
+package remove.tanks.game.level.engine.system.time;
 
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;

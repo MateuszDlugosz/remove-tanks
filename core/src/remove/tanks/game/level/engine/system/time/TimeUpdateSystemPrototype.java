@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.lifetime;
+package remove.tanks.game.level.engine.system.time;
 
 import com.google.common.base.MoreObjects;
 import remove.tanks.game.level.engine.system.EntitySystemPrototype;
@@ -6,8 +6,8 @@ import remove.tanks.game.level.engine.system.EntitySystemPrototype;
 /**
  * @author Mateusz Długosz
  */
-public final class LifetimeSystemPrototype extends EntitySystemPrototype {
-    public LifetimeSystemPrototype(int priority) {
+public final class TimeUpdateSystemPrototype extends EntitySystemPrototype {
+    public TimeUpdateSystemPrototype(int priority) {
         super(priority);
     }
 

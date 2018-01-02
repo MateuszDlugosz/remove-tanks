@@ -36,8 +36,6 @@ import remove.tanks.game.level.engine.system.hud.HudSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.hud.stages.HudStageFactory;
 import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.layer.*;
-import remove.tanks.game.level.engine.system.lifetime.LifetimeSystemFactory;
-import remove.tanks.game.level.engine.system.lifetime.LifetimeSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.map.TiledMapRenderSystemFactory;
 import remove.tanks.game.level.engine.system.map.TiledMapRenderSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.move.AutoMoveSystemFactory;
@@ -54,10 +52,16 @@ import remove.tanks.game.level.engine.system.spawn.RandomSpawnSystemFactory;
 import remove.tanks.game.level.engine.system.spawn.RandomSpawnSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.state.defeat.NoLifesDefeatSystemFactory;
 import remove.tanks.game.level.engine.system.state.defeat.NoLifesDefeatSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.state.defeat.TimeEndDefeatSystemFactory;
+import remove.tanks.game.level.engine.system.state.defeat.TimeEndDefeatSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.state.end.LevelEndSystemFactory;
 import remove.tanks.game.level.engine.system.state.end.LevelEndSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.state.victory.NoEnemiesVictorySystemFactory;
 import remove.tanks.game.level.engine.system.state.victory.NoEnemiesVictorySystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.time.LifetimeSystemFactory;
+import remove.tanks.game.level.engine.system.time.LifetimeSystemPrototypeXmlLoader;
+import remove.tanks.game.level.engine.system.time.TimeUpdateSystemFactory;
+import remove.tanks.game.level.engine.system.time.TimeUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemFactory;
 import remove.tanks.game.level.engine.system.view.ViewUpdateSystemPrototypeXmlLoader;
 import remove.tanks.game.level.engine.system.world.*;
@@ -155,7 +159,9 @@ public final class EntitySystemSupplierConfiguration {
                             new WeatherSystemFactory(
                                     getContext().getComponent("WeatherFactory", WeatherFactory.class)
                             ),
-                            new CameraEffectSystemFactory()
+                            new CameraEffectSystemFactory(),
+                            new TimeEndDefeatSystemFactory(),
+                            new TimeUpdateSystemFactory()
                     }
             );
         }
@@ -211,7 +217,9 @@ public final class EntitySystemSupplierConfiguration {
                             new WeatherSystemPrototypeXmlLoader(
                                     getContext().getComponent("WeatherPrototypeXmlLoader", WeatherPrototypeXmlLoader.class)
                             ),
-                            new CameraEffectSystemPrototypeXmlLoader()
+                            new CameraEffectSystemPrototypeXmlLoader(),
+                            new TimeEndDefeatSystemPrototypeXmlLoader(),
+                            new TimeUpdateSystemPrototypeXmlLoader()
                     }
             );
         }

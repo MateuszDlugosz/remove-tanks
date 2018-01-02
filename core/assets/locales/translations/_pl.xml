@@ -4,6 +4,7 @@
     <entry key="game.level.hud.points">Punkty (x%s)</entry>
     <entry key="game.level.hud.points-multiplier">Mnożnik</entry>
     <entry key="game.level.hud.enemies">Wrogowie</entry>
+    <entry key="game.level.hud.time-left">Pozostały czas</entry>
     <entry key="game.level.state.victory">Zwycięstwo</entry>
     <entry key="game.level.state.defeat">Porażka</entry>
     <entry key="game.level.state.playing">Rozgrywany</entry>

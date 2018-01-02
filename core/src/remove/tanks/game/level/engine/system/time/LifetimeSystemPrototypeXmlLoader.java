@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.lifetime;
+package remove.tanks.game.level.engine.system.time;
 
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.engine.system.EntitySystemPrototypeXmlLoadException;

@@ -1,4 +1,4 @@
-package remove.tanks.game.level.engine.system.lifetime;
+package remove.tanks.game.level.engine.system.time;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.systems.IteratingSystem;

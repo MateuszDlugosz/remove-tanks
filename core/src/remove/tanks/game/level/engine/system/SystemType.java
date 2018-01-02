@@ -30,6 +30,7 @@ public enum SystemType {
     BomberLayerRenderSystem(2300),
     ViewUpdateSystem(2400),
     LifetimeSystem(2500),
+    TimeUpdateSystem(2550),
     DestroyOnContactSystem(2600),
     DestroySystem(2700),
     WorldLightRenderSystem(2800),

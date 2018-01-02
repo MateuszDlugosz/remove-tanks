@@ -5,5 +5,6 @@ package remove.tanks.game.level.engine.system.hud.stages.widget;
  */
 public enum WidgetType {
     PropertyPresenterWidget,
-    PointsPresenterWidget
+    PointsPresenterWidget,
+    TimeLeftPresenterWidget
 }
