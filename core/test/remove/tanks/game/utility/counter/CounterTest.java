@@ -28,12 +28,12 @@ public class CounterTest {
     }
 
     @Test
-    public void when_CounterLimitLessThanZero_Then_UpdateNoEffect() {
+    public void when_CounterLimitLessThanZero_Then_UpdateInfinity() {
         Counter counter = new Counter(-1);
         counter.update();
         counter.update();
 
-        assertEquals(-1, counter.getValue());
+        assertEquals(2, counter.getValue());
         assertFalse(counter.isComplete());
     }
 }

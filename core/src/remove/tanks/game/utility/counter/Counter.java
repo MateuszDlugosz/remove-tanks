@@ -9,11 +9,7 @@ public final class Counter {
 
     public Counter(int limit) {
         this.limit = limit;
-        if (limit < 0) {
-            this.value = limit;
-        } else {
-            this.value = 0;
-        }
+        this.value = 0;
     }
 
     public void update() {
