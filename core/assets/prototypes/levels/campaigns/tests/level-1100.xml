@@ -5,7 +5,6 @@
         <property name="level.resource.entity-prototype-repository.filename">prototypes/repositories/main-repository.xml</property>
         <property name="level.resource.theme.filename">themes/sepia-theme.xml</property>
         <property name="level.enemies">3</property>
-        <property name="level.time.left">20</property>
     </properties>
     <engine>
         <systems>
@@ -52,11 +51,11 @@
                             <titleEntry>GameLevelHudLife</titleEntry>
                             <property>LevelLifes</property>
                         </widget>
-                        <widget type="TimeLeftPresenterWidget" />
-                        <!--<widget type="PropertyPresenterWidget">-->
-                            <!--<titleEntry>GameLevelHudEnemies</titleEntry>-->
-                            <!--<property>LevelEnemies</property>-->
-                        <!--</widget>-->
+                        <!--<widget type="TimeLeftPresenterWidget" />-->
+                        <widget type="PropertyPresenterWidget">
+                            <titleEntry>GameLevelHudEnemies</titleEntry>
+                            <property>LevelEnemies</property>
+                        </widget>
                         <widget type="PointsPresenterWidget" />
                     </widgets>
                     <stateBar>

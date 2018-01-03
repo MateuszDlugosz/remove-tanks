@@ -18,6 +18,7 @@ public final class Counter {
 
     public void update() {
         if (limit < 0) {
+            value++;
             return;
         }
         if (value < limit) {

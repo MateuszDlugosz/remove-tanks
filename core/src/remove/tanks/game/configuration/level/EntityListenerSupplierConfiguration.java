@@ -10,10 +10,14 @@ import remove.tanks.game.level.engine.listener.audio.SoundListenerFactory;
 import remove.tanks.game.level.engine.listener.audio.SoundListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerFactory;
 import remove.tanks.game.level.engine.listener.bonus.BonusLootListenerPrototypeXmlLoader;
+import remove.tanks.game.level.engine.listener.invoker.EnemyCountEventInvokerListenerFactory;
+import remove.tanks.game.level.engine.listener.invoker.EnemyCountEventInvokerListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerFactory;
 import remove.tanks.game.level.engine.listener.spawn.SpawnCycleListenerPrototypeXmlLoader;
 import remove.tanks.game.level.engine.listener.trigger.TriggerListenerFactory;
 import remove.tanks.game.level.engine.listener.trigger.TriggerListenerPrototypeXmlLoader;
+import remove.tanks.game.level.event.EventFactory;
+import remove.tanks.game.level.event.EventPrototypeXmlLoader;
 import remove.tanks.game.utility.random.RandomNumberGenerator;
 
 /**
@@ -31,7 +35,10 @@ public final class EntityListenerSupplierConfiguration {
                             new BonusLootListenerFactory(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
-                            new TriggerListenerFactory()
+                            new TriggerListenerFactory(),
+                            new EnemyCountEventInvokerListenerFactory(
+                                    getContext().getComponent("EventFactory", EventFactory.class)
+                            )
                     }
             );
         }
@@ -46,7 +53,10 @@ public final class EntityListenerSupplierConfiguration {
                             new SpawnCycleListenerPrototypeXmlLoader(),
                             new SoundListenerPrototypeXmlLoader(),
                             new BonusLootListenerPrototypeXmlLoader(),
-                            new TriggerListenerPrototypeXmlLoader()
+                            new TriggerListenerPrototypeXmlLoader(),
+                            new EnemyCountEventInvokerListenerPrototypeXmlLoader(
+                                    getContext().getComponent("EventPrototypeXmlLoader", EventPrototypeXmlLoader.class)
+                            )
                     }
             );
         }
