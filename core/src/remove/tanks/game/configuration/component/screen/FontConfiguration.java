@@ -25,8 +25,8 @@ public final class FontConfiguration {
             parameter.color = Color.WHITE;
             parameter.borderColor = Color.BLACK;
             parameter.borderWidth = 2;
-            parameter.shadowOffsetX = 3;
-            parameter.shadowOffsetY = -3;
+            parameter.shadowOffsetX = 2;
+            parameter.shadowOffsetY = -2;
             parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + "ŁłŚśĆćĘęŻżŹźÓóĄąŃń";
             BitmapFont font = generator.generateFont(parameter);
             generator.dispose();
