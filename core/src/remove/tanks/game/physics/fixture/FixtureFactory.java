@@ -16,43 +16,43 @@ public final class FixtureFactory {
         this.shapeFactory = shapeFactory;
     }
 
-    public Fixture createFixture(FixturePrototype prototype, Body body, Scale scale) {
+    public Fixture createFixture(FixturePrefab prefab, Body body, Scale scale) {
         try {
-            return body.createFixture(createFixtureDef(prototype, scale));
+            return body.createFixture(createFixtureDef(prefab, scale));
         } catch (Exception e) {
-            throw new FixtureCreateException(prototype, e);
+            throw new FixtureCreateException(prefab, e);
         }
     }
 
-    public Fixture createFixtureAsHitBox(FixturePrototype prototype, Body body, Scale scale) {
+    public Fixture createFixtureAsHitBox(FixturePrefab prefab, Body body, Scale scale) {
         try {
-            FixtureDef fixtureDef = createFixtureDef(prototype, scale);
+            FixtureDef fixtureDef = createFixtureDef(prefab, scale);
             fixtureDef.isSensor = false;
             return body.createFixture(fixtureDef);
         } catch (Exception e) {
-            throw new FixtureCreateException(prototype, e);
+            throw new FixtureCreateException(prefab, e);
         }
     }
 
-    public Fixture createFixtureAsSensor(FixturePrototype prototype, Body body, Scale scale) {
+    public Fixture createFixtureAsSensor(FixturePrefab prefab, Body body, Scale scale) {
         try {
-            FixtureDef fixtureDef = createFixtureDef(prototype, scale);
+            FixtureDef fixtureDef = createFixtureDef(prefab, scale);
             fixtureDef.isSensor = true;
             return body.createFixture(fixtureDef);
         } catch (Exception e) {
-            throw new FixtureCreateException(prototype, e);
+            throw new FixtureCreateException(prefab, e);
         }
     }
 
-    private FixtureDef createFixtureDef(FixturePrototype prototype, Scale scale) {
+    private FixtureDef createFixtureDef(FixturePrefab prefab, Scale scale) {
         FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.isSensor = prototype.isSensor();
-        fixtureDef.density = prototype.getDensity();
-        fixtureDef.friction = prototype.getFriction();
-        fixtureDef.restitution = prototype.getRestitution();
-        fixtureDef.shape = shapeFactory.createShape(prototype.getShapePrototype(), scale);
-        fixtureDef.filter.categoryBits = prototype.getFilterPrototype().getCategoryBit();
-        fixtureDef.filter.maskBits = prototype.getFilterPrototype().getMaskBit();
+        fixtureDef.isSensor = prefab.isSensor();
+        fixtureDef.density = prefab.getDensity();
+        fixtureDef.friction = prefab.getFriction();
+        fixtureDef.restitution = prefab.getRestitution();
+        fixtureDef.shape = shapeFactory.createShape(prefab.getShapePrefab(), scale);
+        fixtureDef.filter.categoryBits = prefab.getFilterPrefab().getCategoryBit();
+        fixtureDef.filter.maskBits = prefab.getFilterPrefab().getMaskBit();
         return fixtureDef;
     }
 }

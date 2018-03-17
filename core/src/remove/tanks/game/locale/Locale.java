@@ -1,43 +1,48 @@
 package remove.tanks.game.locale;
 
 import remove.tanks.game.locale.translation.Translation;
+import remove.tanks.game.locale.translation.TranslationStorage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author Mateusz Długosz
  */
 public final class Locale {
-    private final List<Translation> translations = new ArrayList<>();
-    private int selectedTranslationIndex;
+    private final TranslationStorage translationStorage;
+    private String selectedTranslationId;
 
-    public Locale(Translation[] translations) {
-        if (translations.length == 0) {
-            throw new IllegalArgumentException("Locale requires at least one translation.");
-        }
-        this.translations.addAll(Arrays.asList(translations));
-        this.selectedTranslationIndex = 0;
+    public Locale(TranslationStorage translationStorage, String selectedTranslationId) {
+        this.translationStorage = translationStorage;
+        this.selectedTranslationId = selectedTranslationId;
     }
 
-    public void selectPreviousTranslation() {
-        if (selectedTranslationIndex == 0 && translations.size() > 1) {
-            selectedTranslationIndex = translations.size() - 1;
-        } else {
-            selectedTranslationIndex--;
-        }
+    public String getSelectedTranslationId() {
+        return selectedTranslationId;
+    }
+
+    public Translation getSelectedTranslation() {
+        return translationStorage.getTranslation(selectedTranslationId);
     }
 
     public void selectNextTranslation() {
-        if (selectedTranslationIndex == translations.size() - 1) {
-            selectedTranslationIndex = 0;
+        List<String> translationsIds = new ArrayList<>(translationStorage.getTranslationsKeys());
+        int selectedIndex = translationsIds.indexOf(selectedTranslationId);
+        if (selectedIndex + 1 > translationsIds.size() - 1) {
+            selectedTranslationId = translationsIds.get(0);
         } else {
-            selectedTranslationIndex++;
+            selectedTranslationId = translationsIds.get(selectedIndex + 1);
         }
     }
 
-    public Translation getTranslation() {
-        return translations.get(selectedTranslationIndex);
+    public void selectPreviousTranslation() {
+        List<String> translationsIds = new ArrayList<>(translationStorage.getTranslationsKeys());
+        int selectedIndex = translationsIds.indexOf(selectedTranslationId);
+        if (selectedIndex - 1 < 0) {
+            selectedTranslationId = translationsIds.get(translationsIds.size() - 1);
+        } else {
+            selectedTranslationId = translationsIds.get(selectedIndex - 1);
+        }
     }
 }

@@ -7,7 +7,7 @@ import com.badlogic.gdx.physics.box2d.World;
  * @author Mateusz Długosz
  */
 public final class WorldLight extends RayHandler {
-    private final int numberOfRays;
+    private int numberOfRays;
 
     public WorldLight(World world, int numberOfRays) {
         super(world);

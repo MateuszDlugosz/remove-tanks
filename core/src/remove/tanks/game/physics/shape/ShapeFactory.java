@@ -3,6 +3,7 @@ package remove.tanks.game.physics.shape;
 import com.badlogic.gdx.physics.box2d.Shape;
 import remove.tanks.game.utility.scale.Scale;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,29 +14,27 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings("unchecked")
 public final class ShapeFactory {
-    private final Map<Class<? extends ShapePrototype>, RegistrableShapeFactory> factories
+    private final Map<Class<? extends ShapePrefab>, SubShapeFactory> factories
             = new HashMap<>();
 
-    public ShapeFactory(RegistrableShapeFactory[] factories) {
-        for (RegistrableShapeFactory subFactory : factories) {
-            this.factories.put(subFactory.getFactoryType(), subFactory);
-        }
+    public ShapeFactory(SubShapeFactory[] factories) {
+        Arrays.stream(factories).forEach(f -> this.factories.put(f.getFactoryType(), f));
     }
 
-    public List<Shape> createShapes(List<ShapePrototype> prototypes, Scale scale) {
-        return prototypes.stream()
+    public List<Shape> createShapes(List<ShapePrefab> prefabs, Scale scale) {
+        return prefabs.stream()
                 .map(p -> createShape(p, scale))
                 .collect(Collectors.toList());
     }
 
-    public Shape createShape(ShapePrototype prototype, Scale scale) {
+    public Shape createShape(ShapePrefab prefab, Scale scale) {
         try {
-            if (!factories.containsKey(prototype.getClass())) {
-                throw new ShapeFactoryNotFoundException(prototype.getClass());
+            if (!factories.containsKey(prefab.getClass())) {
+                throw new ShapeFactoryNotFoundException(prefab.getClass());
             }
-            return factories.get(prototype.getClass()).createShape(prototype, scale);
+            return factories.get(prefab.getClass()).createShape(prefab, scale);
         } catch (Exception e) {
-            throw new ShapeCreateException(prototype, e);
+            throw new ShapeCreateException(prefab, e);
         }
     }
 }

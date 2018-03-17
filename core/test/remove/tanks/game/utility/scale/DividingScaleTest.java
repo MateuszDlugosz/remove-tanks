@@ -9,17 +9,17 @@ import static org.junit.Assert.assertEquals;
  */
 public class DividingScaleTest {
     @Test(expected = InvalidScaleValueException.class)
-    public void when_DividingScaleIsInitializedWithZeroValue_Then_ThrowsException() {
+    public void Should_ThrowException_When_GivenScaleValueIsZero() {
         new DividingScale(0f);
     }
 
     @Test(expected = InvalidScaleValueException.class)
-    public void when_DividingScaleIsInitializedWithNegativeValue_Then_ThrowsException() {
+    public void Should_ThrowException_When_GivenScaleValueIsNegativeNumber() {
         new DividingScale(-5f);
     }
 
     @Test
-    public void when_DividingScaleInitializedWithCorrectValue_Then_CorrectlyScales() {
+    public void Should_ReturnCorrectlyScaledValues() {
         Scale scale = new DividingScale(5f);
         float scaledValue0 = scale.scaleValue(10f);
         float scaledValue1 = scale.scaleValue(7f);

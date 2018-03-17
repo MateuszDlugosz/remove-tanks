@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>ExplosionBonus0</entityPrefabCode>
+        </entityPrefabCodes>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <sensors>
+                <sensor id="ContactDetector">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>16</width>
+                            <height>16</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>PlayerVehicleBlockadeCategory</categoryBit>
+                            <maskBit>PlayerVehicleBlockadeMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="AnimationView" id="StandingNone">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="bonus-ammo-0-0" />
+                        <frame regionName="bonus-ammo-0-1" />
+                        <frame regionName="bonus-ammo-0-2" />
+                        <frame regionName="bonus-ammo-0-1" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>None</direction>
+        </component>
+        <component type="BonusRenderLayerComponent" />
+        <component type="DestroyOnContactComponent" />
+        <component type="DestroyTriggerComponent">
+            <entityEvents>
+                <entityEvent type="CreateEntityEvent">
+                    <createEntries>
+                        <createEntry>
+                            <entityPrefabCode>ExplosionBonus0</entityPrefabCode>
+                        </createEntry>
+                    </createEntries>
+                </entityEvent>
+                <entityEvent type="AmmoLevelUpEntityEvent" />
+            </entityEvents>
+        </component>
+    </components>
+</entity>

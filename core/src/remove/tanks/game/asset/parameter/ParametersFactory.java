@@ -11,21 +11,21 @@ import java.util.Map;
  */
 @SuppressWarnings("unchecked")
 public final class ParametersFactory {
-    private final Map<Class<? extends AssetLoaderParameters>, RegistrableParametersFactory> factories
+    private final Map<Class<? extends AssetLoaderParameters>, SubParametersFactory> factories
             = new HashMap<>();
 
-    public ParametersFactory(RegistrableParametersFactory[] factories) {
+    public ParametersFactory(SubParametersFactory[] factories) {
         Arrays.stream(factories).forEach(f -> this.factories.put(f.getFactoryType(), f));
     }
 
-    public AssetLoaderParameters createAssetLoaderParameters(ParametersPrototype prototype) {
+    public AssetLoaderParameters createAssetLoaderParameters(ParametersPrefab prefab) {
         try {
-            if (!factories.containsKey(prototype.getClassName())) {
-                throw new ParametersFactoryNotFoundException(prototype.getClassName());
+            if (!factories.containsKey(prefab.getClassName())) {
+                throw new ParametersFactoryNotFoundException(prefab.getClassName());
             }
-            return factories.get(prototype.getClassName()).createParameters(prototype);
+            return factories.get(prefab.getClassName()).createParameters(prefab);
         } catch (Exception e) {
-            throw new ParametersCreateException(prototype, e);
+            throw new ParametersCreateException(prefab, e);
         }
     }
 }

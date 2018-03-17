@@ -4,9 +4,9 @@ package remove.tanks.game.audio.sound;
  * @author Mateusz Długosz
  */
 public final class SoundCreateException extends RuntimeException {
-    private static final String MESSAGE_TEMPLATE = "Cannot create sound from prototype %s.";
+    private static final String MESSAGE_TEMPLATE = "Cannot create sound from prefab %s.";
 
-    public SoundCreateException(SoundPrototype prototype, Throwable cause) {
-        super(String.format(MESSAGE_TEMPLATE, prototype), cause);
+    public SoundCreateException(SoundPrefab prefab, Throwable cause) {
+        super(String.format(MESSAGE_TEMPLATE, prefab), cause);
     }
 }

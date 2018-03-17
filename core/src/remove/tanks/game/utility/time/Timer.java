@@ -21,7 +21,7 @@ public final class Timer {
     }
 
     public boolean isCompleted() {
-        return !(time < 0) && time >= completionTime;
+        return !(completionTime < 0) && time >= completionTime;
     }
 
     public float getTime() {

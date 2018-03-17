@@ -1,29 +1,27 @@
 package remove.tanks.game.level.engine.entity.component.speed;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
 import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
-import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
+import remove.tanks.game.level.engine.entity.component.SubComponentFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
  */
-public final class SpeedComponentFactory
-        implements RegistrableComponentFactory<SpeedComponent, SpeedComponentPrototype>
-{
+public final class SpeedComponentFactory implements SubComponentFactory<SpeedComponent, SpeedComponentPrefab> {
     @Override
-    public SpeedComponent createComponent(SpeedComponentPrototype prototype, Level level, Entity entity) {
+    public SpeedComponent createComponent(SpeedComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
             return new SpeedComponent(
-                    prototype.getSpeed()
+                    prefab.getSpeed()
             );
         } catch (Exception e) {
-            throw new ComponentCreateException(prototype, e);
+            throw new ComponentCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<SpeedComponentPrototype> getFactoryType() {
-        return SpeedComponentPrototype.class;
+    public Class<SpeedComponentPrefab> getFactoryType() {
+        return SpeedComponentPrefab.class;
     }
 }

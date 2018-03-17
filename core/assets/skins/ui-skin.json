@@ -1,0 +1,28 @@
+{
+  "com.badlogic.gdx.graphics.Color": {
+    "color-white": { "r": 1, "g": 1, "b": 1, "a": 1 },
+    "color-gray": { "r": 0.5, "g": 0.5, "b": 0.5, "a": 1 }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+    "default": {
+      "font": "font-default"
+    }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
+    "default": {
+      "font": "font-default",
+      "fontColor": "color-white",
+      "checkedFontColor": "color-gray"
+    }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
+    "default": {
+      "titleFont": "font-default",
+      "background": "background-menu"
+    },
+    "window-clear": {
+      "titleFont": "font-default",
+      "background": "background-transparent"
+    }
+  }
+}

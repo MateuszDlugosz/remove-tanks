@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<translation>
+    <entry key="game.level.hud.life">Life</entry>
+    <entry key="game.level.hud.points">Points (x%s)</entry>
+    <entry key="game.level.hud.points-multiplier">Multiplier</entry>
+    <entry key="game.level.hud.enemies.left">Enemies left</entry>
+    <entry key="game.level.hud.time-left">Time left</entry>
+
+    <entry key="game.screen.main.menu.button.start">Start</entry>
+    <entry key="game.screen.main.menu.button.options">Options</entry>
+    <entry key="game.screen.main.menu.button.credits">Credits</entry>
+    <entry key="game.screen.main.menu.button.profile">Profile</entry>
+    <entry key="game.screen.main.menu.button.exit">Exit</entry>
+
+    <entry key="game.screen.options.title">Options</entry>
+    <entry key="game.screen.options.button.language">Language</entry>
+    <entry key="game.screen.options.button.sound.effect.volume">Sound effect volume</entry>
+    <entry key="game.screen.options.button.sound.ui.effect.volume">Sound ui effect volume</entry>
+    <entry key="game.screen.options.button.music.volume">Music volume</entry>
+
+    <entry key="game.screen.profile.title">Profile</entry>
+    <entry key="game.screen.profile.label.profile.points">Points</entry>
+    <entry key="game.screen.profile.label.profile.destroyed.enemies">Destroyed enemies</entry>
+    <entry key="game.screen.profile.label.profile.maps.ended">Maps ended</entry>
+
+    <entry key="game.screen.credits.title">Credits</entry>
+    <entry key="game.screen.credits.content.0">Mateusz Długosz</entry>
+
+    <entry key="game.screen.button.back">Back</entry>
+
+    <entry key="Simple">Sample</entry>
+</translation>

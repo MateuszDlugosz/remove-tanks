@@ -1,6 +1,6 @@
 package remove.tanks.game.application.context.component.supplier.annotation;
 
-import remove.tanks.game.application.context.component.provider.Scope;
+import remove.tanks.game.application.context.component.Scope;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

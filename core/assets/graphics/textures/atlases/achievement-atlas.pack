@@ -1,0 +1,20 @@
+
+achievement-atlas.png
+size: 64,32
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+enemies-destroyed-10
+  rotate: false
+  xy: 2, 2
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+enemies-destroyed-25
+  rotate: false
+  xy: 20, 2
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1

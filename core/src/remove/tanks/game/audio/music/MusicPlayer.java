@@ -2,32 +2,36 @@ package remove.tanks.game.audio.music;
 
 import com.badlogic.gdx.audio.Music;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
  * @author Mateusz Długosz
  */
 public final class MusicPlayer {
-    private Music musicPlayed;
+    private final Map<MusicChannelName, MusicChannel> musicChannels;
 
-    public Optional<Music> getMusicPlayed() {
-        return Optional.ofNullable(musicPlayed);
+    public MusicPlayer(Map<MusicChannelName, MusicChannel> musicChannels) {
+        this.musicChannels = musicChannels;
     }
 
-    public void playMusic(Music music) {
-        music.play();
-        musicPlayed = music;
+    public MusicChannel getMusicChannel(MusicChannelName musicChannelName) {
+        return musicChannels.get(musicChannelName);
     }
 
-    public void stopMusic() {
-        getMusicPlayed().ifPresent(Music::stop);
+    public void playMusic(MusicChannelName musicChannelName, Music music) {
+        musicChannels.get(musicChannelName).playMusic(music);
     }
 
-    public void pauseMusic() {
-        getMusicPlayed().ifPresent(Music::pause);
+    public void stopMusic(MusicChannelName musicChannelName) {
+        getMusicChannel(musicChannelName).stopMusic();
     }
 
-    public void resumeMusic() {
-        getMusicPlayed().ifPresent(Music::play);
+    public void resumeMusic(MusicChannelName musicChannelName) {
+        getMusicChannel(musicChannelName).resumeMusic();
+    }
+
+    public void pauseMusic(MusicChannelName musicChannelName) {
+        getMusicChannel(musicChannelName).pauseMusic();
     }
 }

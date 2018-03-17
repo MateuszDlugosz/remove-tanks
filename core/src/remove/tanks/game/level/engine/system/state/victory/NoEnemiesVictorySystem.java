@@ -2,10 +2,10 @@ package remove.tanks.game.level.engine.system.state.victory;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.level.constant.LevelProperty;
-import remove.tanks.game.level.constant.LevelState;
+import remove.tanks.game.level.LevelProperty;
+import remove.tanks.game.level.LevelState;
 import remove.tanks.game.level.engine.entity.EntityFamily;
-import remove.tanks.game.level.engine.system.respawn.PlayerRespawnSystem;
+import remove.tanks.game.level.engine.system.spawn.RespawnSystem;
 import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
@@ -34,11 +34,11 @@ public final class NoEnemiesVictorySystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        if (getEngine().getEntitiesFor(EntityFamily.PlayerControlledFamily.getFamily()).size() > 0) {
-            if (properties.getInt(LevelProperty.LevelEnemies.getName()) == 0) {
+        if (getEngine().getEntitiesFor(EntityFamily.InputFamily.getFamily()).size() > 0) {
+            if (properties.getInt(LevelProperty.LevelEnemiesLeft.getName()) == 0) {
                 if (timer.isCompleted()) {
                     eventBus.post(new ChangeLevelStateEvent(LevelState.Victory));
-                    Optional.ofNullable(getEngine().getSystem(PlayerRespawnSystem.class))
+                    Optional.ofNullable(getEngine().getSystem(RespawnSystem.class))
                             .ifPresent(s -> getEngine().removeSystem(s));
                     getEngine().removeSystem(this);
                 } else {

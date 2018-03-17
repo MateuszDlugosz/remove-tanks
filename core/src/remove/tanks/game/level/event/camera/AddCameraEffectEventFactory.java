@@ -1,17 +1,16 @@
 package remove.tanks.game.level.event.camera;
 
-import remove.tanks.game.graphic.camera.effect.CameraEffect;
-import remove.tanks.game.graphic.camera.effect.CameraEffectFactory;
-import remove.tanks.game.graphic.camera.effect.CameraEffectPrototype;
+import remove.tanks.game.graphics.camera.effect.CameraEffect;
+import remove.tanks.game.graphics.camera.effect.CameraEffectFactory;
+import remove.tanks.game.graphics.camera.effect.CameraEffectPrefab;
 import remove.tanks.game.level.event.EventCreateException;
-import remove.tanks.game.level.event.RegistrableEventFactory;
+import remove.tanks.game.level.event.SubEventFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
  */
-public final class AddCameraEffectEventFactory
-        implements RegistrableEventFactory<AddCameraEffectEvent, AddCameraEffectEventPrototype>
-{
+public final class AddCameraEffectEventFactory implements SubEventFactory<AddCameraEffectEvent, AddCameraEffectEventPrefab> {
     private final CameraEffectFactory cameraEffectFactory;
 
     public AddCameraEffectEventFactory(CameraEffectFactory cameraEffectFactory) {
@@ -19,22 +18,20 @@ public final class AddCameraEffectEventFactory
     }
 
     @Override
-    public AddCameraEffectEvent createEvent(AddCameraEffectEventPrototype prototype) {
+    public AddCameraEffectEvent createEvent(AddCameraEffectEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new AddCameraEffectEvent(
-                    createCameraEffect(prototype.getCameraEffectPrototype())
-            );
+            return new AddCameraEffectEvent(createCameraEffect(prefab.getCameraEffectPrefab()));
         } catch (Exception e) {
-            throw new EventCreateException(prototype, e);
+            throw new EventCreateException(prefab, e);
         }
     }
 
-    private CameraEffect createCameraEffect(CameraEffectPrototype prototype) {
-        return cameraEffectFactory.createCameraEffect(prototype);
+    private CameraEffect createCameraEffect(CameraEffectPrefab prefab) {
+        return cameraEffectFactory.createCameraEffect(prefab);
     }
 
     @Override
-    public Class<AddCameraEffectEventPrototype> getFactoryType() {
-        return AddCameraEffectEventPrototype.class;
+    public Class<AddCameraEffectEventPrefab> getFactoryType() {
+        return AddCameraEffectEventPrefab.class;
     }
 }

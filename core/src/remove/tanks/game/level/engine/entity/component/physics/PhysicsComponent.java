@@ -3,11 +3,10 @@ package remove.tanks.game.level.engine.entity.component.physics;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.google.common.collect.ImmutableMap;
 import remove.tanks.game.physics.fixture.hitbox.HitBox;
 import remove.tanks.game.physics.fixture.sensor.Sensor;
 import remove.tanks.game.physics.light.LightHandler;
-import remove.tanks.game.utility.position.Position;
+import remove.tanks.game.utility.surface.position.Position;
 
 import java.util.Map;
 import java.util.Optional;
@@ -16,8 +15,7 @@ import java.util.Optional;
  * @author Mateusz Długosz
  */
 public final class PhysicsComponent implements Component {
-    public static final ComponentMapper<PhysicsComponent> MAPPER
-            = ComponentMapper.getFor(PhysicsComponent.class);
+    public static final ComponentMapper<PhysicsComponent> MAPPER = ComponentMapper.getFor(PhysicsComponent.class);
 
     private final Body body;
     private final Map<String, HitBox> hitBoxes;
@@ -57,14 +55,14 @@ public final class PhysicsComponent implements Component {
     }
 
     public Map<String, HitBox> getHitBoxes() {
-        return ImmutableMap.copyOf(hitBoxes);
+        return hitBoxes;
     }
 
     public Map<String, Sensor> getSensors() {
-        return ImmutableMap.copyOf(sensors);
+        return sensors;
     }
 
     public Map<String, LightHandler> getLightHandlers() {
-        return ImmutableMap.copyOf(lightHandlers);
+        return lightHandlers;
     }
 }

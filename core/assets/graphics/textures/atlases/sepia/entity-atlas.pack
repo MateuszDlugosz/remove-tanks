@@ -1,0 +1,1931 @@
+
+entity-atlas.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+anti-tank-barrier-0
+  rotate: false
+  xy: 744, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+battle-indicator-0-0
+  rotate: false
+  xy: 797, 304
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+battle-indicator-0-1
+  rotate: false
+  xy: 763, 304
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+battle-indicator-0-2
+  rotate: false
+  xy: 814, 304
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+beach-barricade-0
+  rotate: false
+  xy: 380, 171
+  size: 16, 21
+  orig: 16, 21
+  offset: 0, 0
+  index: -1
+bomb-0-down-0
+  rotate: false
+  xy: 780, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-down-1
+  rotate: false
+  xy: 356, 116
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-down-2
+  rotate: false
+  xy: 676, 282
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-left-0
+  rotate: false
+  xy: 672, 336
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-left-1
+  rotate: false
+  xy: 538, 206
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-left-2
+  rotate: false
+  xy: 870, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-right-0
+  rotate: false
+  xy: 744, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-right-1
+  rotate: false
+  xy: 374, 115
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-right-2
+  rotate: false
+  xy: 762, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-up-0
+  rotate: false
+  xy: 744, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-up-1
+  rotate: false
+  xy: 708, 318
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomb-0-up-2
+  rotate: false
+  xy: 348, 134
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bomber-0-down
+  rotate: false
+  xy: 196, 318
+  size: 132, 94
+  orig: 132, 94
+  offset: 0, 0
+  index: -1
+bomber-0-left
+  rotate: false
+  xy: 2, 16
+  size: 94, 132
+  orig: 94, 132
+  offset: 0, 0
+  index: -1
+bomber-0-right
+  rotate: false
+  xy: 2, 150
+  size: 94, 132
+  orig: 94, 132
+  offset: 0, 0
+  index: -1
+bomber-0-up
+  rotate: false
+  xy: 340, 416
+  size: 132, 94
+  orig: 132, 94
+  offset: 0, 0
+  index: -1
+bomber-1-down
+  rotate: false
+  xy: 572, 446
+  size: 96, 64
+  orig: 96, 64
+  offset: 0, 0
+  index: -1
+bomber-1-left
+  rotate: false
+  xy: 98, 72
+  size: 64, 96
+  orig: 64, 96
+  offset: 0, 0
+  index: -1
+bomber-1-right
+  rotate: false
+  xy: 148, 186
+  size: 64, 96
+  orig: 64, 96
+  offset: 0, 0
+  index: -1
+bomber-1-up
+  rotate: false
+  xy: 474, 446
+  size: 96, 64
+  orig: 96, 64
+  offset: 0, 0
+  index: -1
+bonus-ammo-0-0
+  rotate: false
+  xy: 302, 134
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-ammo-0-1
+  rotate: false
+  xy: 436, 174
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-ammo-0-2
+  rotate: false
+  xy: 455, 154
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-bombers-0-0
+  rotate: false
+  xy: 401, 154
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-bombers-0-1
+  rotate: false
+  xy: 702, 390
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-bombers-0-2
+  rotate: false
+  xy: 302, 114
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-grenade-0-0
+  rotate: false
+  xy: 419, 154
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-grenade-0-1
+  rotate: false
+  xy: 666, 390
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-grenade-0-2
+  rotate: false
+  xy: 302, 154
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-life-0-0
+  rotate: false
+  xy: 640, 256
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-life-0-1
+  rotate: false
+  xy: 684, 390
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-life-0-2
+  rotate: false
+  xy: 437, 154
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-promotion-0-0
+  rotate: false
+  xy: 658, 270
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-promotion-0-1
+  rotate: false
+  xy: 418, 174
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-promotion-0-2
+  rotate: false
+  xy: 658, 290
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-star-0-0
+  rotate: false
+  xy: 454, 174
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-star-0-1
+  rotate: false
+  xy: 148, 2
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bonus-star-0-2
+  rotate: false
+  xy: 383, 151
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+bridge-destroyed-0-horizontal
+  rotate: false
+  xy: 502, 242
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+bridge-destroyed-0-vertical
+  rotate: false
+  xy: 366, 194
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+bullet-large-0-down
+  rotate: false
+  xy: 572, 227
+  size: 8, 9
+  orig: 8, 9
+  offset: 0, 0
+  index: -1
+bullet-large-0-left
+  rotate: false
+  xy: 148, 176
+  size: 9, 8
+  orig: 9, 8
+  offset: 0, 0
+  index: -1
+bullet-large-0-right
+  rotate: false
+  xy: 468, 198
+  size: 9, 8
+  orig: 9, 8
+  offset: 0, 0
+  index: -1
+bullet-large-0-up
+  rotate: false
+  xy: 658, 259
+  size: 8, 9
+  orig: 8, 9
+  offset: 0, 0
+  index: -1
+bullet-medium-0-down
+  rotate: false
+  xy: 708, 336
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet-medium-0-left
+  rotate: false
+  xy: 816, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet-medium-0-right
+  rotate: false
+  xy: 906, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet-medium-0-up
+  rotate: false
+  xy: 888, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet-small-0
+  rotate: false
+  xy: 816, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+button-active-0
+  rotate: false
+  xy: 798, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+button-inactive-0-0
+  rotate: false
+  xy: 302, 2
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
+button-inactive-0-1
+  rotate: false
+  xy: 284, 2
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
+button-inactive-0-2
+  rotate: false
+  xy: 266, 2
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
+church-damaged-0
+  rotate: false
+  xy: 670, 462
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+church-heavy-damaged-0
+  rotate: false
+  xy: 870, 462
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+church-intacted-0
+  rotate: false
+  xy: 98, 22
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+cloud-small-0
+  rotate: false
+  xy: 538, 224
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+cloud-small-1
+  rotate: false
+  xy: 572, 256
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+cloud-small-2
+  rotate: false
+  xy: 98, 4
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+cloud-small-3
+  rotate: false
+  xy: 924, 392
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+concrete-barrier-0-left
+  rotate: false
+  xy: 816, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+concrete-barrier-0-right
+  rotate: false
+  xy: 816, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+dragons-teeth-0
+  rotate: false
+  xy: 906, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-down-0
+  rotate: false
+  xy: 942, 356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-down-1
+  rotate: false
+  xy: 798, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-left-0
+  rotate: false
+  xy: 834, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-left-1
+  rotate: false
+  xy: 780, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-right-0
+  rotate: false
+  xy: 726, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-right-1
+  rotate: false
+  xy: 455, 136
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-up-0
+  rotate: false
+  xy: 906, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-0-up-1
+  rotate: false
+  xy: 708, 354
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-spawn-0-0
+  rotate: false
+  xy: 924, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-spawn-0-1
+  rotate: false
+  xy: 834, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-spawn-0-2
+  rotate: false
+  xy: 726, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bomber-tank-spawn-0-3
+  rotate: false
+  xy: 401, 136
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-damaged-0-down
+  rotate: false
+  xy: 400, 194
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-damaged-0-horizontal-down
+  rotate: false
+  xy: 574, 412
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-damaged-1-horizontal-down
+  rotate: false
+  xy: 380, 314
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-damaged-2-horizontal-down
+  rotate: false
+  xy: 924, 410
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-heavy-damaged-0-down
+  rotate: false
+  xy: 434, 262
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-heavy-damaged-0-horizontal-down
+  rotate: false
+  xy: 164, 118
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-heavy-damaged-1-horizontal-down
+  rotate: false
+  xy: 970, 478
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-heavy-damaged-2-horizontal-down
+  rotate: false
+  xy: 340, 382
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-intacted-0-down
+  rotate: false
+  xy: 366, 262
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-intacted-0-horizontal-down
+  rotate: false
+  xy: 624, 412
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-intacted-1-horizontal-down
+  rotate: false
+  xy: 774, 394
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-bunker-medium-intacted-2-horizontal-down
+  rotate: false
+  xy: 380, 348
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-bunker-damaged-0-down
+  rotate: false
+  xy: 214, 234
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+enemy-heavy-bunker-heavy-damaged-0-down
+  rotate: false
+  xy: 770, 462
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+enemy-heavy-bunker-intacted-0-down
+  rotate: false
+  xy: 820, 462
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-down-0
+  rotate: false
+  xy: 638, 310
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-down-1
+  rotate: false
+  xy: 468, 276
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-left-0
+  rotate: false
+  xy: 502, 310
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-left-1
+  rotate: false
+  xy: 440, 382
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-right-0
+  rotate: false
+  xy: 434, 228
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-right-1
+  rotate: false
+  xy: 468, 310
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-up-0
+  rotate: false
+  xy: 570, 344
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-0-up-1
+  rotate: false
+  xy: 468, 344
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-covered-0-down
+  rotate: false
+  xy: 332, 228
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-covered-0-left
+  rotate: false
+  xy: 502, 276
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-covered-0-right
+  rotate: false
+  xy: 604, 310
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-covered-0-up
+  rotate: false
+  xy: 570, 310
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-spawn-0-0
+  rotate: false
+  xy: 332, 194
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-spawn-0-1
+  rotate: false
+  xy: 332, 262
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-spawn-0-2
+  rotate: false
+  xy: 536, 310
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-heavy-tank-spawn-0-3
+  rotate: false
+  xy: 512, 378
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+enemy-land-bomb-0-0
+  rotate: false
+  xy: 166, 2
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+enemy-land-bomb-0-1
+  rotate: false
+  xy: 2, 2
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+enemy-land-bomb-0-2
+  rotate: false
+  xy: 330, 382
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+enemy-land-bomb-0-3
+  rotate: false
+  xy: 12, 2
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-down-left-0
+  rotate: false
+  xy: 824, 394
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-down-left-1
+  rotate: false
+  xy: 524, 412
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-down-right-0
+  rotate: false
+  xy: 390, 382
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-down-right-1
+  rotate: false
+  xy: 166, 50
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-up-left-0
+  rotate: false
+  xy: 166, 16
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-up-left-1
+  rotate: false
+  xy: 874, 428
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-up-right-0
+  rotate: false
+  xy: 164, 84
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-0-horizontal-up-right-1
+  rotate: false
+  xy: 874, 394
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-down-0
+  rotate: false
+  xy: 924, 444
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-down-1
+  rotate: false
+  xy: 216, 30
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-down-2
+  rotate: false
+  xy: 214, 98
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-down-3
+  rotate: false
+  xy: 216, 64
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-up-0
+  rotate: false
+  xy: 674, 428
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-up-1
+  rotate: false
+  xy: 824, 428
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-up-2
+  rotate: false
+  xy: 164, 152
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-boat-spawn-0-horizontal-up-3
+  rotate: false
+  xy: 920, 478
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-down-0
+  rotate: false
+  xy: 780, 304
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-down-1
+  rotate: false
+  xy: 729, 304
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-left-0
+  rotate: false
+  xy: 942, 321
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-left-1
+  rotate: false
+  xy: 924, 321
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-right-0
+  rotate: false
+  xy: 831, 305
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-right-1
+  rotate: false
+  xy: 330, 135
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-up-0
+  rotate: false
+  xy: 712, 300
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-0-up-1
+  rotate: false
+  xy: 366, 152
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-spawn-0-0
+  rotate: false
+  xy: 711, 282
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-spawn-0-1
+  rotate: false
+  xy: 694, 282
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-spawn-0-2
+  rotate: false
+  xy: 366, 134
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-tank-spawn-0-3
+  rotate: false
+  xy: 746, 304
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+enemy-light-train-0-horizontal-down-0
+  rotate: false
+  xy: 266, 64
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+enemy-light-train-0-horizontal-down-1
+  rotate: false
+  xy: 430, 314
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+enemy-light-train-spawn-0-horizontal-down-0
+  rotate: false
+  xy: 474, 378
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+enemy-light-train-spawn-0-horizontal-down-1
+  rotate: false
+  xy: 430, 348
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+enemy-light-train-spawn-0-horizontal-down-2
+  rotate: false
+  xy: 266, 30
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+enemy-light-train-spawn-0-horizontal-down-3
+  rotate: false
+  xy: 264, 98
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-down-0
+  rotate: false
+  xy: 780, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-down-1
+  rotate: false
+  xy: 690, 372
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-left-0
+  rotate: false
+  xy: 726, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-left-1
+  rotate: false
+  xy: 383, 133
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-right-0
+  rotate: false
+  xy: 392, 115
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-right-1
+  rotate: false
+  xy: 348, 152
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-up-0
+  rotate: false
+  xy: 690, 318
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-0-up-1
+  rotate: false
+  xy: 852, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-spawn-0-0
+  rotate: false
+  xy: 852, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-spawn-0-1
+  rotate: false
+  xy: 708, 372
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-spawn-0-2
+  rotate: false
+  xy: 942, 374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-medium-tank-spawn-0-3
+  rotate: false
+  xy: 676, 300
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemy-railroad-cannon-0-left
+  rotate: false
+  xy: 2, 414
+  size: 336, 96
+  orig: 336, 96
+  offset: 0, 0
+  index: -1
+explosion-bonus-0-0
+  rotate: false
+  xy: 906, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-bonus-0-1
+  rotate: false
+  xy: 744, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-bonus-0-2
+  rotate: false
+  xy: 870, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-bonus-0-3
+  rotate: false
+  xy: 624, 238
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-large-0-0
+  rotate: false
+  xy: 638, 344
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+explosion-large-0-1
+  rotate: false
+  xy: 546, 378
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+explosion-large-0-2
+  rotate: false
+  xy: 434, 194
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+explosion-medium-0-0
+  rotate: false
+  xy: 338, 116
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-medium-0-1
+  rotate: false
+  xy: 942, 338
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-medium-0-2
+  rotate: false
+  xy: 852, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-small-0-0
+  rotate: false
+  xy: 446, 118
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-small-0-1
+  rotate: false
+  xy: 672, 318
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+explosion-small-0-2
+  rotate: false
+  xy: 870, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+factory-chimney-0
+  rotate: false
+  xy: 148, 22
+  size: 16, 48
+  orig: 16, 48
+  offset: 0, 0
+  index: -1
+factory-damaged-0
+  rotate: false
+  xy: 264, 168
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+factory-heavy-damaged-0
+  rotate: false
+  xy: 298, 234
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+factory-intacted-0
+  rotate: false
+  xy: 298, 184
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+fence-barrier-0
+  rotate: false
+  xy: 298, 174
+  size: 32, 8
+  orig: 32, 8
+  offset: 0, 0
+  index: -1
+fence-barrier-opened-0
+  rotate: false
+  xy: 468, 208
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+fence-wooden-slope-0
+  rotate: false
+  xy: 22, 6
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grave-0
+  rotate: false
+  xy: 330, 396
+  size: 8, 16
+  orig: 8, 16
+  offset: 0, 0
+  index: -1
+grave-1
+  rotate: false
+  xy: 320, 138
+  size: 8, 16
+  orig: 8, 16
+  offset: 0, 0
+  index: -1
+grave-2
+  rotate: false
+  xy: 320, 156
+  size: 8, 16
+  orig: 8, 16
+  offset: 0, 0
+  index: -1
+house-medium-0-horizontal
+  rotate: false
+  xy: 572, 274
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-0-vertical
+  rotate: false
+  xy: 536, 276
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+house-medium-1-horizontal
+  rotate: false
+  xy: 606, 292
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-2-horizontal
+  rotate: false
+  xy: 430, 296
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-3-horizontal
+  rotate: false
+  xy: 606, 256
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-4-horizontal
+  rotate: false
+  xy: 572, 292
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-l-0-left-down
+  rotate: false
+  xy: 468, 242
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+house-medium-l-0-left-up
+  rotate: false
+  xy: 536, 344
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+house-medium-l-0-right-down
+  rotate: false
+  xy: 366, 228
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+house-medium-l-0-right-up
+  rotate: false
+  xy: 580, 378
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+house-medium-ruined-0-horizontal
+  rotate: false
+  xy: 572, 238
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+house-medium-ruined-0-vertical
+  rotate: false
+  xy: 554, 276
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+house-medium-tower-0-horizontal-left
+  rotate: false
+  xy: 400, 228
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+house-medium-tower-0-horizontal-right
+  rotate: false
+  xy: 614, 378
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+house-small-0-horizontal
+  rotate: false
+  xy: 834, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+house-small-0-vertical
+  rotate: false
+  xy: 556, 206
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+house-small-ruined-0-horizontal
+  rotate: false
+  xy: 642, 238
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+landing-barge-large-anchored-0-up
+  rotate: false
+  xy: 98, 170
+  size: 48, 112
+  orig: 48, 112
+  offset: 0, 0
+  index: -1
+landing-barge-small-anchored-0-up
+  rotate: false
+  xy: 264, 218
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
+moving-damageable-block-medium-0
+  rotate: false
+  xy: 264, 132
+  size: 36, 34
+  orig: 36, 34
+  offset: 0, 0
+  index: -1
+moving-damageable-block-small-0
+  rotate: false
+  xy: 356, 170
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+moving-pushing-block-medium-0
+  rotate: false
+  xy: 604, 344
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+moving-pushing-block-small-0
+  rotate: false
+  xy: 332, 170
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+mud-small-0-0
+  rotate: false
+  xy: 924, 356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-1
+  rotate: false
+  xy: 834, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-2
+  rotate: false
+  xy: 762, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-3
+  rotate: false
+  xy: 320, 117
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-4
+  rotate: false
+  xy: 924, 338
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-5
+  rotate: false
+  xy: 437, 136
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-small-0-6
+  rotate: false
+  xy: 428, 118
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+mud-tiny-0-0
+  rotate: false
+  xy: 186, 6
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+mud-tiny-0-1
+  rotate: false
+  xy: 582, 228
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+mud-tiny-0-2
+  rotate: false
+  xy: 676, 272
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+mud-tiny-0-3
+  rotate: false
+  xy: 302, 104
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+mud-tiny-0-4
+  rotate: false
+  xy: 479, 198
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-down-0
+  rotate: false
+  xy: 888, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-down-1
+  rotate: false
+  xy: 888, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-left-0
+  rotate: false
+  xy: 852, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-left-1
+  rotate: false
+  xy: 726, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-right-0
+  rotate: false
+  xy: 870, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-right-1
+  rotate: false
+  xy: 798, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-up-0
+  rotate: false
+  xy: 762, 340
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-0-up-1
+  rotate: false
+  xy: 410, 118
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-spawn-0-0
+  rotate: false
+  xy: 672, 372
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-spawn-0-1
+  rotate: false
+  xy: 672, 354
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-spawn-0-2
+  rotate: false
+  xy: 888, 376
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+player-medium-tank-spawn-0-3
+  rotate: false
+  xy: 762, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+railroad-crane-heavy-ammo-0-left
+  rotate: false
+  xy: 2, 284
+  size: 192, 128
+  orig: 192, 128
+  offset: 0, 0
+  index: -1
+rock-medium-0-horizontal
+  rotate: false
+  xy: 362, 296
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+rock-medium-0-vertical
+  rotate: false
+  xy: 554, 242
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+rock-polished-large-0
+  rotate: false
+  xy: 502, 344
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+rock-polished-medium-0-horizontal
+  rotate: false
+  xy: 396, 296
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+rock-polished-medium-0-vertical
+  rotate: false
+  xy: 502, 208
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+rock-polished-small-0
+  rotate: false
+  xy: 606, 238
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+rock-polished-small-1
+  rotate: false
+  xy: 690, 336
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+rock-small-0
+  rotate: false
+  xy: 330, 152
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-0
+  rotate: false
+  xy: 694, 300
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-1
+  rotate: false
+  xy: 798, 322
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-2
+  rotate: false
+  xy: 419, 136
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spikes-small-0-3
+  rotate: false
+  xy: 690, 354
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+spool-0
+  rotate: false
+  xy: 398, 174
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+storage-large-oil-0
+  rotate: false
+  xy: 720, 462
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+storage-medium-crates-0-horizontal
+  rotate: false
+  xy: 328, 296
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+storage-medium-crates-1-horizontal
+  rotate: false
+  xy: 606, 274
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+telegraphic-slope-0
+  rotate: false
+  xy: 640, 276
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+telegraphic-slope-1
+  rotate: false
+  xy: 520, 208
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+telegraphic-slope-2
+  rotate: false
+  xy: 536, 242
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+tombstone-0
+  rotate: false
+  xy: 849, 312
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+tombstone-1
+  rotate: false
+  xy: 960, 382
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+tombstone-2
+  rotate: false
+  xy: 176, 6
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+tower-0
+  rotate: false
+  xy: 648, 378
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+train-0-left
+  rotate: false
+  xy: 262, 284
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+train-0-right
+  rotate: false
+  xy: 196, 284
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+tree-0
+  rotate: false
+  xy: 780, 358
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tree-1
+  rotate: false
+  xy: 464, 118
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wagon-anti-tank-barriers-0
+  rotate: false
+  xy: 214, 200
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-coal-0
+  rotate: false
+  xy: 400, 262
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+wagon-crates-0
+  rotate: false
+  xy: 974, 376
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-crates-1
+  rotate: false
+  xy: 974, 444
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-crates-2
+  rotate: false
+  xy: 724, 428
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-empty-0
+  rotate: false
+  xy: 216, 12
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+wagon-empty-1
+  rotate: false
+  xy: 674, 410
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+wagon-enemy-tanks-0
+  rotate: false
+  xy: 774, 428
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-enemy-tanks-1
+  rotate: false
+  xy: 214, 132
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-oil-0
+  rotate: false
+  xy: 474, 412
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-oil-1
+  rotate: false
+  xy: 214, 166
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-player-tanks-0
+  rotate: false
+  xy: 330, 314
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-player-tanks-1
+  rotate: false
+  xy: 330, 348
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-super-heavy-ammo-0
+  rotate: false
+  xy: 974, 410
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+wagon-troops-0
+  rotate: false
+  xy: 724, 394
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1

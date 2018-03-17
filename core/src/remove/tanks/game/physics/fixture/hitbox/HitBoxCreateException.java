@@ -4,9 +4,9 @@ package remove.tanks.game.physics.fixture.hitbox;
  * @author Mateusz Długosz
  */
 public final class HitBoxCreateException extends RuntimeException {
-    private static final String MESSAGE_TEMPLATE = "Cannot create hit box from prototype %s.";
+    private static final String MESSAGE_TEMPLATE = "Cannot create hit box from prefab %s.";
 
-    public HitBoxCreateException(HitBoxPrototype prototype, Throwable cause) {
-        super(String.format(MESSAGE_TEMPLATE, prototype), cause);
+    public HitBoxCreateException(HitBoxPrefab prefab, Throwable cause) {
+        super(String.format(MESSAGE_TEMPLATE, prefab), cause);
     }
 }

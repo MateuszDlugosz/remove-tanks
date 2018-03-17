@@ -6,16 +6,16 @@ import java.util.List;
  * @author Mateusz Długosz
  */
 public final class LevelSequence {
-    private final List<String> levelPrototypeFilenames;
+    private final List<String> levelPrefabFilenames;
 
-    public LevelSequence(List<String> levelPrototypeFilenames) {
-        if (levelPrototypeFilenames.size() == 0) {
-            throw new IllegalArgumentException("LevelSequence must contains at least one level filename.");
+    public LevelSequence(List<String> levelPrefabFilenames) {
+        if (levelPrefabFilenames.size() == 0) {
+            throw new IllegalArgumentException("LevelSequence must contains at least one level prefab filename.");
         }
-        this.levelPrototypeFilenames = levelPrototypeFilenames;
+        this.levelPrefabFilenames = levelPrefabFilenames;
     }
 
-    public List<String> getLevelPrototypeFilenames() {
-        return levelPrototypeFilenames;
+    public List<String> getLevelPrefabFilenames() {
+        return levelPrefabFilenames;
     }
 }

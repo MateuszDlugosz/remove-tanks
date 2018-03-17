@@ -1,21 +1,19 @@
 package remove.tanks.game.level.engine.entity.component.camera;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
-import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
-import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
-import remove.tanks.game.utility.position.Position;
-import remove.tanks.game.utility.position.PositionFactory;
-import remove.tanks.game.utility.position.PositionPrototype;
+import remove.tanks.game.level.engine.entity.component.SubComponentFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.scale.Scale;
+import remove.tanks.game.utility.surface.position.Position;
+import remove.tanks.game.utility.surface.position.PositionFactory;
+import remove.tanks.game.utility.surface.position.PositionPrefab;
 
 /**
  * @author Mateusz Długosz
  */
-public final class CameraTrackComponentFactory
-        implements RegistrableComponentFactory<CameraTrackComponent, CameraTrackComponentPrototype>
-{
+public final class CameraTrackComponentFactory implements SubComponentFactory<CameraTrackComponent, CameraTrackComponentPrefab> {
     private final PositionFactory positionFactory;
 
     public CameraTrackComponentFactory(PositionFactory positionFactory) {
@@ -23,25 +21,23 @@ public final class CameraTrackComponentFactory
     }
 
     @Override
-    public CameraTrackComponent createComponent(CameraTrackComponentPrototype prototype, Level level, Entity entity) {
+    public CameraTrackComponent createComponent(CameraTrackComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
             return new CameraTrackComponent(
-                    createPosition(prototype.getPositionPrototype(), level.getResourceRegistry().getResource(
-                            LevelResource.WorldScale.toString(), Scale.class
-                    )),
-                    prototype.getPriority()
+                    createPosition(prefab.getPositionPrefab(), registry.getResource(ResourceType.WorldScaleResource, Scale.class)),
+                    prefab.getPriority()
             );
         } catch (Exception e) {
-            throw new ComponentCreateException(prototype, e);
+            throw new ComponentCreateException(prefab, e);
         }
     }
 
-    private Position createPosition(PositionPrototype prototype, Scale scale) {
-        return positionFactory.createPosition(prototype, scale);
+    private Position createPosition(PositionPrefab prefab, Scale scale) {
+        return positionFactory.createPosition(prefab, scale);
     }
 
     @Override
-    public Class<CameraTrackComponentPrototype> getFactoryType() {
-        return CameraTrackComponentPrototype.class;
+    public Class<CameraTrackComponentPrefab> getFactoryType() {
+        return CameraTrackComponentPrefab.class;
     }
 }

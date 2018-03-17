@@ -5,6 +5,6 @@ package remove.tanks.game.physics.light;
  */
 public enum LightType {
     PointLight,
-    ConeLight,
-    DirectionalLight
+    DirectionalLight,
+    ConeLight
 }

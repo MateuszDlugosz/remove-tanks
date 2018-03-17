@@ -1,19 +1,17 @@
 package remove.tanks.game.level.engine.system.world;
 
 import com.badlogic.gdx.physics.box2d.World;
-import remove.tanks.game.graphic.camera.Game2DCamera;
-import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
-import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
+import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.physics.world.renderer.WorldRenderer;
 
 /**
  * @author Mateusz Długosz
  */
-public final class WorldDebugRenderSystemFactory
-    implements RegistrableEntitySystemFactory<WorldDebugRenderSystem, WorldDebugRenderSystemPrototype>
-{
+public final class WorldDebugRenderSystemFactory implements SubEntitySystemFactory<WorldDebugRenderSystem, WorldDebugRenderSystemPrefab> {
     private final WorldRenderer worldRenderer;
 
     public WorldDebugRenderSystemFactory(WorldRenderer worldRenderer) {
@@ -21,21 +19,21 @@ public final class WorldDebugRenderSystemFactory
     }
 
     @Override
-    public WorldDebugRenderSystem createEntitySystem(WorldDebugRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public WorldDebugRenderSystem createEntitySystem(WorldDebugRenderSystemPrefab prefab, ResourceRegistry registry) {
         try {
             return new WorldDebugRenderSystem(
-                    prototype.getPriority(),
+                    prefab.getPriority(),
                     worldRenderer,
-                    resourceRegistry.getResource(LevelResource.World.toString(), World.class),
-                    resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
+                    registry.getResource(ResourceType.WorldResource, World.class),
+                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class).getCamera()
             );
         } catch (Exception e) {
-            throw new EntitySystemCreateException(prototype, e);
+            throw new EntitySystemCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<WorldDebugRenderSystemPrototype> getFactoryType() {
-        return WorldDebugRenderSystemPrototype.class;
+    public Class<WorldDebugRenderSystemPrefab> getFactoryType() {
+        return WorldDebugRenderSystemPrefab.class;
     }
 }

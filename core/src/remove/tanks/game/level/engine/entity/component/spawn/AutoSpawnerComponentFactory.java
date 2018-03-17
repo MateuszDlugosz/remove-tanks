@@ -1,29 +1,25 @@
 package remove.tanks.game.level.engine.entity.component.spawn;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
 import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
-import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
+import remove.tanks.game.level.engine.entity.component.SubComponentFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
  */
-public final class AutoSpawnerComponentFactory
-        implements RegistrableComponentFactory<AutoSpawnerComponent, AutoSpawnerComponentPrototype>
-{
+public final class AutoSpawnerComponentFactory implements SubComponentFactory<AutoSpawnerComponent, AutoSpawnerComponentPrefab> {
     @Override
-    public AutoSpawnerComponent createComponent(AutoSpawnerComponentPrototype prototype, Level level, Entity entity) {
+    public AutoSpawnerComponent createComponent(AutoSpawnerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new AutoSpawnerComponent(
-                    prototype.getId()
-            );
+            return new AutoSpawnerComponent(prefab.getId());
         } catch (Exception e) {
-            throw new ComponentCreateException(prototype, e);
+            throw new ComponentCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<AutoSpawnerComponentPrototype> getFactoryType() {
-        return AutoSpawnerComponentPrototype.class;
+    public Class<AutoSpawnerComponentPrefab> getFactoryType() {
+        return AutoSpawnerComponentPrefab.class;
     }
 }

@@ -1,19 +1,17 @@
 package remove.tanks.game.level.engine.system.world;
 
-import remove.tanks.game.graphic.camera.Game2DCamera;
-import remove.tanks.game.level.constant.LevelResource;
+import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
-import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
+import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.physics.light.world.WorldLight;
 import remove.tanks.game.physics.light.world.renderer.WorldLightRenderer;
 
 /**
  * @author Mateusz Długosz
  */
-public final class WorldLightRenderSystemFactory
-        implements RegistrableEntitySystemFactory<WorldLightRenderSystem, WorldLightRenderSystemPrototype>
-{
+public final class WorldLightRenderSystemFactory implements SubEntitySystemFactory<WorldLightRenderSystem, WorldLightRenderSystemPrefab> {
     private final WorldLightRenderer worldLightRenderer;
 
     public WorldLightRenderSystemFactory(WorldLightRenderer worldLightRenderer) {
@@ -21,21 +19,21 @@ public final class WorldLightRenderSystemFactory
     }
 
     @Override
-    public WorldLightRenderSystem createEntitySystem(WorldLightRenderSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public WorldLightRenderSystem createEntitySystem(WorldLightRenderSystemPrefab prefab, ResourceRegistry registry) {
         try {
             return new WorldLightRenderSystem(
-                    prototype.getPriority(),
+                    prefab.getPriority(),
                     worldLightRenderer,
-                    resourceRegistry.getResource(LevelResource.WorldLight.toString(), WorldLight.class),
-                    resourceRegistry.getResource(LevelResource.GameCamera.toString(), Game2DCamera.class).getCamera()
+                    registry.getResource(ResourceType.WorldLightResource, WorldLight.class),
+                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class).getCamera()
             );
         } catch (Exception e) {
-            throw new EntitySystemCreateException(prototype, e);
+            throw new EntitySystemCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<WorldLightRenderSystemPrototype> getFactoryType() {
-        return WorldLightRenderSystemPrototype.class;
+    public Class<WorldLightRenderSystemPrefab> getFactoryType() {
+        return WorldLightRenderSystemPrefab.class;
     }
 }

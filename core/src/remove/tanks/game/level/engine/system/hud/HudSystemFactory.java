@@ -1,20 +1,18 @@
 package remove.tanks.game.level.engine.system.hud;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
-import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
-import remove.tanks.game.level.engine.system.hud.stages.HudStage;
-import remove.tanks.game.level.engine.system.hud.stages.HudStageFactory;
-import remove.tanks.game.level.engine.system.hud.stages.HudStagePrototype;
+import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
+import remove.tanks.game.level.utility.stage.HudStage;
+import remove.tanks.game.level.utility.stage.HudStageFactory;
+import remove.tanks.game.level.utility.stage.HudStagePrefab;
 
 /**
  * @author Mateusz Długosz
  */
-public final class HudSystemFactory
-        implements RegistrableEntitySystemFactory<HudSystem, HudSystemPrototype>
-{
+public final class HudSystemFactory implements SubEntitySystemFactory<HudSystem, HudSystemPrefab> {
     private final HudStageFactory hudStageFactory;
 
     public HudSystemFactory(HudStageFactory hudStageFactory) {
@@ -22,25 +20,25 @@ public final class HudSystemFactory
     }
 
     @Override
-    public HudSystem createEntitySystem(HudSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public HudSystem createEntitySystem(HudSystemPrefab prefab, ResourceRegistry resourceRegistry) {
         try {
             return new HudSystem(
-                    prototype.getPriority(),
-                    createHudStage(prototype.getHudStagePrototype(), resourceRegistry),
-                    resourceRegistry.getResource(LevelResource.SpriteBatch.toString(), SpriteBatch.class),
+                    prefab.getPriority(),
+                    createHudStage(prefab.getHudStagePrefab(), resourceRegistry),
+                    resourceRegistry.getResource(ResourceType.SpriteBatchResource, SpriteBatch.class),
                     resourceRegistry
             );
         } catch (Exception e) {
-            throw new EntitySystemCreateException(prototype, e);
+            throw new EntitySystemCreateException(prefab, e);
         }
     }
 
-    private HudStage createHudStage(HudStagePrototype prototype, ResourceRegistry resourceRegistry) {
-        return hudStageFactory.createHudStage(prototype, resourceRegistry);
+    private HudStage createHudStage(HudStagePrefab prefab, ResourceRegistry resourceRegistry) {
+        return hudStageFactory.createHudStage(prefab, resourceRegistry);
     }
 
     @Override
-    public Class<HudSystemPrototype> getFactoryType() {
-        return HudSystemPrototype.class;
+    public Class<HudSystemPrefab> getFactoryType() {
+        return HudSystemPrefab.class;
     }
 }

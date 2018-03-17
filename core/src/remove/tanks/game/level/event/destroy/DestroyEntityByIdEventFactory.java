@@ -1,25 +1,24 @@
 package remove.tanks.game.level.event.destroy;
 
 import remove.tanks.game.level.event.EventCreateException;
-import remove.tanks.game.level.event.RegistrableEventFactory;
+import remove.tanks.game.level.event.SubEventFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
  */
-public final class DestroyEntityByIdEventFactory
-        implements RegistrableEventFactory<DestroyEntityByIdEvent, DestroyEntityByIdEventPrototype>
-{
+public final class DestroyEntityByIdEventFactory implements SubEventFactory<DestroyEntityByIdEvent, DestroyEntityByIdEventPrefab> {
     @Override
-    public DestroyEntityByIdEvent createEvent(DestroyEntityByIdEventPrototype prototype) {
+    public DestroyEntityByIdEvent createEvent(DestroyEntityByIdEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new DestroyEntityByIdEvent(prototype.getId());
+            return new DestroyEntityByIdEvent(prefab.getId());
         } catch (Exception e) {
-            throw new EventCreateException(prototype, e);
+            throw new EventCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<DestroyEntityByIdEventPrototype> getFactoryType() {
-        return DestroyEntityByIdEventPrototype.class;
+    public Class<DestroyEntityByIdEventPrefab> getFactoryType() {
+        return DestroyEntityByIdEventPrefab.class;
     }
 }

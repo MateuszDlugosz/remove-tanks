@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<level>
+    <tiledMapFilename>maps/presentations/map-presentation-0001.tmx</tiledMapFilename>
+    <entityPrefabRepositoryFilename>prefabs/entities/entity-prefab-repository.xml</entityPrefabRepositoryFilename>
+    <assetPrefabRepositoryFilename>themes/sepia-asset-prefab-repository.xml</assetPrefabRepositoryFilename>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>CameraActor0</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionDown</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionUp</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionLeft</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionRight</entityPrefabCode>
+            <entityPrefabCode>Tree0</entityPrefabCode>
+            <entityPrefabCode>Tree1</entityPrefabCode>
+            <entityPrefabCode>FactoryIntacted0</entityPrefabCode>
+            <entityPrefabCode>FactoryChimney0</entityPrefabCode>
+            <entityPrefabCode>Spool0</entityPrefabCode>
+            <entityPrefabCode>StorageMediumCrates0Horizontal</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyTankCovered0Left</entityPrefabCode>
+            <entityPrefabCode>HouseMedium0Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium1Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium2Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium3Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium4Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium0Vertical</entityPrefabCode>
+            <entityPrefabCode>HouseSmall0Vertical</entityPrefabCode>
+            <entityPrefabCode>HouseSmall0Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMediumL0LeftDown</entityPrefabCode>
+            <entityPrefabCode>TelegraphicSlope0</entityPrefabCode>
+            <entityPrefabCode>TelegraphicSlope1</entityPrefabCode>
+            <entityPrefabCode>TelegraphicSlope2</entityPrefabCode>
+            <entityPrefabCode>MudSmall0</entityPrefabCode>
+            <entityPrefabCode>MudTiny0</entityPrefabCode>
+        </entityPrefabCodes>
+    </preloadData>
+    <resourceConfigurations>
+        <resourceConfiguration resourceType="WorldResource">
+            <properties>
+                <property name="world.gravity.x">0</property>
+                <property name="world.gravity.y">0</property>
+            </properties>
+        </resourceConfiguration>
+    </resourceConfigurations>
+    <engine>
+        <systems>
+            <system type="WorldUpdateSystem" />
+            <system type="CameraTrackSystem" />
+            <system type="CameraUpdateSystem" />
+            <system type="RandomDirectionSystem" />
+            <system type="RandomCreateSystem" />
+            <system type="AutoMoveSystem" />
+            <system type="ViewUpdateSystem" />
+            <system type="LifetimeSystem" />
+            <system type="GroundMapLayerRenderSystem" />
+            <system type="GroundLayerRenderSystem" />
+            <system type="BulletLayerRenderSystem" />
+            <system type="VehicleLayerRenderSystem" />
+            <system type="ObstacleLayerRenderSystem" />
+            <system type="ExplosionLayerRenderSystem" />
+            <system type="BonusLayerRenderSystem" />
+            <system type="CloudLayerRenderSystem" />
+            <system type="BombLayerRenderSystem" />
+            <system type="AirplaneLayerRenderSystem" />
+            <!--<system type="WorldDebugRenderSystem" />-->
+            <system type="DestroySystem" />
+            <system type="ChangeBehaviorSystem" />
+            <system type="AutoSpawnerSystem">
+                <spawners>
+                    <spawner id="SpawnerAlpha" autoStart="false">
+                        <time>5</time>
+                        <limit>3</limit>
+                        <entityPrefabCodes>
+                            <entityPrefabCode>EnemyBomberTankSpawn0</entityPrefabCode>
+                        </entityPrefabCodes>
+                    </spawner>
+                </spawners>
+            </system>
+        </systems>
+        <listeners>
+            <listener type="CreateTriggerListener" />
+            <listener type="DestroyTriggerListener" />
+        </listeners>
+    </engine>
+</level>

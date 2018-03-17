@@ -1,0 +1,13 @@
+package remove.tanks.game.level.engine.system.render.view;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import remove.tanks.game.graphics.view.renderer.ViewRenderer;
+
+/**
+ * @author Mateusz Długosz
+ */
+public final class BombLayerRenderSystem extends AbstractLayerRenderSystem {
+    public BombLayerRenderSystem(int priority, ViewRenderer viewRenderer, SpriteBatch spriteBatch) {
+        super(RenderLayerEntityFamily.BombRenderLayerEntityFamily, priority, viewRenderer, spriteBatch);
+    }
+}

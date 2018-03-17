@@ -2,7 +2,7 @@ package remove.tanks.game.level.engine.entity.component.direction;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
-import remove.tanks.game.level.engine.utility.direction.Direction;
+import remove.tanks.game.level.utility.direction.Direction;
 
 /**
  * @author Mateusz Długosz

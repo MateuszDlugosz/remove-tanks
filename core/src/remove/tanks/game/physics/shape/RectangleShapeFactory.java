@@ -7,29 +7,29 @@ import remove.tanks.game.utility.scale.Scale;
 /**
  * @author Mateusz Długosz
  */
-public final class RectangleShapeFactory implements RegistrableShapeFactory<PolygonShape, RectangleShapePrototype> {
+public final class RectangleShapeFactory implements SubShapeFactory<PolygonShape, RectangleShapePrefab> {
     @Override
-    public PolygonShape createShape(RectangleShapePrototype prototype, Scale scale) {
+    public PolygonShape createShape(RectangleShapePrefab prefab, Scale scale) {
         try {
             PolygonShape shape = new PolygonShape();
             Vector2 position = new Vector2(
-                    scale.scaleValue(prototype.getPositionPrototype().getX()),
-                    scale.scaleValue(prototype.getPositionPrototype().getY())
+                    scale.scaleValue(prefab.getPositionPrefab().getX()),
+                    scale.scaleValue(prefab.getPositionPrefab().getY())
             );
             shape.setAsBox(
-                    scale.scaleValue(prototype.getWidth() * 0.5f),
-                    scale.scaleValue(prototype.getHeight() * 0.5f),
+                    scale.scaleValue(prefab.getWidth() * 0.5f),
+                    scale.scaleValue(prefab.getHeight() * 0.5f),
                     position,
                     0
             );
             return shape;
         } catch (Exception e) {
-            throw new ShapeCreateException(prototype, e);
+            throw new ShapeCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<RectangleShapePrototype> getFactoryType() {
-        return RectangleShapePrototype.class;
+    public Class<RectangleShapePrefab> getFactoryType() {
+        return RectangleShapePrefab.class;
     }
 }

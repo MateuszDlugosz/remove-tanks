@@ -13,66 +13,67 @@ import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.screen.*;
 import remove.tanks.game.screen.switcher.ScreenSwitcher;
 import remove.tanks.game.screen.switcher.storage.ScreenStorage;
-import remove.tanks.game.screen.switcher.transitions.FadeInStageActionFactory;
-import remove.tanks.game.screen.switcher.transitions.FadeOutStageActionFactory;
+import remove.tanks.game.screen.switcher.transition.FadeInStageActionFactory;
+import remove.tanks.game.screen.switcher.transition.FadeOutStageActionFactory;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * @author Mateusz Długosz
+ */
 public final class GameApplication extends Game {
-	public static final String TITLE = "Remove Tanks!";
-	public static final String VERSION = "0.18.128";
+    public static final String TITLE = "Remove Tanks!";
+    public static final String VERSION = "0.0.1";
 
-	private final Configuration configuration;
+    private final Configuration configuration;
+    private Context context;
+    private ScreenSwitcher screenSwitcher;
 
-	private Context context;
-	private ScreenSwitcher screenSwitcher;
+    public GameApplication(Configuration configuration) {
+        this.configuration = configuration;
+    }
 
-	public GameApplication(Configuration configuration) {
-		this.configuration = configuration;
-	}
+    @Override
+    public void create() {
+        this.context = new ApplicationContext(configuration);
+        this.screenSwitcher = new ScreenSwitcher(
+                new ScreenStorage(new HashSet<>(Arrays.asList(
+                        new MainMenuScreen(this),
+                        new OptionsScreen(this),
+                        new ProfileScreen(this),
+                        new CreditsScreen(this)
+                ))),
+                new FadeOutStageActionFactory(0.3f),
+                new FadeInStageActionFactory(0.3f)
+        );
+        this.screenSwitcher.switchScreenWithTransition(MainMenuScreen.class, this);
+    }
 
-	@Override
-	public void create() {
-		this.context = new ApplicationContext(configuration);
-		this.screenSwitcher = new ScreenSwitcher(
-				new ScreenStorage(new HashSet<>(Arrays.asList(
-						new MenuMainScreen(this),
-						new MenuCreditsScreen(this),
-						new MenuOptionsScreen(this),
-						new MenuCampaignSelectScreen(this),
-						new MenuModeSelectScreen(this)
-				))),
-				new FadeOutStageActionFactory(0.3f),
-				new FadeInStageActionFactory(0.3f)
-		);
-		this.screenSwitcher.switchScreenWithTransition(MenuMainScreen.class, this);
-	}
+    public Context getContext() {
+        return context;
+    }
 
-	public Context getContext() {
-		return context;
-	}
+    public void switchScreenWithTransition(GameScreen screen) {
+        this.screenSwitcher.switchScreenWithTransition(screen, this);
+    }
 
-	public void switchScreenWithTransition(GameScreen screen) {
-		this.screenSwitcher.switchScreenWithTransition(screen, this);
-	}
+    public void switchScreenWithoutTransition(Class<? extends GameScreen> screenClass) {
+        this.screenSwitcher.switchScreenWithoutTransition(screenClass, this);
+    }
 
-	public void switchScreenWithoutTransition(Class<? extends GameScreen> screenClass) {
-		this.screenSwitcher.switchScreenWithoutTransition(screenClass, this);
-	}
+    @Override
+    public void render() {
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        super.render();
+    }
 
-	@Override
-	public void render() {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		super.render();
-	}
-
-	@Override
-	public void dispose () {
-		getContext().getComponent("SpriteBatch", SpriteBatch.class).dispose();
-		getContext().getComponent("MainAssetStorage", AssetStorage.class).dispose();
-		getContext().getComponent("MenuLevelPresenter", LevelPresenter.class).dispose();
-		getContext().getComponent("UiSkin", Skin.class).dispose();
-	}
+    @Override
+    public void dispose () {
+        getContext().getComponent("LevelPresenter", LevelPresenter.class).dispose();
+        getContext().getComponent("SpriteBatch", SpriteBatch.class).dispose();
+        getContext().getComponent("MainAssetStorage", AssetStorage.class).dispose();
+        getContext().getComponent("UISkin", Skin.class).dispose();
+    }
 }

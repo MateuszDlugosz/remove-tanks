@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * @author Mateusz Długosz
  */
-public final class ComponentSupplierClassConstructorValidator implements RegistrableComponentSupplierValidator {
+public final class ComponentSupplierClassConstructorValidator implements SubComponentSupplierValidator {
     private static final String MESSAGE = "(%s) Constructor without parameters is valid constructor in supplier class.";
 
     @Override
@@ -15,9 +15,9 @@ public final class ComponentSupplierClassConstructorValidator implements Registr
             throws ComponentSupplierClassValidationException
     {
         Arrays.stream(componentSupplierClass.getConstructors()).forEach(c -> {
-                if (c.getParameterCount() > 0) {
-                    throw new ComponentSupplierClassValidationException(String.format(MESSAGE, componentSupplierClass));
-                }
+            if (c.getParameterCount() > 0) {
+                throw new ComponentSupplierClassValidationException(String.format(MESSAGE, componentSupplierClass));
+            }
         });
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>336</width>
+                            <height>48</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>ObstacleCategory</categoryBit>
+                            <maskBit>ObstacleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="SpriteView" id="StandingLeft">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>EntityAtlas</atlasFilename>
+                        <regionName>enemy-railroad-cannon-0-left</regionName>
+                    </sprite>
+                    <position>
+                        <x>0</x>
+                        <y>48</y>
+                    </position>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Left</direction>
+        </component>
+        <component type="ObstacleRenderLayerComponent" />
+    </components>
+</entity>

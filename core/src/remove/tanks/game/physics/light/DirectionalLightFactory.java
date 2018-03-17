@@ -2,14 +2,14 @@ package remove.tanks.game.physics.light;
 
 import box2dLight.DirectionalLight;
 import com.badlogic.gdx.physics.box2d.Body;
-import remove.tanks.game.graphic.color.ColorFactory;
+import remove.tanks.game.graphics.color.ColorFactory;
 import remove.tanks.game.physics.light.world.WorldLight;
 import remove.tanks.game.utility.scale.Scale;
 
 /**
  * @author Mateusz Długosz
  */
-public final class DirectionalLightFactory implements RegistrableLightFactory<DirectionalLight, DirectionalLightPrototype> {
+public final class DirectionalLightFactory implements SubLightFactory<DirectionalLight, DirectionalLightPrefab> {
     private final ColorFactory colorFactory;
 
     public DirectionalLightFactory(ColorFactory colorFactory) {
@@ -17,28 +17,28 @@ public final class DirectionalLightFactory implements RegistrableLightFactory<Di
     }
 
     @Override
-    public DirectionalLight createLight(DirectionalLightPrototype prototype, WorldLight worldLight, Scale scale) {
+    public DirectionalLight createLight(DirectionalLightPrefab prefab, WorldLight worldLight, Scale scale) {
         try {
             DirectionalLight light = new DirectionalLight(
                     worldLight,
                     worldLight.getNumberOfRays(),
-                    colorFactory.createColor(prototype.getColorPrototype()),
-                    prototype.getDirectionDegree()
+                    colorFactory.createColor(prefab.getColorPrefab()),
+                    prefab.getDirectionDegree()
             );
-            light.setXray(prototype.getXRay());
+            light.setXray(prefab.getXRay());
             return light;
         } catch (Exception e) {
-            throw new LightCreateException(prototype, e);
+            throw new LightCreateException(prefab, e);
         }
     }
 
     @Override
-    public DirectionalLight createLight(DirectionalLightPrototype prototype, WorldLight worldLight, Body body, Scale scale) {
+    public DirectionalLight createLight(DirectionalLightPrefab prefab, WorldLight worldLight, Body body, Scale scale) {
         throw new UnsupportedOperationException("Directional light cannot be attached to body.");
     }
 
     @Override
-    public Class<DirectionalLightPrototype> getFactoryType() {
-        return DirectionalLightPrototype.class;
+    public Class<DirectionalLightPrefab> getFactoryType() {
+        return DirectionalLightPrefab.class;
     }
 }

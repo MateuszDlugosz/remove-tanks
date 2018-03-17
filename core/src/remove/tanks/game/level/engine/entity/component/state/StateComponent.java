@@ -2,7 +2,7 @@ package remove.tanks.game.level.engine.entity.component.state;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
-import remove.tanks.game.level.engine.utility.state.State;
+import remove.tanks.game.level.utility.state.State;
 
 /**
  * @author Mateusz Długosz

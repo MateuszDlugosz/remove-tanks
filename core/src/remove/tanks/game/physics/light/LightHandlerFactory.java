@@ -17,46 +17,46 @@ public final class LightHandlerFactory {
         this.lightFactory = lightFactory;
     }
 
-    public List<LightHandler> createLightHandlers(List<LightHandlerPrototype> prototypes, WorldLight worldLight, Scale scale) {
-        return prototypes.stream()
+    public List<LightHandler> createLightHandlers(List<LightHandlerPrefab> prefabs, WorldLight worldLight, Scale scale) {
+        return prefabs.stream()
                 .map(p -> createLightHandler(p, worldLight, scale))
                 .collect(Collectors.toList());
     }
 
-    public LightHandler createLightHandler(LightHandlerPrototype prototype, WorldLight worldLight, Scale scale) {
+    public LightHandler createLightHandler(LightHandlerPrefab prefab, WorldLight worldLight, Scale scale) {
         try {
             return new LightHandler(
-                    prototype.getId(),
+                    prefab.getId(),
                     lightFactory.createLight(
-                            prototype.getLightPrototype(),
+                            prefab.getLightPrefab(),
                             worldLight,
                             scale
                     )
             );
         } catch (Exception e) {
-            throw new LightHandlerCreateException(prototype, e);
+            throw new LightHandlerCreateException(prefab, e);
         }
     }
 
-    public List<LightHandler> createLightHandlers(List<LightHandlerPrototype> prototypes, Body body, WorldLight worldLight, Scale scale) {
-        return prototypes.stream()
+    public List<LightHandler> createLightHandlers(List<LightHandlerPrefab> prefabs, Body body, WorldLight worldLight, Scale scale) {
+        return prefabs.stream()
                 .map(p -> createLightHandler(p, body, worldLight, scale))
                 .collect(Collectors.toList());
     }
 
-    public LightHandler createLightHandler(LightHandlerPrototype prototype, Body body, WorldLight worldLight, Scale scale) {
+    public LightHandler createLightHandler(LightHandlerPrefab prefab, Body body, WorldLight worldLight, Scale scale) {
         try {
             return new LightHandler(
-                    prototype.getId(),
+                    prefab.getId(),
                     lightFactory.createLight(
-                            prototype.getLightPrototype(),
+                            prefab.getLightPrefab(),
                             worldLight,
                             body,
                             scale
                     )
             );
         } catch (Exception e) {
-            throw new LightHandlerCreateException(prototype, e);
+            throw new LightHandlerCreateException(prefab, e);
         }
     }
 }

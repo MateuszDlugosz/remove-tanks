@@ -7,29 +7,29 @@ import remove.tanks.game.utility.scale.Scale;
 /**
  * @author Mateusz Długosz
  */
-public final class PolygonShapeFactory implements RegistrableShapeFactory<PolygonShape, PolygonShapePrototype> {
+public final class PolygonShapeFactory implements SubShapeFactory<PolygonShape, PolygonShapePrefab> {
     @Override
-    public PolygonShape createShape(PolygonShapePrototype prototype, Scale scale) {
+    public PolygonShape createShape(PolygonShapePrefab prefab, Scale scale) {
         try {
             PolygonShape shape = new PolygonShape();
-            Vector2[] vertices = new Vector2[prototype.getVertexPrototypes().size()];
+            Vector2[] vertices = new Vector2[prefab.getVertexPrefabs().size()];
             int number = 0;
-            for (VertexPrototype vertex : prototype.getVertexPrototypes()) {
+            for (VertexPrefab vertex : prefab.getVertexPrefabs()) {
                 Vector2 vertexAsVector = new Vector2();
-                vertexAsVector.x = scale.scaleValue(vertex.getX() + prototype.getPositionPrototype().getX());
-                vertexAsVector.y = scale.scaleValue(vertex.getY() + prototype.getPositionPrototype().getY());
+                vertexAsVector.x = scale.scaleValue(vertex.getX() + prefab.getPositionPrefab().getX());
+                vertexAsVector.y = scale.scaleValue(vertex.getY() + prefab.getPositionPrefab().getY());
                 vertices[number] = vertexAsVector;
                 number++;
             }
             shape.set(vertices);
             return shape;
         } catch (Exception e) {
-            throw new ShapeCreateException(prototype, e);
+            throw new ShapeCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<PolygonShapePrototype> getFactoryType() {
-        return PolygonShapePrototype.class;
+    public Class<PolygonShapePrefab> getFactoryType() {
+        return PolygonShapePrefab.class;
     }
 }

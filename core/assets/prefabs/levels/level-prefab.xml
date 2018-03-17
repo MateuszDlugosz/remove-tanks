@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<level>
+    <tiledMapFilename>maps/levels/map-level-0001.tmx</tiledMapFilename>
+    <entityPrefabRepositoryFilename>prefabs/entities/entity-prefab-repository.xml</entityPrefabRepositoryFilename>
+    <assetPrefabRepositoryFilename>themes/sepia-asset-prefab-repository.xml</assetPrefabRepositoryFilename>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>CameraActor0</entityPrefabCode>
+            <entityPrefabCode>Grave0</entityPrefabCode>
+            <entityPrefabCode>Grave1</entityPrefabCode>
+            <entityPrefabCode>Grave2</entityPrefabCode>
+            <entityPrefabCode>Tombstone0</entityPrefabCode>
+            <entityPrefabCode>Tombstone1</entityPrefabCode>
+            <entityPrefabCode>Tombstone2</entityPrefabCode>
+            <entityPrefabCode>ChurchIntacted0</entityPrefabCode>
+            <entityPrefabCode>ChurchDamaged0</entityPrefabCode>
+            <entityPrefabCode>ChurchHeavyDamaged0</entityPrefabCode>
+            <entityPrefabCode>ExplosionSmall0</entityPrefabCode>
+            <entityPrefabCode>BridgeDestroyed0Horizontal</entityPrefabCode>
+            <entityPrefabCode>BridgeDestroyed0Vertical</entityPrefabCode>
+            <entityPrefabCode>ExplosionLarge0</entityPrefabCode>
+            <entityPrefabCode>ExplosionBonus0</entityPrefabCode>
+            <entityPrefabCode>BonusPromotion0</entityPrefabCode>
+            <entityPrefabCode>BonusStar0</entityPrefabCode>
+            <entityPrefabCode>BonusLife0</entityPrefabCode>
+            <entityPrefabCode>BonusAmmo0</entityPrefabCode>
+            <entityPrefabCode>BonusGrenade0</entityPrefabCode>
+            <entityPrefabCode>BonusBombers0</entityPrefabCode>
+            <entityPrefabCode>PlayerMediumTank0</entityPrefabCode>
+            <entityPrefabCode>PlayerMediumTankSpawn0</entityPrefabCode>
+            <entityPrefabCode>RespawnMedium0</entityPrefabCode>
+            <entityPrefabCode>AllVehicleBlockadeTiny0</entityPrefabCode>
+            <entityPrefabCode>PlayerVehicleBlockadeTiny0</entityPrefabCode>
+            <entityPrefabCode>EnemyVehicleBlockadeTiny0</entityPrefabCode>
+            <entityPrefabCode>EnemyBomberTankSpawn0</entityPrefabCode>
+            <entityPrefabCode>EnemyMediumTankSpawn0</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyTankSpawn0</entityPrefabCode>
+            <entityPrefabCode>EnemyLightTankSpawn0</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyTankCovered0Down</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyTankCovered0Left</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyTankCovered0Right</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyTankCovered0Up</entityPrefabCode>
+            <entityPrefabCode>LandingBargeLargeAnchored0Up</entityPrefabCode>
+            <entityPrefabCode>LandingBargeSmallAnchored0Up</entityPrefabCode>
+            <entityPrefabCode>Train0Left</entityPrefabCode>
+            <entityPrefabCode>Train0Right</entityPrefabCode>
+            <entityPrefabCode>EnemyRailroadCannon0Left</entityPrefabCode>
+            <entityPrefabCode>EnemyLightTrain0HorizontalDown</entityPrefabCode>
+            <entityPrefabCode>EnemyLightTrainSpawn0HorizontalDown</entityPrefabCode>
+            <entityPrefabCode>WagonAntiTankBarriers0</entityPrefabCode>
+            <entityPrefabCode>WagonCoal0</entityPrefabCode>
+            <entityPrefabCode>WagonCrates0</entityPrefabCode>
+            <entityPrefabCode>WagonCrates1</entityPrefabCode>
+            <entityPrefabCode>WagonCrates2</entityPrefabCode>
+            <entityPrefabCode>WagonEmpty0</entityPrefabCode>
+            <entityPrefabCode>WagonEmpty1</entityPrefabCode>
+            <entityPrefabCode>WagonEnemyTanks0</entityPrefabCode>
+            <entityPrefabCode>WagonEnemyTanks1</entityPrefabCode>
+            <entityPrefabCode>WagonOil0</entityPrefabCode>
+            <entityPrefabCode>WagonOil1</entityPrefabCode>
+            <entityPrefabCode>WagonPlayerTanks0</entityPrefabCode>
+            <entityPrefabCode>WagonPlayerTanks1</entityPrefabCode>
+            <entityPrefabCode>WagonSuperHeavyAmmo0</entityPrefabCode>
+            <entityPrefabCode>WagonTroops0</entityPrefabCode>
+            <entityPrefabCode>EnemyLightBoatSpawn0HorizontalUp</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerLarge0</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerLarge0Horizontal</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerLarge0Vertical</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerMedium0</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerMedium0Horizontal</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerMedium0Vertical</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerTiny0</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerTiny0Horizontal</entityPrefabCode>
+            <entityPrefabCode>PlayerTriggerTiny0Vertical</entityPrefabCode>
+            <entityPrefabCode>TelegraphicSlope0</entityPrefabCode>
+            <entityPrefabCode>TelegraphicSlope1</entityPrefabCode>
+            <entityPrefabCode>TelegraphicSlope2</entityPrefabCode>
+            <entityPrefabCode>Tree0</entityPrefabCode>
+            <entityPrefabCode>Tree1</entityPrefabCode>
+            <entityPrefabCode>RockSmall0</entityPrefabCode>
+            <entityPrefabCode>RockPolishedSmall0</entityPrefabCode>
+            <entityPrefabCode>RockPolishedSmall1</entityPrefabCode>
+            <entityPrefabCode>Spool0</entityPrefabCode>
+            <entityPrefabCode>FactoryChimney0</entityPrefabCode>
+            <entityPrefabCode>FactoryIntacted0</entityPrefabCode>
+            <entityPrefabCode>FenceWoodenSlope0</entityPrefabCode>
+            <entityPrefabCode>FenceBarrierOpened0</entityPrefabCode>
+            <entityPrefabCode>FenceBarrier0</entityPrefabCode>
+            <entityPrefabCode>AntiTankBarrier0</entityPrefabCode>
+            <entityPrefabCode>BeachBarricade0</entityPrefabCode>
+            <entityPrefabCode>ConcreteBarrier0Right</entityPrefabCode>
+            <entityPrefabCode>DragonsTeeth0</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyBunkerIntacted0Down</entityPrefabCode>
+            <entityPrefabCode>HouseMedium0Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium1Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium2Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium3Horizontal</entityPrefabCode>
+            <entityPrefabCode>HouseMedium4Horizontal</entityPrefabCode>
+            <entityPrefabCode>Tower0</entityPrefabCode>
+            <entityPrefabCode>HouseMediumTower0HorizontalLeft</entityPrefabCode>
+            <entityPrefabCode>HouseMediumTower0HorizontalRight</entityPrefabCode>
+            <entityPrefabCode>HouseMediumL0LeftDown</entityPrefabCode>
+            <entityPrefabCode>HouseMediumL0RightDown</entityPrefabCode>
+            <entityPrefabCode>HouseMediumL0LeftUp</entityPrefabCode>
+            <entityPrefabCode>HouseMediumL0RightUp</entityPrefabCode>
+            <entityPrefabCode>HouseMedium0Vertical</entityPrefabCode>
+            <entityPrefabCode>StorageLargeOil0</entityPrefabCode>
+            <entityPrefabCode>StorageMediumCrates0Horizontal</entityPrefabCode>
+            <entityPrefabCode>StorageMediumCrates1Horizontal</entityPrefabCode>
+            <entityPrefabCode>SpikesSmall0</entityPrefabCode>
+            <entityPrefabCode>MovingDamageableBlockMedium0</entityPrefabCode>
+            <entityPrefabCode>CloudSmall0Left</entityPrefabCode>
+            <entityPrefabCode>CloudSmall1Left</entityPrefabCode>
+            <entityPrefabCode>CloudSmall2Left</entityPrefabCode>
+            <entityPrefabCode>CloudSmall3Left</entityPrefabCode>
+            <entityPrefabCode>CloudSmall0Right</entityPrefabCode>
+            <entityPrefabCode>CloudSmall1Right</entityPrefabCode>
+            <entityPrefabCode>CloudSmall2Right</entityPrefabCode>
+            <entityPrefabCode>CloudSmall3Right</entityPrefabCode>
+            <entityPrefabCode>MudTiny0</entityPrefabCode>
+            <entityPrefabCode>MudSmall0</entityPrefabCode>
+            <entityPrefabCode>RockMedium0Vertical</entityPrefabCode>
+            <entityPrefabCode>RockPolishedMedium0Vertical</entityPrefabCode>
+            <entityPrefabCode>BombDamageArea0</entityPrefabCode>
+            <entityPrefabCode>Bomb0Down</entityPrefabCode>
+            <entityPrefabCode>Bomb0Right</entityPrefabCode>
+            <entityPrefabCode>Bomb0Left</entityPrefabCode>
+            <entityPrefabCode>Bomber0Down</entityPrefabCode>
+            <entityPrefabCode>Bomber0Left</entityPrefabCode>
+            <entityPrefabCode>Bomber0Right</entityPrefabCode>
+            <entityPrefabCode>Bomber0Up</entityPrefabCode>
+            <entityPrefabCode>Bomber1Down</entityPrefabCode>
+            <entityPrefabCode>Bomber1Left</entityPrefabCode>
+            <entityPrefabCode>Bomber1Right</entityPrefabCode>
+            <entityPrefabCode>Bomber1Up</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner0Down</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner0Left</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner0Right</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner0Up</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner1Down</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner1Left</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner1Right</entityPrefabCode>
+            <entityPrefabCode>BomberSpawner1Up</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionUp</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionDown</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionLeft</entityPrefabCode>
+            <entityPrefabCode>ActorControllerMediumDirectionRight</entityPrefabCode>
+            <entityPrefabCode>EnemyBomberTankActor0</entityPrefabCode>
+            <entityPrefabCode>EnemyHeavyTankActor0</entityPrefabCode>
+            <entityPrefabCode>EnemyLightTankActor0</entityPrefabCode>
+            <entityPrefabCode>EnemyMediumTankActor0</entityPrefabCode>
+            <entityPrefabCode>PlayerMediumTankActor0</entityPrefabCode>
+            <entityPrefabCode>EnemyLightTrainActor0HorizontalDown</entityPrefabCode>
+            <entityPrefabCode>BattleIndicator0</entityPrefabCode>
+            <entityPrefabCode>AutoSpawnerLarge0</entityPrefabCode>
+            <entityPrefabCode>AutoSpawnerMedium0</entityPrefabCode>
+            <entityPrefabCode>ButtonActive0</entityPrefabCode>
+            <entityPrefabCode>ButtonInactive0</entityPrefabCode>
+            <entityPrefabCode>MovingDamageableBlockMedium0</entityPrefabCode>
+            <entityPrefabCode>RockPolishedLarge0</entityPrefabCode>
+        </entityPrefabCodes>
+        <assetIds>
+            <assetId>GrayscaleShaderVertex</assetId>
+            <assetId>GrayscaleShaderFragment</assetId>
+            <assetId>MessagePrint0Sound</assetId>
+            <assetId>FaceAtlas</assetId>
+            <assetId>LevelStart0Music</assetId>
+            <assetId>Thunder0Sound</assetId>
+        </assetIds>
+    </preloadData>
+    <resourceConfigurations>
+        <resourceConfiguration resourceType="WorldResource">
+            <properties>
+                <property name="world.gravity.x">0</property>
+                <property name="world.gravity.y">0</property>
+            </properties>
+        </resourceConfiguration>
+        <resourceConfiguration resourceType="WorldLightResource">
+            <properties>
+                <property name="world.light.ambient.light.r">200</property>
+                <property name="world.light.ambient.light.g">200</property>
+                <property name="world.light.ambient.light.b">200</property>
+                <property name="world.light.ambient.light.a">200</property>
+            </properties>
+        </resourceConfiguration>
+        <resourceConfiguration resourceType="LevelPropertiesResource">
+            <properties>
+                <property name="level.time.left">10</property>
+            </properties>
+        </resourceConfiguration>
+    </resourceConfigurations>
+    <engine>
+        <systems>
+            <system type="MusicOnStartSystem">
+                <music>
+                    <filename>LevelStart0Music</filename>
+                </music>
+                <musicChannelName>MainMusicChannel</musicChannelName>
+            </system>
+            <system type="WorldUpdateSystem" />
+            <system type="InputSystem" />
+            <system type="CameraTrackSystem" />
+            <system type="CameraEffectSystem" />
+            <system type="CameraUpdateSystem" />
+            <system type="RandomDirectionSystem" />
+            <system type="RandomCreateSystem" />
+            <system type="HealthSystem" />
+            <system type="HitSystem" />
+            <system type="CombatSystem">
+                <hitEffect>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>GrayscaleShaderVertex</vertexShaderFilename>
+                            <fragmentShaderFilename>GrayscaleShaderFragment</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </hitEffect>
+                <hitTime>0.2</hitTime>
+            </system>
+            <system type="AutoMoveSystem" />
+            <system type="AutoShootSystem" />
+            <system type="ViewUpdateSystem" />
+            <system type="LifetimeSystem" />
+            <system type="RandomShootSystem" />
+            <system type="GroundMapLayerRenderSystem" />
+            <system type="GroundLayerRenderSystem" />
+            <system type="BulletLayerRenderSystem" />
+            <system type="VehicleLayerRenderSystem" />
+            <system type="ObstacleLayerRenderSystem" />
+            <system type="ExplosionLayerRenderSystem" />
+            <system type="BonusLayerRenderSystem" />
+            <system type="CloudLayerRenderSystem" />
+            <system type="BombLayerRenderSystem" />
+            <system type="AirplaneLayerRenderSystem" />
+            <!--<system type="WorldLightRenderSystem" priority="1000" />-->
+            <system type="WorldDebugRenderSystem" />
+            <system type="HudSystem">
+                <stage>
+                    <widgets>
+                        <widget type="TimeLeftPresenterWidget">
+                            <titleEntry>GameLevelHudLife</titleEntry>
+                            <property>LevelLifes</property>
+                        </widget>
+                        <!--<widget type="TimeLeftPresenterWidget" />-->
+                        <widget type="PropertyPresenterWidget">
+                            <titleEntry>GameLevelHudEnemiesLeft</titleEntry>
+                            <property>LevelEnemiesLeft</property>
+                        </widget>
+                        <widget type="PointsPresenterWidget" />
+                    </widgets>
+                    <stateBar>
+                        <displayableStates>
+                            <displayableState>Defeat</displayableState>
+                            <displayableState>Victory</displayableState>
+                        </displayableStates>
+                    </stateBar>
+                    <messageBar>
+                        <defaultMessage> </defaultMessage>
+                        <messagePrinter>
+                            <time>0.05</time>
+                            <sound>
+                                <filename>MessagePrint0Sound</filename>
+                            </sound>
+                            <soundChannelName>EffectSoundChannel</soundChannelName>
+                        </messagePrinter>
+                        <faces>
+                            <face id="Face0">
+                                <sprite type="AtlasSprite">
+                                    <atlasFilename>FaceAtlas</atlasFilename>
+                                    <regionName>face-0</regionName>
+                                </sprite>
+                            </face>
+                        </faces>
+                    </messageBar>
+                </stage>
+            </system>
+            <system type="DestroyOnContactSystem" />
+            <system type="DestroySystem" />
+            <system type="ChangeBehaviorSystem" />
+            <system type="RespawnSystem">
+                <entityPrefabCode>PlayerMediumTankSpawn0</entityPrefabCode>
+                <respawnTime>2</respawnTime>
+            </system>
+            <system type="AutoSpawnerSystem">
+                <spawners>
+                    <spawner id="SpawnerAlpha" autoStart="false">
+                        <time>5</time>
+                        <limit>3</limit>
+                        <entityPrefabCodes>
+                            <entityPrefabCode>EnemyBomberTankSpawn0</entityPrefabCode>
+                        </entityPrefabCodes>
+                    </spawner>
+                </spawners>
+            </system>
+            <system type="WeatherSystem">
+                <weather>
+                    <weatherEffects>
+                        <weatherEffect type="LightningWeatherEffect">
+                            <soundChannelName>EffectSoundChannel</soundChannelName>
+                            <minFrequency>0.2</minFrequency>
+                            <maxFrequency>5</maxFrequency>
+                            <minDuration>0.1</minDuration>
+                            <maxDuration>0.1</maxDuration>
+                            <sound>
+                                <filename>Thunder0Sound</filename>
+                            </sound>
+                            <color type="RgbColor">
+                                <r>255</r>
+                                <g>255</g>
+                                <b>255</b>
+                            </color>
+                        </weatherEffect>
+                    </weatherEffects>
+                </weather>
+            </system>
+            <system type="TimelineSystem">
+                <timeline>
+                    <timelineEntries>
+                        <timelineEntry>
+                            <time>5</time>
+                            <events>
+                                <event type="AddMessageEvent">
+                                    <message>
+                                        <entryKey>GameScreenButtonBack</entryKey>
+                                        <time>10</time>
+                                        <faceId>Face0</faceId>
+                                    </message>
+                                </event>
+                            </events>
+                        </timelineEntry>
+                    </timelineEntries>
+                </timeline>
+            </system>
+            <system type="TimeUpdateSystem" />
+        </systems>
+        <listeners>
+            <listener type="CreateTriggerListener" />
+            <listener type="DestroyTriggerListener" />
+            <listener type="HitTriggerListener" />
+            <listener type="LeaveBonusListener">
+                <chance>100</chance>
+                <entityPrefabCodes>
+                    <entityPrefabCode>BonusPromotion0</entityPrefabCode>
+                    <entityPrefabCode>BonusStar0</entityPrefabCode>
+                    <entityPrefabCode>BonusLife0</entityPrefabCode>
+                    <entityPrefabCode>BonusAmmo0</entityPrefabCode>
+                    <entityPrefabCode>BonusGrenade0</entityPrefabCode>
+                </entityPrefabCodes>
+            </listener>
+            <listener type="EnemyDestroyListener" />
+        </listeners>
+    </engine>
+</level>

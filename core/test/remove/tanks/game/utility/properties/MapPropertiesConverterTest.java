@@ -18,7 +18,7 @@ public class MapPropertiesConverterTest {
     }
 
     @Test
-    public void when_ConvertMapProperties_Then_PropertiesHasCorrectValues() {
+    public void Should_ReturnProperties_When_GivenMapProperties() {
         MapProperties mapProperties = new MapProperties();
         mapProperties.put("prop-0", "val-0");
         mapProperties.put("prop-1", "val-1");

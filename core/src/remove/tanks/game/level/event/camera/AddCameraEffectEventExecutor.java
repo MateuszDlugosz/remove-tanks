@@ -1,25 +1,26 @@
 package remove.tanks.game.level.event.camera;
 
 import com.badlogic.ashley.core.Engine;
-import remove.tanks.game.level.Level;
-import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.camera.CameraEffectSystem;
-import remove.tanks.game.level.event.RegistrableEventExecutor;
+import remove.tanks.game.level.event.EventExecuteException;
+import remove.tanks.game.level.event.SubEventExecutor;
+import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
 
 import java.util.Optional;
 
 /**
  * @author Mateusz Długosz
  */
-public final class AddCameraEffectEventExecutor
-        implements RegistrableEventExecutor<AddCameraEffectEvent>
-{
+public final class AddCameraEffectEventExecutor implements SubEventExecutor<AddCameraEffectEvent> {
     @Override
-    public void executeEvent(AddCameraEffectEvent event, Level level) {
-        Optional.ofNullable(level.getResourceRegistry().getResource(LevelResource.Engine.toString(), Engine.class)
-                .getSystem(CameraEffectSystem.class)).ifPresent(
-                        s -> s.addCameraEffect(event.getCameraEffect())
-        );
+    public void executeEvent(AddCameraEffectEvent event, ResourceRegistry registry) {
+        try {
+            Optional.ofNullable(registry.getResource(ResourceType.EngineResource, Engine.class)
+                    .getSystem(CameraEffectSystem.class)).ifPresent(s -> s.addCameraEffect(event.getCameraEffect()));
+        } catch (Exception e) {
+            throw new EventExecuteException(event, e);
+        }
     }
 
     @Override

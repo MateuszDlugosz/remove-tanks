@@ -14,27 +14,27 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings("unchecked")
 public final class EntitySystemFactory {
-    private final Map<Class<? extends EntitySystemPrototype>, RegistrableEntitySystemFactory> subFactories
+    private final Map<Class<? extends EntitySystemPrefab>, SubEntitySystemFactory> factories
             = new HashMap<>();
 
-    public EntitySystemFactory(RegistrableEntitySystemFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public EntitySystemFactory(SubEntitySystemFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<EntitySystem> createEntitiesSystems(List<EntitySystemPrototype> prototypes, ResourceRegistry resourceRegistry) {
-        return prototypes.stream()
-                .map(p -> createEntitySystem(p, resourceRegistry))
+    public List<EntitySystem> createEntitiesSystems(List<EntitySystemPrefab> prefabs, ResourceRegistry registry) {
+        return prefabs.stream()
+                .map(p -> createEntitySystem(p, registry))
                 .collect(Collectors.toList());
     }
 
-    public EntitySystem createEntitySystem(EntitySystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public EntitySystem createEntitySystem(EntitySystemPrefab prefab, ResourceRegistry registry) {
         try {
-            if (!subFactories.containsKey(prototype.getClass())) {
-                throw new EntitySystemFactoryNotFoundException(prototype.getClass());
+            if (!factories.containsKey(prefab.getClass())) {
+                throw new EntitySystemFactoryNotFoundException(prefab.getClass());
             }
-            return subFactories.get(prototype.getClass()).createEntitySystem(prototype, resourceRegistry);
+            return factories.get(prefab.getClass()).createEntitySystem(prefab, registry);
         } catch (Exception e) {
-            throw new EntitySystemCreateException(prototype, e);
+            throw new EntitySystemCreateException(prefab, e);
         }
     }
 }

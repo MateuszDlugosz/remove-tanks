@@ -15,36 +15,40 @@ import static org.junit.Assert.assertTrue;
  * @author Mateusz Długosz
  */
 public class ParticleEffectParametersFactoryTest extends LibGDXTest {
-    private static final String PARTICLE_EFFECT_PARAMETER_PROTOTYPE_FILE
-            = "asset/parameter/parameters-correct-prototype.xml";
+    private static final String CORRECT_PARAMETERS_PREFAB =
+            "<parameters className=\"com.badlogic.gdx.assets.loaders.ParticleEffectLoader$ParticleEffectParameter\">" +
+                    "<parameter name=\"atlasFile\">graphics/textures/atlases/test-atlas-file.pack</parameter>" +
+                    "<parameter name=\"atlasPrefix\">testPrefix</parameter>" +
+                    "<parameter name=\"imagesDir\">graphics/textures/images</parameter>" +
+            "</parameters>";
 
     private XmlReader xmlReader;
-    private ParametersPrototypeXmlLoader parametersPrototypeXmlLoader;
+    private ParametersPrefabXmlReader parametersPrefabXmlReader;
     private ParametersFactory parametersFactory;
 
     @Before
     public void initTestObjects() {
         xmlReader = new XmlReader();
-        parametersPrototypeXmlLoader = new ParametersPrototypeXmlLoader();
+        parametersPrefabXmlReader = new ParametersPrefabXmlReader();
         parametersFactory = new ParametersFactory(
-                new RegistrableParametersFactory[] {
+                new SubParametersFactory[] {
                         new ParticleEffectParametersFactory()
                 }
         );
     }
 
     @Test
-    public void when_ParticleEffectParametersIsCorrectlyFormatted_Then_CreateParticleEffectParameter() {
-        ParametersPrototype prototype = parametersPrototypeXmlLoader.loadParametersPrototype(
-                xmlReader.parse(Gdx.files.internal(PARTICLE_EFFECT_PARAMETER_PROTOTYPE_FILE)));
-        AssetLoaderParameters parameters = parametersFactory.createAssetLoaderParameters(prototype);
+    public void Should_ReturnParticleEffectParameter_When_GivenElementIsCorrectlyFormatted() {
+        ParametersPrefab prefab = parametersPrefabXmlReader.readParametersPrefab(
+                xmlReader.parse(CORRECT_PARAMETERS_PREFAB));
+        AssetLoaderParameters parameters = parametersFactory.createAssetLoaderParameters(prefab);
         ParticleEffectLoader.ParticleEffectParameter peParameter
                 = (ParticleEffectLoader.ParticleEffectParameter) parameters;
 
         assertEquals("testPrefix", peParameter.atlasPrefix);
-        assertEquals("graphic/textures/atlases/test-atlas-file.pack",
+        assertEquals("graphics/textures/atlases/test-atlas-file.pack",
                 peParameter.atlasFile);
-        assertTrue(Gdx.files.internal("graphic/textures/images")
+        assertTrue(Gdx.files.internal("graphics/textures/images")
                 .equals(peParameter.imagesDir));
     }
 }

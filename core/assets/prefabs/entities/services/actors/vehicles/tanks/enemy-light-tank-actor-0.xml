@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>14</width>
+                            <height>14</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>ActorCategory</categoryBit>
+                            <maskBit>ActorMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+            <lightHandlers>
+                <lightHandler id="Main">
+                    <light type="PointLight">
+                        <color type="RgbColor">
+                            <r>0</r>
+                            <g>0</g>
+                            <b>0</b>
+                        </color>
+                        <distance>64</distance>
+                        <xRay>true</xRay>
+                    </light>
+                </lightHandler>
+            </lightHandlers>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="AnimationView" id="MovingLeft">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-left-0" />
+                        <frame regionName="enemy-light-tank-0-left-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingRight">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-right-0" />
+                        <frame regionName="enemy-light-tank-0-right-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingUp">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-up-0" />
+                        <frame regionName="enemy-light-tank-0-up-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingDown">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-down-0" />
+                        <frame regionName="enemy-light-tank-0-down-1" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Moving</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="SpeedComponent">
+            <speed>1.2</speed>
+        </component>
+        <component type="VehicleRenderLayerComponent" />
+        <component type="AutoMoveComponent" />
+    </components>
+</entity>

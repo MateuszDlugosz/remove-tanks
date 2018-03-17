@@ -7,13 +7,16 @@ import org.junit.Test;
  */
 public class PropertyExistsValidatorTest {
     @Test(expected = NoSuchPropertiesKeysValidationException.class)
-    public void when_PropertiesHaveNotRequiredKeys_Then_ThrowException() {
+    public void Should_ThrowException_When_GivenPropertiesObjectHasNotRequiredProperties() {
         Properties properties = new Properties();
-        PropertyExistsValidator validator = new PropertyExistsValidator(
-                new String[] {
-                        "sample-property-key"
-                }
-        );
-        validator.validateProperties(properties);
+        new PropertyExistsValidator(new String[] {"property"}).validateProperties(properties);
+    }
+
+    @Test
+    public void Should_NotThrowException_When_GivenPropertiesObjectHasNotRequiredProperties() {
+        Properties properties = new Properties();
+        properties.putString("property", "value");
+
+        new PropertyExistsValidator(new String[] {"property"}).validateProperties(properties);
     }
 }

@@ -1,7 +1,7 @@
 package remove.tanks.game.level.engine.system.time;
 
 import com.badlogic.ashley.core.EntitySystem;
-import remove.tanks.game.level.constant.LevelProperty;
+import remove.tanks.game.level.LevelProperty;
 import remove.tanks.game.utility.properties.Properties;
 
 /**

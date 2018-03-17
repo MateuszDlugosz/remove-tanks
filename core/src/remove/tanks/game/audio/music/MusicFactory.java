@@ -10,17 +10,17 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 public final class MusicFactory {
-    public List<Music> createMusics(List<MusicPrototype> prototypes, AssetStorage assetStorage) {
-        return prototypes.stream()
+    public List<Music> createMusics(List<MusicPrefab> prefabs, AssetStorage assetStorage) {
+        return prefabs.stream()
                 .map(p -> createMusic(p, assetStorage))
                 .collect(Collectors.toList());
     }
 
-    public Music createMusic(MusicPrototype prototype, AssetStorage assetStorage) {
+    public Music createMusic(MusicPrefab prefab, AssetStorage assetStorage) {
         try {
-            return assetStorage.getAsset(prototype.getFilename(), Music.class);
+            return assetStorage.getAsset(prefab.getFilename(), Music.class);
         } catch (Exception e) {
-            throw new MusicCreateException(prototype, e);
+            throw new MusicCreateException(prefab, e);
         }
     }
 }

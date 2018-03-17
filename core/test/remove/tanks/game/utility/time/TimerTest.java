@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class TimerTest {
     @Test
-    public void when_TimerIsUpdatedEnoughTimes_Then_IsCompleted() {
+    public void Should_ReturnTrue_When_TimerIsUpdatedEnoughNumberOfTimes() {
         Timer timer = new Timer(10f);
         timer.update(10f);
 
@@ -18,7 +18,7 @@ public class TimerTest {
     }
 
     @Test
-    public void when_TimerIsUpdatedNotEnoughTimes_Then_IsNotCompleted() {
+    public void Should_ReturnFalse_When_TimerIsNotUpdatedEnoughNumberOfTimes() {
         Timer timer = new Timer(10f);
         timer.update(1f);
         timer.update(5f);

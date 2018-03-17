@@ -1,25 +1,28 @@
 package remove.tanks.game.level.event.points;
 
-import remove.tanks.game.level.Level;
-import remove.tanks.game.level.constant.LevelProperty;
-import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.event.RegistrableEventExecutor;
+import remove.tanks.game.level.LevelProperty;
+import remove.tanks.game.level.event.EventExecuteException;
+import remove.tanks.game.level.event.SubEventExecutor;
+import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.properties.Properties;
 
 /**
  * @author Mateusz Długosz
  */
-public final class AddPointsEventExecutor
-        implements RegistrableEventExecutor<AddPointsEvent>
-{
+public final class AddPointsEventExecutor implements SubEventExecutor<AddPointsEvent> {
     @Override
-    public void executeEvent(AddPointsEvent event, Level level) {
-        Properties properties = level.getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class);
-        int points = event.getPoints() * properties.getInt(LevelProperty.LevelPointsMultiplier.getName());
-        properties.putInt(
-                LevelProperty.LevelPoints.getName(),
-                properties.getInt(LevelProperty.LevelPoints.getName()) + points
-        );
+    public void executeEvent(AddPointsEvent event, ResourceRegistry registry) {
+        try {
+            registry.getResource(ResourceType.LevelPropertiesResource, Properties.class)
+                    .putInt(
+                            LevelProperty.LevelPoints.getName(),
+                            registry.getResource(ResourceType.LevelPropertiesResource, Properties.class)
+                                    .getInt(LevelProperty.LevelPoints.getName()) + event.getPoints()
+                    );
+        } catch (Exception e) {
+            throw new EventExecuteException(event, e);
+        }
     }
 
     @Override

@@ -17,22 +17,22 @@ public final class SensorFactory {
         this.fixtureFactory = fixtureFactory;
     }
 
-    public List<Sensor> createSensors(List<SensorPrototype> prototypes, Body body, Scale scale) {
-        return prototypes.stream()
+    public List<Sensor> createSensors(List<SensorPrefab> prefabs, Body body, Scale scale) {
+        return prefabs.stream()
                 .map(p -> createSensor(p, body, scale))
                 .collect(Collectors.toList());
     }
 
-    public Sensor createSensor(SensorPrototype prototype, Body body, Scale scale) {
+    public Sensor createSensor(SensorPrefab prefab, Body body, Scale scale) {
         try {
             return new Sensor(
-                    prototype.getId(),
+                    prefab.getId(),
                     fixtureFactory.createFixtureAsSensor(
-                            prototype.getFixturePrototype(), body, scale
+                            prefab.getFixturePrefab(), body, scale
                     )
             );
         } catch (Exception e) {
-            throw new SensorCreateException(prototype, e);
+            throw new SensorCreateException(prefab, e);
         }
     }
 }

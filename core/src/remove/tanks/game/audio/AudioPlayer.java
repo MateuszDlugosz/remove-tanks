@@ -1,8 +1,6 @@
 package remove.tanks.game.audio;
 
 import com.google.common.eventbus.Subscribe;
-import remove.tanks.game.audio.event.AudioOptionsChangedEvent;
-import remove.tanks.game.audio.event.ChangeAudioOptionEvent;
 import remove.tanks.game.audio.music.MusicPlayer;
 import remove.tanks.game.audio.music.event.PauseMusicEvent;
 import remove.tanks.game.audio.music.event.PlayMusicEvent;
@@ -17,66 +15,42 @@ import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 public final class AudioPlayer {
     private final SoundPlayer soundPlayer;
     private final MusicPlayer musicPlayer;
-    private final AudioOptions audioOptions;
 
-    public AudioPlayer(
-            SoundPlayer soundPlayer,
-            MusicPlayer musicPlayer,
-            AudioOptions audioOptions
-    ) {
+    public AudioPlayer(SoundPlayer soundPlayer, MusicPlayer musicPlayer) {
         this.soundPlayer = soundPlayer;
         this.musicPlayer = musicPlayer;
-        this.audioOptions = audioOptions;
     }
 
-    public AudioOptions getAudioOptions() {
-        return audioOptions;
+    public SoundPlayer getSoundPlayer() {
+        return soundPlayer;
     }
 
-    @Subscribe
-    public void handlePlaySoundEvent(PlaySoundEvent event) {
-        long id = soundPlayer.playSound(event.getSound());
-        event.getSound().setPan(
-                id,
-                audioOptions.getOptionValueAsFloat(AudioOptions.Option.Pan),
-                audioOptions.getOptionValueAsFloat(AudioOptions.Option.SoundVolume)
-        );
+    public MusicPlayer getMusicPlayer() {
+        return musicPlayer;
     }
 
     @Subscribe
     public void handlePlayMusicEvent(PlayMusicEvent event) {
-        musicPlayer.stopMusic();
-        musicPlayer.playMusic(event.getMusic());
-        musicPlayer.getMusicPlayed().ifPresent(m -> m.setPan(
-                audioOptions.getOptionValueAsFloat(AudioOptions.Option.Pan),
-                audioOptions.getOptionValueAsFloat(AudioOptions.Option.MusicVolume)
-        ));
+        musicPlayer.playMusic(event.getMusicChannelName(), event.getMusic());
     }
 
     @Subscribe
     public void handleStopMusicEvent(StopMusicEvent event) {
-        musicPlayer.stopMusic();
-    }
-
-    @Subscribe
-    public void handlePauseMusicEvent(PauseMusicEvent event) {
-        musicPlayer.pauseMusic();
+        musicPlayer.stopMusic(event.getMusicChannelName());
     }
 
     @Subscribe
     public void handleResumeMusicEvent(ResumeMusicEvent event) {
-        musicPlayer.resumeMusic();
+        musicPlayer.resumeMusic(event.getMusicChannelName());
     }
 
     @Subscribe
-    public void handleAudioOptionsChangedEvent(AudioOptionsChangedEvent event) {
-        musicPlayer.getMusicPlayed().ifPresent(m -> m.setPan(
-                audioOptions.getOptionValueAsFloat(AudioOptions.Option.MusicVolume),
-                audioOptions.getOptionValueAsFloat(AudioOptions.Option.Pan)
-        ));
+    public void handlePauseMusicEvent(PauseMusicEvent event) {
+        musicPlayer.pauseMusic(event.getMusicChannelName());
     }
 
-    @Subscribe void handleChangeAudioOptionEvent(ChangeAudioOptionEvent event) {
-        audioOptions.setOptionValue(event.getOption(), event.getNewValue());
+    @Subscribe
+    public void handlePlaySoundEvent(PlaySoundEvent event) {
+        soundPlayer.playSound(event.getSoundChannelName(), event.getSound());
     }
 }

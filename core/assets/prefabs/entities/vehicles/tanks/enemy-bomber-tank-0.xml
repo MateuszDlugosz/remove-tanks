@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>ExplosionMedium0</entityPrefabCode>
+            <entityPrefabCode>EnemyLandBomb0</entityPrefabCode>
+        </entityPrefabCodes>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>14</width>
+                            <height>14</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+            <sensors>
+                <sensor id="Left">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>-7.5</x>
+                                <y>0</y>
+                            </position>
+                            <width>2</width>
+                            <height>12</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Right">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>7.5</x>
+                                <y>0</y>
+                            </position>
+                            <width>2</width>
+                            <height>12</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Up">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>0</x>
+                                <y>7.5</y>
+                            </position>
+                            <width>12</width>
+                            <height>2</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Down">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>0</x>
+                                <y>-7.5</y>
+                            </position>
+                            <width>12</width>
+                            <height>2</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+            <lightHandlers>
+                <lightHandler id="Main">
+                    <light type="PointLight">
+                        <color type="RgbColor">
+                            <r>0</r>
+                            <g>0</g>
+                            <b>0</b>
+                        </color>
+                        <distance>64</distance>
+                        <xRay>true</xRay>
+                    </light>
+                </lightHandler>
+            </lightHandlers>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="AnimationView" id="MovingLeft">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-bomber-tank-0-left-0" />
+                        <frame regionName="enemy-bomber-tank-0-left-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingRight">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-bomber-tank-0-right-0" />
+                        <frame regionName="enemy-bomber-tank-0-right-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingUp">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-bomber-tank-0-up-0" />
+                        <frame regionName="enemy-bomber-tank-0-up-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingDown">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-bomber-tank-0-down-0" />
+                        <frame regionName="enemy-bomber-tank-0-down-1" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Moving</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="HealthComponent">
+            <health>1</health>
+            <maxHealth>1</maxHealth>
+        </component>
+        <component type="SpeedComponent">
+            <speed>1.3</speed>
+        </component>
+        <component type="RandomDirectionComponent">
+            <minChangeDirectionFrequency>0.2</minChangeDirectionFrequency>
+            <maxChangeDirectionFrequency>0.6</maxChangeDirectionFrequency>
+            <directions>
+                <direction>Left</direction>
+                <direction>Right</direction>
+                <direction>Up</direction>
+                <direction>Down</direction>
+            </directions>
+        </component>
+        <component type="VehicleRenderLayerComponent" />
+        <component type="AutoMoveComponent" />
+        <component type="DestroyTriggerComponent">
+            <entityEvents>
+                <entityEvent type="CreateEntityEvent">
+                    <createEntries>
+                        <createEntry>
+                            <entityPrefabCode>ExplosionMedium0</entityPrefabCode>
+                        </createEntry>
+                    </createEntries>
+                </entityEvent>
+                <entityEvent type="AddPointsEntityEvent">
+                    <points>10</points>
+                </entityEvent>
+            </entityEvents>
+        </component>
+        <component type="LeaveBonusComponent" />
+        <component type="RandomCreateComponent">
+            <minCreateFrequency>0.3</minCreateFrequency>
+            <maxCreateFrequency>0.9</maxCreateFrequency>
+            <createEntries>
+                <createEntry>
+                    <entityPrefabCode>EnemyLandBomb0</entityPrefabCode>
+                </createEntry>
+            </createEntries>
+        </component>
+        <component type="EnemyComponent" />
+    </components>
+</entity>

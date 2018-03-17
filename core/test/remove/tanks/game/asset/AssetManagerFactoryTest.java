@@ -1,30 +1,51 @@
 package remove.tanks.game.asset;
 
-import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.AssetDescriptor;
+import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.loaders.AssetLoader;
-import com.badlogic.gdx.assets.loaders.ShaderProgramLoader;
+import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Array;
+import org.junit.Before;
 import org.junit.Test;
-import remove.tanks.game.LibGDXTest;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * @author Mateusz Długosz
  */
-public class AssetManagerFactoryTest extends LibGDXTest {
-    @Test
-    public void when_CustomAssetLoaderAdded_Then_AssetLoaderIsAvailableInAssetManager() {
-        Map<Class<?>, AssetLoader> assetLoaders = new HashMap<>();
-        assetLoaders.put(ShaderProgram.class, new ShaderProgramLoader(new InternalFileHandleResolver()));
-        AssetManagerFactory assetManagerFactory = new AssetManagerFactory(assetLoaders);
-        AssetManager assetManager = assetManagerFactory.createAssetManager();
+public class AssetManagerFactoryTest {
+    private AssetManagerFactory assetManagerFactory;
 
-        assertTrue(ShaderProgramLoader.class.equals(
-                assetManager.getLoader(ShaderProgram.class).getClass()));
+    @Before
+    public void initTestObjects() {
+        Map<Class<?>, AssetLoader> assetLoaders = new HashMap<>();
+        assetLoaders.put(TestAsset0.class, new TestAsset0Loader(new InternalFileHandleResolver()));
+
+        assetManagerFactory = new AssetManagerFactory(assetLoaders);
+    }
+
+    @Test
+    public void Should_ContainAssetLoader() {
+        assertEquals(TestAsset0Loader.class, assetManagerFactory.createAssetManager().getLoader(TestAsset0.class).getClass());
+    }
+
+    @Test
+    public void Should_NotContainAssetLoader() {
+        assertNull(assetManagerFactory.createAssetManager().getLoader(TestAsset1.class));
+    }
+
+    private static final class TestAsset0 {}
+    private static final class TestAsset1 {}
+    private static final class TestAsset0Loader extends AssetLoader<TestAsset0, TestAsset0Loader.TestAssetLoaderParameters> {
+        public TestAsset0Loader(FileHandleResolver resolver) { super(resolver); }
+        @Override
+        public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file, TestAssetLoaderParameters parameter) { return null; }
+        public static final class TestAssetLoaderParameters extends AssetLoaderParameters<TestAsset0> { }
     }
 }

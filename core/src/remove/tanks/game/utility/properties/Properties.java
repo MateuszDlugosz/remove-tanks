@@ -111,6 +111,25 @@ public final class Properties implements Serializable {
         return properties.containsKey(key) ? getBoolean(key) : defaultValue;
     }
 
+    public void putDouble(String key, double value) {
+        properties.put(key, Double.toString(value));
+    }
+
+    public double getDouble(String key) {
+        if (!properties.containsKey(key)) {
+            throw new NoSuchPropertyException(key);
+        }
+        return Double.parseDouble(properties.get(key));
+    }
+
+    public double getDouble(String key, double defaultValue) {
+        return properties.containsKey(key) ? getDouble(key) : defaultValue;
+    }
+
+    public Map<String, String> getProperties() {
+        return properties;
+    }
+
     public Set<String> getKeys() {
         return properties.keySet();
     }

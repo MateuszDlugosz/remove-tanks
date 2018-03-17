@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<assets>
+    <asset id="UIButtonChange0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/ui-button-change-0.ogg</filename>
+    </asset>
+    <asset id="UIButtonSelect0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/ui-button-select-0.ogg</filename>
+    </asset>
+    <asset id="Tester0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/tester-0.ogg</filename>
+    </asset>
+    <asset id="Tester0Music">
+        <assetClass>com.badlogic.gdx.audio.Music</assetClass>
+        <filename>audio/music/tester-0.ogg</filename>
+    </asset>
+    <asset id="AchievementAtlas">
+        <assetClass>com.badlogic.gdx.graphics.g2d.TextureAtlas</assetClass>
+        <filename>graphics/textures/atlases/achievement-atlas.pack</filename>
+    </asset>
+</assets>

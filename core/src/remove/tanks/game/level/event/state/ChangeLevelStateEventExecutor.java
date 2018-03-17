@@ -1,21 +1,24 @@
 package remove.tanks.game.level.event.state;
 
-import remove.tanks.game.level.Level;
-import remove.tanks.game.level.constant.LevelProperty;
-import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.event.RegistrableEventExecutor;
+import remove.tanks.game.level.LevelProperty;
+import remove.tanks.game.level.event.EventExecuteException;
+import remove.tanks.game.level.event.SubEventExecutor;
+import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.properties.Properties;
 
 /**
  * @author Mateusz Długosz
  */
-public final class ChangeLevelStateEventExecutor
-        implements RegistrableEventExecutor<ChangeLevelStateEvent>
-{
+public final class ChangeLevelStateEventExecutor implements SubEventExecutor<ChangeLevelStateEvent> {
     @Override
-    public void executeEvent(ChangeLevelStateEvent event, Level level) {
-        level.getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .putString(LevelProperty.LevelState.getName(), event.getLevelState().getName());
+    public void executeEvent(ChangeLevelStateEvent event, ResourceRegistry registry) {
+        try {
+            registry.getResource(ResourceType.LevelPropertiesResource, Properties.class)
+                    .putString(LevelProperty.LevelState.getName(), event.getLevelState().getName());
+        } catch (Exception e) {
+            throw new EventExecuteException(event, e);
+        }
     }
 
     @Override

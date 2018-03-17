@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox0">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>1</width>
+                            <height>1</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>SceneryCategory</categoryBit>
+                            <maskBit>SceneryMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="SpriteView" id="StandingNone">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>EntityAtlas</atlasFilename>
+                        <regionName>button-active-0</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>None</direction>
+        </component>
+        <component type="GroundRenderLayerComponent" />
+    </components>
+</entity>

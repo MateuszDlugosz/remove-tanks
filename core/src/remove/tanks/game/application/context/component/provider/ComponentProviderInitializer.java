@@ -31,7 +31,11 @@ public final class ComponentProviderInitializer {
     }
 
     public Map<String, ComponentProvider> initializeComponentProviders(String packageName, Context context) {
-        return initializeComponentProviders(componentSupplierScanner.scanPackage(packageName), context);
+        try {
+            return initializeComponentProviders(componentSupplierScanner.scanPackage(packageName), context);
+        } catch (Exception e) {
+            throw new ComponentProviderInitializationException(e);
+        }
     }
 
     private Map<String, ComponentProvider> initializeComponentProviders(Set<Class<? extends ComponentSupplier>> supplierClasses, Context context) {

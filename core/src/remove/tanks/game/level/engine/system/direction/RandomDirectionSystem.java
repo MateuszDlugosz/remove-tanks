@@ -5,8 +5,8 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.component.direction.DirectionComponent;
 import remove.tanks.game.level.engine.entity.component.direction.RandomDirectionComponent;
-import remove.tanks.game.level.engine.utility.direction.Direction;
-import remove.tanks.game.utility.random.RandomNumberGenerator;
+import remove.tanks.game.level.utility.direction.Direction;
+import remove.tanks.game.utility.number.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
 
 import java.util.List;
@@ -26,14 +26,14 @@ public final class RandomDirectionSystem extends IteratingSystem {
     protected void processEntity(Entity entity, float deltaTime) {
         RandomDirectionComponent rdc = RandomDirectionComponent.MAPPER.get(entity);
         if (rdc.getTimer().isCompleted()) {
-            entity.add(new DirectionComponent(getRandomDirection(rdc.getAvailableDirections())));
+            entity.add(new DirectionComponent(getRandomDirection(rdc.getDirections())));
             entity.add(new RandomDirectionComponent(
-                    rdc.getChangeDirectionMinFrequency(),
-                    rdc.getChangeDirectionMaxFrequency(),
-                    rdc.getAvailableDirections(),
+                    rdc.getMinChangeDirectionFrequency(),
+                    rdc.getMaxChangeDirectionFrequency(),
+                    rdc.getDirections(),
                     new Timer(randomNumberGenerator.getRandomFloat(
-                            rdc.getChangeDirectionMinFrequency(),
-                            rdc.getChangeDirectionMaxFrequency()
+                            rdc.getMinChangeDirectionFrequency(),
+                            rdc.getMaxChangeDirectionFrequency()
                     )))
             );
         } else rdc.getTimer().update(deltaTime);

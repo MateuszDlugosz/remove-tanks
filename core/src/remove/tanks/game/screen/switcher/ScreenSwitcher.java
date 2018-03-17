@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import remove.tanks.game.screen.GameScreen;
 import remove.tanks.game.screen.switcher.storage.ScreenStorage;
-import remove.tanks.game.screen.switcher.transitions.StageActionFactory;
+import remove.tanks.game.screen.switcher.transition.StageActionFactory;
 
 /**
  * @author Mateusz Długosz
@@ -39,9 +39,9 @@ public final class ScreenSwitcher {
             SequenceAction action = new SequenceAction();
             action.addAction(defaultHideStageActionFactory.createStageAction(screen.getStage()));
             action.addAction(Actions.run(() -> {
-                    screen.getStage().addAction(defaultShowStageActionFactory.createStageAction(screen.getStage()));
-                    Gdx.input.setInputProcessor(screen.getStage());
-                    game.setScreen(screen);
+                screen.getStage().addAction(defaultShowStageActionFactory.createStageAction(screen.getStage()));
+                Gdx.input.setInputProcessor(screen.getStage());
+                game.setScreen(screen);
             }));
             ((GameScreen) game.getScreen()).getStage().getRoot().addAction(action);
         }

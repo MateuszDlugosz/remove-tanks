@@ -16,30 +16,30 @@ import static org.junit.Assert.assertEquals;
  */
 public class ParametersFactoryTest {
     private ParametersFactory parametersFactory;
-    private ParametersPrototype prototype0;
-    private ParametersPrototype prototype1;
+    private ParametersPrefab prefab0;
+    private ParametersPrefab prefab1;
 
     @Before
     public void initTestObjects() {
         parametersFactory = new ParametersFactory(
-                new RegistrableParametersFactory[] {
+                new SubParametersFactory[] {
                         new ParticleEffectParametersFactory()
                 }
         );
 
         Map<String, String> parametersMap0 = new HashMap<>();
         parametersMap0.put("atlasFile", "sample-file");
-        prototype0 = new ParametersPrototype(ParticleEffectLoader.ParticleEffectParameter.class,
+        prefab0 = new ParametersPrefab(ParticleEffectLoader.ParticleEffectParameter.class,
                 parametersMap0);
 
         Map<String, String> parametersMap1 = new HashMap<>();
-        prototype1 = new ParametersPrototype(ShaderProgramLoader.ShaderProgramParameter.class,
+        prefab1 = new ParametersPrefab(ShaderProgramLoader.ShaderProgramParameter.class,
                 parametersMap1);
     }
 
     @Test
-    public void when_ParametersFactoryFound_Then_LoadParameters() {
-        AssetLoaderParameters parameters = parametersFactory.createAssetLoaderParameters(prototype0);
+    public void Should_ReturnParameters() {
+        AssetLoaderParameters parameters = parametersFactory.createAssetLoaderParameters(prefab0);
         ParticleEffectLoader.ParticleEffectParameter peParameters
                 = (ParticleEffectLoader.ParticleEffectParameter) parameters;
 
@@ -49,7 +49,7 @@ public class ParametersFactoryTest {
     }
 
     @Test(expected = ParametersCreateException.class)
-    public void when_ParameterFactoryNotFound_Then_ThrowException() {
-        parametersFactory.createAssetLoaderParameters(prototype1);
+    public void Should_ThrowException_When_SubFactoryOfPrefabNotFound() {
+        parametersFactory.createAssetLoaderParameters(prefab1);
     }
 }

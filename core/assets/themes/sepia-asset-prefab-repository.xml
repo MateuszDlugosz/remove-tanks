@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<assets>
+    <asset id="EntityAtlas">
+        <assetClass>com.badlogic.gdx.graphics.g2d.TextureAtlas</assetClass>
+        <filename>graphics/textures/atlases/sepia/entity-atlas.pack</filename>
+    </asset>
+    <asset id="FaceAtlas">
+        <assetClass>com.badlogic.gdx.graphics.g2d.TextureAtlas</assetClass>
+        <filename>graphics/textures/atlases/sepia/face-atlas.pack</filename>
+    </asset>
+    <asset id="ExplosionSmall0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/explosion-small-0.ogg</filename>
+    </asset>
+    <asset id="ExplosionMedium0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/explosion-medium-0.ogg</filename>
+    </asset>
+    <asset id="ExplosionLarge0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/explosion-large-0.ogg</filename>
+    </asset>
+    <asset id="ExplosionBonus0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/explosion-bonus-0.ogg</filename>
+    </asset>
+    <asset id="BulletSmallShoot0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/bullet-small-shoot-0.ogg</filename>
+    </asset>
+    <asset id="BulletMediumShoot0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/bullet-medium-shoot-0.ogg</filename>
+    </asset>
+    <asset id="BulletLargeShoot0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/bullet-large-shoot-0.ogg</filename>
+    </asset>
+    <asset id="ButtonPush0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/button-push-0.ogg</filename>
+    </asset>
+    <asset id="Thunder0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/thunder-0.ogg</filename>
+    </asset>
+    <asset id="LevelStart0Music">
+        <assetClass>com.badlogic.gdx.audio.Music</assetClass>
+        <filename>audio/music/level-start-0.ogg</filename>
+    </asset>
+    <asset id="GrayscaleShaderVertex">
+        <assetClass>remove.tanks.game.graphics.shader.VertexShaderFile</assetClass>
+        <filename>shaders/grayscale.vert</filename>
+    </asset>
+    <asset id="GrayscaleShaderFragment">
+        <assetClass>remove.tanks.game.graphics.shader.FragmentShaderFile</assetClass>
+        <filename>shaders/grayscale.frag</filename>
+    </asset>
+    <asset id="MessagePrint0Sound">
+        <assetClass>com.badlogic.gdx.audio.Sound</assetClass>
+        <filename>audio/sounds/message-print-0.ogg</filename>
+    </asset>
+</assets>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<asset id="sampleId">
-    <className>com.badlogic.gdx.graphics.g2d.TextureAtlas</className>
-    <filename>graphics/textures/atlases/test-atlas-file.pack</filename>
-    <parameters className="com.badlogic.gdx.assets.loaders.ParticleEffectLoader$ParticleEffectParameter">
-        <parameter name="atlasFile">graphic/textures/atlases/test-atlas-file.pack</parameter>
-    </parameters>
-</asset>

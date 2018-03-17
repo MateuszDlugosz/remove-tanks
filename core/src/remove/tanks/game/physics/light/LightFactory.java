@@ -16,44 +16,44 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings("unchecked")
 public final class LightFactory {
-    private final Map<Class<? extends LightPrototype>, RegistrableLightFactory> factories
+    private final Map<Class<? extends LightPrefab>, SubLightFactory> factories
             = new HashMap<>();
 
-    public LightFactory(RegistrableLightFactory[] factories) {
+    public LightFactory(SubLightFactory[] factories) {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<Light> createLights(List<LightPrototype> prototypes, WorldLight worldLight, Scale scale) {
-        return prototypes.stream()
+    public List<Light> createLights(List<LightPrefab> prefabs, WorldLight worldLight, Scale scale) {
+        return prefabs.stream()
                 .map(p -> createLight(p, worldLight, scale))
                 .collect(Collectors.toList());
     }
 
-    public Light createLight(LightPrototype prototype, WorldLight worldLight, Scale scale) {
+    public Light createLight(LightPrefab prefab, WorldLight worldLight, Scale scale) {
         try {
-            if (!factories.containsKey(prototype.getClass())) {
-                throw new LightFactoryNotFoundException(prototype.getClass());
+            if (!factories.containsKey(prefab.getClass())) {
+                throw new LightFactoryNotFoundException(prefab.getClass());
             }
-            return factories.get(prototype.getClass()).createLight(prototype, worldLight, scale);
+            return factories.get(prefab.getClass()).createLight(prefab, worldLight, scale);
         } catch (Exception e) {
-            throw new LightCreateException(prototype, e);
+            throw new LightCreateException(prefab, e);
         }
     }
 
-    public List<Light> createLights(List<LightPrototype> prototypes, WorldLight worldLight, Body body, Scale scale) {
-        return prototypes.stream()
+    public List<Light> createLights(List<LightPrefab> prefabs, WorldLight worldLight, Body body, Scale scale) {
+        return prefabs.stream()
                 .map(p -> createLight(p, worldLight, body, scale))
                 .collect(Collectors.toList());
     }
 
-    public Light createLight(LightPrototype prototype, WorldLight worldLight, Body body, Scale scale) {
+    public Light createLight(LightPrefab prefab, WorldLight worldLight, Body body, Scale scale) {
         try {
-            if (!factories.containsKey(prototype.getClass())) {
-                throw new LightFactoryNotFoundException(prototype.getClass());
+            if (!factories.containsKey(prefab.getClass())) {
+                throw new LightFactoryNotFoundException(prefab.getClass());
             }
-            return factories.get(prototype.getClass()).createLight(prototype, worldLight, body, scale);
+            return factories.get(prefab.getClass()).createLight(prefab, worldLight, body, scale);
         } catch (Exception e) {
-            throw new LightCreateException(prototype, e);
+            throw new LightCreateException(prefab, e);
         }
     }
 }

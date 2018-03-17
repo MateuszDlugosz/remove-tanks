@@ -9,12 +9,16 @@ import java.util.Iterator;
  */
 public final class MapPropertiesConverter {
     public Properties convertProperties(MapProperties mapProperties) {
-        Properties properties = new Properties();
-        Iterator<String> iterator = mapProperties.getKeys();
-        while (iterator.hasNext()) {
-            String propertyKey = iterator.next();
-            properties.putString(propertyKey, String.valueOf(mapProperties.get(propertyKey)));
+        try {
+            Properties properties = new Properties();
+            Iterator<String> iterator = mapProperties.getKeys();
+            while (iterator.hasNext()) {
+                String propertyKey = iterator.next();
+                properties.putString(propertyKey, String.valueOf(mapProperties.get(propertyKey)));
+            }
+            return properties;
+        } catch (Exception e) {
+            throw new MapPropertiesConversionException(e);
         }
-        return properties;
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>Bomber0Down</entityPrefabCode>
+        </entityPrefabCodes>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>1</width>
+                            <height>1</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>SceneryCategory</categoryBit>
+                            <maskBit>SceneryMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="AirplaneSpawnerComponent">
+            <entityPrefabCode>Bomber0Down</entityPrefabCode>
+        </component>
+    </components>
+</entity>

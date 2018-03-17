@@ -1,164 +1,141 @@
 package remove.tanks.game.level.engine.entity;
 
 import com.badlogic.ashley.core.Family;
-import remove.tanks.game.level.engine.entity.component.audio.SoundOnDestroyComponent;
-import remove.tanks.game.level.engine.entity.component.audio.SoundOnSpawnComponent;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponent;
-import remove.tanks.game.level.engine.entity.component.bonus.BonusLootComponent;
+import remove.tanks.game.level.engine.entity.component.bonus.LeaveBonusComponent;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponent;
-import remove.tanks.game.level.engine.entity.component.control.PlayerControlComponent;
-import remove.tanks.game.level.engine.entity.component.damage.DamageComponent;
-import remove.tanks.game.level.engine.entity.component.destroy.DestroyComponent;
-import remove.tanks.game.level.engine.entity.component.destroy.DestroyOnContactComponent;
+import remove.tanks.game.level.engine.entity.component.combat.*;
 import remove.tanks.game.level.engine.entity.component.direction.DirectionComponent;
 import remove.tanks.game.level.engine.entity.component.direction.RandomDirectionComponent;
 import remove.tanks.game.level.engine.entity.component.faction.EnemyComponent;
-import remove.tanks.game.level.engine.entity.component.graphic.GraphicsComponent;
-import remove.tanks.game.level.engine.entity.component.health.HealthComponent;
-import remove.tanks.game.level.engine.entity.component.id.IdentityComponent;
-import remove.tanks.game.level.engine.entity.component.layer.*;
-import remove.tanks.game.level.engine.entity.component.lifetime.LifetimeComponent;
+import remove.tanks.game.level.engine.entity.component.faction.PlayerComponent;
+import remove.tanks.game.level.engine.entity.component.identity.IdentityComponent;
+import remove.tanks.game.level.engine.entity.component.input.InputComponent;
+import remove.tanks.game.level.engine.entity.component.lifecycle.*;
 import remove.tanks.game.level.engine.entity.component.move.AutoMoveComponent;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
-import remove.tanks.game.level.engine.entity.component.respawn.PlayerRespawnComponent;
-import remove.tanks.game.level.engine.entity.component.shoot.AmmoComponent;
-import remove.tanks.game.level.engine.entity.component.shoot.AutoShootComponent;
-import remove.tanks.game.level.engine.entity.component.shoot.RandomShootComponent;
+import remove.tanks.game.level.engine.entity.component.render.ViewComponent;
+import remove.tanks.game.level.engine.entity.component.render.layer.*;
+import remove.tanks.game.level.engine.entity.component.spawn.AirplaneSpawnerComponent;
 import remove.tanks.game.level.engine.entity.component.spawn.AutoSpawnerComponent;
-import remove.tanks.game.level.engine.entity.component.spawn.BombersSpawnerComponent;
-import remove.tanks.game.level.engine.entity.component.spawn.RandomSpawnComponent;
-import remove.tanks.game.level.engine.entity.component.spawn.SpawnOnDestroyComponent;
+import remove.tanks.game.level.engine.entity.component.spawn.RespawnComponent;
 import remove.tanks.game.level.engine.entity.component.speed.SpeedComponent;
 import remove.tanks.game.level.engine.entity.component.state.StateComponent;
-import remove.tanks.game.level.engine.entity.component.trigger.TriggerComponent;
 
 /**
  * @author Mateusz Długosz
  */
 public enum EntityFamily {
-    RandomDirectionFamily(Family.all(
-            PhysicsComponent.class, DirectionComponent.class,
-            RandomDirectionComponent.class
+    CreateFamily(Family.all(
+            PhysicsComponent.class, CreateComponent.class
     ).get()),
-    RandomShootFamily(Family.all(
-            PhysicsComponent.class, RandomShootComponent.class
+    DestroyFamily(Family.all(
+           PhysicsComponent.class, DestroyComponent.class
     ).get()),
-    RandomSpawnFamily(Family.all(
-            PhysicsComponent.class, RandomSpawnComponent.class
+    DestroyOnContactFamily(Family.all(
+            PhysicsComponent.class, DestroyOnContactComponent.class
+    ).get()),
+    DestroyOnContactLostFamily(Family.all(
+            PhysicsComponent.class, DestroyOnContactLostComponent.class
+    ).get()),
+    LifetimeFamily(Family.all(
+            PhysicsComponent.class, LifetimeComponent.class
+    ).get()),
+    CameraTrackFamily(Family.all(
+            PhysicsComponent.class, CameraTrackComponent.class
+    ).get()),
+    InputFamily(Family.all(
+            PhysicsComponent.class, InputComponent.class
     ).get()),
     AutoMoveFamily(Family.all(
-            PhysicsComponent.class, DirectionComponent.class,
-            AutoMoveComponent.class, SpeedComponent.class,
-            StateComponent.class
+            PhysicsComponent.class, DirectionComponent.class, AutoMoveComponent.class,
+            SpeedComponent.class, StateComponent.class
+    ).get()),
+    ViewFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    GroundRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, GroundRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    BulletRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, BulletRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    VehicleRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, VehicleRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    ObstacleRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, ObstacleRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    ExplosionRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, ExplosionRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    BonusRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, BonusRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    CloudRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, CloudRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    BombRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, BombRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    AirplaneRenderLayerFamily(Family.all(
+            PhysicsComponent.class, ViewComponent.class, AirplaneRenderLayerComponent.class,
+            StateComponent.class, DirectionComponent.class
+    ).get()),
+    RandomDirectionFamily(Family.all(
+            PhysicsComponent.class, RandomDirectionComponent.class
+    ).get()),
+    HealthFamily(Family.all(
+            PhysicsComponent.class, HealthComponent.class
+    ).get()),
+    DamageFamily(Family.all(
+            PhysicsComponent.class, DamageComponent.class
+    ).get()),
+    HitFamily(Family.all(
+            PhysicsComponent.class, HitComponent.class
+    ).get()),
+    LeaveBonusFamily(Family.all(
+           PhysicsComponent.class, LeaveBonusComponent.class
+    ).get()),
+    IdentityFamily(Family.all(
+           PhysicsComponent.class, IdentityComponent.class
     ).get()),
     AutoShootFamily(Family.all(
             PhysicsComponent.class, DirectionComponent.class,
             AutoShootComponent.class, AmmoComponent.class
     ).get()),
-    CameraTrackingFamily(Family.all(
-            PhysicsComponent.class, CameraTrackComponent.class
+    RandomShootFamily(Family.all(
+            PhysicsComponent.class, RandomShootComponent.class
     ).get()),
-    GroundLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            GroundLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    BulletLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            BulletLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    VehicleLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            VehicleLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    ObstacleLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            ObstacleLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    ExplosionLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            ExplosionLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    BonusLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            BonusLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    CloudLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            CloudLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    BombsLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            BombLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    BomberLayerRenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            BomberLayerComponent.class, StateComponent.class,
-            DirectionComponent.class
-    ).get()),
-    DestroyedFamily(Family.all(
-            PhysicsComponent.class, DestroyComponent.class
-    ).get()),
-    DestroyOnContactFamily(Family.all(
-            PhysicsComponent.class, DestroyOnContactComponent.class
-    ).get()),
-    HealthFamily(Family.all(
-            PhysicsComponent.class, HealthComponent.class
-    ).get()),
-    LifetimeFamily(Family.all(
-            PhysicsComponent.class, LifetimeComponent.class
-    ).get()),
-    PlayerControlledFamily(Family.all(
-            PhysicsComponent.class, PlayerControlComponent.class,
-            DirectionComponent.class, StateComponent.class
-    ).get()),
-    RenderableFamily(Family.all(
-            PhysicsComponent.class, GraphicsComponent.class,
-            StateComponent.class, DirectionComponent.class
-    ).get()),
-    DamageableFamily(Family.all(
-            PhysicsComponent.class, DamageComponent.class
-    ).get()),
-    SoundableFamily(Family.all(
-            PhysicsComponent.class
-    ).one(
-            SoundOnSpawnComponent.class, SoundOnDestroyComponent.class
-    ).get()),
-    LifecycleFamily(Family.all(
-            PhysicsComponent.class
-    ).one(
-            SpawnOnDestroyComponent.class
-    ).get()),
-    BombersSpawnerFamily(Family.all(
-            PhysicsComponent.class, BombersSpawnerComponent.class
-    ).get()),
-    BonusLootFamily(Family.all(
-            PhysicsComponent.class, BonusLootComponent.class
-    ).get()),
-    EnemiesFamily(Family.all(
+    EnemyFamily(Family.all(
             PhysicsComponent.class, EnemyComponent.class
     ).get()),
-    SpawnerFamily(Family.all(
-            PhysicsComponent.class, AutoSpawnerComponent.class
-    ).get()),
-    TriggerFamily(Family.all(
-            PhysicsComponent.class, TriggerComponent.class
-    ).get()),
-    PlayerRespawnFamily(Family.all(
-            PhysicsComponent.class, PlayerRespawnComponent.class
+    PlayerFamily(Family.all(
+            PhysicsComponent.class, PlayerComponent.class
     ).get()),
     ChangeBehaviorFamily(Family.all(
             PhysicsComponent.class, ChangeBehaviorComponent.class
     ).get()),
-    IdentifiableFamily(Family.all(
-            PhysicsComponent.class, IdentityComponent.class
+    RandomCreateFamily(Family.all(
+            PhysicsComponent.class, RandomCreateComponent.class
+    ).get()),
+    AutoSpawnerFamily(Family.all(
+            PhysicsComponent.class, AutoSpawnerComponent.class
+    ).get()),
+    RespawnFamily(Family.all(
+            PhysicsComponent.class, RespawnComponent.class
+    ).get()),
+    AirplaneSpawnerFamily(Family.all(
+            PhysicsComponent.class, AirplaneSpawnerComponent.class
     ).get());
 
     private final Family family;

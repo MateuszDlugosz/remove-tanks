@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class MultiplyingScaleTest {
     @Test
-    public void when_MultiplyingScaleInitializedWithCorrectValue_Then_CorrectlyScales() {
+    public void Should_ReturnCorrectlyScaledValues() {
         Scale scale = new MultiplyingScale(5f);
         float scaledValue0 = scale.scaleValue(10f);
         float scaledValue1 = scale.scaleValue(7f);

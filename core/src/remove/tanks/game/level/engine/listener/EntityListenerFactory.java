@@ -14,30 +14,27 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings("unchecked")
 public final class EntityListenerFactory {
-    private final Map<Class<? extends EntityListenerPrototype>, RegistrableEntityListenerFactory> subFactories
+    private final Map<Class<? extends EntityListenerPrefab>, SubEntityListenerFactory> factories
             = new HashMap<>();
 
-    public EntityListenerFactory(RegistrableEntityListenerFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public EntityListenerFactory(SubEntityListenerFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<ExtendedEntityListener> createEntitiesListeners(List<EntityListenerPrototype> prototypes,
-                                                                ResourceRegistry registry,
-                                                                Engine engine
-    ) {
-        return prototypes.stream()
+    public List<AbstractEntityListener> createEntitiesListeners(List<EntityListenerPrefab> prefabs, ResourceRegistry registry, Engine engine) {
+        return prefabs.stream()
                 .map(p -> createEntityListener(p, registry, engine))
                 .collect(Collectors.toList());
     }
 
-    public ExtendedEntityListener createEntityListener(EntityListenerPrototype prototype, ResourceRegistry registry, Engine engine) {
+    public AbstractEntityListener createEntityListener(EntityListenerPrefab prefab, ResourceRegistry registry, Engine engine) {
         try {
-            if (!subFactories.containsKey(prototype.getClass())) {
-                throw new EntityListenerFactoryNotFoundException(prototype.getClass());
+            if (!factories.containsKey(prefab.getClass())) {
+                throw new EntityListenerFactoryNotFoundException(prefab.getClass());
             }
-            return subFactories.get(prototype.getClass()).createEntityListener(prototype, registry, engine);
+            return factories.get(prefab.getClass()).createEntityListener(prefab, registry, engine);
         } catch (Exception e) {
-            throw new EntityListenerCreateException(prototype, e);
+            throw new EntityListenerCreateException(prefab, e);
         }
     }
 }

@@ -1,14 +1,8 @@
 package remove.tanks.game.level;
 
-import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import remove.tanks.game.level.constant.LevelProperty;
-import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.constant.LevelState;
+import remove.tanks.game.level.event.Event;
 import remove.tanks.game.level.event.EventExecutor;
-import remove.tanks.game.level.event.destroy.DestroyEntityEvent;
-import remove.tanks.game.level.event.spawn.SpawnEntityEvent;
-import remove.tanks.game.utility.properties.Properties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +14,8 @@ public final class LevelController {
     private final Level level;
     private final LevelUpdater levelUpdater;
     private final EventExecutor eventExecutor;
-
-    private final List<Object> spawnEntityEvents = new ArrayList<>();
-    private final List<Object> destroyEntityEvents = new ArrayList<>();
-    private final List<Object> externalEvents = new ArrayList<>();
-    private final List<Object> otherEvents = new ArrayList<>();
+    private final List<Event> events = new ArrayList<>();
+    private final List<Event> eventsToExecute = new ArrayList<>();
 
     LevelController(
             Level level,
@@ -40,57 +31,24 @@ public final class LevelController {
         return level;
     }
 
-    public void update(float deltaTime, EventBus eventBus) {
+    public void update(float deltaTime) {
         updateLevel(deltaTime);
-        executeDestroyEntityEvents();
-        executeSpawnEntityEvents();
-        executeOtherEvents();
-        executeExternalEvents(eventBus);
+        executeEvents();
     }
 
     private void updateLevel(float delta) {
         levelUpdater.updateLevel(delta, level);
     }
 
-    private void executeDestroyEntityEvents() {
-        eventExecutor.executeEvents(destroyEntityEvents, level);
-        destroyEntityEvents.clear();
-    }
-
-    private void executeOtherEvents() {
-        eventExecutor.executeEvents(otherEvents, level);
-        otherEvents.clear();
-    }
-
-    private void executeSpawnEntityEvents() {
-        eventExecutor.executeEvents(spawnEntityEvents, level);
-        spawnEntityEvents.clear();
-    }
-
-    private void executeExternalEvents(EventBus eventBus) {
-        externalEvents.forEach(eventBus::post);
-        externalEvents.clear();
+    private void executeEvents() {
+        eventsToExecute.addAll(events);
+        events.clear();
+        eventExecutor.executeEvents(eventsToExecute, level.getResourceRegistry());
+        eventsToExecute.clear();
     }
 
     @Subscribe
-    public void handleEvent(Object event) {
-        if (event instanceof SpawnEntityEvent) {
-            spawnEntityEvents.add(event);
-            return;
-        }
-        if (event instanceof DestroyEntityEvent) {
-            destroyEntityEvents.add(event);
-            return;
-        }
-        if (eventExecutor.getSupportedEventClasses().contains(event.getClass())) {
-            otherEvents.add(event);
-            return;
-        }
-        externalEvents.add(event);
-    }
-
-    public boolean isEnded() {
-        return level.getResourceRegistry().getResource(LevelResource.Properties.toString(), Properties.class)
-                .getString(LevelProperty.LevelState.getName()).equals(LevelState.End.getName());
+    public void handleEvent(Event event) {
+        events.add(event);
     }
 }

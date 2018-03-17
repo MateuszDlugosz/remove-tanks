@@ -4,9 +4,9 @@ package remove.tanks.game.level.engine.entity;
  * @author Mateusz Długosz
  */
 public final class EntityCreateException extends RuntimeException {
-    private static final String MESSAGE_TEMPLATE = "Entity can not be created from prototype %s.";
+    private static final String MESSAGE_TEMPLATE = "Entity cannot be created from prefab %s.";
 
-    public EntityCreateException(String prototypeFilename, Throwable throwable) {
-        super(String.format(MESSAGE_TEMPLATE, prototypeFilename), throwable);
+    public EntityCreateException(EntityPrefab entityPrefab, Throwable throwable) {
+        super(String.format(MESSAGE_TEMPLATE, entityPrefab), throwable);
     }
 }

@@ -4,17 +4,21 @@ package remove.tanks.game.level.event;
  * @author Mateusz Długosz
  */
 public enum EventType {
-    ActivateAutoSpawnerEvent,
+    ActivateSystemEvent,
+    DeactivateSystemEvent,
+    DestroyEntityByIdEvent,
+    DestroyFamilyEvent,
+    PlaySoundEvent,
+    PlayMusicEvent,
+    CreateEvent,
     AddPointsEvent,
+    AddCameraEffectEvent,
     AddLifeEvent,
     RemoveLifeEvent,
     IncreasePointsMultiplierEvent,
+    AmmoLevelUpEvent,
+    SpawnAirplaneEvent,
     ChangeLevelStateEvent,
-    DecreaseEnemiesCounterEvent,
-    DestroyEntityByIdEvent,
-    DestroyAllEnemiesEvent,
-    AmmoUpEvent,
-    SpawnBomberEvent,
-    AddCameraEffectEvent,
-    AddMessageEvent
+    AddMessageEvent,
+    ActivateSpawnerEvent
 }

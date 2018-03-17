@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<achievements>
+    <achievement>
+        <achievementType>EnemiesDestroyed10</achievementType>
+        <sprite type="AtlasSprite">
+            <atlasFilename>AchievementAtlas</atlasFilename>
+            <regionName>enemies-destroyed-10</regionName>
+        </sprite>
+    </achievement>
+    <achievement>
+        <achievementType>EnemiesDestroyed25</achievementType>
+        <sprite type="AtlasSprite">
+            <atlasFilename>AchievementAtlas</atlasFilename>
+            <regionName>enemies-destroyed-25</regionName>
+        </sprite>
+    </achievement>
+</achievements>

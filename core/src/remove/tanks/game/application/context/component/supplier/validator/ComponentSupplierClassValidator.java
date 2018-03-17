@@ -10,9 +10,9 @@ import java.util.List;
  * @author Mateusz Długosz
  */
 public final class ComponentSupplierClassValidator {
-    private final List<RegistrableComponentSupplierValidator> validators;
+    private final List<SubComponentSupplierValidator> validators;
 
-    public ComponentSupplierClassValidator(RegistrableComponentSupplierValidator[] validators) {
+    public ComponentSupplierClassValidator(SubComponentSupplierValidator[] validators) {
         this.validators = Arrays.asList(validators);
     }
 

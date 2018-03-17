@@ -17,20 +17,20 @@ public final class HitBoxFactory {
         this.fixtureFactory = fixtureFactory;
     }
 
-    public List<HitBox> createHitBoxes(List<HitBoxPrototype> prototypes, Body body, Scale scale) {
-        return prototypes.stream()
+    public List<HitBox> createHitBoxes(List<HitBoxPrefab> prefabs, Body body, Scale scale) {
+        return prefabs.stream()
                 .map(p -> createHitBox(p, body, scale))
                 .collect(Collectors.toList());
     }
 
-    public HitBox createHitBox(HitBoxPrototype prototype, Body body, Scale scale) {
+    public HitBox createHitBox(HitBoxPrefab prefab, Body body, Scale scale) {
         try {
             return new HitBox(
-                    prototype.getId(),
-                    fixtureFactory.createFixtureAsHitBox(prototype.getFixturePrototype(), body, scale)
+                    prefab.getId(),
+                    fixtureFactory.createFixtureAsHitBox(prefab.getFixturePrefab(), body, scale)
             );
         } catch (Exception e) {
-            throw new HitBoxCreateException(prototype, e);
+            throw new HitBoxCreateException(prefab, e);
         }
     }
 }

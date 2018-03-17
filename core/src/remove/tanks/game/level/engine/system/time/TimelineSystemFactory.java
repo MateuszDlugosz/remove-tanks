@@ -1,21 +1,18 @@
 package remove.tanks.game.level.engine.system.time;
 
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.level.constant.LevelResource;
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
-import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
-import remove.tanks.game.level.engine.system.time.timeline.Timeline;
-import remove.tanks.game.level.engine.system.time.timeline.TimelineFactory;
-import remove.tanks.game.level.engine.system.time.timeline.TimelinePrototype;
+import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
-import remove.tanks.game.utility.time.Timer;
+import remove.tanks.game.level.resource.ResourceType;
+import remove.tanks.game.level.utility.timeline.Timeline;
+import remove.tanks.game.level.utility.timeline.TimelineFactory;
+import remove.tanks.game.level.utility.timeline.TimelinePrefab;
 
 /**
  * @author Mateusz Długosz
  */
-public final class TimelineSystemFactory
-        implements RegistrableEntitySystemFactory<TimelineSystem, TimelineSystemPrototype>
-{
+public final class TimelineSystemFactory implements SubEntitySystemFactory<TimelineSystem, TimelineSystemPrefab> {
     private final TimelineFactory timelineFactory;
 
     public TimelineSystemFactory(TimelineFactory timelineFactory) {
@@ -23,29 +20,24 @@ public final class TimelineSystemFactory
     }
 
     @Override
-    public TimelineSystem createEntitySystem(TimelineSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public TimelineSystem createEntitySystem(TimelineSystemPrefab prefab, ResourceRegistry registry) {
         try {
             return new TimelineSystem(
-                    prototype.getPriority(),
-                    createTimeline(prototype.getTimelinePrototype()),
-                    createTimer(-1),
-                    resourceRegistry.getResource(LevelResource.EventBus.toString(), EventBus.class)
+                    prefab.getPriority(),
+                    createTimeline(prefab.getTimelinePrefab(), registry),
+                    registry.getResource(ResourceType.EventBusResource, EventBus.class)
             );
         } catch (Exception e) {
-            throw new EntitySystemCreateException(prototype, e);
+            throw new EntitySystemCreateException(prefab, e);
         }
     }
 
-    private Timer createTimer(float time) {
-        return new Timer(time);
-    }
-
-    private Timeline createTimeline(TimelinePrototype prototype) {
-        return timelineFactory.createTimeline(prototype);
+    private Timeline createTimeline(TimelinePrefab prefab, ResourceRegistry registry) {
+        return timelineFactory.createTimeline(prefab, registry);
     }
 
     @Override
-    public Class<TimelineSystemPrototype> getFactoryType() {
-        return null;
+    public Class<TimelineSystemPrefab> getFactoryType() {
+        return TimelineSystemPrefab.class;
     }
 }

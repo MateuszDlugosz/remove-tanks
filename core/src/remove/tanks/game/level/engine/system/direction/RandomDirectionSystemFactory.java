@@ -1,16 +1,14 @@
 package remove.tanks.game.level.engine.system.direction;
 
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
-import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
+import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
-import remove.tanks.game.utility.random.RandomNumberGenerator;
+import remove.tanks.game.utility.number.random.RandomNumberGenerator;
 
 /**
  * @author Mateusz Długosz
  */
-public final class RandomDirectionSystemFactory
-        implements RegistrableEntitySystemFactory<RandomDirectionSystem, RandomDirectionSystemPrototype>
-{
+public final class RandomDirectionSystemFactory implements SubEntitySystemFactory<RandomDirectionSystem, RandomDirectionSystemPrefab> {
     private final RandomNumberGenerator randomNumberGenerator;
 
     public RandomDirectionSystemFactory(RandomNumberGenerator randomNumberGenerator) {
@@ -18,19 +16,19 @@ public final class RandomDirectionSystemFactory
     }
 
     @Override
-    public RandomDirectionSystem createEntitySystem(RandomDirectionSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public RandomDirectionSystem createEntitySystem(RandomDirectionSystemPrefab prefab, ResourceRegistry registry) {
         try {
             return new RandomDirectionSystem(
-                    prototype.getPriority(),
+                    prefab.getPriority(),
                     randomNumberGenerator
             );
         } catch (Exception e) {
-            throw new EntitySystemCreateException(prototype, e);
+            throw new EntitySystemCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<RandomDirectionSystemPrototype> getFactoryType() {
-        return RandomDirectionSystemPrototype.class;
+    public Class<RandomDirectionSystemPrefab> getFactoryType() {
+        return RandomDirectionSystemPrefab.class;
     }
 }

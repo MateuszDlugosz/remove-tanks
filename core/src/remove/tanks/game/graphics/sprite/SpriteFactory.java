@@ -1,0 +1,41 @@
+package remove.tanks.game.graphics.sprite;
+
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import remove.tanks.game.asset.AssetStorage;
+import remove.tanks.game.utility.scale.Scale;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+/**
+ * @author Mateusz Długosz
+ */
+@SuppressWarnings("unchecked")
+public final class SpriteFactory {
+    private final Map<Class<? extends SpritePrefab>, SubSpriteFactory> factories
+            = new HashMap<>();
+
+    public SpriteFactory(SubSpriteFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
+    }
+
+    public List<Sprite> createSprites(List<SpritePrefab> prefabs, AssetStorage assetStorage, Scale scale) {
+        return prefabs.stream()
+                .map(p -> createSprite(p, assetStorage, scale))
+                .collect(Collectors.toList());
+    }
+
+    public Sprite createSprite(SpritePrefab prefabs, AssetStorage assetStorage, Scale scale) {
+        try {
+            if (!factories.containsKey(prefabs.getClass())) {
+                throw new SpriteFactoryNotFoundException(prefabs.getClass());
+            }
+            return factories.get(prefabs.getClass()).createSprite(prefabs, assetStorage, scale);
+        } catch (Exception e) {
+            throw new SpriteCreateException(prefabs, e);
+        }
+    }
+}

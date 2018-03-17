@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entityPrefabFilenames>
+    <!-- BONUSES -->
+    <entityPrefabFilename code="BonusStar0">prefabs/entities/bonuses/bonus-star-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BonusPromotion0">prefabs/entities/bonuses/bonus-promotion-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BonusLife0">prefabs/entities/bonuses/bonus-life-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BonusAmmo0">prefabs/entities/bonuses/bonus-ammo-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BonusGrenade0">prefabs/entities/bonuses/bonus-grenade-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BonusBombers0">prefabs/entities/bonuses/bonus-bombers-0.xml</entityPrefabFilename>
+
+    <!-- BULLETS -->
+    <entityPrefabFilename code="PlayerBulletSmall0Down">prefabs/entities/bullets/player-bullet-small-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletSmall0Up">prefabs/entities/bullets/player-bullet-small-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletSmall0Left">prefabs/entities/bullets/player-bullet-small-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletSmall0Right">prefabs/entities/bullets/player-bullet-small-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletMedium0Down">prefabs/entities/bullets/player-bullet-medium-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletMedium0Left">prefabs/entities/bullets/player-bullet-medium-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletMedium0Right">prefabs/entities/bullets/player-bullet-medium-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletMedium0Up">prefabs/entities/bullets/player-bullet-medium-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletLarge0Up">prefabs/entities/bullets/player-bullet-large-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletLarge0Down">prefabs/entities/bullets/player-bullet-large-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletLarge0Left">prefabs/entities/bullets/player-bullet-large-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerBulletLarge0Right">prefabs/entities/bullets/player-bullet-large-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletSmall0Down">prefabs/entities/bullets/enemy-bullet-small-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletSmall0Up">prefabs/entities/bullets/enemy-bullet-small-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletSmall0Left">prefabs/entities/bullets/enemy-bullet-small-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletSmall0Right">prefabs/entities/bullets/enemy-bullet-small-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletMedium0Down">prefabs/entities/bullets/enemy-bullet-medium-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletMedium0Left">prefabs/entities/bullets/enemy-bullet-medium-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletMedium0Right">prefabs/entities/bullets/enemy-bullet-medium-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletMedium0Up">prefabs/entities/bullets/enemy-bullet-medium-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletLarge0Up">prefabs/entities/bullets/enemy-bullet-large-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletLarge0Down">prefabs/entities/bullets/enemy-bullet-large-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletLarge0Left">prefabs/entities/bullets/enemy-bullet-large-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBulletLarge0Right">prefabs/entities/bullets/enemy-bullet-large-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLandBomb0">prefabs/entities/bullets/enemy-land-bomb-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLandBombDamageArea0">prefabs/entities/bullets/enemy-land-bomb-damage-area-0.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS BRIDGES -->
+    <entityPrefabFilename code="BridgeDestroyed0Horizontal">prefabs/entities/constructions/bridges/bridge-destroyed-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BridgeDestroyed0Vertical">prefabs/entities/constructions/bridges/bridge-destroyed-0-vertical.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS CEMETERY -->
+    <entityPrefabFilename code="Grave0">prefabs/entities/constructions/cemetery/grave-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Grave1">prefabs/entities/constructions/cemetery/grave-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Grave2">prefabs/entities/constructions/cemetery/grave-2.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Tombstone0">prefabs/entities/constructions/cemetery/tombstone-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Tombstone1">prefabs/entities/constructions/cemetery/tombstone-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Tombstone2">prefabs/entities/constructions/cemetery/tombstone-2.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS CHURCHES -->
+    <entityPrefabFilename code="ChurchIntacted0">prefabs/entities/constructions/churches/church-intacted-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ChurchDamaged0">prefabs/entities/constructions/churches/church-damaged-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ChurchHeavyDamaged0">prefabs/entities/constructions/churches/church-heavy-damaged-0.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS ELECTRICITY -->
+    <entityPrefabFilename code="TelegraphicSlope0">prefabs/entities/constructions/electricity/telegraphic-slope-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="TelegraphicSlope1">prefabs/entities/constructions/electricity/telegraphic-slope-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="TelegraphicSlope2">prefabs/entities/constructions/electricity/telegraphic-slope-2.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS FACTORIES -->
+    <entityPrefabFilename code="FactoryChimney0">prefabs/entities/constructions/factories/factory-chimney-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Spool0">prefabs/entities/constructions/factories/spool-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="FactoryIntacted0">prefabs/entities/constructions/factories/factory-intacted-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="FactoryDamaged0">prefabs/entities/constructions/factories/factory-damaged-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="FactoryHeavyDamaged0">prefabs/entities/constructions/factories/factory-heavy-damaged-0.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS FENCES -->
+    <entityPrefabFilename code="FenceWoodenSlope0">prefabs/entities/constructions/fences/fence-wooden-slope-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="FenceBarrierOpened0">prefabs/entities/constructions/fences/fence-barrier-opened-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="FenceBarrier0">prefabs/entities/constructions/fences/fence-barrier-0.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS FORTIFICATIONS BARRIERS -->
+    <entityPrefabFilename code="AntiTankBarrier0">prefabs/entities/constructions/fortifications/barriers/anti-tank-barrier-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BeachBarricade0">prefabs/entities/constructions/fortifications/barriers/beach-barricade-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ConcreteBarrier0Left">prefabs/entities/constructions/fortifications/barriers/concrete-barrier-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ConcreteBarrier0Right">prefabs/entities/constructions/fortifications/barriers/concrete-barrier-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="DragonsTeeth0">prefabs/entities/constructions/fortifications/barriers/dragons-teeth-0.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS FORTIFICATIONS BUNKERS -->
+    <entityPrefabFilename code="EnemyBunkerMediumIntacted0Down">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-intacted-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumDamaged0Down">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-damaged-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumHeavyDamaged0Down">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-heavy-damaged-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumIntacted0HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-intacted-0-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumDamaged0HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-damaged-0-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumHeavyDamaged0HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-heavy-damaged-0-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumIntacted1HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-intacted-1-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumDamaged1HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-damaged-1-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumHeavyDamaged1HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-heavy-damaged-1-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumIntacted2HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-intacted-2-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumDamaged2HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-damaged-2-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBunkerMediumHeavyDamaged2HorizontalDown">prefabs/entities/constructions/fortifications/bunkers/enemy-bunker-medium-heavy-damaged-2-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyBunkerIntacted0Down">prefabs/entities/constructions/fortifications/bunkers/enemy-heavy-bunker-intacted-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyBunkerDamaged0Down">prefabs/entities/constructions/fortifications/bunkers/enemy-heavy-bunker-damaged-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyBunkerHeavyDamaged0Down">prefabs/entities/constructions/fortifications/bunkers/enemy-heavy-bunker-heavy-damaged-0-down.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS HOUSES -->
+    <entityPrefabFilename code="HouseSmall0Horizontal">prefabs/entities/constructions/houses/house-small-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseSmallRuined0Horizontal">prefabs/entities/constructions/houses/house-small-ruined-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseSmall0Vertical">prefabs/entities/constructions/houses/house-small-0-vertical.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumRuined0Horizontal">prefabs/entities/constructions/houses/house-medium-ruined-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumRuined0Vertical">prefabs/entities/constructions/houses/house-medium-ruined-0-vertical.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMedium0Horizontal">prefabs/entities/constructions/houses/house-medium-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMedium1Horizontal">prefabs/entities/constructions/houses/house-medium-1-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMedium2Horizontal">prefabs/entities/constructions/houses/house-medium-2-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMedium3Horizontal">prefabs/entities/constructions/houses/house-medium-3-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMedium4Horizontal">prefabs/entities/constructions/houses/house-medium-4-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Tower0">prefabs/entities/constructions/houses/tower-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumTower0HorizontalLeft">prefabs/entities/constructions/houses/house-medium-tower-0-horizontal-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumTower0HorizontalRight">prefabs/entities/constructions/houses/house-medium-tower-0-horizontal-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumL0LeftDown">prefabs/entities/constructions/houses/house-medium-l-0-left-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumL0RightDown">prefabs/entities/constructions/houses/house-medium-l-0-right-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumL0LeftUp">prefabs/entities/constructions/houses/house-medium-l-0-left-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMediumL0RightUp">prefabs/entities/constructions/houses/house-medium-l-0-right-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseMedium0Vertical">prefabs/entities/constructions/houses/house-medium-0-vertical.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS OBSTACLES -->
+    <entityPrefabFilename code="SpikesSmall0">prefabs/entities/constructions/obstacles/spikes-small-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="MovingPushingBlockSmall0">prefabs/entities/constructions/obstacles/moving-pushing-block-small-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="MovingPushingBlockMedium0">prefabs/entities/constructions/obstacles/moving-pushing-block-medium-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="MovingDamageableBlockSmall0">prefabs/entities/constructions/obstacles/moving-damageable-block-small-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="MovingDamageableBlockMedium0">prefabs/entities/constructions/obstacles/moving-damageable-block-medium-0.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS STORAGE -->
+    <entityPrefabFilename code="StorageLargeOil0">prefabs/entities/constructions/storage/storage-large-oil-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="StorageMediumCrates0Horizontal">prefabs/entities/constructions/storage/storage-medium-crates-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="StorageMediumCrates1Horizontal">prefabs/entities/constructions/storage/storage-medium-crates-1-horizontal.xml</entityPrefabFilename>
+
+    <!-- EFFECTS EXPLOSIONS -->
+    <entityPrefabFilename code="ExplosionSmall0">prefabs/entities/effects/explosions/explosion-small-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ExplosionMedium0">prefabs/entities/effects/explosions/explosion-medium-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ExplosionLarge0">prefabs/entities/effects/explosions/explosion-large-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ExplosionBonus0">prefabs/entities/effects/explosions/explosion-bonus-0.xml</entityPrefabFilename>
+
+    <!-- LANDSCAPE CLOUDS -->
+    <entityPrefabFilename code="CloudSmall0Left">prefabs/entities/landscape/clouds/cloud-small-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="CloudSmall1Left">prefabs/entities/landscape/clouds/cloud-small-1-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="CloudSmall2Left">prefabs/entities/landscape/clouds/cloud-small-2-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="CloudSmall3Left">prefabs/entities/landscape/clouds/cloud-small-3-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="CloudSmall0Right">prefabs/entities/landscape/clouds/cloud-small-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="CloudSmall1Right">prefabs/entities/landscape/clouds/cloud-small-1-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="CloudSmall2Right">prefabs/entities/landscape/clouds/cloud-small-2-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="CloudSmall3Right">prefabs/entities/landscape/clouds/cloud-small-3-right.xml</entityPrefabFilename>
+
+    <!-- LANDSCAPE MUD -->
+    <entityPrefabFilename code="MudTiny0">prefabs/entities/landscape/mud/mud-tiny-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="MudSmall0">prefabs/entities/landscape/mud/mud-small-0.xml</entityPrefabFilename>
+
+    <!-- LANDSCAPE ROCKS -->
+    <entityPrefabFilename code="RockMedium0Horizontal">prefabs/entities/landscape/rocks/rock-medium-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="RockPolishedMedium0Horizontal">prefabs/entities/landscape/rocks/rock-polished-medium-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="RockMedium0Vertical">prefabs/entities/landscape/rocks/rock-medium-0-vertical.xml</entityPrefabFilename>
+    <entityPrefabFilename code="RockPolishedMedium0Vertical">prefabs/entities/landscape/rocks/rock-polished-medium-0-vertical.xml</entityPrefabFilename>
+    <entityPrefabFilename code="RockPolishedLarge0">prefabs/entities/landscape/rocks/rock-polished-large-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="RockPolishedSmall0">prefabs/entities/landscape/rocks/rock-polished-small-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="RockPolishedSmall1">prefabs/entities/landscape/rocks/rock-polished-small-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="RockSmall0">prefabs/entities/landscape/rocks/rock-small-0.xml</entityPrefabFilename>
+
+    <!-- LANDSCAPE TREES -->
+    <entityPrefabFilename code="Tree0">prefabs/entities/landscape/trees/tree-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Tree1">prefabs/entities/landscape/trees/tree-1.xml</entityPrefabFilename>
+
+    <!-- SERVICES ACTORS CAMERAS -->
+    <entityPrefabFilename code="CameraActor0">prefabs/entities/services/actors/cameras/camera-actor-0.xml</entityPrefabFilename>
+
+    <!-- SERVICES ACTORS CONTROLLERS -->
+    <entityPrefabFilename code="ActorControllerMediumDirectionDown">prefabs/entities/services/actors/controllers/actor-controller-medium-direction-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ActorControllerMediumDirectionLeft">prefabs/entities/services/actors/controllers/actor-controller-medium-direction-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ActorControllerMediumDirectionRight">prefabs/entities/services/actors/controllers/actor-controller-medium-direction-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ActorControllerMediumDirectionUp">prefabs/entities/services/actors/controllers/actor-controller-medium-direction-up.xml</entityPrefabFilename>
+
+    <!-- SERVICES ACTORS VEHICLES TANKS -->
+    <entityPrefabFilename code="EnemyBomberTankActor0">prefabs/entities/services/actors/vehicles/tanks/enemy-bomber-tank-actor-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyTankActor0">prefabs/entities/services/actors/vehicles/tanks/enemy-heavy-tank-actor-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyMediumTankActor0">prefabs/entities/services/actors/vehicles/tanks/enemy-medium-tank-actor-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightTankActor0">prefabs/entities/services/actors/vehicles/tanks/enemy-light-tank-actor-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerMediumTankActor0">prefabs/entities/services/actors/vehicles/tanks/player-medium-tank-actor-0.xml</entityPrefabFilename>
+
+    <!-- SERVICES ACTORS VEHICLES TRAINS -->
+    <entityPrefabFilename code="EnemyLightTrainActor0HorizontalDown">prefabs/entities/services/actors/vehicles/trains/enemy-light-train-actor-0-horizontal-down.xml</entityPrefabFilename>
+
+    <!-- SERVICES BLOCKADES -->
+    <entityPrefabFilename code="AllVehicleBlockadeTiny0">prefabs/entities/services/blockades/all-vehicle-blockade-tiny-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyVehicleBlockadeTiny0">prefabs/entities/services/blockades/enemy-vehicle-blockade-tiny-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerVehicleBlockadeTiny0">prefabs/entities/services/blockades/player-vehicle-blockade-tiny-0.xml</entityPrefabFilename>
+
+    <!-- SERVICES BUTTONS -->
+    <entityPrefabFilename code="ButtonActive0">prefabs/entities/services/buttons/button-active-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ButtonInactive0">prefabs/entities/services/buttons/button-inactive-0.xml</entityPrefabFilename>
+
+    <!-- SERVICES INDICATORS -->
+    <entityPrefabFilename code="BattleIndicator0">prefabs/entities/services/indicators/battle-indicator-0.xml</entityPrefabFilename>
+
+    <!-- SERVICES RESPAWNS -->
+    <entityPrefabFilename code="RespawnMedium0">prefabs/entities/services/respawns/respawn-medium-0.xml</entityPrefabFilename>
+
+    <!-- SERVICES SPAWNERS -->
+    <entityPrefabFilename code="AutoSpawnerLarge0">prefabs/entities/services/spawners/auto-spawner-large-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="AutoSpawnerMedium0">prefabs/entities/services/spawners/auto-spawner-medium-0.xml</entityPrefabFilename>
+
+    <!-- SERVICES TRIGGERS -->
+    <entityPrefabFilename code="PlayerTriggerLarge0">prefabs/entities/services/triggers/player-trigger-large-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerLarge0Horizontal">prefabs/entities/services/triggers/player-trigger-large-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerLarge0Vertical">prefabs/entities/services/triggers/player-trigger-large-0-vertical.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerMedium0">prefabs/entities/services/triggers/player-trigger-medium-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerMedium0Horizontal">prefabs/entities/services/triggers/player-trigger-medium-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerMedium0Vertical">prefabs/entities/services/triggers/player-trigger-medium-0-vertical.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerTiny0">prefabs/entities/services/triggers/player-trigger-tiny-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerTiny0Horizontal">prefabs/entities/services/triggers/player-trigger-tiny-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerTriggerTiny0Vertical">prefabs/entities/services/triggers/player-trigger-tiny-0-vertical.xml</entityPrefabFilename>
+
+    <!-- AIRPLANES -->
+    <entityPrefabFilename code="Bomber0Down">prefabs/entities/vehicles/airplanes/bomber-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomber0Right">prefabs/entities/vehicles/airplanes/bomber-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomber0Left">prefabs/entities/vehicles/airplanes/bomber-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomber0Up">prefabs/entities/vehicles/airplanes/bomber-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomber1Down">prefabs/entities/vehicles/airplanes/bomber-1-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomber1Right">prefabs/entities/vehicles/airplanes/bomber-1-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomber1Left">prefabs/entities/vehicles/airplanes/bomber-1-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomber1Up">prefabs/entities/vehicles/airplanes/bomber-1-up.xml</entityPrefabFilename>
+
+    <!-- AIRPLANES BOMBS -->
+    <entityPrefabFilename code="BombDamageArea0">prefabs/entities/vehicles/airplanes/bombs/bomb-damage-area-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomb0Down">prefabs/entities/vehicles/airplanes/bombs/bomb-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomb0Left">prefabs/entities/vehicles/airplanes/bombs/bomb-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomb0Right">prefabs/entities/vehicles/airplanes/bombs/bomb-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Bomb0Up">prefabs/entities/vehicles/airplanes/bombs/bomb-0-up.xml</entityPrefabFilename>
+
+    <!-- AIRPLANES SPAWNERS -->
+    <entityPrefabFilename code="BomberSpawner0Down">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BomberSpawner0Up">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BomberSpawner0Left">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BomberSpawner0Right">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BomberSpawner1Down">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-1-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BomberSpawner1Up">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-1-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BomberSpawner1Left">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-1-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="BomberSpawner1Right">prefabs/entities/vehicles/airplanes/spawners/bomber-spawner-1-right.xml</entityPrefabFilename>
+
+    <!-- VEHICLES BARGES -->
+    <entityPrefabFilename code="LandingBargeLargeAnchored0Up">prefabs/entities/vehicles/barges/landing-barge-large-anchored-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="LandingBargeSmallAnchored0Up">prefabs/entities/vehicles/barges/landing-barge-small-anchored-0-up.xml</entityPrefabFilename>
+
+    <!-- VEHICLES BOATS -->
+    <entityPrefabFilename code="EnemyLightBoat0HorizontalUp">prefabs/entities/vehicles/boats/enemy-light-boat-0-horizontal-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightBoat0HorizontalDown">prefabs/entities/vehicles/boats/enemy-light-boat-0-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightBoatSpawn0HorizontalDown">prefabs/entities/vehicles/boats/enemy-light-boat-spawn-0-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightBoatSpawn0HorizontalUp">prefabs/entities/vehicles/boats/enemy-light-boat-spawn-0-horizontal-up.xml</entityPrefabFilename>
+
+    <!-- VEHICLES TANKS -->
+    <entityPrefabFilename code="EnemyBomberTank0">prefabs/entities/vehicles/tanks/enemy-bomber-tank-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyBomberTankSpawn0">prefabs/entities/vehicles/tanks/enemy-bomber-tank-spawn-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyMediumTank0">prefabs/entities/vehicles/tanks/enemy-medium-tank-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyMediumTankSpawn0">prefabs/entities/vehicles/tanks/enemy-medium-tank-spawn-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightTank0">prefabs/entities/vehicles/tanks/enemy-light-tank-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyTankCovered0Down">prefabs/entities/vehicles/tanks/enemy-heavy-tank-covered-0-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyTankCovered0Up">prefabs/entities/vehicles/tanks/enemy-heavy-tank-covered-0-up.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyTankCovered0Left">prefabs/entities/vehicles/tanks/enemy-heavy-tank-covered-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyTankCovered0Right">prefabs/entities/vehicles/tanks/enemy-heavy-tank-covered-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyTank0">prefabs/entities/vehicles/tanks/enemy-heavy-tank-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyHeavyTankSpawn0">prefabs/entities/vehicles/tanks/enemy-heavy-tank-spawn-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightTankSpawn0">prefabs/entities/vehicles/tanks/enemy-light-tank-spawn-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerMediumTank0">prefabs/entities/vehicles/tanks/player-medium-tank-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="PlayerMediumTankSpawn0">prefabs/entities/vehicles/tanks/player-medium-tank-spawn-0.xml</entityPrefabFilename>
+
+    <!-- VEHICLES TRAINS -->
+    <entityPrefabFilename code="Train0Left">prefabs/entities/vehicles/trains/train-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Train0Right">prefabs/entities/vehicles/trains/train-0-right.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyRailroadCannon0Left">prefabs/entities/vehicles/trains/enemy-railroad-cannon-0-left.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightTrain0HorizontalDown">prefabs/entities/vehicles/trains/enemy-light-train-0-horizontal-down.xml</entityPrefabFilename>
+    <entityPrefabFilename code="EnemyLightTrainSpawn0HorizontalDown">prefabs/entities/vehicles/trains/enemy-light-train-spawn-0-horizontal-down.xml</entityPrefabFilename>
+
+    <!-- VEHICLES TRAINS WAGONS -->
+    <entityPrefabFilename code="WagonAntiTankBarriers0">prefabs/entities/vehicles/trains/wagons/wagon-anti-tank-barriers-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonCoal0">prefabs/entities/vehicles/trains/wagons/wagon-coal-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonCrates0">prefabs/entities/vehicles/trains/wagons/wagon-crates-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonCrates1">prefabs/entities/vehicles/trains/wagons/wagon-crates-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonCrates2">prefabs/entities/vehicles/trains/wagons/wagon-crates-2.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonEmpty0">prefabs/entities/vehicles/trains/wagons/wagon-empty-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonEmpty1">prefabs/entities/vehicles/trains/wagons/wagon-empty-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonEnemyTanks0">prefabs/entities/vehicles/trains/wagons/wagon-enemy-tanks-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonEnemyTanks1">prefabs/entities/vehicles/trains/wagons/wagon-enemy-tanks-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonOil0">prefabs/entities/vehicles/trains/wagons/wagon-oil-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonOil1">prefabs/entities/vehicles/trains/wagons/wagon-oil-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonPlayerTanks0">prefabs/entities/vehicles/trains/wagons/wagon-player-tanks-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonPlayerTanks1">prefabs/entities/vehicles/trains/wagons/wagon-player-tanks-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonSuperHeavyAmmo0">prefabs/entities/vehicles/trains/wagons/wagon-super-heavy-ammo-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="WagonTroops0">prefabs/entities/vehicles/trains/wagons/wagon-troops-0.xml</entityPrefabFilename>
+</entityPrefabFilenames>

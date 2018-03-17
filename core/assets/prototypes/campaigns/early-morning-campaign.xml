@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<campaign>
-    <title>early-morning</title>
-    <levelSequence>
-        <levelPrototypeFilenames>
-            <levelPrototypeFilename>prototypes/levels/campaigns/early-morning/level-0.xml</levelPrototypeFilename>
-        </levelPrototypeFilenames>
-    </levelSequence>
-</campaign>

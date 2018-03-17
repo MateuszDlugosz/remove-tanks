@@ -16,10 +16,11 @@ public final class ChangeBehaviorSystem extends IteratingSystem {
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        PhysicsComponent.MAPPER.get(entity).getSensors().values().forEach(
-                s -> s.getContacts().forEach(
-                        c -> ChangeBehaviorComponent.MAPPER.get(entity).getComponents().forEach(((Entity) c)::add)
-                )
-        );
+        PhysicsComponent.MAPPER.get(entity).getSensors().values().forEach(s -> {
+            if (s.isContacted()) {
+                s.getContacts().forEach(e -> ChangeBehaviorComponent.MAPPER.get(entity)
+                        .getComponents().forEach(((Entity) e)::add));
+            }
+        });
     }
 }

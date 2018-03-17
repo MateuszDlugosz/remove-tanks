@@ -7,24 +7,24 @@ import remove.tanks.game.utility.scale.Scale;
 /**
  * @author Mateusz Długosz
  */
-public final class CircleShapeFactory implements RegistrableShapeFactory<CircleShape, CircleShapePrototype> {
+public final class CircleShapeFactory implements SubShapeFactory<CircleShape, CircleShapePrefab> {
     @Override
-    public CircleShape createShape(CircleShapePrototype prototype, Scale scale) {
+    public CircleShape createShape(CircleShapePrefab prefab, Scale scale) {
         try {
             CircleShape shape = new CircleShape();
-            shape.setRadius(scale.scaleValue(prototype.getRadius()));
+            shape.setRadius(scale.scaleValue(prefab.getRadius()));
             shape.setPosition(new Vector2(
-                    scale.scaleValue(prototype.getPositionPrototype().getX()),
-                    scale.scaleValue(prototype.getPositionPrototype().getY())
+                    scale.scaleValue(prefab.getPositionPrefab().getX()),
+                    scale.scaleValue(prefab.getPositionPrefab().getY())
             ));
             return shape;
         } catch (Exception e) {
-            throw new ShapeCreateException(prototype, e);
+            throw new ShapeCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<CircleShapePrototype> getFactoryType() {
-        return CircleShapePrototype.class;
+    public Class<CircleShapePrefab> getFactoryType() {
+        return CircleShapePrefab.class;
     }
 }

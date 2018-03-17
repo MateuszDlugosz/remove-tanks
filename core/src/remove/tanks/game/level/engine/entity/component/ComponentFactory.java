@@ -2,7 +2,7 @@ package remove.tanks.game.level.engine.entity.component;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,27 +15,27 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings("unchecked")
 public final class ComponentFactory {
-    private final Map<Class<? extends ComponentPrototype>, RegistrableComponentFactory> subFactories
+    private final Map<Class<? extends ComponentPrefab>, SubComponentFactory> factories
             = new HashMap<>();
 
-    public ComponentFactory(RegistrableComponentFactory[] subFactories) {
-        Arrays.stream(subFactories).forEach(s -> this.subFactories.put(s.getFactoryType(), s));
+    public ComponentFactory(SubComponentFactory[] factories) {
+        Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<Component> createComponents(List<ComponentPrototype> prototypes, Level level, Entity entity) {
-        return prototypes.stream()
-                .map(p -> createComponent(p, level, entity))
+    public List<Component> createComponents(List<ComponentPrefab> prefabs, Entity entity, ResourceRegistry registry) {
+        return prefabs.stream()
+                .map(p -> createComponent(p, entity, registry))
                 .collect(Collectors.toList());
     }
 
-    public Component createComponent(ComponentPrototype prototype, Level level, Entity entity) {
+    public Component createComponent(ComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            if (!subFactories.containsKey(prototype.getClass())) {
-                throw new ComponentFactoryNotFoundException(prototype.getClass().toString());
+            if (!factories.containsKey(prefab.getClass())) {
+                throw new ComponentFactoryNotFoundException(prefab.getClass().toString());
             }
-            return subFactories.get(prototype.getClass()).createComponent(prototype, level, entity);
+            return factories.get(prefab.getClass()).createComponent(prefab, entity, registry);
         } catch (Exception e) {
-            throw new ComponentCreateException(prototype, e);
+            throw new ComponentCreateException(prefab, e);
         }
     }
 }

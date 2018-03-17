@@ -2,7 +2,7 @@ package remove.tanks.game.level.engine.entity.component.camera;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
-import remove.tanks.game.utility.position.Position;
+import remove.tanks.game.utility.surface.position.Position;
 
 /**
  * @author Mateusz Długosz

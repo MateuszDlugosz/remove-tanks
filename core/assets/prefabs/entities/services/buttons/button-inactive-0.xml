@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>ButtonActive0</entityPrefabCode>
+            <entityPrefabCode>ExplosionBonus0</entityPrefabCode>
+        </entityPrefabCodes>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+            <assetId>ButtonPush0Sound</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <sensors>
+                <sensor id="HitDetector">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>14</width>
+                            <height>14</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>PlayerVehicleCategory</categoryBit>
+                            <maskBit>PlayerVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="AnimationView" id="StandingNone">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="button-inactive-0-0" />
+                        <frame regionName="button-inactive-0-1" />
+                        <frame regionName="button-inactive-0-2" />
+                        <frame regionName="button-inactive-0-1" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>None</direction>
+        </component>
+        <component type="DestroyTriggerComponent">
+            <entityEvents>
+                <entityEvent type="CreateEntityEvent">
+                    <createEntries>
+                        <createEntry>
+                            <entityPrefabCode>ButtonActive0</entityPrefabCode>
+                        </createEntry>
+                        <createEntry>
+                            <entityPrefabCode>ExplosionBonus0</entityPrefabCode>
+                        </createEntry>
+                    </createEntries>
+                </entityEvent>
+                <entityEvent type="PlaySoundEntityEvent">
+                    <sound>
+                        <filename>ButtonPush0Sound</filename>
+                    </sound>
+                    <soundChannelName>EffectSoundChannel</soundChannelName>
+                </entityEvent>
+            </entityEvents>
+        </component>
+        <component type="DestroyOnContactComponent" />
+        <component type="ObstacleRenderLayerComponent" />
+    </components>
+</entity>

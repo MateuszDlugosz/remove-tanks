@@ -4,9 +4,9 @@ package remove.tanks.game.level.resource;
  * @author Mateusz Długosz
  */
 public final class ResourceNotFoundException extends RuntimeException {
-    private static final String MESSAGE_TEMPLATE = "LevelResource named %s not found.";
+    private static final String MESSAGE_TEMPLATE = "Resource %s not found.";
 
-    public ResourceNotFoundException(String name) {
-        super(String.format(MESSAGE_TEMPLATE, name));
+    public ResourceNotFoundException(ResourceType resourceType) {
+        super(String.format(MESSAGE_TEMPLATE, resourceType));
     }
 }

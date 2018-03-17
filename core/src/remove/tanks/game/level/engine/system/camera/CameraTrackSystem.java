@@ -3,7 +3,7 @@ package remove.tanks.game.level.engine.system.camera;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.math.Vector2;
-import remove.tanks.game.graphic.camera.Game2DCamera;
+import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponent;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
@@ -57,6 +57,6 @@ public final class CameraTrackSystem extends EntitySystem {
     }
 
     private List<Entity> getCameraTrackEntities() {
-        return Arrays.asList(getEngine().getEntitiesFor(EntityFamily.CameraTrackingFamily.getFamily()).toArray());
+        return Arrays.asList(getEngine().getEntitiesFor(EntityFamily.CameraTrackFamily.getFamily()).toArray());
     }
 }

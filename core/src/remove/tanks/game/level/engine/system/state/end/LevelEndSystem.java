@@ -1,8 +1,8 @@
 package remove.tanks.game.level.engine.system.state.end;
 
 import com.badlogic.ashley.core.EntitySystem;
-import remove.tanks.game.level.constant.LevelProperty;
-import remove.tanks.game.level.constant.LevelState;
+import remove.tanks.game.level.LevelProperty;
+import remove.tanks.game.level.LevelState;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
 
@@ -10,13 +10,13 @@ import remove.tanks.game.utility.time.Timer;
  * @author Mateusz Długosz
  */
 public final class LevelEndSystem extends EntitySystem {
-    private final Timer timer;
     private final Properties properties;
+    private final Timer timer;
 
-    public LevelEndSystem(int priority, Timer timer, Properties properties) {
+    public LevelEndSystem(int priority, Properties properties, Timer timer) {
         super(priority);
-        this.timer = timer;
         this.properties = properties;
+        this.timer = timer;
     }
 
     @Override

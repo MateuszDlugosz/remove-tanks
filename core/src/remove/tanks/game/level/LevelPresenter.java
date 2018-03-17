@@ -1,8 +1,7 @@
 package remove.tanks.game.level;
 
 import com.badlogic.gdx.utils.Disposable;
-import com.google.common.eventbus.EventBus;
-import remove.tanks.game.utility.random.RandomNumberGenerator;
+import remove.tanks.game.utility.number.random.RandomNumberGenerator;
 import remove.tanks.game.utility.time.Timer;
 
 import java.util.List;
@@ -32,14 +31,14 @@ public final class LevelPresenter implements Disposable {
         return randomNumberGenerator.getRandomInt(0, levelControllers.size()-1);
     }
 
-    public void update(float delta, EventBus eventBus) {
+    public void update(float delta) {
         if (timer.isCompleted()) {
             currentLevelIndex = getRandomIndex();
             timer.reset();
         } else {
             timer.update(delta);
         }
-        levelControllers.get(currentLevelIndex).update(delta, eventBus);
+        levelControllers.get(currentLevelIndex).update(delta);
     }
 
     @Override

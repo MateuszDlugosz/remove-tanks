@@ -7,7 +7,7 @@ import java.lang.reflect.Modifier;
 /**
  * @author Mateusz Długosz
  */
-public final class ComponentSupplierClassModifierValidator implements RegistrableComponentSupplierValidator {
+public final class ComponentSupplierClassModifierValidator implements SubComponentSupplierValidator {
     private static final String ABSTRACT_MODIFIER_ERROR_MESSAGE_TEMPLATE = "(%s) Component supplier class cannot be abstract.";
     private static final String PRIVATE_MODIFIER_ERROR_MESSAGE_TEMPLATE = "(%s) Component supplier class cannot be private.";
     private static final String PROTECTED_MODIFIER_ERROR_MESSAGE_TEMPLATE = "(%s) Component supplier class cannot be protected.";
@@ -34,9 +34,9 @@ public final class ComponentSupplierClassModifierValidator implements Registrabl
         }
 
         if (!Modifier.isFinal(componentSupplierClass.getModifiers())) {
-                throw new ComponentSupplierClassValidationException(
-                        String.format(FINAL_MODIFIER_ERROR_MESSAGE_TEMPLATE, componentSupplierClass.toString())
-                ) ;
+            throw new ComponentSupplierClassValidationException(
+                    String.format(FINAL_MODIFIER_ERROR_MESSAGE_TEMPLATE, componentSupplierClass.toString())
+            ) ;
         }
     }
 }

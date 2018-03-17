@@ -1,6 +1,6 @@
 package remove.tanks.game.level.event.state;
 
-import remove.tanks.game.level.constant.LevelState;
+import remove.tanks.game.level.LevelState;
 import remove.tanks.game.level.event.Event;
 
 /**

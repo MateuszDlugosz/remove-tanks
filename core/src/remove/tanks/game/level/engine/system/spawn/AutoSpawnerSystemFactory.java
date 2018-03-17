@@ -1,15 +1,14 @@
 package remove.tanks.game.level.engine.system.spawn;
 
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.engine.entity.EntityPrototypeRepository;
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
-import remove.tanks.game.level.engine.system.RegistrableEntitySystemFactory;
-import remove.tanks.game.level.engine.utility.spawn.spawner.Spawner;
-import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerFactory;
-import remove.tanks.game.level.engine.utility.spawn.spawner.SpawnerPrototype;
+import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
-import remove.tanks.game.utility.random.RandomNumberGenerator;
+import remove.tanks.game.level.resource.ResourceType;
+import remove.tanks.game.level.utility.spawner.Spawner;
+import remove.tanks.game.level.utility.spawner.SpawnerFactory;
+import remove.tanks.game.level.utility.spawner.SpawnerPrefab;
+import remove.tanks.game.utility.number.random.RandomNumberGenerator;
 
 import java.util.List;
 import java.util.Map;
@@ -18,41 +17,43 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
-public final class AutoSpawnerSystemFactory
-        implements RegistrableEntitySystemFactory<AutoSpawnerSystem, AutoSpawnerSystemPrototype>
-{
+public final class AutoSpawnerSystemFactory implements SubEntitySystemFactory<AutoSpawnerSystem, AutoSpawnerSystemPrefab> {
     private final RandomNumberGenerator randomNumberGenerator;
     private final SpawnerFactory spawnerFactory;
 
-    public AutoSpawnerSystemFactory(
-            RandomNumberGenerator randomNumberGenerator,
-            SpawnerFactory spawnerFactory
-    ) {
+    public AutoSpawnerSystemFactory(RandomNumberGenerator randomNumberGenerator, SpawnerFactory spawnerFactory) {
         this.randomNumberGenerator = randomNumberGenerator;
         this.spawnerFactory = spawnerFactory;
     }
 
     @Override
-    public AutoSpawnerSystem createEntitySystem(AutoSpawnerSystemPrototype prototype, ResourceRegistry resourceRegistry) {
+    public AutoSpawnerSystem createEntitySystem(AutoSpawnerSystemPrefab prefab, ResourceRegistry registry) {
         try {
             return new AutoSpawnerSystem(
-                    prototype.getPriority(),
+                    prefab.getPriority(),
                     randomNumberGenerator,
-                    resourceRegistry.getResource(LevelResource.EntityPrototypeRepository.toString(),
-                            EntityPrototypeRepository.class),
-                    resourceRegistry.getResource(LevelResource.EventBus.toString(),
-                            EventBus.class),
-                    createSpawnersByLetter(prototype.getSpawnerPrototypes(), false),
-                    createSpawnersByLetter(prototype.getSpawnerPrototypes(), true)
+                    registry.getResource(ResourceType.EventBusResource, EventBus.class),
+                    createActiveSpawnersMap(prefab.getSpawnerPrefabs()),
+                    createInactiveSpawnersMap(prefab.getSpawnerPrefabs())
             );
         } catch (Exception e) {
-            throw new EntitySystemCreateException(prototype, e);
+            throw new EntitySystemCreateException(prefab, e);
         }
     }
 
-    private Map<String, Spawner> createSpawnersByLetter(List<SpawnerPrototype> prototypes, boolean active) {
-        return prototypes.stream()
-                .filter(p -> p.isActive() == active)
+    private Map<String, Spawner> createActiveSpawnersMap(List<SpawnerPrefab> prefabs) {
+        return prefabs.stream()
+                .filter(SpawnerPrefab::isAutoStart)
+                .map(spawnerFactory::createSpawner)
+                .collect(Collectors.toMap(
+                        Spawner::getId,
+                        s -> s
+                ));
+    }
+
+    private Map<String, Spawner> createInactiveSpawnersMap(List<SpawnerPrefab> prefabs) {
+        return prefabs.stream()
+                .filter(p -> !p.isAutoStart())
                 .map(spawnerFactory::createSpawner)
                 .collect(Collectors.toMap(
                         Spawner::getId,
@@ -61,7 +62,7 @@ public final class AutoSpawnerSystemFactory
     }
 
     @Override
-    public Class<AutoSpawnerSystemPrototype> getFactoryType() {
-        return AutoSpawnerSystemPrototype.class;
+    public Class<AutoSpawnerSystemPrefab> getFactoryType() {
+        return AutoSpawnerSystemPrefab.class;
     }
 }

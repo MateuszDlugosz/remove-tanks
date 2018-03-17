@@ -1,17 +1,16 @@
 package remove.tanks.game.level.event.message;
 
-import remove.tanks.game.level.engine.system.hud.stages.broker.message.Message;
-import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessageFactory;
-import remove.tanks.game.level.engine.system.hud.stages.broker.message.MessagePrototype;
 import remove.tanks.game.level.event.EventCreateException;
-import remove.tanks.game.level.event.RegistrableEventFactory;
+import remove.tanks.game.level.event.SubEventFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.utility.stage.broker.message.Message;
+import remove.tanks.game.level.utility.stage.broker.message.MessageFactory;
+import remove.tanks.game.level.utility.stage.broker.message.MessagePrefab;
 
 /**
  * @author Mateusz Długosz
  */
-public final class AddMessageEventFactory
-        implements RegistrableEventFactory<AddMessageEvent, AddMessageEventPrototype>
-{
+public final class AddMessageEventFactory implements SubEventFactory<AddMessageEvent, AddMessageEventPrefab> {
     private final MessageFactory messageFactory;
 
     public AddMessageEventFactory(MessageFactory messageFactory) {
@@ -19,22 +18,20 @@ public final class AddMessageEventFactory
     }
 
     @Override
-    public AddMessageEvent createEvent(AddMessageEventPrototype prototype) {
+    public AddMessageEvent createEvent(AddMessageEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new AddMessageEvent(
-                    createMessage(prototype.getMessagePrototype())
-            );
+            return new AddMessageEvent(createMessage(prefab.getMessagePrefab()));
         } catch (Exception e) {
-            throw new EventCreateException(prototype, e);
+            throw new EventCreateException(prefab, e);
         }
     }
 
-    private Message createMessage(MessagePrototype prototype) {
-        return messageFactory.createMessage(prototype);
+    private Message createMessage(MessagePrefab prefab) {
+        return messageFactory.createMessage(prefab);
     }
 
     @Override
-    public Class<AddMessageEventPrototype> getFactoryType() {
-        return AddMessageEventPrototype.class;
+    public Class<AddMessageEventPrefab> getFactoryType() {
+        return AddMessageEventPrefab.class;
     }
 }

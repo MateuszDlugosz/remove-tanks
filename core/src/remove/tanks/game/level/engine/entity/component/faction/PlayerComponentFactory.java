@@ -1,27 +1,25 @@
 package remove.tanks.game.level.engine.entity.component.faction;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
 import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
-import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
+import remove.tanks.game.level.engine.entity.component.SubComponentFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
  */
-public final class PlayerComponentFactory
-        implements RegistrableComponentFactory<PlayerComponent, PlayerComponentPrototype>
-{
+public final class PlayerComponentFactory implements SubComponentFactory<PlayerComponent, PlayerComponentPrefab> {
     @Override
-    public PlayerComponent createComponent(PlayerComponentPrototype prototype, Level level, Entity entity) {
+    public PlayerComponent createComponent(PlayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
             return new PlayerComponent();
         } catch (Exception e) {
-            throw new ComponentCreateException(prototype, e);
+            throw new ComponentCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<PlayerComponentPrototype> getFactoryType() {
-        return PlayerComponentPrototype.class;
+    public Class<PlayerComponentPrefab> getFactoryType() {
+        return PlayerComponentPrefab.class;
     }
 }

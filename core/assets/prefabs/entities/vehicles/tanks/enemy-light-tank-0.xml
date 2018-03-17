@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>ExplosionMedium0</entityPrefabCode>
+            <entityPrefabCode>EnemyBulletSmall0Down</entityPrefabCode>
+            <entityPrefabCode>EnemyBulletSmall0Up</entityPrefabCode>
+            <entityPrefabCode>EnemyBulletSmall0Left</entityPrefabCode>
+            <entityPrefabCode>EnemyBulletSmall0Right</entityPrefabCode>
+        </entityPrefabCodes>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>14</width>
+                            <height>14</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+            <sensors>
+                <sensor id="Left">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>-7.5</x>
+                                <y>0</y>
+                            </position>
+                            <width>2</width>
+                            <height>12</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Right">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>7.5</x>
+                                <y>0</y>
+                            </position>
+                            <width>2</width>
+                            <height>12</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Up">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>0</x>
+                                <y>7.5</y>
+                            </position>
+                            <width>12</width>
+                            <height>2</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+                <sensor id="Down">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <position>
+                                <x>0</x>
+                                <y>-7.5</y>
+                            </position>
+                            <width>12</width>
+                            <height>2</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>EnemyVehicleCategory</categoryBit>
+                            <maskBit>EnemyVehicleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+            <lightHandlers>
+                <lightHandler id="Main">
+                    <light type="PointLight">
+                        <color type="RgbColor">
+                            <r>0</r>
+                            <g>0</g>
+                            <b>0</b>
+                        </color>
+                        <distance>64</distance>
+                        <xRay>true</xRay>
+                    </light>
+                </lightHandler>
+            </lightHandlers>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="AnimationView" id="MovingLeft">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-left-0" />
+                        <frame regionName="enemy-light-tank-0-left-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingRight">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-right-0" />
+                        <frame regionName="enemy-light-tank-0-right-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingUp">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-up-0" />
+                        <frame regionName="enemy-light-tank-0-up-1" />
+                    </animation>
+                </view>
+                <view type="AnimationView" id="MovingDown">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                        <frame regionName="enemy-light-tank-0-down-0" />
+                        <frame regionName="enemy-light-tank-0-down-1" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Moving</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="HealthComponent">
+            <health>2</health>
+            <maxHealth>2</maxHealth>
+        </component>
+        <component type="SpeedComponent">
+            <speed>1.2</speed>
+        </component>
+        <component type="RandomDirectionComponent">
+            <minChangeDirectionFrequency>0.3</minChangeDirectionFrequency>
+            <maxChangeDirectionFrequency>0.6</maxChangeDirectionFrequency>
+            <directions>
+                <direction>Left</direction>
+                <direction>Right</direction>
+                <direction>Up</direction>
+                <direction>Down</direction>
+            </directions>
+        </component>
+        <component type="VehicleRenderLayerComponent" />
+        <component type="AutoMoveComponent" />
+        <component type="AmmoComponent">
+            <currentLevel>1</currentLevel>
+            <maxLevel>1</maxLevel>
+            <ammo level="1">
+                <bullet direction="Down">EnemyBulletSmall0Down</bullet>
+                <bullet direction="Up">EnemyBulletSmall0Up</bullet>
+                <bullet direction="Left">EnemyBulletSmall0Left</bullet>
+                <bullet direction="Right">EnemyBulletSmall0Right</bullet>
+            </ammo>
+        </component>
+        <component type="RandomShootComponent">
+            <minShootFrequency>0.7</minShootFrequency>
+            <maxShootFrequency>1.5</maxShootFrequency>
+        </component>
+        <component type="DestroyTriggerComponent">
+            <entityEvents>
+                <entityEvent type="CreateEntityEvent">
+                    <createEntries>
+                        <createEntry>
+                            <entityPrefabCode>ExplosionMedium0</entityPrefabCode>
+                        </createEntry>
+                    </createEntries>
+                </entityEvent>
+                <entityEvent type="AddPointsEntityEvent">
+                    <points>10</points>
+                </entityEvent>
+            </entityEvents>
+        </component>
+        <component type="LeaveBonusComponent" />
+        <component type="EnemyComponent" />
+    </components>
+</entity>

@@ -4,16 +4,16 @@ package remove.tanks.game.level.resource;
  * @author Mateusz Długosz
  */
 public abstract class Resource<T> {
-    private final String name;
+    private final ResourceType resourceType;
     private final T object;
 
-    public Resource(String name, T object) {
-        this.name = name;
+    public Resource(ResourceType resourceType, T object) {
+        this.resourceType = resourceType;
         this.object = object;
     }
 
-    public String getName() {
-        return name;
+    public ResourceType getResourceType() {
+        return resourceType;
     }
 
     public T getObject() {

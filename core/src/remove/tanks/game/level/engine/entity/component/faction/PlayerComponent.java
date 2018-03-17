@@ -7,6 +7,6 @@ import com.badlogic.ashley.core.ComponentMapper;
  * @author Mateusz Długosz
  */
 public final class PlayerComponent implements Component {
-    public static final ComponentMapper MAPPER
+    public static final ComponentMapper<PlayerComponent> MAPPER
             = ComponentMapper.getFor(PlayerComponent.class);
 }

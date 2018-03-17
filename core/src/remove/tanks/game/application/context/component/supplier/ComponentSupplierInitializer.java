@@ -1,7 +1,7 @@
 package remove.tanks.game.application.context.component.supplier;
 
 import remove.tanks.game.application.context.Context;
-import remove.tanks.game.application.context.component.provider.Scope;
+import remove.tanks.game.application.context.component.Scope;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentScope;
 import remove.tanks.game.application.context.component.supplier.validator.ComponentSupplierClassValidator;
@@ -45,11 +45,13 @@ public final class ComponentSupplierInitializer {
 
             contextField.setAccessible(true);
             contextField.set(componentSupplier, context);
+
             componentNameField.setAccessible(true);
             componentNameField.set(componentSupplier, getComponentSupplierName(supplierClass));
+
             componentScopeField.setAccessible(true);
             componentScopeField.set(componentSupplier, getComponentSupplierScope(supplierClass));
-        } catch (NoSuchFieldException | IllegalAccessException e) {
+        } catch (NoSuchFieldException | IllegalAccessException | ComponentSupplierNoSuchMethodException e) {
             throw new ComponentSupplierInitializationException(e);
         }
         return componentSupplier;

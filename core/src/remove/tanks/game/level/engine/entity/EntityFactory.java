@@ -1,8 +1,8 @@
 package remove.tanks.game.level.engine.entity;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
 import remove.tanks.game.level.engine.entity.component.ComponentFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
@@ -14,14 +14,14 @@ public final class EntityFactory {
         this.componentFactory = componentFactory;
     }
 
-    public Entity createEntity(EntityPrototype prototype, Level level) {
+    public Entity createEntity(EntityPrefab prefab, ResourceRegistry registry) {
         try {
             Entity entity = new Entity();
-            prototype.getComponentPrototypes().values()
-                    .forEach(c -> entity.add(componentFactory.createComponent(c, level, entity)));
+            prefab.getComponentPrefabs().values()
+                    .forEach(c -> entity.add(componentFactory.createComponent(c, entity, registry)));
             return entity;
         } catch (Exception e) {
-            throw new EntityCreateException(prototype.getFilename(), e);
+            throw new EntityCreateException(prefab, e);
         }
     }
 }

@@ -1,8 +1,8 @@
 package remove.tanks.game.level.engine.system.camera;
 
 import com.badlogic.ashley.core.EntitySystem;
-import remove.tanks.game.graphic.camera.Game2DCamera;
-import remove.tanks.game.graphic.camera.effect.CameraEffect;
+import remove.tanks.game.graphics.camera.Game2DCamera;
+import remove.tanks.game.graphics.camera.effect.CameraEffect;
 
 import java.util.ArrayList;
 import java.util.List;

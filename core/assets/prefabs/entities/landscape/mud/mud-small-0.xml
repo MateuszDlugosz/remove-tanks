@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <sensors>
+                <sensor id="Detector">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>16</width>
+                            <height>16</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>AllVehicleBlockadeCategory</categoryBit>
+                            <maskBit>AllVehicleBlockadeMask</maskBit>
+                        </filter>
+                    </fixture>
+                </sensor>
+            </sensors>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="AnimationView" id="StandingNone">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.1f">
+                        <frame regionName="mud-small-0-0" />
+                        <frame regionName="mud-small-0-1" />
+                        <frame regionName="mud-small-0-2" />
+                        <frame regionName="mud-small-0-3" />
+                        <frame regionName="mud-small-0-4" />
+                        <frame regionName="mud-small-0-5" />
+                        <frame regionName="mud-small-0-6" />
+                    </animation>
+                </view>
+            </views>
+        </component>
+        <component type="DirectionComponent">
+            <direction>None</direction>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="GroundRenderLayerComponent" />
+        <component type="ChangeBehaviorComponent">
+            <components>
+                <component type="SpeedModifierComponent">
+                    <speedModifier>0.5</speedModifier>
+                </component>
+            </components>
+        </component>
+    </components>
+</entity>

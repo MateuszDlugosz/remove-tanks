@@ -1,24 +1,28 @@
 package remove.tanks.game.level.event.life;
 
-import remove.tanks.game.level.Level;
-import remove.tanks.game.level.constant.LevelProperty;
-import remove.tanks.game.level.constant.LevelResource;
-import remove.tanks.game.level.event.RegistrableEventExecutor;
+import remove.tanks.game.level.LevelProperty;
+import remove.tanks.game.level.event.EventExecuteException;
+import remove.tanks.game.level.event.SubEventExecutor;
+import remove.tanks.game.level.resource.ResourceRegistry;
+import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.properties.Properties;
 
 /**
  * @author Mateusz Długosz
  */
-public final class RemoveLifeEventExecutor
-        implements RegistrableEventExecutor<RemoveLifeEvent>
-{
+public final class RemoveLifeEventExecutor implements SubEventExecutor<RemoveLifeEvent> {
     @Override
-    public void executeEvent(RemoveLifeEvent event, Level level) {
-        Properties properties = level.getResourceRegistry().getResource(LevelResource.Properties.toString(),
-                Properties.class);
-        if (properties.getInt(LevelProperty.LevelLifes.getName()) > 0) {
-            properties.putInt(LevelProperty.LevelLifes.getName(),
-                    properties.getInt(LevelProperty.LevelLifes.getName()) - 1);
+    public void executeEvent(RemoveLifeEvent event, ResourceRegistry registry) {
+        try {
+            int newLifesCount = registry.getResource(ResourceType.LevelPropertiesResource, Properties.class)
+                    .getInt(LevelProperty.LevelLifes.getName()) - 1;
+
+            if (newLifesCount >= 0) {
+                registry.getResource(ResourceType.LevelPropertiesResource, Properties.class)
+                        .putInt(LevelProperty.LevelLifes.getName(), newLifesCount);
+            }
+        } catch (Exception e) {
+            throw new EventExecuteException(event, e);
         }
     }
 

@@ -1,7 +1,7 @@
 package remove.tanks.game.application.context.component.supplier;
 
 import remove.tanks.game.application.context.Context;
-import remove.tanks.game.application.context.component.provider.Scope;
+import remove.tanks.game.application.context.component.Scope;
 
 /**
  * @author Mateusz Długosz

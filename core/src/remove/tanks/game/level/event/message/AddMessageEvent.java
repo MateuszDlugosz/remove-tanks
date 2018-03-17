@@ -1,7 +1,7 @@
 package remove.tanks.game.level.event.message;
 
-import remove.tanks.game.level.engine.system.hud.stages.broker.message.Message;
 import remove.tanks.game.level.event.Event;
+import remove.tanks.game.level.utility.stage.broker.message.Message;
 
 /**
  * @author Mateusz Długosz

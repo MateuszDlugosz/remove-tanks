@@ -1,43 +1,37 @@
 package remove.tanks.game.level.resource;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.Map;
 
 /**
  * @author Mateusz Długosz
  */
 public final class ResourceRegistryFactory {
-    private final Map<String, AbstractExternalResourceFactory> externalFactories
-            = new HashMap<>();
-    private final List<AbstractInternalResourceFactory> internalFactories
-            = new ArrayList<>();
+    private final Map<ResourceType, AbstractResourceFactory> resourceFactories = new EnumMap<>(ResourceType.class);
 
-    public ResourceRegistryFactory(
-            AbstractExternalResourceFactory[] externalFactories,
-            AbstractInternalResourceFactory[] internalFactories
-    ) {
-        Arrays.stream(externalFactories).forEach(f -> this.externalFactories.put(f.getResourceName(), f));
-        this.internalFactories.addAll(Arrays.asList(internalFactories));
+    public ResourceRegistryFactory(AbstractResourceFactory[] factories) {
+        Arrays.stream(factories).forEach(f -> resourceFactories.put(f.getCreatedResourceType(), f));
     }
 
-    public ResourceRegistry createResourceRegistry(Map<String, Object> externalObjects) {
-        ResourceRegistry registry = new ResourceRegistry();
-        createExternalResources(registry, externalObjects);
-        createInternalResources(registry);
-        return registry;
+    public ResourceRegistry createResourceRegistry(EnumMap<ResourceType, Object> globalObjects) {
+        try {
+            ResourceRegistry registry = new ResourceRegistry();
+            createResources(globalObjects, registry);
+            registry.unregisterTemporaryResources();
+            return registry;
+        } catch (Exception e) {
+            throw new ResourceRegistryCreateException(e);
+        }
     }
 
-    @SuppressWarnings("unchecked")
-    private void createExternalResources(ResourceRegistry registry, Map<String, Object> externalObjects) {
-        externalObjects.forEach((k, v) -> {
-            if (!externalFactories.containsKey(k)) {
-                throw new ExternalResourceFactoryNotFoundException(k, v.getClass());
-            } else {
-                registry.registerResource(externalFactories.get(k).createResource(v, registry));
+    private void createResources(EnumMap<ResourceType, Object> globalObjects, ResourceRegistry registry) {
+        Arrays.stream(ResourceType.values()).forEach(r -> {
+            if (!resourceFactories.containsKey(r)) {
+                throw new ResourceFactoryNotFoundException(r);
             }
+            Resource resource = resourceFactories.get(r).createResource(globalObjects, registry);
+            registry.registerResource(resource);
         });
-    }
-
-    private void createInternalResources(ResourceRegistry registry) {
-        internalFactories.forEach(f -> registry.registerResource(f.createResource(registry)));
     }
 }

@@ -9,14 +9,15 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class SpeedModifierComponent implements Component {
     public static final ComponentMapper<SpeedModifierComponent> MAPPER
             = ComponentMapper.getFor(SpeedModifierComponent.class);
+    public static final float DEFAULT_SPEED_MODIFIER = 1f;
 
-    private final float value;
+    private final float speedModifier;
 
-    public SpeedModifierComponent(float value) {
-        this.value = value;
+    public SpeedModifierComponent(float speedModifier) {
+        this.speedModifier = speedModifier;
     }
 
-    public float getValue() {
-        return value;
+    public float getSpeedModifier() {
+        return speedModifier;
     }
 }

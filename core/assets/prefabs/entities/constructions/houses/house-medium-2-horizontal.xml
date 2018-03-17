@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <entityPrefabCodes>
+            <entityPrefabCode>ExplosionMedium0</entityPrefabCode>
+        </entityPrefabCodes>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>StaticBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>32</width>
+                            <height>16</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>ObstacleCategory</categoryBit>
+                            <maskBit>ObstacleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="SpriteView" id="StandingNone">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>EntityAtlas</atlasFilename>
+                        <regionName>house-medium-2-horizontal</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Standing</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>None</direction>
+        </component>
+        <component type="HealthComponent">
+            <health>3</health>
+            <maxHealth>3</maxHealth>
+        </component>
+        <component type="ObstacleRenderLayerComponent" />
+        <component type="DestroyTriggerComponent">
+            <entityEvents>
+                <entityEvent type="CreateEntityEvent">
+                    <createEntries>
+                        <createEntry>
+                            <entityPrefabCode>ExplosionMedium0</entityPrefabCode>
+                        </createEntry>
+                    </createEntries>
+                </entityEvent>
+            </entityEvents>
+        </component>
+        <component type="LeaveBonusComponent" />
+    </components>
+</entity>

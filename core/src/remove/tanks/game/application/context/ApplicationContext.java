@@ -7,7 +7,7 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
 import remove.tanks.game.application.context.component.supplier.validator.ComponentSupplierClassConstructorValidator;
 import remove.tanks.game.application.context.component.supplier.validator.ComponentSupplierClassModifierValidator;
 import remove.tanks.game.application.context.component.supplier.validator.ComponentSupplierClassValidator;
-import remove.tanks.game.application.context.component.supplier.validator.RegistrableComponentSupplierValidator;
+import remove.tanks.game.application.context.component.supplier.validator.SubComponentSupplierValidator;
 import remove.tanks.game.application.context.configuration.Configuration;
 
 import java.util.logging.Logger;
@@ -16,50 +16,55 @@ import java.util.logging.Logger;
  * @author Mateusz Długosz
  */
 public final class ApplicationContext implements Context {
+    public static final String COMPONENT_CONFIGURATION_PACKAGE_OPTION = "component.configuration.package";
+
     private static final Logger LOGGER = Logger.getLogger(ApplicationContext.class.getName());
     private final Configuration configuration;
 
-    private final ComponentProviderInitializer componentProviderInitializer
-            = new ComponentProviderInitializer(
-            new ComponentProviderFactory(
-                    new RegistrableComponentProviderFactory[] {
-                            new SingletonComponentProviderFactory(),
-                            new PrototypeComponentProviderFactory()
-                    }
-            ),
-            new ComponentSupplierInitializer(
-                    new ComponentSupplierClassValidator(
-                            new RegistrableComponentSupplierValidator[] {
-                                    new ComponentSupplierClassModifierValidator(),
-                                    new ComponentSupplierClassConstructorValidator()
-                            }
-                    )
-            ),
-            new ComponentSupplierScanner()
-    );
-
     private final ImmutableMap<String, ComponentProvider> providers;
 
-    public ApplicationContext(Configuration configuration) {
-        this.configuration = configuration;
+    public ApplicationContext(Configuration configuration) throws ContextInitializationException {
+        try {
+            ComponentProviderInitializer componentProviderInitializer = new ComponentProviderInitializer(
+                    new ComponentProviderFactory(
+                            new SubComponentProviderFactory[]{
+                                    new SingletonComponentProviderFactory(),
+                                    new PrototypeComponentProviderFactory()
+                            }
+                    ),
+                    new ComponentSupplierInitializer(
+                            new ComponentSupplierClassValidator(
+                                    new SubComponentSupplierValidator[]{
+                                            new ComponentSupplierClassModifierValidator(),
+                                            new ComponentSupplierClassConstructorValidator()
+                                    }
+                            )
+                    ),
+                    new ComponentSupplierScanner()
+            );
+            ImmutableMap.Builder<String, ComponentProvider> builder = ImmutableMap.builder();
+            String componentPackages = configuration.getOption(COMPONENT_CONFIGURATION_PACKAGE_OPTION);
+            long time = System.currentTimeMillis();
+            this.configuration = configuration;
 
-        LOGGER.info("Application context initialization started.");
-        ImmutableMap.Builder<String, ComponentProvider> builder = ImmutableMap.builder();
+            LOGGER.info("Application context initialization started.");
+            LOGGER.info(String.format("Application context creating providers from package '%s' started.", componentPackages));
+            builder.putAll(componentProviderInitializer.initializeComponentProviders(componentPackages, this));
+            LOGGER.info(String.format("Application context creating providers from package '%s' ended.", componentPackages));
 
-        for (String packageName : this.configuration.getComponentSupplierPackages()) {
-            LOGGER.info(String.format("Application context creating providers from package '%s' started.", packageName));
-            builder.putAll(componentProviderInitializer.initializeComponentProviders(packageName, this));
-            LOGGER.info(String.format("Application context creating providers from package '%s' ended.", packageName));
+            providers = builder.build();
+            providers.values().forEach(p -> {
+                if (p instanceof SingletonComponentProvider) {
+                    p.provideComponent();
+                }
+            });
+
+            LOGGER.info(String.format("Application context initialized %s components.", providers.size()));
+            LOGGER.info(String.format("Application context initialization ended. (%s ms)",
+                    System.currentTimeMillis() - time));
+        } catch (Exception e) {
+            throw new ContextInitializationException(e);
         }
-
-        providers = builder.build();
-        providers.values().forEach(p -> {
-            if (p instanceof SingletonComponentProvider) {
-                p.provideComponent();
-            }
-        });
-
-        LOGGER.info("Application context initialization ended.");
     }
 
     @Override

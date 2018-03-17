@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity>
+    <preloadData>
+        <assetIds>
+            <assetId>EntityAtlas</assetId>
+        </assetIds>
+    </preloadData>
+    <components>
+        <component type="PhysicsComponent">
+            <body>
+                <type>DynamicBody</type>
+                <gravityScale>0</gravityScale>
+            </body>
+            <hitBoxes>
+                <hitBox id="HitBox0">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>30</width>
+                            <height>30</height>
+                        </shape>
+                        <density>1000</density>
+                        <filter>
+                            <categoryBit>ObstacleCategory</categoryBit>
+                            <maskBit>ObstacleMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+                <hitBox id="HitBox1">
+                    <fixture>
+                        <shape type="RectangleShape">
+                            <width>32</width>
+                            <height>32</height>
+                        </shape>
+                        <filter>
+                            <categoryBit>ActorCategory</categoryBit>
+                            <maskBit>ActorMask</maskBit>
+                        </filter>
+                    </fixture>
+                </hitBox>
+            </hitBoxes>
+        </component>
+        <component type="ViewComponent">
+            <views>
+                <view type="SpriteView" id="MovingLeft">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>EntityAtlas</atlasFilename>
+                        <regionName>moving-pushing-block-medium-0</regionName>
+                    </sprite>
+                </view>
+                <view type="SpriteView" id="MovingRight">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>EntityAtlas</atlasFilename>
+                        <regionName>moving-pushing-block-medium-0</regionName>
+                    </sprite>
+                </view>
+                <view type="SpriteView" id="MovingUp">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>EntityAtlas</atlasFilename>
+                        <regionName>moving-pushing-block-medium-0</regionName>
+                    </sprite>
+                </view>
+                <view type="SpriteView" id="MovingDown">
+                    <sprite type="AtlasSprite">
+                        <atlasFilename>EntityAtlas</atlasFilename>
+                        <regionName>moving-pushing-block-medium-0</regionName>
+                    </sprite>
+                </view>
+            </views>
+        </component>
+        <component type="StateComponent">
+            <state>Moving</state>
+        </component>
+        <component type="DirectionComponent">
+            <direction>Down</direction>
+        </component>
+        <component type="SpeedComponent">
+            <speed>1</speed>
+        </component>
+        <component type="ObstacleRenderLayerComponent" />
+        <component type="AutoMoveComponent" />
+    </components>
+</entity>

@@ -2,20 +2,18 @@ package remove.tanks.game.level.engine.entity.component.behavior;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
 import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
 import remove.tanks.game.level.engine.entity.component.ComponentFactory;
-import remove.tanks.game.level.engine.entity.component.ComponentPrototype;
-import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
+import remove.tanks.game.level.engine.entity.component.ComponentPrefab;
+import remove.tanks.game.level.engine.entity.component.SubComponentFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 import java.util.List;
 
 /**
  * @author Mateusz Długosz
  */
-public final class ChangeBehaviorComponentFactory
-        implements RegistrableComponentFactory<ChangeBehaviorComponent, ChangeBehaviorComponentPrototype>
-{
+public final class ChangeBehaviorComponentFactory implements SubComponentFactory<ChangeBehaviorComponent, ChangeBehaviorComponentPrefab> {
     private final ComponentFactory componentFactory;
 
     public ChangeBehaviorComponentFactory(ComponentFactory componentFactory) {
@@ -23,22 +21,20 @@ public final class ChangeBehaviorComponentFactory
     }
 
     @Override
-    public ChangeBehaviorComponent createComponent(ChangeBehaviorComponentPrototype prototype, Level level, Entity entity) {
+    public ChangeBehaviorComponent createComponent(ChangeBehaviorComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new ChangeBehaviorComponent(
-                    createComponents(prototype.getComponentPrototypes(), level, entity)
-            );
+            return new ChangeBehaviorComponent(createComponents(prefab.getComponentPrefabs(), entity, registry));
         } catch (Exception e) {
-            throw new ComponentCreateException(prototype, e);
+            throw new ComponentCreateException(prefab, e);
         }
     }
 
-    private List<Component> createComponents(List<ComponentPrototype> prototypes, Level level, Entity entity) {
-        return componentFactory.createComponents(prototypes, level, entity);
+    private List<Component> createComponents(List<ComponentPrefab> prefabs, Entity entity, ResourceRegistry registry) {
+        return componentFactory.createComponents(prefabs, entity, registry);
     }
 
     @Override
-    public Class<ChangeBehaviorComponentPrototype> getFactoryType() {
-        return ChangeBehaviorComponentPrototype.class;
+    public Class<ChangeBehaviorComponentPrefab> getFactoryType() {
+        return ChangeBehaviorComponentPrefab.class;
     }
 }

@@ -5,4 +5,5 @@ import remove.tanks.game.level.event.Event;
 /**
  * @author Mateusz Długosz
  */
-public final class AddLifeEvent implements Event {}
+public final class AddLifeEvent implements Event {
+}

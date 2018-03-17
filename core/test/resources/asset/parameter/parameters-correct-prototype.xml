@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<parameters className="com.badlogic.gdx.assets.loaders.ParticleEffectLoader$ParticleEffectParameter">
-    <parameter name="atlasFile">graphic/textures/atlases/test-atlas-file.pack</parameter>
-    <parameter name="atlasPrefix">testPrefix</parameter>
-    <parameter name="imagesDir">graphic/textures/images</parameter>
-</parameters>

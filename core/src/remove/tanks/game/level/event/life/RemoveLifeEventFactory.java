@@ -1,25 +1,24 @@
 package remove.tanks.game.level.event.life;
 
 import remove.tanks.game.level.event.EventCreateException;
-import remove.tanks.game.level.event.RegistrableEventFactory;
+import remove.tanks.game.level.event.SubEventFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
  */
-public final class RemoveLifeEventFactory
-        implements RegistrableEventFactory<RemoveLifeEvent, RemoveLifeEventPrototype>
-{
+public final class RemoveLifeEventFactory implements SubEventFactory<RemoveLifeEvent, RemoveLifeEventPrefab> {
     @Override
-    public RemoveLifeEvent createEvent(RemoveLifeEventPrototype prototype) {
+    public RemoveLifeEvent createEvent(RemoveLifeEventPrefab prefab, ResourceRegistry registry) {
         try {
             return new RemoveLifeEvent();
         } catch (Exception e) {
-            throw new EventCreateException(prototype, e);
+            throw new EventCreateException(prefab, e);
         }
     }
 
     @Override
-    public Class<RemoveLifeEventPrototype> getFactoryType() {
-        return RemoveLifeEventPrototype.class;
+    public Class<RemoveLifeEventPrefab> getFactoryType() {
+        return RemoveLifeEventPrefab.class;
     }
 }

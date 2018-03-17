@@ -1,5 +1,7 @@
 package remove.tanks.game.application.context.component.provider;
 
+import remove.tanks.game.application.context.component.Scope;
+
 /**
  * @author Mateusz Długosz
  */

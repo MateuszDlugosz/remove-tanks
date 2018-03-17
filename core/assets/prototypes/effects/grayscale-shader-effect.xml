@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<effect type="ShaderEffect">
-    <shaderProgram>
-        <vertexShaderFilename>shaders/grayscale.vert</vertexShaderFilename>
-        <fragmentShaderFilename>shaders/grayscale.frag</fragmentShaderFilename>
-    </shaderProgram>
-</effect>

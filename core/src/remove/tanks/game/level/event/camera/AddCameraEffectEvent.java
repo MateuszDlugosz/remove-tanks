@@ -1,6 +1,6 @@
 package remove.tanks.game.level.event.camera;
 
-import remove.tanks.game.graphic.camera.effect.CameraEffect;
+import remove.tanks.game.graphics.camera.effect.CameraEffect;
 import remove.tanks.game.level.event.Event;
 
 /**

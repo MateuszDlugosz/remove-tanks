@@ -1,34 +1,25 @@
 package remove.tanks.game.level.engine.entity.component.state;
 
 import com.badlogic.ashley.core.Entity;
-import remove.tanks.game.level.Level;
 import remove.tanks.game.level.engine.entity.component.ComponentCreateException;
-import remove.tanks.game.level.engine.entity.component.RegistrableComponentFactory;
-import remove.tanks.game.level.engine.utility.state.State;
+import remove.tanks.game.level.engine.entity.component.SubComponentFactory;
+import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**
  * @author Mateusz Długosz
  */
-public final class StateComponentFactory
-        implements RegistrableComponentFactory<StateComponent, StateComponentPrototype>
-{
+public final class StateComponentFactory implements SubComponentFactory<StateComponent, StateComponentPrefab> {
     @Override
-    public StateComponent createComponent(StateComponentPrototype prototype, Level level, Entity entity) {
+    public StateComponent createComponent(StateComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new StateComponent(
-                    createState(prototype.getState())
-            );
+            return new StateComponent(prefab.getState());
         } catch (Exception e) {
-            throw new ComponentCreateException(prototype, e);
+            throw new ComponentCreateException(prefab, e);
         }
     }
 
-    private State createState(String state) {
-        return State.valueOf(state);
-    }
-
     @Override
-    public Class<StateComponentPrototype> getFactoryType() {
-        return StateComponentPrototype.class;
+    public Class<StateComponentPrefab> getFactoryType() {
+        return StateComponentPrefab.class;
     }
 }
