@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<assets>
-    <asset id="test-string">
-        <assetClass>java.lang.String</assetClass>
-        <filename>test-string-filename</filename>
-    </asset>
-</assets>
