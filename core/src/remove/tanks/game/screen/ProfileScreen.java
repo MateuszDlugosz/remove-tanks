@@ -17,6 +17,7 @@ import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.profile.Profile;
+import remove.tanks.game.profile.ProfileController;
 import remove.tanks.game.profile.ProfileProperty;
 import remove.tanks.game.screen.gui.button.Button;
 import remove.tanks.game.screen.gui.button.ButtonGroup;
@@ -35,7 +36,9 @@ public final class ProfileScreen extends GameScreen {
     private final Skin skin;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
-    private final Profile profile;
+    private final ProfileController profileController;
+
+    private Profile profile;
 
     private Label titleLabel;
     private Button backButton;
@@ -61,8 +64,9 @@ public final class ProfileScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
-        this.profile = gameApplication.getContext()
-                .getComponent("Profile", Profile.class);
+        this.profileController = gameApplication.getContext()
+                .getComponent("ProfileController", ProfileController.class);
+        this.profile = profileController.readProfile();
 
         this.titleLabel = createTitleLabel();
         this.profilePropertyLabels = createProfilePropertyLabels();
@@ -81,6 +85,7 @@ public final class ProfileScreen extends GameScreen {
     @Override
     public void show() {
         buttonGroup.reset();
+        profile = profileController.readProfile();
     }
 
     @Override
