@@ -14,8 +14,8 @@ class ShapePrefab(object):
 class RectangleShapePrefab(ShapePrefab):
     def __init__(self, position_prefab, width, height):
         super().__init__(position_prefab)
-        self.width = width
-        self.height = height
+        self.width = float(width)
+        self.height = float(height)
 
     def get_width(self):
         return self.width
@@ -31,7 +31,7 @@ class RectangleShapePrefab(ShapePrefab):
 class CircleShapePrefab(ShapePrefab):
     def __init__(self, position_prefab, radius):
         super().__init__(position_prefab)
-        self.radius = radius
+        self.radius = float(radius)
 
     def get_radius(self):
         return self.radius
