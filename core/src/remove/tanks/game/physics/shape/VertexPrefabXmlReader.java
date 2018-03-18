@@ -23,9 +23,13 @@ public final class VertexPrefabXmlReader {
     }
 
     public VertexPrefab readVertexPrefab(XmlReader.Element element) {
-        return new VertexPrefab(
-                element.getFloat(X_ATTRIBUTE),
-                element.getFloat(Y_ATTRIBUTE)
-        );
+        try {
+            return new VertexPrefab(
+                    element.getFloat(X_ATTRIBUTE),
+                    element.getFloat(Y_ATTRIBUTE)
+            );
+        } catch (Exception e) {
+            throw new VertexPrefabXmlReadException(element, e);
+        }
     }
 }
