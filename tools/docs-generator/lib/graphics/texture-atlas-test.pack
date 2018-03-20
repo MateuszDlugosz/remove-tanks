@@ -1,0 +1,13 @@
+
+test_filename.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+test_region_name
+  rotate: false
+  xy: 100, 200
+  size: 16, 17
+  orig: 18, 19
+  offset: 0, 0
+  index: -1

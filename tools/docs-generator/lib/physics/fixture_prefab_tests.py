@@ -12,20 +12,16 @@ class TestFixturePrefab(unittest.TestCase):
             str(
                 FixturePrefab(
                     FilterPrefab("CategoryBit", "MaskBit"),
-                    CircleShapePrefab(
-                        PositionPrefab(1, 2),
-                        5
-                    ),
+                    CircleShapePrefab(PositionPrefab(1, 2), 5),
                     5,
                     4,
                     3,
                     True
                 )
             ),
-            "FixturePrefab("
-            "filter_prefab=FilterPrefab(category_bit=CategoryBit, mask_bit=MaskBit), "
-            "shape_prefab=CircleShapePrefab(position_prefab=PositionPrefab(x=1.0, y=2.0), radius=5.0), "
-            "restitution=5.0, density=4.0, friction=3.0, is_sensor=True)"
+            "FixturePrefab(filter_prefab={}, shape_prefab={}, restitution=5.0, density=4.0, " \
+            "friction=3.0, is_sensor=True)"
+                .format(str(FilterPrefab("CategoryBit", "MaskBit")), str(CircleShapePrefab(PositionPrefab(1, 2), 5)))
         )
 
 

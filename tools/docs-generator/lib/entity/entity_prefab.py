@@ -1,6 +1,8 @@
 class EntityPrefab(object):
-    def __init__(self):
+    def __init__(self, component_prefabs):
         self.component_prefabs = {}
+        for component_prefab in component_prefabs:
+            self.component_prefabs[component_prefab.__class__.__name__] = component_prefab
 
     def set_component(self, type, component_prefab):
         self.component_prefabs[str(type)] = component_prefab

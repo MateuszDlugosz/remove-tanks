@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as EXml
 
 from lib.graphics.color_prefab import ColorPrefabXmlReader
-from lib.utility.UtilityFunctions import *
+from lib.utility.string_functions import *
 from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader
 
 

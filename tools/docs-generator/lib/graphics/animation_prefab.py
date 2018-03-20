@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as EXml
 
-from lib.utility.UtilityFunctions import *
+from lib.utility.string_functions import *
 
 
 class AnimationPrefab(object):

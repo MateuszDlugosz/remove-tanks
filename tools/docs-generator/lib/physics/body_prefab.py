@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as EXml
-from lib.utility.UtilityFunctions import string_to_boolean
+from lib.utility.string_functions import string_to_boolean
 
 
 class BodyPrefab(object):

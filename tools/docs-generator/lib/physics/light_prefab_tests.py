@@ -9,21 +9,23 @@ class TestLightPrefab(unittest.TestCase):
     def test_point_light_prefab_to_string(self):
         self.assertEqual(
             str(PointLightPrefab(RgbColorPrefab(1, 2, 3), True, PositionPrefab(1, 2), 10)),
-            "PointLightPrefab(color_prefab=RgbColorPrefab(r=1.0, g=2.0, b=3.0), x_ray=True, "
-            "position_prefab=PositionPrefab(x=1.0, y=2.0), distance=10.0)"
+            "PointLightPrefab(color_prefab={}, x_ray=True, position_prefab={}, distance=10.0)"
+                .format(str(RgbColorPrefab(1, 2, 3)), str(PositionPrefab(1, 2)))
         )
 
     def test_directional_light_prefab_to_string(self):
         self.assertEqual(
             str(DirectionalLightPrefab(HexColorPrefab("CCAAFFEE"), False, 3)),
-            "DirectionalLightPrefab(color_prefab=HexColorPrefab(hex_value=CCAAFFEE), x_ray=False, direction_degree=3.0)"
+            "DirectionalLightPrefab(color_prefab={}, x_ray=False, direction_degree=3.0)"
+                .format(str(HexColorPrefab("CCAAFFEE")))
         )
 
     def test_cone_light_prefab_to_string(self):
         self.assertEqual(
             str(ConeLightPrefab(HexColorPrefab("CCAAFFEE"), True, PositionPrefab(1, 2), 10, 20, 30)),
-            "ConeLightPrefab(color_prefab=HexColorPrefab(hex_value=CCAAFFEE), x_ray=True, "
-            "position_prefab=PositionPrefab(x=1.0, y=2.0), distance=10.0, direction_degree=20.0, cone_degree=30.0)"
+            "ConeLightPrefab(color_prefab={}, x_ray=True, position_prefab={}, distance=10.0, "
+            "direction_degree=20.0, cone_degree=30.0)"
+                .format(str(HexColorPrefab("CCAAFFEE")), str(PositionPrefab(1, 2)))
         )
 
 
