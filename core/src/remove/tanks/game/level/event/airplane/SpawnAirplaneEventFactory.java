@@ -11,7 +11,7 @@ public final class SpawnAirplaneEventFactory implements SubEventFactory<SpawnAir
     @Override
     public SpawnAirplaneEvent createEvent(SpawnAirplaneEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new SpawnAirplaneEvent();
+            return SpawnAirplaneEvent.INSTANCE;
         } catch (Exception e) {
             throw new EventCreateException(prefab, e);
         }

@@ -12,7 +12,7 @@ public final class SpawnAirplaneEventPrefabXmlReader implements SubEventPrefabXm
     @Override
     public SpawnAirplaneEventPrefab readEventPrefab(XmlReader.Element element) {
         try {
-            return new SpawnAirplaneEventPrefab();
+            return SpawnAirplaneEventPrefab.INSTANCE;
         } catch (Exception e) {
             throw new EventPrefabXmlReadException(element, e);
         }

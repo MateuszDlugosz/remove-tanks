@@ -12,7 +12,7 @@ public final class IncreasePointsMultiplierEventPrefabXmlReader implements SubEv
     @Override
     public IncreasePointsMultiplierEventPrefab readEventPrefab(XmlReader.Element element) {
         try {
-            return new IncreasePointsMultiplierEventPrefab();
+            return IncreasePointsMultiplierEventPrefab.INSTANCE;
         } catch (Exception e) {
             throw new EventPrefabXmlReadException(element, e);
         }

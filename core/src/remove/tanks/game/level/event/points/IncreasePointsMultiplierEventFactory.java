@@ -11,7 +11,7 @@ public final class IncreasePointsMultiplierEventFactory implements SubEventFacto
     @Override
     public IncreasePointsMultiplierEvent createEvent(IncreasePointsMultiplierEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new IncreasePointsMultiplierEvent();
+            return IncreasePointsMultiplierEvent.INSTANCE;
         } catch (Exception e) {
             throw new EventCreateException(prefab, e);
         }

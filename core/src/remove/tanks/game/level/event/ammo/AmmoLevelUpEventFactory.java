@@ -11,7 +11,7 @@ public final class AmmoLevelUpEventFactory implements SubEventFactory<AmmoLevelU
     @Override
     public AmmoLevelUpEvent createEvent(AmmoLevelUpEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new AmmoLevelUpEvent();
+            return AmmoLevelUpEvent.INSTANCE;
         } catch (Exception e) {
             throw new EventCreateException(prefab, e);
         }

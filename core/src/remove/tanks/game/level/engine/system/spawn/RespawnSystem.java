@@ -67,7 +67,7 @@ public final class RespawnSystem extends EntitySystem {
 
 
         if (!freeRespawn) {
-            eventBus.post(new RemoveLifeEvent());
+            eventBus.post(RemoveLifeEvent.INSTANCE);
         } else {
             freeRespawn = false;
         }

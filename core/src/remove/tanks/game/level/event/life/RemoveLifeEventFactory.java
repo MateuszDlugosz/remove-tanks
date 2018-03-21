@@ -11,7 +11,7 @@ public final class RemoveLifeEventFactory implements SubEventFactory<RemoveLifeE
     @Override
     public RemoveLifeEvent createEvent(RemoveLifeEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new RemoveLifeEvent();
+            return RemoveLifeEvent.INSTANCE;
         } catch (Exception e) {
             throw new EventCreateException(prefab, e);
         }

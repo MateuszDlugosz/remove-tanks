@@ -12,7 +12,7 @@ public final class AmmoLevelUpEventPrefabXmlReader implements SubEventPrefabXmlR
     @Override
     public AmmoLevelUpEventPrefab readEventPrefab(XmlReader.Element element) {
         try {
-            return new AmmoLevelUpEventPrefab();
+            return AmmoLevelUpEventPrefab.INSTANCE;
         } catch (Exception e) {
             throw new EventPrefabXmlReadException(element, e);
         }

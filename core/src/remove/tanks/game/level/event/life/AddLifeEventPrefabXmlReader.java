@@ -12,7 +12,7 @@ public final class AddLifeEventPrefabXmlReader implements SubEventPrefabXmlReade
     @Override
     public AddLifeEventPrefab readEventPrefab(XmlReader.Element element) {
         try {
-            return new AddLifeEventPrefab();
+            return AddLifeEventPrefab.INSTANCE;
         } catch (Exception e) {
             throw new EventPrefabXmlReadException(element, e);
         }

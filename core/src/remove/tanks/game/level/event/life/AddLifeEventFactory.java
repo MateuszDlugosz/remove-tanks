@@ -11,7 +11,7 @@ public final class AddLifeEventFactory implements SubEventFactory<AddLifeEvent, 
     @Override
     public AddLifeEvent createEvent(AddLifeEventPrefab prefab, ResourceRegistry registry) {
         try {
-            return new AddLifeEvent();
+            return AddLifeEvent.INSTANCE;
         } catch (Exception e) {
             throw new EventCreateException(prefab, e);
         }
