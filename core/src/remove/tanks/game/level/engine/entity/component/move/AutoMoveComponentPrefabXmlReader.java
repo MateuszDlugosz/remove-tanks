@@ -12,7 +12,7 @@ public final class AutoMoveComponentPrefabXmlReader implements SubComponentPrefa
     @Override
     public AutoMoveComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new AutoMoveComponentPrefab();
+            return AutoMoveComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

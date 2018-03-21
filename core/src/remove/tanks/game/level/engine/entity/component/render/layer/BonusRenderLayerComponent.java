@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class BonusRenderLayerComponent implements Component {
     public static final ComponentMapper<BonusRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(BonusRenderLayerComponent.class);
+
+    public static final BonusRenderLayerComponent INSTANCE = new BonusRenderLayerComponent();
+
+    private BonusRenderLayerComponent() {}
 }

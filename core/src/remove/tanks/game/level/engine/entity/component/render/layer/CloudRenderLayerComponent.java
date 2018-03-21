@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class CloudRenderLayerComponent implements Component {
     public static final ComponentMapper<CloudRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(CloudRenderLayerComponent.class);
+
+    public static final CloudRenderLayerComponent INSTANCE = new CloudRenderLayerComponent();
+
+    private CloudRenderLayerComponent() {}
 }

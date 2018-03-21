@@ -12,7 +12,7 @@ public final class CloudRenderLayerComponentFactory implements SubComponentFacto
     @Override
     public CloudRenderLayerComponent createComponent(CloudRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new CloudRenderLayerComponent();
+            return CloudRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

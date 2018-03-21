@@ -12,7 +12,7 @@ public final class AirplaneRenderLayerComponentPrefabXmlReader implements SubCom
     @Override
     public AirplaneRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new AirplaneRenderLayerComponentPrefab();
+            return AirplaneRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

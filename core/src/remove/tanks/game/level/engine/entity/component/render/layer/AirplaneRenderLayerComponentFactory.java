@@ -12,7 +12,7 @@ public final class AirplaneRenderLayerComponentFactory implements SubComponentFa
     @Override
     public AirplaneRenderLayerComponent createComponent(AirplaneRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new AirplaneRenderLayerComponent();
+            return AirplaneRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

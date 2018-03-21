@@ -12,7 +12,7 @@ public final class ObstacleRenderLayerComponentPrefabXmlReader implements SubCom
     @Override
     public ObstacleRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new ObstacleRenderLayerComponentPrefab();
+            return ObstacleRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

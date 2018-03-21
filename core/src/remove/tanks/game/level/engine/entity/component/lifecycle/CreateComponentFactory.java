@@ -12,7 +12,7 @@ public final class CreateComponentFactory implements SubComponentFactory<CreateC
     @Override
     public CreateComponent createComponent(CreateComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new CreateComponent();
+            return CreateComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

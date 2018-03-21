@@ -12,7 +12,7 @@ public final class ExplosionRenderLayerComponentPrefabXmlReader implements SubCo
     @Override
     public ExplosionRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new ExplosionRenderLayerComponentPrefab();
+            return ExplosionRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

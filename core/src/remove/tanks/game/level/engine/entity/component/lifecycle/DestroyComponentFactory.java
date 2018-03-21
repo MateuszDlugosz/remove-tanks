@@ -12,7 +12,7 @@ public final class DestroyComponentFactory implements SubComponentFactory<Destro
     @Override
     public DestroyComponent createComponent(DestroyComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new DestroyComponent();
+            return DestroyComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

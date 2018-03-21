@@ -20,7 +20,7 @@ public final class DestroyEntityByIdEntityEventExecutor implements SubEventExecu
                     .getEntitiesFor(EntityFamily.IdentityFamily.getFamily())
                     .forEach(e -> {
                         if (IdentityComponent.MAPPER.get(e).getId().equals(event.getId())) {
-                            e.add(new DestroyComponent());
+                            e.add(DestroyComponent.INSTANCE);
                         }
                     });
         } catch (Exception e) {

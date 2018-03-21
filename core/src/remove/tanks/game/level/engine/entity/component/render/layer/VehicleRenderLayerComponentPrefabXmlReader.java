@@ -12,7 +12,7 @@ public final class VehicleRenderLayerComponentPrefabXmlReader implements SubComp
     @Override
     public VehicleRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new VehicleRenderLayerComponentPrefab();
+            return VehicleRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

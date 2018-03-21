@@ -12,7 +12,7 @@ public final class BonusRenderLayerComponentFactory implements SubComponentFacto
     @Override
     public BonusRenderLayerComponent createComponent(BonusRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new BonusRenderLayerComponent();
+            return BonusRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

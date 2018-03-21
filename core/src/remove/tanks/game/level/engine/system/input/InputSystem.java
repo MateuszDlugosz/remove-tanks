@@ -46,7 +46,7 @@ public final class InputSystem extends IteratingSystem {
 
         if (inputMapper.isKeyPressed(InputKey.Shoot)) {
             if (ic.getTimer().isCompleted()) {
-                entity.add(new AutoShootComponent());
+                entity.add(AutoShootComponent.INSTANCE);
                 ic.getTimer().reset();
             }
         }

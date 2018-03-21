@@ -12,7 +12,7 @@ public final class DestroyOnContactLostComponentPrefabXmlReader implements SubCo
     @Override
     public DestroyOnContactLostComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new DestroyOnContactLostComponentPrefab();
+            return DestroyOnContactLostComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

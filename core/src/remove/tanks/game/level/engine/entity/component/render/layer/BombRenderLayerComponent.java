@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class BombRenderLayerComponent implements Component {
     public static final ComponentMapper<BombRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(BombRenderLayerComponent.class);
+
+    public static final BombRenderLayerComponent INSTANCE = new BombRenderLayerComponent();
+
+    private BombRenderLayerComponent() {}
 }

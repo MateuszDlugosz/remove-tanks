@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class GroundRenderLayerComponent implements Component {
     public static final ComponentMapper<GroundRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(GroundRenderLayerComponent.class);
+
+    public static final GroundRenderLayerComponent INSTANCE = new GroundRenderLayerComponent();
+
+    private GroundRenderLayerComponent() {}
 }

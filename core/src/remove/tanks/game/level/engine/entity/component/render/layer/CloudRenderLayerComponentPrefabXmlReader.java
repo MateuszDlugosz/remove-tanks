@@ -12,7 +12,7 @@ public final class CloudRenderLayerComponentPrefabXmlReader implements SubCompon
     @Override
     public CloudRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new CloudRenderLayerComponentPrefab();
+            return CloudRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class DestroyComponent implements Component {
     public static final ComponentMapper<DestroyComponent> MAPPER
             = ComponentMapper.getFor(DestroyComponent.class);
+
+    public static final DestroyComponent INSTANCE = new DestroyComponent();
+
+    private DestroyComponent() {}
 }

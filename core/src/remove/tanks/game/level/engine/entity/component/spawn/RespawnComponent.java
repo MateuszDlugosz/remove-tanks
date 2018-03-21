@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class RespawnComponent implements Component {
     private static final ComponentMapper<RespawnComponent> MAPPER
             = ComponentMapper.getFor(RespawnComponent.class);
+
+    public static final RespawnComponent INSTANCE = new RespawnComponent();
+
+    private RespawnComponent() {}
 }

@@ -12,7 +12,7 @@ public final class DestroyComponentPrefabXmlReader implements SubComponentPrefab
     @Override
     public DestroyComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new DestroyComponentPrefab();
+            return DestroyComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

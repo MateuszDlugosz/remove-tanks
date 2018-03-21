@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class ProtectionComponent implements Component {
     public static final ComponentMapper<ProtectionComponent> MAPPER
             = ComponentMapper.getFor(ProtectionComponent.class);
+
+    public static final ProtectionComponent INSTANCE = new ProtectionComponent();
+
+    private ProtectionComponent() {}
 }

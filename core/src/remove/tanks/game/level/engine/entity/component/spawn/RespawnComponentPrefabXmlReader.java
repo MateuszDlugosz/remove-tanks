@@ -12,7 +12,7 @@ public final class RespawnComponentPrefabXmlReader implements SubComponentPrefab
     @Override
     public RespawnComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new RespawnComponentPrefab();
+            return RespawnComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

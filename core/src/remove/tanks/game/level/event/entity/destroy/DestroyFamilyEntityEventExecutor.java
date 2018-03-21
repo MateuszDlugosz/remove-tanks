@@ -16,7 +16,7 @@ public final class DestroyFamilyEntityEventExecutor implements SubEventExecutor<
         try {
             registry.getResource(ResourceType.EngineResource, Engine.class)
                     .getEntitiesFor(event.getEntityFamily().getFamily())
-                    .forEach(e -> e.add(new DestroyComponent()));
+                    .forEach(e -> e.add(DestroyComponent.INSTANCE));
         } catch (Exception e) {
             throw new EventExecuteException(event, e);
         }

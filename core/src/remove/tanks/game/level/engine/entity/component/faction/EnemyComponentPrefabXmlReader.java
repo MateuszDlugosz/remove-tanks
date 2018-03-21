@@ -12,7 +12,7 @@ public final class EnemyComponentPrefabXmlReader implements SubComponentPrefabXm
     @Override
     public EnemyComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new EnemyComponentPrefab();
+            return EnemyComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

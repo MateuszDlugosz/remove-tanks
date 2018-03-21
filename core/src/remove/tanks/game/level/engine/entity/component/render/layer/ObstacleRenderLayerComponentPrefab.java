@@ -7,6 +7,10 @@ import remove.tanks.game.level.engine.entity.component.ComponentPrefab;
  * @author Mateusz Długosz
  */
 public final class ObstacleRenderLayerComponentPrefab extends ComponentPrefab {
+    public static final ObstacleRenderLayerComponentPrefab INSTANCE = new ObstacleRenderLayerComponentPrefab();
+
+    private ObstacleRenderLayerComponentPrefab() {}
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

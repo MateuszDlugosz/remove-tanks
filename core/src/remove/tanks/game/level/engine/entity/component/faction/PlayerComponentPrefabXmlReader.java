@@ -12,7 +12,7 @@ public final class PlayerComponentPrefabXmlReader implements SubComponentPrefabX
     @Override
     public PlayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new PlayerComponentPrefab();
+            return PlayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

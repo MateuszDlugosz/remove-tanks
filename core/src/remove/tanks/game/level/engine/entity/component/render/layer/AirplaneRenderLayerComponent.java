@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class AirplaneRenderLayerComponent implements Component {
     public static final ComponentMapper<AirplaneRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(AirplaneRenderLayerComponent.class);
+
+    public static final AirplaneRenderLayerComponent INSTANCE = new AirplaneRenderLayerComponent();
+
+    private AirplaneRenderLayerComponent() {}
 }

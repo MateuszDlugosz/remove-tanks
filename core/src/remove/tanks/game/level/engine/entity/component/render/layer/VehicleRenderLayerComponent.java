@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class VehicleRenderLayerComponent implements Component {
     public static final ComponentMapper<VehicleRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(VehicleRenderLayerComponent.class);
+
+    public static final VehicleRenderLayerComponent INSTANCE = new VehicleRenderLayerComponent();
+
+    private VehicleRenderLayerComponent() {}
 }

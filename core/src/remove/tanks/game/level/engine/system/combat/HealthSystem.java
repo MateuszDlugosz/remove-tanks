@@ -17,7 +17,7 @@ public final class HealthSystem extends IteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         if (HealthComponent.MAPPER.get(entity).getHealth() <= 0) {
-            entity.add(new DestroyComponent());
+            entity.add(DestroyComponent.INSTANCE);
         }
     }
 }

@@ -22,7 +22,7 @@ public final class EntityCreator {
 
     public Entity createEntity(EntityPrefab entityPrefab, ResourceRegistry registry) {
         Entity entity = entityFactory.createEntity(entityPrefab, registry);
-        entity.add(new CreateComponent());
+        entity.add(CreateComponent.INSTANCE);
         return entity;
     }
 }

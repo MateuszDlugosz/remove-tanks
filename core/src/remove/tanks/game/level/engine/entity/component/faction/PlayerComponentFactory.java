@@ -12,7 +12,7 @@ public final class PlayerComponentFactory implements SubComponentFactory<PlayerC
     @Override
     public PlayerComponent createComponent(PlayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new PlayerComponent();
+            return PlayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

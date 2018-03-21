@@ -12,7 +12,7 @@ public final class EnemyComponentFactory implements SubComponentFactory<EnemyCom
     @Override
     public EnemyComponent createComponent(EnemyComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new EnemyComponent();
+            return EnemyComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

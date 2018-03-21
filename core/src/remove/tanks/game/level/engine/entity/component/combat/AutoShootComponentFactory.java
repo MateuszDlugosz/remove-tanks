@@ -12,7 +12,7 @@ public final class AutoShootComponentFactory implements SubComponentFactory<Auto
     @Override
     public AutoShootComponent createComponent(AutoShootComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new AutoShootComponent();
+            return AutoShootComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

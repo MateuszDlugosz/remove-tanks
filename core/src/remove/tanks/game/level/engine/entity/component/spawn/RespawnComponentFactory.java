@@ -12,7 +12,7 @@ public final class RespawnComponentFactory implements SubComponentFactory<Respaw
     @Override
     public RespawnComponent createComponent(RespawnComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new RespawnComponent();
+            return RespawnComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

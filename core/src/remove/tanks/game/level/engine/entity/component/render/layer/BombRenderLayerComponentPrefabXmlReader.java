@@ -12,7 +12,7 @@ public final class BombRenderLayerComponentPrefabXmlReader implements SubCompone
     @Override
     public BombRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new BombRenderLayerComponentPrefab();
+            return BombRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

@@ -12,7 +12,7 @@ public final class ObstacleRenderLayerComponentFactory implements SubComponentFa
     @Override
     public ObstacleRenderLayerComponent createComponent(ObstacleRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-             return new ObstacleRenderLayerComponent();
+             return ObstacleRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

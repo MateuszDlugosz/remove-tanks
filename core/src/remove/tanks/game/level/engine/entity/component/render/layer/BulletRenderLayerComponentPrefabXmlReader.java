@@ -12,7 +12,7 @@ public final class BulletRenderLayerComponentPrefabXmlReader implements SubCompo
     @Override
     public BulletRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new BulletRenderLayerComponentPrefab();
+            return BulletRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

@@ -12,7 +12,7 @@ public final class ProtectionComponentFactory implements SubComponentFactory<Pro
     @Override
     public ProtectionComponent createComponent(ProtectionComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new ProtectionComponent();
+            return ProtectionComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

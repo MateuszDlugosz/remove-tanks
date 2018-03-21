@@ -12,7 +12,7 @@ public final class ExplosionRenderLayerComponentFactory implements SubComponentF
     @Override
     public ExplosionRenderLayerComponent createComponent(ExplosionRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new ExplosionRenderLayerComponent();
+            return ExplosionRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

@@ -9,7 +9,7 @@ public final class DestroyOnContactComponentFactory implements SubComponentFacto
     @Override
     public DestroyOnContactComponent createComponent(DestroyOnContactComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new DestroyOnContactComponent();
+            return DestroyOnContactComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

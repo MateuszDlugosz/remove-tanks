@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class AutoMoveComponent implements Component {
     private static final ComponentMapper<AutoMoveComponent> MAPPER
             = ComponentMapper.getFor(AutoMoveComponent.class);
+
+    public static final AutoMoveComponent INSTANCE = new AutoMoveComponent();
+
+    private AutoMoveComponent() {}
 }

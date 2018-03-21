@@ -12,7 +12,7 @@ public final class BombRenderLayerComponentFactory implements SubComponentFactor
     @Override
     public BombRenderLayerComponent createComponent(BombRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new BombRenderLayerComponent();
+            return BombRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

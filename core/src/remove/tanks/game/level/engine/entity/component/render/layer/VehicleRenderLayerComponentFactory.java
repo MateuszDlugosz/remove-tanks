@@ -12,7 +12,7 @@ public final class VehicleRenderLayerComponentFactory implements SubComponentFac
     @Override
     public VehicleRenderLayerComponent createComponent(VehicleRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new VehicleRenderLayerComponent();
+            return VehicleRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

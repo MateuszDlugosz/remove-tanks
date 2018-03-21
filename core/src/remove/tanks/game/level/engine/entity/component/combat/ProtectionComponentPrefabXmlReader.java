@@ -12,7 +12,7 @@ public final class ProtectionComponentPrefabXmlReader implements SubComponentPre
     @Override
     public ProtectionComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new ProtectionComponentPrefab();
+            return ProtectionComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

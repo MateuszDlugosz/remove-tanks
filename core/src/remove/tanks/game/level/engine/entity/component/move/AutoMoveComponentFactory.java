@@ -12,7 +12,7 @@ public final class AutoMoveComponentFactory implements SubComponentFactory<AutoM
     @Override
     public AutoMoveComponent createComponent(AutoMoveComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new AutoMoveComponent();
+            return AutoMoveComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

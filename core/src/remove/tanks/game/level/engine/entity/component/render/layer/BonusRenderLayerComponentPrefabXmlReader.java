@@ -12,7 +12,7 @@ public final class BonusRenderLayerComponentPrefabXmlReader implements SubCompon
     @Override
     public BonusRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new BonusRenderLayerComponentPrefab();
+            return BonusRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

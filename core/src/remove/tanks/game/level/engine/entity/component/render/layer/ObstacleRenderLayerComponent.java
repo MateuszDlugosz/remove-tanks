@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class ObstacleRenderLayerComponent implements Component {
     public static final ComponentMapper<ObstacleRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(ObstacleRenderLayerComponent.class);
+
+    public static final ObstacleRenderLayerComponent INSTANCE = new ObstacleRenderLayerComponent();
+
+    private ObstacleRenderLayerComponent() {}
 }

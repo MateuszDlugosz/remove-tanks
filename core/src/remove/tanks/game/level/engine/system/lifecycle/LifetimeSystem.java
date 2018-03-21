@@ -19,7 +19,7 @@ public final class LifetimeSystem extends IteratingSystem {
         if (!LifetimeComponent.MAPPER.get(entity).getTimer().isCompleted()) {
             LifetimeComponent.MAPPER.get(entity).getTimer().update(deltaTime);
         } else {
-            entity.add(new DestroyComponent());
+            entity.add(DestroyComponent.INSTANCE);
         }
     }
 }

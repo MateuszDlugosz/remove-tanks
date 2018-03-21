@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class EnemyComponent implements Component {
     public static final ComponentMapper<EnemyComponent> MAPPER
             = ComponentMapper.getFor(EnemyComponent.class);
+
+    public static final EnemyComponent INSTANCE = new EnemyComponent();
+
+    private EnemyComponent() {}
 }

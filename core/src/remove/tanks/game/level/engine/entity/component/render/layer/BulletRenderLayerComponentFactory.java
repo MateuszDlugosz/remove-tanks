@@ -12,7 +12,7 @@ public final class BulletRenderLayerComponentFactory implements SubComponentFact
     @Override
     public BulletRenderLayerComponent createComponent(BulletRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new BulletRenderLayerComponent();
+            return BulletRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

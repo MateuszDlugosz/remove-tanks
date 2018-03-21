@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class BulletRenderLayerComponent implements Component {
     public static final ComponentMapper<BulletRenderLayerComponent> MAPPER
             = ComponentMapper.getFor(BulletRenderLayerComponent.class);
+
+    public static final BulletRenderLayerComponent INSTANCE = new BulletRenderLayerComponent();
+
+    private BulletRenderLayerComponent() {}
 }

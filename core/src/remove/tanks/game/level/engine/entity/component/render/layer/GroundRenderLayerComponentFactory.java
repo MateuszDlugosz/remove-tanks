@@ -12,7 +12,7 @@ public final class GroundRenderLayerComponentFactory implements SubComponentFact
     @Override
     public GroundRenderLayerComponent createComponent(GroundRenderLayerComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new GroundRenderLayerComponent();
+            return GroundRenderLayerComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }

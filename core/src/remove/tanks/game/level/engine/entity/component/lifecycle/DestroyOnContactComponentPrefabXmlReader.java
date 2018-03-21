@@ -9,7 +9,7 @@ public final class DestroyOnContactComponentPrefabXmlReader implements SubCompon
     @Override
     public DestroyOnContactComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new DestroyOnContactComponentPrefab();
+            return DestroyOnContactComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

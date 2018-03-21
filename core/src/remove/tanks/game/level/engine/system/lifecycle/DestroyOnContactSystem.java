@@ -14,7 +14,7 @@ public final class DestroyOnContactSystem extends IteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         PhysicsComponent.MAPPER.get(entity).getSensors().values().forEach(s -> {
-            if (s.isContacted()) entity.add(new DestroyComponent());
+            if (s.isContacted()) entity.add(DestroyComponent.INSTANCE);
         });
     }
 }

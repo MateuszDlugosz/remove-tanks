@@ -12,7 +12,7 @@ public final class GroundRenderLayerComponentPrefabXmlReader implements SubCompo
     @Override
     public GroundRenderLayerComponentPrefab readComponentPrefab(XmlReader.Element element) {
         try {
-            return new GroundRenderLayerComponentPrefab();
+            return GroundRenderLayerComponentPrefab.INSTANCE;
         } catch (Exception e) {
             throw new ComponentPrefabXmlReadException(element, e);
         }

@@ -9,4 +9,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 public final class AutoShootComponent implements Component {
     public static final ComponentMapper<AutoShootComponent> MAPPER
             = ComponentMapper.getFor(AutoShootComponent.class);
+
+    public static final AutoShootComponent INSTANCE = new AutoShootComponent();
+
+    private AutoShootComponent() {}
 }

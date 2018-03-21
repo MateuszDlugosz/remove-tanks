@@ -14,7 +14,7 @@ public final class DestroyOnContactLostComponentFactory
     @Override
     public DestroyOnContactLostComponent createComponent(DestroyOnContactLostComponentPrefab prefab, Entity entity, ResourceRegistry registry) {
         try {
-            return new DestroyOnContactLostComponent();
+            return DestroyOnContactLostComponent.INSTANCE;
         } catch (Exception e) {
             throw new ComponentCreateException(prefab, e);
         }
