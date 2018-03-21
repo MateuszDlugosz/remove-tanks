@@ -1,8 +1,8 @@
 package remove.tanks.game.level.resource.factories;
 
+import remove.tanks.game.data.profile.Profile;
 import remove.tanks.game.level.resource.AbstractGlobalResourceFactory;
 import remove.tanks.game.level.resource.ResourceType;
-import remove.tanks.game.profile.Profile;
 
 /**
  * @author Mateusz Długosz

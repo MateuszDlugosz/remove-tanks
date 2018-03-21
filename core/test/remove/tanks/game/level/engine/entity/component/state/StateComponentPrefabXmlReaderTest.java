@@ -7,7 +7,7 @@ import remove.tanks.game.level.engine.entity.component.ComponentPrefabXmlReadExc
 import remove.tanks.game.level.utility.state.State;
 import remove.tanks.game.level.utility.state.StateXmlReader;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Mateusz Długosz

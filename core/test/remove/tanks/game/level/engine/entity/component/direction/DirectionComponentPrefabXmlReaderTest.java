@@ -7,7 +7,7 @@ import remove.tanks.game.level.engine.entity.component.ComponentPrefabXmlReadExc
 import remove.tanks.game.level.utility.direction.Direction;
 import remove.tanks.game.level.utility.direction.DirectionXmlReader;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Mateusz Długosz

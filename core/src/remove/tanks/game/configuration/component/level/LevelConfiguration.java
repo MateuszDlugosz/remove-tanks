@@ -9,6 +9,7 @@ import remove.tanks.game.application.context.component.supplier.ComponentSupplie
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentScope;
 import remove.tanks.game.application.context.configuration.ConfigurationOption;
+import remove.tanks.game.data.profile.Profile;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.input.InputMapper;
 import remove.tanks.game.level.*;
@@ -20,7 +21,6 @@ import remove.tanks.game.level.resource.ResourceRegistryFactory;
 import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.level.resource.configuration.ResourceConfigurationsXmlReader;
 import remove.tanks.game.locale.Locale;
-import remove.tanks.game.profile.Profile;
 import remove.tanks.game.utility.number.random.RandomNumberGenerator;
 import remove.tanks.game.utility.scale.Scale;
 
