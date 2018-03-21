@@ -2,6 +2,7 @@ package remove.tanks.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -9,6 +10,7 @@ import remove.tanks.game.application.context.ApplicationContext;
 import remove.tanks.game.application.context.Context;
 import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.asset.AssetStorage;
+import remove.tanks.game.data.screenshot.ScreenshotMaker;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.screen.*;
 import remove.tanks.game.screen.switcher.ScreenSwitcher;
@@ -24,11 +26,12 @@ import java.util.HashSet;
  */
 public final class GameApplication extends Game {
     public static final String TITLE = "Remove Tanks";
-    public static final String VERSION = "0.19.18";
+    public static final String VERSION = "0.19.19";
 
     private final Configuration configuration;
     private Context context;
     private ScreenSwitcher screenSwitcher;
+    private ScreenshotMaker screenshotMaker;
 
     public GameApplication(Configuration configuration) {
         this.configuration = configuration;
@@ -47,6 +50,7 @@ public final class GameApplication extends Game {
                 new FadeOutStageActionFactory(0.3f),
                 new FadeInStageActionFactory(0.3f)
         );
+        this.screenshotMaker = context.getComponent("ScreenshotMaker", ScreenshotMaker.class);
         this.screenSwitcher.switchScreenWithTransition(MainMenuScreen.class, this);
     }
 
@@ -67,6 +71,10 @@ public final class GameApplication extends Game {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         super.render();
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.F12)) {
+            screenshotMaker.makeScreenshot();
+        }
     }
 
     @Override

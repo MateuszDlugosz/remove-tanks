@@ -26,7 +26,9 @@ public enum ConfigurationOption {
     GameProfileEmptyFilename("game.profile.empty.filename"),
     GameProfileLocalFilename("game.profile.player.filename"),
     GameAchievementPrefabRepositoryFilename("game.achievement.prefab.repository.filename"),
-    GameLocalDataDirectory("game.local.data.directory");
+    GameLocalDataDirectory("game.local.data.directory"),
+    GameLocalScreenshotDirectory("game.local.screenshot.directory"),
+    GameLocalScreenshotFilePrefix("game.local.screenshot.file.prefix");
 
     private final String name;
 

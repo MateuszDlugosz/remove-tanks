@@ -77,8 +77,10 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameFontTTFFilename.getName(), "fonts/PressStart2P-Regular.ttf");
         configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(), "profile/empty-profile.xml");
         configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(), "achievements/achievement-prefab-repository.xml");
-        configuration.put(ConfigurationOption.GameProfileLocalFilename.getName(), "rt-profile.xml");
+        configuration.put(ConfigurationOption.GameProfileLocalFilename.getName(), "profile.xml");
         configuration.put(ConfigurationOption.GameLocalDataDirectory.getName(), "RemoveTanks");
+        configuration.put(ConfigurationOption.GameLocalScreenshotDirectory.getName(), "screenshots");
+        configuration.put(ConfigurationOption.GameLocalScreenshotFilePrefix.getName(), "screenshot-");
 
         return new Configuration(configuration);
     }
