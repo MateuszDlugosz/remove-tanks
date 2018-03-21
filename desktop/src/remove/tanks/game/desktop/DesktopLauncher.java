@@ -78,6 +78,7 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(), "profile/empty-profile.xml");
         configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(), "achievements/achievement-prefab-repository.xml");
         configuration.put(ConfigurationOption.GameProfilePlayerFilename.getName(), "rt-profile.xml");
+        configuration.put(ConfigurationOption.GameLocalDataDirectory.getName(), "RemoveTanks");
 
         return new Configuration(configuration);
     }

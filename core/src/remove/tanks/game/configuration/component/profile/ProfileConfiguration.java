@@ -1,6 +1,7 @@
 package remove.tanks.game.configuration.component.profile;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.application.context.component.Scope;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
@@ -13,6 +14,8 @@ import remove.tanks.game.profile.achievement.AchievementTypeXmlReader;
 import remove.tanks.game.profile.achievement.AchievementTypeXmlWriter;
 import remove.tanks.game.utility.properties.PropertiesXmlReader;
 import remove.tanks.game.utility.properties.PropertiesXmlWriter;
+
+import java.util.logging.FileHandler;
 
 /**
  * @author Mateusz Długosz
@@ -72,10 +75,8 @@ public final class ProfileConfiguration {
         @Override
         public ProfileController supplyComponent() {
             return new ProfileController(
-                    Gdx.files.internal(getContext().getConfiguration()
-                            .getOption(ConfigurationOption.GameProfileEmptyFilename.getName())),
-                    Gdx.files.external(getContext().getConfiguration()
-                            .getOption(ConfigurationOption.GameProfilePlayerFilename.getName())),
+                    getContext().getComponent("EmptyProfileFileHandle", FileHandle.class),
+                    getContext().getComponent("LocalProfileFileHandle", FileHandle.class),
                     getContext().getComponent("ProfileScanner", ProfileScanner.class),
                     getContext().getComponent("ProfileInitializer", ProfileInitializer.class),
                     getContext().getComponent("ProfileXmlReader", ProfileXmlReader.class),
@@ -92,6 +93,26 @@ public final class ProfileConfiguration {
             return new ProfileUpdater(
                     getContext().getComponent("AchievementAvailabilityChecker", AchievementAvailabilityChecker.class)
             );
+        }
+    }
+
+    @ComponentName("EmptyProfileFileHandle")
+    public static final class EmptyProfileFileHandleSupplier extends ComponentSupplier<FileHandle> {
+        @Override
+        public FileHandle supplyComponent() {
+            return Gdx.files.internal(
+                    getContext().getConfiguration().getOption(ConfigurationOption.GameProfileEmptyFilename.getName())
+            );
+        }
+    }
+
+    @ComponentName("LocalProfileFileHandle")
+    public static final class LocalProfileFileHandleSupplier extends ComponentSupplier<FileHandle> {
+        @Override
+        public FileHandle supplyComponent() {
+            return Gdx.files.external(
+                    getContext().getConfiguration().getOption(ConfigurationOption.GameLocalDataDirectory.getName())
+            ).child(getContext().getConfiguration().getOption(ConfigurationOption.GameProfilePlayerFilename.getName()));
         }
     }
 }
