@@ -1,9 +1,24 @@
 import os
 import unittest
 
+from lib.entity.entity_prefab import EntityPrefab
 from lib.entity.entity_prefab_repository import *
 
-ENTITY_PREFAB_REPOSITORY_TEST_FILENAME = os.path.join(os.path.dirname(__file__), 'entity-prefab-repository-test.xml')
+ENTITY_PREFAB_REPOSITORY_TEST_FILENAME = os.path.join(os.path.dirname(__file__), 'test-entity-prefab-repository.xml')
+
+
+class TestEntityPrefabRepository(unittest.TestCase):
+    def test_entity_prefab_repository_valid_call_get(self):
+        repository = EntityPrefabRepository()
+        repository.set_prefab("a", EntityPrefab([]))
+
+        self.assertIsNot(repository.get_prefab("a"), None)
+
+    def test_entity_prefab_repository_invalid_call_get(self):
+        repository = EntityPrefabRepository()
+
+        with self.assertRaises(EntityPrefabNotFoundException):
+            repository.get_prefab("unknown_code")
 
 
 class TestEntityPrefabRepositoryXmlReader(unittest.TestCase):

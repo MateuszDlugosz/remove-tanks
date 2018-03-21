@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as EXml
 
+from lib.utility.surface.position.position_prefab import PositionPrefab, PositionPrefabXmlReader
+
 
 class ComponentPrefab(object):
     pass
@@ -60,3 +62,70 @@ class ComponentPrefabXmlReaderNotFoundException(Exception):
 
     def __init__(self, prefab_type):
         super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))
+
+
+class SpeedComponentPrefab(ComponentPrefab):
+    def __init__(self, speed):
+        self.speed = float(speed)
+
+    def get_speed(self):
+        return self.speed
+
+    def __str__(self):
+        return "SpeedComponentPrefab(speed={})".format(self.speed)
+
+
+class SubSpeedComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    SPEED_ELEMENT = "speed"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            speed = float(element.find(self.SPEED_ELEMENT).text)
+            return SpeedComponentPrefab(speed)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "SpeedComponent"
+
+
+class CameraTrackComponentPrefab(ComponentPrefab):
+    def __init__(self, priority, position_prefab):
+        self.priority = priority
+        self.position_prefab = position_prefab
+
+    def get_priority(self):
+        return self.priority
+
+    def get_position_prefab(self):
+        return self.position_prefab
+
+    def __str__(self):
+        return "CameraTrackComponent(priority={}, position_prefab={})"\
+            .format(self.priority, str(self.position_prefab))
+
+
+class SubCameraTrackComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    PRIORITY_ELEMENT = "priority"
+
+    def __init__(self, position_prefab_xml_reader):
+        self.position_prefab_xml_reader = position_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            position_prefab = PositionPrefab(0, 0)
+            priority = float(element.find(self.PRIORITY_ELEMENT).text)
+
+            if (element.find(PositionPrefabXmlReader.POSITION_ELEMENT)) is not None:
+                position_prefab = self.position_prefab_xml_reader.read_prefab_from_string(
+                    EXml.tostring(element.find(PositionPrefabXmlReader.POSITION_ELEMENT))
+                )
+
+            return CameraTrackComponentPrefab(priority, position_prefab)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "CameraTrackComponent"
