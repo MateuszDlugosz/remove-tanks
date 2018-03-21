@@ -29,7 +29,7 @@ public class AssetPrefabXmlReaderTest {
                     "   <filename>test/filename0</filename>" +
                     "</asset>" +
                     "<asset id=\"test-id-1\">" +
-                    "   <assetClass>ancient.sun.game.asset.AssetPrefabXmlReaderTest</assetClass>" +
+                    "   <assetClass>remove.tanks.game.asset.AssetPrefabXmlReaderTest</assetClass>" +
                     "   <filename>test/filename1</filename>" +
                     "</asset>" +
             "</assets>";
