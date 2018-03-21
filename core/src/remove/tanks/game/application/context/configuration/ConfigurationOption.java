@@ -24,7 +24,7 @@ public enum ConfigurationOption {
     GameSkinFilename("game.skin.filename"),
     GameFontTTFFilename("game.font.ttf.filename"),
     GameProfileEmptyFilename("game.profile.empty.filename"),
-    GameProfilePlayerFilename("game.profile.player.filename"),
+    GameProfileLocalFilename("game.profile.player.filename"),
     GameAchievementPrefabRepositoryFilename("game.achievement.prefab.repository.filename"),
     GameLocalDataDirectory("game.local.data.directory");
 

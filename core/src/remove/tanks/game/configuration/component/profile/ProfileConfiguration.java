@@ -15,8 +15,6 @@ import remove.tanks.game.profile.achievement.AchievementTypeXmlWriter;
 import remove.tanks.game.utility.properties.PropertiesXmlReader;
 import remove.tanks.game.utility.properties.PropertiesXmlWriter;
 
-import java.util.logging.FileHandler;
-
 /**
  * @author Mateusz Długosz
  */
@@ -112,7 +110,7 @@ public final class ProfileConfiguration {
         public FileHandle supplyComponent() {
             return Gdx.files.external(
                     getContext().getConfiguration().getOption(ConfigurationOption.GameLocalDataDirectory.getName())
-            ).child(getContext().getConfiguration().getOption(ConfigurationOption.GameProfilePlayerFilename.getName()));
+            ).child(getContext().getConfiguration().getOption(ConfigurationOption.GameProfileLocalFilename.getName()));
         }
     }
 }
