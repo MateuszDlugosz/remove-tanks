@@ -138,6 +138,10 @@ public final class Properties implements Serializable {
         newProperties.getKeys().forEach(k -> properties.put(k, newProperties.getString(k)));
     }
 
+    public boolean hasProperty(String name) {
+        return properties.containsKey(name);
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

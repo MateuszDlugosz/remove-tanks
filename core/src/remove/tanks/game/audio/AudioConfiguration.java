@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.audio.event.AudioOptionChangedEvent;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -41,8 +42,11 @@ public final class AudioConfiguration {
     private final EventBus eventBus;
 
     public AudioConfiguration(Map<Option, Integer> options, EventBus eventBus) {
-        this.options = options;
+        this.options = new HashMap<>();
         this.eventBus = eventBus;
+        for (Option option : options.keySet()) {
+            this.options.put(option, MathUtils.clamp(options.get(option), option.getMinValue(), option.getMaxValue()));
+        }
     }
 
     public void setOptionValue(Option option, int value) {

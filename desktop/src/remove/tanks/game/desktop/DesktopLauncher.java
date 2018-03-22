@@ -81,6 +81,7 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameLocalDataDirectory.getName(), "RemoveTanks");
         configuration.put(ConfigurationOption.GameLocalScreenshotDirectory.getName(), "screenshots");
         configuration.put(ConfigurationOption.GameLocalScreenshotFilePrefix.getName(), "screenshot-");
+        configuration.put(ConfigurationOption.GameLocalConfigDirectory.getName(), "configuration");
 
         return new Configuration(configuration);
     }

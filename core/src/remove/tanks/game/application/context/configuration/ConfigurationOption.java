@@ -28,7 +28,8 @@ public enum ConfigurationOption {
     GameAchievementPrefabRepositoryFilename("game.achievement.prefab.repository.filename"),
     GameLocalDataDirectory("game.local.data.directory"),
     GameLocalScreenshotDirectory("game.local.screenshot.directory"),
-    GameLocalScreenshotFilePrefix("game.local.screenshot.file.prefix");
+    GameLocalScreenshotFilePrefix("game.local.screenshot.file.prefix"),
+    GameLocalConfigDirectory("game.local.config.directory");
 
     private final String name;
 
