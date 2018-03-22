@@ -86,6 +86,8 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameLocalConfigurationDirectory.getName(), "configuration");
         configuration.put(ConfigurationOption.GameAudioConfigurationSoundDirectory.getName(), "sound");
         configuration.put(ConfigurationOption.GameAudioConfigurationMusicDirectory.getName(), "music");
+        configuration.put(ConfigurationOption.GamePreferencesFilename.getName(), "RemoveTanks");
+        configuration.put(ConfigurationOption.GameDefaultLanguage.getName(), "EN");
 
         return new Configuration(configuration);
     }

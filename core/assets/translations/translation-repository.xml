@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <translationFilenames>
     <translationFilename id="EN">translations/_en.xml</translationFilename>
+    <translationFilename id="PL">translations/_pl.xml</translationFilename>
 </translationFilenames>

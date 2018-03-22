@@ -2,6 +2,7 @@ package remove.tanks.game.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,6 +26,7 @@ import remove.tanks.game.screen.gui.button.Button;
 import remove.tanks.game.screen.gui.button.ButtonGroup;
 import remove.tanks.game.screen.gui.button.HorizontalButton;
 import remove.tanks.game.screen.gui.label.Label;
+import remove.tanks.game.utility.preferences.PreferenceName;
 
 /**
  * @author Mateusz Długosz
@@ -38,6 +40,7 @@ public final class OptionsScreen extends GameScreen {
     private final Locale locale;
     private final LevelPresenter levelPresenter;
     private final AssetStorage assetStorage;
+    private final Preferences preferences;
 
     private final AudioConfiguration soundEffectAudioConfiguration;
     private final AudioConfiguration soundUIEffectAudioConfiguration;
@@ -81,6 +84,8 @@ public final class OptionsScreen extends GameScreen {
                 .getComponent("Locale", Locale.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
+        this.preferences = gameApplication.getContext()
+                .getComponent("Preferences", Preferences.class);
 
         AudioPlayer audioPlayer = gameApplication.getContext()
                 .getComponent("AudioPlayer", AudioPlayer.class);
@@ -190,6 +195,7 @@ public final class OptionsScreen extends GameScreen {
                         SoundChannelName.UIEffectSoundChannel,
                         assetStorage.getAsset("UIButtonSelect0Sound", Sound.class)
                 ));
+                preferences.putString(PreferenceName.LanguagePreference.getName(), locale.getSelectedTranslationId());
             }
             if (k == Input.Keys.RIGHT) {
                 locale.selectNextTranslation();
@@ -197,6 +203,7 @@ public final class OptionsScreen extends GameScreen {
                         SoundChannelName.UIEffectSoundChannel,
                         assetStorage.getAsset("UIButtonSelect0Sound", Sound.class)
                 ));
+                preferences.putString(PreferenceName.LanguagePreference.getName(), locale.getSelectedTranslationId());
             }
         });
         button.padBottom(ScreenConstants.INNER_ROW_SEPARATOR_PADDING);

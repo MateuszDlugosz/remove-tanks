@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<translation>
+    <entry key="game.level.hud.life">Zycia</entry>
+    <entry key="game.level.hud.points">Punkty (x%s)</entry>
+    <entry key="game.level.hud.points-multiplier">Mnożnik</entry>
+    <entry key="game.level.hud.enemies.left">Pozostali wrogowie</entry>
+    <entry key="game.level.hud.time-left">Pozostały czas</entry>
+
+    <entry key="game.screen.main.menu.button.start">Start</entry>
+    <entry key="game.screen.main.menu.button.options">Opcje</entry>
+    <entry key="game.screen.main.menu.button.credits">Autorzy</entry>
+    <entry key="game.screen.main.menu.button.profile">Profil</entry>
+    <entry key="game.screen.main.menu.button.exit">Wyjście</entry>
+
+    <entry key="game.screen.options.title">Opcje</entry>
+    <entry key="game.screen.options.button.language">Language</entry>
+    <entry key="game.screen.options.button.sound.effect.volume">Głośność efektów dźwiękowych</entry>
+    <entry key="game.screen.options.button.sound.ui.effect.volume">Głośność interfejsu</entry>
+    <entry key="game.screen.options.button.music.volume">Głośność muzyki</entry>
+
+    <entry key="game.screen.profile.title">Profil</entry>
+    <entry key="game.screen.profile.label.profile.points">Punkty</entry>
+    <entry key="game.screen.profile.label.profile.destroyed.enemies">Zniszczeni wrogowie</entry>
+    <entry key="game.screen.profile.label.profile.maps.ended">Ukończone mapy</entry>
+
+    <entry key="game.screen.credits.title">Autorzy</entry>
+    <entry key="game.screen.credits.content.0">Mateusz Długosz</entry>
+
+    <entry key="game.screen.button.back">Powrót</entry>
+
+    <entry key="Simple">Sample</entry>
+</translation>

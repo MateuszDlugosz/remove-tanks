@@ -3,6 +3,7 @@ package remove.tanks.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -27,7 +28,7 @@ import java.util.HashSet;
  */
 public final class GameApplication extends Game {
     public static final String TITLE = "Remove Tanks";
-    public static final String VERSION = "0.19.21";
+    public static final String VERSION = "0.19.22";
 
     private final Configuration configuration;
     private Context context;
@@ -82,6 +83,8 @@ public final class GameApplication extends Game {
     public void dispose () {
         getContext().getComponent("AudioConfigurationController", AudioConfigurationController.class)
                 .saveAudioConfiguration();
+        getContext().getComponent("Preferences", Preferences.class)
+                .flush();
         getContext().getComponent("LevelPresenter", LevelPresenter.class).dispose();
         getContext().getComponent("SpriteBatch", SpriteBatch.class).dispose();
         getContext().getComponent("MainAssetStorage", AssetStorage.class).dispose();

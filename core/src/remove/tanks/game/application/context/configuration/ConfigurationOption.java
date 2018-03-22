@@ -32,7 +32,9 @@ public enum ConfigurationOption {
     GameEmptyConfigurationDirectory("game.empty.configuration.directory"),
     GameLocalConfigurationDirectory("game.local.configuration.directory"),
     GameAudioConfigurationSoundDirectory("game.audio.configuration.sound.directory"),
-    GameAudioConfigurationMusicDirectory("game.audio.configuration.music.directory");
+    GameAudioConfigurationMusicDirectory("game.audio.configuration.music.directory"),
+    GamePreferencesFilename("game.preferences.filename"),
+    GameDefaultLanguage("game.default.language");
 
     private final String name;
 
