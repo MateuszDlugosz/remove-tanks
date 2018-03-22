@@ -137,7 +137,8 @@ public final class MainMenuScreen extends GameScreen {
                 skin);
         startButton.setKeyListener(keycode -> {
             if (keycode == Input.Keys.ENTER) {
-                getGameApplication().switchScreenWithTransition(new LevelScreen(getGameApplication()));
+                getGameApplication().switchScreenWithTransition(
+                        new LevelLoadingScreen(getGameApplication(), "prefabs/levels/level-prefab.xml"));
                 eventBus.post(new PlaySoundEvent(
                         SoundChannelName.UIEffectSoundChannel,
                         assetStorage.getAsset("UIButtonSelect0Sound", Sound.class)

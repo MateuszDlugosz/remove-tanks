@@ -16,22 +16,11 @@ public final class LevelScreen extends GameScreen {
     private final InputMapper inputMapper;
     private final LevelController levelController;
 
-    public LevelScreen(GameApplication gameApplication) {
+    public LevelScreen(GameApplication gameApplication, LevelController levelController) {
         super(gameApplication);
         this.stage = new Stage();
         this.inputMapper = gameApplication.getContext().getComponent("InputMapper", InputMapper.class);
-
-        LevelFactory levelFactory = gameApplication.getContext()
-                .getComponent("LevelFactory", LevelFactory.class);
-        LevelControllerFactory levelControllerFactory = gameApplication.getContext()
-                .getComponent("LevelControllerFactory", LevelControllerFactory.class);
-        LevelPrefabXmlReader levelPrefabXmlReader = gameApplication.getContext()
-                .getComponent("LevelPrefabXmlReader", LevelPrefabXmlReader.class);
-        LevelPrefab prefab = levelPrefabXmlReader.readLevelPrefab(
-                Gdx.files.internal("prefabs/levels/level-prefab.xml"));
-        Level level = levelFactory.createLevel(prefab);
-
-        this.levelController = levelControllerFactory.createLevelController(level);
+        this.levelController = levelController;
     }
 
     @Override
