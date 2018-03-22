@@ -75,7 +75,7 @@ public final class DesktopLauncher {
                 "prefabs/levels/presentations/level-presenter-prefab.xml");
         configuration.put(ConfigurationOption.GameSkinFilename.getName(), "skins/ui-skin.json");
         configuration.put(ConfigurationOption.GameFontTTFFilename.getName(), "fonts/PressStart2P-Regular.ttf");
-        configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(), "data/default-profile.xml");
+        configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(), "data/profile/default-profile.xml");
         configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(),
                 "achievements/achievement-prefab-repository.xml");
         configuration.put(ConfigurationOption.GameProfileLocalFilename.getName(), "profile.xml");
