@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<audioConfiguration>
+    <properties>
+        <property name="Volume">50</property>
+        <property name="Pan">0</property>
+    </properties>
+</audioConfiguration>

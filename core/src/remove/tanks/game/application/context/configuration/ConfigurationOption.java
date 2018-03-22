@@ -29,7 +29,10 @@ public enum ConfigurationOption {
     GameLocalDataDirectory("game.local.data.directory"),
     GameLocalScreenshotDirectory("game.local.screenshot.directory"),
     GameLocalScreenshotFilePrefix("game.local.screenshot.file.prefix"),
-    GameLocalConfigDirectory("game.local.config.directory");
+    GameEmptyConfigurationDirectory("game.empty.configuration.directory"),
+    GameLocalConfigurationDirectory("game.local.configuration.directory"),
+    GameAudioConfigurationSoundDirectory("game.audio.configuration.sound.directory"),
+    GameAudioConfigurationMusicDirectory("game.audio.configuration.music.directory");
 
     private final String name;
 

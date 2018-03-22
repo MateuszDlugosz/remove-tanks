@@ -142,6 +142,10 @@ public final class Properties implements Serializable {
         return properties.containsKey(name);
     }
 
+    public void removeProperty(String name) {
+        properties.remove(name);
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

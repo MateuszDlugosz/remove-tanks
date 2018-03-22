@@ -75,13 +75,17 @@ public final class DesktopLauncher {
                 "prefabs/levels/presentations/level-presenter-prefab.xml");
         configuration.put(ConfigurationOption.GameSkinFilename.getName(), "skins/ui-skin.json");
         configuration.put(ConfigurationOption.GameFontTTFFilename.getName(), "fonts/PressStart2P-Regular.ttf");
-        configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(), "profile/empty-profile.xml");
-        configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(), "achievements/achievement-prefab-repository.xml");
+        configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(), "data/default-profile.xml");
+        configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(),
+                "achievements/achievement-prefab-repository.xml");
         configuration.put(ConfigurationOption.GameProfileLocalFilename.getName(), "profile.xml");
         configuration.put(ConfigurationOption.GameLocalDataDirectory.getName(), "RemoveTanks");
         configuration.put(ConfigurationOption.GameLocalScreenshotDirectory.getName(), "screenshots");
         configuration.put(ConfigurationOption.GameLocalScreenshotFilePrefix.getName(), "screenshot-");
-        configuration.put(ConfigurationOption.GameLocalConfigDirectory.getName(), "configuration");
+        configuration.put(ConfigurationOption.GameEmptyConfigurationDirectory.getName(), "data/configuration");
+        configuration.put(ConfigurationOption.GameLocalConfigurationDirectory.getName(), "configuration");
+        configuration.put(ConfigurationOption.GameAudioConfigurationSoundDirectory.getName(), "sound");
+        configuration.put(ConfigurationOption.GameAudioConfigurationMusicDirectory.getName(), "music");
 
         return new Configuration(configuration);
     }

@@ -10,6 +10,7 @@ import remove.tanks.game.application.context.ApplicationContext;
 import remove.tanks.game.application.context.Context;
 import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.asset.AssetStorage;
+import remove.tanks.game.audio.AudioConfigurationController;
 import remove.tanks.game.data.screenshot.ScreenshotMaker;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.screen.*;
@@ -26,7 +27,7 @@ import java.util.HashSet;
  */
 public final class GameApplication extends Game {
     public static final String TITLE = "Remove Tanks";
-    public static final String VERSION = "0.19.20";
+    public static final String VERSION = "0.19.21";
 
     private final Configuration configuration;
     private Context context;
@@ -79,6 +80,8 @@ public final class GameApplication extends Game {
 
     @Override
     public void dispose () {
+        getContext().getComponent("AudioConfigurationController", AudioConfigurationController.class)
+                .saveAudioConfiguration();
         getContext().getComponent("LevelPresenter", LevelPresenter.class).dispose();
         getContext().getComponent("SpriteBatch", SpriteBatch.class).dispose();
         getContext().getComponent("MainAssetStorage", AssetStorage.class).dispose();

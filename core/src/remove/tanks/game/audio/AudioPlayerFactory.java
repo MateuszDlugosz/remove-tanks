@@ -17,22 +17,22 @@ public final class AudioPlayerFactory {
         this.musicPlayerFactory = musicPlayerFactory;
     }
 
-    public AudioPlayer createAudioPlayer() {
+    public AudioPlayer createAudioPlayer(AudioConfigurationStorage audioConfigurationStorage) {
         try {
             return new AudioPlayer(
-                    createSoundPlayer(),
-                    createMusicPlayer()
+                    createSoundPlayer(audioConfigurationStorage),
+                    createMusicPlayer(audioConfigurationStorage)
             );
         } catch (Exception e) {
             throw new AudioPlayerCreateException(e);
         }
     }
 
-    private SoundPlayer createSoundPlayer() {
-        return soundPlayerFactory.createSoundPlayer();
+    private SoundPlayer createSoundPlayer(AudioConfigurationStorage audioConfigurationStorage) {
+        return soundPlayerFactory.createSoundPlayer(audioConfigurationStorage);
     }
 
-    private MusicPlayer createMusicPlayer() {
-        return musicPlayerFactory.createMusicPlayer();
+    private MusicPlayer createMusicPlayer(AudioConfigurationStorage audioConfigurationStorage) {
+        return musicPlayerFactory.createMusicPlayer(audioConfigurationStorage);
     }
 }
