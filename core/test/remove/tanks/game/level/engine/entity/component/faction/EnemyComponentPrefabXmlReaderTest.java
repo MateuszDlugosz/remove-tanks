@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Mateusz Długosz
@@ -22,10 +24,18 @@ public class EnemyComponentPrefabXmlReaderTest {
     }
 
     @Test
+    public void Should_BeEqual_When_ReadsTwoDifferentComponents() {
+        XmlReader.Element element = xmlReader.parse(COMPONENT_CORRECT_ELEMENT);
+        EnemyComponentPrefab prefab0 = enemyComponentPrefabXmlReader.readComponentPrefab(element);
+        EnemyComponentPrefab prefab1 = enemyComponentPrefabXmlReader.readComponentPrefab(element);
+
+        assertTrue(prefab0 == prefab1);
+    }
+
+    @Test
     public void Should_ReturnEnemyComponentPrefab_When_ElementIsCorrectlyFormatted() {
         XmlReader.Element element = xmlReader.parse(COMPONENT_CORRECT_ELEMENT);
-        EnemyComponentPrefab prefab = enemyComponentPrefabXmlReader.readComponentPrefab(element);
 
-        assertEquals(prefab.getClass(), prefab.getClass());
+        assertNotNull(enemyComponentPrefabXmlReader.readComponentPrefab(element));
     }
 }
