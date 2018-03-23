@@ -16,8 +16,6 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 public final class AudioConfigurationXmlReader {
-    public static final String AUDIO_CONFIGURATION_ELEMENT = "audioConfiguration";
-
     private final XmlReader xmlReader;
     private final PropertiesXmlReader propertiesXmlReader;
 
@@ -47,8 +45,14 @@ public final class AudioConfigurationXmlReader {
 
         return properties.getProperties().entrySet().stream()
                 .collect(Collectors.toMap(
-                        e -> AudioConfiguration.Option.valueOf(e.getKey()),
-                        e -> Integer.valueOf(e.getValue())
+                        el -> AudioConfiguration.Option.valueOf(el.getKey()),
+                        el -> {
+                            try {
+                                return Integer.valueOf(el.getValue());
+                            } catch (NumberFormatException e) {
+                                return 0;
+                            }
+                        }
                 ));
     }
 
