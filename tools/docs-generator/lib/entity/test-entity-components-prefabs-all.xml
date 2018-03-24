@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<components>
+    <component type="CameraTrackComponent">
+        <priority>100</priority>
+        <position>
+            <x>1</x>
+            <y>2</y>
+        </position>
+    </component>
+    <component type="CameraTrackComponent">
+        <priority>10</priority>
+    </component>
+    <component type="LeaveBonusComponent">
+        <chanceModifier>2</chanceModifier>
+    </component>
+    <component type="LeaveBonusComponent" />
+    <component type="AmmoComponent">
+        <currentLevel>0</currentLevel>
+        <maxLevel>1</maxLevel>
+        <ammo level="0">
+            <bullet direction="Left">LeftBullet0</bullet>
+            <bullet direction="Right">RightBullet0</bullet>
+            <bullet direction="Up">UpBullet0</bullet>
+            <bullet direction="Down">DownBullet0</bullet>
+        </ammo>
+        <ammo level="1">
+            <bullet direction="Left">LeftBullet1</bullet>
+            <bullet direction="Right">RightBullet1</bullet>
+            <bullet direction="Up">UpBullet1</bullet>
+            <bullet direction="Down">DownBullet1</bullet>
+        </ammo>
+    </component>
+    <component type="AutoShootComponent" />
+    <component type="DamageComponent">
+        <damage>1</damage>
+    </component>
+    <component type="HealthComponent">
+        <health>2</health>
+        <maxHealth>3</maxHealth>
+    </component>
+    <component type="HitComponent">
+        <effect type="AlphaEffect">
+            <alphaValue>1</alphaValue>
+        </effect>
+        <hitTime>1.5</hitTime>
+    </component>
+    <component type="ProtectionComponent" />
+    <component type="RandomShootComponent">
+        <minShootFrequency>1.1</minShootFrequency>
+        <maxShootFrequency>2.4</maxShootFrequency>
+    </component>
+    <component type="DirectionComponent">
+        <direction>Left</direction>
+    </component>
+</components>

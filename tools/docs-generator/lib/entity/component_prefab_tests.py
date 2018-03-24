@@ -1,6 +1,10 @@
 import unittest
+import os
 
 from lib.entity.component_prefab import *
+from lib.graphics.effect_prefab import SubAlphaEffectPrefabXmlReader
+
+ENTITY_COMPONENTS_PREFABS_ALL_FILENAME = os.path.join(os.path.dirname(__file__), 'test-entity-components-prefabs-all.xml')
 
 
 class TestComponentPrefab(unittest.TestCase):
@@ -83,6 +87,28 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
 
         with self.assertRaises(ComponentPrefabXmlReadException):
             reader.read_prefabs_from_string(xml)
+
+    def test_component_prefabs_xml_reader_all(self):
+        reader = ComponentPrefabXmlReader([
+            SubCameraTrackComponentPrefabXmlReader(PositionPrefabXmlReader()),
+            SubLeaveBonusComponentPrefabXmlReader(),
+            SubAmmoComponentPrefabXmlReader(),
+            SubAutoShootComponentPrefabXmlReader(),
+            SubDamageComponentPrefabXmlReader(),
+            SubHealthComponentPrefabXmlReader(),
+            SubHitComponentPrefabXmlReader(
+                EffectPrefabXmlReader([
+                    SubAlphaEffectPrefabXmlReader()
+                ])
+            ),
+            SubProtectionComponentPrefabXmlReader(),
+            SubRandomShootComponentPrefabXmlReader(),
+            SubDirectionComponentPrefabXmlReader()
+        ])
+        element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
+        prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
+
+        self.assertEqual(12, len(prefabs))
 
 
 if __name__ == "__main__":
