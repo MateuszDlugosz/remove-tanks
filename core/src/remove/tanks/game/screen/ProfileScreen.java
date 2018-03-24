@@ -186,6 +186,9 @@ public final class ProfileScreen extends GameScreen {
         this.titleLabel.setText(locale.getSelectedTranslation().getEntry(
                 TranslationEntryKey.GameScreenProfileTitle.getName()
         ).toUpperCase());
+        this.profilePropertyLabels.forEach((k, v) -> v.setText(
+                locale.getSelectedTranslation().getEntry(
+                        TranslationEntryKey.valueOf("GameScreenProfileLabel" + k.name()).getName()).toUpperCase()));
         this.backButton.setText(locale.getSelectedTranslation().getEntry(
                 TranslationEntryKey.GameScreenButtonBack.getName()
         ).toUpperCase());
