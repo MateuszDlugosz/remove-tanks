@@ -152,4 +152,12 @@ public final class LevelConfiguration {
             );
         }
     }
+
+    @ComponentName("LevelDisposer")
+    public static final class LevelDisposerSupplier extends ComponentSupplier<LevelDisposer> {
+        @Override
+        public LevelDisposer supplyComponent() {
+            return new LevelDisposer();
+        }
+    }
 }

@@ -11,11 +11,14 @@ import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.input.InputKey;
 import remove.tanks.game.input.InputMapper;
 import remove.tanks.game.level.LevelController;
+import remove.tanks.game.level.LevelSequence;
 
 /**
  * @author Mateusz Długosz
  */
 public final class LevelScreen extends GameScreen {
+    private final LevelSequence levelSequence;
+    private final int playedLevelIndex;
     private final InputMapper inputMapper;
     private final LevelController levelController;
     private final Skin skin;
@@ -23,8 +26,15 @@ public final class LevelScreen extends GameScreen {
     private Stage stage;
     private Window window;
 
-    public LevelScreen(GameApplication gameApplication, LevelController levelController) {
+    public LevelScreen(
+            GameApplication gameApplication,
+            LevelController levelController,
+            LevelSequence levelSequence,
+            int playedLevelIndex
+    ) {
         super(gameApplication);
+        this.levelSequence = levelSequence;
+        this.playedLevelIndex = playedLevelIndex;
         this.inputMapper = gameApplication.getContext().getComponent("InputMapper", InputMapper.class);
         this.levelController = levelController;
         this.skin = gameApplication.getContext()

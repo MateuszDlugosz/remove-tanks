@@ -16,11 +16,15 @@ import remove.tanks.game.audio.sound.SoundChannelName;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
+import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.screen.gui.button.Button;
 import remove.tanks.game.screen.gui.button.ButtonGroup;
 import remove.tanks.game.screen.gui.label.Label;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * @author Mateusz Długosz
@@ -138,7 +142,12 @@ public final class MainMenuScreen extends GameScreen {
         startButton.setKeyListener(keycode -> {
             if (keycode == Input.Keys.ENTER) {
                 getGameApplication().switchScreenWithTransition(
-                        new LevelLoadingScreen(getGameApplication(), "prefabs/levels/level-prefab.xml"));
+                        new LevelLoadingScreen(
+                                getGameApplication(),
+                                new LevelSequence(Collections.singletonList("prefabs/levels/level-prefab.xml")),
+                                0,
+                                null
+                        ));
                 eventBus.post(new PlaySoundEvent(
                         SoundChannelName.UIEffectSoundChannel,
                         assetStorage.getAsset("UIButtonSelect0Sound", Sound.class)
