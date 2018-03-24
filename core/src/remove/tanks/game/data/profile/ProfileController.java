@@ -1,6 +1,7 @@
 package remove.tanks.game.data.profile;
 
 import com.badlogic.gdx.files.FileHandle;
+import remove.tanks.game.data.profile.achievement.AchievementAvailabilityChecker;
 
 /**
  * @author Mateusz Długosz
@@ -44,15 +45,7 @@ public final class ProfileController {
         if (!profileScanner.isProfileFileExists(localProfile)) {
             profileInitializer.initializeProfile(emptyProfile, localProfile);
         }
-        localProfile.writeString(profileXmlWriter.writeProfile(profile), false);
-    }
-
-    public void updateProfile(Profile profile) {
-        if (!profileScanner.isProfileFileExists(localProfile)) {
-            profileInitializer.initializeProfile(emptyProfile, localProfile);
-        }
-        localProfile.writeString(profileXmlWriter.writeProfile(
-                profileUpdater.updateProfile(profile)), false);
+        localProfile.writeString(profileXmlWriter.writeProfile(profileUpdater.updateProfile(profile)), false);
     }
 
     public void resetProfile() {
