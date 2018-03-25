@@ -34,8 +34,13 @@ public enum TranslationEntryKey {
     GameScreenSummaryTitle("game.screen.summary.title"),
     GameScreenSummaryContent("game.screen.summary.content"),
 
+    GameScreenPauseTitle("game.screen.pause.title"),
+    GameScreenPauseContent("game.screen.pause.content"),
+
     GameLevelSequenceTitleTemplate("game.level.sequence.title.%s"),
 
+    GameScreenButtonYes("game.screen.button.yes"),
+    GameScreenButtonNo("game.screen.button.no"),
     GameScreenButtonBack("game.screen.button.back");
 
     private final String name;

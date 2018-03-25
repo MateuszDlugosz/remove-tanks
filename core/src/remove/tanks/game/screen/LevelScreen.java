@@ -82,6 +82,10 @@ public final class LevelScreen extends GameScreen {
             if (Gdx.input.isKeyPressed(Input.Keys.UP)) inputMapper.keyDown(InputKey.Up);
             if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) inputMapper.keyDown(InputKey.Down);
             if (Gdx.input.isKeyJustPressed(Input.Keys.CONTROL_LEFT)) inputMapper.keyDown(InputKey.Shoot);
+            if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+                getGameApplication().switchScreenWithTransition(
+                        new LevelPauseScreen(getGameApplication(), this));
+            }
 
             if (properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.End.getName())) {
                 getGameApplication().switchScreenWithTransition(

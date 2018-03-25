@@ -30,10 +30,15 @@
     <entry key="game.screen.credits.title">Credits</entry>
     <entry key="game.screen.credits.content.0">Mateusz Długosz</entry>
 
+    <entry key="game.screen.pause.title">Pause</entry>
+    <entry key="game.screen.pause.content">Back to main menu?</entry>
+
     <entry key="game.screen.summary.title">Summary</entry>
     <entry key="game.screen.summary.content">You end %s and gain %s points.</entry>
 
     <entry key="game.screen.button.back">Back</entry>
+    <entry key="game.screen.button.yes">Yes</entry>
+    <entry key="game.screen.button.no">No</entry>
 
     <entry key="Simple">Sample</entry>
 </translation>

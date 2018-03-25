@@ -27,6 +27,9 @@
     <entry key="game.screen.profile.label.profile.points">Punkty</entry>
     <entry key="game.screen.profile.label.profile.destroyed.enemies">Zniszczeni wrogowie</entry>
 
+    <entry key="game.screen.pause.title">Pauza</entry>
+    <entry key="game.screen.pause.content">Powrót do menu głownego?</entry>
+
     <entry key="game.screen.summary.title">Podsumowanie</entry>
     <entry key="game.screen.summary.content">Ukończyłeś %s i zdobyłeś %s punktów.</entry>
 
@@ -34,6 +37,8 @@
     <entry key="game.screen.credits.content.0">Mateusz Długosz</entry>
 
     <entry key="game.screen.button.back">Powrót</entry>
+    <entry key="game.screen.button.yes">Tak</entry>
+    <entry key="game.screen.button.no">Nie</entry>
 
     <entry key="Simple">Sample</entry>
 </translation>
