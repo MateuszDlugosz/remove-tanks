@@ -58,6 +58,10 @@ public final class LevelScreen extends GameScreen {
         initStage();
     }
 
+    public LevelController getLevelController() {
+        return levelController;
+    }
+
     private void initStage() {
         stage.addActor(window);
     }

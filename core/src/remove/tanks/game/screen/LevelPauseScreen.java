@@ -13,6 +13,7 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.audio.sound.SoundChannelName;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphics.camera.Game2DCamera;
+import remove.tanks.game.level.LevelDisposer;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
@@ -27,6 +28,7 @@ public final class LevelPauseScreen extends GameScreen {
     private final LevelPresenter levelPresenter;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
+    private final LevelDisposer levelDisposer;
     private final LevelScreen levelScreen;
     private final Locale locale;
     private final Skin skin;
@@ -55,6 +57,8 @@ public final class LevelPauseScreen extends GameScreen {
                 .getComponent("EventBus", EventBus.class);
         this.assetStorage = gameApplication.getContext()
                 .getComponent("MainAssetStorage", AssetStorage.class);
+        this.levelDisposer = gameApplication.getContext()
+                .getComponent("LevelDisposer", LevelDisposer.class);
         this.locale = gameApplication.getContext()
                 .getComponent("Locale", Locale.class);
         this.skin = gameApplication.getContext()
@@ -159,6 +163,7 @@ public final class LevelPauseScreen extends GameScreen {
         ).toUpperCase(), skin);
         button.setKeyListener(keycode -> {
             if (keycode == Input.Keys.ENTER) {
+                levelDisposer.disposeLevel(levelScreen.getLevelController().getLevel());
                 getGameApplication().switchScreenWithoutTransition(MainMenuScreen.class);
                 eventBus.post(new PlaySoundEvent(
                         SoundChannelName.UIEffectSoundChannel,
