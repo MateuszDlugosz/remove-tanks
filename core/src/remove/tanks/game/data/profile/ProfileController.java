@@ -1,7 +1,6 @@
 package remove.tanks.game.data.profile;
 
 import com.badlogic.gdx.files.FileHandle;
-import remove.tanks.game.data.profile.achievement.AchievementAvailabilityChecker;
 import remove.tanks.game.utility.properties.Properties;
 
 /**

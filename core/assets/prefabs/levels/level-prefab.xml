@@ -191,7 +191,6 @@
             <properties>
                 <property name="level.time.left">10</property>
                 <property name="level.enemies.left">6</property>
-                <property name="level.increase.maps.ended.value">true</property>
             </properties>
         </resourceConfiguration>
     </resourceConfigurations>

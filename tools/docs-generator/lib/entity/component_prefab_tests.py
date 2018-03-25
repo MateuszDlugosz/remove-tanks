@@ -1,6 +1,5 @@
-import unittest
 import os
-
+import unittest
 from lib.entity.component_prefab import *
 from lib.graphics.effect_prefab import SubAlphaEffectPrefabXmlReader
 

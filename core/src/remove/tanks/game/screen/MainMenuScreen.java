@@ -24,7 +24,6 @@ import remove.tanks.game.screen.gui.button.ButtonGroup;
 import remove.tanks.game.screen.gui.label.Label;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * @author Mateusz Długosz
