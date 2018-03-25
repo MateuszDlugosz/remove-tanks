@@ -97,6 +97,7 @@
     <!-- CONSTRUCTIONS HOUSES -->
     <entityPrefabFilename code="HouseSmall0Horizontal">prefabs/entities/constructions/houses/house-small-0-horizontal.xml</entityPrefabFilename>
     <entityPrefabFilename code="HouseSmallRuined0Horizontal">prefabs/entities/constructions/houses/house-small-ruined-0-horizontal.xml</entityPrefabFilename>
+    <entityPrefabFilename code="HouseSmallRuined0Vertical">prefabs/entities/constructions/houses/house-small-ruined-0-vertical.xml</entityPrefabFilename>
     <entityPrefabFilename code="HouseSmall0Vertical">prefabs/entities/constructions/houses/house-small-0-vertical.xml</entityPrefabFilename>
     <entityPrefabFilename code="HouseMediumRuined0Horizontal">prefabs/entities/constructions/houses/house-medium-ruined-0-horizontal.xml</entityPrefabFilename>
     <entityPrefabFilename code="HouseMediumRuined0Vertical">prefabs/entities/constructions/houses/house-medium-ruined-0-vertical.xml</entityPrefabFilename>
@@ -113,6 +114,11 @@
     <entityPrefabFilename code="HouseMediumL0LeftUp">prefabs/entities/constructions/houses/house-medium-l-0-left-up.xml</entityPrefabFilename>
     <entityPrefabFilename code="HouseMediumL0RightUp">prefabs/entities/constructions/houses/house-medium-l-0-right-up.xml</entityPrefabFilename>
     <entityPrefabFilename code="HouseMedium0Vertical">prefabs/entities/constructions/houses/house-medium-0-vertical.xml</entityPrefabFilename>
+
+    <!-- CONSTRUCTIONS OBELISKS -->
+    <entityPrefabFilename code="Obelisk0">prefabs/entities/constructions/obelisks/obelisk-0.xml</entityPrefabFilename>
+    <entityPrefabFilename code="Obelisk1">prefabs/entities/constructions/obelisks/obelisk-1.xml</entityPrefabFilename>
+    <entityPrefabFilename code="ObeliskRuined0">prefabs/entities/constructions/obelisks/obelisk-ruined-0.xml</entityPrefabFilename>
 
     <!-- CONSTRUCTIONS OBSTACLES -->
     <entityPrefabFilename code="SpikesSmall0">prefabs/entities/constructions/obstacles/spikes-small-0.xml</entityPrefabFilename>

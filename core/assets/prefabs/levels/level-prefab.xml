@@ -5,6 +5,10 @@
     <assetPrefabRepositoryFilename>themes/sepia-asset-prefab-repository.xml</assetPrefabRepositoryFilename>
     <preloadData>
         <entityPrefabCodes>
+            <entityPrefabCode>HouseSmallRuined0Vertical</entityPrefabCode>
+            <entityPrefabCode>Obelisk0</entityPrefabCode>
+            <entityPrefabCode>Obelisk1</entityPrefabCode>
+            <entityPrefabCode>ObeliskRuined0</entityPrefabCode>
             <entityPrefabCode>CameraActor0</entityPrefabCode>
             <entityPrefabCode>Grave0</entityPrefabCode>
             <entityPrefabCode>Grave1</entityPrefabCode>
