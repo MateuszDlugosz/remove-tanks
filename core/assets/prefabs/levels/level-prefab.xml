@@ -190,6 +190,8 @@
         <resourceConfiguration resourceType="LevelPropertiesResource">
             <properties>
                 <property name="level.time.left">10</property>
+                <property name="level.enemies.left">6</property>
+                <property name="level.increase.maps.ended.value">true</property>
             </properties>
         </resourceConfiguration>
     </resourceConfigurations>
@@ -335,7 +337,12 @@
                     </timelineEntries>
                 </timeline>
             </system>
-            <system type="TimeUpdateSystem" />
+            <system type="NoEnemiesVictorySystem">
+                <delay>3</delay>
+            </system>
+            <system type="LevelEndSystem">
+                <delay>3</delay>
+            </system>
         </systems>
         <listeners>
             <listener type="CreateTriggerListener" />

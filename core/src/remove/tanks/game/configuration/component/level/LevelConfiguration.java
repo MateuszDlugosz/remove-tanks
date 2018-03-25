@@ -160,4 +160,12 @@ public final class LevelConfiguration {
             return new LevelDisposer();
         }
     }
+
+    @ComponentName("LevelTransferablePropertiesExtractor")
+    public static final class LevelTransferablePropertiesExtractorSupplier extends ComponentSupplier<LevelTransferablePropertiesExtractor> {
+        @Override
+        public LevelTransferablePropertiesExtractor supplyComponent() {
+            return new LevelTransferablePropertiesExtractor();
+        }
+    }
 }

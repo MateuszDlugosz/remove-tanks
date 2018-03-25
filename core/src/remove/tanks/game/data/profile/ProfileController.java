@@ -2,6 +2,7 @@ package remove.tanks.game.data.profile;
 
 import com.badlogic.gdx.files.FileHandle;
 import remove.tanks.game.data.profile.achievement.AchievementAvailabilityChecker;
+import remove.tanks.game.utility.properties.Properties;
 
 /**
  * @author Mateusz Długosz
@@ -41,11 +42,12 @@ public final class ProfileController {
         return profileXmlReader.readProfile(localProfile);
     }
 
-    public void writeProfile(Profile profile) {
+    public void writeProfile(Profile profile, Properties levelProperties) {
         if (!profileScanner.isProfileFileExists(localProfile)) {
             profileInitializer.initializeProfile(emptyProfile, localProfile);
         }
-        localProfile.writeString(profileXmlWriter.writeProfile(profileUpdater.updateProfile(profile)), false);
+        localProfile.writeString(profileXmlWriter.writeProfile(
+                profileUpdater.updateProfile(profile, levelProperties)), false);
     }
 
     public void resetProfile() {

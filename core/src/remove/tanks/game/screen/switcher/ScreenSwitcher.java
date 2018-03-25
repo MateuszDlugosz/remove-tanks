@@ -50,8 +50,4 @@ public final class ScreenSwitcher {
     public void switchScreenWithoutTransition(Class<? extends GameScreen> screenClass, Game game) {
         game.setScreen(screenStorage.getScreen(screenClass));
     }
-
-    public void switchScreenWithoutTransition(GameScreen screen, Game game) {
-        game.setScreen(screen);
-    }
 }

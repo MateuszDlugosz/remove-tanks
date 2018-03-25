@@ -85,6 +85,7 @@ public final class MainMenuScreen extends GameScreen {
     @Override
     public void show() {
         buttonGroup.reset();
+        stage.getRoot().getColor().a = 1f;
     }
 
     @Override
@@ -144,7 +145,13 @@ public final class MainMenuScreen extends GameScreen {
                 getGameApplication().switchScreenWithTransition(
                         new LevelLoadingScreen(
                                 getGameApplication(),
-                                new LevelSequence(Collections.singletonList("prefabs/levels/level-prefab.xml")),
+                                new LevelSequence(
+                                        "early-morning",
+                                        Arrays.asList(
+                                                "prefabs/levels/level-prefab.xml",
+                                                "prefabs/levels/level-prefab.xml"
+                                        )
+                                ),
                                 0,
                                 null
                         ));

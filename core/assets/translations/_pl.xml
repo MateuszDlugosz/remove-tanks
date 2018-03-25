@@ -6,6 +6,11 @@
     <entry key="game.level.hud.enemies.left">Pozostali wrogowie</entry>
     <entry key="game.level.hud.time-left">Pozostały czas</entry>
 
+    <entry key="game.level.state.victory">Zwycięstwo</entry>
+    <entry key="game.level.state.defeat">Porażka</entry>
+
+    <entry key="game.level.sequence.title.early-morning">Wczesny Ranek</entry>
+
     <entry key="game.screen.main.menu.button.start">Start</entry>
     <entry key="game.screen.main.menu.button.options">Opcje</entry>
     <entry key="game.screen.main.menu.button.credits">Autorzy</entry>
@@ -21,7 +26,9 @@
     <entry key="game.screen.profile.title">Profil</entry>
     <entry key="game.screen.profile.label.profile.points">Punkty</entry>
     <entry key="game.screen.profile.label.profile.destroyed.enemies">Zniszczeni wrogowie</entry>
-    <entry key="game.screen.profile.label.profile.maps.ended">Ukończone mapy</entry>
+
+    <entry key="game.screen.summary.title">Podsumowanie</entry>
+    <entry key="game.screen.summary.content">Ukończyłeś %s i zdobyłeś %s punktów.</entry>
 
     <entry key="game.screen.credits.title">Autorzy</entry>
     <entry key="game.screen.credits.content.0">Mateusz Długosz</entry>

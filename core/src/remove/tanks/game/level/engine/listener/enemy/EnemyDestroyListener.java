@@ -46,6 +46,8 @@ public final class EnemyDestroyListener extends AbstractEntityListener {
 
         properties.putInt(LevelProperty.LevelEnemiesLeft.getName(),
                 properties.getInt(LevelProperty.LevelEnemiesLeft.getName()) -1);
+        properties.putInt(LevelProperty.LevelEnemiesDestroyed.getName(),
+                properties.getInt(LevelProperty.LevelEnemiesDestroyed.getName()) + 1);
 
         if (eventThresholds.containsKey(counter.getValue())) {
             eventBus.post(eventThresholds.get(counter.getValue()));

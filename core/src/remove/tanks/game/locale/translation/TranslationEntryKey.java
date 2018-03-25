@@ -31,6 +31,11 @@ public enum TranslationEntryKey {
     GameScreenCreditsTitle("game.screen.credits.title"),
     GameScreenCreditsContent0("game.screen.credits.content.0"),
 
+    GameScreenSummaryTitle("game.screen.summary.title"),
+    GameScreenSummaryContent("game.screen.summary.content"),
+
+    GameLevelSequenceTitleTemplate("game.level.sequence.title.%s"),
+
     GameScreenButtonBack("game.screen.button.back");
 
     private final String name;

@@ -5,8 +5,7 @@ package remove.tanks.game.data.profile;
  */
 public enum ProfileProperty {
     ProfilePoints("profile.points", "0"),
-    ProfileDestroyedEnemies("profile.destroyed.enemies", "0"),
-    ProfileMapsEnded("profile.maps.ended", "0");
+    ProfileDestroyedEnemies("profile.destroyed.enemies", "0");
 
     private final String name;
     private final String defaultValue;

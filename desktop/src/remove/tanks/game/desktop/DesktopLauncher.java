@@ -67,8 +67,8 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameWorldUpdateTimeStep.getName(), String.valueOf(1f/45f));
         configuration.put(ConfigurationOption.GameWorldUpdatePositionIterations.getName(), "2");
         configuration.put(ConfigurationOption.GameWorldUpdateVelocityIterations.getName(), "6");
-        configuration.put(ConfigurationOption.GameDisplayWidth.getName(), "320");
-        configuration.put(ConfigurationOption.GameDisplayHeight.getName(), "175");
+        configuration.put(ConfigurationOption.GameDisplayWidth.getName(), "384");
+        configuration.put(ConfigurationOption.GameDisplayHeight.getName(), "216");
         configuration.put(ConfigurationOption.GameLocation.getName(),
                 DesktopLauncher.class.getProtectionDomain().getCodeSource().getLocation().toString());
         configuration.put(ConfigurationOption.GameLevelPresenterPrefabFilename.getName(),

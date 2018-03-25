@@ -43,9 +43,9 @@ public final class StateBar {
             label.setText(locale.getSelectedTranslation().getEntry(
                     String.format(
                             TRANSLATION_ENTRY_TEMPLATE,
-                            properties.getString(LevelProperty.LevelState.getName())
+                            properties.getString(LevelProperty.LevelState.getName()).toLowerCase()
                     )
-            ));
+            ).toUpperCase());
         } else {
             label.setText(EMPTY_STATE_TEMPLATE);
         }
