@@ -35,9 +35,9 @@ class TestColorPrefabXmlReader(unittest.TestCase):
         reader = SubRgbColorPrefabXmlReader()
         prefab = reader.read_prefab_from_string(xml)
 
-        self.assertEquals(prefab.get_r(), 1)
-        self.assertEquals(prefab.get_g(), 2)
-        self.assertEquals(prefab.get_b(), 3)
+        self.assertEqual(prefab.get_r(), 1)
+        self.assertEqual(prefab.get_g(), 2)
+        self.assertEqual(prefab.get_b(), 3)
 
     def test_rgb_color_prefab_xml_reader_invalid(self):
         xml = """
@@ -60,10 +60,10 @@ class TestColorPrefabXmlReader(unittest.TestCase):
         reader = SubRgbaColorPrefabXmlReader()
         prefab = reader.read_prefab_from_string(xml)
 
-        self.assertEquals(prefab.get_r(), 1)
-        self.assertEquals(prefab.get_g(), 2)
-        self.assertEquals(prefab.get_b(), 3)
-        self.assertEquals(prefab.get_a(), 4)
+        self.assertEqual(prefab.get_r(), 1)
+        self.assertEqual(prefab.get_g(), 2)
+        self.assertEqual(prefab.get_b(), 3)
+        self.assertEqual(prefab.get_a(), 4)
 
     def test_rgba_color_prefab_xml_reader_invalid(self):
         xml = """
@@ -83,7 +83,7 @@ class TestColorPrefabXmlReader(unittest.TestCase):
         reader = SubHexColorPrefabXmlReader()
         prefab = reader.read_prefab_from_string(xml)
 
-        self.assertEquals(prefab.get_hex_value(), "CCAAFFEE")
+        self.assertEqual(prefab.get_hex_value(), "CCAAFFEE")
 
     def test_hex_color_prefab_xml_reader_invalid(self):
         xml = """

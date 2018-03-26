@@ -28,8 +28,6 @@ class TestSpritePrefabXmlReader(unittest.TestCase):
         reader = SubFileSpritePrefabXmlReader()
         prefab = reader.read_prefab_from_string(xml)
 
-        print(prefab)
-
         self.assertTrue(prefab.get_flip_x())
         self.assertFalse(prefab.get_flip_y())
         self.assertEqual(prefab.get_filename(), "TestFilename")

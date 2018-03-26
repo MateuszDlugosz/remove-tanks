@@ -3,7 +3,7 @@ import unittest
 
 from lib.graphics.texture.texture_atlas import *
 
-TEXTURE_ATLAS_TEST_FILENAME = os.path.join(os.path.dirname(__file__), 'texture-atlas-test.pack')
+TEXTURE_ATLAS_TEST_FILENAME = os.path.join(os.path.dirname(__file__), 'test-texture-atlas.pack')
 
 
 class TestTextureAtlas(unittest.TestCase):

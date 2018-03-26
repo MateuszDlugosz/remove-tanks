@@ -333,8 +333,6 @@ class TestVehicleRenderLayerComponentPrefab(unittest.TestCase):
 
 class TestViewComponentPrefab(unittest.TestCase):
     def test_component_prefab_to_string(self):
-        print(str(ViewComponentPrefab([SpriteViewPrefab("ID", PositionPrefab(1.1, 2.2),
-                                                      FileSpritePrefab(True, False, "filename-test"))])))
         self.assertEqual(
             str(ViewComponentPrefab([SpriteViewPrefab("ID", PositionPrefab(1.1, 2.2),
                                                       FileSpritePrefab(True, False, "filename-test"))])),
