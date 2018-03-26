@@ -1,7 +1,7 @@
 import unittest
 
-from lib.entity.component_prefab import SpeedComponentPrefab
-from lib.entity.entity_prefab import *
+from lib.level.engine.entity.component.component_prefab import SpeedComponentPrefab
+from lib.level.engine.entity.entity_prefab import *
 
 
 class TestEntityPrefab(unittest.TestCase):

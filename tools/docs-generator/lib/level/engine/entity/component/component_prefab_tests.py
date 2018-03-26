@@ -1,7 +1,8 @@
 import os
 import unittest
-from lib.entity.component_prefab import *
+
 from lib.graphics.effect_prefab import SubAlphaEffectPrefabXmlReader
+from lib.level.engine.entity.component.component_prefab import *
 
 ENTITY_COMPONENTS_PREFABS_ALL_FILENAME = os.path.join(os.path.dirname(__file__), 'test-entity-components-prefabs-all.xml')
 
@@ -102,12 +103,29 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
             ),
             SubProtectionComponentPrefabXmlReader(),
             SubRandomShootComponentPrefabXmlReader(),
-            SubDirectionComponentPrefabXmlReader()
+            SubDirectionComponentPrefabXmlReader(),
+            SubChangeBehaviorComponentPrefabXmlReader(
+                ComponentPrefabXmlReader(
+                    [
+                        SubCameraTrackComponentPrefabXmlReader(PositionPrefabXmlReader())
+                    ]
+                )
+            ),
+            SubRandomDirectionComponentPrefabXmlReader(),
+            SubEnemyComponentPrefabXmlReader(),
+            SubPlayerComponentPrefabXmlReader(),
+            SubIdentityComponentPrefabXmlReader(),
+            SubInputComponentPrefabXmlReader(),
+            SubCreateComponentPrefabXmlReader(),
+            SubDestroyComponentPrefabXmlReader(),
+            SubDestroyOnContactComponentPrefabXmlReader(),
+            SubDestroyOnContactLostComponentPrefabXmlReader(),
+            SubLifetimeComponentPrefabXmlReader()
         ])
         element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
         prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
 
-        self.assertEqual(12, len(prefabs))
+        self.assertEqual(23, len(prefabs))
 
 
 if __name__ == "__main__":

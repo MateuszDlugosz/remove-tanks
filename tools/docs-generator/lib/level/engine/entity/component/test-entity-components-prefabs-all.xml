@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <components>
+    <component type="ChangeBehaviorComponent">
+        <components>
+            <component type="CameraTrackComponent">
+                <priority>33</priority>
+            </component>
+        </components>
+    </component>
     <component type="CameraTrackComponent">
         <priority>100</priority>
         <position>
@@ -51,5 +58,28 @@
     </component>
     <component type="DirectionComponent">
         <direction>Left</direction>
+    </component>
+    <component type="RandomDirectionComponent">
+        <minChangeDirectionFrequency>1.1</minChangeDirectionFrequency>
+        <maxChangeDirectionFrequency>1.1</maxChangeDirectionFrequency>
+        <directions>
+            <direction>Left</direction>
+            <direction>Right</direction>
+        </directions>
+    </component>
+    <component type="EnemyComponent" />
+    <component type="PlayerComponent" />
+    <component type="IdentityComponent">
+        <id>TestID</id>
+    </component>
+    <component type="InputComponent">
+        <shootDelay>9.9</shootDelay>
+    </component>
+    <component type="CreateComponent" />
+    <component type="DestroyComponent" />
+    <component type="DestroyOnContactComponent" />
+    <component type="DestroyOnContactLostComponent" />
+    <component type="LifetimeComponent">
+        <lifetime>4.5</lifetime>
     </component>
 </components>

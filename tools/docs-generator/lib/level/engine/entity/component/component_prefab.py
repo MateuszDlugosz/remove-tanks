@@ -395,3 +395,236 @@ class SubDirectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "DirectionComponent"
+
+
+class ChangeBehaviorComponentPrefab(ComponentPrefab):
+    def __init__(self, component_prefabs):
+        self.component_prefabs = component_prefabs
+
+    def get_component_prefabs(self):
+        return self.component_prefabs
+
+    def __str__(self):
+        return "ChangeBehaviorComponentPrefab(component_prefabs={})"\
+            .format(str(self.component_prefabs))
+
+
+class SubChangeBehaviorComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def __init__(self, component_prefab_xml_reader):
+        self.component_prefab_xml_reader = component_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            component_prefabs = self.component_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(ComponentPrefabXmlReader.COMPONENTS_ELEMENT))
+            )
+
+            return ChangeBehaviorComponentPrefab(component_prefabs)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "ChangeBehaviorComponent"
+
+
+class RandomDirectionComponentPrefab(ComponentPrefab):
+    def __init__(self, min_change_direction_frequency, max_change_direction_frequency, directions):
+        self.min_change_direction_frequency = float(min_change_direction_frequency)
+        self.max_change_direction_frequency = float(max_change_direction_frequency)
+        self.directions = directions
+
+    def get_min_change_direction_frequency(self):
+        return self.min_change_direction_frequency
+
+    def get_max_change_direction_frequency(self):
+        return self.max_change_direction_frequency
+
+    def __str__(self):
+        return "RandomDirectionComponentPrefab(min_change_direction_frequency={}, max_change_direction_frequency={}, " \
+               "directions={})" \
+                    .format(self.min_change_direction_frequency, self.max_change_direction_frequency, self.directions)
+
+
+class SubRandomDirectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    MIN_CHANGE_DIRECTION_FREQUENCY = "minChangeDirectionFrequency"
+    MAX_CHANGE_DIRECTION_FREQUENCY = "maxChangeDirectionFrequency"
+    DIRECTIONS_ELEMENT = "directions"
+    DIRECTION_ELEMENT = "direction"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            min_change_direction_frequency = float(element.find(self.MIN_CHANGE_DIRECTION_FREQUENCY).text.strip())
+            max_change_direction_frequency = float(element.find(self.MAX_CHANGE_DIRECTION_FREQUENCY).text.strip())
+            directions = []
+
+            for direction_element in element.find(self.DIRECTIONS_ELEMENT).findall(self.DIRECTION_ELEMENT):
+                directions.append(direction_element.text.strip())
+
+            return RandomDirectionComponentPrefab(
+                min_change_direction_frequency, max_change_direction_frequency, directions)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "RandomDirectionComponent"
+
+
+class EnemyComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "EnemyComponentPrefab()"
+
+
+class SubEnemyComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return EnemyComponentPrefab()
+
+    def get_type(self):
+        return "EnemyComponent"
+
+
+class PlayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "PlayerComponentPrefab()"
+
+
+class SubPlayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return PlayerComponentPrefab()
+
+    def get_type(self):
+        return "PlayerComponent"
+
+
+class IdentityComponentPrefab(ComponentPrefab):
+    def __init__(self, id):
+        self.id = str(id)
+
+    def get_id(self):
+        return self.id
+
+    def __str__(self):
+        return "IdentityComponentPrefab(id={})".find(self.id)
+
+
+class SubIdentityComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    ID_ELEMENT = "id"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            id = element.find(self.ID_ELEMENT).text.strip()
+
+            return IdentityComponentPrefab(id)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "IdentityComponent"
+
+
+class InputComponentPrefab(ComponentPrefab):
+    def __init__(self, shoot_delay):
+        self.shoot_delay = float(shoot_delay)
+
+    def get_shoot_delay(self):
+        return self.shoot_delay
+
+    def __str__(self):
+        return "InputComponentPrefab"
+
+
+class SubInputComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    SHOOT_DELAY_ELEMENT = "shootDelay"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            shoot_delay = float(element.find(self.SHOOT_DELAY_ELEMENT).text.strip())
+
+            return InputComponentPrefab(shoot_delay)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "InputComponent"
+
+
+class CreateComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "CreateComponentPrefab()"
+
+
+class SubCreateComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return CreateComponentPrefab()
+
+    def get_type(self):
+        return "CreateComponent"
+
+
+class DestroyComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "DestroyComponentPrefab()"
+
+
+class SubDestroyComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return DestroyComponentPrefab()
+
+    def get_type(self):
+        return "DestroyComponent"
+
+
+class DestroyOnContactComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "DestroyOnContactComponentPrefab()"
+
+
+class SubDestroyOnContactComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return DestroyOnContactComponentPrefab()
+
+    def get_type(self):
+        return "DestroyOnContactComponent"
+
+
+class DestroyOnContactLostComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "DestroyOnContactLostComponentPrefab()"
+
+
+class SubDestroyOnContactLostComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return DestroyOnContactLostComponentPrefab()
+
+    def get_type(self):
+        return "DestroyOnContactLostComponent"
+
+
+class LifetimeComponentPrefab(ComponentPrefab):
+    def __init__(self, lifetime):
+        self.lifetime = float(lifetime)
+
+    def get_lifetime(self):
+        return self.lifetime
+
+    def __str__(self):
+        return "LifetimeComponentPrefab(lifetime={})".format(self.lifetime)
+
+
+class SubLifetimeComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    LIFETIME_ELEMENT = "lifetime"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            lifetime = float(element.find(self.LIFETIME_ELEMENT).text.strip())
+
+            return LifetimeComponentPrefab(lifetime)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "LifetimeComponent"

@@ -1,8 +1,8 @@
 import os
 import unittest
 
-from lib.entity.entity_prefab import EntityPrefab
-from lib.entity.entity_prefab_repository import *
+from lib.level.engine.entity.entity_prefab import EntityPrefab
+from lib.level.engine.entity.entity_prefab_repository import *
 
 ENTITY_PREFAB_REPOSITORY_TEST_FILENAME = os.path.join(os.path.dirname(__file__), 'test-entity-prefab-repository.xml')
 

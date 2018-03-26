@@ -38,7 +38,7 @@ class EntityPrefabRepositoryXmlReader(object):
 
 
 class EntityPrefabRepositoryXmlReadException(Exception):
-    MESSAGE_TEMPLATE = "Cannot read entity prefab repository from file {}."
+    MESSAGE_TEMPLATE = "Cannot read level prefab repository from file {}."
 
     def __init__(self, filename):
         super().__init__(self.MESSAGE_TEMPLATE.format(filename))
