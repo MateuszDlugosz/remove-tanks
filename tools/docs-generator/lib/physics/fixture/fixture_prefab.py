@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as EXml
 
-from lib.physics.filter_prefab import FilterPrefabXmlReader
-from lib.physics.shape_prefab import ShapePrefabXmlReader
+from lib.physics.filter.filter_prefab import FilterPrefabXmlReader
+from lib.physics.shape.shape_prefab import ShapePrefabXmlReader
 
 
 class FixturePrefab(object):

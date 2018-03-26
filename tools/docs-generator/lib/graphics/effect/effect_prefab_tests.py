@@ -1,8 +1,8 @@
 import unittest
 
-from lib.graphics.color_prefab import HexColorPrefab, SubHexColorPrefabXmlReader
-from lib.graphics.effect_prefab import *
-from lib.graphics.shader_program_prefab import ShaderProgramPrefab
+from lib.graphics.color.color_prefab import HexColorPrefab, SubHexColorPrefabXmlReader
+from lib.graphics.effect.effect_prefab import *
+from lib.graphics.shader.shader_program_prefab import ShaderProgramPrefab
 
 
 class TestEffectPrefab(unittest.TestCase):

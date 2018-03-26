@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as EXml
 
-from lib.graphics.animation_prefab import AnimationPrefabXmlReader
-from lib.graphics.particle_effect_prefab import ParticleEffectPrefabXmlReader
-from lib.graphics.sprite_prefab import SpritePrefabXmlReader
+from lib.graphics.animation.animation_prefab import AnimationPrefabXmlReader
+from lib.graphics.particles.particle_effect_prefab import ParticleEffectPrefabXmlReader
+from lib.graphics.sprite.sprite_prefab import SpritePrefabXmlReader
 from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader, PositionPrefab
 
 

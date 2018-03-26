@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as EXml
 
-from lib.graphics.color_prefab import ColorPrefabXmlReader
-from lib.graphics.shader_program_prefab import ShaderProgramPrefabXmlReader
+from lib.graphics.color.color_prefab import ColorPrefabXmlReader
+from lib.graphics.shader.shader_program_prefab import ShaderProgramPrefabXmlReader
 
 
 class EffectPrefab(object):

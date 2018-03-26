@@ -1,9 +1,9 @@
 import unittest
 
-from lib.graphics.animation_prefab import FileAnimationPrefab, SubFileAnimationPrefabXmlReader
-from lib.graphics.particle_effect_prefab import FileParticleEffectPrefab, SubFileParticleEffectPrefabXmlReader
-from lib.graphics.sprite_prefab import FileSpritePrefab, SubFileSpritePrefabXmlReader
-from lib.graphics.view_prefab import *
+from lib.graphics.animation.animation_prefab import FileAnimationPrefab, SubFileAnimationPrefabXmlReader
+from lib.graphics.particles.particle_effect_prefab import FileParticleEffectPrefab, SubFileParticleEffectPrefabXmlReader
+from lib.graphics.sprite.sprite_prefab import FileSpritePrefab, SubFileSpritePrefabXmlReader
+from lib.graphics.view.view_prefab import *
 from lib.utility.surface.position.position_prefab import PositionPrefab
 
 

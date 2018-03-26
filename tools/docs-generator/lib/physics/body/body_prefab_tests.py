@@ -1,6 +1,6 @@
 import unittest
 
-from lib.physics.body_prefab import *
+from lib.physics.body.body_prefab import *
 
 
 class TestBodyPrefab(unittest.TestCase):

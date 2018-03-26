@@ -1,6 +1,6 @@
 import unittest
 
-from lib.physics.filter_prefab import *
+from lib.physics.filter.filter_prefab import *
 
 
 class TestFilterPrefab(unittest.TestCase):

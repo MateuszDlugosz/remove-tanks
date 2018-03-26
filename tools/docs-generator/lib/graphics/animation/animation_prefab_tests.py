@@ -1,6 +1,6 @@
 import unittest
 
-from lib.graphics.animation_prefab import *
+from lib.graphics.animation.animation_prefab import *
 
 
 class TestAnimationPrefab(unittest.TestCase):

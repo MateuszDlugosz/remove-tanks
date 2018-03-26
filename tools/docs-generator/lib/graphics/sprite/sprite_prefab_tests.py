@@ -1,6 +1,6 @@
 import unittest
 
-from lib.graphics.sprite_prefab import *
+from lib.graphics.sprite.sprite_prefab import *
 
 
 class TestSpritePrefab(unittest.TestCase):

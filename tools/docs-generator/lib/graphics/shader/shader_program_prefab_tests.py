@@ -1,6 +1,6 @@
 import unittest
 
-from lib.graphics.shader_program_prefab import *
+from lib.graphics.shader.shader_program_prefab import *
 
 
 class TestShaderProgramPrefab(unittest.TestCase):

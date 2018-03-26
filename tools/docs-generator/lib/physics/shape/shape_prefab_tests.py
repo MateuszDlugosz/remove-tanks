@@ -1,6 +1,6 @@
 import unittest
 
-from lib.physics.shape_prefab import *
+from lib.physics.shape.shape_prefab import *
 
 
 class TestShapePrefab(unittest.TestCase):

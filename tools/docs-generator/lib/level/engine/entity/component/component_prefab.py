@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as EXml
 
-from lib.graphics.effect_prefab import EffectPrefabXmlReader
+from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
+from lib.level.utility.direction import DirectionXmlReader
 from lib.utility.surface.position.position_prefab import PositionPrefab, PositionPrefabXmlReader
 
 
@@ -103,7 +104,7 @@ class CameraTrackComponentPrefab(ComponentPrefab):
         return self.position_prefab
 
     def __str__(self):
-        return "CameraTrackComponent(priority={}, position_prefab={})"\
+        return "CameraTrackComponentPrefab(priority={}, position_prefab={})"\
             .format(self.priority, str(self.position_prefab))
 
 
@@ -382,12 +383,15 @@ class DirectionComponentPrefab(ComponentPrefab):
 
 
 class SubDirectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    DIRECTION_ELEMENT = "direction"
+    def __init__(self, direction_xml_reader):
+        self.direction_xml_reader = direction_xml_reader
 
     def read_prefab_from_string(self, xml_string):
         try:
             element = EXml.fromstring(xml_string)
-            direction = element.find(self.DIRECTION_ELEMENT).text.strip()
+            direction = self.direction_xml_reader.read_direction_from_string(
+                EXml.tostring(element.find(DirectionXmlReader.DIRECTION_ELEMENT))
+            )
 
             return DirectionComponentPrefab(direction)
         except Exception as e:
@@ -405,8 +409,8 @@ class ChangeBehaviorComponentPrefab(ComponentPrefab):
         return self.component_prefabs
 
     def __str__(self):
-        return "ChangeBehaviorComponentPrefab(component_prefabs={})"\
-            .format(str(self.component_prefabs))
+        return "ChangeBehaviorComponentPrefab(component_prefabs=[{}])" \
+            .format(", ".join('\'{}\''.format(str(val)) for val in self.component_prefabs))
 
 
 class SubChangeBehaviorComponentPrefabXmlReader(SubComponentPrefabXmlReader):
@@ -440,6 +444,9 @@ class RandomDirectionComponentPrefab(ComponentPrefab):
     def get_max_change_direction_frequency(self):
         return self.max_change_direction_frequency
 
+    def get_directions(self):
+        return self.directions
+
     def __str__(self):
         return "RandomDirectionComponentPrefab(min_change_direction_frequency={}, max_change_direction_frequency={}, " \
                "directions={})" \
@@ -449,18 +456,18 @@ class RandomDirectionComponentPrefab(ComponentPrefab):
 class SubRandomDirectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
     MIN_CHANGE_DIRECTION_FREQUENCY = "minChangeDirectionFrequency"
     MAX_CHANGE_DIRECTION_FREQUENCY = "maxChangeDirectionFrequency"
-    DIRECTIONS_ELEMENT = "directions"
-    DIRECTION_ELEMENT = "direction"
+
+    def __init__(self, direction_xml_reader):
+        self.direction_xml_reader = direction_xml_reader
 
     def read_prefab_from_string(self, xml_string):
         try:
             element = EXml.fromstring(xml_string)
             min_change_direction_frequency = float(element.find(self.MIN_CHANGE_DIRECTION_FREQUENCY).text.strip())
             max_change_direction_frequency = float(element.find(self.MAX_CHANGE_DIRECTION_FREQUENCY).text.strip())
-            directions = []
-
-            for direction_element in element.find(self.DIRECTIONS_ELEMENT).findall(self.DIRECTION_ELEMENT):
-                directions.append(direction_element.text.strip())
+            directions = self.direction_xml_reader.read_directions_from_string(
+                EXml.tostring(element.find(DirectionXmlReader.DIRECTIONS_ELEMENT))
+            )
 
             return RandomDirectionComponentPrefab(
                 min_change_direction_frequency, max_change_direction_frequency, directions)
@@ -505,7 +512,7 @@ class IdentityComponentPrefab(ComponentPrefab):
         return self.id
 
     def __str__(self):
-        return "IdentityComponentPrefab(id={})".find(self.id)
+        return "IdentityComponentPrefab(id={})".format(self.id)
 
 
 class SubIdentityComponentPrefabXmlReader(SubComponentPrefabXmlReader):
@@ -532,7 +539,7 @@ class InputComponentPrefab(ComponentPrefab):
         return self.shoot_delay
 
     def __str__(self):
-        return "InputComponentPrefab"
+        return "InputComponentPrefab(shoot_delay={})".format(self.shoot_delay)
 
 
 class SubInputComponentPrefabXmlReader(SubComponentPrefabXmlReader):

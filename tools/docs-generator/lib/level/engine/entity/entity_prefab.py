@@ -42,7 +42,7 @@ class EntityPrefabXmlReader(object):
 
 
 class EntityPrefabXmlReadException(Exception):
-    MESSAGE_TEMPLATE = "Cannot read level prefab from file {}. Cause: {}."
+    MESSAGE_TEMPLATE = "Cannot read entity prefab from file {}. Cause: {}."
 
     def __init__(self, filename, cause):
         super().__init__(self.MESSAGE_TEMPLATE.format(filename, cause))

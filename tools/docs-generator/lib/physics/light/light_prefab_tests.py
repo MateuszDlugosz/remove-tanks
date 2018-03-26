@@ -1,7 +1,7 @@
 import unittest
 
-from lib.graphics.color_prefab import *
-from lib.physics.light_prefab import *
+from lib.graphics.color.color_prefab import *
+from lib.physics.light.light_prefab import *
 from lib.utility.surface.position.position_prefab import *
 
 

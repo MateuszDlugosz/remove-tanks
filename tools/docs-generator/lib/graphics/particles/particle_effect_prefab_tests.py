@@ -1,6 +1,6 @@
 import unittest
 
-from lib.graphics.particle_effect_prefab import *
+from lib.graphics.particles.particle_effect_prefab import *
 
 
 class TestParticleEffectPrefab(unittest.TestCase):
