@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as EXml
 
 from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
+from lib.graphics.view.view_prefab import ViewPrefabXmlReader
 from lib.level.utility.create_entry_prefab import CreateEntryPrefabXmlReader
 from lib.level.utility.direction import DirectionXmlReader
 from lib.physics.body.body_prefab import BodyPrefabXmlReader
@@ -876,3 +877,61 @@ class SubVehicleRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader)
 
     def get_type(self):
         return "VehicleRenderLayerComponent"
+
+
+class ViewComponentPrefab(ComponentPrefab):
+    def __init__(self, view_prefabs):
+        self.view_prefabs = view_prefabs
+
+    def get_view_prefabs(self):
+        return self.view_prefabs
+
+    def __str__(self):
+        return "ViewComponentPrefab(view_prefabs=[{}])" \
+            .format(str(", ".join('\'{}\''.format(str(val)) for val in self.view_prefabs)))
+
+
+class SubViewComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def __init__(self, view_prefab_xml_reader):
+        self.view_prefab_xml_reader = view_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            view_prefabs = self.view_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(ViewPrefabXmlReader.VIEWS_ELEMENT))
+            )
+
+            return ViewComponentPrefab(view_prefabs)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "ViewComponent"
+
+
+class AirplaneSpawnerComponentPrefab(ComponentPrefab):
+    def __init__(self, entity_prefab_code):
+        self.entity_prefab_code = entity_prefab_code
+
+    def get_entity_prefab_code(self):
+        return self.entity_prefab_code
+
+    def __str__(self):
+        return "AirplaneSpawnerComponentPrefab(entity_prefab_code={})".format(self.entity_prefab_code)
+
+
+class SubAirplaneSpawnerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    ENTITY_PREFAB_CODE_ELEMENT = "entityPrefabCode"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            prefab_code = element.find(self.ENTITY_PREFAB_CODE_ELEMENT).text.strip()
+
+            return AirplaneSpawnerComponentPrefab(prefab_code)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "AirplaneSpawnerComponent"

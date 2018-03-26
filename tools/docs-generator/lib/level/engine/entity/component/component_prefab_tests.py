@@ -3,6 +3,8 @@ import unittest
 
 from lib.graphics.color.color_prefab import HexColorPrefab, ColorPrefabXmlReader, SubHexColorPrefabXmlReader
 from lib.graphics.effect.effect_prefab import SubAlphaEffectPrefabXmlReader, AlphaEffectPrefab
+from lib.graphics.sprite.sprite_prefab import FileSpritePrefab, SpritePrefabXmlReader, SubFileSpritePrefabXmlReader
+from lib.graphics.view.view_prefab import ViewPrefab, SpriteViewPrefab, SubSpriteViewPrefabXmlReader
 from lib.level.engine.entity.component.component_prefab import *
 from lib.level.utility.create_entry_prefab import CreateEntryPrefab
 from lib.physics.body.body_prefab import BodyPrefab
@@ -326,6 +328,28 @@ class TestVehicleRenderLayerComponentPrefab(unittest.TestCase):
         self.assertEqual(
             str(VehicleRenderLayerComponentPrefab()),
             "VehicleRenderLayerComponentPrefab()"
+        )
+
+
+class TestViewComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        print(str(ViewComponentPrefab([SpriteViewPrefab("ID", PositionPrefab(1.1, 2.2),
+                                                      FileSpritePrefab(True, False, "filename-test"))])))
+        self.assertEqual(
+            str(ViewComponentPrefab([SpriteViewPrefab("ID", PositionPrefab(1.1, 2.2),
+                                                      FileSpritePrefab(True, False, "filename-test"))])),
+            "ViewComponentPrefab(view_prefabs=[{}])"
+                .format(str(", ".join('\'{}\''.format(str(val)) for val in
+                                      [SpriteViewPrefab("ID", PositionPrefab(1.1, 2.2),
+                                                        FileSpritePrefab(True, False, "filename-test"))])))
+        )
+
+
+class TestAirplaneSpawnerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(AirplaneSpawnerComponentPrefab("CODE")),
+            "AirplaneSpawnerComponentPrefab(entity_prefab_code=CODE)"
         )
 
 
@@ -1080,6 +1104,69 @@ class TestSubVehicleRenderLayerComponentPrefabXmlReader(unittest.TestCase):
         self.assertIsNotNone(prefab)
 
 
+class TestSubViewComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="ViewComponent">
+                <views>
+                    <view id="ID" type="SpriteView">
+                        <sprite type="FileSprite">
+                            <filename>test-filename</filename>
+                        </sprite>
+                    </view>
+                </views>
+            </component>
+        """
+        reader = SubViewComponentPrefabXmlReader(
+            ViewPrefabXmlReader(
+                [
+                    SubSpriteViewPrefabXmlReader(
+                        PositionPrefabXmlReader(),
+                        SpritePrefabXmlReader(
+                            [
+                                SubFileSpritePrefabXmlReader()
+                            ]
+                        )
+                    )
+                ]
+            )
+        )
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="ViewComponent" />
+        """
+        reader = SubViewComponentPrefabXmlReader(ViewPrefabXmlReader([]))
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubAirplaneSpawnerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="AirplaneSpawnerComponent">
+                <entityPrefabCode>CODE</entityPrefabCode>
+            </component>
+        """
+        reader = SubAirplaneSpawnerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_entity_prefab_code(), "CODE")
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="AirplaneSpawnerComponent" />
+        """
+        reader = SubAirplaneSpawnerComponentPrefabXmlReader()
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
 class TestComponentPrefabXmlReader(unittest.TestCase):
     def test_component_prefab_xml_reader_valid(self):
         xml = """
@@ -1223,12 +1310,27 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
             SubExplosionRenderLayerComponentPrefabXmlReader(),
             SubGroundRenderLayerComponentPrefabXmlReader(),
             SubObstacleRenderLayerComponentPrefabXmlReader(),
-            SubVehicleRenderLayerComponentPrefabXmlReader()
+            SubVehicleRenderLayerComponentPrefabXmlReader(),
+            SubViewComponentPrefabXmlReader(
+                ViewPrefabXmlReader(
+                    [
+                        SubSpriteViewPrefabXmlReader(
+                            PositionPrefabXmlReader(),
+                            SpritePrefabXmlReader(
+                                [
+                                    SubFileSpritePrefabXmlReader()
+                                ]
+                            )
+                        )
+                    ]
+                )
+            ),
+            SubAirplaneSpawnerComponentPrefabXmlReader()
         ])
         element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
         prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
 
-        self.assertEqual(35, len(prefabs))
+        self.assertEqual(37, len(prefabs))
 
 
 if __name__ == "__main__":

@@ -170,4 +170,16 @@
     <component type="GroundRenderLayerComponent" />
     <component type="ObstacleRenderLayerComponent" />
     <component type="VehicleRenderLayerComponent" />
+    <component type="ViewComponent">
+        <views>
+            <view id="ID" type="SpriteView">
+                <sprite type="FileSprite">
+                    <filename>test-filename</filename>
+                </sprite>
+            </view>
+        </views>
+    </component>
+    <component type="AirplaneSpawnerComponent">
+        <entityPrefabCode>CODE</entityPrefabCode>
+    </component>
 </components>
