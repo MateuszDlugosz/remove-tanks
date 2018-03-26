@@ -4,6 +4,7 @@ from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
 from lib.graphics.view.view_prefab import ViewPrefabXmlReader
 from lib.level.utility.create_entry_prefab import CreateEntryPrefabXmlReader
 from lib.level.utility.direction import DirectionXmlReader
+from lib.level.utility.state import StateXmlReader
 from lib.physics.body.body_prefab import BodyPrefabXmlReader
 from lib.physics.fixture.fixture_prefab import HitBoxPrefabXmlReader, SensorPrefabXmlReader
 from lib.physics.light.light_prefab import LightHandlerPrefabXmlReader
@@ -935,3 +936,73 @@ class SubAirplaneSpawnerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "AirplaneSpawnerComponent"
+
+
+class RespawnComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "RespawnComponentPrefab()"
+
+
+class SubRespawnComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return RespawnComponentPrefab()
+
+    def get_type(self):
+        return "RespawnComponent"
+
+
+class AutoSpawnerComponentPrefab(ComponentPrefab):
+    def __init__(self, id):
+        self.id = id
+
+    def get_id(self):
+        return self.id
+
+    def __str__(self):
+        return "AutoSpawnerComponentPrefab(id={})".format(self.id)
+
+
+class SubAutoSpawnerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    ID_ELEMENT = "id"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            id = element.find(self.ID_ELEMENT).text.strip()
+
+            return AutoSpawnerComponentPrefab(id)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "AutoSpawnerComponent"
+
+
+class StateComponentPrefab(ComponentPrefab):
+    def __init__(self, state):
+        self.state = str(state)
+
+    def get_state(self):
+        return self.state
+
+    def __str__(self):
+        return "StateComponentPrefab(state={})".format(self.state)
+
+
+class SubStateComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def __init__(self, state_xml_reader):
+        self.state_xml_reader = state_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            state = self.state_xml_reader.read_state_from_string(
+                EXml.tostring(element.find(StateXmlReader.STATE_ELEMENT))
+            )
+
+            return StateComponentPrefab(state)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "StateComponent"

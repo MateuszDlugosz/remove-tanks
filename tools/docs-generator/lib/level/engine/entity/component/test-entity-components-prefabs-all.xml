@@ -182,4 +182,11 @@
     <component type="AirplaneSpawnerComponent">
         <entityPrefabCode>CODE</entityPrefabCode>
     </component>
+    <component type="RespawnComponent" />
+    <component type="AutoSpawnerComponent">
+        <id>ID</id>
+    </component>
+    <component type="StateComponent">
+        <state>STATE</state>
+    </component>
 </components>

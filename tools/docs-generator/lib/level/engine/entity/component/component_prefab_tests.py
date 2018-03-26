@@ -353,6 +353,30 @@ class TestAirplaneSpawnerComponentPrefab(unittest.TestCase):
         )
 
 
+class TestRespawnComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(RespawnComponentPrefab()),
+            "RespawnComponentPrefab()"
+        )
+
+
+class TestAutoSpawnerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(AutoSpawnerComponentPrefab("ID")),
+            "AutoSpawnerComponentPrefab(id=ID)"
+        )
+
+
+class TestStateComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(StateComponentPrefab("STATE")),
+            "StateComponentPrefab(state=STATE)"
+        )
+
+
 class TestSubSpeedComponentPrefabXmlReader(unittest.TestCase):
     def test_component_prefab_xml_reader_valid(self):
         xml = """
@@ -1167,6 +1191,62 @@ class TestSubAirplaneSpawnerComponentPrefabXmlReader(unittest.TestCase):
             reader.read_prefab_from_string(xml)
 
 
+
+class TestSubRespawnComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="RespawnComponent" />
+        """
+        reader = SubRespawnComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubAutoSpawnerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="AutoSpawnerComponent">
+                <id>ID</id>
+            </component>
+        """
+        reader = SubAutoSpawnerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_id(), "ID")
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="AutoSpawnerComponent" />
+        """
+        reader = SubAutoSpawnerComponentPrefabXmlReader()
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubStateComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="StateComponent">
+                <state>ID</state>
+            </component>
+        """
+        reader = SubStateComponentPrefabXmlReader(StateXmlReader())
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_state(), "ID")
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="StateComponent" />
+        """
+        reader = SubStateComponentPrefabXmlReader(StateXmlReader())
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
 class TestComponentPrefabXmlReader(unittest.TestCase):
     def test_component_prefab_xml_reader_valid(self):
         xml = """
@@ -1325,12 +1405,15 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
                     ]
                 )
             ),
-            SubAirplaneSpawnerComponentPrefabXmlReader()
+            SubAirplaneSpawnerComponentPrefabXmlReader(),
+            SubRespawnComponentPrefabXmlReader(),
+            SubAutoSpawnerComponentPrefabXmlReader(),
+            SubStateComponentPrefabXmlReader(StateXmlReader())
         ])
         element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
         prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
 
-        self.assertEqual(37, len(prefabs))
+        self.assertEqual(40, len(prefabs))
 
 
 if __name__ == "__main__":
