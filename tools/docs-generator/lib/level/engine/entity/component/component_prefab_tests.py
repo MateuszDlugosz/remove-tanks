@@ -1,8 +1,16 @@
 import os
 import unittest
 
+from lib.graphics.color.color_prefab import HexColorPrefab, ColorPrefabXmlReader, SubHexColorPrefabXmlReader
 from lib.graphics.effect.effect_prefab import SubAlphaEffectPrefabXmlReader, AlphaEffectPrefab
 from lib.level.engine.entity.component.component_prefab import *
+from lib.level.utility.create_entry_prefab import CreateEntryPrefab
+from lib.physics.body.body_prefab import BodyPrefab
+from lib.physics.filter.filter_prefab import FilterPrefab, FilterPrefabXmlReader
+from lib.physics.fixture.fixture_prefab import HitBoxPrefab, FixturePrefab, SensorPrefab, FixturePrefabXmlReader
+from lib.physics.light.light_prefab import LightHandlerPrefab, PointLightPrefab, LightPrefabXmlReader, \
+    SubDirectionalLightPrefabXmlReader
+from lib.physics.shape.shape_prefab import CircleShapePrefab, ShapePrefabXmlReader, SubCircleShapePrefabXmlReader
 
 ENTITY_COMPONENTS_PREFABS_ALL_FILENAME = os.path.join(
     os.path.dirname(__file__), 'test-entity-components-prefabs-all.xml')
@@ -184,6 +192,140 @@ class TestDestroyOnContactLostComponentPrefab(unittest.TestCase):
         self.assertEqual(
             str(DestroyOnContactLostComponentPrefab()),
             "DestroyOnContactLostComponentPrefab()"
+        )
+
+
+class TestRandomCreateComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(RandomCreateComponentPrefab(
+                1.1, 2.2,
+                [
+                    CreateEntryPrefab("C0", PositionPrefab(1, 2)),
+                    CreateEntryPrefab("C0", PositionPrefab(3, 4))
+                ]
+            )),
+            "RandomCreateComponentPrefab(min_create_frequency=1.1, max_create_frequency=2.2, create_entry_prefabs=[{}])"
+                .format(str(", ".join('\'{}\''.format(str(val)) for val in [
+                    CreateEntryPrefab("C0", PositionPrefab(1, 2)),
+                    CreateEntryPrefab("C0", PositionPrefab(3, 4))
+                ])))
+        )
+
+
+class TestAutoMoveComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(AutoMoveComponentPrefab()),
+            "AutoMoveComponentPrefab()"
+        )
+
+
+class TestPhysicsComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(
+                PhysicsComponentPrefab(
+                    BodyPrefab("StaticBody", True, False, True, False, True, 1, 45, 1, 2),
+                    [
+                        HitBoxPrefab("HitBox0", FixturePrefab(FilterPrefab("CategoryBit", "MaskBit"),
+                                                              CircleShapePrefab(PositionPrefab(1.1, 2.2), 7), 1, 2, 3,
+                                                              False))
+                    ],
+                    [
+                        SensorPrefab("Sensor0", FixturePrefab(FilterPrefab("CategoryBit", "MaskBit"),
+                                                              CircleShapePrefab(PositionPrefab(1.1, 2.2), 7), 1, 2, 3,
+                                                              True))
+                    ],
+                    [
+                        LightHandlerPrefab("LightHandler0", PointLightPrefab(HexColorPrefab("CCAAFFEE"), True,
+                                                                             PositionPrefab(0.1, 0.2), 10))
+                    ]
+                )
+            ),
+            "PhysicsComponentPrefab(body_prefab=BodyPrefab(body_type=StaticBody, active=True, allow_sleep=False, "
+            "awake=True, bullet=False, fixed_rotation=True, gravity_scale=1.0, angle=45.0, angular_damping=1.0, "
+            "linear_damping=2.0), hit_box_prefab=['HitBoxPrefab(id=HitBox0, fixture_prefab=FixturePrefab("
+            "filter_prefab=FilterPrefab(category_bit=CategoryBit, mask_bit=MaskBit), shape_prefab=CircleShapePrefab("
+            "position_prefab=PositionPrefab(x=1.1, y=2.2), radius=7.0), restitution=1.0, density=2.0, friction=3.0, "
+            "is_sensor=False))'], sensor_prefabs=['SensorPrefab(id=Sensor0, fixture_prefab=FixturePrefab("
+            "filter_prefab=FilterPrefab(category_bit=CategoryBit, mask_bit=MaskBit), shape_prefab=CircleShapePrefab("
+            "position_prefab=PositionPrefab(x=1.1, y=2.2), radius=7.0), restitution=1.0, density=2.0, friction=3.0, "
+            "is_sensor=True))'], light_handler_prefabs=['LightHandlerPrefab(id=LightHandler0, "
+            "light_prefab=PointLightPrefab(color_prefab=HexColorPrefab(hex_value=CCAAFFEE), x_ray=True, "
+            "position_prefab=PositionPrefab(x=0.1, y=0.2), distance=10.0))'])"
+        )
+
+
+class TestAirplaneRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(AirplaneRenderLayerComponentPrefab()),
+            "AirplaneRenderLayerComponentPrefab()"
+        )
+
+
+class TestBombRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(BombRenderLayerComponentPrefab()),
+            "BombRenderLayerComponentPrefab()"
+        )
+
+
+class TestBonusRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(BonusRenderLayerComponentPrefab()),
+            "BonusRenderLayerComponentPrefab()"
+        )
+
+
+class TestBulletRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(BulletRenderLayerComponentPrefab()),
+            "BulletRenderLayerComponentPrefab()"
+        )
+
+
+class TestCloudRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(CloudRenderLayerComponentPrefab()),
+            "CloudRenderLayerComponentPrefab()"
+        )
+
+
+class TestExplosionRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(ExplosionRenderLayerComponentPrefab()),
+            "ExplosionRenderLayerComponentPrefab()"
+        )
+
+
+class TestGroundRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(GroundRenderLayerComponentPrefab()),
+            "GroundRenderLayerComponentPrefab()"
+        )
+
+
+class TestObstacleRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(ObstacleRenderLayerComponentPrefab()),
+            "ObstacleRenderLayerComponentPrefab()"
+        )
+
+
+class TestVehicleRenderLayerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(VehicleRenderLayerComponentPrefab()),
+            "VehicleRenderLayerComponentPrefab()"
         )
 
 
@@ -663,6 +805,281 @@ class TestSubDestroyOnContactLostComponentPrefabXmlReader(unittest.TestCase):
         self.assertIsNotNone(prefab)
 
 
+class TestSubRandomCreateComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="RandomCreateComponent">
+                <minCreateFrequency>1.1</minCreateFrequency>
+                <maxCreateFrequency>2.2</maxCreateFrequency>
+                <createEntries>
+                    <createEntry>
+                        <entityPrefabCode>CODE_0</entityPrefabCode>
+                        <position>
+                            <x>3.3</x>
+                            <y>4.4</y>
+                        </position>
+                    </createEntry>
+                </createEntries>
+            </component>
+        """
+        reader = SubRandomCreateComponentPrefabXmlReader(CreateEntryPrefabXmlReader(PositionPrefabXmlReader()))
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_min_create_frequency(), 1.1)
+        self.assertEqual(prefab.get_max_create_frequency(), 2.2)
+        self.assertEqual(len(prefab.get_create_entry_prefabs()), 1)
+        self.assertEqual(prefab.get_create_entry_prefabs()[0].get_position_prefab().get_x(), 3.3)
+        self.assertEqual(prefab.get_create_entry_prefabs()[0].get_position_prefab().get_y(), 4.4)
+        self.assertEqual(prefab.get_create_entry_prefabs()[0].get_prefab_code(), "CODE_0")
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="RandomCreateComponent" />
+        """
+        reader = SubRandomCreateComponentPrefabXmlReader(CreateEntryPrefabXmlReader(PositionPrefabXmlReader()))
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubAutoMoveComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="AutoMoveComponent" />
+        """
+        reader = SubAutoMoveComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubPhysicsComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="PhysicsComponent">
+                <body>
+                    <type>KinematicBody</type>
+                    <active>true</active>
+                    <allowSleep>false</allowSleep>
+                    <awake>false</awake>
+                    <bullet>true</bullet>
+                    <fixedRotation>false</fixedRotation>
+                    <gravityScale>1</gravityScale>
+                    <angle>10</angle>
+                    <angularDamping>2</angularDamping>
+                    <linearDamping>8</linearDamping>
+                </body>
+                <hitBoxes>
+                    <hitBox id="A">
+                        <fixture>
+                            <shape type="CircleShape">
+                                <radius>2</radius>
+                                <position>
+                                    <x>10</x>
+                                    <y>20</y>
+                                </position>
+                            </shape>
+                            <filter>
+                                <categoryBit>CategoryBit0</categoryBit>
+                                <maskBit>MaskBit0</maskBit>
+                            </filter>
+                            <restitution>1</restitution>
+                            <density>5</density>
+                            <friction>8</friction>
+                        </fixture>
+                    </hitBox>
+                </hitBoxes>
+                <sensors>
+                    <sensor id="B">
+                        <fixture>
+                            <shape type="CircleShape">
+                                <radius>2</radius>
+                                <position>
+                                    <x>10</x>
+                                    <y>20</y>
+                                </position>
+                            </shape>
+                            <filter>
+                                <categoryBit>CategoryBit0</categoryBit>
+                                <maskBit>MaskBit0</maskBit>
+                            </filter>
+                            <restitution>1</restitution>
+                            <density>5</density>
+                            <friction>8</friction>
+                        </fixture>
+                    </sensor>
+                </sensors>
+                <lightHandlers>
+                    <lightHandler id="TestID0">
+                        <light type="DirectionalLight">
+                            <color type="HexColor">
+                                <hexValue>CCAAFFEE</hexValue>
+                            </color>
+                            <xRay>true</xRay>
+                            <directionDegree>10</directionDegree>
+                        </light>
+                    </lightHandler>
+                </lightHandlers>
+            </component>
+        """
+        reader = SubPhysicsComponentPrefabXmlReader(
+            BodyPrefabXmlReader(),
+            HitBoxPrefabXmlReader(
+                FixturePrefabXmlReader(
+                    FilterPrefabXmlReader(),
+                    ShapePrefabXmlReader(
+                        [
+                            SubCircleShapePrefabXmlReader(
+                                PositionPrefabXmlReader()
+                            )
+                        ]
+                    )
+                )
+            ),
+            SensorPrefabXmlReader(
+                FixturePrefabXmlReader(
+                    FilterPrefabXmlReader(),
+                    ShapePrefabXmlReader(
+                        [
+                            SubCircleShapePrefabXmlReader(
+                                PositionPrefabXmlReader()
+                            )
+                        ]
+                    )
+                )
+            ),
+            LightHandlerPrefabXmlReader(
+                LightPrefabXmlReader(
+                    [
+                        SubDirectionalLightPrefabXmlReader(
+                            ColorPrefabXmlReader(
+                                [
+                                    SubHexColorPrefabXmlReader()
+                                ]
+                            )
+                        )
+                    ]
+                )
+            )
+        )
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_body_prefab().get_body_type(), "KinematicBody")
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="PhysicsComponent" />
+        """
+        reader = SubPhysicsComponentPrefabXmlReader(
+            BodyPrefabXmlReader(),
+            HitBoxPrefabXmlReader(FixturePrefabXmlReader(FilterPrefabXmlReader(), ShapePrefabXmlReader([]))),
+            SensorPrefabXmlReader(FixturePrefabXmlReader(FilterPrefabXmlReader(), ShapePrefabXmlReader([]))),
+            LightHandlerPrefabXmlReader(LightPrefabXmlReader([]))
+        )
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubAirplaneRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="AirplaneRenderLayerComponent" />
+        """
+        reader = SubAirplaneRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubBombRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="BombRenderLayerComponent" />
+        """
+        reader = SubBombRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubBonusRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="BonusRenderLayerComponent" />
+        """
+        reader = SubBonusRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubBulletRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="BulletRenderLayerComponent" />
+        """
+        reader = SubBulletRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubCloudRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="CloudRenderLayerComponent" />
+        """
+        reader = SubCloudRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubExplosionRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="ExplosionRenderLayerComponent" />
+        """
+        reader = SubExplosionRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubGroundRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="GroundRenderLayerComponent" />
+        """
+        reader = SubGroundRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubObstacleRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="ObstacleRenderLayerComponent" />
+        """
+        reader = SubObstacleRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubVehicleRenderLayerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="VehicleRenderLayerComponent" />
+        """
+        reader = SubVehicleRenderLayerComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
 class TestComponentPrefabXmlReader(unittest.TestCase):
     def test_component_prefab_xml_reader_valid(self):
         xml = """
@@ -751,12 +1168,67 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
             SubDestroyComponentPrefabXmlReader(),
             SubDestroyOnContactComponentPrefabXmlReader(),
             SubDestroyOnContactLostComponentPrefabXmlReader(),
-            SubLifetimeComponentPrefabXmlReader()
+            SubLifetimeComponentPrefabXmlReader(),
+            SubRandomCreateComponentPrefabXmlReader(
+                CreateEntryPrefabXmlReader(
+                    PositionPrefabXmlReader()
+                )
+            ),
+            SubAutoMoveComponentPrefabXmlReader(),
+            SubPhysicsComponentPrefabXmlReader(
+                BodyPrefabXmlReader(),
+                HitBoxPrefabXmlReader(
+                    FixturePrefabXmlReader(
+                        FilterPrefabXmlReader(),
+                        ShapePrefabXmlReader(
+                            [
+                                SubCircleShapePrefabXmlReader(
+                                    PositionPrefabXmlReader()
+                                )
+                            ]
+                        )
+                    )
+                ),
+                SensorPrefabXmlReader(
+                    FixturePrefabXmlReader(
+                        FilterPrefabXmlReader(),
+                        ShapePrefabXmlReader(
+                            [
+                                SubCircleShapePrefabXmlReader(
+                                    PositionPrefabXmlReader()
+                                )
+                            ]
+                        )
+                    )
+                ),
+                LightHandlerPrefabXmlReader(
+                    LightPrefabXmlReader(
+                        [
+                            SubDirectionalLightPrefabXmlReader(
+                                ColorPrefabXmlReader(
+                                    [
+                                        SubHexColorPrefabXmlReader()
+                                    ]
+                                )
+                            )
+                        ]
+                    )
+                )
+            ),
+            SubAirplaneRenderLayerComponentPrefabXmlReader(),
+            SubBombRenderLayerComponentPrefabXmlReader(),
+            SubBonusRenderLayerComponentPrefabXmlReader(),
+            SubBulletRenderLayerComponentPrefabXmlReader(),
+            SubCloudRenderLayerComponentPrefabXmlReader(),
+            SubExplosionRenderLayerComponentPrefabXmlReader(),
+            SubGroundRenderLayerComponentPrefabXmlReader(),
+            SubObstacleRenderLayerComponentPrefabXmlReader(),
+            SubVehicleRenderLayerComponentPrefabXmlReader()
         ])
         element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
         prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
 
-        self.assertEqual(23, len(prefabs))
+        self.assertEqual(35, len(prefabs))
 
 
 if __name__ == "__main__":

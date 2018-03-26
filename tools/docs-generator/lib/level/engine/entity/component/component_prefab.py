@@ -1,7 +1,11 @@
 import xml.etree.ElementTree as EXml
 
 from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
+from lib.level.utility.create_entry_prefab import CreateEntryPrefabXmlReader
 from lib.level.utility.direction import DirectionXmlReader
+from lib.physics.body.body_prefab import BodyPrefabXmlReader
+from lib.physics.fixture.fixture_prefab import HitBoxPrefabXmlReader, SensorPrefabXmlReader
+from lib.physics.light.light_prefab import LightHandlerPrefabXmlReader
 from lib.utility.surface.position.position_prefab import PositionPrefab, PositionPrefabXmlReader
 
 
@@ -635,3 +639,240 @@ class SubLifetimeComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "LifetimeComponent"
+
+
+class RandomCreateComponentPrefab(ComponentPrefab):
+    def __init__(self, min_create_frequency, max_create_frequency, create_entry_prefabs):
+        self.min_create_frequency = float(min_create_frequency)
+        self.max_create_frequency = float(max_create_frequency)
+        self.create_entry_prefabs = create_entry_prefabs
+
+    def get_min_create_frequency(self):
+        return self.min_create_frequency
+
+    def get_max_create_frequency(self):
+        return self.max_create_frequency
+
+    def get_create_entry_prefabs(self):
+        return self.create_entry_prefabs
+
+    def __str__(self):
+        return "RandomCreateComponentPrefab(min_create_frequency={}, max_create_frequency={}, create_entry_prefabs=[{}])"\
+            .format(self.min_create_frequency, self.max_create_frequency,
+                    str(", ".join('\'{}\''.format(str(val)) for val in self.create_entry_prefabs)))
+
+
+class SubRandomCreateComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    MIN_CREATE_FREQUENCY_ELEMENT = "minCreateFrequency"
+    MAX_CREATE_FREQUENCY_ELEMENT = "maxCreateFrequency"
+
+    def __init__(self, create_entry_prefab_xml_reader):
+        self.create_entry_prefab_xml_reader = create_entry_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            min_create_frequency = float(element.find(self.MIN_CREATE_FREQUENCY_ELEMENT).text.strip())
+            max_create_frequency = float(element.find(self.MAX_CREATE_FREQUENCY_ELEMENT).text.strip())
+            create_entry_prefabs = self.create_entry_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(CreateEntryPrefabXmlReader.CREATE_ENTRIES_ELEMENT))
+            )
+
+            return RandomCreateComponentPrefab(min_create_frequency, max_create_frequency, create_entry_prefabs)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "RandomCreateComponent"
+
+
+class AutoMoveComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "AutoMoveComponentPrefab()"
+
+
+class SubAutoMoveComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return AutoMoveComponentPrefab()
+
+    def get_type(self):
+        return "AutoMoveComponent"
+
+
+class PhysicsComponentPrefab(ComponentPrefab):
+    def __init__(self, body_prefab, hit_box_prefabs, sensor_prefabs, light_handler_prefabs):
+        self.body_prefab = body_prefab
+        self.hit_box_prefabs = hit_box_prefabs
+        self.sensor_prefabs = sensor_prefabs
+        self.light_handler_prefabs = light_handler_prefabs
+
+    def get_body_prefab(self):
+        return self.body_prefab
+
+    def get_hit_box_prefabs(self):
+        return self.hit_box_prefabs
+
+    def get_sensor_prefabs(self):
+        return self.sensor_prefabs
+
+    def get_light_handler_prefabs(self):
+        return self.light_handler_prefabs
+
+    def __str__(self):
+        return "PhysicsComponentPrefab(body_prefab={}, hit_box_prefab=[{}], " \
+               "sensor_prefabs=[{}], light_handler_prefabs=[{}])"\
+            .format(
+                str(self.body_prefab),
+                str(", ".join('\'{}\''.format(str(val)) for val in self.hit_box_prefabs)),
+                str(", ".join('\'{}\''.format(str(val)) for val in self.sensor_prefabs)),
+                str(", ".join('\'{}\''.format(str(val)) for val in self.light_handler_prefabs))
+            )
+
+
+class SubPhysicsComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def __init__(self, body_prefab_xml_reader, hit_box_prefab_xml_reader,
+                 sensor_prefab_xml_reader, light_handler_prefab_xml_reader):
+        self.body_prefab_xml_reader = body_prefab_xml_reader
+        self.hit_box_prefab_xml_reader = hit_box_prefab_xml_reader
+        self.sensor_prefab_xml_reader = sensor_prefab_xml_reader
+        self.light_handler_prefab_xml_reader = light_handler_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            body_prefab = self.body_prefab_xml_reader.read_prefab_from_string(
+                EXml.tostring(element.find(BodyPrefabXmlReader.BODY_ELEMENT))
+            )
+            hit_box_prefabs = self.hit_box_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(HitBoxPrefabXmlReader.HIT_BOXES_ELEMENT))
+            )
+            sensor_prefabs = self.sensor_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(SensorPrefabXmlReader.SENSORS_ELEMENT))
+            )
+            light_handler_prefabs = self.light_handler_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(LightHandlerPrefabXmlReader.LIGHT_HANDLERS_ELEMENT))
+            )
+
+            return PhysicsComponentPrefab(body_prefab, hit_box_prefabs, sensor_prefabs, light_handler_prefabs)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "PhysicsComponent"
+
+
+class AirplaneRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "AirplaneRenderLayerComponentPrefab()"
+
+
+class SubAirplaneRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return AirplaneRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "AirplaneRenderLayerComponent"
+
+
+class BombRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "BombRenderLayerComponentPrefab()"
+
+
+class SubBombRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return BombRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "BombRenderLayerComponent"
+
+
+class BonusRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "BonusRenderLayerComponentPrefab()"
+
+
+class SubBonusRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return BonusRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "BonusRenderLayerComponent"
+
+
+class BulletRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "BulletRenderLayerComponentPrefab()"
+
+
+class SubBulletRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return BulletRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "BulletRenderLayerComponent"
+
+
+class CloudRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "CloudRenderLayerComponentPrefab()"
+
+
+class SubCloudRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return CloudRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "CloudRenderLayerComponent"
+
+
+class ExplosionRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "ExplosionRenderLayerComponentPrefab()"
+
+
+class SubExplosionRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return ExplosionRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "ExplosionRenderLayerComponent"
+
+
+class GroundRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "GroundRenderLayerComponentPrefab()"
+
+
+class SubGroundRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return GroundRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "GroundRenderLayerComponent"
+
+
+class ObstacleRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "ObstacleRenderLayerComponentPrefab()"
+
+
+class SubObstacleRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return ObstacleRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "ObstacleRenderLayerComponent"
+
+
+class VehicleRenderLayerComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "VehicleRenderLayerComponentPrefab()"
+
+
+class SubVehicleRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return VehicleRenderLayerComponentPrefab()
+
+    def get_type(self):
+        return "VehicleRenderLayerComponent"
