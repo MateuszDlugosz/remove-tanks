@@ -45,6 +45,7 @@ from lib.level.event.entity_event_prefab import EntityEventPrefabXmlReader, SubA
     SubPlayMusicEntityEventPrefabXmlReader, SubChangeLevelStateEntityEventPrefabXmlReader, \
     SubActivateSpawnerEntityEventPrefabXmlReader, SubPlaySoundEntityEventPrefabXmlReader, \
     SubIncreasePointsMultiplierEntityEventPrefabXmlReader, SubAddPointsEntityEventPrefabXmlReader
+from lib.level.preload.preload_data import PreloadDataXmlReader
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
 from lib.level.utility.direction.direction import DirectionXmlReader
 from lib.level.utility.stage.broker.message.message_prefab import MessagePrefabXmlReader
@@ -193,8 +194,10 @@ class DocsGeneratorAssembler(object):
             SubSpeedModifierComponentPrefabXmlReader()
         ])
 
+        preload_data_xml_reader = PreloadDataXmlReader()
+
         entity_prefab_repository_xml_reader = EntityPrefabRepositoryXmlReader()
-        entity_prefab_xml_reader = EntityPrefabXmlReader(component_prefab_xml_reader)
+        entity_prefab_xml_reader = EntityPrefabXmlReader(preload_data_xml_reader, component_prefab_xml_reader)
         entity_prefab_storage_factory = EntityPrefabStorageFactory(entity_prefab_xml_reader)
         entity_prefab_repository = entity_prefab_repository_xml_reader.read_from_file("../../core/assets/prefabs/entities/entity-prefab-repository.xml")
         entity_prefab_storage_factory.create_entity_prefab_storage(entity_prefab_repository, "../../core/assets/")
