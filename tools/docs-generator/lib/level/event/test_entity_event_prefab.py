@@ -3,6 +3,7 @@ import unittest
 import xml.etree.ElementTree as EXml
 
 from lib.audio.music.music_prefab import MusicPrefab, MusicPrefabXmlReader
+from lib.audio.sound.sound_prefab import SoundPrefabXmlReader, SoundPrefab
 from lib.graphics.camera.camera_effect_prefab import CameraEffectPrefabXmlReader, SubShakeCameraEffectPrefabXmlReader, \
     ShakeCameraEffectPrefab
 from lib.level.event.entity_event_prefab import SpawnAirplaneEntityEventPrefab, AmmoLevelUpEntityEventPrefab, \
@@ -13,7 +14,10 @@ from lib.level.event.entity_event_prefab import SpawnAirplaneEntityEventPrefab, 
     SubDestroyEntityByIdEntityEventPrefabXmlReader, SubDestroyFamilyEntityEventPrefabXmlReader, \
     DestroyFamilyEntityEventPrefab, AddLifeEntityEventPrefab, SubAddLifeEntityEventPrefabXmlReader, \
     SubAddMessageEntityEventPrefabXmlReader, AddMessageEntityEventPrefab, PlayMusicEntityEventPrefab, \
-    SubPlayMusicEntityEventPrefabXmlReader
+    SubPlayMusicEntityEventPrefabXmlReader, AddPointsEntityEventPrefab, IncreasePointsMultiplierEntityEventPrefab, \
+    SubIncreasePointsMultiplierEntityEventPrefabXmlReader, SubAddPointsEntityEventPrefabXmlReader, \
+    SubPlaySoundEntityEventPrefabXmlReader, PlaySoundEntityEventPrefab, SubActivateSpawnerEntityEventPrefabXmlReader, \
+    ActivateSpawnerEntityEventPrefab, SubChangeLevelStateEntityEventPrefabXmlReader, ChangeLevelStateEntityEventPrefab
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefab, CreateEntryPrefabXmlReader
 from lib.level.utility.stage.broker.message.message_prefab import MessagePrefabXmlReader, MessagePrefab
 from lib.utility.surface.position.position_prefab import PositionPrefab, PositionPrefabXmlReader
@@ -105,6 +109,47 @@ class TestPlayMusicEntityEventPrefab(unittest.TestCase):
             str(PlayMusicEntityEventPrefab(MusicPrefab("FILENAME"), "CHANNEL")),
             "PlayMusicEntityEventPrefab(music_prefab={}, music_channel_name=CHANNEL)"
                 .format(str(MusicPrefab("FILENAME")))
+        )
+
+
+class TestPlaySoundEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(PlaySoundEntityEventPrefab(SoundPrefab("FILENAME"), "CHANNEL")),
+            "PlaySoundEntityEventPrefab(sound_prefab={}, sound_channel_name=CHANNEL)"
+                .format(str(SoundPrefab("FILENAME")))
+        )
+
+
+class TestAddPointsEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(AddPointsEntityEventPrefab(10)),
+            "AddPointsEntityEventPrefab(points=10)"
+        )
+
+
+class TestIncreasePointsMultiplierEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(IncreasePointsMultiplierEntityEventPrefab()),
+            "IncreasePointsMultiplierEntityEventPrefab()"
+        )
+
+
+class TestActivateSpawnerEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(ActivateSpawnerEntityEventPrefab("ID")),
+            "ActivateSpawnerEntityEventPrefab(id=ID)"
+        )
+
+
+class TestChangeLevelStateEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(ChangeLevelStateEntityEventPrefab("STATE")),
+            "ChangeLevelStateEntityEventPrefab(level_state=STATE)"
         )
 
 
@@ -302,6 +347,107 @@ class TestSubPlayMusicEntityEventPrefab(unittest.TestCase):
             reader.read_prefab_from_string(xml)
 
 
+class TestSubPlaySoundEntityEventPrefab(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """
+            <entityEvent type="PlaySoundEntityEvent">
+                <sound>
+                    <filename>FILENAME</filename>
+                </sound>
+                <soundChannelName>CHANNEL</soundChannelName>
+            </entityEvent>
+        """
+        reader = SubPlaySoundEntityEventPrefabXmlReader(SoundPrefabXmlReader())
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_sound_channel_name(), "CHANNEL")
+        self.assertEqual(prefab.get_sound_prefab().get_filename(), "FILENAME")
+
+    def test_read_prefab_from_string_invalid(self):
+        xml = """
+            <entityEvent type="PlaySoundEntityEvent" />
+        """
+        reader = SubPlaySoundEntityEventPrefabXmlReader(SoundPrefabXmlReader())
+
+        with self.assertRaises(EntityEventPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubIncreasePointsMultiplierEntityEventPrefab(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """<entityEvent type="IncreasePointsMultiplierEntityEvent" />"""
+        reader = SubIncreasePointsMultiplierEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubAddPointsEntityEventPrefab(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """
+            <entityEvent type="AddPointsEntityEvent">
+                <points>100</points>
+            </entityEvent>
+        """
+        reader = SubAddPointsEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_points(), 100)
+
+    def test_read_prefab_from_string_invalid(self):
+        xml = """
+            <entityEvent type="AddPointsEntityEvent" />
+        """
+        reader = SubAddPointsEntityEventPrefabXmlReader()
+
+        with self.assertRaises(EntityEventPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubActivateSpawnerEntityEventPrefab(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """
+            <entityEvent type="ActivateSpawnerEntityEvent">
+                <id>SPAWNER_ID</id>
+            </entityEvent>
+        """
+        reader = SubActivateSpawnerEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_id(), "SPAWNER_ID")
+
+    def test_read_prefab_from_string_invalid(self):
+        xml = """
+            <entityEvent type="ActivateSpawnerEntityEvent" />
+        """
+        reader = SubActivateSpawnerEntityEventPrefabXmlReader()
+
+        with self.assertRaises(EntityEventPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubChangeLevelStateEntityEventPrefab(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """
+            <entityEvent type="ChangeLevelStateEntityEvent">
+                <levelState>STATE</levelState>
+            </entityEvent>
+        """
+        reader = SubChangeLevelStateEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_level_state(), "STATE")
+
+    def test_read_prefab_from_string_invalid(self):
+        xml = """
+            <entityEvent type="ChangeLevelStateEntityEvent" />
+        """
+        reader = SubChangeLevelStateEntityEventPrefabXmlReader()
+
+        with self.assertRaises(EntityEventPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
 class TestEntityEventPrefabXmlReader(unittest.TestCase):
     def test_read_prefab_from_string_valid(self):
         xml = """<entityEvent type="AmmoLevelUpEntityEvent" />"""
@@ -349,9 +495,16 @@ class TestEntityEventPrefabXmlReader(unittest.TestCase):
                 ),
                 SubPlayMusicEntityEventPrefabXmlReader(
                     MusicPrefabXmlReader()
-                )
+                ),
+                SubAddPointsEntityEventPrefabXmlReader(),
+                SubIncreasePointsMultiplierEntityEventPrefabXmlReader(),
+                SubPlaySoundEntityEventPrefabXmlReader(
+                    SoundPrefabXmlReader()
+                ),
+                SubActivateSpawnerEntityEventPrefabXmlReader(),
+                SubChangeLevelStateEntityEventPrefabXmlReader()
             ]
         )
         prefabs = reader.read_prefabs_from_string(xml)
 
-        self.assertEqual(10, len(prefabs))
+        self.assertEqual(15, len(prefabs))

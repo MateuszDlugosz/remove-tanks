@@ -40,4 +40,20 @@
         </music>
         <musicChannelName>CHANNEL</musicChannelName>
     </entityEvent>
+    <entityEvent type="IncreasePointsMultiplierEntityEvent" />
+    <entityEvent type="AddPointsEntityEvent">
+        <points>200</points>
+    </entityEvent>
+    <entityEvent type="PlaySoundEntityEvent">
+        <sound>
+            <filename>FILENAME</filename>
+        </sound>
+        <soundChannelName>CHANNEL</soundChannelName>
+    </entityEvent>
+    <entityEvent type="ActivateSpawnerEntityEvent">
+        <id>SPAWNER_ID</id>
+    </entityEvent>
+    <entityEvent type="ChangeLevelStateEntityEvent">
+        <levelState>STATE</levelState>
+    </entityEvent>
 </entityEvents>

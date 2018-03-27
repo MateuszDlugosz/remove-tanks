@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as EXml
 
 from lib.audio.music.music_prefab import MusicPrefabXmlReader
+from lib.audio.sound.sound_prefab import SoundPrefabXmlReader
 from lib.graphics.camera.camera_effect_prefab import CameraEffectPrefabXmlReader
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
 from lib.level.utility.stage.broker.message.message_prefab import MessagePrefabXmlReader
@@ -300,3 +301,132 @@ class SubPlayMusicEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
 
     def get_type(self):
         return "PlayMusicEntityEvent"
+
+
+class AddPointsEntityEventPrefab(EntityEventPrefab):
+    def __init__(self, points):
+        self.points = int(points)
+
+    def get_points(self):
+        return self.points
+
+    def __str__(self):
+        return "AddPointsEntityEventPrefab(points={})".format(self.points)
+
+
+class SubAddPointsEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    POINTS_ELEMENT = "points"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            points = int(EXml.fromstring(xml_string).find(self.POINTS_ELEMENT).text.strip())
+
+            return AddPointsEntityEventPrefab(points)
+        except Exception as e:
+            raise EntityEventPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "AddPointsEntityEvent"
+
+
+class IncreasePointsMultiplierEntityEventPrefab(EntityEventPrefab):
+    def __str__(self):
+        return "IncreasePointsMultiplierEntityEventPrefab()"
+
+
+class SubIncreasePointsMultiplierEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return IncreasePointsMultiplierEntityEventPrefab()
+
+    def get_type(self):
+        return "IncreasePointsMultiplierEntityEvent"
+
+
+class PlaySoundEntityEventPrefab(EntityEventPrefab):
+    def __init__(self, sound_prefab, sound_channel_name):
+        self.sound_prefab = sound_prefab
+        self.sound_channel_name = sound_channel_name
+
+    def get_sound_prefab(self):
+        return self.sound_prefab
+
+    def get_sound_channel_name(self):
+        return self.sound_channel_name
+
+    def __str__(self):
+        return "PlaySoundEntityEventPrefab(sound_prefab={}, sound_channel_name={})" \
+            .format(str(self.sound_prefab), self.sound_channel_name)
+
+
+class SubPlaySoundEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    SOUND_CHANNEL_NAME_ELEMENT = "soundChannelName"
+
+    def __init__(self, sound_prefab_xml_reader):
+        self.sound_prefab_xml_reader = sound_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            sound_prefab = self.sound_prefab_xml_reader.read_prefab_from_string(
+                EXml.tostring(element.find(SoundPrefabXmlReader.SOUND_ELEMENT))
+            )
+            sound_channel_name = element.find(self.SOUND_CHANNEL_NAME_ELEMENT).text.strip()
+
+            return PlaySoundEntityEventPrefab(sound_prefab, sound_channel_name)
+        except Exception as e:
+            raise EntityEventPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "PlaySoundEntityEvent"
+
+
+class ActivateSpawnerEntityEventPrefab(EntityEventPrefab):
+    def __init__(self, id):
+        self.id = str(id)
+
+    def get_id(self):
+        return self.id
+
+    def __str__(self):
+        return "ActivateSpawnerEntityEventPrefab(id={})".format(self.id)
+
+
+class SubActivateSpawnerEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    ID_ELEMENT = "id"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            id = EXml.fromstring(xml_string).find(self.ID_ELEMENT).text.strip()
+
+            return ActivateSpawnerEntityEventPrefab(id)
+        except Exception as e:
+            raise EntityEventPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "ActivateSpawnerEntityEvent"
+
+
+class ChangeLevelStateEntityEventPrefab(EntityEventPrefab):
+    def __init__(self, level_state):
+        self.level_state = str(level_state)
+
+    def get_level_state(self):
+        return self.level_state
+
+    def __str__(self):
+        return "ChangeLevelStateEntityEventPrefab(level_state={})".format(self.level_state)
+
+
+class SubChangeLevelStateEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    LEVEL_STATE_ELEMENT = "levelState"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            level_state = EXml.fromstring(xml_string).find(self.LEVEL_STATE_ELEMENT).text.strip()
+
+            return ChangeLevelStateEntityEventPrefab(level_state)
+        except Exception as e:
+            raise EntityEventPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "ChangeLevelStateEntityEvent"
