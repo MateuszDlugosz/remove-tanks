@@ -61,7 +61,7 @@ from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader
 
 
 class DocsGeneratorAssembler(object):
-    def assembly(self):
+    def assembly(self, configuration):
         position_prefab_xml_reader = PositionPrefabXmlReader()
 
         sound_prefab_xml_reader = SoundPrefabXmlReader()
@@ -199,21 +199,19 @@ class DocsGeneratorAssembler(object):
         entity_prefab_repository_xml_reader = EntityPrefabRepositoryXmlReader()
         entity_prefab_xml_reader = EntityPrefabXmlReader(preload_data_xml_reader, component_prefab_xml_reader)
         entity_prefab_storage_factory = EntityPrefabStorageFactory(entity_prefab_xml_reader)
-        entity_prefab_repository = entity_prefab_repository_xml_reader.read_from_file("../../core/assets/prefabs/entities/entity-prefab-repository.xml")
+        entity_prefab_repository = entity_prefab_repository_xml_reader.read_from_file(
+            "../../core/assets/prefabs/entities/entity-prefab-repository.xml")
         entity_prefab_storage_factory.create_entity_prefab_storage(entity_prefab_repository, "../../core/assets/")
+
+        return DocsGenerator(configuration)
 
 
 class DocsGenerator:
-    def __init__(self, assets_dir, target_dir, configuration):
-        self.assets_dir = assets_dir
-        self.target_dir = target_dir
+    def __init__(self, configuration, context):
         self.configuration = configuration
-
-    def get_assets_dir(self):
-        return self.assets_dir
-
-    def get_target_dir(self):
-        return self.target_dir
 
     def get_configuration(self):
         return self.configuration
+
+    def generate_docs(self):
+        pass
