@@ -189,4 +189,19 @@
     <component type="StateComponent">
         <state>STATE</state>
     </component>
+    <component type="CreateTriggerComponent">
+        <entityEvents>
+            <entityEvent type="DestroyEntityEvent" />
+        </entityEvents>
+    </component>
+    <component type="DestroyTriggerComponent">
+        <entityEvents>
+            <entityEvent type="DestroyEntityEvent" />
+        </entityEvents>
+    </component>
+    <component type="HitTriggerComponent">
+        <entityEvents>
+            <entityEvent type="DestroyEntityEvent" />
+        </entityEvents>
+    </component>
 </components>

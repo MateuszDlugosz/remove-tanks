@@ -2,9 +2,10 @@ import xml.etree.ElementTree as EXml
 
 from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
 from lib.graphics.view.view_prefab import ViewPrefabXmlReader
+from lib.level.event.entity_event_prefab import EntityEventPrefabXmlReader
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
-from lib.level.utility.direction import DirectionXmlReader
-from lib.level.utility.state import StateXmlReader
+from lib.level.utility.direction.direction import DirectionXmlReader
+from lib.level.utility.state.state import StateXmlReader
 from lib.physics.body.body_prefab import BodyPrefabXmlReader
 from lib.physics.fixture.fixture_prefab import HitBoxPrefabXmlReader, SensorPrefabXmlReader
 from lib.physics.light.light_prefab import LightHandlerPrefabXmlReader
@@ -1006,3 +1007,96 @@ class SubStateComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "StateComponent"
+
+
+class CreateTriggerComponentPrefab(ComponentPrefab):
+    def __init__(self, entity_event_prefabs):
+        self.entity_event_prefabs = entity_event_prefabs
+
+    def get_entity_event_prefabs(self):
+        return self.entity_event_prefabs
+
+    def __str__(self):
+        return "CreateTriggerComponentPrefab(entity_event_prefabs=[{}])" \
+            .format(str(", ".join('\'{}\''.format(str(val)) for val in self.entity_event_prefabs)))
+
+
+class SubCreateTriggerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def __init__(self, entity_event_prefab_xml_reader):
+        self.entity_event_prefab_xml_reader = entity_event_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            entity_event_prefabs = self.entity_event_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(EntityEventPrefabXmlReader.ENTITY_EVENTS_ELEMENT))
+            )
+
+            return CreateTriggerComponentPrefab(entity_event_prefabs)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "CreateTriggerComponent"
+
+
+class DestroyTriggerComponentPrefab(ComponentPrefab):
+    def __init__(self, entity_event_prefabs):
+        self.entity_event_prefabs = entity_event_prefabs
+
+    def get_entity_event_prefabs(self):
+        return self.entity_event_prefabs
+
+    def __str__(self):
+        return "DestroyTriggerComponentPrefab(entity_event_prefabs=[{}])" \
+            .format(str(", ".join('\'{}\''.format(str(val)) for val in self.entity_event_prefabs)))
+
+
+class SubDestroyTriggerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def __init__(self, entity_event_prefab_xml_reader):
+        self.entity_event_prefab_xml_reader = entity_event_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            entity_event_prefabs = self.entity_event_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(EntityEventPrefabXmlReader.ENTITY_EVENTS_ELEMENT))
+            )
+
+            return DestroyTriggerComponentPrefab(entity_event_prefabs)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "DestroyTriggerComponent"
+
+
+class HitTriggerComponentPrefab(ComponentPrefab):
+    def __init__(self, entity_event_prefabs):
+        self.entity_event_prefabs = entity_event_prefabs
+
+    def get_entity_event_prefabs(self):
+        return self.entity_event_prefabs
+
+    def __str__(self):
+        return "HitTriggerComponentPrefab(entity_event_prefabs=[{}])" \
+            .format(str(", ".join('\'{}\''.format(str(val)) for val in self.entity_event_prefabs)))
+
+
+class SubHitTriggerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def __init__(self, entity_event_prefab_xml_reader):
+        self.entity_event_prefab_xml_reader = entity_event_prefab_xml_reader
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            entity_event_prefabs = self.entity_event_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(EntityEventPrefabXmlReader.ENTITY_EVENTS_ELEMENT))
+            )
+
+            return HitTriggerComponentPrefab(entity_event_prefabs)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "HitTriggerComponent"

@@ -6,6 +6,8 @@ from lib.graphics.effect.effect_prefab import SubAlphaEffectPrefabXmlReader, Alp
 from lib.graphics.sprite.sprite_prefab import FileSpritePrefab, SpritePrefabXmlReader, SubFileSpritePrefabXmlReader
 from lib.graphics.view.view_prefab import SpriteViewPrefab, SubSpriteViewPrefabXmlReader
 from lib.level.engine.entity.component.component_prefab import *
+from lib.level.event.entity_event_prefab import CreateEntityEventPrefab, SubCreateEntityEventPrefabXmlReader, \
+    SubDestroyEntityEventPrefabXmlReader
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefab
 from lib.physics.body.body_prefab import BodyPrefab
 from lib.physics.filter.filter_prefab import FilterPrefab, FilterPrefabXmlReader
@@ -364,6 +366,36 @@ class TestAutoSpawnerComponentPrefab(unittest.TestCase):
         self.assertEqual(
             str(AutoSpawnerComponentPrefab("ID")),
             "AutoSpawnerComponentPrefab(id=ID)"
+        )
+
+
+class TestCreateTriggerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(CreateTriggerComponentPrefab([CreateEntityEventPrefab([]), CreateEntityEventPrefab([])])),
+            "CreateTriggerComponentPrefab(entity_event_prefabs=[{}])"
+                .format(str(", ".join('\'{}\''.format(str(val)) for val in [CreateEntityEventPrefab([]),
+                                                                            CreateEntityEventPrefab([])])))
+        )
+
+
+class TestDestroyTriggerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(DestroyTriggerComponentPrefab([CreateEntityEventPrefab([]), CreateEntityEventPrefab([])])),
+            "DestroyTriggerComponentPrefab(entity_event_prefabs=[{}])"
+                .format(str(", ".join('\'{}\''.format(str(val)) for val in [CreateEntityEventPrefab([]),
+                                                                            CreateEntityEventPrefab([])])))
+        )
+
+
+class TestHitTriggerComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(HitTriggerComponentPrefab([CreateEntityEventPrefab([]), CreateEntityEventPrefab([])])),
+            "HitTriggerComponentPrefab(entity_event_prefabs=[{}])"
+                .format(str(", ".join('\'{}\''.format(str(val)) for val in [CreateEntityEventPrefab([]),
+                                                                            CreateEntityEventPrefab([])])))
         )
 
 
@@ -1245,6 +1277,90 @@ class TestSubStateComponentPrefabXmlReader(unittest.TestCase):
             reader.read_prefab_from_string(xml)
 
 
+class TestSubCreateTriggerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="CreateTriggerComponent">
+                <entityEvents>
+                    <entityEvent type="DestroyEntityEvent" />
+                </entityEvents>
+            </component>
+        """
+        reader = SubCreateTriggerComponentPrefabXmlReader(
+            EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+        )
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(len(prefab.get_entity_event_prefabs()), 1)
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="CreateTriggerComponent" />
+        """
+        reader = SubCreateTriggerComponentPrefabXmlReader(
+            EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+        )
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubDestroyTriggerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="DestroyTriggerComponent">
+                <entityEvents>
+                    <entityEvent type="DestroyEntityEvent" />
+                </entityEvents>
+            </component>
+        """
+        reader = SubDestroyTriggerComponentPrefabXmlReader(
+            EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+        )
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(len(prefab.get_entity_event_prefabs()), 1)
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="DestroyTriggerComponent" />
+        """
+        reader = SubDestroyTriggerComponentPrefabXmlReader(
+            EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+        )
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubHitTriggerComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="HitTriggerComponent">
+                <entityEvents>
+                    <entityEvent type="DestroyEntityEvent" />
+                </entityEvents>
+            </component>
+        """
+        reader = SubHitTriggerComponentPrefabXmlReader(
+            EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+        )
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(len(prefab.get_entity_event_prefabs()), 1)
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="HitTriggerComponent" />
+        """
+        reader = SubHitTriggerComponentPrefabXmlReader(
+            EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+        )
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
 class TestComponentPrefabXmlReader(unittest.TestCase):
     def test_component_prefab_xml_reader_valid(self):
         xml = """
@@ -1406,12 +1522,21 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
             SubAirplaneSpawnerComponentPrefabXmlReader(),
             SubRespawnComponentPrefabXmlReader(),
             SubAutoSpawnerComponentPrefabXmlReader(),
-            SubStateComponentPrefabXmlReader(StateXmlReader())
+            SubStateComponentPrefabXmlReader(StateXmlReader()),
+            SubCreateTriggerComponentPrefabXmlReader(
+                EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+            ),
+            SubDestroyTriggerComponentPrefabXmlReader(
+                EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+            ),
+            SubHitTriggerComponentPrefabXmlReader(
+                EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
+            )
         ])
         element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
         prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
 
-        self.assertEqual(40, len(prefabs))
+        self.assertEqual(43, len(prefabs))
 
 
 if __name__ == "__main__":
