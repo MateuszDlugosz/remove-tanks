@@ -2,7 +2,7 @@ import xml.etree.ElementTree as EXml
 
 from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
 from lib.graphics.view.view_prefab import ViewPrefabXmlReader
-from lib.level.utility.create_entry_prefab import CreateEntryPrefabXmlReader
+from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
 from lib.level.utility.direction import DirectionXmlReader
 from lib.level.utility.state import StateXmlReader
 from lib.physics.body.body_prefab import BodyPrefabXmlReader

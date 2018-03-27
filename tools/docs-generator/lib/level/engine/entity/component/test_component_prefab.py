@@ -4,9 +4,9 @@ import unittest
 from lib.graphics.color.color_prefab import HexColorPrefab, ColorPrefabXmlReader, SubHexColorPrefabXmlReader
 from lib.graphics.effect.effect_prefab import SubAlphaEffectPrefabXmlReader, AlphaEffectPrefab
 from lib.graphics.sprite.sprite_prefab import FileSpritePrefab, SpritePrefabXmlReader, SubFileSpritePrefabXmlReader
-from lib.graphics.view.view_prefab import ViewPrefab, SpriteViewPrefab, SubSpriteViewPrefabXmlReader
+from lib.graphics.view.view_prefab import SpriteViewPrefab, SubSpriteViewPrefabXmlReader
 from lib.level.engine.entity.component.component_prefab import *
-from lib.level.utility.create_entry_prefab import CreateEntryPrefab
+from lib.level.utility.create.create_entry_prefab import CreateEntryPrefab
 from lib.physics.body.body_prefab import BodyPrefab
 from lib.physics.filter.filter_prefab import FilterPrefab, FilterPrefabXmlReader
 from lib.physics.fixture.fixture_prefab import HitBoxPrefab, FixturePrefab, SensorPrefab, FixturePrefabXmlReader

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entityEvents>
+    <entityEvent type="SpawnAirplaneEntityEvent" />
+    <entityEvent type="AmmoLevelUpEntityEvent" />
+    <entityEvent type="AddCameraEffectEntityEvent">
+        <cameraEffect type="ShakeCameraEffect">
+            <time>1.1</time>
+            <power>2.2</power>
+        </cameraEffect>
+    </entityEvent>
+    <entityEvent type="CreateEntityEvent">
+        <createEntries>
+            <createEntry>
+                <entityPrefabCode>CODE_0</entityPrefabCode>
+                <position>
+                    <x>0.1</x>
+                    <y>2.5</y>
+                </position>
+            </createEntry>
+        </createEntries>
+    </entityEvent>
+    <entityEvent type="DestroyEntityEvent" />
+    <entityEvent type="DestroyEntityByIdEntityEvent">
+        <id>IDENTITY</id>
+    </entityEvent>
+    <entityEvent type="DestroyFamilyEntityEvent">
+        <entityFamily>ENTITY_FAMILY</entityFamily>
+    </entityEvent>
+    <entityEvent type="AddLifeEntityEvent" />
+    <entityEvent type="AddMessageEntityEvent">
+        <message>
+            <time>2.3</time>
+            <entryKey>ENTRY_KEY</entryKey>
+            <faceId>FACE_ID</faceId>
+        </message>
+    </entityEvent>
+    <entityEvent type="PlayMusicEntityEvent">
+        <music>
+            <filename>FILENAME</filename>
+        </music>
+        <musicChannelName>CHANNEL</musicChannelName>
+    </entityEvent>
+</entityEvents>

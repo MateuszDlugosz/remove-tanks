@@ -1,6 +1,6 @@
 import unittest
 
-from lib.level.utility.create_entry_prefab import CreateEntryPrefab, CreateEntryPrefabXmlReader, \
+from lib.level.utility.create.create_entry_prefab import CreateEntryPrefab, CreateEntryPrefabXmlReader, \
     CreateEntryPrefabXmlReadException
 from lib.utility.surface.position.position_prefab import PositionPrefab, PositionPrefabXmlReader
 

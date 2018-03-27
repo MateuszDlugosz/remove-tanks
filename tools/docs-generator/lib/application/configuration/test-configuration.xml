@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <option name="TEST0">test0</option>
+    <option name="TEST1">test1</option>
+</configuration>
