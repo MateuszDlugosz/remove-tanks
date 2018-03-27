@@ -45,7 +45,7 @@
         <component type="ViewComponent">
             <views>
                 <view type="AnimationView" id="StandingDown">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2">
                         <frame regionName="enemy-light-boat-spawn-0-horizontal-up-0" />
                         <frame regionName="enemy-light-boat-spawn-0-horizontal-up-1" />
                         <frame regionName="enemy-light-boat-spawn-0-horizontal-up-2" />

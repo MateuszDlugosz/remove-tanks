@@ -32,7 +32,7 @@
         <component type="ViewComponent">
             <views>
                 <view type="AnimationView" id="StandingNone">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2">
                         <frame regionName="bonus-promotion-0-0" />
                         <frame regionName="bonus-promotion-0-1" />
                         <frame regionName="bonus-promotion-0-2" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<prefab>
+<entity>
     <components>
         <component type="PhysicsComponent">
             <body>
@@ -22,4 +22,4 @@
             </hitBoxes>
         </component>
     </components>
-</prefab>
+</entity>

@@ -2,7 +2,7 @@ import xml.etree.ElementTree as EXml
 
 from lib.graphics.color.color_prefab import ColorPrefabXmlReader
 from lib.utility.string_functions import *
-from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader
+from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader, PositionPrefab
 
 
 class LightPrefab(object):
@@ -118,13 +118,17 @@ class SubPointLightPrefabXmlReader(SubLightPrefabXmlReader):
     def read_prefab_from_string(self, xml_string):
         try:
             element = EXml.fromstring(xml_string)
+            position_prefab = PositionPrefab(0, 0)
             color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
                 EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
             )
             x_ray = string_to_boolean(element.find(self.X_RAY_ELEMENT).text)
-            position_prefab = self.position_prefab_xml_reader.read_prefab_from_string(
-                EXml.tostring(element.find(PositionPrefabXmlReader.POSITION_ELEMENT))
-            )
+
+            if element.find(PositionPrefabXmlReader.POSITION_ELEMENT) is not None:
+                position_prefab = self.position_prefab_xml_reader.read_prefab_from_string(
+                    EXml.tostring(element.find(PositionPrefabXmlReader.POSITION_ELEMENT))
+                )
+
             distance = float(element.find(self.DISTANCE_ELEMENT).text)
 
             return PointLightPrefab(color_prefab, x_ray, position_prefab, distance)
@@ -172,13 +176,17 @@ class SubConeLightPrefabXmlReader(SubLightPrefabXmlReader):
     def read_prefab_from_string(self, xml_string):
         try:
             element = EXml.fromstring(xml_string)
+            position_prefab = PositionPrefab(0, 0)
             color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
                 EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
             )
             x_ray = string_to_boolean(element.find(self.X_RAY_ELEMENT).text)
-            position_prefab = self.position_prefab_xml_reader.read_prefab_from_string(
-                EXml.tostring(element.find(PositionPrefabXmlReader.POSITION_ELEMENT))
-            )
+
+            if element.find(PositionPrefabXmlReader.POSITION_ELEMENT) is not None:
+                position_prefab = self.position_prefab_xml_reader.read_prefab_from_string(
+                    EXml.tostring(element.find(PositionPrefabXmlReader.POSITION_ELEMENT))
+                )
+
             distance = float(element.find(self.DISTANCE_ELEMENT).text)
             direction_degree = float(element.find(self.DIRECTION_DEGREE_ELEMENT).text)
             cone_degree = float(element.find(self.CONE_DEGREE_ELEMENT).text)
@@ -235,6 +243,7 @@ class LightHandlerPrefabXmlReader(object):
             element = EXml.fromstring(xml_string)
             for child in element.findall(self.LIGHT_HANDLER_ELEMENT):
                 handlers.append(self.read_prefab_from_string(EXml.tostring(child)))
+
             return handlers
         except Exception as e:
             raise LightHandlerPrefabXmlReadException(xml_string, e)

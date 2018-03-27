@@ -99,6 +99,32 @@ class SubSpeedComponentPrefabXmlReader(SubComponentPrefabXmlReader):
         return "SpeedComponent"
 
 
+class SpeedModifierComponentPrefab(ComponentPrefab):
+    def __init__(self, speed_modifier):
+        self.speed_modifier = float(speed_modifier)
+
+    def get_speed_modifier(self):
+        return self.speed_modifier
+
+    def __str__(self):
+        return "SpeedModifierComponentPrefab(speed_modifier={})".format(self.speed_modifier)
+
+
+class SubSpeedModifierComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    SPEED_MODIFIER_ELEMENT = "speedModifier"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            speed_modifier = float(element.find(self.SPEED_MODIFIER_ELEMENT).text)
+            return SpeedModifierComponentPrefab(speed_modifier)
+        except Exception as e:
+            raise ComponentPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "SpeedModifierComponent"
+
+
 class CameraTrackComponentPrefab(ComponentPrefab):
     def __init__(self, priority, position_prefab):
         self.priority = priority
@@ -743,18 +769,28 @@ class SubPhysicsComponentPrefabXmlReader(SubComponentPrefabXmlReader):
     def read_prefab_from_string(self, xml_string):
         try:
             element = EXml.fromstring(xml_string)
+            hit_box_prefabs = []
+            sensor_prefabs = []
+            light_handler_prefabs = []
+
             body_prefab = self.body_prefab_xml_reader.read_prefab_from_string(
                 EXml.tostring(element.find(BodyPrefabXmlReader.BODY_ELEMENT))
             )
-            hit_box_prefabs = self.hit_box_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(HitBoxPrefabXmlReader.HIT_BOXES_ELEMENT))
-            )
-            sensor_prefabs = self.sensor_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(SensorPrefabXmlReader.SENSORS_ELEMENT))
-            )
-            light_handler_prefabs = self.light_handler_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(LightHandlerPrefabXmlReader.LIGHT_HANDLERS_ELEMENT))
-            )
+
+            if element.find(HitBoxPrefabXmlReader.HIT_BOXES_ELEMENT) is not None:
+                hit_box_prefabs = self.hit_box_prefab_xml_reader.read_prefabs_from_string(
+                    EXml.tostring(element.find(HitBoxPrefabXmlReader.HIT_BOXES_ELEMENT))
+                )
+
+            if element.find(SensorPrefabXmlReader.SENSORS_ELEMENT) is not None:
+                sensor_prefabs = self.sensor_prefab_xml_reader.read_prefabs_from_string(
+                    EXml.tostring(element.find(SensorPrefabXmlReader.SENSORS_ELEMENT))
+                )
+
+            if element.find(LightHandlerPrefabXmlReader.LIGHT_HANDLERS_ELEMENT) is not None:
+                light_handler_prefabs = self.light_handler_prefab_xml_reader.read_prefabs_from_string(
+                    EXml.tostring(element.find(LightHandlerPrefabXmlReader.LIGHT_HANDLERS_ELEMENT))
+                )
 
             return PhysicsComponentPrefab(body_prefab, hit_box_prefabs, sensor_prefabs, light_handler_prefabs)
         except Exception as e:

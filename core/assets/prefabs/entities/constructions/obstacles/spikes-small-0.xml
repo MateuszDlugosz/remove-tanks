@@ -29,7 +29,7 @@
         <component type="ViewComponent">
             <views>
                 <view type="AnimationView" id="StandingNone">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP_PINGPONG" frameDuration="0.1f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP_PINGPONG" frameDuration="0.1">
                         <frame regionName="spikes-small-0-0" />
                         <frame regionName="spikes-small-0-1" />
                         <frame regionName="spikes-small-0-2" />

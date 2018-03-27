@@ -44,7 +44,7 @@
         <component type="ViewComponent">
             <views>
                 <view type="AnimationView" id="StandingDown">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2">
                         <frame regionName="enemy-heavy-tank-spawn-0-0" />
                         <frame regionName="enemy-heavy-tank-spawn-0-1" />
                         <frame regionName="enemy-heavy-tank-spawn-0-2" />

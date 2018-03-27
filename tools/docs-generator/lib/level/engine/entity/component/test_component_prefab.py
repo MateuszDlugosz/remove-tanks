@@ -28,6 +28,14 @@ class TestSpeedComponentPrefab(unittest.TestCase):
         )
 
 
+class TestSpeedModifierComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(SpeedModifierComponentPrefab(1)),
+            "SpeedModifierComponentPrefab(speed_modifier=1.0)"
+        )
+
+
 class TestChangeBehaviorComponentPrefab(unittest.TestCase):
     def test_component_prefab_to_string(self):
         self.assertEqual(
@@ -425,6 +433,28 @@ class TestSubSpeedComponentPrefabXmlReader(unittest.TestCase):
             </component>
         """
         reader = SubSpeedComponentPrefabXmlReader()
+
+        with self.assertRaises(ComponentPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubSpeedModifierComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="SpeedModifierComponent">
+                <speedModifier>6</speedModifier>
+            </component>
+        """
+        reader = SubSpeedModifierComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_speed_modifier(), 6)
+
+    def test_component_prefab_xml_reader_invalid(self):
+        xml = """
+            <component type="SpeedModifierComponent" />
+        """
+        reader = SubSpeedModifierComponentPrefabXmlReader()
 
         with self.assertRaises(ComponentPrefabXmlReadException):
             reader.read_prefab_from_string(xml)
@@ -1531,12 +1561,14 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
             ),
             SubHitTriggerComponentPrefabXmlReader(
                 EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
-            )
+            ),
+            SubSpeedComponentPrefabXmlReader(),
+            SubSpeedModifierComponentPrefabXmlReader()
         ])
         element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
         prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
 
-        self.assertEqual(43, len(prefabs))
+        self.assertEqual(45, len(prefabs))
 
 
 if __name__ == "__main__":

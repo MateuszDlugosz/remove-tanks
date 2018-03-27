@@ -33,7 +33,7 @@
         <component type="ViewComponent">
             <views>
                 <view type="AnimationView" id="MovingDown">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="NORMAL" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="NORMAL" frameDuration="0.2">
                         <frame regionName="bomb-0-down-0" />
                         <frame regionName="bomb-0-down-1" />
                         <frame regionName="bomb-0-down-2" />

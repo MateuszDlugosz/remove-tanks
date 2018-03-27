@@ -204,4 +204,10 @@
             <entityEvent type="DestroyEntityEvent" />
         </entityEvents>
     </component>
+    <component type="SpeedComponent">
+        <speed>1</speed>
+    </component>
+    <component type="SpeedModifierComponent">
+        <speedModifier>1.12</speedModifier>
+    </component>
 </components>

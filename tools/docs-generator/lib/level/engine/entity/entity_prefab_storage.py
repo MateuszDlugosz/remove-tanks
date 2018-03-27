@@ -1,7 +1,7 @@
 class EntityPrefabStorage(object):
     def __init__(self, entity_pefabs):
         self.entity_prefabs = {}
-        for key, value in entity_pefabs:
+        for key, value in entity_pefabs.items():
             self.entity_prefabs[key] = value
 
     def get_entity_prefab(self, code):

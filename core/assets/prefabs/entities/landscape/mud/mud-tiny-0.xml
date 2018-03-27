@@ -29,7 +29,7 @@
         <component type="ViewComponent">
             <views>
                 <view type="AnimationView" id="StandingNone">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.1f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.1">
                         <frame regionName="mud-tiny-0-0" />
                         <frame regionName="mud-tiny-0-1" />
                         <frame regionName="mud-tiny-0-2" />

@@ -46,7 +46,7 @@
         <component type="ViewComponent">
             <views>
                 <view type="AnimationView" id="MovingLeft">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2">
                         <frame regionName="enemy-light-train-0-horizontal-down-0" />
                         <frame regionName="enemy-light-train-0-horizontal-down-1" />
                     </animation>
@@ -56,7 +56,7 @@
                     </position>
                 </view>
                 <view type="AnimationView" id="MovingRight">
-                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2f">
+                    <animation type="AtlasAnimation" atlasFilename="EntityAtlas" playMode="LOOP" frameDuration="0.2">
                         <frame regionName="enemy-light-train-0-horizontal-down-0" />
                         <frame regionName="enemy-light-train-0-horizontal-down-1" />
                     </animation>

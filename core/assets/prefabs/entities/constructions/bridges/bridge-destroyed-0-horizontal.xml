@@ -41,6 +41,6 @@
         <component type="DirectionComponent">
             <direction>None</direction>
         </component>
-        <component type="GroundRenderLayerComponent" />s
+        <component type="GroundRenderLayerComponent" />
     </components>
 </entity>
