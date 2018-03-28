@@ -1,4 +1,5 @@
 import logging
+import shutil
 
 
 class DocsGenerator:
@@ -9,13 +10,29 @@ class DocsGenerator:
         return self.context
 
     def generate_docs(self):
-        logging.info("Generating docs started.")
+        logging.info("Generating files started.")
         logging.info(f"Docs will be generated in "
                      f"{self.context.get_configuration().get_option('target.directory')} directory.")
         logging.info(f"Docs will be generated based on "
                      f"{self.context.get_configuration().get_option('source.directory')} assets directory.")
 
-        logging.info("Generation docs ended.")
+        try:
+            self.generate_homepage()
+        except Exception as e:
+            raise DocsGenerationException(e)
+
+        logging.info("Generation files ended.")
+
+    def generate_homepage(self):
+        logging.info("Generating homepage started.")
+        shutil.copy(
+            self.context.get_configuration().get_option("page.layout.filename"),
+            "{}/{}".format(
+                self.context.get_configuration().get_option("target.directory"),
+                self.context.get_configuration().get_option("generated.page.homepage.filename")
+            )
+        )
+        logging.info("Generating homepage ended.")
 
 
 class DocsGeneratorInitializer(object):
@@ -30,7 +47,14 @@ class DocsGeneratorInitializer(object):
 
 
 class DocsGeneratorInitializeException(Exception):
-    MESSAGE_TEMPLATE = "Cannot initialize docs generator. Cause: {}."
+    MESSAGE_TEMPLATE = "Cannot initialize files generator. Cause: {}."
+
+    def __init__(self, cause):
+        super().__init__(self.MESSAGE_TEMPLATE.format(cause))
+
+
+class DocsGenerationException(Exception):
+    MESSAGE_TEMPLATE = "Cannot generate files. Cause: {}."
 
     def __init__(self, cause):
         super().__init__(self.MESSAGE_TEMPLATE.format(cause))
