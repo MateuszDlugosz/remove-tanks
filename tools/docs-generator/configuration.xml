@@ -2,4 +2,6 @@
 <configuration>
     <option name="target.directory">../../docs/assets</option>
     <option name="source.directory">../../core/assets</option>
+    <option name="entity.prefab.repository.filename">prefabs/entities/entity-prefab-repository.xml</option>
+    <option name="page.layout.filename">docs/templates/page-layout.html</option>
 </configuration>

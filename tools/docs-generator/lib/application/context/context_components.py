@@ -12,7 +12,6 @@ from lib.graphics.particles.particle_effect_prefab import ParticleEffectPrefabXm
 from lib.graphics.shader.shader_program_prefab import ShaderProgramPrefabXmlReader
 from lib.graphics.sprite.sprite_prefab import SpritePrefabXmlReader, SubFileSpritePrefabXmlReader, \
     SubAtlasSpritePrefabXmlReader
-from lib.graphics.texture.texture_atlas import TextureAtlasReader
 from lib.graphics.view.view_prefab import ViewPrefabXmlReader, SubSpriteViewPrefabXmlReader, \
     SubAnimationViewPrefabXmlReader, SubParticleEffectViewPrefabXmlReader
 from lib.level.engine.entity.component.component_prefab import ComponentPrefabXmlReader, \
@@ -60,106 +59,181 @@ from lib.physics.shape.shape_prefab import ShapePrefabXmlReader, SubRectangleSha
 from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader
 
 
-class DocsGeneratorAssembler(object):
-    def assembly(self, configuration):
-        position_prefab_xml_reader = PositionPrefabXmlReader()
+class ContextComponents(object):
+    @staticmethod
+    def init_position_prefab_xml_reader(components):
+        return "PositionPrefabXmlReader", PositionPrefabXmlReader()
 
-        sound_prefab_xml_reader = SoundPrefabXmlReader()
-        music_prefab_xml_reader = MusicPrefabXmlReader()
+    @staticmethod
+    def init_sound_prefab_xml_reader(components):
+        return "SoundPrefabXmlReader", SoundPrefabXmlReader()
 
-        shader_program_prefab_xml_reader = ShaderProgramPrefabXmlReader()
-        animation_prefab_xml_reader = AnimationPrefabXmlReader([
+    @staticmethod
+    def init_music_prefab_xml_reader(components):
+        return "MusicPrefabXmlReader", MusicPrefabXmlReader()
+
+    @staticmethod
+    def init_shader_program_xml_reader(components):
+        return "ShaderProgramXmlReader", ShaderProgramPrefabXmlReader()
+
+    @staticmethod
+    def init_animation_prefab_xml_reader(components):
+        return "AnimationPrefabXmlReader", AnimationPrefabXmlReader([
             SubFileAnimationPrefabXmlReader(),
             SubAtlasAnimationPrefabXmlReader()
         ])
-        camera_effect_prefab_xml_reader = CameraEffectPrefabXmlReader([
+
+    @staticmethod
+    def init_camera_effect_prefab_xml_reader(components):
+        return "CameraEffectPrefabXmlReader", CameraEffectPrefabXmlReader([
             SubShakeCameraEffectPrefabXmlReader()
         ])
-        color_prefab_xml_reader = ColorPrefabXmlReader([
+
+    @staticmethod
+    def init_color_prefab_xml_reader(components):
+        return "ColorPrefabXmlReader", ColorPrefabXmlReader([
             SubRgbColorPrefabXmlReader(),
             SubRgbaColorPrefabXmlReader(),
             SubHexColorPrefabXmlReader()
         ])
-        effect_prefab_xml_reader = EffectPrefabXmlReader([
+
+    @staticmethod
+    def init_effect_prefab_xml_reader(components):
+        return "EffectPrefabXmlReader", EffectPrefabXmlReader([
             SubAlphaEffectPrefabXmlReader(),
-            SubTintEffectPrefabXmlReader(color_prefab_xml_reader),
-            SubShaderEffectPrefabXmlReader(shader_program_prefab_xml_reader)
+            SubTintEffectPrefabXmlReader(components["ColorPrefabXmlReader"]),
+            SubShaderEffectPrefabXmlReader(components["ShaderProgramXmlReader"])
         ])
-        particle_effect_prefab_xml_reader = ParticleEffectPrefabXmlReader([
+
+    @staticmethod
+    def init_particle_effect_prefab_xml_reader(components):
+        return "ParticleEffectPrefabXmlReader", ParticleEffectPrefabXmlReader([
             SubFileParticleEffectPrefabXmlReader(),
             SubAtlasParticleEffectPrefabXmlReader()
         ])
-        sprite_prefab_xml_reader = SpritePrefabXmlReader([
+
+    @staticmethod
+    def init_sprite_prefab_xml_reader(components):
+        return "SpritePrefabXmlReader", SpritePrefabXmlReader([
             SubFileSpritePrefabXmlReader(),
             SubAtlasSpritePrefabXmlReader()
         ])
-        texture_atlas_reader = TextureAtlasReader()
-        view_prefab_xml_reader = ViewPrefabXmlReader([
-            SubSpriteViewPrefabXmlReader(position_prefab_xml_reader, sprite_prefab_xml_reader),
-            SubAnimationViewPrefabXmlReader(position_prefab_xml_reader, animation_prefab_xml_reader),
-            SubParticleEffectViewPrefabXmlReader(position_prefab_xml_reader, particle_effect_prefab_xml_reader)
+
+    @staticmethod
+    def init_view_prefab_xml_reader(components):
+        return "ViewPrefabXmlReader", ViewPrefabXmlReader([
+            SubSpriteViewPrefabXmlReader(components["PositionPrefabXmlReader"],
+                                         components["SpritePrefabXmlReader"]),
+            SubAnimationViewPrefabXmlReader(components["PositionPrefabXmlReader"],
+                                            components["AnimationPrefabXmlReader"]),
+            SubParticleEffectViewPrefabXmlReader(components["PositionPrefabXmlReader"],
+                                                 components["ParticleEffectPrefabXmlReader"])
         ])
 
-        body_prefab_xml_reader = BodyPrefabXmlReader()
-        vertex_prefab_xml_reader = VertexPrefabXmlReader()
-        shape_prefab_xml_reader = ShapePrefabXmlReader([
-            SubRectangleShapePrefabXmlReader(position_prefab_xml_reader),
-            SubCircleShapePrefabXmlReader(position_prefab_xml_reader),
-            SubPolygonShapePrefabXmlReader(position_prefab_xml_reader, vertex_prefab_xml_reader),
-            SubChainShapePrefabXmlReader(position_prefab_xml_reader, vertex_prefab_xml_reader)
-        ])
-        filter_prefab_xml_reader = FilterPrefabXmlReader()
-        fixture_prefab_xml_reader = FixturePrefabXmlReader(filter_prefab_xml_reader, shape_prefab_xml_reader)
-        hit_box_prefab_xml_reader = HitBoxPrefabXmlReader(fixture_prefab_xml_reader)
-        sensor_prefab_xml_reader = SensorPrefabXmlReader(fixture_prefab_xml_reader)
-        light_prefab_xml_reader = LightPrefabXmlReader([
-            SubDirectionalLightPrefabXmlReader(color_prefab_xml_reader),
-            SubPointLightPrefabXmlReader(color_prefab_xml_reader, position_prefab_xml_reader),
-            SubConeLightPrefabXmlReader(color_prefab_xml_reader, position_prefab_xml_reader)
-        ])
-        light_handler_prefab_xml_reader = LightHandlerPrefabXmlReader(light_prefab_xml_reader)
+    @staticmethod
+    def init_body_prefab_xml_reader(components):
+        return "BodyPrefabXmlReader", BodyPrefabXmlReader()
 
-        create_entry_prefab_xml_reader = CreateEntryPrefabXmlReader(position_prefab_xml_reader)
-        direction_xml_reader = DirectionXmlReader()
-        state_xml_reader = StateXmlReader()
-        message_prefab_xml_reader = MessagePrefabXmlReader()
+    @staticmethod
+    def init_vertex_prefab_xml_reader(components):
+        return "VertexPrefabXmlReader", VertexPrefabXmlReader()
 
-        entity_event_prefab_xml_reader = EntityEventPrefabXmlReader([
+    @staticmethod
+    def init_shape_prefab_xml_reader(components):
+        return "ShapePrefabXmlReader", ShapePrefabXmlReader([
+            SubRectangleShapePrefabXmlReader(components["PositionPrefabXmlReader"]),
+            SubCircleShapePrefabXmlReader(components["PositionPrefabXmlReader"]),
+            SubPolygonShapePrefabXmlReader(components["PositionPrefabXmlReader"], components["VertexPrefabXmlReader"]),
+            SubChainShapePrefabXmlReader(components["PositionPrefabXmlReader"], components["VertexPrefabXmlReader"])
+        ])
+
+    @staticmethod
+    def init_filter_prefab_xml_reader(components):
+        return "FilterPrefabXmlReader", FilterPrefabXmlReader()
+
+    @staticmethod
+    def init_fixture_prefab_xml_reader(components):
+        return "FixturePrefabXmlReader", FixturePrefabXmlReader(
+            components["FilterPrefabXmlReader"], components["ShapePrefabXmlReader"])
+
+    @staticmethod
+    def init_hit_box_prefab_xml_reader(components):
+        return "HitBoxPrefabXmlReader", HitBoxPrefabXmlReader(components["FixturePrefabXmlReader"])
+
+    @staticmethod
+    def init_sensor_prefab_xml_reader(components):
+        return "SensorPrefabXmlReader", SensorPrefabXmlReader(components["FixturePrefabXmlReader"])
+
+    @staticmethod
+    def init_light_prefab_xml_reader(components):
+        return "LightPrefabXmlReader", LightPrefabXmlReader([
+            SubDirectionalLightPrefabXmlReader(components["ColorPrefabXmlReader"]),
+            SubPointLightPrefabXmlReader(components["ColorPrefabXmlReader"],
+                                         components["PositionPrefabXmlReader"]),
+            SubConeLightPrefabXmlReader(components["ColorPrefabXmlReader"],
+                                        components["PositionPrefabXmlReader"])
+        ])
+
+    @staticmethod
+    def init_light_handler_prefab_xml_reader(components):
+        return "LightHandlerPrefabXmlReader", LightHandlerPrefabXmlReader(components["LightPrefabXmlReader"])
+
+    @staticmethod
+    def init_create_entry_prefab_xml_reader(components):
+        return "CreateEntryPrefabXmlReader", CreateEntryPrefabXmlReader(components["PositionPrefabXmlReader"])
+
+    @staticmethod
+    def init_direction_xml_reader(components):
+        return "DirectionXmlReader", DirectionXmlReader()
+
+    @staticmethod
+    def init_state_xml_reader(components):
+        return "StateXmlReader", StateXmlReader()
+
+    @staticmethod
+    def init_message_prefab_xml_reader(components):
+        return "MessagePrefabXmlReader", MessagePrefabXmlReader()
+
+    @staticmethod
+    def init_entity_event_prefab_xml_reader(components):
+        return "EntityEventPrefabXmlReader", EntityEventPrefabXmlReader([
             SubAmmoLevelUpEntityEventPrefabXmlReader(),
             SubSpawnAirplaneEntityEventPrefabXmlReader(),
-            SubAddCameraEffectEntityEventPrefabXmlReader(camera_effect_prefab_xml_reader),
-            SubCreateEntityEventPrefabXmlReader(create_entry_prefab_xml_reader),
+            SubAddCameraEffectEntityEventPrefabXmlReader(components["CameraEffectPrefabXmlReader"]),
+            SubCreateEntityEventPrefabXmlReader(components["CreateEntryPrefabXmlReader"]),
             SubDestroyEntityEventPrefabXmlReader(),
             SubDestroyEntityByIdEntityEventPrefabXmlReader(),
             SubDestroyFamilyEntityEventPrefabXmlReader(),
             SubAddLifeEntityEventPrefabXmlReader(),
-            SubAddMessageEntityEventPrefabXmlReader(message_prefab_xml_reader),
-            SubPlayMusicEntityEventPrefabXmlReader(music_prefab_xml_reader),
+            SubAddMessageEntityEventPrefabXmlReader(components["MessagePrefabXmlReader"]),
+            SubPlayMusicEntityEventPrefabXmlReader(components["MusicPrefabXmlReader"]),
             SubAddPointsEntityEventPrefabXmlReader(),
             SubIncreasePointsMultiplierEntityEventPrefabXmlReader(),
-            SubPlaySoundEntityEventPrefabXmlReader(sound_prefab_xml_reader),
+            SubPlaySoundEntityEventPrefabXmlReader(components["SoundPrefabXmlReader"]),
             SubActivateSpawnerEntityEventPrefabXmlReader(),
             SubChangeLevelStateEntityEventPrefabXmlReader()
         ])
 
-        component_prefab_xml_reader = ComponentPrefabXmlReader([
-            SubCameraTrackComponentPrefabXmlReader(position_prefab_xml_reader),
+    @staticmethod
+    def init_component_prefab_xml_reader(components):
+        return "ComponentPrefabXmlReader", ComponentPrefabXmlReader([
+            SubCameraTrackComponentPrefabXmlReader(components["PositionPrefabXmlReader"]),
             SubLeaveBonusComponentPrefabXmlReader(),
             SubAmmoComponentPrefabXmlReader(),
             SubAutoShootComponentPrefabXmlReader(),
             SubDamageComponentPrefabXmlReader(),
             SubHealthComponentPrefabXmlReader(),
-            SubHitComponentPrefabXmlReader(effect_prefab_xml_reader),
+            SubHitComponentPrefabXmlReader(components["EffectPrefabXmlReader"]),
             SubProtectionComponentPrefabXmlReader(),
             SubRandomShootComponentPrefabXmlReader(),
-            SubDirectionComponentPrefabXmlReader(direction_xml_reader),
+            SubDirectionComponentPrefabXmlReader(components["DirectionXmlReader"]),
             SubChangeBehaviorComponentPrefabXmlReader(
                 ComponentPrefabXmlReader([
                     SubSpeedModifierComponentPrefabXmlReader(),
-                    SubDirectionComponentPrefabXmlReader(direction_xml_reader)
+                    SubDirectionComponentPrefabXmlReader(components["DirectionXmlReader"])
                 ])
             ),
-            SubRandomDirectionComponentPrefabXmlReader(direction_xml_reader),
+            SubRandomDirectionComponentPrefabXmlReader(components["DirectionXmlReader"]),
             SubEnemyComponentPrefabXmlReader(),
             SubPlayerComponentPrefabXmlReader(),
             SubIdentityComponentPrefabXmlReader(),
@@ -169,10 +243,12 @@ class DocsGeneratorAssembler(object):
             SubDestroyOnContactComponentPrefabXmlReader(),
             SubDestroyOnContactLostComponentPrefabXmlReader(),
             SubLifetimeComponentPrefabXmlReader(),
-            SubRandomCreateComponentPrefabXmlReader(create_entry_prefab_xml_reader),
+            SubRandomCreateComponentPrefabXmlReader(components["CreateEntryPrefabXmlReader"]),
             SubAutoMoveComponentPrefabXmlReader(),
-            SubPhysicsComponentPrefabXmlReader(body_prefab_xml_reader, hit_box_prefab_xml_reader, sensor_prefab_xml_reader,
-                                               light_handler_prefab_xml_reader),
+            SubPhysicsComponentPrefabXmlReader(components["BodyPrefabXmlReader"],
+                                               components["HitBoxPrefabXmlReader"],
+                                               components["SensorPrefabXmlReader"],
+                                               components["LightHandlerPrefabXmlReader"]),
             SubAirplaneRenderLayerComponentPrefabXmlReader(),
             SubBombRenderLayerComponentPrefabXmlReader(),
             SubBonusRenderLayerComponentPrefabXmlReader(),
@@ -182,36 +258,31 @@ class DocsGeneratorAssembler(object):
             SubGroundRenderLayerComponentPrefabXmlReader(),
             SubObstacleRenderLayerComponentPrefabXmlReader(),
             SubVehicleRenderLayerComponentPrefabXmlReader(),
-            SubViewComponentPrefabXmlReader(view_prefab_xml_reader),
+            SubViewComponentPrefabXmlReader(components["ViewPrefabXmlReader"]),
             SubAirplaneSpawnerComponentPrefabXmlReader(),
             SubRespawnComponentPrefabXmlReader(),
             SubAutoSpawnerComponentPrefabXmlReader(),
-            SubStateComponentPrefabXmlReader(state_xml_reader),
-            SubCreateTriggerComponentPrefabXmlReader(entity_event_prefab_xml_reader),
-            SubDestroyTriggerComponentPrefabXmlReader(entity_event_prefab_xml_reader),
-            SubHitTriggerComponentPrefabXmlReader(entity_event_prefab_xml_reader),
+            SubStateComponentPrefabXmlReader(components["StateXmlReader"]),
+            SubCreateTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
+            SubDestroyTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
+            SubHitTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
             SubSpeedComponentPrefabXmlReader(),
             SubSpeedModifierComponentPrefabXmlReader()
         ])
 
-        preload_data_xml_reader = PreloadDataXmlReader()
+    @staticmethod
+    def init_preload_data_xml_reader(components):
+        return "PreloadDataXmlReader", PreloadDataXmlReader()
 
-        entity_prefab_repository_xml_reader = EntityPrefabRepositoryXmlReader()
-        entity_prefab_xml_reader = EntityPrefabXmlReader(preload_data_xml_reader, component_prefab_xml_reader)
-        entity_prefab_storage_factory = EntityPrefabStorageFactory(entity_prefab_xml_reader)
-        entity_prefab_repository = entity_prefab_repository_xml_reader.read_from_file(
-            "../../core/assets/prefabs/entities/entity-prefab-repository.xml")
-        entity_prefab_storage_factory.create_entity_prefab_storage(entity_prefab_repository, "../../core/assets/")
+    @staticmethod
+    def init_entity_prefab_repository_xml_reader(components):
+        return "EntityPrefabRepositoryXmlReader", EntityPrefabRepositoryXmlReader()
 
-        return DocsGenerator(configuration)
+    @staticmethod
+    def init_entity_prefab_xml_reader(components):
+        return "EntityPrefabXmlReader", EntityPrefabXmlReader(components["PreloadDataXmlReader"],
+                                                              components["ComponentPrefabXmlReader"])
 
-
-class DocsGenerator:
-    def __init__(self, configuration, context):
-        self.configuration = configuration
-
-    def get_configuration(self):
-        return self.configuration
-
-    def generate_docs(self):
-        pass
+    @staticmethod
+    def init_entity_prefab_storage_factory(components):
+        return "EntityPrefabStorageFactory", EntityPrefabStorageFactory(components["EntityPrefabXmlReader"])
