@@ -24,15 +24,40 @@ class DocsGenerator:
         logging.info("Generation files ended.")
 
     def generate_homepage(self):
-        logging.info("Generating homepage started.")
-        shutil.copy(
-            self.context.get_configuration().get_option("page.layout.filename"),
-            "{}/{}".format(
-                self.context.get_configuration().get_option("target.directory"),
-                self.context.get_configuration().get_option("generated.page.homepage.filename")
-            )
+        target_filename = "{}/{}".format(
+            self.context.get_configuration().get_option("target.directory"),
+            self.context.get_configuration().get_option("generated.page.homepage.filename")
         )
+        source_filename = "{}/{}".format(
+            self.context.get_configuration().get_option("files.layouts.directory"),
+            self.context.get_configuration().get_option("files.layouts.main.filename")
+        )
+
+        logging.info("Generating homepage started.")
+        logging.info(f"Generating homepage {target_filename}.")
+
+        shutil.copy(source_filename, target_filename)
+        self.replace_include_tag(target_filename, "TABLE_OF_CONTENTS", "TABLE_OF_CONTENTS")
+        self.replace_include_tag(target_filename, "CONTENT", "HOMEPAGE")
+
         logging.info("Generating homepage ended.")
+
+    def replace_include_tag(self, filename, includes_id, replace_with):
+        include_element = f'<include id="{includes_id}" />'
+        includes_filename = '{}/{}'.format(
+            self.context.get_configuration().get_option("files.includes.directory"),
+            self.context.get_configuration().get_option(f"files.includes.{replace_with}.filename")
+        )
+
+        with open(filename) as file:
+            contents_to_replace = file.read()
+
+        with open(includes_filename) as include:
+            contents_to_include = include.read()
+            replaced_contents = contents_to_replace.replace(include_element, contents_to_include)
+
+        with open(filename, "w") as file:
+            file.write(replaced_contents)
 
 
 class DocsGeneratorInitializer(object):

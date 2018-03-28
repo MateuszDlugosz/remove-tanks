@@ -73,6 +73,44 @@ class ComponentPrefabXmlReaderNotFoundException(Exception):
         super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))
 
 
+class ComponentPrefabHtmlGenerator(object):
+    def __init__(self, sub_generators):
+        self.sub_generators = {}
+        for sub_generator in sub_generators:
+            self.sub_generators[sub_generator.get_type()] = sub_generator
+
+    def generate_html(self, component_prefab):
+        try:
+            if component_prefab.__class__.__name__ not in self.sub_generators:
+                raise ComponentPrefabHtmlGeneratorNotFoundException(component_prefab)
+
+            return self.sub_generators[component_prefab.__class__.__name__].generate_html(component_prefab)
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+
+class SubComponentPrefabHtmlGenerator(object):
+    def generate_html(self, component_prefab):
+        raise NotImplementedError("Not implemented yet.")
+
+    def get_type(self):
+        raise NotImplementedError("Not implemented yet.")
+
+
+class ComponentPrefabHtmlGenerationException(Exception):
+    MESSAGE_TEMPLATE = "Cannot generate html from component prefab {}. Cause: {}."
+
+    def __init__(self, component_prefab, cause):
+        super().__init__(self.MESSAGE_TEMPLATE.format(str(component_prefab), cause))
+
+
+class ComponentPrefabHtmlGeneratorNotFoundException(Exception):
+    MESSAGE_TEMPLATE = "Component prefab html generator of {} component type not found."
+
+    def __init__(self, component_prefab):
+        super().__init__(self.MESSAGE_TEMPLATE.format(component_prefab.__class__.__name__))
+
+
 class SpeedComponentPrefab(ComponentPrefab):
     def __init__(self, speed):
         self.speed = float(speed)
@@ -99,6 +137,26 @@ class SubSpeedComponentPrefabXmlReader(SubComponentPrefabXmlReader):
         return "SpeedComponent"
 
 
+class SubSpeedComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            return f"""
+                <div>
+                    <h5>{component_prefab.__name__}</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3">Speed</dt>
+                        <dd class="col-sm-9">{component_prefab.get_speed()}</dd>
+                    </dl>
+                </div>
+            """
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return SpeedComponentPrefab.__name__
+
+
 class SpeedModifierComponentPrefab(ComponentPrefab):
     def __init__(self, speed_modifier):
         self.speed_modifier = float(speed_modifier)
@@ -123,6 +181,26 @@ class SubSpeedModifierComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "SpeedModifierComponent"
+
+
+class SubSpeedModifierComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            return f"""
+                <div>
+                    <h5>{component_prefab.__name__}</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3">Speed modifier</dt>
+                        <dd class="col-sm-9">{component_prefab.get_speed_modifier()}</dd>
+                    </dl>
+                </div>
+            """
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return SpeedModifierComponentPrefab.__name__
 
 
 class CameraTrackComponentPrefab(ComponentPrefab):
@@ -166,6 +244,31 @@ class SubCameraTrackComponentPrefabXmlReader(SubComponentPrefabXmlReader):
         return "CameraTrackComponent"
 
 
+class SubCameraTrackComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            return f"""
+                <div>
+                    <h5>{component_prefab.__name__}</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3">Priority</dt>
+                        <dd class="col-sm-9">{component_prefab.get_priority()}</dd>
+                        <dt class="col-sm-3">Position</dt>
+                        <dd class="col-sm-9">
+                            x:{component_prefab.get_position_prefab().get_x()}, 
+                            y:{component_prefab.get_position_prefab().get_y()}, 
+                        </dd>
+                    </dl>
+                </div>
+            """
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return CameraTrackComponentPrefab.__name__
+
+
 class LeaveBonusComponentPrefab(ComponentPrefab):
     def __init__(self, chance_modifier):
         self.chance_modifier = float(chance_modifier)
@@ -195,6 +298,26 @@ class SubLeaveBonusComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "LeaveBonusComponent"
+
+
+class SubLeaveBonusComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            return f"""
+                <div>
+                    <h5>{component_prefab.__name__}</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3">Chance modifier</dt>
+                        <dd class="col-sm-9">{component_prefab.get_chance_modifier()}</dd>
+                    </dl>
+                </div>
+            """
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return LeaveBonusComponentPrefab.__name__
 
 
 class AmmoComponentPrefab(ComponentPrefab):
@@ -244,6 +367,38 @@ class SubAmmoComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "AmmoComponent"
+
+
+class SubAmmoComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            generated_table = """
+                <tr>
+                    <th>Level</th>
+                    <th>Bullets</th>
+                </tr>
+            """
+
+            return f"""
+                <div>
+                    <h5>{component_prefab.__name__}</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3">Current level</dt>
+                        <dd class="col-sm-9">{component_prefab.get_current_level()}</dd>
+                        <dt class="col-sm-3">Max level</dt>
+                        <dd class="col-sm-9">{component_prefab.get_max_level()}</dd>
+                    </dl>
+                    <table class="table">
+                        
+                    </table>
+                </div>
+            """
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return AmmoComponentPrefab.__name__
 
 
 class AutoShootComponentPrefab(ComponentPrefab):

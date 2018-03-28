@@ -1,3 +1,6 @@
+import logging
+
+
 class EntityPrefabStorage(object):
     def __init__(self, entity_pefabs):
         self.entity_prefabs = {}
@@ -23,10 +26,15 @@ class EntityPrefabStorageFactory(object):
 
     def create_entity_prefab_storage(self, entity_prefab_repository, path_prefix):
         try:
+            logger = logging.getLogger(__name__)
+            logger.info("Entity prefab storage creation started.")
+
             entity_prefabs = {}
             for key, value in entity_prefab_repository.get_all_prefabs().items():
-                print(path_prefix + value)
-                entity_prefabs[key] = self.entity_prefab_xml_reader.read_prefab_from_file(path_prefix + value)
+                logger.info(f"Reading entity prefab from file {path_prefix}/{value}.")
+                entity_prefabs[key] = self.entity_prefab_xml_reader.read_prefab_from_file(f"{path_prefix}/{value}")
+
+            logger.info("Entity prefab storage creation ended.")
 
             return EntityPrefabStorage(entity_prefabs)
         except Exception as e:

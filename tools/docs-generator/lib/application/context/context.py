@@ -33,7 +33,7 @@ class ContextInitializer(object):
             logger = logging.getLogger(__name__)
             components = {}
             for method in self.get_init_methods(context_components_class):
-                component = getattr(context_components_class, method)(components)
+                component = getattr(context_components_class, method)(components, configuration)
                 components[component[0]] = component[1]
                 logger.info(f"Initializing component {component[0]} from method {method}.")
 
