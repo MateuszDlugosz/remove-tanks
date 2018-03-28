@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as EXml
 
+from lib.html.html import HtmlElement
 from lib.level.engine.entity.component.component_prefab import ComponentPrefabXmlReader
 from lib.level.preload.preload_data import PreloadData, PreloadDataXmlReader
 
@@ -55,8 +56,31 @@ class EntityPrefabXmlReader(object):
             raise EntityPrefabXmlReadException(filename, e)
 
 
+class EntityPrefabHtmlGenerator(object):
+    def __init__(self, component_prefab_html_generator):
+        self.component_prefab_html_generator = component_prefab_html_generator
+
+    def generate_html(self, entity_prefab):
+        try:
+            html = HtmlElement("div")
+
+            for key, value in entity_prefab.get_component_prefabs().items():
+                html.add_child(self.component_prefab_html_generator.generate_html(value))
+
+            return html
+        except Exception as e:
+            raise EntityPrefabHtmlGenerationException(entity_prefab, e)
+
+
 class EntityPrefabXmlReadException(Exception):
     MESSAGE_TEMPLATE = "Cannot read entity prefab from file {}. Cause: {}."
 
     def __init__(self, filename, cause):
         super().__init__(self.MESSAGE_TEMPLATE.format(filename, cause))
+
+
+class EntityPrefabHtmlGenerationException(Exception):
+    MESSAGE_TEMPLATE = "Cannot generate html from entity prefab {}. Cause: {}."
+
+    def __init__(self, entity_prefab, cause):
+        super().__init__(self.MESSAGE_TEMPLATE.format(str(entity_prefab), cause))

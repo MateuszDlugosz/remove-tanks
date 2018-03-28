@@ -4,12 +4,13 @@ from lib.graphics.animation.animation_prefab import AnimationPrefabXmlReader, Su
     SubAtlasAnimationPrefabXmlReader
 from lib.graphics.camera.camera_effect_prefab import CameraEffectPrefabXmlReader, SubShakeCameraEffectPrefabXmlReader
 from lib.graphics.color.color_prefab import ColorPrefabXmlReader, SubRgbColorPrefabXmlReader, \
-    SubRgbaColorPrefabXmlReader, SubHexColorPrefabXmlReader
+    SubRgbaColorPrefabXmlReader, SubHexColorPrefabXmlReader, ColorPrefabHtmlGenerator, SubRgbColorPrefabHtmlGenerator, \
+    SubRgbaColorPrefabHtmlGenerator, SubHexColorPrefabHtmlGenerator
 from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader, SubAlphaEffectPrefabXmlReader, \
     SubTintEffectPrefabXmlReader, SubShaderEffectPrefabXmlReader
 from lib.graphics.particles.particle_effect_prefab import ParticleEffectPrefabXmlReader, \
     SubFileParticleEffectPrefabXmlReader, SubAtlasParticleEffectPrefabXmlReader
-from lib.graphics.shader.shader_program_prefab import ShaderProgramPrefabXmlReader
+from lib.graphics.shader.shader_program_prefab import ShaderProgramPrefabXmlReader, ShaderProgramPrefabHtmlGenerator
 from lib.graphics.sprite.sprite_prefab import SpritePrefabXmlReader, SubFileSpritePrefabXmlReader, \
     SubAtlasSpritePrefabXmlReader
 from lib.graphics.view.view_prefab import ViewPrefabXmlReader, SubSpriteViewPrefabXmlReader, \
@@ -32,7 +33,11 @@ from lib.level.engine.entity.component.component_prefab import ComponentPrefabXm
     SubAirplaneSpawnerComponentPrefabXmlReader, SubRespawnComponentPrefabXmlReader, \
     SubAutoSpawnerComponentPrefabXmlReader, SubStateComponentPrefabXmlReader, SubCreateTriggerComponentPrefabXmlReader, \
     SubDestroyTriggerComponentPrefabXmlReader, SubHitTriggerComponentPrefabXmlReader, SubSpeedComponentPrefabXmlReader, \
-    SubSpeedModifierComponentPrefabXmlReader
+    SubSpeedModifierComponentPrefabXmlReader, ComponentPrefabHtmlGenerator, SubSpeedComponentPrefabHtmlGenerator, \
+    SubSpeedModifierComponentPrefabHtmlGenerator, SubCameraTrackComponentPrefabHtmlGenerator, \
+    SubLeaveBonusComponentPrefabHtmlGenerator, SubAmmoComponentPrefabHtmlGenerator, \
+    SubAutoShootComponentPrefabHtmlGenerator, SubDamageComponentPrefabHtmlGenerator, \
+    SubHealthComponentPrefabHtmlGenerator
 from lib.level.engine.entity.entity_prefab import EntityPrefabXmlReader
 from lib.level.engine.entity.entity_prefab_repository import EntityPrefabRepositoryXmlReader, EntityPrefabRepository
 from lib.level.engine.entity.entity_prefab_storage import EntityPrefabStorageFactory
@@ -56,13 +61,17 @@ from lib.physics.light.light_prefab import LightPrefabXmlReader, SubDirectionalL
     SubPointLightPrefabXmlReader, SubConeLightPrefabXmlReader, LightHandlerPrefabXmlReader
 from lib.physics.shape.shape_prefab import ShapePrefabXmlReader, SubRectangleShapePrefabXmlReader, \
     SubCircleShapePrefabXmlReader, SubPolygonShapePrefabXmlReader, VertexPrefabXmlReader, SubChainShapePrefabXmlReader
-from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader
+from lib.utility.surface.position.position_prefab import PositionPrefabXmlReader, PositionPrefabHtmlGenerator
 
 
 class ContextComponents(object):
     @staticmethod
     def init_position_prefab_xml_reader(components, configuration):
         return "PositionPrefabXmlReader", PositionPrefabXmlReader()
+
+    @staticmethod
+    def init_position_prefab_html_generator(components, configuration):
+        return "PositionPrefabHtmlGenerator", PositionPrefabHtmlGenerator()
 
     @staticmethod
     def init_sound_prefab_xml_reader(components, configuration):
@@ -75,6 +84,10 @@ class ContextComponents(object):
     @staticmethod
     def init_shader_program_xml_reader(components, configuration):
         return "ShaderProgramXmlReader", ShaderProgramPrefabXmlReader()
+
+    @staticmethod
+    def init_shader_program_html_generator(components, configuration):
+        return "ShaderProgramPrefabHtmlGenerator", ShaderProgramPrefabHtmlGenerator()
 
     @staticmethod
     def init_animation_prefab_xml_reader(components, configuration):
@@ -95,6 +108,14 @@ class ContextComponents(object):
             SubRgbColorPrefabXmlReader(),
             SubRgbaColorPrefabXmlReader(),
             SubHexColorPrefabXmlReader()
+        ])
+
+    @staticmethod
+    def init_color_prefab_html_generator(components, configuration):
+        return "ColorPrefabHtmlGenerator", ColorPrefabHtmlGenerator([
+            SubRgbColorPrefabHtmlGenerator(),
+            SubRgbaColorPrefabHtmlGenerator(),
+            SubHexColorPrefabHtmlGenerator()
         ])
 
     @staticmethod
@@ -217,6 +238,8 @@ class ContextComponents(object):
     @staticmethod
     def init_component_prefab_xml_reader(components, configuration):
         return "ComponentPrefabXmlReader", ComponentPrefabXmlReader([
+            SubSpeedComponentPrefabXmlReader(),
+            SubSpeedModifierComponentPrefabXmlReader(),
             SubCameraTrackComponentPrefabXmlReader(components["PositionPrefabXmlReader"]),
             SubLeaveBonusComponentPrefabXmlReader(),
             SubAmmoComponentPrefabXmlReader(),
@@ -266,8 +289,19 @@ class ContextComponents(object):
             SubCreateTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
             SubDestroyTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
             SubHitTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
-            SubSpeedComponentPrefabXmlReader(),
-            SubSpeedModifierComponentPrefabXmlReader()
+        ])
+
+    @staticmethod
+    def init_component_prefab_html_generator(components, configuration):
+        return "ComponentPrefabHtmlGenerator", ComponentPrefabHtmlGenerator([
+            SubSpeedComponentPrefabHtmlGenerator(),
+            SubSpeedModifierComponentPrefabHtmlGenerator(),
+            SubCameraTrackComponentPrefabHtmlGenerator(components["PositionPrefabHtmlGenerator"]),
+            SubLeaveBonusComponentPrefabHtmlGenerator(),
+            SubAmmoComponentPrefabHtmlGenerator(),
+            SubAutoShootComponentPrefabHtmlGenerator(),
+            SubDamageComponentPrefabHtmlGenerator(),
+            SubHealthComponentPrefabHtmlGenerator()
         ])
 
     @staticmethod

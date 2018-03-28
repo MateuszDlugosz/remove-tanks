@@ -1,6 +1,6 @@
 import unittest
 
-from lib.level.utility.state import StateXmlReader, StateXmlReadException
+from lib.level.utility.state.state import StateXmlReader, StateXmlReadException
 
 
 class TestStateXmlReader(unittest.TestCase):

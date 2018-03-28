@@ -35,8 +35,8 @@ class TestHtmlGenerator(unittest.TestCase):
         el.add_child(sel1)
 
         expected = """
-        <testElement testAttr="testVal" />
-          <subEl0 sAttr="sVal" />
+        <testElement testAttr="testVal">
+          <subEl0 sAttr="sVal">
             <deep a="BB" />
           </subEl0>
           <subEl1 sAttr="sVal" />

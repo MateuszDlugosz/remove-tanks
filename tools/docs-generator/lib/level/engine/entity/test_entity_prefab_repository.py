@@ -3,6 +3,7 @@ import unittest
 
 from lib.level.engine.entity.entity_prefab import EntityPrefab
 from lib.level.engine.entity.entity_prefab_repository import *
+from lib.level.preload.preload_data import PreloadData
 
 ENTITY_PREFAB_REPOSITORY_TEST_FILENAME = os.path.join(os.path.dirname(__file__), 'test-entity-prefab-repository.xml')
 
@@ -10,7 +11,7 @@ ENTITY_PREFAB_REPOSITORY_TEST_FILENAME = os.path.join(os.path.dirname(__file__),
 class TestEntityPrefabRepository(unittest.TestCase):
     def test_entity_prefab_repository_valid_call_get(self):
         repository = EntityPrefabRepository()
-        repository.set_prefab("a", EntityPrefab([]))
+        repository.set_prefab("a", EntityPrefab(PreloadData(), []))
 
         self.assertIsNot(repository.get_prefab("a"), None)
 

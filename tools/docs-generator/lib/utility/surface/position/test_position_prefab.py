@@ -1,5 +1,6 @@
 import unittest
 
+from lib.html.html import HtmlGenerator
 from lib.utility.surface.position.position_prefab import *
 
 
@@ -26,6 +27,17 @@ class TestPositionPrefabXmlReader(unittest.TestCase):
         with self.assertRaises(PositionPrefabXmlReadException):
             reader.read_prefab_from_string(xml)
 
+
+class TestPositionPrefabHtmlGenerator(unittest.TestCase):
+    def test_generate_html(self):
+        generator = HtmlGenerator()
+        position_prefab_html_generator = PositionPrefabHtmlGenerator()
+        prefab = PositionPrefab(0.1, 0.2)
+
+        self.assertEqual(
+            generator.generate_html(position_prefab_html_generator.generate_html(prefab)).replace(" ", ""),
+            "<div>\nx:0.1,y:0.2\n</div>"
+        )
 
 if __name__ == "__main__":
     unittest.main()

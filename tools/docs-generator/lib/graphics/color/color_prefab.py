@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as EXml
 
+from lib.html.html import HtmlElement
+
 
 class ColorPrefab(object):
     pass
@@ -80,11 +82,79 @@ class ColorPrefabXmlReader(object):
             raise ColorPrefabXmlReadException(xml_string, e)
 
 
-class ColorPrefabXmlReaderNotFoundException(Exception):
-    MESSAGE_TEMPLATE = "Color prefab xml reader of type {} not found."
+class ColorPrefabHtmlGenerator(object):
+    def __init__(self, sub_generators):
+        self.sub_generators = {}
+        for sub_generator in sub_generators:
+            self.sub_generators[sub_generator.__class__.__name__] = sub_generator
 
-    def __init__(self, prefab_type):
-        super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))
+    def generate_html(self, color_prefab):
+        try:
+            if color_prefab.__class__.__name__ not in self.sub_generators:
+                raise ColorPrefabHtmlGeneratorNotFoundException(color_prefab)
+            return self.sub_generators[color_prefab.__class__.__name__].generate_html(color_prefab)
+        except Exception as e:
+            raise ColorPrefabHtmlGenerationException(color_prefab, e)
+
+
+class SubColorPrefabHtmlGenerator(object):
+    def generate_html(self, color_prefab):
+        raise NotImplemented("Not implemented yet.")
+
+    def get_type(self):
+        raise NotImplemented("Not implemented yet.")
+
+
+class SubRgbColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
+    def generate_html(self, color_prefab):
+        try:
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h6", color_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            html.add_child(HtmlElement(
+                "p", "r:{}, g:{}, b:{}".format(color_prefab.get_r(), color_prefab.get_g(), color_prefab.get_b())))
+
+            return html
+        except Exception as e:
+            raise ColorPrefabHtmlGenerationException(color_prefab, e)
+
+    def get_type(self):
+        return RgbColorPrefab.__class__.__name__
+
+
+class SubRgbaColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
+    def generate_html(self, color_prefab):
+        try:
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h6", color_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            html.add_child(HtmlElement(
+                "p", "r:{}, g:{}, b:{}, a:{}".format(
+                    color_prefab.get_r(), color_prefab.get_g(), color_prefab.get_b(), color_prefab.get_a())))
+
+            return html
+        except Exception as e:
+            raise ColorPrefabHtmlGenerationException(color_prefab, e)
+
+    def get_type(self):
+        return RgbaColorPrefab.__class__.__name__
+
+
+class SubHexColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
+    def generate_html(self, color_prefab):
+        try:
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h6", color_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            html.add_child(HtmlElement(
+                "p", "Hex value:{}".format(color_prefab.get_hex_value())))
+
+            return html
+        except Exception as e:
+            raise ColorPrefabHtmlGenerationException(color_prefab, e)
+
+    def get_type(self):
+        return HexColorPrefab.__class__.__name__
 
 
 class SubColorPrefabXmlReader(object):
@@ -158,3 +228,23 @@ class ColorPrefabXmlReadException(Exception):
 
     def __init__(self, xml_string, cause):
         super().__init__(self.MESSAGE_TEMPLATE.format(xml_string, cause))
+
+
+class ColorPrefabHtmlGenerationException(Exception):
+    MESSAGE_TEMPLATE = "Cannot generate htmml from color prefab {}. Cause: {}."
+
+    def __init__(self, color_prefab, cause):
+        super().__init__(self.MESSAGE_TEMPLATE.format(str(color_prefab), cause))
+
+class ColorPrefabHtmlGeneratorNotFoundException(Exception):
+    MESSAGE_TEMPLATE = "Color prefab html generator of {} color prefab not found."
+
+    def __init__(self, color_prefab):
+        super().__init__(self.MESSAGE_TEMPLATE.format(color_prefab.__class__.__name__))
+
+
+class ColorPrefabXmlReaderNotFoundException(Exception):
+    MESSAGE_TEMPLATE = "Color prefab xml reader of type {} not found."
+
+    def __init__(self, prefab_type):
+        super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))

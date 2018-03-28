@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as EXml
 
+from lib.html.html import HtmlElement
+
 
 class PositionPrefab(object):
     def __init__(self, x, y):
@@ -32,8 +34,23 @@ class PositionPrefabXmlReader(object):
             raise PositionPrefabXmlReadException(xml_string, e)
 
 
+class PositionPrefabHtmlGenerator(object):
+    def generate_html(self, position_prefab):
+        try:
+            return HtmlElement("div", "x:{}, y:{}".format(position_prefab.get_x(), position_prefab.get_y()))
+        except Exception as e:
+            raise PositionPrefabHtmlGenerationException(position_prefab, e)
+
+
 class PositionPrefabXmlReadException(Exception):
     MESSAGE_TEMPLATE = "Cannot read position prefab from xml string {}. Cause: {}."
 
     def __init__(self, xml_string, cause):
         super().__init__(self.MESSAGE_TEMPLATE.format(xml_string, cause))
+
+
+class PositionPrefabHtmlGenerationException(Exception):
+    MESSAGE_TEMPLATE = "Cannot generate html from position prefab {}. Cause: {}."
+
+    def __init__(self, position_prefab, cause):
+        super().__init__(self.MESSAGE_TEMPLATE.format(str(position_prefab), cause))

@@ -254,6 +254,9 @@ class SubCameraTrackComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
 
 class SubCameraTrackComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def __init__(self, position_prefab_html_generator):
+        self.position_prefab_html_generator = position_prefab_html_generator
+
     def generate_html(self, component_prefab):
         try:
             html = HtmlElement("div")
@@ -267,7 +270,9 @@ class SubCameraTrackComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator
             dd0.set_attribute("class", "col-sm-9")
             dt1 = HtmlElement("dt", "Position")
             dt1.set_attribute("class", "col-sm-3")
-            dd1 = HtmlElement("dd", component_prefab.get_position_prefab())
+            dd1 = HtmlElement("dd", self.position_prefab_html_generator.generate_html(
+                component_prefab.get_position_prefab()
+            ))
             dd1.set_attribute("class", "col-sm-9")
             dl.add_child(dt0)
             dl.add_child(dd0)
@@ -390,28 +395,55 @@ class SubAmmoComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 class SubAmmoComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            generated_table = """
-                <tr>
-                    <th>Level</th>
-                    <th>Bullets</th>
-                </tr>
-            """
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            dl = HtmlElement("dl")
+            dl.set_attribute("class", "row")
+            dt0 = HtmlElement("dt", "Current level")
+            dt0.set_attribute("class", "col-sm-3")
+            dd0 = HtmlElement("dd", component_prefab.get_current_level())
+            dd0.set_attribute("class", "col-sm-9")
+            dt1 = HtmlElement("dt", "Max level")
+            dt1.set_attribute("class", "col-sm-3")
+            dd1 = HtmlElement("dd", component_prefab.get_max_level())
+            dd1.set_attribute("class", "col-sm-9")
+            dl.add_child(dt0)
+            dl.add_child(dd0)
+            dl.add_child(dt1)
+            dl.add_child(dd1)
 
-            return f"""
-                <div>
-                    <h5>{component_prefab.__name__}</h5>
-                    <hr />
-                    <dl class="row">
-                        <dt class="col-sm-3">Current level</dt>
-                        <dd class="col-sm-9">{component_prefab.get_current_level()}</dd>
-                        <dt class="col-sm-3">Max level</dt>
-                        <dd class="col-sm-9">{component_prefab.get_max_level()}</dd>
-                    </dl>
-                    <table class="table">
-                        
-                    </table>
-                </div>
-            """
+            table = HtmlElement("table")
+            title_row = HtmlElement("tr")
+            title_row.add_child(HtmlElement("th", "Level"))
+            title_row.add_child(HtmlElement("th", "EntityPrefabCodes"))
+            table.add_child(title_row)
+
+            for key, value in component_prefab.get_prefab_codes().items():
+                row = HtmlElement("tr")
+                row.add_child(HtmlElement("td", key))
+                row_table = HtmlElement("table")
+                row_table_row = HtmlElement("tr")
+                row_table_row.add_child(HtmlElement("th", "Direction"))
+                row_table_row.add_child(HtmlElement("th", "Entity prefab code"))
+                row_table.add_child(row_table_row)
+                td_direction = HtmlElement("td")
+
+                for k, v in value.items():
+                    direction_row = HtmlElement("tr")
+                    direction_row.add_child(HtmlElement("td", k))
+                    direction_row.add_child(HtmlElement("td", v))
+                    row_table.add_child(direction_row)
+
+                td_direction.add_child(row_table)
+                row.add_child(td_direction)
+
+                table.add_child(row)
+
+            html.add_child(dl)
+            html.add_child(table)
+
+            return html
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -430,6 +462,20 @@ class SubAutoShootComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "AutoShootComponent"
+
+
+class SubAutoShootComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+
+            return html
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+    def get_type(self):
+        return AutoShootComponentPrefab.__name__
 
 
 class DamageComponentPrefab(ComponentPrefab):
@@ -457,6 +503,30 @@ class SubDamageComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "DamageComponent"
+
+
+class SubDamageComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            dl = HtmlElement("dl")
+            dl.set_attribute("class", "row")
+            dt0 = HtmlElement("dt", "Damage")
+            dt0.set_attribute("class", "col-sm-3")
+            dd0 = HtmlElement("dd", component_prefab.get_damage())
+            dd0.set_attribute("class", "col-sm-9")
+            dl.add_child(dt0)
+            dl.add_child(dd0)
+            html.add_child(dl)
+
+            return html
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return DamageComponentPrefab.__name__
 
 
 class HealthComponentPrefab(ComponentPrefab):
@@ -490,6 +560,36 @@ class SubHealthComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 
     def get_type(self):
         return "HealthComponent"
+
+
+class SubHealthComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            dl = HtmlElement("dl")
+            dl.set_attribute("class", "row")
+            dt0 = HtmlElement("dt", "Health")
+            dt0.set_attribute("class", "col-sm-3")
+            dd0 = HtmlElement("dd", component_prefab.get_health())
+            dd0.set_attribute("class", "col-sm-9")
+            dt1 = HtmlElement("dt", "Max health")
+            dt1.set_attribute("class", "col-sm-3")
+            dd1 = HtmlElement("dd", component_prefab.get_max_health())
+            dd1.set_attribute("class", "col-sm-9")
+            dl.add_child(dt0)
+            dl.add_child(dd0)
+            dl.add_child(dt1)
+            dl.add_child(dd1)
+            html.add_child(dl)
+
+            return html
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return HealthComponentPrefab.__name__
 
 
 class HitComponentPrefab(ComponentPrefab):

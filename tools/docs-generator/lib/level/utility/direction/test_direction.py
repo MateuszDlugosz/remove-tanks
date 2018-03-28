@@ -1,6 +1,6 @@
 import unittest
 
-from lib.level.utility.direction import DirectionXmlReader, DirectionXmlReadException
+from lib.level.utility.direction.direction import DirectionXmlReader, DirectionXmlReadException
 
 
 class TestDirectionXmlReader(unittest.TestCase):
