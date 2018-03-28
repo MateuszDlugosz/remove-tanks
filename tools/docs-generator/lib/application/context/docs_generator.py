@@ -10,8 +10,12 @@ class DocsGenerator:
 
     def generate_docs(self):
         logging.info("Generating docs started.")
+        logging.info(f"Docs will be generated in "
+                     f"{self.context.get_configuration().get_option('target.directory')} directory.")
+        logging.info(f"Docs will be generated based on "
+                     f"{self.context.get_configuration().get_option('source.directory')} assets directory.")
 
-        logging.info("Generatirn docs ended.")
+        logging.info("Generation docs ended.")
 
 
 class DocsGeneratorInitializer(object):
