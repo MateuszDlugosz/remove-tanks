@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-    <option name="target.directory">../../docs/assets</option>
+    <option name="target.directory">../../docs/auto-generated</option>
     <option name="source.directory">../../core/assets</option>
     <option name="entity.prefab.repository.filename">prefabs/entities/entity-prefab-repository.xml</option>
     <option name="generated.page.homepage.filename">index.html</option>
+    <option name="generated.page.entity-prefab-list.filename">entity-prefab-list.html</option>
     <option name="files.includes.directory">files/includes</option>
     <option name="files.includes.TABLE_OF_CONTENTS.filename">table-of-contents.html</option>
     <option name="files.includes.HOMEPAGE.filename">homepage.html</option>

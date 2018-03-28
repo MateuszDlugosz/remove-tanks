@@ -12,6 +12,9 @@ class EntityPrefabStorage(object):
             raise EntityPrefabNotFoundException(code)
         return self.entity_prefabs[code]
 
+    def get_entity_prefabs(self):
+        return self.entity_prefabs
+
 
 class EntityPrefabNotFoundException(Exception):
     MESSAGE_TEMPLATE = "Entity prefab of code {} not found."

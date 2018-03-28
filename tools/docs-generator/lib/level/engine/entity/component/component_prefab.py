@@ -2,6 +2,7 @@ import xml.etree.ElementTree as EXml
 
 from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
 from lib.graphics.view.view_prefab import ViewPrefabXmlReader
+from lib.html.html import HtmlElement, HtmlGenerator
 from lib.level.event.entity_event_prefab import EntityEventPrefabXmlReader
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
 from lib.level.utility.direction.direction import DirectionXmlReader
@@ -140,16 +141,20 @@ class SubSpeedComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 class SubSpeedComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            return f"""
-                <div>
-                    <h5>{component_prefab.__name__}</h5>
-                    <hr />
-                    <dl class="row">
-                        <dt class="col-sm-3">Speed</dt>
-                        <dd class="col-sm-9">{component_prefab.get_speed()}</dd>
-                    </dl>
-                </div>
-            """
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            dl = HtmlElement("dl")
+            dl.set_attribute("class", "row")
+            dt = HtmlElement("dt", "Speed")
+            dt.set_attribute("class", "col-sm-3")
+            dd = HtmlElement("dd", component_prefab.get_speed())
+            dd.set_attribute("class", "col-sm-9")
+            dl.add_child(dt)
+            dl.add_child(dd)
+            html.add_child(dl)
+
+            return html
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -186,16 +191,20 @@ class SubSpeedModifierComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 class SubSpeedModifierComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            return f"""
-                <div>
-                    <h5>{component_prefab.__name__}</h5>
-                    <hr />
-                    <dl class="row">
-                        <dt class="col-sm-3">Speed modifier</dt>
-                        <dd class="col-sm-9">{component_prefab.get_speed_modifier()}</dd>
-                    </dl>
-                </div>
-            """
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            dl = HtmlElement("dl")
+            dl.set_attribute("class", "row")
+            dt = HtmlElement("dt", "Speed modifier")
+            dt.set_attribute("class", "col-sm-3")
+            dd = HtmlElement("dd", component_prefab.get_speed_modifier())
+            dd.set_attribute("class", "col-sm-9")
+            dl.add_child(dt)
+            dl.add_child(dd)
+            html.add_child(dl)
+
+            return html
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -247,21 +256,26 @@ class SubCameraTrackComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 class SubCameraTrackComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            return f"""
-                <div>
-                    <h5>{component_prefab.__name__}</h5>
-                    <hr />
-                    <dl class="row">
-                        <dt class="col-sm-3">Priority</dt>
-                        <dd class="col-sm-9">{component_prefab.get_priority()}</dd>
-                        <dt class="col-sm-3">Position</dt>
-                        <dd class="col-sm-9">
-                            x:{component_prefab.get_position_prefab().get_x()}, 
-                            y:{component_prefab.get_position_prefab().get_y()}, 
-                        </dd>
-                    </dl>
-                </div>
-            """
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            dl = HtmlElement("dl")
+            dl.set_attribute("class", "row")
+            dt0 = HtmlElement("dt", "Priority")
+            dt0.set_attribute("class", "col-sm-3")
+            dd0 = HtmlElement("dd", component_prefab.get_priority())
+            dd0.set_attribute("class", "col-sm-9")
+            dt1 = HtmlElement("dt", "Position")
+            dt1.set_attribute("class", "col-sm-3")
+            dd1 = HtmlElement("dd", component_prefab.get_position_prefab())
+            dd1.set_attribute("class", "col-sm-9")
+            dl.add_child(dt0)
+            dl.add_child(dd0)
+            dl.add_child(dt1)
+            dl.add_child(dd1)
+            html.add_child(dl)
+
+            return html
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -303,16 +317,20 @@ class SubLeaveBonusComponentPrefabXmlReader(SubComponentPrefabXmlReader):
 class SubLeaveBonusComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            return f"""
-                <div>
-                    <h5>{component_prefab.__name__}</h5>
-                    <hr />
-                    <dl class="row">
-                        <dt class="col-sm-3">Chance modifier</dt>
-                        <dd class="col-sm-9">{component_prefab.get_chance_modifier()}</dd>
-                    </dl>
-                </div>
-            """
+            html = HtmlElement("div")
+            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
+            html.add_child(HtmlElement("hr"))
+            dl = HtmlElement("dl")
+            dl.set_attribute("class", "row")
+            dt0 = HtmlElement("dt", "Chance modifier")
+            dt0.set_attribute("class", "col-sm-3")
+            dd0 = HtmlElement("dd", component_prefab.get_chance_modifier())
+            dd0.set_attribute("class", "col-sm-9")
+            dl.add_child(dt0)
+            dl.add_child(dd0)
+            html.add_child(dl)
+
+            return html
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 

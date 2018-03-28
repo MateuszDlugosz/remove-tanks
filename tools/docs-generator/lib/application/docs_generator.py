@@ -1,5 +1,8 @@
 import logging
+import os
 import shutil
+
+import pathlib
 
 
 class DocsGenerator:
@@ -18,6 +21,7 @@ class DocsGenerator:
 
         try:
             self.generate_homepage()
+            self.generate_entity_prefabs_pages()
         except Exception as e:
             raise DocsGenerationException(e)
 
@@ -41,6 +45,36 @@ class DocsGenerator:
         self.replace_include_tag(target_filename, "CONTENT", "HOMEPAGE")
 
         logging.info("Generating homepage ended.")
+
+    def generate_entity_prefabs_pages(self):
+        logging.info("Generating entity prefabs pages started.")
+        storage = self.context.get_component("EntityPrefabStorage")
+        repository = self.context.get_component("EntityPrefabRepository")
+        configuration = self.context.get_configuration()
+        source_filename = "{}/{}".format(
+            self.context.get_configuration().get_option("files.layouts.directory"),
+            self.context.get_configuration().get_option("files.layouts.main.filename")
+        )
+
+        href_list = "<h3>Entity prefabs</h3>"
+        href_list += "<hr />"
+        href_list += "<ul>"
+
+        for code in repository.get_all_prefabs():
+            target_filename = f'{configuration.get_option("target.directory")}/{repository.get_prefab(code)}'\
+                .replace(".xml", ".html")
+            logging.info(f"Generating entity prefab page {target_filename}.")
+            pathlib.Path(os.path.dirname(target_filename)).mkdir(parents=True, exist_ok=True)
+            shutil.copy(source_filename, target_filename)
+            href_list += f'<li>' \
+                         f'<a href="{target_filename.replace(configuration.get_option("target.directory") + "/", "")}">' \
+                         f'{code}</a></li>'
+            self.replace_include_tag(target_filename, "TABLE_OF_CONTENTS", "TABLE_OF_CONTENTS")
+
+        href_list += "</ul>"
+
+
+        logging.info("Generating entity prefabs pages ended.")
 
     def replace_include_tag(self, filename, includes_id, replace_with):
         include_element = f'<include id="{includes_id}" />'
