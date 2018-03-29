@@ -1,13 +1,13 @@
 from lib.html.html import HtmlElement
 
-BODY_HTML_ID_ATTRIBUTE = "doc-body"
+BODY_HTML_CLASS_ATTRIBUTE = "doc-body"
 
 
 class BodyPrefabHtmlGenerator(object):
     def generate_html(self, body_prefab):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", BODY_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", BODY_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Body"))
             html.add_child(HtmlElement("hr"))
 

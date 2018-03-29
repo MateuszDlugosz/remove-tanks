@@ -12,7 +12,7 @@ class TestVertexPrefabHtmlGenerator(unittest.TestCase):
         vertex_prefab_html_generator = VertexPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divid="doc-vertex"><h6>Vertex</h6><hr/><dl><dt>X</dt><dd>1.0</dd><dt>Y</dt><dd>2.2</dd></dl></div>',
+            '<divclass="doc-vertex"><h6>Vertex</h6><hr/><dl><dt>X</dt><dd>1.0</dd><dt>Y</dt><dd>2.2</dd></dl></div>',
             html_generator.generate_html(vertex_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

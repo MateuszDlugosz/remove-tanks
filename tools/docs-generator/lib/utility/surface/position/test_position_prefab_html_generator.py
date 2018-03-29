@@ -14,7 +14,7 @@ class TestPositionPrefabHtmlGenerator(unittest.TestCase):
         self.assertEqual(
             generator.generate_html(position_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", ""),
-            '<divid="doc-position"><h6>Position</h6><hr/><dl><dt>X</dt><dd>0.1</dd><dt>Y</dt><dd>0.2</dd></dl></div>'
+            '<divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X</dt><dd>0.1</dd><dt>Y</dt><dd>0.2</dd></dl></div>'
         )
 
 

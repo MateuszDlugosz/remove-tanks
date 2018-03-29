@@ -1,7 +1,7 @@
 from lib.html.html import HtmlElement
 from lib.physics.shape.shape_prefab import RectangleShapePrefab, CircleShapePrefab, PolygonShapePrefab, ChainShapePrefab
 
-SHAPE_HTML_ID_ATTRIBUTE = "doc-shape"
+SHAPE_HTML_CLASS_ATTRIBUTE = "doc-shape"
 
 
 class ShapePrefabHtmlGenerator(object):
@@ -35,7 +35,7 @@ class SubRectangleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
     def generate_html(self, shape_prefab):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", SHAPE_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Rectangle shape"))
             html.add_child(HtmlElement("hr"))
 
@@ -45,8 +45,9 @@ class SubRectangleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
             dl.add_child(HtmlElement("dt", "Height"))
             dl.add_child(HtmlElement("dd", shape_prefab.get_height()))
             dl.add_child(HtmlElement("dt", "Position"))
-            dl.add_child(HtmlElement(
-                "dd", self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())))
+            dd = HtmlElement("dd")
+            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
+            dl.add_child(dd)
 
             html.add_child(dl)
 
@@ -65,7 +66,7 @@ class SubCircleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
     def generate_html(self, shape_prefab):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", SHAPE_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Circle shape"))
             html.add_child(HtmlElement("hr"))
 
@@ -73,8 +74,9 @@ class SubCircleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
             dl.add_child(HtmlElement("dt", "Radius"))
             dl.add_child(HtmlElement("dd", shape_prefab.get_radius()))
             dl.add_child(HtmlElement("dt", "Position"))
-            dl.add_child(HtmlElement(
-                "dd", self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())))
+            dd = HtmlElement("dd")
+            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
+            dl.add_child(dd)
 
             html.add_child(dl)
 
@@ -94,18 +96,19 @@ class SubPolygonShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
     def generate_html(self, shape_prefab):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", SHAPE_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Polygon shape"))
             html.add_child(HtmlElement("hr"))
 
             dl = HtmlElement("dl")
             dl.add_child(HtmlElement("dt", "Position"))
-            dl.add_child(HtmlElement(
-                "dd", self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())))
+            dd = HtmlElement("dd")
+            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
+            dl.add_child(dd)
             dl.add_child(HtmlElement("dt", "Vertices"))
             v_div = HtmlElement("div")
 
-            for vertex_prefab in shape_prefab.get_vertex_prefabs():
+            for vertex_prefab in shape_prefab.get_vertices():
                 v_div.add_child(self.vertex_prefab_html_generator.generate_html(vertex_prefab))
 
             dd = HtmlElement("dd")
@@ -130,18 +133,19 @@ class SubChainShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
     def generate_html(self, shape_prefab):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", SHAPE_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Chain shape"))
             html.add_child(HtmlElement("hr"))
 
             dl = HtmlElement("dl")
             dl.add_child(HtmlElement("dt", "Position"))
-            dl.add_child(HtmlElement(
-                "dd", self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())))
+            dd = HtmlElement("dd")
+            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
+            dl.add_child(dd)
             dl.add_child(HtmlElement("dt", "Vertices"))
             v_div = HtmlElement("div")
 
-            for vertex_prefab in shape_prefab.get_vertex_prefabs():
+            for vertex_prefab in shape_prefab.get_vertices():
                 v_div.add_child(self.vertex_prefab_html_generator.generate_html(vertex_prefab))
 
             dd = HtmlElement("dd")

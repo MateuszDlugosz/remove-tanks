@@ -1,13 +1,13 @@
 from lib.html.html import HtmlElement
 
-FILTER_HTML_ID_ATTRIBUTE = "doc-filter"
+FILTER_HTML_CLASS_ATTRIBUTE = "doc-filter"
 
 
 class FilterPrefabHtmlGenerator(object):
     def generate_html(self, filter_prefab):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", FILTER_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", FILTER_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Filter"))
             html.add_child(HtmlElement("hr"))
 

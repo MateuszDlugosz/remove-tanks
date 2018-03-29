@@ -6,7 +6,7 @@ from lib.physics.shape.vertex_prefab_xml_reader import VertexPrefabXmlReader
 from lib.utility.surface.position.position_prefab_xml_reader import PositionPrefabXmlReader
 
 
-class TestShapePrefabXmlReader(unittest.TestCase):
+class TestSubRectangleShapePrefabXmlReader(unittest.TestCase):
     def test_rectangle_shape_prefab_xml_reader_valid(self):
         xml = """
             <shape type="RectangleShape">
@@ -37,6 +37,8 @@ class TestShapePrefabXmlReader(unittest.TestCase):
         with self.assertRaises(ShapePrefabXmlReadException):
             reader.read_prefab_from_string(xml)
 
+
+class TestSubCircleShapePrefabXmlReader(unittest.TestCase):
     def test_circle_shape_prefab_xml_reader_valid(self):
         xml = """
             <shape type="CircleShape">
@@ -65,6 +67,8 @@ class TestShapePrefabXmlReader(unittest.TestCase):
         with self.assertRaises(ShapePrefabXmlReadException):
             reader.read_prefab_from_string(xml)
 
+
+class TestSubPolygonShapePrefabXmlReader(unittest.TestCase):
     def test_polygon_shape_prefab_xml_read_valid(self):
         xml = """
             <shape type="PolygonShape">
@@ -101,6 +105,8 @@ class TestShapePrefabXmlReader(unittest.TestCase):
         with self.assertRaises(ShapePrefabXmlReadException):
             reader.read_prefab_from_string(xml)
 
+
+class TestSubChainShapePrefabXmlReader(unittest.TestCase):
     def test_chain_shape_prefab_xml_read_valid(self):
         xml = """
             <shape type="ChainShape">
@@ -137,6 +143,8 @@ class TestShapePrefabXmlReader(unittest.TestCase):
         with self.assertRaises(ShapePrefabXmlReadException):
             reader.read_prefab_from_string(xml)
 
+
+class TestShapePrefabXmlReader(unittest.TestCase):
     def test_shape_prefab_xml_read_valid(self):
         xml = """
             <shape type="CircleShape">

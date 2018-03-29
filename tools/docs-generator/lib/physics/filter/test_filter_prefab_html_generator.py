@@ -12,7 +12,7 @@ class TestFilterPrefabHtmlGenerator(unittest.TestCase):
         filter_prefab_html_generator = FilterPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divid="doc-filter"><h6>Filter</h6><hr/><dl><dt>Categorybit</dt><dd>category_bit</dd><dt>Maskbit'
+            '<divclass="doc-filter"><h6>Filter</h6><hr/><dl><dt>Categorybit</dt><dd>category_bit</dd><dt>Maskbit'
             '</dt><dd>mask_bit</dd></dl></div>',
             html_generator.generate_html(filter_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")

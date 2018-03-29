@@ -1,13 +1,13 @@
 from lib.html.html import HtmlElement
 
-VERTEX_HTML_ID_ATTRIBUTE = "doc-vertex"
+VERTEX_HTML_CLASS_ATTRIBUTE = "doc-vertex"
 
 
 class VertexPrefabHtmlGenerator(object):
     def generate_html(self, vertex_prefab):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", VERTEX_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", VERTEX_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Vertex"))
             html.add_child(HtmlElement("hr"))
 

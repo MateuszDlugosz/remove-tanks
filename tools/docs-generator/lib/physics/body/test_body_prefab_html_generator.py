@@ -12,7 +12,7 @@ class TestBodyPrefabHtmlGenerator(unittest.TestCase):
         body_prefab_html_generator = BodyPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divid="doc-body"><h6>Body</h6><hr/><dl><dt>Bodytype</dt><dd>StaticBody</dd><dt>Active</dt>'
+            '<divclass="doc-body"><h6>Body</h6><hr/><dl><dt>Bodytype</dt><dd>StaticBody</dd><dt>Active</dt>'
             '<dd>True</dd><dt>Awake</dt><dd>True</dd><dt>Allowsleep</dt><dd>False</dd><dt>Fixedrotation</dt><dd>True'
             '</dd><dt>Bullet</dt><dd>True</dd><dt>Gravityscale</dt><dd>1.0</dd><dt>Angle</dt><dd>45.0</dd><dt>'
             'Lineardamping</dt><dd>1.0</dd><dt>Angulardamping</dt><dd>60.0</dd></dl></div>',

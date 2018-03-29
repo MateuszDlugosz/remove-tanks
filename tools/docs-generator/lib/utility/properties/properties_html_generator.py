@@ -1,13 +1,13 @@
 from lib.html.html import HtmlElement
 
-PROPERTIES_HTML_ID_ATTRIBUTE = "doc-properties"
+PROPERTIES_HTML_CLASS_ATTRIBUTE = "doc-properties"
 
 
 class PropertiesHtmlGenerator(object):
     def generate_html(self, properties):
         try:
             html = HtmlElement("div")
-            html.set_attribute("id", PROPERTIES_HTML_ID_ATTRIBUTE)
+            html.set_attribute("class", PROPERTIES_HTML_CLASS_ATTRIBUTE)
             html.add_child(HtmlElement("h6", "Properties"))
             html.add_child(HtmlElement("hr"))
             dl = HtmlElement("dl")
