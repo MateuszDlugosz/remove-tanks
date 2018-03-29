@@ -44,3 +44,7 @@ class TestHtmlGenerator(unittest.TestCase):
         """.strip()
 
         self.assertEqual(gen.generate_html(el).replace(" ", ""), expected.replace(" ", ""))
+
+
+if __name__ == "__main__":
+    unittest.main()
