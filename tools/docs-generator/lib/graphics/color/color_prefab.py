@@ -2,6 +2,8 @@ import xml.etree.ElementTree as EXml
 
 from lib.html.html import HtmlElement
 
+COLOR_HTML_ID_ATTRIBUTE = "doc-color"
+
 
 class ColorPrefab(object):
     pass
@@ -109,10 +111,12 @@ class SubRgbColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
     def generate_html(self, color_prefab):
         try:
             html = HtmlElement("div")
+            html.set_attribute("id", COLOR_HTML_ID_ATTRIBUTE)
             html.add_child(HtmlElement("h6", color_prefab.__class__.__name__))
             html.add_child(HtmlElement("hr"))
             html.add_child(HtmlElement(
-                "p", "r:{}, g:{}, b:{}".format(color_prefab.get_r(), color_prefab.get_g(), color_prefab.get_b())))
+                "div", "p", "r:{}, g:{}, b:{}"
+                    .format(color_prefab.get_r(), color_prefab.get_g(), color_prefab.get_b())))
 
             return html
         except Exception as e:
@@ -126,10 +130,11 @@ class SubRgbaColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
     def generate_html(self, color_prefab):
         try:
             html = HtmlElement("div")
+            html.set_attribute("id", COLOR_HTML_ID_ATTRIBUTE)
             html.add_child(HtmlElement("h6", color_prefab.__class__.__name__))
             html.add_child(HtmlElement("hr"))
             html.add_child(HtmlElement(
-                "p", "r:{}, g:{}, b:{}, a:{}".format(
+                "div", "p", "r:{}, g:{}, b:{}, a:{}".format(
                     color_prefab.get_r(), color_prefab.get_g(), color_prefab.get_b(), color_prefab.get_a())))
 
             return html
@@ -144,10 +149,11 @@ class SubHexColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
     def generate_html(self, color_prefab):
         try:
             html = HtmlElement("div")
+            html.set_attribute("id", COLOR_HTML_ID_ATTRIBUTE)
             html.add_child(HtmlElement("h6", color_prefab.__class__.__name__))
             html.add_child(HtmlElement("hr"))
             html.add_child(HtmlElement(
-                "p", "Hex value:{}".format(color_prefab.get_hex_value())))
+                "div", "p", "Hex value:{}".format(color_prefab.get_hex_value())))
 
             return html
         except Exception as e:
@@ -235,6 +241,7 @@ class ColorPrefabHtmlGenerationException(Exception):
 
     def __init__(self, color_prefab, cause):
         super().__init__(self.MESSAGE_TEMPLATE.format(str(color_prefab), cause))
+
 
 class ColorPrefabHtmlGeneratorNotFoundException(Exception):
     MESSAGE_TEMPLATE = "Color prefab html generator of {} color prefab not found."

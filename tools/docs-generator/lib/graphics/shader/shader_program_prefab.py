@@ -2,6 +2,8 @@ import xml.etree.ElementTree as EXml
 
 from lib.html.html import HtmlElement
 
+SHADER_PROGRAM_HTML_ID_ATTRIBUTE = "doc-shader-program"
+
 
 class ShaderProgramPrefab(object):
     def __init__(self, vertex_shader_filename, fragment_shader_filename):
@@ -38,16 +40,14 @@ class ShaderProgramPrefabHtmlGenerator(object):
     def generate_html(self, shader_program_prefab):
         try:
             html = HtmlElement("div")
+            html.set_attribute("id", SHADER_PROGRAM_HTML_ID_ATTRIBUTE)
+            html.add_child(HtmlElement("h6", "Shader program"))
+            html.add_child(HtmlElement("hr"))
             dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
             dt0 = HtmlElement("dt", "Fragment shader filename")
-            dt0.set_attribute("class", "col-sm-3")
             dd0 = HtmlElement("dd", shader_program_prefab.get_fragment_shader_filename())
-            dd0.set_attribute("class", "col-sm-9")
             dt1 = HtmlElement("dt", "Vertex shader filename")
-            dt1.set_attribute("class", "col-sm-3")
             dd1 = HtmlElement("dd", shader_program_prefab.get_vertex_shader_filename())
-            dd1.set_attribute("class", "col-sm-9")
             dl.add_child(dt0)
             dl.add_child(dd0)
             dl.add_child(dt1)

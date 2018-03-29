@@ -1,4 +1,4 @@
-class PositionPrefab(object):
+class VertexPrefab(object):
     def __init__(self, x, y):
         self.x = float(x)
         self.y = float(y)
@@ -10,4 +10,4 @@ class PositionPrefab(object):
         return self.y
 
     def __str__(self):
-        return "PositionPrefab(x={}, y={})".format(self.x, self.y)
+        return "VertexPrefab(x={}, y={})".format(self.x, self.y)

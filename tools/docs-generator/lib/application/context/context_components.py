@@ -7,7 +7,8 @@ from lib.graphics.color.color_prefab import ColorPrefabXmlReader, SubRgbColorPre
     SubRgbaColorPrefabXmlReader, SubHexColorPrefabXmlReader, ColorPrefabHtmlGenerator, SubRgbColorPrefabHtmlGenerator, \
     SubRgbaColorPrefabHtmlGenerator, SubHexColorPrefabHtmlGenerator
 from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader, SubAlphaEffectPrefabXmlReader, \
-    SubTintEffectPrefabXmlReader, SubShaderEffectPrefabXmlReader
+    SubTintEffectPrefabXmlReader, SubShaderEffectPrefabXmlReader, EffectPrefabHtmlGenerator, \
+    SubTintEffectPrefabHtmlGenerator, SubShaderEffectPrefabHtmlGenerator, SubAlphaEffectPrefabHtmlGenerator
 from lib.graphics.particles.particle_effect_prefab import ParticleEffectPrefabXmlReader, \
     SubFileParticleEffectPrefabXmlReader, SubAtlasParticleEffectPrefabXmlReader
 from lib.graphics.shader.shader_program_prefab import ShaderProgramPrefabXmlReader, ShaderProgramPrefabHtmlGenerator
@@ -124,6 +125,14 @@ class ContextComponents(object):
             SubAlphaEffectPrefabXmlReader(),
             SubTintEffectPrefabXmlReader(components["ColorPrefabXmlReader"]),
             SubShaderEffectPrefabXmlReader(components["ShaderProgramXmlReader"])
+        ])
+
+    @staticmethod
+    def init_effect_prefab_html_generator(components, configuration):
+        return "EffectPrefabHtmlGenerator", EffectPrefabHtmlGenerator([
+            SubTintEffectPrefabHtmlGenerator(components["ColorPrefabHtmlGenerator"]),
+            SubShaderEffectPrefabHtmlGenerator(components["ShaderProgramPrefabHtmlGenerator"]),
+            SubAlphaEffectPrefabHtmlGenerator()
         ])
 
     @staticmethod

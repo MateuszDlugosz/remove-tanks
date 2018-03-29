@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as EXml
 
+CAMERA_EFFECT_HTML_ID_ATTRIBUTE = "doc-camera-effect"
+
 
 class CameraEffectPrefab(object):
     def __str__(self):
@@ -25,20 +27,6 @@ class CameraEffectPrefabXmlReader(object):
             return self.sub_readers[prefab_type].read_prefab_from_string(xml_string)
         except Exception as e:
             raise CameraEffectPrefabXmlReadException(xml_string, e)
-
-
-class CameraEffectPrefabXmlReadException(Exception):
-    MESSAGE_TEMPLATE = "Cannot read camera effect prefab from xml string {}. Cause: {}."
-
-    def __init__(self, xml_string, cause):
-        super().__init__(self.MESSAGE_TEMPLATE.format(xml_string, cause))
-
-
-class CameraEffectPrefabXmlReaderNotFoundException(Exception):
-    MESSAGE_TEMPLATE = "Camera effect prefab xml reader of {} type not found."
-
-    def __init__(self, prefab_type):
-        super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))
 
 
 class SubCameraEffectPrefabXmlReader(object):
@@ -80,3 +68,17 @@ class SubShakeCameraEffectPrefabXmlReader(SubCameraEffectPrefabXmlReader):
 
     def get_type(self):
         return "ShakeCameraEffect"
+
+
+class CameraEffectPrefabXmlReadException(Exception):
+    MESSAGE_TEMPLATE = "Cannot read camera effect prefab from xml string {}. Cause: {}."
+
+    def __init__(self, xml_string, cause):
+        super().__init__(self.MESSAGE_TEMPLATE.format(xml_string, cause))
+
+
+class CameraEffectPrefabXmlReaderNotFoundException(Exception):
+    MESSAGE_TEMPLATE = "Camera effect prefab xml reader of {} type not found."
+
+    def __init__(self, prefab_type):
+        super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))
