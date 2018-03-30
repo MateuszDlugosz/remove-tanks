@@ -13,7 +13,7 @@ class TestSubFileAnimationPrefabHtmlGenerator(unittest.TestCase):
         fa_html_generator = SubFileAnimationPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-animation"><h6>Animationprefab</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>'
+            '<divclass="doc-animation"><h6>Fileanimation</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>'
             'False</dd><dt>Playmode</dt><dd>PlayMODE</dd><dt>Frameduration</dt><dd>0.22</dd><dt>Filenames</dt><dd>'
             'one,two</dd></dl></div>',
             html_generator.generate_html(fa_html_generator.generate_html(prefab))
@@ -28,7 +28,7 @@ class TestSubAtlasAnimationPrefabHtmlGenerator(unittest.TestCase):
         fa_html_generator = SubAtlasAnimationPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-animation"><h6>Animationprefab</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt>'
+            '<divclass="doc-animation"><h6>Atlasanimation</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt>'
             '<dd>False</dd><dt>Playmode</dt><dd>PlayMODE</dd><dt>Frameduration</dt><dd>0.22</dd><dt>Atlasfilename'
             '</dt><dd>atlas</dd><dt>Regionnames</dt><dd>one,two</dd></dl></div>',
             html_generator.generate_html(fa_html_generator.generate_html(prefab))
@@ -43,7 +43,7 @@ class TestAnimationPrefabHtmlGenerator(unittest.TestCase):
         a_html_generator = AnimationPrefabHtmlGenerator([SubAtlasAnimationPrefabHtmlGenerator()])
 
         self.assertEqual(
-            '<divclass="doc-animation"><h6>Animationprefab</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt>'
+            '<divclass="doc-animation"><h6>Atlasanimation</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt>'
             '<dd>False</dd><dt>Playmode</dt><dd>PlayMODE</dd><dt>Frameduration</dt><dd>0.22</dd><dt>Atlasfilename'
             '</dt><dd>atlas</dd><dt>Regionnames</dt><dd>one,two</dd></dl></div>',
             html_generator.generate_html(a_html_generator.generate_html(prefab))

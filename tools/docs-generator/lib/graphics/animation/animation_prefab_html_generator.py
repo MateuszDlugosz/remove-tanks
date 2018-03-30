@@ -20,7 +20,7 @@ class AnimationPrefabHtmlGenerator(object):
             raise AnimationPrefabHtmlGenerationException(animation_prefab, e)
 
 
-class SubAnimatonPrefabHtmlGenerator(object):
+class SubAnimationPrefabHtmlGenerator(object):
     def generate_html(self, animation_prefab):
         raise NotImplementedError("Not implemented yet.")
 
@@ -28,12 +28,12 @@ class SubAnimatonPrefabHtmlGenerator(object):
         raise NotImplementedError("Not implemented yet.")
 
 
-class SubFileAnimationPrefabHtmlGenerator(SubAnimatonPrefabHtmlGenerator):
+class SubFileAnimationPrefabHtmlGenerator(SubAnimationPrefabHtmlGenerator):
     def generate_html(self, animation_prefab):
         try:
             html = HtmlElement("div")
             html.set_attribute("class", ANIMATION_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Animation prefab"))
+            html.add_child(HtmlElement("h6", "File animation"))
             html.add_child(HtmlElement("hr"))
 
             dl = HtmlElement("dl")
@@ -58,12 +58,12 @@ class SubFileAnimationPrefabHtmlGenerator(SubAnimatonPrefabHtmlGenerator):
         return FileAnimationPrefab.__name__
 
 
-class SubAtlasAnimationPrefabHtmlGenerator(SubAnimatonPrefabHtmlGenerator):
+class SubAtlasAnimationPrefabHtmlGenerator(SubAnimationPrefabHtmlGenerator):
     def generate_html(self, animation_prefab):
         try:
             html = HtmlElement("div")
             html.set_attribute("class", ANIMATION_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Animation prefab"))
+            html.add_child(HtmlElement("h6", "Atlas animation"))
             html.add_child(HtmlElement("hr"))
 
             dl = HtmlElement("dl")
