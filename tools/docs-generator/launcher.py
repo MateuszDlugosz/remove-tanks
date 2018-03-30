@@ -2,7 +2,7 @@ import os
 
 import logging
 
-from lib.application.configuration.configuration import ConfigurationXmlReader
+from lib.application.configuration.configuration_xml_reader import ConfigurationXmlReader
 from lib.application.context.context import ContextInitializer
 from lib.application.context.context_components import ContextComponents
 from lib.application.docs_generator import DocsGeneratorInitializer
