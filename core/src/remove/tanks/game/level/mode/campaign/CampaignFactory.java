@@ -5,6 +5,9 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.graphics.sprite.SpriteFactory;
 import remove.tanks.game.utility.scale.Scale;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author Mateusz Długosz
  */
@@ -15,9 +18,16 @@ public final class CampaignFactory {
         this.spriteFactory = spriteFactory;
     }
 
+    public List<Campaign> createCampaigns(List<CampaignPrefab> prefabs, AssetStorage assetStorage, Scale scale) {
+        return prefabs.stream()
+                .map(p -> createCampaign(p, assetStorage, scale))
+                .collect(Collectors.toList());
+    }
+
     public Campaign createCampaign(CampaignPrefab prefab, AssetStorage assetStorage, Scale scale) {
         try {
             return new Campaign(
+                    prefab.getTitle(),
                     createSprite(prefab, assetStorage, scale),
                     prefab.getLevelSequence()
             );

@@ -9,12 +9,18 @@ import remove.tanks.game.utility.Prefab;
  * @author Mateusz Długosz
  */
 public final class CampaignPrefab extends Prefab {
+    private final String title;
     private final SpritePrefab spritePrefab;
     private final LevelSequence levelSequence;
 
-    public CampaignPrefab(SpritePrefab spritePrefab, LevelSequence levelSequence) {
+    public CampaignPrefab(String title, SpritePrefab spritePrefab, LevelSequence levelSequence) {
+        this.title = title;
         this.spritePrefab = spritePrefab;
         this.levelSequence = levelSequence;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public SpritePrefab getSpritePrefab() {
@@ -28,6 +34,7 @@ public final class CampaignPrefab extends Prefab {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
+                .add("title", title)
                 .add("spritePrefab", spritePrefab)
                 .add("levelSequence", levelSequence)
                 .toString();
