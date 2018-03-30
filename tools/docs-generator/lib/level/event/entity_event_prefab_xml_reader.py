@@ -9,8 +9,8 @@ from lib.level.event.entity_event_prefab import SpawnAirplaneEntityEventPrefab, 
     AddMessageEntityEventPrefab, PlayMusicEntityEventPrefab, AddPointsEntityEventPrefab, \
     IncreasePointsMultiplierEntityEventPrefab, PlaySoundEntityEventPrefab, ActivateSpawnerEntityEventPrefab, \
     ChangeLevelStateEntityEventPrefab
-from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
-from lib.level.utility.stage.broker.message.message_prefab import MessagePrefabXmlReader
+from lib.level.utility.create.create_entry_prefab_xml_reader import CreateEntryPrefabXmlReader
+from lib.level.utility.stage.broker.message.message_prefab_xml_reader import MessagePrefabXmlReader
 
 
 class EntityEventPrefabXmlReader(object):

@@ -1,21 +1,3 @@
-from lib.audio.music.music_prefab import MusicPrefabXmlReader
-from lib.audio.sound.sound_prefab import SoundPrefabXmlReader
-from lib.graphics.animation.animation_prefab import AnimationPrefabXmlReader, SubFileAnimationPrefabXmlReader, \
-    SubAtlasAnimationPrefabXmlReader
-from lib.graphics.camera.camera_effect_prefab import CameraEffectPrefabXmlReader, SubShakeCameraEffectPrefabXmlReader
-from lib.graphics.color.color_prefab import ColorPrefabXmlReader, SubRgbColorPrefabXmlReader, \
-    SubRgbaColorPrefabXmlReader, SubHexColorPrefabXmlReader, ColorPrefabHtmlGenerator, SubRgbColorPrefabHtmlGenerator, \
-    SubRgbaColorPrefabHtmlGenerator, SubHexColorPrefabHtmlGenerator
-from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader, SubAlphaEffectPrefabXmlReader, \
-    SubTintEffectPrefabXmlReader, SubShaderEffectPrefabXmlReader, EffectPrefabHtmlGenerator, \
-    SubTintEffectPrefabHtmlGenerator, SubShaderEffectPrefabHtmlGenerator, SubAlphaEffectPrefabHtmlGenerator
-from lib.graphics.particles.particle_effect_prefab import ParticleEffectPrefabXmlReader, \
-    SubFileParticleEffectPrefabXmlReader, SubAtlasParticleEffectPrefabXmlReader
-from lib.graphics.shader.shader_program_prefab import ShaderProgramPrefabXmlReader, ShaderProgramPrefabHtmlGenerator
-from lib.graphics.sprite.sprite_prefab import SpritePrefabXmlReader, SubFileSpritePrefabXmlReader, \
-    SubAtlasSpritePrefabXmlReader
-from lib.graphics.view.view_prefab import ViewPrefabXmlReader, SubSpriteViewPrefabXmlReader, \
-    SubAnimationViewPrefabXmlReader, SubParticleEffectViewPrefabXmlReader
 from lib.level.engine.entity.component.component_prefab import ComponentPrefabXmlReader, \
     SubCameraTrackComponentPrefabXmlReader, SubLeaveBonusComponentPrefabXmlReader, SubAmmoComponentPrefabXmlReader, \
     SubAutoShootComponentPrefabXmlReader, SubDamageComponentPrefabXmlReader, SubHealthComponentPrefabXmlReader, \

@@ -29,6 +29,9 @@ class TextureAtlas(object):
             raise RegionNotFoundException(name)
         return self.regions[str(name)]
 
+    def get_regions(self):
+        return self.regions
+
     def __str__(self):
         return "TextureAtlas(image_filename={}, size={}, format={}, filter={}, repeat={}, regions=[{}])" \
             .format(self.image_filename, self.size, self.format, self.filter, self.repeat,

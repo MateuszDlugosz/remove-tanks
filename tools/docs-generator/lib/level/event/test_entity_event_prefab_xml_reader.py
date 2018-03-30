@@ -15,8 +15,8 @@ from lib.level.event.entity_event_prefab_xml_reader import SubSpawnAirplaneEntit
     SubIncreasePointsMultiplierEntityEventPrefabXmlReader, SubAddPointsEntityEventPrefabXmlReader, \
     SubActivateSpawnerEntityEventPrefabXmlReader, SubChangeLevelStateEntityEventPrefabXmlReader, \
     EntityEventPrefabXmlReader
-from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
-from lib.level.utility.stage.broker.message.message_prefab import MessagePrefabXmlReader
+from lib.level.utility.create.create_entry_prefab_xml_reader import CreateEntryPrefabXmlReader
+from lib.level.utility.stage.broker.message.message_prefab_xml_reader import MessagePrefabXmlReader
 from lib.utility.surface.position.position_prefab_xml_reader import PositionPrefabXmlReader
 
 ENTITY_EVENTS_TEST_FILENAME = os.path.join(

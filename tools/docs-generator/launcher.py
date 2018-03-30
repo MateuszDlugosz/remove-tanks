@@ -1,5 +1,6 @@
-import logging
 import os
+
+import logging
 
 from lib.application.configuration.configuration import ConfigurationXmlReader
 from lib.application.context.context import ContextInitializer

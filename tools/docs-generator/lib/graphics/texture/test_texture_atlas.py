@@ -1,4 +1,3 @@
-import os
 import unittest
 
 from lib.graphics.texture.texture_atlas import *
