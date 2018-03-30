@@ -1,6 +1,6 @@
 import unittest
 
-from lib.level.utility.direction.direction import DirectionXmlReader, DirectionXmlReadException
+from lib.level.utility.direction.direction_xml_reader import DirectionXmlReader, DirectionXmlReadException
 
 
 class TestDirectionXmlReader(unittest.TestCase):
@@ -44,3 +44,7 @@ class TestDirectionXmlReader(unittest.TestCase):
 
         with self.assertRaises(DirectionXmlReadException):
             reader.read_directions_from_string(xml)
+
+
+if __name__ == "__main__":
+    unittest.main()

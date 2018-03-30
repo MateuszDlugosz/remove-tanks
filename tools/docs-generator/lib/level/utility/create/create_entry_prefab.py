@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as EXml
 
-from lib.utility.surface.position.position_prefab import PositionPrefab, PositionPrefabXmlReader
+from lib.utility.surface.position.position_prefab import PositionPrefab
+from lib.utility.surface.position.position_prefab_xml_reader import PositionPrefabXmlReader
 
 
 class CreateEntryPrefab(object):

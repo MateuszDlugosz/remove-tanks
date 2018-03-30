@@ -52,9 +52,9 @@ from lib.level.event.entity_event_prefab import EntityEventPrefabXmlReader, SubA
     SubIncreasePointsMultiplierEntityEventPrefabXmlReader, SubAddPointsEntityEventPrefabXmlReader
 from lib.level.preload.preload_data import PreloadDataXmlReader
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
-from lib.level.utility.direction.direction import DirectionXmlReader
+from lib.level.utility.direction.direction_xml_reader import DirectionXmlReader
 from lib.level.utility.stage.broker.message.message_prefab import MessagePrefabXmlReader
-from lib.level.utility.state.state import StateXmlReader
+from lib.level.utility.state.state_xml_reader import StateXmlReader
 from lib.physics.body.body_prefab import BodyPrefabXmlReader
 from lib.physics.filter.filter_prefab import FilterPrefabXmlReader
 from lib.physics.fixture.fixture_prefab import FixturePrefabXmlReader, HitBoxPrefabXmlReader, SensorPrefabXmlReader

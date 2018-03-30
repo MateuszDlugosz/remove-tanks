@@ -5,8 +5,8 @@ from lib.graphics.view.view_prefab import ViewPrefabXmlReader
 from lib.html.html import HtmlElement, HtmlGenerator
 from lib.level.event.entity_event_prefab import EntityEventPrefabXmlReader
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
-from lib.level.utility.direction.direction import DirectionXmlReader
-from lib.level.utility.state.state import StateXmlReader
+from lib.level.utility.direction.direction_xml_reader import DirectionXmlReader
+from lib.level.utility.state.state_xml_reader import StateXmlReader
 from lib.physics.body.body_prefab import BodyPrefabXmlReader
 from lib.physics.fixture.fixture_prefab import HitBoxPrefabXmlReader, SensorPrefabXmlReader
 from lib.physics.light.light_prefab import LightHandlerPrefabXmlReader

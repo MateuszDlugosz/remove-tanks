@@ -1,6 +1,6 @@
 import unittest
 
-from lib.level.utility.state.state import StateXmlReader, StateXmlReadException
+from lib.level.utility.state.state_xml_reader import StateXmlReader, StateXmlReadException
 
 
 class TestStateXmlReader(unittest.TestCase):
@@ -45,3 +45,7 @@ class TestStateXmlReader(unittest.TestCase):
 
         with self.assertRaises(StateXmlReadException):
             reader.read_states_from_string(xml)
+
+
+if __name__ == "__main__":
+    unittest.main()
