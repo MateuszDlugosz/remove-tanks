@@ -37,6 +37,8 @@ public enum TranslationEntryKey {
     GameScreenPauseTitle("game.screen.pause.title"),
     GameScreenPauseContent("game.screen.pause.content"),
 
+    GameScreenModeSelectTitle("game.screen.mode.select.title"),
+
     GameLevelSequenceTitleTemplate("game.level.sequence.title.%s"),
 
     GameScreenButtonYes("game.screen.button.yes"),

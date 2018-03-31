@@ -14,6 +14,7 @@ import remove.tanks.game.data.profile.achievement.AchievementTypeXmlReader;
 import remove.tanks.game.data.profile.achievement.AchievementTypeXmlWriter;
 import remove.tanks.game.utility.properties.PropertiesXmlReader;
 import remove.tanks.game.utility.properties.PropertiesXmlWriter;
+import remove.tanks.game.utility.xml.XmlFormatter;
 
 /**
  * @author Mateusz Długosz
@@ -79,7 +80,8 @@ public final class ProfileConfiguration {
                     getContext().getComponent("ProfileInitializer", ProfileInitializer.class),
                     getContext().getComponent("ProfileXmlReader", ProfileXmlReader.class),
                     getContext().getComponent("ProfileXmlWriter", ProfileXmlWriter.class),
-                    getContext().getComponent("ProfileUpdater", ProfileUpdater.class)
+                    getContext().getComponent("ProfileUpdater", ProfileUpdater.class),
+                    getContext().getComponent("XmlFormatter", XmlFormatter.class)
             );
         }
     }

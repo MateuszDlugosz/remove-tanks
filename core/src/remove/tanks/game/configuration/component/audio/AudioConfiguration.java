@@ -15,6 +15,7 @@ import remove.tanks.game.audio.sound.SoundChannelName;
 import remove.tanks.game.audio.sound.SoundPlayerFactory;
 import remove.tanks.game.utility.properties.PropertiesXmlReader;
 import remove.tanks.game.utility.properties.PropertiesXmlWriter;
+import remove.tanks.game.utility.xml.XmlFormatter;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -155,7 +156,8 @@ public final class AudioConfiguration {
             return new AudioConfigurationController(
                     getContext().getComponent("AudioConfigurationFileHandleRepository", AudioConfigurationFileHandleRepository.class),
                     getContext().getComponent("AudioConfigurationStorageFactory", AudioConfigurationStorageFactory.class),
-                    getContext().getComponent("AudioConfigurationXmlWriter", AudioConfigurationXmlWriter.class)
+                    getContext().getComponent("AudioConfigurationXmlWriter", AudioConfigurationXmlWriter.class),
+                    getContext().getComponent("XmlFormatter", XmlFormatter.class)
             );
         }
     }

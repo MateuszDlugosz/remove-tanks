@@ -34,7 +34,8 @@ public enum ConfigurationOption {
     GameAudioConfigurationSoundDirectory("game.audio.configuration.sound.directory"),
     GameAudioConfigurationMusicDirectory("game.audio.configuration.music.directory"),
     GamePreferencesFilename("game.preferences.filename"),
-    GameDefaultLanguage("game.default.language");
+    GameDefaultLanguage("game.default.language"),
+    GameCampaignPrefabFilenameRepositoryFilename("game.campaign.prefab.filename.repository.filename");
 
     private final String name;
 

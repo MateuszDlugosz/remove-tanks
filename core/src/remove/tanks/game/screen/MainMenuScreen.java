@@ -20,6 +20,7 @@ import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.level.mode.campaign.Campaign;
+import remove.tanks.game.level.mode.campaign.CampaignStorage;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.screen.gui.button.Button;
@@ -37,6 +38,7 @@ public final class MainMenuScreen extends GameScreen {
     private final Skin skin;
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
+    private final CampaignStorage campaignStorage;
 
     private Stage stage;
     private Window window;
@@ -62,11 +64,16 @@ public final class MainMenuScreen extends GameScreen {
                         .getComponent("SpriteBatch", SpriteBatch.class));
         this.locale = gameApplication.getContext()
                 .getComponent("Locale", Locale.class);
-        this.levelPresenter = gameApplication.getContext().getComponent("LevelPresenter", LevelPresenter.class);
-        this.skin = gameApplication.getContext().getComponent("UISkin", Skin.class);
+        this.levelPresenter = gameApplication.getContext()
+                .getComponent("LevelPresenter", LevelPresenter.class);
+        this.skin = gameApplication.getContext()
+                .getComponent("UISkin", Skin.class);
         this.eventBus = gameApplication.getContext()
                 .getComponent("EventBus", EventBus.class);
-        this.assetStorage = gameApplication.getContext().getComponent("MainAssetStorage", AssetStorage.class);
+        this.assetStorage = gameApplication
+                .getContext().getComponent("MainAssetStorage", AssetStorage.class);
+        this.campaignStorage = gameApplication.getContext()
+                .getComponent("CampaignStorage", CampaignStorage.class);
 
         this.titleLabel = createTitleLabel();
         this.versionLabel = createVersionLabel();
@@ -147,16 +154,7 @@ public final class MainMenuScreen extends GameScreen {
                 getGameApplication().switchScreenWithTransition(
                         new LevelLoadingScreen(
                                 getGameApplication(),
-                                new Campaign(
-                                        "early-morning",
-                                        new Sprite(new Texture("graphics/textures/atlases/achievement-atlas.png")),
-                                        new LevelSequence(
-                                                Arrays.asList(
-                                                        "prefabs/levels/level-prefab.xml",
-                                                        "prefabs/levels/level-prefab.xml"
-                                                )
-                                        )
-                                ),
+                                campaignStorage.getCampaign("early-morning"),
                                 0,
                                 null
                         ));

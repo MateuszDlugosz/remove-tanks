@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<campaignPrefab>
+    <title>early-morning</title>
+    <sprite type="AtlasSprite" flipX="false" flipY="false">
+        <atlasFilename>CampaignAtlas</atlasFilename>
+        <regionName>early-morning</regionName>
+    </sprite>
+    <levelSequence>
+        <levelPrefabFilenames>
+            <levelPrefabFilename>prefabs/levels/campaigns/early-morning/level-prefab.xml</levelPrefabFilename>
+        </levelPrefabFilenames>
+    </levelSequence>
+</campaignPrefab>

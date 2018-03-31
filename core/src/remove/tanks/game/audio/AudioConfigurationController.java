@@ -2,6 +2,7 @@ package remove.tanks.game.audio;
 
 import remove.tanks.game.audio.music.MusicChannelName;
 import remove.tanks.game.audio.sound.SoundChannelName;
+import remove.tanks.game.utility.xml.XmlFormatter;
 
 import java.util.Arrays;
 
@@ -12,17 +13,20 @@ public class AudioConfigurationController {
     private final AudioConfigurationFileHandleRepository audioConfigurationFileHandleRepository;
     private final AudioConfigurationStorageFactory audioConfigurationStorageFactory;
     private final AudioConfigurationXmlWriter audioConfigurationXmlWriter;
+    private final XmlFormatter xmlFormatter;
 
     private AudioConfigurationStorage audioConfigurationStorage;
 
     public AudioConfigurationController(
             AudioConfigurationFileHandleRepository audioConfigurationFileHandleRepository,
             AudioConfigurationStorageFactory audioConfigurationStorageFactory,
-            AudioConfigurationXmlWriter audioConfigurationXmlWriter
+            AudioConfigurationXmlWriter audioConfigurationXmlWriter,
+            XmlFormatter xmlFormatter
     ) {
         this.audioConfigurationFileHandleRepository = audioConfigurationFileHandleRepository;
         this.audioConfigurationStorageFactory = audioConfigurationStorageFactory;
         this.audioConfigurationXmlWriter = audioConfigurationXmlWriter;
+        this.xmlFormatter = xmlFormatter;
         this.audioConfigurationStorage = initializeAudioConfigurationStorage();
     }
 
@@ -39,9 +43,11 @@ public class AudioConfigurationController {
         Arrays.stream(SoundChannelName.values())
                 .forEach(v -> audioConfigurationFileHandleRepository.getSoundLocalConfigurationFileHandle(v)
                         .writeString(
-                                audioConfigurationXmlWriter.writeAudioConfiguration(
+                                xmlFormatter.formatXmlString(audioConfigurationXmlWriter.writeAudioConfiguration(
                                         audioConfigurationStorage.getSoundAudioConfiguration(v)
-                                ), false)
+                                )),
+                                false
+                        )
                 );
     }
 
@@ -49,9 +55,11 @@ public class AudioConfigurationController {
         Arrays.stream(MusicChannelName.values())
                 .forEach(v -> audioConfigurationFileHandleRepository.getMusicLocalConfigurationFileHandle(v)
                         .writeString(
-                                audioConfigurationXmlWriter.writeAudioConfiguration(
+                                xmlFormatter.formatXmlString(audioConfigurationXmlWriter.writeAudioConfiguration(
                                         audioConfigurationStorage.getMusicAudioConfiguration(v)
-                                ), false)
+                                )),
+                                false
+                        )
                 );
     }
 

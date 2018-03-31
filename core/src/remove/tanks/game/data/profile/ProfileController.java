@@ -2,6 +2,7 @@ package remove.tanks.game.data.profile;
 
 import com.badlogic.gdx.files.FileHandle;
 import remove.tanks.game.utility.properties.Properties;
+import remove.tanks.game.utility.xml.XmlFormatter;
 
 /**
  * @author Mateusz Długosz
@@ -16,6 +17,8 @@ public final class ProfileController {
     private final ProfileXmlWriter profileXmlWriter;
     private final ProfileUpdater profileUpdater;
 
+    private final XmlFormatter xmlFormatter;
+
     public ProfileController(
             FileHandle emptyProfile,
             FileHandle localProfile,
@@ -23,7 +26,8 @@ public final class ProfileController {
             ProfileInitializer profileInitializer,
             ProfileXmlReader profileXmlReader,
             ProfileXmlWriter profileXmlWriter,
-            ProfileUpdater profileUpdater
+            ProfileUpdater profileUpdater,
+            XmlFormatter xmlFormatter
     ) {
         this.emptyProfile = emptyProfile;
         this.localProfile = localProfile;
@@ -32,6 +36,7 @@ public final class ProfileController {
         this.profileXmlReader = profileXmlReader;
         this.profileXmlWriter = profileXmlWriter;
         this.profileUpdater = profileUpdater;
+        this.xmlFormatter = xmlFormatter;
     }
 
     public Profile readProfile() {
@@ -45,8 +50,8 @@ public final class ProfileController {
         if (!profileScanner.isProfileFileExists(localProfile)) {
             profileInitializer.initializeProfile(emptyProfile, localProfile);
         }
-        localProfile.writeString(profileXmlWriter.writeProfile(
-                profileUpdater.updateProfile(profile, levelProperties)), false);
+        localProfile.writeString(xmlFormatter.formatXmlString(profileXmlWriter.writeProfile(
+                profileUpdater.updateProfile(profile, levelProperties))), false);
     }
 
     public void resetProfile() {

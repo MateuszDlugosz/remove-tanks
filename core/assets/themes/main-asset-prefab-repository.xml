@@ -20,4 +20,8 @@
         <assetClass>com.badlogic.gdx.graphics.g2d.TextureAtlas</assetClass>
         <filename>graphics/textures/atlases/achievement-atlas.pack</filename>
     </asset>
+    <asset id="CampaignAtlas">
+        <assetClass>com.badlogic.gdx.graphics.g2d.TextureAtlas</assetClass>
+        <filename>graphics/textures/atlases/campaign-atlas.pack</filename>
+    </asset>
 </assets>

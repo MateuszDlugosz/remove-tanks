@@ -45,6 +45,7 @@ public final class AssetConfiguration {
             assetStorage.loadAsset("Tester0Sound");
             assetStorage.loadAsset("Tester0Music");
             assetStorage.loadAsset("AchievementAtlas");
+            assetStorage.loadAsset("CampaignAtlas");
 
             return assetStorage;
         }

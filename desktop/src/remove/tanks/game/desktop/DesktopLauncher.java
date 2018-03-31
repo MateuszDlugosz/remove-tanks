@@ -56,11 +56,6 @@ public final class DesktopLauncher {
         Map<String, String> configuration = new HashMap<>();
         configuration.put(ConfigurationOption.GameComponentConfigurationPackage.getName(),
                 "remove.tanks.game.configuration.component");
-        configuration.put(ConfigurationOption.GameMainAssetPrefabRepositoryFilename.getName(),
-                "themes/main-asset-prefab-repository.xml");
-        configuration.put(ConfigurationOption.GameTranslationRepositoryFilename.getName(),
-                "translations/translation-repository.xml");
-        configuration.put(ConfigurationOption.GameLocaleFilename.getName(), "locale/locale.xml");
         configuration.put(ConfigurationOption.GameWorldScale.getName(), "32");
         configuration.put(ConfigurationOption.GameWorldLightNumberOfRays.getName(), "100");
         configuration.put(ConfigurationOption.GameUIScale.getName(), "2");
@@ -71,13 +66,7 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameDisplayHeight.getName(), "216");
         configuration.put(ConfigurationOption.GameLocation.getName(),
                 DesktopLauncher.class.getProtectionDomain().getCodeSource().getLocation().toString());
-        configuration.put(ConfigurationOption.GameLevelPresenterPrefabFilename.getName(),
-                "prefabs/levels/presentations/level-presenter-prefab.xml");
         configuration.put(ConfigurationOption.GameSkinFilename.getName(), "skins/ui-skin.json");
-        configuration.put(ConfigurationOption.GameFontTTFFilename.getName(), "fonts/PressStart2P-Regular.ttf");
-        configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(), "data/profile/default-profile.xml");
-        configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(),
-                "achievements/achievement-prefab-repository.xml");
         configuration.put(ConfigurationOption.GameProfileLocalFilename.getName(), "profile.xml");
         configuration.put(ConfigurationOption.GameLocalDataDirectory.getName(), "RemoveTanks");
         configuration.put(ConfigurationOption.GameLocalScreenshotDirectory.getName(), "screenshots");
@@ -88,6 +77,23 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameAudioConfigurationMusicDirectory.getName(), "music");
         configuration.put(ConfigurationOption.GamePreferencesFilename.getName(), "RemoveTanks");
         configuration.put(ConfigurationOption.GameDefaultLanguage.getName(), "EN");
+
+        configuration.put(ConfigurationOption.GameLocaleFilename.getName(),
+                "locale/locale.xml");
+        configuration.put(ConfigurationOption.GameMainAssetPrefabRepositoryFilename.getName(),
+                "themes/main-asset-prefab-repository.xml");
+        configuration.put(ConfigurationOption.GameTranslationRepositoryFilename.getName(),
+                "translations/translation-repository.xml");
+        configuration.put(ConfigurationOption.GameFontTTFFilename.getName(),
+                "fonts/PressStart2P-Regular.ttf");
+        configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(),
+                "data/profile/default-profile.xml");
+        configuration.put(ConfigurationOption.GameCampaignPrefabFilenameRepositoryFilename.getName(),
+                "prefabs/campaigns/campaigns-prefab-filename-repository.xml");
+        configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(),
+                "achievements/achievement-prefab-repository.xml");
+        configuration.put(ConfigurationOption.GameLevelPresenterPrefabFilename.getName(),
+                "prefabs/levels/presentations/level-presenter-prefab.xml");
 
         return new Configuration(configuration);
     }
