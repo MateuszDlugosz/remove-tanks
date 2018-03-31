@@ -12,8 +12,8 @@ import remove.tanks.game.input.InputKey;
 import remove.tanks.game.input.InputMapper;
 import remove.tanks.game.level.LevelController;
 import remove.tanks.game.level.LevelProperty;
-import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.level.LevelState;
+import remove.tanks.game.level.mode.Mode;
 import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.properties.Properties;
 
@@ -21,7 +21,7 @@ import remove.tanks.game.utility.properties.Properties;
  * @author Mateusz Długosz
  */
 public final class LevelScreen extends GameScreen {
-    private final LevelSequence levelSequence;
+    private final Mode mode;
     private final int playedLevelIndex;
     private final InputMapper inputMapper;
     private final LevelController levelController;
@@ -36,11 +36,11 @@ public final class LevelScreen extends GameScreen {
     public LevelScreen(
             GameApplication gameApplication,
             LevelController levelController,
-            LevelSequence levelSequence,
+            Mode mode,
             int playedLevelIndex
     ) {
         super(gameApplication);
-        this.levelSequence = levelSequence;
+        this.mode = mode;
         this.playedLevelIndex = playedLevelIndex;
         this.inputMapper = gameApplication.getContext().getComponent("InputMapper", InputMapper.class);
         this.levelController = levelController;
@@ -95,7 +95,7 @@ public final class LevelScreen extends GameScreen {
                 getGameApplication().switchScreenWithTransition(
                         new LevelLoadingScreen(
                                 getGameApplication(),
-                                levelSequence,
+                                mode,
                                 (playedLevelIndex + 1),
                                 levelController.getLevel()
                         )

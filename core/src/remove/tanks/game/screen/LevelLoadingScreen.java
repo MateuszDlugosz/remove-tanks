@@ -6,6 +6,7 @@ import remove.tanks.game.GameApplication;
 import remove.tanks.game.data.profile.Profile;
 import remove.tanks.game.data.profile.ProfileController;
 import remove.tanks.game.level.*;
+import remove.tanks.game.level.mode.Mode;
 import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.properties.Properties;
 
@@ -15,7 +16,7 @@ import java.util.Optional;
  * @author Mateusz Długosz
  */
 public final class LevelLoadingScreen extends GameScreen {
-    private final LevelSequence levelSequence;
+    private final Mode mode;
     private final Level previousLevel;
     private final int levelToLoadIndex;
 
@@ -36,12 +37,12 @@ public final class LevelLoadingScreen extends GameScreen {
 
     public LevelLoadingScreen(
             GameApplication gameApplication,
-            LevelSequence levelSequence,
+            Mode mode,
             int levelToLoadIndex,
             Level previousLevel
     ) {
         super(gameApplication);
-        this.levelSequence = levelSequence;
+        this.mode = mode;
         this.previousLevel = previousLevel;
         this.levelToLoadIndex = levelToLoadIndex;
         this.levelDisposer = gameApplication.getContext()
@@ -83,9 +84,9 @@ public final class LevelLoadingScreen extends GameScreen {
     }
 
     private void loadLevel() {
-        if (levelSequence.getLevelPrefabFilenames().size() - 1 >= levelToLoadIndex) {
+        if (mode.getLevelSequence().getLevelPrefabFilenames().size() - 1 >= levelToLoadIndex) {
             LevelPrefab levelPrefab = levelPrefabXmlReader.readLevelPrefab(Gdx.files.internal(
-                    levelSequence.getLevelPrefabFilenames().get(levelToLoadIndex)
+                    mode.getLevelSequence().getLevelPrefabFilenames().get(levelToLoadIndex)
             ));
             levelController = levelControllerFactory.createLevelController(levelFactory.createLevel(levelPrefab));
             Optional.ofNullable(previousLevel).ifPresent(p ->
@@ -99,7 +100,7 @@ public final class LevelLoadingScreen extends GameScreen {
 
     private void switchScreen() {
         if (!screenSwitched) {
-            if (levelSequence.getLevelPrefabFilenames().size() - 1 >= levelToLoadIndex) {
+            if (mode.getLevelSequence().getLevelPrefabFilenames().size() - 1 >= levelToLoadIndex) {
                 switchScreenToNextLevel();
             } else {
                 switchScreenToSummary();
@@ -110,7 +111,7 @@ public final class LevelLoadingScreen extends GameScreen {
 
     private void switchScreenToNextLevel() {
         getGameApplication().switchScreenWithTransition(
-                new LevelScreen(getGameApplication(), levelController, levelSequence, levelToLoadIndex));
+                new LevelScreen(getGameApplication(), levelController, mode, levelToLoadIndex));
     }
 
     private void switchScreenToSummary() {
@@ -118,7 +119,7 @@ public final class LevelLoadingScreen extends GameScreen {
         getGameApplication().switchScreenWithTransition(
                 new LevelSummaryScreen(
                         getGameApplication(),
-                        levelSequence,
+                        mode,
                         extractProperties(previousLevel)
                 )
         );

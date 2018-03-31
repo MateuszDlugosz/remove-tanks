@@ -3,6 +3,8 @@ package remove.tanks.game.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -17,6 +19,7 @@ import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.level.LevelSequence;
+import remove.tanks.game.level.mode.campaign.Campaign;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.screen.gui.button.Button;
@@ -144,11 +147,14 @@ public final class MainMenuScreen extends GameScreen {
                 getGameApplication().switchScreenWithTransition(
                         new LevelLoadingScreen(
                                 getGameApplication(),
-                                new LevelSequence(
+                                new Campaign(
                                         "early-morning",
-                                        Arrays.asList(
-                                                "prefabs/levels/level-prefab.xml",
-                                                "prefabs/levels/level-prefab.xml"
+                                        new Sprite(new Texture("graphics/textures/atlases/achievement-atlas.png")),
+                                        new LevelSequence(
+                                                Arrays.asList(
+                                                        "prefabs/levels/level-prefab.xml",
+                                                        "prefabs/levels/level-prefab.xml"
+                                                )
                                         )
                                 ),
                                 0,

@@ -2,7 +2,6 @@
 <levelPresenterPrefab>
     <presentationTime>10</presentationTime>
     <levelSequence>
-        <titleTranslationEntryKey>Presentation</titleTranslationEntryKey>
         <levelPrefabFilenames>
             <levelPrefabFilename>prefabs/levels/presentations/level-presentation-0001.xml</levelPrefabFilename>
         </levelPrefabFilenames>

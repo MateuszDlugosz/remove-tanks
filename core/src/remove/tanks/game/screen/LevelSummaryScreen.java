@@ -18,7 +18,7 @@ import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.level.LevelProperty;
-import remove.tanks.game.level.LevelSequence;
+import remove.tanks.game.level.mode.Mode;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.screen.gui.button.Button;
@@ -30,7 +30,7 @@ import remove.tanks.game.utility.properties.Properties;
  * @author Mateusz Długosz
  */
 public final class LevelSummaryScreen extends GameScreen {
-    private final LevelSequence levelSequence;
+    private final Mode mode;
     private final Properties properties;
     private final LevelPresenter levelPresenter;
     private final EventBus eventBus;
@@ -48,9 +48,9 @@ public final class LevelSummaryScreen extends GameScreen {
     private Table wrapper;
     private Window window;
 
-    public LevelSummaryScreen(GameApplication gameApplication, LevelSequence levelSequence, Properties properties) {
+    public LevelSummaryScreen(GameApplication gameApplication, Mode mode, Properties properties) {
         super(gameApplication);
-        this.levelSequence = levelSequence;
+        this.mode = mode;
         this.properties = properties;
         this.skin = gameApplication.getContext()
                 .getComponent("UISkin", Skin.class);
@@ -121,7 +121,7 @@ public final class LevelSummaryScreen extends GameScreen {
                 locale.getSelectedTranslation().getEntry(
                         String.format(
                                 TranslationEntryKey.GameLevelSequenceTitleTemplate.getName(),
-                                levelSequence.getTitleTranslationEntryKey()
+                                mode.getTitle()
                         )
                 ),
                 properties.getString(LevelProperty.LevelPoints.getName())
@@ -178,7 +178,7 @@ public final class LevelSummaryScreen extends GameScreen {
                         locale.getSelectedTranslation().getEntry(
                                 String.format(
                                         TranslationEntryKey.GameLevelSequenceTitleTemplate.getName(),
-                                        levelSequence.getTitleTranslationEntryKey()
+                                        mode.getTitle()
                                 )
                         ),
                         properties.getString(LevelProperty.LevelPoints.getName())
