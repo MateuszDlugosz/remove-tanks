@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="8" tileheight="8" nextobjectid="174">
- <tileset firstgid="1" source="../../tilesets/sepia-level-tileset.tsx"/>
+ <tileset firstgid="1" source="../../../tilesets/sepia-level-tileset.tsx"/>
  <layer name="ground_layer" width="100" height="100">
   <data encoding="csv">
 7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,

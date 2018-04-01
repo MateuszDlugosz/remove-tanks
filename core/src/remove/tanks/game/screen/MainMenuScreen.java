@@ -154,7 +154,7 @@ public final class MainMenuScreen extends GameScreen {
                 getGameApplication().switchScreenWithTransition(
                         new LevelLoadingScreen(
                                 getGameApplication(),
-                                campaignStorage.getCampaign("early-morning"),
+                                campaignStorage.getCampaign("age-of-crow"),
                                 0,
                                 null
                         ));

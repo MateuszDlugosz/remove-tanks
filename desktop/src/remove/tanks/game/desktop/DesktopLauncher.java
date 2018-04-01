@@ -90,6 +90,8 @@ public final class DesktopLauncher {
                 "data/profile/default-profile.xml");
         configuration.put(ConfigurationOption.GameCampaignPrefabFilenameRepositoryFilename.getName(),
                 "prefabs/campaigns/campaigns-prefab-filename-repository.xml");
+        configuration.put(ConfigurationOption.GameOperationPrefabFilenameRepositoryFilename.getName(),
+                "prefabs/operations/operations-prefab-filename-repository.xml");
         configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(),
                 "achievements/achievement-prefab-repository.xml");
         configuration.put(ConfigurationOption.GameLevelPresenterPrefabFilename.getName(),

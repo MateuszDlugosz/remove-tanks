@@ -3,6 +3,7 @@ package remove.tanks.game.level.mode.campaign;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Mateusz Długosz
@@ -21,7 +22,7 @@ public final class CampaignStorage {
         return campaigns.get(title);
     }
 
-    public List<Campaign> getCampaignPrefabs() {
-        return new ArrayList<>(campaigns.values());
+    public Set<String> getCampaignTitles() {
+        return campaigns.keySet();
     }
 }
