@@ -3,7 +3,9 @@ package remove.tanks.game.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
@@ -16,6 +18,9 @@ import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.data.profile.Profile;
 import remove.tanks.game.data.profile.ProfileController;
 import remove.tanks.game.data.profile.ProfileProperty;
+import remove.tanks.game.data.profile.achievement.AchievementStorage;
+import remove.tanks.game.data.profile.achievement.AchievementType;
+import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
@@ -37,6 +42,7 @@ public final class ProfileScreen extends GameScreen {
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
     private final ProfileController profileController;
+    private final AchievementStorage achievementStorage;
 
     private Profile profile;
 
@@ -54,6 +60,11 @@ public final class ProfileScreen extends GameScreen {
 
     public ProfileScreen(GameApplication gameApplication) {
         super(gameApplication);
+        this.stage = new Stage(
+                gameApplication.getContext()
+                        .getComponent("MenuCamera", Game2DCamera.class).getViewport(),
+                gameApplication.getContext()
+                        .getComponent("SpriteBatch", SpriteBatch.class));
         this.skin = gameApplication.getContext()
                 .getComponent("UISkin", Skin.class);
         this.locale = gameApplication.getContext()
@@ -67,6 +78,8 @@ public final class ProfileScreen extends GameScreen {
         this.profileController = gameApplication.getContext()
                 .getComponent("ProfileController", ProfileController.class);
         this.profile = profileController.readProfile();
+        this.achievementStorage = gameApplication.getContext()
+                .getComponent("AchievementStorage", AchievementStorage.class);
 
         this.titleLabel = createTitleLabel();
         this.profilePropertyLabels = createProfilePropertyLabels();
@@ -75,7 +88,6 @@ public final class ProfileScreen extends GameScreen {
         this.backButton = createBackButton();
         this.buttonGroup = createButtonGroup();
 
-        this.stage = new Stage();
         this.window = createWindow();
         this.wrapper = createWrapper();
 

@@ -131,7 +131,7 @@ public final class CreditsScreen extends GameScreen {
             if (k == Input.Keys.ENTER) {
                 getGameApplication().switchScreenWithoutTransition(MainMenuScreen.class);
                 eventBus.post(new PlaySoundEvent(
-                        SoundChannelName.EffectSoundChannel,
+                        SoundChannelName.UIEffectSoundChannel,
                         assetStorage.getAsset("UIButtonSelect0Sound", Sound.class)
                 ));
                 buttonGroup.lockButtons();
