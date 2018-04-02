@@ -22,7 +22,7 @@ from lib.level.engine.entity.component.component_prefab import ComponentPrefabXm
     SubAutoShootComponentPrefabHtmlGenerator, SubDamageComponentPrefabHtmlGenerator, \
     SubHealthComponentPrefabHtmlGenerator
 from lib.level.engine.entity.entity_prefab import EntityPrefabXmlReader
-from lib.level.engine.entity.entity_prefab_repository import EntityPrefabRepositoryXmlReader, EntityPrefabRepository
+from lib.level.engine.entity.entity_prefab_repository import EntityPrefabRepositoryXmlReader
 from lib.level.engine.entity.entity_prefab_storage import EntityPrefabStorageFactory
 from lib.level.event.entity_event_prefab import EntityEventPrefabXmlReader, SubAmmoLevelUpEntityEventPrefabXmlReader, \
     SubSpawnAirplaneEntityEventPrefabXmlReader, SubAddCameraEffectEntityEventPrefabXmlReader, \

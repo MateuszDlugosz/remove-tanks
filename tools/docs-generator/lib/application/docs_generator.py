@@ -1,8 +1,7 @@
 import logging
 import os
-import shutil
-
 import pathlib
+import shutil
 
 
 class DocsGenerator:

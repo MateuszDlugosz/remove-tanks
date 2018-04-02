@@ -1,4 +1,4 @@
-import  unittest
+import unittest
 
 from lib.html.html import HtmlGenerator
 from lib.physics.shape.shape_prefab import RectangleShapePrefab, CircleShapePrefab, PolygonShapePrefab, ChainShapePrefab

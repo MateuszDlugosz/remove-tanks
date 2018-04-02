@@ -1,115 +1,5 @@
-import xml.etree.ElementTree as EXml
-
-from lib.graphics.effect.effect_prefab import EffectPrefabXmlReader
-from lib.graphics.view.view_prefab import ViewPrefabXmlReader
-from lib.html.html import HtmlElement, HtmlGenerator
-from lib.level.event.entity_event_prefab import EntityEventPrefabXmlReader
-from lib.level.utility.create.create_entry_prefab import CreateEntryPrefabXmlReader
-from lib.level.utility.direction.direction_xml_reader import DirectionXmlReader
-from lib.level.utility.state.state_xml_reader import StateXmlReader
-from lib.physics.body.body_prefab import BodyPrefabXmlReader
-from lib.physics.fixture.fixture_prefab import HitBoxPrefabXmlReader, SensorPrefabXmlReader
-from lib.physics.light.light_prefab import LightHandlerPrefabXmlReader
-from lib.utility.surface.position.position_prefab import PositionPrefab, PositionPrefabXmlReader
-
-
 class ComponentPrefab(object):
     pass
-
-
-class ComponentPrefabXmlReader(object):
-    COMPONENT_ELEMENT = "component"
-    COMPONENTS_ELEMENT = "components"
-    TYPE_ATTRIBUTE = "type"
-
-    def __init__(self, sub_readers):
-        self.sub_readers = {}
-        for sub_reader in sub_readers:
-            self.sub_readers[sub_reader.get_type()] = sub_reader
-
-    def read_prefabs_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            prefabs = []
-
-            for child in element.findall(self.COMPONENT_ELEMENT):
-                prefabs.append(self.read_prefab_from_string(EXml.tostring(child)))
-
-            return prefabs
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            prefab_type = element.get(self.TYPE_ATTRIBUTE)
-
-            if prefab_type not in self.sub_readers:
-                raise ComponentPrefabXmlReaderNotFoundException(prefab_type)
-            
-            return self.sub_readers[prefab_type].read_prefab_from_string(xml_string)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-
-class SubComponentPrefabXmlReader(object):
-    def read_prefab_from_string(self, xml_string):
-        raise NotImplementedError("Not implemented yet.")
-
-    def get_type(self):
-        raise NotImplementedError("Not implemented yet.")
-
-
-class ComponentPrefabXmlReadException(Exception):
-    MESSAGE_TEMPLATE = "Cannot read component prefab from xml string {}. Cause: {}."
-
-    def __init__(self, xml_string, cause):
-        super().__init__(self.MESSAGE_TEMPLATE.format(xml_string, cause))
-
-
-class ComponentPrefabXmlReaderNotFoundException(Exception):
-    MESSAGE_TEMPLATE = "Component prefab xml reader of type {} not found."
-
-    def __init__(self, prefab_type):
-        super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))
-
-
-class ComponentPrefabHtmlGenerator(object):
-    def __init__(self, sub_generators):
-        self.sub_generators = {}
-        for sub_generator in sub_generators:
-            self.sub_generators[sub_generator.get_type()] = sub_generator
-
-    def generate_html(self, component_prefab):
-        try:
-            if component_prefab.__class__.__name__ not in self.sub_generators:
-                raise ComponentPrefabHtmlGeneratorNotFoundException(component_prefab)
-
-            return self.sub_generators[component_prefab.__class__.__name__].generate_html(component_prefab)
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-
-class SubComponentPrefabHtmlGenerator(object):
-    def generate_html(self, component_prefab):
-        raise NotImplementedError("Not implemented yet.")
-
-    def get_type(self):
-        raise NotImplementedError("Not implemented yet.")
-
-
-class ComponentPrefabHtmlGenerationException(Exception):
-    MESSAGE_TEMPLATE = "Cannot generate html from component prefab {}. Cause: {}."
-
-    def __init__(self, component_prefab, cause):
-        super().__init__(self.MESSAGE_TEMPLATE.format(str(component_prefab), cause))
-
-
-class ComponentPrefabHtmlGeneratorNotFoundException(Exception):
-    MESSAGE_TEMPLATE = "Component prefab html generator of {} component type not found."
-
-    def __init__(self, component_prefab):
-        super().__init__(self.MESSAGE_TEMPLATE.format(component_prefab.__class__.__name__))
 
 
 class SpeedComponentPrefab(ComponentPrefab):
@@ -123,45 +13,6 @@ class SpeedComponentPrefab(ComponentPrefab):
         return "SpeedComponentPrefab(speed={})".format(self.speed)
 
 
-class SubSpeedComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    SPEED_ELEMENT = "speed"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            speed = float(element.find(self.SPEED_ELEMENT).text)
-            return SpeedComponentPrefab(speed)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "SpeedComponent"
-
-
-class SubSpeedComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
-            dt = HtmlElement("dt", "Speed")
-            dt.set_attribute("class", "col-sm-3")
-            dd = HtmlElement("dd", component_prefab.get_speed())
-            dd.set_attribute("class", "col-sm-9")
-            dl.add_child(dt)
-            dl.add_child(dd)
-            html.add_child(dl)
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-    def get_type(self):
-        return SpeedComponentPrefab.__name__
-
-
 class SpeedModifierComponentPrefab(ComponentPrefab):
     def __init__(self, speed_modifier):
         self.speed_modifier = float(speed_modifier)
@@ -171,45 +22,6 @@ class SpeedModifierComponentPrefab(ComponentPrefab):
 
     def __str__(self):
         return "SpeedModifierComponentPrefab(speed_modifier={})".format(self.speed_modifier)
-
-
-class SubSpeedModifierComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    SPEED_MODIFIER_ELEMENT = "speedModifier"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            speed_modifier = float(element.find(self.SPEED_MODIFIER_ELEMENT).text)
-            return SpeedModifierComponentPrefab(speed_modifier)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "SpeedModifierComponent"
-
-
-class SubSpeedModifierComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
-            dt = HtmlElement("dt", "Speed modifier")
-            dt.set_attribute("class", "col-sm-3")
-            dd = HtmlElement("dd", component_prefab.get_speed_modifier())
-            dd.set_attribute("class", "col-sm-9")
-            dl.add_child(dt)
-            dl.add_child(dd)
-            html.add_child(dl)
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-    def get_type(self):
-        return SpeedModifierComponentPrefab.__name__
 
 
 class CameraTrackComponentPrefab(ComponentPrefab):
@@ -228,66 +40,6 @@ class CameraTrackComponentPrefab(ComponentPrefab):
             .format(self.priority, str(self.position_prefab))
 
 
-class SubCameraTrackComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    PRIORITY_ELEMENT = "priority"
-
-    def __init__(self, position_prefab_xml_reader):
-        self.position_prefab_xml_reader = position_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            position_prefab = PositionPrefab(0, 0)
-            priority = float(element.find(self.PRIORITY_ELEMENT).text)
-
-            if (element.find(PositionPrefabXmlReader.POSITION_ELEMENT)) is not None:
-                position_prefab = self.position_prefab_xml_reader.read_prefab_from_string(
-                    EXml.tostring(element.find(PositionPrefabXmlReader.POSITION_ELEMENT))
-                )
-
-            return CameraTrackComponentPrefab(priority, position_prefab)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "CameraTrackComponent"
-
-
-class SubCameraTrackComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def __init__(self, position_prefab_html_generator):
-        self.position_prefab_html_generator = position_prefab_html_generator
-
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
-            dt0 = HtmlElement("dt", "Priority")
-            dt0.set_attribute("class", "col-sm-3")
-            dd0 = HtmlElement("dd", component_prefab.get_priority())
-            dd0.set_attribute("class", "col-sm-9")
-            dt1 = HtmlElement("dt", "Position")
-            dt1.set_attribute("class", "col-sm-3")
-            dd1 = HtmlElement("dd", self.position_prefab_html_generator.generate_html(
-                component_prefab.get_position_prefab()
-            ))
-            dd1.set_attribute("class", "col-sm-9")
-            dl.add_child(dt0)
-            dl.add_child(dd0)
-            dl.add_child(dt1)
-            dl.add_child(dd1)
-            html.add_child(dl)
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-    def get_type(self):
-        return CameraTrackComponentPrefab.__name__
-
-
 class LeaveBonusComponentPrefab(ComponentPrefab):
     def __init__(self, chance_modifier):
         self.chance_modifier = float(chance_modifier)
@@ -297,50 +49,6 @@ class LeaveBonusComponentPrefab(ComponentPrefab):
 
     def __str__(self):
         return "LeaveBonusComponentPrefab(chance_modifier={})".format(self.chance_modifier)
-
-
-class SubLeaveBonusComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    CHANCE_MODIFIER_ELEMENT = "chanceModifier"
-    CHANCE_MODIFIER_DEFAULT = 0
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            chance_modifier = self.CHANCE_MODIFIER_DEFAULT
-
-            if element.find(self.CHANCE_MODIFIER_ELEMENT) is not None:
-                chance_modifier = float(element.find(self.CHANCE_MODIFIER_ELEMENT).text.strip())
-
-            return LeaveBonusComponentPrefab(chance_modifier)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "LeaveBonusComponent"
-
-
-class SubLeaveBonusComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
-            dt0 = HtmlElement("dt", "Chance modifier")
-            dt0.set_attribute("class", "col-sm-3")
-            dd0 = HtmlElement("dd", component_prefab.get_chance_modifier())
-            dd0.set_attribute("class", "col-sm-9")
-            dl.add_child(dt0)
-            dl.add_child(dd0)
-            html.add_child(dl)
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-    def get_type(self):
-        return LeaveBonusComponentPrefab.__name__
 
 
 class AmmoComponentPrefab(ComponentPrefab):
@@ -363,119 +71,9 @@ class AmmoComponentPrefab(ComponentPrefab):
                 .format(self.current_level, self.max_level, self.prefab_codes)
 
 
-class SubAmmoComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    CURRENT_LEVEL_ELEMENT = "currentLevel"
-    MAX_LEVEL_ELEMENT = "maxLevel"
-    AMMO_ELEMENT = "ammo"
-    BULLET_ELEMENT = "bullet"
-    DIRECTION_ATTRIBUTE = "direction"
-    LEVEL_ATTRIBUTE = "level"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            current_level = int(element.find(self.CURRENT_LEVEL_ELEMENT).text.strip())
-            max_level = int(element.find(self.MAX_LEVEL_ELEMENT).text.strip())
-            prefab_codes = {}
-
-            for ammo_element in element.findall(self.AMMO_ELEMENT):
-                bullets = {}
-                for bullet_element in ammo_element.findall(self.BULLET_ELEMENT):
-                    bullets[bullet_element.get(self.DIRECTION_ATTRIBUTE).strip()] = bullet_element.text.strip()
-                prefab_codes[int(ammo_element.get(self.LEVEL_ATTRIBUTE).strip())] = bullets
-
-            return AmmoComponentPrefab(current_level, max_level, prefab_codes)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "AmmoComponent"
-
-
-class SubAmmoComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
-            dt0 = HtmlElement("dt", "Current level")
-            dt0.set_attribute("class", "col-sm-3")
-            dd0 = HtmlElement("dd", component_prefab.get_current_level())
-            dd0.set_attribute("class", "col-sm-9")
-            dt1 = HtmlElement("dt", "Max level")
-            dt1.set_attribute("class", "col-sm-3")
-            dd1 = HtmlElement("dd", component_prefab.get_max_level())
-            dd1.set_attribute("class", "col-sm-9")
-            dl.add_child(dt0)
-            dl.add_child(dd0)
-            dl.add_child(dt1)
-            dl.add_child(dd1)
-
-            table = HtmlElement("table")
-            title_row = HtmlElement("tr")
-            title_row.add_child(HtmlElement("th", "Level"))
-            title_row.add_child(HtmlElement("th", "EntityPrefabCodes"))
-            table.add_child(title_row)
-
-            for key, value in component_prefab.get_prefab_codes().items():
-                row = HtmlElement("tr")
-                row.add_child(HtmlElement("td", key))
-                row_table = HtmlElement("table")
-                row_table_row = HtmlElement("tr")
-                row_table_row.add_child(HtmlElement("th", "Direction"))
-                row_table_row.add_child(HtmlElement("th", "Entity prefab code"))
-                row_table.add_child(row_table_row)
-                td_direction = HtmlElement("td")
-
-                for k, v in value.items():
-                    direction_row = HtmlElement("tr")
-                    direction_row.add_child(HtmlElement("td", k))
-                    direction_row.add_child(HtmlElement("td", v))
-                    row_table.add_child(direction_row)
-
-                td_direction.add_child(row_table)
-                row.add_child(td_direction)
-
-                table.add_child(row)
-
-            html.add_child(dl)
-            html.add_child(table)
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-    def get_type(self):
-        return AmmoComponentPrefab.__name__
-
-
 class AutoShootComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "AutoShootComponentPrefab()"
-
-
-class SubAutoShootComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return AutoShootComponentPrefab()
-
-    def get_type(self):
-        return "AutoShootComponent"
-
-
-class SubAutoShootComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-    def get_type(self):
-        return AutoShootComponentPrefab.__name__
 
 
 class DamageComponentPrefab(ComponentPrefab):
@@ -487,46 +85,6 @@ class DamageComponentPrefab(ComponentPrefab):
 
     def __str__(self):
         return "DamageComponentPrefab(damage={})".format(self.damage)
-
-
-class SubDamageComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    DAMAGE_ELEMENT = "damage"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            damage = int(element.find(self.DAMAGE_ELEMENT).text.strip())
-
-            return DamageComponentPrefab(damage)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "DamageComponent"
-
-
-class SubDamageComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
-            dt0 = HtmlElement("dt", "Damage")
-            dt0.set_attribute("class", "col-sm-3")
-            dd0 = HtmlElement("dd", component_prefab.get_damage())
-            dd0.set_attribute("class", "col-sm-9")
-            dl.add_child(dt0)
-            dl.add_child(dd0)
-            html.add_child(dl)
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-    def get_type(self):
-        return DamageComponentPrefab.__name__
 
 
 class HealthComponentPrefab(ComponentPrefab):
@@ -542,54 +100,6 @@ class HealthComponentPrefab(ComponentPrefab):
 
     def __str__(self):
         return "HealthComponentPrefab(health={}, max_health={})".format(self.health, self.max_health)
-
-
-class SubHealthComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    HEALTH_ELEMENT = "health"
-    MAX_HEALTH = "maxHealth"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            health = int(element.find(self.HEALTH_ELEMENT).text.strip())
-            max_health = int(element.find(self.MAX_HEALTH).text.strip())
-
-            return HealthComponentPrefab(health, max_health)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "HealthComponent"
-
-
-class SubHealthComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
-    def generate_html(self, component_prefab):
-        try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h5", component_prefab.__class__.__name__))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.set_attribute("class", "row")
-            dt0 = HtmlElement("dt", "Health")
-            dt0.set_attribute("class", "col-sm-3")
-            dd0 = HtmlElement("dd", component_prefab.get_health())
-            dd0.set_attribute("class", "col-sm-9")
-            dt1 = HtmlElement("dt", "Max health")
-            dt1.set_attribute("class", "col-sm-3")
-            dd1 = HtmlElement("dd", component_prefab.get_max_health())
-            dd1.set_attribute("class", "col-sm-9")
-            dl.add_child(dt0)
-            dl.add_child(dd0)
-            dl.add_child(dt1)
-            dl.add_child(dd1)
-            html.add_child(dl)
-
-            return html
-        except Exception as e:
-            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
-
-    def get_type(self):
-        return HealthComponentPrefab.__name__
 
 
 class HitComponentPrefab(ComponentPrefab):
@@ -608,39 +118,9 @@ class HitComponentPrefab(ComponentPrefab):
             .format(str(self.effect_prefab), self.hit_time)
 
 
-class SubHitComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    HIT_TIME_ELEMENT = "hitTime"
-
-    def __init__(self, effect_prefab_xml_reader):
-        self.effect_prefab_xml_reader = effect_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            effect_prefab = self.effect_prefab_xml_reader.read_prefab_from_string(
-                EXml.tostring(element.find(EffectPrefabXmlReader.EFFECT_ELEMENT))
-            )
-            hit_time = float(element.find(self.HIT_TIME_ELEMENT).text.strip())
-
-            return HitComponentPrefab(effect_prefab, hit_time)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "HitComponent"
-
-
 class ProtectionComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "ProtectionComponentPrefab()"
-
-
-class SubProtectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return ProtectionComponentPrefab()
-
-    def get_type(self):
-        return "ProtectionComponent"
 
 
 class RandomShootComponentPrefab(ComponentPrefab):
@@ -659,24 +139,6 @@ class RandomShootComponentPrefab(ComponentPrefab):
             .format(self.min_shoot_frequency, self.max_shoot_frequency)
 
 
-class SubRandomShootComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    MIN_SHOOT_FREQUENCY_ELEMENT = "minShootFrequency"
-    MAX_SHOOT_FREQUENCY_ELEMENT = "maxShootFrequency"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            min = float(element.find(self.MIN_SHOOT_FREQUENCY_ELEMENT).text.strip())
-            max = float(element.find(self.MAX_SHOOT_FREQUENCY_ELEMENT).text.strip())
-
-            return RandomShootComponentPrefab(min, max)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "RandomShootComponent"
-
-
 class DirectionComponentPrefab(ComponentPrefab):
     def __init__(self, direction):
         self.direction = str(direction)
@@ -686,25 +148,6 @@ class DirectionComponentPrefab(ComponentPrefab):
 
     def __str__(self):
         return "DirectionComponentPrefab(direction={})".format(self.direction)
-
-
-class SubDirectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, direction_xml_reader):
-        self.direction_xml_reader = direction_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            direction = self.direction_xml_reader.read_direction_from_string(
-                EXml.tostring(element.find(DirectionXmlReader.DIRECTION_ELEMENT))
-            )
-
-            return DirectionComponentPrefab(direction)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "DirectionComponent"
 
 
 class ChangeBehaviorComponentPrefab(ComponentPrefab):
@@ -717,25 +160,6 @@ class ChangeBehaviorComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "ChangeBehaviorComponentPrefab(component_prefabs=[{}])" \
             .format(", ".join('\'{}\''.format(str(val)) for val in self.component_prefabs))
-
-
-class SubChangeBehaviorComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, component_prefab_xml_reader):
-        self.component_prefab_xml_reader = component_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            component_prefabs = self.component_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(ComponentPrefabXmlReader.COMPONENTS_ELEMENT))
-            )
-
-            return ChangeBehaviorComponentPrefab(component_prefabs)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "ChangeBehaviorComponent"
 
 
 class RandomDirectionComponentPrefab(ComponentPrefab):
@@ -759,55 +183,14 @@ class RandomDirectionComponentPrefab(ComponentPrefab):
                     .format(self.min_change_direction_frequency, self.max_change_direction_frequency, self.directions)
 
 
-class SubRandomDirectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    MIN_CHANGE_DIRECTION_FREQUENCY = "minChangeDirectionFrequency"
-    MAX_CHANGE_DIRECTION_FREQUENCY = "maxChangeDirectionFrequency"
-
-    def __init__(self, direction_xml_reader):
-        self.direction_xml_reader = direction_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            min_change_direction_frequency = float(element.find(self.MIN_CHANGE_DIRECTION_FREQUENCY).text.strip())
-            max_change_direction_frequency = float(element.find(self.MAX_CHANGE_DIRECTION_FREQUENCY).text.strip())
-            directions = self.direction_xml_reader.read_directions_from_string(
-                EXml.tostring(element.find(DirectionXmlReader.DIRECTIONS_ELEMENT))
-            )
-
-            return RandomDirectionComponentPrefab(
-                min_change_direction_frequency, max_change_direction_frequency, directions)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "RandomDirectionComponent"
-
-
 class EnemyComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "EnemyComponentPrefab()"
 
 
-class SubEnemyComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return EnemyComponentPrefab()
-
-    def get_type(self):
-        return "EnemyComponent"
-
-
 class PlayerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "PlayerComponentPrefab()"
-
-
-class SubPlayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return PlayerComponentPrefab()
-
-    def get_type(self):
-        return "PlayerComponent"
 
 
 class IdentityComponentPrefab(ComponentPrefab):
@@ -821,22 +204,6 @@ class IdentityComponentPrefab(ComponentPrefab):
         return "IdentityComponentPrefab(id={})".format(self.id)
 
 
-class SubIdentityComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    ID_ELEMENT = "id"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            id = element.find(self.ID_ELEMENT).text.strip()
-
-            return IdentityComponentPrefab(id)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "IdentityComponent"
-
-
 class InputComponentPrefab(ComponentPrefab):
     def __init__(self, shoot_delay):
         self.shoot_delay = float(shoot_delay)
@@ -848,33 +215,9 @@ class InputComponentPrefab(ComponentPrefab):
         return "InputComponentPrefab(shoot_delay={})".format(self.shoot_delay)
 
 
-class SubInputComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    SHOOT_DELAY_ELEMENT = "shootDelay"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            shoot_delay = float(element.find(self.SHOOT_DELAY_ELEMENT).text.strip())
-
-            return InputComponentPrefab(shoot_delay)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "InputComponent"
-
-
 class CreateComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "CreateComponentPrefab()"
-
-
-class SubCreateComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return CreateComponentPrefab()
-
-    def get_type(self):
-        return "CreateComponent"
 
 
 class DestroyComponentPrefab(ComponentPrefab):
@@ -882,38 +225,14 @@ class DestroyComponentPrefab(ComponentPrefab):
         return "DestroyComponentPrefab()"
 
 
-class SubDestroyComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return DestroyComponentPrefab()
-
-    def get_type(self):
-        return "DestroyComponent"
-
-
 class DestroyOnContactComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "DestroyOnContactComponentPrefab()"
 
 
-class SubDestroyOnContactComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return DestroyOnContactComponentPrefab()
-
-    def get_type(self):
-        return "DestroyOnContactComponent"
-
-
 class DestroyOnContactLostComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "DestroyOnContactLostComponentPrefab()"
-
-
-class SubDestroyOnContactLostComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return DestroyOnContactLostComponentPrefab()
-
-    def get_type(self):
-        return "DestroyOnContactLostComponent"
 
 
 class LifetimeComponentPrefab(ComponentPrefab):
@@ -925,22 +244,6 @@ class LifetimeComponentPrefab(ComponentPrefab):
 
     def __str__(self):
         return "LifetimeComponentPrefab(lifetime={})".format(self.lifetime)
-
-
-class SubLifetimeComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    LIFETIME_ELEMENT = "lifetime"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            lifetime = float(element.find(self.LIFETIME_ELEMENT).text.strip())
-
-            return LifetimeComponentPrefab(lifetime)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "LifetimeComponent"
 
 
 class RandomCreateComponentPrefab(ComponentPrefab):
@@ -959,46 +262,15 @@ class RandomCreateComponentPrefab(ComponentPrefab):
         return self.create_entry_prefabs
 
     def __str__(self):
-        return "RandomCreateComponentPrefab(min_create_frequency={}, max_create_frequency={}, create_entry_prefabs=[{}])"\
+        return "RandomCreateComponentPrefab(min_create_frequency={}, max_create_frequency={}, " \
+               "create_entry_prefabs=[{}])"\
             .format(self.min_create_frequency, self.max_create_frequency,
                     str(", ".join('\'{}\''.format(str(val)) for val in self.create_entry_prefabs)))
-
-
-class SubRandomCreateComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    MIN_CREATE_FREQUENCY_ELEMENT = "minCreateFrequency"
-    MAX_CREATE_FREQUENCY_ELEMENT = "maxCreateFrequency"
-
-    def __init__(self, create_entry_prefab_xml_reader):
-        self.create_entry_prefab_xml_reader = create_entry_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            min_create_frequency = float(element.find(self.MIN_CREATE_FREQUENCY_ELEMENT).text.strip())
-            max_create_frequency = float(element.find(self.MAX_CREATE_FREQUENCY_ELEMENT).text.strip())
-            create_entry_prefabs = self.create_entry_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(CreateEntryPrefabXmlReader.CREATE_ENTRIES_ELEMENT))
-            )
-
-            return RandomCreateComponentPrefab(min_create_frequency, max_create_frequency, create_entry_prefabs)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "RandomCreateComponent"
 
 
 class AutoMoveComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "AutoMoveComponentPrefab()"
-
-
-class SubAutoMoveComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return AutoMoveComponentPrefab()
-
-    def get_type(self):
-        return "AutoMoveComponent"
 
 
 class PhysicsComponentPrefab(ComponentPrefab):
@@ -1031,59 +303,9 @@ class PhysicsComponentPrefab(ComponentPrefab):
             )
 
 
-class SubPhysicsComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, body_prefab_xml_reader, hit_box_prefab_xml_reader,
-                 sensor_prefab_xml_reader, light_handler_prefab_xml_reader):
-        self.body_prefab_xml_reader = body_prefab_xml_reader
-        self.hit_box_prefab_xml_reader = hit_box_prefab_xml_reader
-        self.sensor_prefab_xml_reader = sensor_prefab_xml_reader
-        self.light_handler_prefab_xml_reader = light_handler_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            hit_box_prefabs = []
-            sensor_prefabs = []
-            light_handler_prefabs = []
-
-            body_prefab = self.body_prefab_xml_reader.read_prefab_from_string(
-                EXml.tostring(element.find(BodyPrefabXmlReader.BODY_ELEMENT))
-            )
-
-            if element.find(HitBoxPrefabXmlReader.HIT_BOXES_ELEMENT) is not None:
-                hit_box_prefabs = self.hit_box_prefab_xml_reader.read_prefabs_from_string(
-                    EXml.tostring(element.find(HitBoxPrefabXmlReader.HIT_BOXES_ELEMENT))
-                )
-
-            if element.find(SensorPrefabXmlReader.SENSORS_ELEMENT) is not None:
-                sensor_prefabs = self.sensor_prefab_xml_reader.read_prefabs_from_string(
-                    EXml.tostring(element.find(SensorPrefabXmlReader.SENSORS_ELEMENT))
-                )
-
-            if element.find(LightHandlerPrefabXmlReader.LIGHT_HANDLERS_ELEMENT) is not None:
-                light_handler_prefabs = self.light_handler_prefab_xml_reader.read_prefabs_from_string(
-                    EXml.tostring(element.find(LightHandlerPrefabXmlReader.LIGHT_HANDLERS_ELEMENT))
-                )
-
-            return PhysicsComponentPrefab(body_prefab, hit_box_prefabs, sensor_prefabs, light_handler_prefabs)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "PhysicsComponent"
-
-
 class AirplaneRenderLayerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "AirplaneRenderLayerComponentPrefab()"
-
-
-class SubAirplaneRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return AirplaneRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "AirplaneRenderLayerComponent"
 
 
 class BombRenderLayerComponentPrefab(ComponentPrefab):
@@ -1091,25 +313,9 @@ class BombRenderLayerComponentPrefab(ComponentPrefab):
         return "BombRenderLayerComponentPrefab()"
 
 
-class SubBombRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return BombRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "BombRenderLayerComponent"
-
-
 class BonusRenderLayerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "BonusRenderLayerComponentPrefab()"
-
-
-class SubBonusRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return BonusRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "BonusRenderLayerComponent"
 
 
 class BulletRenderLayerComponentPrefab(ComponentPrefab):
@@ -1117,25 +323,9 @@ class BulletRenderLayerComponentPrefab(ComponentPrefab):
         return "BulletRenderLayerComponentPrefab()"
 
 
-class SubBulletRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return BulletRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "BulletRenderLayerComponent"
-
-
 class CloudRenderLayerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "CloudRenderLayerComponentPrefab()"
-
-
-class SubCloudRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return CloudRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "CloudRenderLayerComponent"
 
 
 class ExplosionRenderLayerComponentPrefab(ComponentPrefab):
@@ -1143,25 +333,9 @@ class ExplosionRenderLayerComponentPrefab(ComponentPrefab):
         return "ExplosionRenderLayerComponentPrefab()"
 
 
-class SubExplosionRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return ExplosionRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "ExplosionRenderLayerComponent"
-
-
 class GroundRenderLayerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "GroundRenderLayerComponentPrefab()"
-
-
-class SubGroundRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return GroundRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "GroundRenderLayerComponent"
 
 
 class ObstacleRenderLayerComponentPrefab(ComponentPrefab):
@@ -1169,25 +343,9 @@ class ObstacleRenderLayerComponentPrefab(ComponentPrefab):
         return "ObstacleRenderLayerComponentPrefab()"
 
 
-class SubObstacleRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return ObstacleRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "ObstacleRenderLayerComponent"
-
-
 class VehicleRenderLayerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "VehicleRenderLayerComponentPrefab()"
-
-
-class SubVehicleRenderLayerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return VehicleRenderLayerComponentPrefab()
-
-    def get_type(self):
-        return "VehicleRenderLayerComponent"
 
 
 class ViewComponentPrefab(ComponentPrefab):
@@ -1202,25 +360,6 @@ class ViewComponentPrefab(ComponentPrefab):
             .format(str(", ".join('\'{}\''.format(str(val)) for val in self.view_prefabs)))
 
 
-class SubViewComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, view_prefab_xml_reader):
-        self.view_prefab_xml_reader = view_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            view_prefabs = self.view_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(ViewPrefabXmlReader.VIEWS_ELEMENT))
-            )
-
-            return ViewComponentPrefab(view_prefabs)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "ViewComponent"
-
-
 class AirplaneSpawnerComponentPrefab(ComponentPrefab):
     def __init__(self, entity_prefab_code):
         self.entity_prefab_code = entity_prefab_code
@@ -1232,33 +371,9 @@ class AirplaneSpawnerComponentPrefab(ComponentPrefab):
         return "AirplaneSpawnerComponentPrefab(entity_prefab_code={})".format(self.entity_prefab_code)
 
 
-class SubAirplaneSpawnerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    ENTITY_PREFAB_CODE_ELEMENT = "entityPrefabCode"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            prefab_code = element.find(self.ENTITY_PREFAB_CODE_ELEMENT).text.strip()
-
-            return AirplaneSpawnerComponentPrefab(prefab_code)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "AirplaneSpawnerComponent"
-
-
 class RespawnComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "RespawnComponentPrefab()"
-
-
-class SubRespawnComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def read_prefab_from_string(self, xml_string):
-        return RespawnComponentPrefab()
-
-    def get_type(self):
-        return "RespawnComponent"
 
 
 class AutoSpawnerComponentPrefab(ComponentPrefab):
@@ -1272,22 +387,6 @@ class AutoSpawnerComponentPrefab(ComponentPrefab):
         return "AutoSpawnerComponentPrefab(id={})".format(self.id)
 
 
-class SubAutoSpawnerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    ID_ELEMENT = "id"
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            id = element.find(self.ID_ELEMENT).text.strip()
-
-            return AutoSpawnerComponentPrefab(id)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "AutoSpawnerComponent"
-
-
 class StateComponentPrefab(ComponentPrefab):
     def __init__(self, state):
         self.state = str(state)
@@ -1297,25 +396,6 @@ class StateComponentPrefab(ComponentPrefab):
 
     def __str__(self):
         return "StateComponentPrefab(state={})".format(self.state)
-
-
-class SubStateComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, state_xml_reader):
-        self.state_xml_reader = state_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            state = self.state_xml_reader.read_state_from_string(
-                EXml.tostring(element.find(StateXmlReader.STATE_ELEMENT))
-            )
-
-            return StateComponentPrefab(state)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "StateComponent"
 
 
 class CreateTriggerComponentPrefab(ComponentPrefab):
@@ -1330,25 +410,6 @@ class CreateTriggerComponentPrefab(ComponentPrefab):
             .format(str(", ".join('\'{}\''.format(str(val)) for val in self.entity_event_prefabs)))
 
 
-class SubCreateTriggerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, entity_event_prefab_xml_reader):
-        self.entity_event_prefab_xml_reader = entity_event_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            entity_event_prefabs = self.entity_event_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(EntityEventPrefabXmlReader.ENTITY_EVENTS_ELEMENT))
-            )
-
-            return CreateTriggerComponentPrefab(entity_event_prefabs)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "CreateTriggerComponent"
-
-
 class DestroyTriggerComponentPrefab(ComponentPrefab):
     def __init__(self, entity_event_prefabs):
         self.entity_event_prefabs = entity_event_prefabs
@@ -1361,25 +422,6 @@ class DestroyTriggerComponentPrefab(ComponentPrefab):
             .format(str(", ".join('\'{}\''.format(str(val)) for val in self.entity_event_prefabs)))
 
 
-class SubDestroyTriggerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, entity_event_prefab_xml_reader):
-        self.entity_event_prefab_xml_reader = entity_event_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            entity_event_prefabs = self.entity_event_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(EntityEventPrefabXmlReader.ENTITY_EVENTS_ELEMENT))
-            )
-
-            return DestroyTriggerComponentPrefab(entity_event_prefabs)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "DestroyTriggerComponent"
-
-
 class HitTriggerComponentPrefab(ComponentPrefab):
     def __init__(self, entity_event_prefabs):
         self.entity_event_prefabs = entity_event_prefabs
@@ -1390,22 +432,3 @@ class HitTriggerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "HitTriggerComponentPrefab(entity_event_prefabs=[{}])" \
             .format(str(", ".join('\'{}\''.format(str(val)) for val in self.entity_event_prefabs)))
-
-
-class SubHitTriggerComponentPrefabXmlReader(SubComponentPrefabXmlReader):
-    def __init__(self, entity_event_prefab_xml_reader):
-        self.entity_event_prefab_xml_reader = entity_event_prefab_xml_reader
-
-    def read_prefab_from_string(self, xml_string):
-        try:
-            element = EXml.fromstring(xml_string)
-            entity_event_prefabs = self.entity_event_prefab_xml_reader.read_prefabs_from_string(
-                EXml.tostring(element.find(EntityEventPrefabXmlReader.ENTITY_EVENTS_ELEMENT))
-            )
-
-            return HitTriggerComponentPrefab(entity_event_prefabs)
-        except Exception as e:
-            raise ComponentPrefabXmlReadException(xml_string, e)
-
-    def get_type(self):
-        return "HitTriggerComponent"
