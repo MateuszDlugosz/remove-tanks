@@ -1,11 +1,10 @@
-import os
-
 import logging
+import os
 
 from lib.application.configuration.configuration_xml_reader import ConfigurationXmlReader
 from lib.application.context.context import ContextInitializer
 from lib.application.context.context_components import ContextComponents
-from lib.application.docs_generator import DocsGeneratorInitializer
+from lib.application.generator.docs_generator import DocsGeneratorInitializer
 
 CONFIGURATION_FILENAME = os.path.join(os.path.dirname(__file__), 'configuration.xml')
 
