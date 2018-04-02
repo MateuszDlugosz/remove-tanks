@@ -42,7 +42,7 @@ class HtmlGenerator(object):
         if len(html_element.get_attributes()) > 0:
             attributes += " "
             for key, value in html_element.get_attributes().items():
-                attributes += '{}="{}"'.format(key, value)
+                attributes += '{}="{}" '.format(key, value)
 
         if html_element.get_text() is not None:
             sub_elements += f'{"  " * (deep + 1)}{html_element.get_text()}\n'

@@ -28,7 +28,7 @@ class TestSubAtlasSpritePrefabHtmlGenerator(unittest.TestCase):
 
         self.assertEqual(
             '<divclass="doc-sprite"><h6>Atlassprite</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>False'
-            '</dd><dt>Atlasfilename</dt><dd>atlas-filename</dd><dt>Regionname</dt><dd>r,e,g,i,o,n,-,n,a,m,e</dd>'
+            '</dd><dt>Atlasfilename</dt><dd>atlas-filename</dd><dt>Regionname</dt><dd>region-name</dd>'
             '</dl></div>',
             html_generator.generate_html(fa_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
@@ -43,7 +43,7 @@ class TestSpritePrefabHtmlGenerator(unittest.TestCase):
 
         self.assertEqual(
             '<divclass="doc-sprite"><h6>Atlassprite</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>False'
-            '</dd><dt>Atlasfilename</dt><dd>atlas-filename</dd><dt>Regionname</dt><dd>r,e,g,i,o,n,-,n,a,m,e</dd>'
+            '</dd><dt>Atlasfilename</dt><dd>atlas-filename</dd><dt>Regionname</dt><dd>region-name</dd>'
             '</dl></div>',
             html_generator.generate_html(a_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")

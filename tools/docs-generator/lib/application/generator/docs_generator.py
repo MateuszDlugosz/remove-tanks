@@ -1,7 +1,6 @@
 import logging
 import os
-
-from lib.html.html import HtmlGenerator
+from shutil import copyfile
 
 
 class DocsGenerator:
@@ -19,12 +18,25 @@ class DocsGenerator:
                      f"{self.context.get_configuration().get_option('source.directory')} assets directory.")
 
         try:
+            self.copy_files()
             self.unpack_texture_atlases()
             self.generate_entity_prefabs_pages()
         except Exception as e:
             raise DocsGenerationException(e)
 
         logging.info("Generation files ended.")
+
+    def copy_files(self):
+        logging.info("Copy required files started.")
+
+        for file_to_copy in self.context.get_configuration().get_option("target.directory.files").split(';'):
+            source = file_to_copy.split(',')[0].strip()
+            target = file_to_copy.split(',')[1].strip()
+            logging.info(f"Copy file from {source} to {target}.")
+            os.makedirs(os.path.dirname(target), exist_ok=True)
+            copyfile(source, target)
+
+        logging.info("Copy required files ended.")
 
     def unpack_texture_atlases(self):
         configuration = self.context.get_configuration()
@@ -33,7 +45,7 @@ class DocsGenerator:
         for texture_atlas in self.context.get_configuration().get_option("texture.atlases").strip().split(';'):
             target_directory = configuration.get_option("target.directory") + "/" +\
                                       configuration.get_option("target.directory.root") + "/" + \
-                                      texture_atlas.split(":")[0]
+                                      texture_atlas.split(":")[0].strip()
             pack_filename = texture_atlas.split(":")[1].split(",")[0].strip()
             image_filename = texture_atlas.split(":")[1].split(",")[1].strip()
             os.makedirs(target_directory, exist_ok=True)
@@ -44,7 +56,6 @@ class DocsGenerator:
         logging.info("Generating entity prefabs pages started.")
         storage = self.context.get_component("EntityPrefabStorage")
         repository = self.context.get_component("EntityPrefabRepository")
-        html_generator = HtmlGenerator()
         entity_html_generator = self.context.get_component("EntityPrefabHtmlGenerator")
         configuration = self.context.get_configuration()
 
@@ -56,13 +67,31 @@ class DocsGenerator:
                                   .replace("/", "-")\
                                   .replace(".xml", ".html")
             logging.info(f"Generating entity prefab page {target_filename}.")
-            html_string = html_generator.generate_html(
-                entity_html_generator.generate_html(storage.get_entity_prefab(code), code))
-            os.makedirs(os.path.dirname(target_filename), exist_ok=True)
-            with open(target_filename, "w+") as file:
-                file.write(html_string)
+
+            self.generate_html_page(
+                entity_html_generator.generate_html(storage.get_entity_prefab(code), code),
+                target_filename
+            )
 
         logging.info("Generating entity prefabs pages ended.")
+
+    def generate_html_page(self, html_content, filename):
+        footer_html_generator = self.context.get_component("FooterHtmlGenerator")
+        menu_html_generator = self.context.get_component("MenuHtmlGenerator")
+        header_html_generator = self.context.get_component("HeaderHtmlGenerator")
+        html_layout_generator = self.context.get_component("LayoutHtmlGenerator")
+        html_generator = self.context.get_component("HtmlGenerator")
+
+        html_string = html_generator.generate_html(html_layout_generator.generate_html(
+            header_html_generator.generate_html(),
+            menu_html_generator.generate_html(),
+            html_content,
+            footer_html_generator.generate_html()
+        ))
+
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        with open(filename, "w+") as file:
+            file.write(html_string)
 
 
 class DocsGenerationException(Exception):

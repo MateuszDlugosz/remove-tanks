@@ -1,0 +1,28 @@
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+aside, article {
+    float: left;
+}
+
+aside {
+    width: 20%;
+}
+
+article {
+    width: 80%;
+}
+
+main:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 10px;
+}

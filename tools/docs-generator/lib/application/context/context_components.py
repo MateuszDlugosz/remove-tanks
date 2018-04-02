@@ -1,4 +1,7 @@
 from lib.application.generator.layout.loyout_html_generator import LayoutHtmlGenerator
+from lib.application.generator.pages.parts.footer_html_generator import FooterHtmlGenerator
+from lib.application.generator.pages.parts.header_html_generator import HeaderHtmlGenerator
+from lib.application.generator.pages.parts.menu_html_generator import MenuHtmlGenerator
 from lib.audio.music.music_prefab_html_generator import MusicPrefabHtmlGenerator
 from lib.audio.music.music_prefab_xml_reader import MusicPrefabXmlReader
 from lib.audio.sound.sound_prefab_html_generator import SoundPrefabHtmlGenerator
@@ -35,6 +38,7 @@ from lib.graphics.view.view_prefab_html_generator import ViewPrefabHtmlGenerator
     SubAnimationViewPrefabHtmlGenerator, SubParticleEffectViewPrefabHtmlGenerator
 from lib.graphics.view.view_prefab_xml_reader import ViewPrefabXmlReader, SubSpriteViewPrefabXmlReader, \
     SubAnimationViewPrefabXmlReader, SubParticleEffectViewPrefabXmlReader
+from lib.html.html import HtmlGenerator
 from lib.level.engine.entity.component.component_prefab_html_generator import ComponentPrefabHtmlGenerator, \
     SubSpeedComponentPrefabHtmlGenerator, SubSpeedModifierComponentPrefabHtmlGenerator, \
     SubCameraTrackComponentPrefabHtmlGenerator, SubLeaveBonusComponentPrefabHtmlGenerator, \
@@ -596,7 +600,9 @@ class ContextComponents(object):
 
     @staticmethod
     def init_layout_html_generator(components, configuration):
-        return "LayoutHtmlGenerator", LayoutHtmlGenerator()
+        return "LayoutHtmlGenerator", LayoutHtmlGenerator(
+            configuration.get_option("target.directory.css.files").split(";")
+        )
 
     @staticmethod
     def init_texture_atlas_reader(components, configuration):
@@ -605,3 +611,19 @@ class ContextComponents(object):
     @staticmethod
     def init_texture_atlas_unpacker(components, configuration):
         return "TextureAtlasUnpacker", TextureAtlasUnpacker(components["TextureAtlasReader"])
+
+    @staticmethod
+    def init_footer_html_generator(components, configuration):
+        return "FooterHtmlGenerator", FooterHtmlGenerator()
+
+    @staticmethod
+    def init_menu_html_generator(components, configuration):
+        return "MenuHtmlGenerator", MenuHtmlGenerator()
+
+    @staticmethod
+    def init_header_html_generator(components, configuration):
+        return "HeaderHtmlGenerator", HeaderHtmlGenerator()
+
+    @staticmethod
+    def init_html_generator(components, configuration):
+        return "HtmlGenerator", HtmlGenerator()

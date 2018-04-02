@@ -2,11 +2,20 @@
 <configuration>
     <option name="target.directory">../../docs/auto-generated</option>
     <option name="target.directory.root">files</option>
+    <option name="target.directory.files">
+        ./files/css/styles.css,
+        ../../docs/auto-generated/files/css/styles.css
+    </option>
+    <option name="target.directory.css.files">
+        ./css/styles.css
+    </option>
     <option name="source.directory">../../core/assets</option>
     <option name="entity.prefab.repository.filename">prefabs/entities/entity-prefab-repository.xml</option>
     <option name="entity.prefab.filename.start">prefabs/entities/</option>
     <option name="texture.atlases">
         EntityAtlas:../../core/assets/graphics/textures/atlases/sepia/entity-atlas.pack,
-                    ../../core/assets/graphics/textures/atlases/sepia/entity-atlas.png
+                    ../../core/assets/graphics/textures/atlases/sepia/entity-atlas.png;
+        FaceAtlas:../../core/assets/graphics/textures/atlases/sepia/face-atlas.pack,
+                    ../../core/assets/graphics/textures/atlases/sepia/face-atlas.png
     </option>
 </configuration>
