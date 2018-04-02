@@ -11,7 +11,7 @@ class EntityPrefabHtmlGenerator(object):
     def generate_html(self, entity_prefab, code):
         try:
             html = HtmlElement("div")
-            html.add_child(HtmlElement("class", ENTITY_CLASS_HTML_ATTRIBUTE))
+            html.set_attribute("class", ENTITY_CLASS_HTML_ATTRIBUTE)
             html.add_child(HtmlElement("h4", f"{code} Entity prefab"))
 
             dl = HtmlElement("dl")
@@ -23,7 +23,7 @@ class EntityPrefabHtmlGenerator(object):
 
             dl.add_child(HtmlElement("dt", "Components"))
             c_dd = HtmlElement("dd")
-            for key, value in entity_prefab.get_component_prefabs().items():
+            for key, value in entity_prefab.get_all_components().items():
                 c_dd.add_child(self.component_prefab_html_generator.generate_html(value))
             dl.add_child(c_dd)
             html.add_child(dl)

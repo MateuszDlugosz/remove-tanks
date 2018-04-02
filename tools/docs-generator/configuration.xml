@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
     <option name="target.directory">../../docs/auto-generated</option>
+    <option name="target.directory.root">files</option>
     <option name="source.directory">../../core/assets</option>
     <option name="entity.prefab.repository.filename">prefabs/entities/entity-prefab-repository.xml</option>
+    <option name="entity.prefab.filename.start">prefabs/entities/</option>
+    <option name="texture.atlases">
+        EntityAtlas:../../core/assets/graphics/textures/atlases/sepia/entity-atlas.pack,
+                    ../../core/assets/graphics/textures/atlases/sepia/entity-atlas.png
+    </option>
 </configuration>

@@ -1,3 +1,4 @@
+from lib.application.generator.layout.loyout_html_generator import LayoutHtmlGenerator
 from lib.audio.music.music_prefab_html_generator import MusicPrefabHtmlGenerator
 from lib.audio.music.music_prefab_xml_reader import MusicPrefabXmlReader
 from lib.audio.sound.sound_prefab_html_generator import SoundPrefabHtmlGenerator
@@ -28,6 +29,8 @@ from lib.graphics.sprite.sprite_prefab_html_generator import SpritePrefabHtmlGen
     SubFileSpritePrefabHtmlGenerator, SubAtlasSpritePrefabHtmlGenerator
 from lib.graphics.sprite.sprite_prefab_xml_reader import SpritePrefabXmlReader, SubFileSpritePrefabXmlReader, \
     SubAtlasSpritePrefabXmlReader
+from lib.graphics.texture.texture_atlas_reader import TextureAtlasReader
+from lib.graphics.texture.texture_atlas_unpacker import TextureAtlasUnpacker
 from lib.graphics.view.view_prefab_html_generator import ViewPrefabHtmlGenerator, SubSpriteViewPrefabHtmlGenerator, \
     SubAnimationViewPrefabHtmlGenerator, SubParticleEffectViewPrefabHtmlGenerator
 from lib.graphics.view.view_prefab_xml_reader import ViewPrefabXmlReader, SubSpriteViewPrefabXmlReader, \
@@ -317,13 +320,14 @@ class ContextComponents(object):
     @staticmethod
     def init_fixture_prefab_xml_reader(components, configuration):
         return "FixturePrefabXmlReader", FixturePrefabXmlReader(
-            components["FilterPrefabXmlReader"], components["ShapePrefabXmlReader"])
+            components["FilterPrefabXmlReader"],
+            components["ShapePrefabXmlReader"])
 
     @staticmethod
     def init_fixture_prefab_html_generator(components, configuration):
         return "FixturePrefabHtmlGenerator", FixturePrefabHtmlGenerator(
-            components["FilterPrefabHtmlGenerator"],
-            components["ShapePrefabHtmlGenerator"]
+            components["ShapePrefabHtmlGenerator"],
+            components["FilterPrefabHtmlGenerator"]
         )
 
     @staticmethod
@@ -589,3 +593,15 @@ class ContextComponents(object):
         return "EntityPrefabStorage", components["EntityPrefabStorageFactory"].create_entity_prefab_storage(
             components["EntityPrefabRepository"], configuration.get_option("source.directory")
         )
+
+    @staticmethod
+    def init_layout_html_generator(components, configuration):
+        return "LayoutHtmlGenerator", LayoutHtmlGenerator()
+
+    @staticmethod
+    def init_texture_atlas_reader(components, configuration):
+        return "TextureAtlasReader", TextureAtlasReader()
+
+    @staticmethod
+    def init_texture_atlas_unpacker(components, configuration):
+        return "TextureAtlasUnpacker", TextureAtlasUnpacker(components["TextureAtlasReader"])

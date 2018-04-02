@@ -1,6 +1,5 @@
 import logging
-
-from PIL import Image
+import PIL.Image
 
 
 class TextureAtlasUnpacker(object):
@@ -14,7 +13,7 @@ class TextureAtlasUnpacker(object):
             logging.info(f"Texture atlas unpacking source atlas filename {texture_atlas_filename}.")
             logging.info(f"Texture atlas unpacking source image {image_filename}.")
 
-            image = Image.open(image_filename)
+            image = PIL.Image.open(image_filename)
             texture_atlas = self.texture_atlas_reader.read_from_file(texture_atlas_filename)
 
             for region_name, region in texture_atlas.get_regions().items():

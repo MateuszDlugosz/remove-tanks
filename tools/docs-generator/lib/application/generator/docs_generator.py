@@ -1,7 +1,7 @@
 import logging
 import os
-import pathlib
-import shutil
+
+from lib.html.html import HtmlGenerator
 
 
 class DocsGenerator:
@@ -19,65 +19,50 @@ class DocsGenerator:
                      f"{self.context.get_configuration().get_option('source.directory')} assets directory.")
 
         try:
+            self.unpack_texture_atlases()
             self.generate_entity_prefabs_pages()
         except Exception as e:
             raise DocsGenerationException(e)
 
         logging.info("Generation files ended.")
 
+    def unpack_texture_atlases(self):
+        configuration = self.context.get_configuration()
+        unpacker = self.context.get_component("TextureAtlasUnpacker")
+
+        for texture_atlas in self.context.get_configuration().get_option("texture.atlases").strip().split(';'):
+            target_directory = configuration.get_option("target.directory") + "/" +\
+                                      configuration.get_option("target.directory.root") + "/" + \
+                                      texture_atlas.split(":")[0]
+            pack_filename = texture_atlas.split(":")[1].split(",")[0].strip()
+            image_filename = texture_atlas.split(":")[1].split(",")[1].strip()
+            os.makedirs(target_directory, exist_ok=True)
+            unpacker.unpack_to_directory(target_directory, pack_filename, image_filename)
+
+
     def generate_entity_prefabs_pages(self):
         logging.info("Generating entity prefabs pages started.")
         storage = self.context.get_component("EntityPrefabStorage")
         repository = self.context.get_component("EntityPrefabRepository")
+        html_generator = HtmlGenerator()
+        entity_html_generator = self.context.get_component("EntityPrefabHtmlGenerator")
         configuration = self.context.get_configuration()
-        source_filename = "{}/{}".format(
-            self.context.get_configuration().get_option("files.layouts.directory"),
-            self.context.get_configuration().get_option("files.layouts.main.filename")
-        )
 
         for code in repository.get_all_prefabs():
-            target_filename = f'{configuration.get_option("target.directory")}/{repository.get_prefab(code)}'\
-                .replace(".xml", ".html")
+            target_filename = configuration.get_option("target.directory") + "/" +\
+                              configuration.get_option("target.directory.root") + "/" + \
+                              repository.get_prefab(code)\
+                                  .replace(configuration.get_option("entity.prefab.filename.start"), "")\
+                                  .replace("/", "-")\
+                                  .replace(".xml", ".html")
             logging.info(f"Generating entity prefab page {target_filename}.")
-            pathlib.Path(os.path.dirname(target_filename)).mkdir(parents=True, exist_ok=True)
-            shutil.copy(source_filename, target_filename)
+            html_string = html_generator.generate_html(
+                entity_html_generator.generate_html(storage.get_entity_prefab(code), code))
+            os.makedirs(os.path.dirname(target_filename), exist_ok=True)
+            with open(target_filename, "w+") as file:
+                file.write(html_string)
 
         logging.info("Generating entity prefabs pages ended.")
-
-    def replace_include_tag(self, filename, includes_id, replace_with):
-        include_element = f'<include id="{includes_id}" />'
-        includes_filename = '{}/{}'.format(
-            self.context.get_configuration().get_option("files.includes.directory"),
-            self.context.get_configuration().get_option(f"files.includes.{replace_with}.filename")
-        )
-
-        with open(filename) as file:
-            contents_to_replace = file.read()
-
-        with open(includes_filename) as include:
-            contents_to_include = include.read()
-            replaced_contents = contents_to_replace.replace(include_element, contents_to_include)
-
-        with open(filename, "w") as file:
-            file.write(replaced_contents)
-
-
-class DocsGeneratorInitializer(object):
-    def __init__(self, context_initializer):
-        self.context_initializer = context_initializer
-
-    def initialize_docs_generator(self, configuration, context_components_class):
-        try:
-            return DocsGenerator(self.context_initializer.initialize_context(configuration, context_components_class))
-        except Exception as e:
-            raise DocsGeneratorInitializeException(e)
-
-
-class DocsGeneratorInitializeException(Exception):
-    MESSAGE_TEMPLATE = "Cannot initialize files generator. Cause: {}."
-
-    def __init__(self, cause):
-        super().__init__(self.MESSAGE_TEMPLATE.format(cause))
 
 
 class DocsGenerationException(Exception):

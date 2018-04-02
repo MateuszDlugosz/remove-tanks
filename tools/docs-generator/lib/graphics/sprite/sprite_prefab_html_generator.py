@@ -70,7 +70,7 @@ class SubAtlasSpritePrefabHtmlGenerator(SubSpritePrefabHtmlGenerator):
             dl.add_child(HtmlElement("dt", "Atlas filename"))
             dl.add_child(HtmlElement("dd", sprite_prefab.get_atlas_filename()))
             dl.add_child(HtmlElement("dt", "Region name"))
-            dl.add_child(HtmlElement("dd", ", ".join(sprite_prefab.get_region_name())))
+            dl.add_child(HtmlElement("dd", sprite_prefab.get_region_name()))
 
             html.add_child(dl)
 
