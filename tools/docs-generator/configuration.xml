@@ -3,8 +3,8 @@
     <option name="target.directory">../../docs/auto-generated</option>
     <option name="target.directory.root">files</option>
     <option name="target.directory.files">
-        ./files/css/styles.css,
-        ../../docs/auto-generated/files/css/styles.css
+        ./files/js/styles.js,
+        ../../docs/auto-generated/files/js/styles.js
     </option>
     <option name="target.directory.css.files">
         ./css/styles.css

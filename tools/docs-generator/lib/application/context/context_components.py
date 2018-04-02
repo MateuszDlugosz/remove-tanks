@@ -1,4 +1,4 @@
-from lib.application.generator.layout.loyout_html_generator import LayoutHtmlGenerator
+from lib.application.generator.layout.layout_html_generator import LayoutHtmlGenerator
 from lib.application.generator.pages.parts.footer_html_generator import FooterHtmlGenerator
 from lib.application.generator.pages.parts.header_html_generator import HeaderHtmlGenerator
 from lib.application.generator.pages.parts.menu_html_generator import MenuHtmlGenerator

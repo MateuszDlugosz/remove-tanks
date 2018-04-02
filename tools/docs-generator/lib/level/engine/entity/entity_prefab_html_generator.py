@@ -13,6 +13,7 @@ class EntityPrefabHtmlGenerator(object):
             html = HtmlElement("div")
             html.set_attribute("class", ENTITY_CLASS_HTML_ATTRIBUTE)
             html.add_child(HtmlElement("h4", f"{code} Entity prefab"))
+            html.add_child(HtmlElement("hr"))
 
             dl = HtmlElement("dl")
 

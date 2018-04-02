@@ -8,7 +8,7 @@ class PreloadDataHtmlGenerator(object):
         try:
             html = HtmlElement("div")
             html.set_attribute("class", PRELOAD_DATA_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Preload data"))
+            html.add_child(HtmlElement("h5", "Preload data"))
             html.add_child(HtmlElement("hr"))
 
             dl = HtmlElement("dl")

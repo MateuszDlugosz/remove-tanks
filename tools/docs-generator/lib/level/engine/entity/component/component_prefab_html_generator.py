@@ -141,7 +141,7 @@ class SubAmmoComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
             dl.add_child(HtmlElement("dt", "Max level"))
             dl.add_child(HtmlElement("dd", component_prefab.get_max_level()))
 
-            html.add_child(HtmlElement("dt", "Ammo table"))
+            dl.add_child(HtmlElement("dt", "Ammo table"))
             dd_ammo_table = HtmlElement("dd")
 
             table = HtmlElement("table")
@@ -172,7 +172,7 @@ class SubAmmoComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
                 table.add_child(row)
 
             dd_ammo_table.add_child(table)
-            html.add_child(dd_ammo_table)
+            dl.add_child(dd_ammo_table)
             html.add_child(dl)
 
             return html

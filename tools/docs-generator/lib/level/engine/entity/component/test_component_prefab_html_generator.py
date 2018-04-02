@@ -93,7 +93,7 @@ class TestSubLeaveBonusComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
 
-class TestSubAmmoComponentComponentPrefabHtmlGenerator(unittest.TestCase):
+class TestSubAmmoComponentPrefabHtmlGenerator(unittest.TestCase):
     def test_generate_html(self):
         prefab = AmmoComponentPrefab(1, 2, {1: {"Left": "LeftBullet0", "Right": "RightBullet0"},
                                             2: {"Left": "LeftBullet1", "Right": "RightBullet1"}})
@@ -101,12 +101,12 @@ class TestSubAmmoComponentComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubAmmoComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Ammocomponent</h5><hr/><dt>Ammotable</dt><dd><table><tr><th>Level</th><th>'
-            'EntityPrefabCodes</th></tr><tr><td>1</td><td><table><tr><th>Direction</th><th>Entityprefabcode</th></tr>'
-            '<tr><td>Left</td><td>LeftBullet0</td></tr><tr><td>Right</td><td>RightBullet0</td></tr></table></td></tr>'
-            '<tr><td>2</td><td><table><tr><th>Direction</th><th>Entityprefabcode</th></tr><tr><td>Left</td><td>'
-            'LeftBullet1</td></tr><tr><td>Right</td><td>RightBullet1</td></tr></table></td></tr></table></dd><dl><dt>'
-            'Currentlevel</dt><dd>1</dd><dt>Maxlevel</dt><dd>2</dd></dl></div>',
+            '<divclass="doc-component"><h5>Ammocomponent</h5><hr/><dl><dt>Currentlevel</dt><dd>1</dd><dt>'
+            'Maxlevel</dt><dd>2</dd><dt>Ammotable</dt><dd><table><tr><th>Level</th><th>EntityPrefabCodes</th>'
+            '</tr><tr><td>1</td><td><table><tr><th>Direction</th><th>Entityprefabcode</th></tr><tr><td>Left</td>'
+            '<td>LeftBullet0</td></tr><tr><td>Right</td><td>RightBullet0</td></tr></table></td></tr><tr><td>2</td>'
+            '<td><table><tr><th>Direction</th><th>Entityprefabcode</th></tr><tr><td>Left</td><td>LeftBullet1</td>'
+            '</tr><tr><td>Right</td><td>RightBullet1</td></tr></table></td></tr></table></dd></dl></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

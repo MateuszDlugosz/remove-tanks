@@ -36,7 +36,7 @@ class HtmlElement(object):
 class HtmlGenerator(object):
     def generate_html(self, html_element, deep=0):
         attributes = ""
-        end_element = " /"
+        end_element = "/"
         sub_elements = ""
 
         if len(html_element.get_attributes()) > 0:
