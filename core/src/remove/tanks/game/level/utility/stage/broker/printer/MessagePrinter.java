@@ -7,12 +7,15 @@ import remove.tanks.game.audio.sound.SoundChannelName;
 import remove.tanks.game.level.event.sound.PlaySoundEvent;
 import remove.tanks.game.level.utility.stage.broker.message.Message;
 import remove.tanks.game.locale.Locale;
+import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.utility.time.Timer;
 
 /**
  * @author Mateusz Długosz
  */
 public final class MessagePrinter {
+    private static final TranslationEntryKey MESSAGE_TRANSLATION_ENTRY_KEY = TranslationEntryKey.GameLevelMessage;
+
     private final Sound printingSound;
     private final SoundChannelName soundChannelName;
     private final EventBus eventBus;
@@ -29,11 +32,12 @@ public final class MessagePrinter {
 
     public boolean printMessage(Message message, Label label, float delta) {
         if (timer.isCompleted()) {
+            String formattedEntry = String.format(MESSAGE_TRANSLATION_ENTRY_KEY.getName(), message.getEntryKey());
             int currentLength = label.getText().length();
-            int targetLength = locale.getSelectedTranslation().getEntry(message.getEntryKey().getName()).length();
+            int targetLength = locale.getSelectedTranslation().getEntry(formattedEntry).length();
 
             if (currentLength != targetLength) {
-                label.setText(locale.getSelectedTranslation().getEntry(message.getEntryKey().getName())
+                label.setText(locale.getSelectedTranslation().getEntry(formattedEntry)
                         .substring(0, currentLength + 1).toUpperCase());
                 eventBus.post(new PlaySoundEvent(printingSound, soundChannelName));
                 timer.reset();

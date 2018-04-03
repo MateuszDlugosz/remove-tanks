@@ -1,7 +1,6 @@
 package remove.tanks.game.level.mode.operation;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.XmlReader;
 
 /**
  * @author Mateusz Długosz

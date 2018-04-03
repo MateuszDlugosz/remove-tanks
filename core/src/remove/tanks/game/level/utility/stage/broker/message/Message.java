@@ -1,6 +1,5 @@
 package remove.tanks.game.level.utility.stage.broker.message;
 
-import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.utility.time.Timer;
 
 import java.util.Optional;
@@ -10,10 +9,10 @@ import java.util.Optional;
  */
 public final class Message {
     private final Timer timer;
-    private final TranslationEntryKey entryKey;
+    private final String entryKey;
     private final String faceId;
 
-    public Message(Timer timer, TranslationEntryKey entryKey, String faceId) {
+    public Message(Timer timer, String entryKey, String faceId) {
         this.timer = timer;
         this.entryKey = entryKey;
         this.faceId = faceId;
@@ -23,7 +22,7 @@ public final class Message {
         return timer;
     }
 
-    public TranslationEntryKey getEntryKey() {
+    public String getEntryKey() {
         return entryKey;
     }
 

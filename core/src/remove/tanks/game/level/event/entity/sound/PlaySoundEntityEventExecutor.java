@@ -19,7 +19,7 @@ public final class PlaySoundEntityEventExecutor implements SubEventExecutor<Play
             if (registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class)
                     .getCameraBoundaries().isInBoundary(PhysicsComponent.MAPPER.get(event.getEntity()).getPosition()))
             {
-                registry.getResource(ResourceType.GlobalEventBusResource, EventBus.class)
+                registry.getResource(ResourceType.ExternalEventBusResource, EventBus.class)
                         .post(new PlaySoundEvent(event.getSoundChannelName(), event.getSound()));
             }
         } catch (Exception e) {

@@ -1,7 +1,6 @@
 package remove.tanks.game.level.utility.stage.broker.message;
 
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.locale.translation.TranslationEntryKey;
 
 /**
  * @author Mateusz Długosz
@@ -29,8 +28,8 @@ public final class MessagePrefabXmlReader {
         return Float.valueOf(element.getChildByName(TIME_ELEMENT).getText().trim());
     }
 
-    private TranslationEntryKey readEntryKey(XmlReader.Element element) {
-        return TranslationEntryKey.valueOf(element.getChildByName(ENTRY_KEY_ELEMENT).getText().trim());
+    private String readEntryKey(XmlReader.Element element) {
+        return element.getChildByName(ENTRY_KEY_ELEMENT).getText().trim();
     }
 
     private String readFaceId(XmlReader.Element element) {

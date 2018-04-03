@@ -5,7 +5,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
@@ -19,7 +18,6 @@ import remove.tanks.game.data.profile.Profile;
 import remove.tanks.game.data.profile.ProfileController;
 import remove.tanks.game.data.profile.ProfileProperty;
 import remove.tanks.game.data.profile.achievement.AchievementStorage;
-import remove.tanks.game.data.profile.achievement.AchievementType;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;
@@ -61,10 +59,8 @@ public final class ProfileScreen extends GameScreen {
     public ProfileScreen(GameApplication gameApplication) {
         super(gameApplication);
         this.stage = new Stage(
-                gameApplication.getContext()
-                        .getComponent("MenuCamera", Game2DCamera.class).getViewport(),
-                gameApplication.getContext()
-                        .getComponent("SpriteBatch", SpriteBatch.class));
+                gameApplication.getContext().getComponent("MenuCamera", Game2DCamera.class).getViewport(),
+                gameApplication.getContext().getComponent("SpriteBatch", SpriteBatch.class));
         this.skin = gameApplication.getContext()
                 .getComponent("UISkin", Skin.class);
         this.locale = gameApplication.getContext()

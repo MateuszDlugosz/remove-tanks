@@ -1,5 +1,5 @@
-import logging
 import PIL.Image
+import logging
 
 
 class TextureAtlasUnpacker(object):

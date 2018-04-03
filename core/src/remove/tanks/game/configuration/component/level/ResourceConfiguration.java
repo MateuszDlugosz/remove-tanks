@@ -69,7 +69,7 @@ public final class ResourceConfiguration {
                             new EntityControllerLocalResourceFactory(
                                     getContext().getComponent("EntityFactory", EntityFactory.class)
                             ),
-                            new GlobalEventBusGlobalResourceFactory(),
+                            new ExternalEventBusGlobalResourceFactory(),
                             new TiledMapRendererLocalResourceFactory(),
                             new LevelPropertiesLocalResourceFactory()
                     }

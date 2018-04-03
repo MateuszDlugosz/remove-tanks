@@ -40,5 +40,5 @@
     <entry key="game.screen.button.yes">Yes</entry>
     <entry key="game.screen.button.no">No</entry>
 
-    <entry key="Simple">Sample</entry>
+    <entry key="game.level.message.test">Test message</entry>
 </translation>

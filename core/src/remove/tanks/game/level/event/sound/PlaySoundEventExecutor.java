@@ -13,7 +13,7 @@ public final class PlaySoundEventExecutor implements SubEventExecutor<PlaySoundE
     @Override
     public void executeEvent(PlaySoundEvent event, ResourceRegistry registry) {
         try {
-            registry.getResource(ResourceType.GlobalEventBusResource, EventBus.class)
+            registry.getResource(ResourceType.ExternalEventBusResource, EventBus.class)
                     .post(new remove.tanks.game.audio.sound.event.PlaySoundEvent(
                             event.getSoundChannelName(), event.getSound()
                     ));

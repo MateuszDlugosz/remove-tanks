@@ -54,7 +54,7 @@ public final class LevelConfiguration {
                     getContext().getComponent("InputMapper", InputMapper.class));
             globalObjects.put(ResourceType.PlayerProfileResource,
                     getContext().getComponent("Profile", Profile.class));
-            globalObjects.put(ResourceType.GlobalEventBusResource,
+            globalObjects.put(ResourceType.ExternalEventBusResource,
                     getContext().getComponent("EventBus", EventBus.class));
 
             return new LevelFactory(

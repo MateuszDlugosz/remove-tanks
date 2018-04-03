@@ -13,7 +13,7 @@ public final class PlayMusicEventExecutor implements SubEventExecutor<PlayMusicE
     @Override
     public void executeEvent(PlayMusicEvent event, ResourceRegistry registry) {
         try {
-            registry.getResource(ResourceType.GlobalEventBusResource, EventBus.class)
+            registry.getResource(ResourceType.ExternalEventBusResource, EventBus.class)
                     .post(new remove.tanks.game.audio.music.event.PlayMusicEvent(
                             event.getMusicChannelName(),
                             event.getMusic()

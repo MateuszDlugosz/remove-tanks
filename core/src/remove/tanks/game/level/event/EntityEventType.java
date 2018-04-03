@@ -7,6 +7,7 @@ public enum EntityEventType {
     PlaySoundEntityEvent,
     PlayMusicEntityEvent,
     CreateEntityEvent,
+    RandomCreateEntityEvent,
     DestroyEntityEvent,
     DestroyEntityByIdEntityEvent,
     DestroyFamilyEntityEvent,

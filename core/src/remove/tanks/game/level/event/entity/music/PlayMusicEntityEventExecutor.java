@@ -19,7 +19,7 @@ public final class PlayMusicEntityEventExecutor implements SubEventExecutor<Play
             if (registry.getResource(ResourceType.TiledMapBoundaryResource, Boundary.class)
                     .isInBoundary(PhysicsComponent.MAPPER.get(event.getEntity()).getPosition()))
             {
-                registry.getResource(ResourceType.GlobalEventBusResource, EventBus.class)
+                registry.getResource(ResourceType.ExternalEventBusResource, EventBus.class)
                         .post(new PlayMusicEvent(event.getMusicChannelName(), event.getMusic()));
             }
         } catch (Exception e) {

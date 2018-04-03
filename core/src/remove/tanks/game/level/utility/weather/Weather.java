@@ -14,6 +14,14 @@ public final class Weather {
         this.effects = effects;
     }
 
+    public void addWeatherEffect(WeatherEffect effect) {
+        effects.add(effect);
+    }
+
+    public void clearWeatherEffects() {
+        effects.clear();
+    }
+
     public void update(float delta) {
         effects.forEach(e -> e.update(delta));
     }

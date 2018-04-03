@@ -3,8 +3,6 @@ package remove.tanks.game.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -18,16 +16,12 @@ import remove.tanks.game.audio.sound.SoundChannelName;
 import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
-import remove.tanks.game.level.LevelSequence;
-import remove.tanks.game.level.mode.campaign.Campaign;
 import remove.tanks.game.level.mode.campaign.CampaignStorage;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.screen.gui.button.Button;
 import remove.tanks.game.screen.gui.button.ButtonGroup;
 import remove.tanks.game.screen.gui.label.Label;
-
-import java.util.Arrays;
 
 /**
  * @author Mateusz Długosz

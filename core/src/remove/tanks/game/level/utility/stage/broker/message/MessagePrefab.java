@@ -1,7 +1,6 @@
 package remove.tanks.game.level.utility.stage.broker.message;
 
 import com.google.common.base.MoreObjects;
-import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.utility.Prefab;
 
 /**
@@ -9,10 +8,10 @@ import remove.tanks.game.utility.Prefab;
  */
 public final class MessagePrefab extends Prefab {
     private final float time;
-    private final TranslationEntryKey entryKey;
+    private final String entryKey;
     private final String faceId;
 
-    public MessagePrefab(float time, TranslationEntryKey entryKey, String faceId) {
+    public MessagePrefab(float time, String entryKey, String faceId) {
         this.time = time;
         this.entryKey = entryKey;
         this.faceId = faceId;
@@ -22,7 +21,7 @@ public final class MessagePrefab extends Prefab {
         return time;
     }
 
-    public TranslationEntryKey getEntryKey() {
+    public String getEntryKey() {
         return entryKey;
     }
 

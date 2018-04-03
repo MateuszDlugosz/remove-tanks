@@ -246,7 +246,6 @@
                             <titleEntry>GameLevelHudLife</titleEntry>
                             <property>LevelLifes</property>
                         </widget>
-                        <!--<widget type="TimeLeftPresenterWidget" />-->
                         <widget type="PropertyPresenterWidget">
                             <titleEntry>GameLevelHudEnemiesLeft</titleEntry>
                             <property>LevelEnemiesLeft</property>
@@ -326,7 +325,7 @@
                             <events>
                                 <event type="AddMessageEvent">
                                     <message>
-                                        <entryKey>GameScreenButtonBack</entryKey>
+                                        <entryKey>test</entryKey>
                                         <time>10</time>
                                         <faceId>Face0</faceId>
                                     </message>

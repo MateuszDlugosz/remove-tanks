@@ -25,7 +25,6 @@ public abstract class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        getStage().draw();
         getStage().getCamera().update();
         getStage().getBatch().setProjectionMatrix(getStage().getCamera().combined);
         getStage().act(delta);

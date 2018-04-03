@@ -11,6 +11,7 @@ public enum EventType {
     PlaySoundEvent,
     PlayMusicEvent,
     CreateEvent,
+    RandomCreateEvent,
     AddPointsEvent,
     AddCameraEffectEvent,
     AddLifeEvent,
@@ -21,5 +22,8 @@ public enum EventType {
     SpawnAirplaneEvent,
     ChangeLevelStateEvent,
     AddMessageEvent,
-    ActivateSpawnerEvent
+    ClearMessagesEvent,
+    ActivateSpawnerEvent,
+    AddWeatherEffectEvent,
+    ClearWeatherEffectsEvent
 }

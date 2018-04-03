@@ -1,6 +1,6 @@
 import unittest
-
 from lib.application.configuration.configuration import Configuration
+
 from lib.application.context.context import Context, ContextComponentNotFoundException
 
 

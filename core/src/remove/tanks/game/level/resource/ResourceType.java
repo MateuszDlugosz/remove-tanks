@@ -35,7 +35,7 @@ public enum ResourceType {
     WorldScaleResource(Scale.class),
     InputMapperResource(InputMapper.class),
     PlayerProfileResource(Profile.class),
-    GlobalEventBusResource(EventBus.class),
+    ExternalEventBusResource(EventBus.class),
 
     LevelPropertiesResource(Properties.class),
     EntityPrefabStorageResource(EntityPrefabStorage.class),
