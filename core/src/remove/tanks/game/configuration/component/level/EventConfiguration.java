@@ -120,7 +120,8 @@ public final class EventConfiguration {
                             new AddMessageEntityEventExecutor(),
                             new AddMessageEventExecutor(),
                             new ActivateSystemEventExecutor(),
-                            new ActivateSpawnerEntityEventExecutor()
+                            new ActivateSpawnerEntityEventExecutor(),
+                            new ResetPointsMultiplierEventExecutor()
                     }
             );
         }
@@ -157,7 +158,8 @@ public final class EventConfiguration {
                             new AddMessageEventPrefabXmlReader(
                                     getContext().getComponent("MessagePrefabXmlReader", MessagePrefabXmlReader.class)
                             ),
-                            new ActivateSpawnerEventPrefabXmlReader()
+                            new ActivateSpawnerEventPrefabXmlReader(),
+                            new ResetPointsMultiplierEventPrefabXmlReader()
                     }
             );
         }
@@ -194,7 +196,8 @@ public final class EventConfiguration {
                             new AddMessageEventFactory(
                                     getContext().getComponent("MessageFactory", MessageFactory.class)
                             ),
-                            new ActivateSpawnerEventFactory()
+                            new ActivateSpawnerEventFactory(),
+                            new ResetPointsMultiplierEventFactory()
                     }
             );
         }

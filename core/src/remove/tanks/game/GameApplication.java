@@ -28,7 +28,7 @@ import java.util.HashSet;
  */
 public final class GameApplication extends Game {
     public static final String TITLE = "Remove Tanks!";
-    public static final String VERSION = "0.19.83";
+    public static final String VERSION = "0.19.84";
 
     private final Configuration configuration;
     private Context context;
@@ -83,8 +83,7 @@ public final class GameApplication extends Game {
     public void dispose () {
         getContext().getComponent("AudioConfigurationController", AudioConfigurationController.class)
                 .saveAudioConfiguration();
-        getContext().getComponent("Preferences", Preferences.class)
-                .flush();
+        getContext().getComponent("Preferences", Preferences.class).flush();
         getContext().getComponent("LevelPresenter", LevelPresenter.class).dispose();
         getContext().getComponent("SpriteBatch", SpriteBatch.class).dispose();
         getContext().getComponent("MainAssetStorage", AssetStorage.class).dispose();

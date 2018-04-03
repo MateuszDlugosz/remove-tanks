@@ -16,6 +16,7 @@ public enum EventType {
     AddLifeEvent,
     RemoveLifeEvent,
     IncreasePointsMultiplierEvent,
+    ResetPointsMultiplierEvent,
     AmmoLevelUpEvent,
     SpawnAirplaneEvent,
     ChangeLevelStateEvent,

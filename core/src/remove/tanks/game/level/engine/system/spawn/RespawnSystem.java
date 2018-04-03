@@ -10,6 +10,7 @@ import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.component.physics.PhysicsComponent;
 import remove.tanks.game.level.event.create.CreateEvent;
 import remove.tanks.game.level.event.life.RemoveLifeEvent;
+import remove.tanks.game.level.event.points.ResetPointsMultiplierEvent;
 import remove.tanks.game.level.utility.create.CreateEntry;
 import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
@@ -64,7 +65,7 @@ public final class RespawnSystem extends EntitySystem {
     private void respawnPlayer() {
         eventBus.post(new CreateEvent(Lists.newArrayList(new CreateEntry(entityPrefabCode,
                 PhysicsComponent.MAPPER.get(getRandomRespawn()).getPosition()))));
-
+        eventBus.post(ResetPointsMultiplierEvent.INSTANCE);
 
         if (!freeRespawn) {
             eventBus.post(RemoveLifeEvent.INSTANCE);
