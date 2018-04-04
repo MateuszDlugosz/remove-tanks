@@ -31,9 +31,7 @@ import remove.tanks.game.level.event.entity.camera.AddCameraEffectEntityEventFac
 import remove.tanks.game.level.event.entity.camera.AddCameraEffectEntityEventPrefabXmlReader;
 import remove.tanks.game.level.event.entity.create.*;
 import remove.tanks.game.level.event.entity.destroy.*;
-import remove.tanks.game.level.event.entity.life.AddLifeEntityEventExecutor;
-import remove.tanks.game.level.event.entity.life.AddLifeEntityEventFactory;
-import remove.tanks.game.level.event.entity.life.AddLifeEntityEventPrefabXmlReader;
+import remove.tanks.game.level.event.entity.life.*;
 import remove.tanks.game.level.event.entity.message.AddMessageEntityEventExecutor;
 import remove.tanks.game.level.event.entity.message.AddMessageEntityEventFactory;
 import remove.tanks.game.level.event.entity.message.AddMessageEntityEventPrefabXmlReader;
@@ -50,6 +48,10 @@ import remove.tanks.game.level.event.entity.spawner.ActivateSpawnerEntityEventPr
 import remove.tanks.game.level.event.entity.state.ChangeLevelStateEntityEventExecutor;
 import remove.tanks.game.level.event.entity.state.ChangeLevelStateEntityEventFactory;
 import remove.tanks.game.level.event.entity.state.ChangeLevelStateEntityEventPrefabXmlReader;
+import remove.tanks.game.level.event.entity.system.*;
+import remove.tanks.game.level.event.entity.weather.AddWeatherEffectEntityEventExecutor;
+import remove.tanks.game.level.event.entity.weather.AddWeatherEffectEntityEventFactory;
+import remove.tanks.game.level.event.entity.weather.AddWeatherEffectEntityEventPrefabXmlReader;
 import remove.tanks.game.level.event.life.AddLifeEventExecutor;
 import remove.tanks.game.level.event.life.AddLifeEventFactory;
 import remove.tanks.game.level.event.life.AddLifeEventPrefabXmlReader;
@@ -62,8 +64,8 @@ import remove.tanks.game.level.event.points.*;
 import remove.tanks.game.level.event.sound.PlaySoundEvenFactory;
 import remove.tanks.game.level.event.sound.PlaySoundEventExecutor;
 import remove.tanks.game.level.event.sound.PlaySoundEventPrefabXmlReader;
-import remove.tanks.game.level.event.spawn.ActivateSpawnerEventFactory;
-import remove.tanks.game.level.event.spawn.ActivateSpawnerEventPrefabXmlReader;
+import remove.tanks.game.level.event.spawner.ActivateSpawnerEventFactory;
+import remove.tanks.game.level.event.spawner.ActivateSpawnerEventPrefabXmlReader;
 import remove.tanks.game.level.event.state.ChangeLevelStateEventExecutor;
 import remove.tanks.game.level.event.state.ChangeLevelStateEventFactory;
 import remove.tanks.game.level.event.state.ChangeLevelStateEventPrefabXmlReader;
@@ -88,7 +90,9 @@ public final class EventConfiguration {
             return new EventExecutor(
                     new SubEventExecutor[] {
                             new ActivateSystemEventExecutor(),
+                            new ActivateSystemEntityEventExecutor(),
                             new DeactivateSystemEventExecutor(),
+                            new DeactivateSystemEntityEventExecutor(),
                             new PlaySoundEventExecutor(),
                             new PlaySoundEntityEventExecutor(),
                             new PlayMusicEventExecutor(),
@@ -107,6 +111,7 @@ public final class EventConfiguration {
                             new AddLifeEntityEventExecutor(),
                             new AddLifeEventExecutor(),
                             new RemoveLifeEventExecutor(),
+                            new RemoveLifeEntityEventExecutor(),
                             new IncreasePointsMultiplierEventExecutor(),
                             new IncreasePointsMultiplierEntityEventExecutor(),
                             new AmmoLevelUpEntityEventExecutor(),
@@ -120,8 +125,10 @@ public final class EventConfiguration {
                             new ActivateSystemEventExecutor(),
                             new ActivateSpawnerEntityEventExecutor(),
                             new ResetPointsMultiplierEventExecutor(),
+                            new ResetPointsMultiplierEntityEventExecutor(),
                             new ClearMessagesEventExecutor(),
                             new AddWeatherEffectEventExecutor(),
+                            new AddWeatherEffectEntityEventExecutor(),
                             new ClearWeatherEffectsEventExecutor(),
                             new RandomCreateEventExecutor(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
@@ -259,6 +266,13 @@ public final class EventConfiguration {
                             new ActivateSpawnerEntityEventPrefabXmlReader(),
                             new RandomCreateEntityEventPrefabXmlReader(
                                     getContext().getComponent("CreateEntryPrefabXmlReader", CreateEntryPrefabXmlReader.class)
+                            ),
+                            new RemoveLifeEntityEventPrefabXmlReader(),
+                            new ResetPointsMultiplierEntityEventPrefabXmlReader(),
+                            new ActivateSystemEntityEventPrefabXmlReader(),
+                            new DeactivateSystemEntityEventPrefabXmlReader(),
+                            new AddWeatherEffectEntityEventPrefabXmlReader(
+                                    getContext().getComponent("WeatherEffectPrefabXmlReader", WeatherEffectPrefabXmlReader.class)
                             )
                     }
             );
@@ -298,6 +312,13 @@ public final class EventConfiguration {
                             new ActivateSpawnerEntityEventFactory(),
                             new RandomCreateEntityEventFactory(
                                     getContext().getComponent("CreateEntryFactory", CreateEntryFactory.class)
+                            ),
+                            new RemoveLifeEntityEventFactory(),
+                            new ResetPointsMultiplierEntityEventFactory(),
+                            new ActivateSystemEntityEventFactory(),
+                            new DeactivateSystemEntityEventFactory(),
+                            new AddWeatherEffectEntityEventFactory(
+                                    getContext().getComponent("WeatherEffectFactory", WeatherEffectFactory.class)
                             )
                     }
             );

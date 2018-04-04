@@ -14,10 +14,16 @@ public enum EntityEventType {
     AddCameraEffectEntityEvent,
     AddPointsEntityEvent,
     AddLifeEntityEvent,
+    RemoveLifeEntityEvent,
     AmmoLevelUpEntityEvent,
     IncreasePointsMultiplierEntityEvent,
+    ResetPointsMultiplierEntityEvent,
     SpawnAirplaneEntityEvent,
     ChangeLevelStateEntityEvent,
     AddMessageEntityEvent,
-    ActivateSpawnerEntityEvent
+    ClearMessagesEntityEvent,
+    ActivateSpawnerEntityEvent,
+    ActivateSystemEntityEvent,
+    DeactivateSystemEntityEvent,
+    AddWeatherEffectEntityEvent
 }
