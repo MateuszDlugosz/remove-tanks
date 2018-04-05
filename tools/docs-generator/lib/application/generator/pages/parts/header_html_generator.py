@@ -5,7 +5,7 @@ class HeaderHtmlGenerator(object):
     def generate_html(self):
         try:
             html = HtmlElement("div")
-            html.add_child(HtmlElement("h1", "Documentation"))
+            html.add_child(HtmlElement("h1", "RemoveTanks! Documentation"))
             
             return html
         except Exception as e:

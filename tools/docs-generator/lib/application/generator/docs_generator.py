@@ -45,6 +45,7 @@ class DocsGenerator:
         for texture_atlas in self.context.get_configuration().get_option("texture.atlases").strip().split(';'):
             target_directory = configuration.get_option("target.directory") + "/" +\
                                       configuration.get_option("target.directory.root") + "/" + \
+                                      configuration.get_option("target.directory.images.root") + "/" + \
                                       texture_atlas.split(":")[0].strip()
             pack_filename = texture_atlas.split(":")[1].split(",")[0].strip()
             image_filename = texture_atlas.split(":")[1].split(",")[1].strip()

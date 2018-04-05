@@ -2,12 +2,18 @@
 <configuration>
     <option name="target.directory">../../docs/auto-generated</option>
     <option name="target.directory.root">files</option>
+    <option name="target.directory.images.root">images</option>
     <option name="target.directory.files">
-        ./files/js/styles.js,
-        ../../docs/auto-generated/files/js/styles.js
+        ./files/css/styles.css,
+        ../../docs/auto-generated/files/css/styles.css;
+        ./files/js/scripts.js,
+        ../../docs/auto-generated/files/js/scripts.js
     </option>
-    <option name="target.directory.css.files">
+    <option name="includes.css">
         ./css/styles.css
+    </option>
+    <option name="includes.js">
+        ./js/scripts.js
     </option>
     <option name="source.directory">../../core/assets</option>
     <option name="entity.prefab.repository.filename">prefabs/entities/entity-prefab-repository.xml</option>

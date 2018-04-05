@@ -601,7 +601,8 @@ class ContextComponents(object):
     @staticmethod
     def init_layout_html_generator(components, configuration):
         return "LayoutHtmlGenerator", LayoutHtmlGenerator(
-            configuration.get_option("target.directory.css.files").split(";")
+            configuration.get_option("includes.css").split(";"),
+            configuration.get_option("includes.js").split(";")
         )
 
     @staticmethod
