@@ -19,7 +19,7 @@ class EntityPrefabHtmlGenerator(object):
             pd_div.add_child(HtmlElement("hr"))
             pd_div.add_child(self.preload_data_html_generator.generate_html(entity_prefab.get_preload_data()))
 
-            c_div = HtmlElement("h4", "Components")
+            c_div = HtmlElement("div")
             c_div.add_child(HtmlElement("hr"))
 
             for key, value in entity_prefab.get_all_components().items():

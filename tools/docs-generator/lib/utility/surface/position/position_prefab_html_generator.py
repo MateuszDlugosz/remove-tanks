@@ -6,22 +6,23 @@ POSITION_HTML_CLASS_ATTRIBUTE = "doc-position"
 class PositionPrefabHtmlGenerator(object):
     def generate_html(self, position_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", POSITION_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Position"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dt0 = HtmlElement("dt", "X")
-            dd0 = HtmlElement("dd", position_prefab.get_x())
-            dt1 = HtmlElement("dt", "Y")
-            dd1 = HtmlElement("dd", position_prefab.get_y())
-            dl.add_child(dt0)
-            dl.add_child(dd0)
-            dl.add_child(dt1)
-            dl.add_child(dd1)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement(
+                "div",
+                attributes={
+                    "class": POSITION_HTML_CLASS_ATTRIBUTE
+                },
+                children=[
+                    HtmlElement("button", "Position"),
+                    HtmlElement("div", children=[
+                        HtmlElement("p", children=[
+                            HtmlElement("strong", "x: "),
+                            HtmlElement("span", position_prefab.get_x()),
+                            HtmlElement("strong", " y: "),
+                            HtmlElement("span", position_prefab.get_y())
+                        ])
+                    ])
+                ]
+            )
         except Exception as e:
             raise PositionPrefabHtmlGenerationException(position_prefab, e)
 

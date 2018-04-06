@@ -74,6 +74,14 @@ class LayoutHtmlGenerator(object):
         html.add_child(main)
         html.add_child(footer)
 
+        jquery = HtmlElement("script", " ")
+        jquery.set_attribute("src", "https://code.jquery.com/jquery-3.2.1.slim.min.js")
+        jquery.set_attribute("integrity",
+                             "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN")
+        jquery.set_attribute("crossorigin", "anonymous")
+
+        html.add_child(jquery)
+
         for filename in self.js_filenames:
             js = HtmlElement("script", " ")
             js.set_attribute("src", filename)

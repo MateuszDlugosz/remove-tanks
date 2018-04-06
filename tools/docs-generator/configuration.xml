@@ -22,6 +22,10 @@
         EntityAtlas:../../core/assets/graphics/textures/atlases/sepia/entity-atlas.pack,
                     ../../core/assets/graphics/textures/atlases/sepia/entity-atlas.png;
         FaceAtlas:../../core/assets/graphics/textures/atlases/sepia/face-atlas.pack,
-                    ../../core/assets/graphics/textures/atlases/sepia/face-atlas.png
+                    ../../core/assets/graphics/textures/atlases/sepia/face-atlas.png;
+        AchievementAtlas:../../core/assets/graphics/textures/atlases/achievement-atlas.pack,
+                    ../../core/assets/graphics/textures/atlases/achievement-atlas.png;
+        CampaignAtlas:../../core/assets/graphics/textures/atlases/campaign-atlas.pack,
+                    ../../core/assets/graphics/textures/atlases/campaign-atlas.png
     </option>
 </configuration>
