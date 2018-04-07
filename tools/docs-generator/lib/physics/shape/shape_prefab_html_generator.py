@@ -34,24 +34,31 @@ class SubRectangleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
 
     def generate_html(self, shape_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Rectangle shape"))
-            html.add_child(HtmlElement("hr"))
+            return HtmlElement(
+                "div",
+                attributes={
+                    "class": SHAPE_HTML_CLASS_ATTRIBUTE
+                },
+                children=[
+                    HtmlElement("button", "Rectangle shape"),
+                    HtmlElement("div", children=[
+                        HtmlElement("p", children=[
+                            HtmlElement("table", children=[
+                                HtmlElement("tr", children=[
+                                    HtmlElement("th", "Width"),
+                                    HtmlElement("td", shape_prefab.get_width())
+                                ]),
+                                HtmlElement("tr", children=[
+                                    HtmlElement("th", "Height"),
+                                    HtmlElement("td", shape_prefab.get_height())
+                                ])
+                            ]),
+                            self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())
+                        ]),
+                    ])
 
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Width"))
-            dl.add_child(HtmlElement("dd", shape_prefab.get_width()))
-            dl.add_child(HtmlElement("dt", "Height"))
-            dl.add_child(HtmlElement("dd", shape_prefab.get_height()))
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd = HtmlElement("dd")
-            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
-            dl.add_child(dd)
-
-            html.add_child(dl)
-
-            return html
+                ]
+            )
         except Exception as e:
             raise ShapePrefabHtmlGenerationException(shape_prefab, e)
 

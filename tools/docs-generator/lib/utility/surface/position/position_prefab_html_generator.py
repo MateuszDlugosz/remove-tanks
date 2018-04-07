@@ -15,10 +15,16 @@ class PositionPrefabHtmlGenerator(object):
                     HtmlElement("button", "Position"),
                     HtmlElement("div", children=[
                         HtmlElement("p", children=[
-                            HtmlElement("strong", "x: "),
-                            HtmlElement("span", position_prefab.get_x()),
-                            HtmlElement("strong", " y: "),
-                            HtmlElement("span", position_prefab.get_y())
+                            HtmlElement("table", children=[
+                                HtmlElement("tr", children=[
+                                    HtmlElement("th", "X"),
+                                    HtmlElement("td", position_prefab.get_x())
+                                ]),
+                                HtmlElement("tr", children=[
+                                    HtmlElement("th", "Y"),
+                                    HtmlElement("td", position_prefab.get_y())
+                                ])
+                            ])
                         ])
                     ])
                 ]

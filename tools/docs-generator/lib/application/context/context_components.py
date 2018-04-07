@@ -1,6 +1,7 @@
 from lib.application.generator.layout.layout_html_generator import LayoutHtmlGenerator
 from lib.application.generator.pages.parts.footer_html_generator import FooterHtmlGenerator
 from lib.application.generator.pages.parts.header_html_generator import HeaderHtmlGenerator
+from lib.application.generator.pages.parts.menu_entity_prefabs_html_generator import MenuEntityPrefabsHtmlGenerator
 from lib.application.generator.pages.parts.menu_html_generator import MenuHtmlGenerator
 from lib.audio.music.music_prefab_html_generator import MusicPrefabHtmlGenerator
 from lib.audio.music.music_prefab_xml_reader import MusicPrefabXmlReader
@@ -612,6 +613,10 @@ class ContextComponents(object):
     @staticmethod
     def init_texture_atlas_unpacker(components, configuration):
         return "TextureAtlasUnpacker", TextureAtlasUnpacker(components["TextureAtlasReader"])
+
+    @staticmethod
+    def init_menu_entity_prefabs_html_generator(components, configuration):
+        return "MenuEntityPrefabsHtmlGenerator", MenuEntityPrefabsHtmlGenerator()
 
     @staticmethod
     def init_footer_html_generator(components, configuration):

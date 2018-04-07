@@ -1,6 +1,9 @@
 from lib.html.html import HtmlElement
 
-ENTITY_CLASS_HTML_ATTRIBUTE = "doc-entity"
+ENTITY_CLASS_HTML_ATTRIBUTE = "doc-entity card"
+ENTITY_BODY_CLASS_HTML_ATTRIBUTES = "doc-entity-body card-body"
+ENTITY_TITLE_CLASS_HTML_ATTRIBUTES = "doc-entity-title card-title text-center"
+ENTITY_tEXT_TEMPLATE = "Entity prefab: {}"
 
 
 class EntityPrefabHtmlGenerator(object):
@@ -10,25 +13,18 @@ class EntityPrefabHtmlGenerator(object):
 
     def generate_html(self, entity_prefab, code):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h3", f"Entity prefab: {code}"))
-            html.add_child(HtmlElement("hr"))
-
-            pd_div = HtmlElement("h4", "Preload data")
-            pd_div.add_child(HtmlElement("hr"))
-            pd_div.add_child(self.preload_data_html_generator.generate_html(entity_prefab.get_preload_data()))
-
-            c_div = HtmlElement("div")
-            c_div.add_child(HtmlElement("hr"))
-
-            for key, value in entity_prefab.get_all_components().items():
-                c_div.add_child(self.component_prefab_html_generator.generate_html(value))
-
-            html.add_child(pd_div)
-            html.add_child(c_div)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("div", attributes={
+                    "class": ENTITY_BODY_CLASS_HTML_ATTRIBUTES
+                }, children=[
+                    HtmlElement("h5", attributes={
+                        "class": ENTITY_TITLE_CLASS_HTML_ATTRIBUTES
+                    }, text=ENTITY_tEXT_TEMPLATE.format(code)),
+                    HtmlElement("hr")
+                ])
+            ])
         except Exception as e:
             raise EntityPrefabHtmlGenerationException(entity_prefab, e)
 

@@ -1,13 +1,25 @@
 from lib.html.html import HtmlElement
 
+MENU_CLASS_HTML_ATTRIBUTES = "doc-menu card"
+MENU_BODY_CLASS_HTML_ATTRIBUTES = "doc-menu-body card-body"
+MENU_TITLE_CLASS_HTML_ATTRIBUTES = "doc-menu-title card-title text-center"
+MENU_TITLE_TEXT = "Table of Contents"
 
 class MenuHtmlGenerator(object):
-    def generate_html(self):
+    def generate_html(self, contents):
         try:
-            html = HtmlElement("div")
-            html.add_child(HtmlElement("h2", "Menu"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": MENU_CLASS_HTML_ATTRIBUTES
+            }, children=[
+                HtmlElement("div", attributes={
+                    "class": MENU_BODY_CLASS_HTML_ATTRIBUTES
+                }, children=[
+                    HtmlElement("h5", attributes={
+                        "class": MENU_TITLE_CLASS_HTML_ATTRIBUTES
+                    }, text=MENU_TITLE_TEXT),
+                    contents
+                ])
+            ])
         except Exception as e:
             raise MenuHtmlGenerationException(e)
 

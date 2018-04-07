@@ -6,20 +6,29 @@ FILTER_HTML_CLASS_ATTRIBUTE = "doc-filter"
 class FilterPrefabHtmlGenerator(object):
     def generate_html(self, filter_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", FILTER_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Filter"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Category bit"))
-            dl.add_child(HtmlElement("dd", filter_prefab.get_category_bit()))
-            dl.add_child(HtmlElement("dt", "Mask bit"))
-            dl.add_child(HtmlElement("dd", filter_prefab.get_mask_bit()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement(
+                "div",
+                attributes={
+                    "class": FILTER_HTML_CLASS_ATTRIBUTE
+                },
+                children=[
+                    HtmlElement("button", "Filter"),
+                    HtmlElement("div", children=[
+                        HtmlElement("p", children=[
+                            HtmlElement("table", children=[
+                                HtmlElement("tr", children=[
+                                    HtmlElement("th", "Category bit"),
+                                    HtmlElement("td", filter_prefab.get_category_bit())
+                                ]),
+                                HtmlElement("tr", children=[
+                                    HtmlElement("th", "Mask bit"),
+                                    HtmlElement("td", filter_prefab.get_mask_bit())
+                                ])
+                            ])
+                        ])
+                    ])
+                ]
+            )
         except Exception as e:
             raise FilterPrefabHtmlGenerationException(filter_prefab, e)
 
