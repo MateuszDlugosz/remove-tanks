@@ -1,25 +1,35 @@
 from lib.html.html import HtmlElement
 
 PRELOAD_DATA_HTML_CLASS_ATTRIBUTE = "doc-preload-data"
+TABLE_HTML_CLASS_ATTRIBUTE = "doc-preload-data-table table table-hover table-bordered"
+ENTITY_PREFAB_CODES_TH_TITLE = "Entity prefab codes"
+ASSET_IDS_TH_TITLE = "Assed ids"
+PRELOAD_DATA_TITLE = "Preload data"
+PRELOAD_DATA_TITLE_CLASS_ATTRIBUTE = "text-center"
 
 
 class PreloadDataHtmlGenerator(object):
     def generate_html(self, preload_data):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", PRELOAD_DATA_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Preload data"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Entity prefab codes"))
-            dl.add_child(HtmlElement("dd", ", ".join(preload_data.get_entity_prefab_codes())))
-            dl.add_child(HtmlElement("dt", "Asset ids"))
-            dl.add_child(HtmlElement("dd", ", ".join(preload_data.get_asset_ids())))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": PRELOAD_DATA_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("h5", PRELOAD_DATA_TITLE, attributes={
+                    "class": PRELOAD_DATA_TITLE_CLASS_ATTRIBUTE
+                }),
+                HtmlElement("table", attributes={
+                    "class": TABLE_HTML_CLASS_ATTRIBUTE
+                }, children=[
+                    HtmlElement("tr", children=[
+                        HtmlElement("th", ENTITY_PREFAB_CODES_TH_TITLE),
+                        HtmlElement("td", ", ".join(preload_data.get_entity_prefab_codes()))
+                    ]),
+                    HtmlElement("tr", children=[
+                        HtmlElement("th", ASSET_IDS_TH_TITLE),
+                        HtmlElement("td", ", ".join(preload_data.get_asset_ids()))
+                    ])
+                ])
+            ])
         except Exception as e:
             raise PreloadDataHtmlGenerationException(preload_data, e)
 

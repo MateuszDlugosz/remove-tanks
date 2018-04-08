@@ -22,6 +22,8 @@ class EntityPrefabHtmlGenerator(object):
                     HtmlElement("h5", attributes={
                         "class": ENTITY_TITLE_CLASS_HTML_ATTRIBUTES
                     }, text=ENTITY_tEXT_TEMPLATE.format(code)),
+                    HtmlElement("hr"),
+                    self.preload_data_html_generator.generate_html(entity_prefab.get_preload_data()),
                     HtmlElement("hr")
                 ])
             ])
