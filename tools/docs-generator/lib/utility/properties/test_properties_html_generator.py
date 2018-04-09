@@ -15,8 +15,8 @@ class TestPropertiesHtmlGenerator(unittest.TestCase):
         properties_html_generator = PropertiesHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-properties"><h6>Properties</h6><hr/><dl><dt>keyA</dt><dd>valA</dd>'
-            '<dt>keyB</dt><dd>valB</dd></dl></div>',
+            '<divclass="doc-properties"><p>Properties</p><div><table><tr><th>keyA</th><td>valA</td></tr><tr><th>'
+            'keyB</th><td>valB</td></tr></table></div></div>',
             html_generator.generate_html(properties_html_generator.generate_html(properties))
                 .replace(" ", "").replace("\n", "")
         )

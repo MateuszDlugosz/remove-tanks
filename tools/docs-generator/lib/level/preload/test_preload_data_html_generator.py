@@ -12,8 +12,8 @@ class TestPreloadDataHtmlGenerator(unittest.TestCase):
         pd_html_generator = PreloadDataHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-preload-data"><h5>Preloaddata</h5><hr/><dl><dt>Entityprefabcodes</dt><dd>EPC0,EPC1</dd>'
-            '<dt>Assetids</dt><dd>AID0,AID1,AID2</dd></dl></div>',
+            '<divclass="doc-preload-data"><p>Preloaddata</p><div><table><tr><th>Entityprefabcodes</th><td>'
+            'EPC0,EPC1</td></tr><tr><th>Assetids</th><td>AID0,AID1,AID2</td></tr></table></div></div>',
             html_generator.generate_html(pd_html_generator.generate_html(preload_data))
                 .replace(" ", "").replace("\n", "")
         )

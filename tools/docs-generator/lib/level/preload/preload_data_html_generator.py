@@ -1,11 +1,6 @@
 from lib.html.html import HtmlElement
 
 PRELOAD_DATA_HTML_CLASS_ATTRIBUTE = "doc-preload-data"
-TABLE_HTML_CLASS_ATTRIBUTE = "doc-preload-data-table table table-hover table-bordered"
-ENTITY_PREFAB_CODES_TH_TITLE = "Entity prefab codes"
-ASSET_IDS_TH_TITLE = "Assed ids"
-PRELOAD_DATA_TITLE = "Preload data"
-PRELOAD_DATA_TITLE_CLASS_ATTRIBUTE = "text-center"
 
 
 class PreloadDataHtmlGenerator(object):
@@ -14,19 +9,17 @@ class PreloadDataHtmlGenerator(object):
             return HtmlElement("div", attributes={
                 "class": PRELOAD_DATA_HTML_CLASS_ATTRIBUTE
             }, children=[
-                HtmlElement("h5", PRELOAD_DATA_TITLE, attributes={
-                    "class": PRELOAD_DATA_TITLE_CLASS_ATTRIBUTE
-                }),
-                HtmlElement("table", attributes={
-                    "class": TABLE_HTML_CLASS_ATTRIBUTE
-                }, children=[
-                    HtmlElement("tr", children=[
-                        HtmlElement("th", ENTITY_PREFAB_CODES_TH_TITLE),
-                        HtmlElement("td", ", ".join(preload_data.get_entity_prefab_codes()))
-                    ]),
-                    HtmlElement("tr", children=[
-                        HtmlElement("th", ASSET_IDS_TH_TITLE),
-                        HtmlElement("td", ", ".join(preload_data.get_asset_ids()))
+                HtmlElement("p", "Preload data"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Entity prefab codes"),
+                            HtmlElement("td", ", ".join(preload_data.get_entity_prefab_codes()))
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Asset ids"),
+                            HtmlElement("td", ", ".join(preload_data.get_asset_ids()))
+                        ])
                     ])
                 ])
             ])

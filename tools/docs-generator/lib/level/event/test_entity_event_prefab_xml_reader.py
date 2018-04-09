@@ -14,7 +14,9 @@ from lib.level.event.entity_event_prefab_xml_reader import SubSpawnAirplaneEntit
     SubPlayMusicEntityEventPrefabXmlReader, SubPlaySoundEntityEventPrefabXmlReader, \
     SubIncreasePointsMultiplierEntityEventPrefabXmlReader, SubAddPointsEntityEventPrefabXmlReader, \
     SubActivateSpawnerEntityEventPrefabXmlReader, SubChangeLevelStateEntityEventPrefabXmlReader, \
-    EntityEventPrefabXmlReader
+    EntityEventPrefabXmlReader, SubRandomCreateEntityEventPrefabXmlReader, SubRemoveLifeEntityEventPrefabXmlReader, \
+    SubClearMessagesEntityEventPrefabXmlReader, SubResetPointsMultiplierEntityEventPrefabXmlReader, \
+    SubActivateSystemEntityEventPrefabXmlReader, SubDeactivateSystemEntityEventPrefabXmlReader
 from lib.level.utility.create.create_entry_prefab_xml_reader import CreateEntryPrefabXmlReader
 from lib.level.utility.stage.broker.message.message_prefab_xml_reader import MessagePrefabXmlReader
 from lib.utility.surface.position.position_prefab_xml_reader import PositionPrefabXmlReader
@@ -318,6 +320,100 @@ class TestSubChangeLevelStateEntityEventPrefabXmlReader(unittest.TestCase):
             reader.read_prefab_from_string(xml)
 
 
+class TestSubRandomCreateEntityEventPrefabXmlReader(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """
+            <entityEvent type="RandomCreateEntityEvent">
+                <createEntries>
+                    <createEntry>
+                        <entityPrefabCode>CODE_0</entityPrefabCode>
+                        <position>
+                            <x>0.1</x>
+                            <y>2.5</y>
+                        </position>
+                    </createEntry>
+                </createEntries>
+            </entityEvent>
+        """
+        reader = SubRandomCreateEntityEventPrefabXmlReader(CreateEntryPrefabXmlReader(PositionPrefabXmlReader()))
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_create_entry_prefabs()[0].get_position_prefab().get_x(), 0.1)
+        self.assertEqual(prefab.get_create_entry_prefabs()[0].get_position_prefab().get_y(), 2.5)
+        self.assertEqual(prefab.get_create_entry_prefabs()[0].get_prefab_code(), "CODE_0")
+
+
+class TestRemoveLifeEntityEventPrefabXmlReader(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """<entityEvent type="RemoveLifeEntityEvent" />"""
+        reader = SubRemoveLifeEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestClearMessagesEntityEventPrefabXmlReader(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """<entityEvent type="ClearMessagesEntityEvent" />"""
+        reader = SubClearMessagesEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestResetPointsMultiplierEntityEventPrefabXmlReader(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """<entityEvent type="ResetPointsMultiplierEntityEvent" />"""
+        reader = SubResetPointsMultiplierEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubActivateSystemEntityEventPrefabXmlReader(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """
+            <entityEvent type="ActivateSystemEntityEvent">
+                <className>NAME</className>
+            </entityEvent>
+        """
+        reader = SubActivateSystemEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_class_name(), "NAME")
+
+    def test_read_prefab_from_string_invalid(self):
+        xml = """
+            <entityEvent type="ActivateSystemEntityEvent" />
+        """
+        reader = SubActivateSystemEntityEventPrefabXmlReader()
+
+        with self.assertRaises(EntityEventPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
+class TestSubDeactivateSystemEntityEventPrefabXmlReader(unittest.TestCase):
+    def test_read_prefab_from_string_valid(self):
+        xml = """
+            <entityEvent type="DeactivateSystemEntityEvent">
+                <className>NAME</className>
+            </entityEvent>
+        """
+        reader = SubDeactivateSystemEntityEventPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertEqual(prefab.get_class_name(), "NAME")
+
+    def test_read_prefab_from_string_invalid(self):
+        xml = """
+            <entityEvent type="DeactivateSystemEntityEvent" />
+        """
+        reader = SubDeactivateSystemEntityEventPrefabXmlReader()
+
+        with self.assertRaises(EntityEventPrefabXmlReadException):
+            reader.read_prefab_from_string(xml)
+
+
 class TestEntityEventPrefabXmlReader(unittest.TestCase):
     def test_read_prefab_from_string_valid(self):
         xml = """<entityEvent type="AmmoLevelUpEntityEvent" />"""
@@ -372,12 +468,23 @@ class TestEntityEventPrefabXmlReader(unittest.TestCase):
                     SoundPrefabXmlReader()
                 ),
                 SubActivateSpawnerEntityEventPrefabXmlReader(),
-                SubChangeLevelStateEntityEventPrefabXmlReader()
+                SubChangeLevelStateEntityEventPrefabXmlReader(),
+                SubRandomCreateEntityEventPrefabXmlReader(
+                    CreateEntryPrefabXmlReader(
+                        PositionPrefabXmlReader()
+                    )
+                ),
+                SubActivateSystemEntityEventPrefabXmlReader(),
+                SubDeactivateSystemEntityEventPrefabXmlReader(),
+                SubRemoveLifeEntityEventPrefabXmlReader(),
+                SubResetPointsMultiplierEntityEventPrefabXmlReader(),
+                SubIncreasePointsMultiplierEntityEventPrefabXmlReader(),
+                SubClearMessagesEntityEventPrefabXmlReader()
             ]
         )
         prefabs = reader.read_prefabs_from_string(xml)
 
-        self.assertEqual(15, len(prefabs))
+        self.assertEqual(21, len(prefabs))
 
 
 if __name__ == "__main__":

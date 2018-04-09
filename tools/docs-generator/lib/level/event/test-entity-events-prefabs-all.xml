@@ -56,4 +56,24 @@
     <entityEvent type="ChangeLevelStateEntityEvent">
         <levelState>STATE</levelState>
     </entityEvent>
+    <entityEvent type="RandomCreateEntityEvent">
+        <createEntries>
+            <createEntry>
+                <entityPrefabCode>CODE_0</entityPrefabCode>
+                <position>
+                    <x>0.1</x>
+                    <y>2.5</y>
+                </position>
+            </createEntry>
+        </createEntries>
+    </entityEvent>
+    <entityEvent type="RemoveLifeEntityEvent" />
+    <entityEvent type="ResetPointsMultiplierEntityEvent" />
+    <entityEvent type="ClearMessagesEntityEvent" />
+    <entityEvent type="ActivateSystemEntityEvent">
+        <className>NAME</className>
+    </entityEvent>
+    <entityEvent type="DeactivateSystemEntityEvent">
+        <className>NAME</className>
+    </entityEvent>
 </entityEvents>

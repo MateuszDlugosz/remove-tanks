@@ -31,24 +31,31 @@ class SubParticleEffectPrefabHtmlGenerator(object):
 class SubFileParticleEffectPrefabHtmlGenerator(SubParticleEffectPrefabHtmlGenerator):
     def generate_html(self, particle_effect_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", PARTICLE_EFFECT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "File particle effect"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Flip x"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_flip_x()))
-            dl.add_child(HtmlElement("dt", "Flip y"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_flip_y()))
-            dl.add_child(HtmlElement("dt", "Filename"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_filename()))
-            dl.add_child(HtmlElement("dt", "Images directory"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_images_dir()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": PARTICLE_EFFECT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "File particle effect"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip x"),
+                            HtmlElement("td", particle_effect_prefab.get_flip_x())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip y"),
+                            HtmlElement("td", particle_effect_prefab.get_flip_y())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Filename"),
+                            HtmlElement("td", particle_effect_prefab.get_filename())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Images directory"),
+                            HtmlElement("td", particle_effect_prefab.get_images_dir())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ParticleEffectPrefabHtmlGenerationException(particle_effect_prefab, e)
 
@@ -59,24 +66,31 @@ class SubFileParticleEffectPrefabHtmlGenerator(SubParticleEffectPrefabHtmlGenera
 class SubAtlasParticleEffectPrefabHtmlGenerator(SubParticleEffectPrefabHtmlGenerator):
     def generate_html(self, particle_effect_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", PARTICLE_EFFECT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Atlas particle effect"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Flip x"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_flip_x()))
-            dl.add_child(HtmlElement("dt", "Flip y"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_flip_y()))
-            dl.add_child(HtmlElement("dt", "Filename"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_filename()))
-            dl.add_child(HtmlElement("dt", "Atlas filename"))
-            dl.add_child(HtmlElement("dd", particle_effect_prefab.get_atlas_filename()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": PARTICLE_EFFECT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "File particle effect"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip x"),
+                            HtmlElement("td", particle_effect_prefab.get_flip_x())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip y"),
+                            HtmlElement("td", particle_effect_prefab.get_flip_y())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Filename"),
+                            HtmlElement("td", particle_effect_prefab.get_filename())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Atlas filename"),
+                            HtmlElement("td", particle_effect_prefab.get_atlas_filename())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ParticleEffectPrefabHtmlGenerationException(particle_effect_prefab, e)
 

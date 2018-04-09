@@ -1,31 +1,43 @@
 from lib.html.html import HtmlElement
 
+VERTICES_HTML_CLASS_ATTRIBUTE = "doc-vertices"
 VERTEX_HTML_CLASS_ATTRIBUTE = "doc-vertex"
 
-
 class VertexPrefabHtmlGenerator(object):
-    def generate_html(self, vertex_prefab):
+    def generate_html(self, vertices_prefabs):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", VERTEX_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Vertex"))
-            html.add_child(HtmlElement("hr"))
+            vertices_elements = []
+            for vertex_prefab in vertices_prefabs:
+                vertices_elements.append(HtmlElement("div", attributes={
+                    "class": VERTEX_HTML_CLASS_ATTRIBUTE
+                }, children=[
+                    HtmlElement("p", "Vertex"),
+                    HtmlElement("div", children=[
+                        HtmlElement("table", children=[
+                            HtmlElement("tr", children=[
+                                HtmlElement("th", "X"),
+                                HtmlElement("td", vertex_prefab.get_x())
+                            ]),
+                            HtmlElement("tr", children=[
+                                HtmlElement("th", "Y"),
+                                HtmlElement("td", vertex_prefab.get_y())
+                            ])
+                        ])
+                    ])
+                ]))
 
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "X"))
-            dl.add_child(HtmlElement("dd", vertex_prefab.get_x()))
-            dl.add_child(HtmlElement("dt", "Y"))
-            dl.add_child(HtmlElement("dd", vertex_prefab.get_y()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": VERTICES_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Vertices"),
+                HtmlElement("div", children=vertices_elements)
+            ])
         except Exception as e:
-            raise VertexPrefabHtmlGenerationException(vertex_prefab, e)
+            raise VertexPrefabHtmlGenerationException(vertices_prefabs, e)
 
 
 class VertexPrefabHtmlGenerationException(Exception):
-    MESSAGE_TEMPLATE = "Cannot generate html from vertex prefab {}. Cause: {}"
+    MESSAGE_TEMPLATE = "Cannot generate html from vertices prefabs {}. Cause: {}"
 
-    def __init__(self, vertex_prefab, cause):
-        super().__init__(self.MESSAGE_TEMPLATE.format(str(vertex_prefab), cause))
+    def __init__(self, vertices_prefabs, cause):
+        super().__init__(self.MESSAGE_TEMPLATE.format(str(vertices_prefabs), cause))

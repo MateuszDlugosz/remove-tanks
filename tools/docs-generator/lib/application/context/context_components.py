@@ -92,7 +92,7 @@ from lib.level.event.entity_event_prefab_html_generator import EntityEventPrefab
     SubAddMessageEntityEventPrefabHtmlGenerator, SubPlayMusicEntityEventPrefabHtmlGenerator, \
     SubAddPointsEntityEventPrefabHtmlGenerator, SubIncreasePointsMultiplierEntityEventPrefabHtmlGenerator, \
     SubPlaySoundEntityEventPrefabHtmlGenerator, SubActivateSpawnerEntityEventPrefabHtmlGenerator, \
-    SubChangeLevelStateEntityEventPrefabHtmlGenerator
+    SubChangeLevelStateEntityEventPrefabHtmlGenerator, SubRandomCreateEntityEventPrefabHtmlGenerator
 from lib.level.event.entity_event_prefab_xml_reader import EntityEventPrefabXmlReader, \
     SubAmmoLevelUpEntityEventPrefabXmlReader, SubSpawnAirplaneEntityEventPrefabXmlReader, \
     SubAddCameraEffectEntityEventPrefabXmlReader, SubCreateEntityEventPrefabXmlReader, \
@@ -101,7 +101,7 @@ from lib.level.event.entity_event_prefab_xml_reader import EntityEventPrefabXmlR
     SubAddMessageEntityEventPrefabXmlReader, SubPlayMusicEntityEventPrefabXmlReader, \
     SubAddPointsEntityEventPrefabXmlReader, SubIncreasePointsMultiplierEntityEventPrefabXmlReader, \
     SubPlaySoundEntityEventPrefabXmlReader, SubActivateSpawnerEntityEventPrefabXmlReader, \
-    SubChangeLevelStateEntityEventPrefabXmlReader
+    SubChangeLevelStateEntityEventPrefabXmlReader, SubRandomCreateEntityEventPrefabXmlReader
 from lib.level.preload.preload_data_html_generator import PreloadDataHtmlGenerator
 from lib.level.preload.preload_data_xml_reader import PreloadDataXmlReader
 from lib.level.utility.create.create_entry_prefab_html_generator import CreateEntryPrefabHtmlGenerator
@@ -423,7 +423,8 @@ class ContextComponents(object):
             SubIncreasePointsMultiplierEntityEventPrefabXmlReader(),
             SubPlaySoundEntityEventPrefabXmlReader(components["SoundPrefabXmlReader"]),
             SubActivateSpawnerEntityEventPrefabXmlReader(),
-            SubChangeLevelStateEntityEventPrefabXmlReader()
+            SubChangeLevelStateEntityEventPrefabXmlReader(),
+            SubRandomCreateEntityEventPrefabXmlReader(components["CreateEntryPrefabXmlReader"])
         ])
 
     @staticmethod
@@ -443,7 +444,8 @@ class ContextComponents(object):
             SubIncreasePointsMultiplierEntityEventPrefabHtmlGenerator(),
             SubPlaySoundEntityEventPrefabHtmlGenerator(components["SoundPrefabHtmlGenerator"]),
             SubActivateSpawnerEntityEventPrefabHtmlGenerator(),
-            SubChangeLevelStateEntityEventPrefabHtmlGenerator()
+            SubChangeLevelStateEntityEventPrefabHtmlGenerator(),
+            SubRandomCreateEntityEventPrefabHtmlGenerator(components["CreateEntryPrefabHtmlGenerator"])
         ])
 
     @staticmethod

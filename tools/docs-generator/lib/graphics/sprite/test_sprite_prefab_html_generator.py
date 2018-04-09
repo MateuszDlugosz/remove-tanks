@@ -13,8 +13,8 @@ class TestSubFileSpritePrefabHtmlGenerator(unittest.TestCase):
         fa_html_generator = SubFileSpritePrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-sprite"><h6>Filesprite</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>False</dd>'
-            '<dt>Filename</dt><dd>filename</dd></dl></div>',
+            '<divclass="doc-sprite"><p>Filesprite</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>Flipy'
+            '</th><td>False</td></tr><tr><th>Filename</th><td>filename</td></tr></table></div></div>',
             html_generator.generate_html(fa_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -27,9 +27,9 @@ class TestSubAtlasSpritePrefabHtmlGenerator(unittest.TestCase):
         fa_html_generator = SubAtlasSpritePrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-sprite"><h6>Atlassprite</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>False'
-            '</dd><dt>Atlasfilename</dt><dd>atlas-filename</dd><dt>Regionname</dt><dd>region-name</dd>'
-            '</dl></div>',
+            '<divclass="doc-sprite"><p>Filesprite</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>Flipy'
+            '</th><td>False</td></tr><tr><th>Atlasfilename</th><td>atlas-filename</td></tr><tr><th>Refionname</th>'
+            '<td>region-name</td></tr></table></div></div>',
             html_generator.generate_html(fa_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -42,9 +42,9 @@ class TestSpritePrefabHtmlGenerator(unittest.TestCase):
         a_html_generator = SpritePrefabHtmlGenerator([SubAtlasSpritePrefabHtmlGenerator()])
 
         self.assertEqual(
-            '<divclass="doc-sprite"><h6>Atlassprite</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>False'
-            '</dd><dt>Atlasfilename</dt><dd>atlas-filename</dd><dt>Regionname</dt><dd>region-name</dd>'
-            '</dl></div>',
+            '<divclass="doc-sprite"><p>Filesprite</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>Flipy'
+            '</th><td>False</td></tr><tr><th>Atlasfilename</th><td>atlas-filename</td></tr><tr><th>Refionname</th>'
+            '<td>region-name</td></tr></table></div></div>',
             html_generator.generate_html(a_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

@@ -31,17 +31,19 @@ class SubEffectPrefabHtmlGenerator(object):
 class SubAlphaEffectPrefabHtmlGenerator(SubEffectPrefabHtmlGenerator):
     def generate_html(self, effect_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", EFFECT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Alpha effect"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Alpha value"))
-            dd = HtmlElement("dd", effect_prefab.get_alpha_value())
-            dl.add_child(dd)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": EFFECT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Alpha effect"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Alpha value"),
+                            HtmlElement("td", effect_prefab.get_alpha_value())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise EffectPrefabHtmlGenerationException(effect_prefab, e)
 
@@ -55,19 +57,14 @@ class SubShaderEffectPrefabHtmlGenerator(SubEffectPrefabHtmlGenerator):
 
     def generate_html(self, effect_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", EFFECT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Shader effect"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Shader program"))
-            dd = HtmlElement("dd")
-            dd.add_child(self.shader_program_prefab_html_generator.generate_html(
-                effect_prefab.get_shader_program_prefab()))
-            dl.add_child(dd)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": EFFECT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Shader effect"),
+                HtmlElement("div", children=[
+                    self.shader_program_prefab_html_generator.generate_html(effect_prefab.get_shader_program_prefab())
+                ])
+            ])
         except Exception as e:
             raise EffectPrefabHtmlGenerationException(effect_prefab, e)
 
@@ -81,19 +78,14 @@ class SubTintEffectPrefabHtmlGenerator(SubEffectPrefabHtmlGenerator):
 
     def generate_html(self, effect_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", EFFECT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Tint effect"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Color"))
-            dd = HtmlElement("dd")
-            dd.add_child(self.color_prefab_html_generator.generate_html(
-                effect_prefab.get_color_prefab()))
-            dl.add_child(dd)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": EFFECT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Tint effect"),
+                HtmlElement("div", children=[
+                    self.color_prefab_html_generator.generate_html(effect_prefab.get_color_prefab())
+                ])
+            ])
         except Exception as e:
             raise EffectPrefabHtmlGenerationException(effect_prefab, e)
 

@@ -12,10 +12,11 @@ class TestBodyPrefabHtmlGenerator(unittest.TestCase):
         body_prefab_html_generator = BodyPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-body"><h6>Body</h6><hr/><dl><dt>Bodytype</dt><dd>StaticBody</dd><dt>Active</dt>'
-            '<dd>True</dd><dt>Awake</dt><dd>True</dd><dt>Allowsleep</dt><dd>False</dd><dt>Fixedrotation</dt><dd>True'
-            '</dd><dt>Bullet</dt><dd>True</dd><dt>Gravityscale</dt><dd>1.0</dd><dt>Angle</dt><dd>45.0</dd><dt>'
-            'Lineardamping</dt><dd>1.0</dd><dt>Angulardamping</dt><dd>60.0</dd></dl></div>',
+            '<divclass="doc-body"><p>Body</p><div><table><tr><th>Bodytype</th><td>StaticBody</td></tr><tr><th>Active'
+            '</th><td>True</td></tr><tr><th>Awake</th><td>True</td></tr><tr><th>Allowsleep</th><td>False</td></tr><tr>'
+            '<th>Fixedrotation</th><td>True</td></tr><tr><th>Bullet</th><td>True</td></tr><tr><th>Gravityscale</th>'
+            '<td>1.0</td></tr><tr><th>Angle</th><td>1.0</td></tr><tr><th>Lineardamping</th><td>1.0</td></tr><tr>'
+            '<th>Angulardamping</th><td>60.0</td></tr></table></div></div>',
             html_generator.generate_html(body_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

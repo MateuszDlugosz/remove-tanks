@@ -42,16 +42,19 @@ class SubComponentPrefabHtmlGenerator(object):
 class SubSpeedComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Speed component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Speed"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_speed()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Speed component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Speed"),
+                            HtmlElement("td", component_prefab.get_speed())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -62,16 +65,19 @@ class SubSpeedComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubSpeedModifierComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Speed modifier component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Speed modifier"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_speed_modifier()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Speed modifier component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Speed modifier"),
+                            HtmlElement("td", component_prefab.get_speed_modifier())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -85,22 +91,21 @@ class SubCameraTrackComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator
 
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Camera track component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Priority"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_priority()))
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd1 = HtmlElement("dd")
-            dd1.add_child(self.position_prefab_html_generator.generate_html(
-                component_prefab.get_position_prefab()
-            ))
-            dl.add_child(dd1)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Speed component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Priority"),
+                            HtmlElement("td", component_prefab.get_priority())
+                        ])
+                    ])
+                ]),
+                self.position_prefab_html_generator.generate_html(
+                    component_prefab.get_position_prefab())
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -111,16 +116,19 @@ class SubCameraTrackComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator
 class SubLeaveBonusComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Leave bonus component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Chance modifier"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_chance_modifier()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Leave bonus component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Chance modifier"),
+                            HtmlElement("td", component_prefab.get_chance_modifier())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -131,51 +139,49 @@ class SubLeaveBonusComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator)
 class SubAmmoComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Ammo component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Current level"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_current_level()))
-            dl.add_child(HtmlElement("dt", "Max level"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_max_level()))
+            ammo_table = HtmlElement("table", children=[
+                HtmlElement("tr", children=[
+                    HtmlElement("th", "Level"),
+                    HtmlElement("th", "Entity prefab codes")
+                ])
+            ])
 
-            dl.add_child(HtmlElement("dt", "Ammo table"))
-            dd_ammo_table = HtmlElement("dd")
-
-            table = HtmlElement("table")
-            title_row = HtmlElement("tr")
-            title_row.add_child(HtmlElement("th", "Level"))
-            title_row.add_child(HtmlElement("th", "EntityPrefabCodes"))
-            table.add_child(title_row)
-
-            for key, value in component_prefab.get_prefab_codes().items():
-                row = HtmlElement("tr")
-                row.add_child(HtmlElement("td", key))
-                row_table = HtmlElement("table")
-                row_table_row = HtmlElement("tr")
-                row_table_row.add_child(HtmlElement("th", "Direction"))
-                row_table_row.add_child(HtmlElement("th", "Entity prefab code"))
-                row_table.add_child(row_table_row)
-                td_direction = HtmlElement("td")
-
+            for key, value in component_prefab.get_prefab_codes().tems():
+                codes_table = HtmlElement("table", children=[
+                    HtmlElement("th", "Direction"),
+                    HtmlElement("th", "Entity prefab code")
+                ])
                 for k, v in value.items():
-                    direction_row = HtmlElement("tr")
-                    direction_row.add_child(HtmlElement("td", k))
-                    direction_row.add_child(HtmlElement("td", v))
-                    row_table.add_child(direction_row)
+                    codes_table.add_child(HtmlElement("tr", children=[
+                        HtmlElement("td", k),
+                        HtmlElement("td", v)
+                    ]))
 
-                td_direction.add_child(row_table)
-                row.add_child(td_direction)
+                tr = HtmlElement("tr")
+                tr.add_child(HtmlElement("td", key))
+                tr.add_child(HtmlElement("td", codes_table))
+                ammo_table.add_child(tr)
 
-                table.add_child(row)
-
-            dd_ammo_table.add_child(table)
-            dl.add_child(dd_ammo_table)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Ammo component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Current level"),
+                            HtmlElement("td", component_prefab.get_current_level())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Max level"),
+                            HtmlElement("td", component_prefab.get_max_level())
+                        ])
+                    ])
+                ]),
+                HtmlElement("div", children=[
+                    ammo_table
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -186,12 +192,11 @@ class SubAmmoComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubAutoShootComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Auto shoot component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Auto shoot component"),
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -202,16 +207,19 @@ class SubAutoShootComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubDamageComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Damage component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Damage"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_damage()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Damage component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Damage"),
+                            HtmlElement("td", component_prefab.get_damage())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -222,18 +230,23 @@ class SubDamageComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubHealthComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Health component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Health"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_health()))
-            dl.add_child(HtmlElement("dt", "Max health"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_max_health()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Health component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Health"),
+                            HtmlElement("td", component_prefab.get_health())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Max health"),
+                            HtmlElement("td", component_prefab.get_max_health())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -247,22 +260,20 @@ class SubHitComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Hit component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Time"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_hit_time()))
-            dl.add_child(HtmlElement("dt", "Effect"))
-            dd = HtmlElement("dd")
-            dd.add_child(self.effect_prefab_html_generator.generate_html(
-                component_prefab.get_effect_prefab()
-            ))
-            dl.add_child(dd)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Hit component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Time"),
+                            HtmlElement("td", component_prefab.get_hit_time())
+                        ])
+                    ])
+                ]),
+                self.effect_prefab_html_generator.generate_html(component_prefab.get_effect_prefab())
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -273,12 +284,11 @@ class SubHitComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubProtectionComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Protection component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Protection component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -289,18 +299,23 @@ class SubProtectionComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator)
 class SubRandomShootComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Random shoot component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Min shoot frequency"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_min_shoot_frequency()))
-            dl.add_child(HtmlElement("dt", "Max shoot frequency"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_max_shoot_frequency()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Random shoot component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Min shoot frequency"),
+                            HtmlElement("td", component_prefab.get_min_shoot_frequency())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Max shoot frequency"),
+                            HtmlElement("td", component_prefab.get_max_shoot_frequency())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -311,16 +326,19 @@ class SubRandomShootComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator
 class SubDirectionComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Direction component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Direction"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_direction()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Direction component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Direction"),
+                            HtmlElement("td", component_prefab.direction())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -334,19 +352,13 @@ class SubChangeBehaviorComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenera
 
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Change behavior component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Components"))
-            dd = HtmlElement("dd")
-            for c_prefab in component_prefab.get_component_prefabs():
-                dd.add_child(self.component_prefab_html_generator.generate_html(c_prefab))
-            dl.add_child(dd)
-            html.add_child(dl)
+            components_elements = [HtmlElement("p", "Change behavior component")]
+            for prefab in component_prefab.get_component_prefabs():
+                components_elements.append(self.component_prefab_html_generator.generate_html(prefab))
 
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=components_elements)
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -357,20 +369,27 @@ class SubChangeBehaviorComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenera
 class SubRandomDirectionComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Random direction component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Min direction frequency"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_min_change_direction_frequency()))
-            dl.add_child(HtmlElement("dt", "Max direction frequency"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_max_change_direction_frequency()))
-            dl.add_child(HtmlElement("dt", "Directions"))
-            dl.add_child(HtmlElement("dd", ", ".join(component_prefab.get_directions())))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Random direction component"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Min change direction frequency"),
+                            HtmlElement("td", component_prefab.get_min_change_direction_frequency())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Max change direction frequency"),
+                            HtmlElement("td", component_prefab.get_max_change_direction_frequency())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Directions"),
+                            HtmlElement("td", ", ".join(component_prefab.get_directions()))
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -381,12 +400,11 @@ class SubRandomDirectionComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGener
 class SubPlayerComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Player component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Player component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -397,12 +415,11 @@ class SubPlayerComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubEnemyComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Enemy component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Enemy component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -413,16 +430,17 @@ class SubEnemyComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubIdentityComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Identity component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Id"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_id()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Player component"),
+                HtmlElement("table", children=[
+                    HtmlElement("tr", children=[
+                        HtmlElement("th", "Id"),
+                        HtmlElement("td", component_prefab.get_id())
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -433,16 +451,17 @@ class SubIdentityComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubInputComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Input component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Shoot delay"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_shoot_delay()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Input component"),
+                HtmlElement("table", children=[
+                    HtmlElement("tr", children=[
+                        HtmlElement("th", "Shoot delay"),
+                        HtmlElement("td", component_prefab.get_shoot_delay())
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -453,12 +472,11 @@ class SubInputComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubCreateComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Create component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Create component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -469,12 +487,11 @@ class SubCreateComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubDestroyComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Destroy component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Destroy component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -485,12 +502,11 @@ class SubDestroyComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
 class SubDestroyOnContactComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Destroy on contact component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Destroy on contact component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -501,12 +517,11 @@ class SubDestroyOnContactComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGene
 class SubDestroyOnContactLostComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Destroy on contact lost component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Destroy on contact lost component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -517,16 +532,17 @@ class SubDestroyOnContactLostComponentPrefabHtmlGenerator(SubComponentPrefabHtml
 class SubLifetimeComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Lifetime component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Lifetime"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_lifetime()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Lifetime component"),
+                HtmlElement("table", children=[
+                    HtmlElement("tr", children=[
+                        HtmlElement("th", "Lifetime"),
+                        HtmlElement("td", component_prefab.get_lifetime())
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -540,23 +556,26 @@ class SubRandomCreateComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerato
 
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Random create component"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Min create frequency"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_min_create_frequency()))
-            dl.add_child(HtmlElement("dt", "Max create frequency"))
-            dl.add_child(HtmlElement("dd", component_prefab.get_max_create_frequency()))
-            dl.add_child(HtmlElement("dt", "Create entries"))
-            ce_dd = HtmlElement("dd")
-            for ce in component_prefab.get_create_entry_prefabs():
-                ce_dd.add_child(self.create_entry_prefab_html_generator.generate_html(ce))
-            dl.add_child(ce_dd)
-            html.add_child(dl)
+            elements = [
+                HtmlElement("p", "Random create component"),
+                HtmlElement("table", children=[
+                    HtmlElement("tr", children=[
+                        HtmlElement("th", "Min create frequency"),
+                        HtmlElement("td", component_prefab.get_min_create_frequency())
+                    ]),
+                    HtmlElement("tr", children=[
+                        HtmlElement("th", "Max create frequency"),
+                        HtmlElement("td", component_prefab.get_max_create_frequency())
+                    ])
+                ])
+            ]
 
-            return html
+            for ce in component_prefab.get_create_entry_prefabs():
+                elements.append(self.create_entry_prefab_html_generator.generate_html(ce))
+
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=elements)
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 
@@ -567,12 +586,11 @@ class SubRandomCreateComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerato
 class SubAutoMoveComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
     def generate_html(self, component_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COMPONENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h5", "Auto move component"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Auto move component")
+            ])
         except Exception as e:
             raise ComponentPrefabHtmlGenerationException(component_prefab, e)
 

@@ -6,21 +6,22 @@ PROPERTIES_HTML_CLASS_ATTRIBUTE = "doc-properties"
 class PropertiesHtmlGenerator(object):
     def generate_html(self, properties):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", PROPERTIES_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Properties"))
-            html.add_child(HtmlElement("hr"))
-            dl = HtmlElement("dl")
+            properties_table = HtmlElement("table")
 
             for key, value in properties.get_properties().items():
-                dt = HtmlElement("dt", key)
-                dd = HtmlElement("dd", value)
-                dl.add_child(dt)
-                dl.add_child(dd)
+                properties_table.add_child(HtmlElement("tr", children=[
+                    HtmlElement("th", key),
+                    HtmlElement("td", value)
+                ]))
 
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": PROPERTIES_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Properties"),
+                HtmlElement("div", children=[
+                    properties_table
+                ])
+            ])
         except Exception as e:
             raise PropertiesHtmlGenerationException(properties, e)
 

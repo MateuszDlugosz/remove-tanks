@@ -6,18 +6,19 @@ MUSIC_HTML_CLASS_ATTRIBUTE = "doc-music"
 class MusicPrefabHtmlGenerator(object):
     def generate_html(self, music_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", MUSIC_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Music"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Filename"))
-            dl.add_child(HtmlElement("dd", music_prefab.get_filename()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": MUSIC_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Music"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Filename"),
+                            HtmlElement("td", music_prefab.get_filename())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise MusicPrefabHtmlGenerationException(music_prefab, e)
 

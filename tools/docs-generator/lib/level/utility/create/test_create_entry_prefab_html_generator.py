@@ -14,9 +14,9 @@ class TestCreateEntryPrefabHtmlGenerator(unittest.TestCase):
         ce_html_generator = CreateEntryPrefabHtmlGenerator(PositionPrefabHtmlGenerator())
 
         self.assertEqual(
-            '<divclass="doc-create-entry"><h6>Createentry</h6><hr/><dl><dt>Position</dt><dd><divclass="doc-position">'
-            '<h6>Position</h6><hr/><dl><dt>X</dt><dd>1.1</dd><dt>Y</dt><dd>2.2</dd></dl></div></dd><dt>Entityprefabcode'
-            '</dt><dd>CODE</dd></dl></div>',
+            '<divclass="doc-create-entry"><p>Createentry</p><div><table><tr><th>Entityprefabcode</th><td>CODE</td>'
+            '</tr></table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>1.1</td></tr>'
+            '<tr><th>Y</th><td>2.2</td></tr></table></div></div></div>',
             html_generator.generate_html(ce_html_generator.generate_html(prefab))
               .replace(" ", "").replace("\n", "")
         )

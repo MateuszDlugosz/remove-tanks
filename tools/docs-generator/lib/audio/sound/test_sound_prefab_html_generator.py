@@ -12,7 +12,8 @@ class TestSoundPrefabHtmlGenerator(unittest.TestCase):
         sound_html_generator = SoundPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-sound"><h6>Sound</h6><hr/><dl><dt>Filename</dt><dd>filename</dd></dl></div>',
+            '<divclass="doc-sound"><p>Sound</p><div><table><tr><th>Filename</th><td>filename</td></tr>'
+            '</table></div></div>',
             html_generator.generate_html(sound_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

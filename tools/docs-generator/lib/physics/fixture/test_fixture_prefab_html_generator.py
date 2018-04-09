@@ -25,12 +25,13 @@ class TestFixturePrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-fixture"><h6>Fixture</h6><hr/><dl><dt>Shape</dt><dd><divclass="doc-shape"><h6>Rectangleshape</h6>'
-            '<hr/><dl><dt>Width</dt><dd>10.0</dd><dt>Height</dt><dd>20.0</dd><dt>Position</dt><dd>'
-            '<divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X</dt><dd>1.1</dd><dt>Y</dt><dd>2.2</dd></dl></div>'
-            '</dd></dl></div></dd><dt>Filter</dt><dd><divclass="doc-filter"><h6>Filter</h6><hr/><dl><dt>Categorybit</dt>'
-            '<dd>category_bit</dd><dt>Maskbit</dt><dd>mask_bit</dd></dl></div></dd><dt>Density</dt><dd>40.0</dd><dt>'
-            'Restitution</dt><dd>30.0</dd><dt>Friction</dt><dd>50.0</dd><dt>Issensor</dt><dd>False</dd></dl></div>',
+            '<divclass="doc-fixture"><p>Fixture</p><div><table><tr><th>Density</th><td>40.0</td></tr><tr><th>'
+            'Restitution</th><td>30.0</td></tr><tr><th>Friction</th><td>50.0</td></tr></table><divclass="doc-filter">'
+            '<p>Filter</p><div><table><tr><th>Categorybit</th><td>category_bit</td></tr><tr><th>Maskbit</th><td>'
+            'mask_bit</td></tr></table></div></div><divclass="doc-shape"><p>Rectangleshape</p><div><table><tr>'
+            '<th>Width</th><td>10.0</td></tr><tr><th>Height</th><td>20.0</td></tr></table><divclass="doc-position">'
+            '<p>Position</p><div><table><tr><th>X</th><td>1.1</td></tr><tr><th>Y</th><td>2.2</td></tr></table></div>'
+            '</div></div></div></div></div>',
             html_generator.generate_html(fixture_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

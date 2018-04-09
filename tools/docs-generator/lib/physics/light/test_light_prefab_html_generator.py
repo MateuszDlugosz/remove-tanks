@@ -21,9 +21,9 @@ class TestSubDirectionalLightPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-light"><h6>Directionallight</h6><hr/><dl><dt>XRay</dt><dd>True</dd><dt>Color</dt><dd>'
-            '<divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></dd><dt>'
-            'Directiondegree</dt><dd>10.0</dd></dl></div>',
+            '<divclass="doc-light"><p>Directionallight</p><div><table><tr><th>XRay</th><td>True</td></tr><tr><th>'
+            'Directiondegree</th><td>10.0</td></tr></table><divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue'
+            '</dt><dd>CCAAFFEE</dd></dl></div></div></div>',
             html_generator.generate_html(prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -41,11 +41,11 @@ class TestSubConeLightPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-light"><h6>Conelight</h6><hr/><dl><dt>XRay</dt><dd>False</dd><dt>Color</dt><dd>'
-            '<divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></dd>'
-            '<dt>Position</dt><dd><divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X</dt><dd>10.0</dd><dt>'
-            'Y</dt><dd>20.0</dd></dl></div></dd><dt>Distance</dt><dd>100.0</dd><dt>Conedegree</dt><dd>60.0</dd>'
-            '<dt>Directiondegree</dt><dd>45.0</dd></dl></div>',
+            '<divclass="doc-light"><p>Conelight</p><div><table><tr><th>XRay</th><td>False</td></tr><tr><th>'
+            'Distance</th><td>100.0</td></tr><tr><th>Directiondegree</th><td>45.0</td></tr><tr><th>Conedegree'
+            '</th><td>60.0</td></tr></table><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>'
+            '10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table></div></div><divclass="doc-color"><h6>Hexcolor'
+            '</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></div></div>',
             html_generator.generate_html(prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -63,10 +63,10 @@ class TestSubPointLightPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-light"><h6>Pointlight</h6><hr/><dl><dt>XRay</dt><dd>False</dd><dt>Color</dt><dd>'
-            '<divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></dd>'
-            '<dt>Position</dt><dd><divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X</dt><dd>10.0</dd><dt>'
-            'Y</dt><dd>20.0</dd></dl></div></dd><dt>Distance</dt><dd>100.0</dd></dl></div>',
+            '<divclass="doc-light"><p>Pointlight</p><div><table><tr><th>XRay</th><td>False</td></tr><tr><th>Distance'
+            '</th><td>100.0</td></tr></table><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>'
+            '10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table></div></div><divclass="doc-color"><h6>Hexcolor'
+            '</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></div></div>',
             html_generator.generate_html(prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

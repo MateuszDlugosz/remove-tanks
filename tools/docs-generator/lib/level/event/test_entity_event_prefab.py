@@ -8,7 +8,9 @@ from lib.level.event.entity_event_prefab import ChangeLevelStateEntityEventPrefa
     IncreasePointsMultiplierEntityEventPrefab, AddPointsEntityEventPrefab, PlaySoundEntityEventPrefab, \
     PlayMusicEntityEventPrefab, AddMessageEntityEventPrefab, AddLifeEntityEventPrefab, DestroyFamilyEntityEventPrefab, \
     DestroyEntityByIdEntityEventPrefab, DestroyEntityEventPrefab, CreateEntityEventPrefab, \
-    AddCameraEffectEntityEventPrefab, AmmoLevelUpEntityEventPrefab, SpawnAirplaneEntityEventPrefab
+    AddCameraEffectEntityEventPrefab, AmmoLevelUpEntityEventPrefab, SpawnAirplaneEntityEventPrefab, \
+    RandomCreateEntityEventPrefab, RemoveLifeEntityEventPrefab, ClearMessagesEntityEventPrefab, \
+    ResetPointsMultiplierEntityEventPrefab, ActivateSystemEntityEventPrefab, DeactivateSystemEntityEventPrefab
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefab
 from lib.level.utility.stage.broker.message.message_prefab import MessagePrefab
 from lib.utility.surface.position.position_prefab import PositionPrefab
@@ -141,6 +143,59 @@ class TestChangeLevelStateEntityEventPrefab(unittest.TestCase):
         self.assertEqual(
             str(ChangeLevelStateEntityEventPrefab("STATE")),
             "ChangeLevelStateEntityEventPrefab(level_state=STATE)"
+        )
+
+
+
+class TestRandomCreateEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        create_entry_prefabs = [CreateEntryPrefab("CODE0", PositionPrefab(1.1, 2.2)),
+                                CreateEntryPrefab("CODE1", PositionPrefab(3.3, 4.4))]
+
+        self.assertEqual(
+            str(RandomCreateEntityEventPrefab(create_entry_prefabs)),
+            "RandomCreateEntityEventPrefab(create_entry_prefabs=[{}])"
+                .format(", ".join('\'{}\''.format(str(val)) for val in create_entry_prefabs))
+        )
+
+
+class TestRemoveLifeEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(RemoveLifeEntityEventPrefab()),
+            "RemoveLifeEntityEventPrefab()"
+        )
+
+
+class TestClearMessagesEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(ClearMessagesEntityEventPrefab()),
+            "ClearMessagesEntityEventPrefab()"
+        )
+
+
+class TestResetPointsMultiplierEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(ResetPointsMultiplierEntityEventPrefab()),
+            "ResetPointsMultiplierEntityEventPrefab()"
+        )
+
+
+class TestActivateSystemEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(ActivateSystemEntityEventPrefab("NAME")),
+            "ActivateSystemEntityEventPrefab(class_name=NAME)"
+        )
+
+
+class TestDeactivateSystemEntityEventPrefab(unittest.TestCase):
+    def test_entity_event_prefab_to_string(self):
+        self.assertEqual(
+            str(DeactivateSystemEntityEventPrefab("NAME")),
+            "DeactivateSystemEntityEventPrefab(class_name=NAME)"
         )
 
 

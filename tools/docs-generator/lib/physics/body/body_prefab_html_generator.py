@@ -6,36 +6,55 @@ BODY_HTML_CLASS_ATTRIBUTE = "doc-body"
 class BodyPrefabHtmlGenerator(object):
     def generate_html(self, body_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", BODY_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Body"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Body type"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_body_type()))
-            dl.add_child(HtmlElement("dt", "Active"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_active()))
-            dl.add_child(HtmlElement("dt", "Awake"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_awake()))
-            dl.add_child(HtmlElement("dt", "Allow sleep"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_allow_sleep()))
-            dl.add_child(HtmlElement("dt", "Fixed rotation"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_fixed_rotation()))
-            dl.add_child(HtmlElement("dt", "Bullet"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_bullet()))
-            dl.add_child(HtmlElement("dt", "Gravity scale"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_gravity_scale()))
-            dl.add_child(HtmlElement("dt", "Angle"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_angle()))
-            dl.add_child(HtmlElement("dt", "Linear damping"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_linear_damping()))
-            dl.add_child(HtmlElement("dt", "Angular damping"))
-            dl.add_child(HtmlElement("dd", body_prefab.get_angular_damping()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": BODY_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Body"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Body type"),
+                            HtmlElement("td", body_prefab.get_body_type())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Active"),
+                            HtmlElement("td", body_prefab.get_active())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Awake"),
+                            HtmlElement("td", body_prefab.get_awake())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Allow sleep"),
+                            HtmlElement("td", body_prefab.get_allow_sleep())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Fixed rotation"),
+                            HtmlElement("td", body_prefab.get_fixed_rotation())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Bullet"),
+                            HtmlElement("td", body_prefab.get_bullet())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Gravity scale"),
+                            HtmlElement("td", body_prefab.get_gravity_scale())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Angle"),
+                            HtmlElement("td", body_prefab.get_linear_damping())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Linear damping"),
+                            HtmlElement("td", body_prefab.get_linear_damping())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Angular damping"),
+                            HtmlElement("td", body_prefab.get_angular_damping())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise BodyPrefabHtmlGenerationException(body_prefab, e)
 

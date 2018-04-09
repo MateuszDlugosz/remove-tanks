@@ -1,14 +1,16 @@
 from lib.html.html import HtmlElement
 
+IMAGE_CLASS_HTML_ATTRIBUTE = "doc-image"
+
 
 class ImageHtmlGenerator(object):
     def generate_html(self, src, alt=""):
         try:
-            html = HtmlElement("img")
-            html.set_attribute("src", src)
-            html.set_attribute("alt", alt)
-
-            return html
+            return HtmlElement("img", attributes={
+                "class": IMAGE_CLASS_HTML_ATTRIBUTE,
+                "src": src,
+                "alt": alt
+            })
         except Exception as e:
             raise ImageHtmlGenerationException(e)
 

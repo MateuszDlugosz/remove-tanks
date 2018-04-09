@@ -14,9 +14,9 @@ class TestSubFileParticleEffectPrefabHtmlGenerator(unittest.TestCase):
         sub_html_generator = SubFileParticleEffectPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-particle-effect"><h6>Fileparticleeffect</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy'
-            '</dt><dd>False</dd><dt>Filename</dt><dd>filename</dd><dt>Imagesdirectory</dt><dd>images-dir'
-            '</dd></dl></div>',
+            '<divclass="doc-particle-effect"><p>Fileparticleeffect</p><div><table><tr><th>Flipx</th><td>True</td></tr>'
+            '<tr><th>Flipy</th><td>False</td></tr><tr><th>Filename</th><td>filename</td></tr><tr><th>Imagesdirectory'
+            '</th><td>images-dir</td></tr></table></div></div>',
             html_generator.generate_html(sub_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -29,9 +29,9 @@ class TestSubAtlasParticleEffectPrefabHtmlGenerator(unittest.TestCase):
         sub_html_generator = SubAtlasParticleEffectPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-particle-effect"><h6>Atlasparticleeffect</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy'
-            '</dt><dd>False</dd><dt>Filename</dt><dd>filename</dd><dt>Atlasfilename</dt><dd>atlas-filename'
-            '</dd></dl></div>',
+            '<divclass="doc-particle-effect"><p>Fileparticleeffect</p><div><table><tr><th>Flipx</th><td>True</td></tr>'
+            '<tr><th>Flipy</th><td>False</td></tr><tr><th>Filename</th><td>filename</td></tr><tr><th>Atlasfilename'
+            '</th><td>atlas-filename</td></tr></table></div></div>',
             html_generator.generate_html(sub_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -44,9 +44,9 @@ class TestParticleEffectPrefabHtmlGenerator(unittest.TestCase):
         a_html_generator = ParticleEffectPrefabHtmlGenerator([SubAtlasParticleEffectPrefabHtmlGenerator()])
 
         self.assertEqual(
-            '<divclass="doc-particle-effect"><h6>Atlasparticleeffect</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy'
-            '</dt><dd>False</dd><dt>Filename</dt><dd>filename</dd><dt>Atlasfilename</dt><dd>atlas-filename'
-            '</dd></dl></div>',
+            '<divclass="doc-particle-effect"><p>Fileparticleeffect</p><div><table><tr><th>Flipx</th><td>True</td>'
+            '</tr><tr><th>Flipy</th><td>False</td></tr><tr><th>Filename</th><td>filename</td></tr><tr><th>'
+            'Atlasfilename</th><td>atlas-filename</td></tr></table></div></div>',
             html_generator.generate_html(a_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

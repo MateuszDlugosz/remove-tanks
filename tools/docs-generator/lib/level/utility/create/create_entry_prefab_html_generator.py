@@ -9,24 +9,20 @@ class CreateEntryPrefabHtmlGenerator(object):
 
     def generate_html(self, create_entry_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", CREATE_ENTRY_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Create entry"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd_position = HtmlElement("dd")
-            dd_position.add_child(self.position_prefab_html_generator.generate_html(
-                create_entry_prefab.get_position_prefab()))
-            dl.add_child(dd_position)
-
-            dl.add_child(HtmlElement("dt", "Entity prefab code"))
-            dl.add_child(HtmlElement("dd", create_entry_prefab.get_prefab_code()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": CREATE_ENTRY_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Create entry"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Entity prefab code"),
+                            HtmlElement("td", create_entry_prefab.get_prefab_code())
+                        ])
+                    ])
+                ]),
+                self.position_prefab_html_generator.generate_html(create_entry_prefab.get_position_prefab())
+            ])
         except Exception as e:
             raise CreateEntryPrefabHtmlGenerationException(create_entry_prefab, e)
 

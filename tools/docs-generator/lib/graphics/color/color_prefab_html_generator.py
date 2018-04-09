@@ -30,22 +30,27 @@ class SubColorPrefabHtmlGenerator(object):
 class SubRgbColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
     def generate_html(self, color_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COLOR_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Rgb color"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "R"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_r()))
-            dl.add_child(HtmlElement("dt", "G"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_g()))
-            dl.add_child(HtmlElement("dt", "B"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_b()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COLOR_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Rgb color"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "R"),
+                            HtmlElement("td", color_prefab.get_r())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "G"),
+                            HtmlElement("td", color_prefab.get_g())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "B"),
+                            HtmlElement("td", color_prefab.get_b())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ColorPrefabHtmlGenerationException(color_prefab, e)
 
@@ -56,24 +61,31 @@ class SubRgbColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
 class SubRgbaColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
     def generate_html(self, color_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COLOR_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Rgba color"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "R"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_r()))
-            dl.add_child(HtmlElement("dt", "G"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_g()))
-            dl.add_child(HtmlElement("dt", "B"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_b()))
-            dl.add_child(HtmlElement("dt", "A"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_a()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COLOR_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Rgba color"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "R"),
+                            HtmlElement("td", color_prefab.get_r())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "G"),
+                            HtmlElement("td", color_prefab.get_g())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "B"),
+                            HtmlElement("td", color_prefab.get_b())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "A"),
+                            HtmlElement("td", color_prefab.get_a())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ColorPrefabHtmlGenerationException(color_prefab, e)
 
@@ -84,18 +96,19 @@ class SubRgbaColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
 class SubHexColorPrefabHtmlGenerator(SubColorPrefabHtmlGenerator):
     def generate_html(self, color_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", COLOR_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Hex color"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Hex value"))
-            dl.add_child(HtmlElement("dd", color_prefab.get_hex_value()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": COLOR_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Hex color"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Hex value"),
+                            HtmlElement("td", color_prefab.get_hex_value())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise ColorPrefabHtmlGenerationException(color_prefab, e)
 

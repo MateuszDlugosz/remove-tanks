@@ -8,10 +8,11 @@ class TestImageHtmlGenerator(unittest.TestCase):
     def test_generate_html(self):
         html_generator = HtmlGenerator()
         img_html_generator = ImageHtmlGenerator()
+
         self.assertEqual(
             html_generator.generate_html(img_html_generator.generate_html("test/src", "alternate"))
                 .replace(" ", "").replace("\n", ""),
-            '<imgsrc="test/src"alt="alternate"/>'
+            '<imgclass="doc-image"src="test/src"alt="alternate"/>'
         )
 
 

@@ -12,8 +12,8 @@ class TestShaderProgramPrefabHtmlGenerator(unittest.TestCase):
         spp_html_generator = ShaderProgramPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-shader-program"><h6>Shaderprogram</h6><hr/><dl><dt>Fragmentshaderfilename</dt><dd>'
-            'fragment</dd><dt>Vertexshaderfilename</dt><dd>vertex</dd></dl></div>',
+            '<divclass="doc-shader-program"><p>Shaderprogram</p><div><table><tr><th>Fragmentshaderfilename</th>'
+            '<td>fragment</td></tr><tr><th>Vertexshaderfilename</th><td>vertex</td></tr></table></div></div>',
             html_generator.generate_html(spp_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

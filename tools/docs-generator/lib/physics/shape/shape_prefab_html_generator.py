@@ -34,31 +34,24 @@ class SubRectangleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
 
     def generate_html(self, shape_prefab):
         try:
-            return HtmlElement(
-                "div",
-                attributes={
-                    "class": SHAPE_HTML_CLASS_ATTRIBUTE
-                },
-                children=[
-                    HtmlElement("button", "Rectangle shape"),
+            return HtmlElement("div", attributes={
+                "class": SHAPE_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Rectangle shape"),
                     HtmlElement("div", children=[
-                        HtmlElement("p", children=[
-                            HtmlElement("table", children=[
-                                HtmlElement("tr", children=[
-                                    HtmlElement("th", "Width"),
-                                    HtmlElement("td", shape_prefab.get_width())
-                                ]),
-                                HtmlElement("tr", children=[
-                                    HtmlElement("th", "Height"),
-                                    HtmlElement("td", shape_prefab.get_height())
-                                ])
+                        HtmlElement("table", children=[
+                            HtmlElement("tr", children=[
+                                HtmlElement("th", "Width"),
+                                HtmlElement("td", shape_prefab.get_width())
                             ]),
-                            self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())
+                            HtmlElement("tr", children=[
+                                HtmlElement("th", "Height"),
+                                HtmlElement("td", shape_prefab.get_height())
+                            ])
                         ]),
-                    ])
-
-                ]
-            )
+                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())
+                ]),
+            ])
         except Exception as e:
             raise ShapePrefabHtmlGenerationException(shape_prefab, e)
 
@@ -72,22 +65,20 @@ class SubCircleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
 
     def generate_html(self, shape_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Circle shape"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Radius"))
-            dl.add_child(HtmlElement("dd", shape_prefab.get_radius()))
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd = HtmlElement("dd")
-            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
-            dl.add_child(dd)
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": SHAPE_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Circle shape"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Radius"),
+                            HtmlElement("td", shape_prefab.get_radius())
+                        ])
+                    ]),
+                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())
+                ]),
+            ])
         except Exception as e:
             raise ShapePrefabHtmlGenerationException(shape_prefab, e)
 
@@ -102,29 +93,15 @@ class SubPolygonShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
 
     def generate_html(self, shape_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Polygon shape"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd = HtmlElement("dd")
-            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
-            dl.add_child(dd)
-            dl.add_child(HtmlElement("dt", "Vertices"))
-            v_div = HtmlElement("div")
-
-            for vertex_prefab in shape_prefab.get_vertices():
-                v_div.add_child(self.vertex_prefab_html_generator.generate_html(vertex_prefab))
-
-            dd = HtmlElement("dd")
-            dd.add_child(v_div)
-            dl.add_child(dd)
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": SHAPE_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Polygon shape"),
+                HtmlElement("div", children=[
+                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()),
+                    self.vertex_prefab_html_generator.generate_html(shape_prefab.get_vertices())
+                ])
+            ])
         except Exception as e:
             raise ShapePrefabHtmlGenerationException(shape_prefab, e)
 
@@ -139,29 +116,15 @@ class SubChainShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
 
     def generate_html(self, shape_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", SHAPE_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Chain shape"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd = HtmlElement("dd")
-            dd.add_child(self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
-            dl.add_child(dd)
-            dl.add_child(HtmlElement("dt", "Vertices"))
-            v_div = HtmlElement("div")
-
-            for vertex_prefab in shape_prefab.get_vertices():
-                v_div.add_child(self.vertex_prefab_html_generator.generate_html(vertex_prefab))
-
-            dd = HtmlElement("dd")
-            dd.add_child(v_div)
-            dl.add_child(dd)
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": SHAPE_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Chain shape"),
+                HtmlElement("div", children=[
+                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()),
+                    self.vertex_prefab_html_generator.generate_html(shape_prefab.get_vertices())
+                ])
+            ])
         except Exception as e:
             raise ShapePrefabHtmlGenerationException(shape_prefab, e)
 

@@ -12,7 +12,8 @@ class TestMusicPrefabHtmlGenerator(unittest.TestCase):
         music_html_generator = MusicPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-music"><h6>Music</h6><hr/><dl><dt>Filename</dt><dd>filename</dd></dl></div>',
+            '<divclass="doc-music"><p>Music</p><div><table><tr><th>Filename</th><td>filename</td></tr></table>'
+            '</div></div>',
             html_generator.generate_html(music_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

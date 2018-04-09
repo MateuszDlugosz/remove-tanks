@@ -8,7 +8,9 @@ from lib.level.event.entity_event_prefab import SpawnAirplaneEntityEventPrefab, 
     DestroyEntityByIdEntityEventPrefab, DestroyFamilyEntityEventPrefab, AddLifeEntityEventPrefab, \
     AddMessageEntityEventPrefab, PlayMusicEntityEventPrefab, AddPointsEntityEventPrefab, \
     IncreasePointsMultiplierEntityEventPrefab, PlaySoundEntityEventPrefab, ActivateSpawnerEntityEventPrefab, \
-    ChangeLevelStateEntityEventPrefab
+    ChangeLevelStateEntityEventPrefab, RandomCreateEntityEventPrefab, RemoveLifeEntityEventPrefab, \
+    ClearMessagesEntityEventPrefab, ResetPointsMultiplierEntityEventPrefab, ActivateSystemEntityEventPrefab, \
+    DeactivateSystemEntityEventPrefab
 from lib.level.utility.create.create_entry_prefab_xml_reader import CreateEntryPrefabXmlReader
 from lib.level.utility.stage.broker.message.message_prefab_xml_reader import MessagePrefabXmlReader
 
@@ -272,11 +274,79 @@ class SubChangeLevelStateEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReade
         return "ChangeLevelStateEntityEvent"
 
 
-class EntityEventPrefabXmlReaderNotFoundException(Exception):
-    MESSAGE_TEMPLATE = "Event prefab xml reader of {} event type not found."
+class SubRandomCreateEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    def __init__(self, create_entry_prefab_xml_reader):
+        self.create_entry_prefab_xml_reader = create_entry_prefab_xml_reader
 
-    def __init__(self, prefab_type):
-        super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            create_entry_prefabs = self.create_entry_prefab_xml_reader.read_prefabs_from_string(
+                EXml.tostring(element.find(CreateEntryPrefabXmlReader.CREATE_ENTRIES_ELEMENT))
+            )
+
+            return RandomCreateEntityEventPrefab(create_entry_prefabs)
+        except Exception as e:
+            raise EntityEventPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "RandomCreateEntityEvent"
+
+
+class SubRemoveLifeEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return RemoveLifeEntityEventPrefab()
+
+    def get_type(self):
+        return "RemoveLifeEntityEvent"
+
+
+class SubClearMessagesEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return ClearMessagesEntityEventPrefab()
+
+    def get_type(self):
+        return "ClearMessagesEntityEvent"
+
+
+class SubResetPointsMultiplierEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return ResetPointsMultiplierEntityEventPrefab()
+
+    def get_type(self):
+        return "ResetPointsMultiplierEntityEvent"
+
+
+class SubActivateSystemEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    CLASS_NAME_ELEMENT = "className"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            class_name = element.find(self.CLASS_NAME_ELEMENT).text.strip()
+
+            return ActivateSystemEntityEventPrefab(class_name)
+        except Exception as e:
+            raise EntityEventPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "ActivateSystemEntityEvent"
+
+
+class SubDeactivateSystemEntityEventPrefabXmlReader(SubEntityEventPrefabXmlReader):
+    CLASS_NAME_ELEMENT = "className"
+
+    def read_prefab_from_string(self, xml_string):
+        try:
+            element = EXml.fromstring(xml_string)
+            class_name = element.find(self.CLASS_NAME_ELEMENT).text.strip()
+
+            return DeactivateSystemEntityEventPrefab(class_name)
+        except Exception as e:
+            raise EntityEventPrefabXmlReadException(xml_string, e)
+
+    def get_type(self):
+        return "DeactivateSystemEntityEvent"
 
 
 class EntityEventPrefabXmlReadException(Exception):
@@ -284,3 +354,10 @@ class EntityEventPrefabXmlReadException(Exception):
 
     def __init__(self, xml_string, cause):
         super().__init__(self.MESSAGE_TEMPLATE.format(xml_string, cause))
+
+
+class EntityEventPrefabXmlReaderNotFoundException(Exception):
+    MESSAGE_TEMPLATE = "Event prefab xml reader of {} event type not found."
+
+    def __init__(self, prefab_type):
+        super().__init__(self.MESSAGE_TEMPLATE.format(prefab_type))

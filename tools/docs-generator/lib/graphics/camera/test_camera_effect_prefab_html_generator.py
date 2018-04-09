@@ -13,8 +13,8 @@ class TestSubShakeCameraEffectPrefabHtmlGenerator(unittest.TestCase):
         scm_html_generator = SubShakeCameraEffectPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-camera-effect"><h6>Shakecameraeffect</h6><hr/><dl><dt>Time</dt><dd>10.0</dd><dt>Power'
-            '</dt><dd>20.0</dd></dl></div>',
+            '<divclass="doc-camera-effect"><p>Shakecameraeffect</p><div><table><tr><th>Time</th><td>10.0</td></tr><tr>'
+            '<th>Power</th><td>20.0</td></tr></table></div></div>',
             html_generator.generate_html(scm_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -27,8 +27,8 @@ class TestCameraEffectPrefabHtmlGenerator(unittest.TestCase):
         cep_html_generator = CameraEffectPrefabHtmlGenerator([SubShakeCameraEffectPrefabHtmlGenerator()])
 
         self.assertEqual(
-            '<divclass="doc-camera-effect"><h6>Shakecameraeffect</h6><hr/><dl><dt>Time</dt><dd>10.0</dd><dt>Power'
-            '</dt><dd>20.0</dd></dl></div>',
+            '<divclass="doc-camera-effect"><p>Shakecameraeffect</p><div><table><tr><th>Time</th><td>10.0</td></tr><tr>'
+            '<th>Power</th><td>20.0</td></tr></table></div></div>',
             html_generator.generate_html(cep_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

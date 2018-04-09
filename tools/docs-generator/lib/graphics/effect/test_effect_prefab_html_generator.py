@@ -17,7 +17,8 @@ class TestSubAlphaEffectPrefabHtmlGenerator(unittest.TestCase):
         aep_html_generator = SubAlphaEffectPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-effect"><h6>Alphaeffect</h6><hr/><dl><dt>Alphavalue</dt><dd>1</dd></dl></div>',
+            '<divclass="doc-effect"><p>Alphaeffect</p><div><table><tr><th>Alphavalue</th><td>1</td></tr>'
+            '</table></div></div>',
             html_generator.generate_html(aep_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -31,8 +32,8 @@ class TestSubTintEffectPrefabHtmlGenerator(unittest.TestCase):
             ColorPrefabHtmlGenerator([SubHexColorPrefabHtmlGenerator()]))
 
         self.assertEqual(
-            '<divclass="doc-effect"><h6>Tinteffect</h6><hr/><dl><dt>Color</dt><dd><divclass="doc-color"><h6>'
-            'Hexcolor</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></dd></dl></div>',
+            '<divclass="doc-effect"><p>Tinteffect</p><div><divclass="doc-color"><p>Hexcolor</p><div><table>'
+            '<tr><th>Hexvalue</th><td>CCAAFFEE</td></tr></table></div></div></div></div>',
             html_generator.generate_html(tep_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -45,9 +46,9 @@ class TestSubShaderEffectPrefabHtmlGenerator(unittest.TestCase):
         sep_html_generator = SubShaderEffectPrefabHtmlGenerator(ShaderProgramPrefabHtmlGenerator())
 
         self.assertEqual(
-            '<divclass="doc-effect"><h6>Shadereffect</h6><hr/><dl><dt>Shaderprogram</dt><dd>'
-            '<divclass="doc-shader-program"><h6>Shaderprogram</h6><hr/><dl><dt>Fragmentshaderfilename</dt><dd>'
-            'fragment</dd><dt>Vertexshaderfilename</dt><dd>vertex</dd></dl></div></dd></dl></div>',
+            '<divclass="doc-effect"><p>Shadereffect</p><div><divclass="doc-shader-program"><p>Shaderprogram</p><div>'
+            '<table><tr><th>Fragmentshaderfilename</th><td>fragment</td></tr><tr><th>Vertexshaderfilename</th><td>'
+            'vertex</td></tr></table></div></div></div></div>',
             html_generator.generate_html(sep_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -60,7 +61,8 @@ class TestEffectPrefabHtmlGenerator(unittest.TestCase):
         effect_html_generator = EffectPrefabHtmlGenerator([SubAlphaEffectPrefabHtmlGenerator()])
 
         self.assertEqual(
-            '<divclass="doc-effect"><h6>Alphaeffect</h6><hr/><dl><dt>Alphavalue</dt><dd>1</dd></dl></div>',
+            '<divclass="doc-effect"><p>Alphaeffect</p><div><table><tr><th>Alphavalue</th><td>1</td></tr>'
+            '</table></div></div>',
             html_generator.generate_html(effect_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

@@ -26,10 +26,10 @@ class TestLightHandlerPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-light-handler"><h6>Lighthandler</h6><hr/><dl><dt>Id</dt><dd>ID</dd><dt>Light</dt><dd>'
-            '<divclass="doc-light"><h6>Directionallight</h6><hr/><dl><dt>XRay</dt><dd>True</dd><dt>Color</dt><dd>'
-            '<divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></dd><dt>'
-            'Directiondegree</dt><dd>100.0</dd></dl></div></dd></dl></div>',
+            '<divclass="doc-light-handler"><p>Lighthandler</p><div><table><tr><th>Id</th><td>ID</td></tr></table>'
+            '<divclass="doc-light"><p>Directionallight</p><div><table><tr><th>XRay</th><td>True</td></tr><tr><th>'
+            'Directiondegree</th><td>100.0</td></tr></table><divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>'
+            'Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></div></div></div></div>',
             html_generator.generate_html(lh_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

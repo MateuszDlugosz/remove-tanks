@@ -4,7 +4,9 @@ from lib.level.event.entity_event_prefab import SpawnAirplaneEntityEventPrefab, 
     DestroyEntityByIdEntityEventPrefab, DestroyFamilyEntityEventPrefab, AddLifeEntityEventPrefab, \
     AddMessageEntityEventPrefab, PlayMusicEntityEventPrefab, AddPointsEntityEventPrefab, \
     IncreasePointsMultiplierEntityEventPrefab, PlaySoundEntityEventPrefab, ActivateSpawnerEntityEventPrefab, \
-    ChangeLevelStateEntityEventPrefab
+    ChangeLevelStateEntityEventPrefab, RandomCreateEntityEventPrefab, RemoveLifeEntityEventPrefab, \
+    ClearMessagesEntityEventPrefab, ResetPointsMultiplierEntityEventPrefab, ActivateSystemEntityEventPrefab, \
+    DeactivateSystemEntityEventPrefab
 
 ENTITY_EVENT_CLASS_HTML_ATTRIBUTE = "doc-entity-event"
 
@@ -36,12 +38,11 @@ class SubEntityEventPrefabHtmlGenerator(object):
 class SubSpawnAirplaneEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Spawn airplane entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Spawn airplane entity event")
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -52,12 +53,11 @@ class SubSpawnAirplaneEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGen
 class SubAmmoLevelUpEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Ammo level up entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Ammo level up entity event")
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -71,22 +71,12 @@ class SubAddCameraEffectEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlG
 
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Add camera effect entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Camera effect"))
-            ce_dd = HtmlElement("dd")
-            ce_dd.add_child(self.camera_effect_prefab_html_generator.generate_html(
-                entity_event_prefab.get_camera_effect_prefab()
-            ))
-            dl.add_child(ce_dd)
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Add camera effect entity event"),
+                self.camera_effect_prefab_html_generator.generate_html(entity_event_prefab.get_camera_effect_prefab())
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -100,23 +90,16 @@ class SubCreateEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator)
 
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Create entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Create entries"))
-            dd_ce = HtmlElement("dd")
+            create_entry_elements = [HtmlElement("p", "Create entries")]
             for create_entry_prefab in entity_event_prefab.get_create_entry_prefabs():
-                dd_ce.add_child(self.create_entry_prefab_html_generator.generate_html(
-                    create_entry_prefab
-                ))
+                create_entry_elements.append(self.create_entry_prefab_html_generator.generate_html(create_entry_prefab))
 
-            dl.add_child(dd_ce)
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Create entity event"),
+                HtmlElement("div", children=create_entry_elements)
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -127,12 +110,11 @@ class SubCreateEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator)
 class SubDestroyEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Destroy entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Destroy entity event")
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -143,18 +125,19 @@ class SubDestroyEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator
 class SubDestroyEntityByIdEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Destroy entity by id entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Id"))
-            dl.add_child(HtmlElement("dd", entity_event_prefab.get_id()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Destroy entity by id entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Id"),
+                            HtmlElement("td", entity_event_prefab.get_id())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -165,18 +148,19 @@ class SubDestroyEntityByIdEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtm
 class SubDestroyFamilyEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Destroy family entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Entity family"))
-            dl.add_child(HtmlElement("dd", entity_event_prefab.get_entity_family()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Destroy family entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Family"),
+                            HtmlElement("td", entity_event_prefab.get_entity_family())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -187,12 +171,11 @@ class SubDestroyFamilyEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGen
 class SubAddLifeEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Add life entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Add life entity event")
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -206,22 +189,13 @@ class SubAddMessageEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenera
 
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Add message entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Message"))
-            message_dd = HtmlElement("dd")
-            message_dd.add_child(self.message_prefab_html_generator.generate_html(
-                entity_event_prefab.get_message_prefab()
-            ))
-            dl.add_child(message_dd)
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Add message entity event"),
+                self.message_prefab_html_generator.generate_html(
+                    entity_event_prefab.get_message_prefab())
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -235,24 +209,20 @@ class SubPlayMusicEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerat
 
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Play music entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Music"))
-            music_dd = HtmlElement("dd")
-            music_dd.add_child(self.music_prefab_html_generator.generate_html(
-                entity_event_prefab.get_music_prefab()
-            ))
-            dl.add_child(music_dd)
-            dl.add_child(HtmlElement("dt", "Music channel name"))
-            dl.add_child(HtmlElement("dd", entity_event_prefab.get_music_channel_name()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Play music entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Music channel name"),
+                            HtmlElement("td", entity_event_prefab.get_music_channel_name())
+                        ])
+                    ])
+                ]),
+                self.music_prefab_html_generator.generate_html(entity_event_prefab.get_music_prefab())
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -263,18 +233,19 @@ class SubPlayMusicEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerat
 class SubAddPointsEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Add points entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Points"))
-            dl.add_child(HtmlElement("dd", entity_event_prefab.get_points()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Add points entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Points"),
+                            HtmlElement("td", entity_event_prefab.get_points())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -285,12 +256,11 @@ class SubAddPointsEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerat
 class SubIncreasePointsMultiplierEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Increase points multiplier entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Increase points multiplier entity event")
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -304,24 +274,20 @@ class SubPlaySoundEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerat
 
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Play sound entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Sound"))
-            sound_dd = HtmlElement("dd")
-            sound_dd.add_child(self.sound_prefab_html_generator.generate_html(
-                entity_event_prefab.get_sound_prefab()
-            ))
-            dl.add_child(sound_dd)
-            dl.add_child(HtmlElement("dt", "Sound channel name"))
-            dl.add_child(HtmlElement("dd", entity_event_prefab.get_sound_channel_name()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Play sound entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Sound channel name"),
+                            HtmlElement("td", entity_event_prefab.get_sound_channel_name())
+                        ])
+                    ])
+                ]),
+                self.sound_prefab_html_generator.generate_html(entity_event_prefab.get_sound_prefab())
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -332,18 +298,19 @@ class SubPlaySoundEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerat
 class SubActivateSpawnerEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Activate spawner entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Id"))
-            dl.add_child(HtmlElement("dd", entity_event_prefab.get_id()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Activate spawner entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Id"),
+                            HtmlElement("td", entity_event_prefab.get_id())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
@@ -354,23 +321,138 @@ class SubActivateSpawnerEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlG
 class SubChangeLevelStateEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
     def generate_html(self, entity_event_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ENTITY_EVENT_CLASS_HTML_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Change level state entity event"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Level state"))
-            dl.add_child(HtmlElement("dd", entity_event_prefab.get_level_state()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Change level state entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Level state"),
+                            HtmlElement("td", entity_event_prefab.get_level_state())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
 
     def get_type(self):
         return ChangeLevelStateEntityEventPrefab.__name__
+
+
+class SubRandomCreateEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
+    def __init__(self, create_entry_prefab_html_generator):
+        self.create_entry_prefab_html_generator = create_entry_prefab_html_generator
+
+    def generate_html(self, entity_event_prefab):
+        try:
+            create_entry_elements = [HtmlElement("p", "Create entries")]
+            for create_entry_prefab in entity_event_prefab.get_create_entry_prefabs():
+                create_entry_elements.append(self.create_entry_prefab_html_generator.generate_html(create_entry_prefab))
+
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Random create entity event"),
+                HtmlElement("div", children=create_entry_elements)
+            ])
+        except Exception as e:
+            raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
+
+    def get_type(self):
+        return RandomCreateEntityEventPrefab.__name__
+
+
+class SubRemoveLifeEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
+    def generate_html(self, entity_event_prefab):
+        try:
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Remove life entity event")
+            ])
+        except Exception as e:
+            raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
+
+    def get_type(self):
+        return RemoveLifeEntityEventPrefab.__name__
+
+
+class SubClearMessagesEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
+    def generate_html(self, entity_event_prefab):
+        try:
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Clear messages entity event")
+            ])
+        except Exception as e:
+            raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
+
+    def get_type(self):
+        return ClearMessagesEntityEventPrefab.__name__
+
+
+class SubResetPointsMultiplierEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
+    def generate_html(self, entity_event_prefab):
+        try:
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Reset points multiplier entity event")
+            ])
+        except Exception as e:
+            raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
+
+    def get_type(self):
+        return ResetPointsMultiplierEntityEventPrefab.__name__
+
+
+class SubActivateSystemEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
+    def generate_html(self, entity_event_prefab):
+        try:
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Activate system entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Class name"),
+                            HtmlElement("td", entity_event_prefab.get_class_name())
+                        ])
+                    ])
+                ])
+            ])
+        except Exception as e:
+            raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
+
+    def get_type(self):
+        return ActivateSystemEntityEventPrefab.__name__
+
+
+class SubDeactivateSystemEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator):
+    def generate_html(self, entity_event_prefab):
+        try:
+            return HtmlElement("div", attributes={
+                "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Deactivate system entity event"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Class name"),
+                            HtmlElement("td", entity_event_prefab.get_class_name())
+                        ])
+                    ])
+                ])
+            ])
+        except Exception as e:
+            raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
+
+    def get_type(self):
+        return DeactivateSystemEntityEventPrefab.__name__
 
 
 class EntityEventPrefabHtmlGenerationException(Exception):

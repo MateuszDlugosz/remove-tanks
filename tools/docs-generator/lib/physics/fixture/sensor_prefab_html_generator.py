@@ -9,24 +9,20 @@ class SensorPrefabHtmlGenerator(object):
 
     def generate_html(self, sensor_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", SENSOR_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Sensor"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Id"))
-            dl.add_child(HtmlElement("dd", sensor_prefab.get_id()))
-
-            dl.add_child(HtmlElement("dt", "Fixture"))
-            fixture_dd = HtmlElement("dd")
-            fixture_dd.add_child(
-                self.fixture_prefab_html_generator.generate_html(sensor_prefab.get_fixture_prefab()))
-            dl.add_child(fixture_dd)
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": SENSOR_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Sensor"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Id"),
+                            HtmlElement("td", sensor_prefab.get_id())
+                        ])
+                    ]),
+                    self.fixture_prefab_html_generator.generate_html(sensor_prefab.get_fixture_prefab())
+                ])
+            ])
         except Exception as e:
             raise SensorPrefabHtmlGenerationException(sensor_prefab, e)
 

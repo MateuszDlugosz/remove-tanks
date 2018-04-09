@@ -35,36 +35,25 @@ class SubPointLightPrefabHtmlGenerator(SubLightPrefabHtmlGenerator):
 
     def generate_html(self, light_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", LIGHT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Point light"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-
-            dl.add_child(HtmlElement("dt", "XRay"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_x_ray()))
-
-            dl.add_child(HtmlElement("dt", "Color"))
-            dd_color = HtmlElement("dd")
-            dd_color.add_child(self.color_prefab_html_generator.generate_html(
-                light_prefab.get_color_prefab()
-            ))
-            dl.add_child(dd_color)
-
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd_position = HtmlElement("dd")
-            dd_position.add_child(self.position_prefab_html_generator.generate_html(
-                light_prefab.get_position_prefab()
-            ))
-            dl.add_child(dd_position)
-
-            dl.add_child(HtmlElement("dt", "Distance"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_distance()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": LIGHT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Point light"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "XRay"),
+                            HtmlElement("td", light_prefab.get_x_ray())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Distance"),
+                            HtmlElement("td", light_prefab.get_distance())
+                        ])
+                    ]),
+                    self.position_prefab_html_generator.generate_html(light_prefab.get_position_prefab()),
+                    self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
+                ])
+            ])
         except Exception as e:
             raise LightPrefabHtmlGenerationException(light_prefab, e)
 
@@ -78,29 +67,24 @@ class SubDirectionalLightPrefabHtmlGenerator(SubLightPrefabHtmlGenerator):
 
     def generate_html(self, light_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", LIGHT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Directional light"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-
-            dl.add_child(HtmlElement("dt", "XRay"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_x_ray()))
-
-            dl.add_child(HtmlElement("dt", "Color"))
-            dd_color = HtmlElement("dd")
-            dd_color.add_child(self.color_prefab_html_generator.generate_html(
-                light_prefab.get_color_prefab()
-            ))
-            dl.add_child(dd_color)
-
-            dl.add_child(HtmlElement("dt", "Direction degree"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_direction_degree()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": LIGHT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Directional light"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "XRay"),
+                            HtmlElement("td", light_prefab.get_x_ray())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Direction degree"),
+                            HtmlElement("td", light_prefab.get_direction_degree())
+                        ])
+                    ]),
+                    self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
+                ])
+            ])
         except Exception as e:
             raise LightPrefabHtmlGenerationException(light_prefab, e)
 
@@ -115,42 +99,33 @@ class SubConeLightPrefabHtmlGenerator(SubLightPrefabHtmlGenerator):
 
     def generate_html(self, light_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", LIGHT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Cone light"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-
-            dl.add_child(HtmlElement("dt", "XRay"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_x_ray()))
-
-            dl.add_child(HtmlElement("dt", "Color"))
-            dd_color = HtmlElement("dd")
-            dd_color.add_child(self.color_prefab_html_generator.generate_html(
-                light_prefab.get_color_prefab()
-            ))
-            dl.add_child(dd_color)
-
-            dl.add_child(HtmlElement("dt", "Position"))
-            dd_position = HtmlElement("dd")
-            dd_position.add_child(self.position_prefab_html_generator.generate_html(
-                light_prefab.get_position_prefab()
-            ))
-            dl.add_child(dd_position)
-
-            dl.add_child(HtmlElement("dt", "Distance"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_distance()))
-
-            dl.add_child(HtmlElement("dt", "Cone degree"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_cone_degree()))
-
-            dl.add_child(HtmlElement("dt", "Direction degree"))
-            dl.add_child(HtmlElement("dd", light_prefab.get_direction_degree()))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": LIGHT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Cone light"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "XRay"),
+                            HtmlElement("td", light_prefab.get_x_ray())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Distance"),
+                            HtmlElement("td", light_prefab.get_distance())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Direction degree"),
+                            HtmlElement("td", light_prefab.get_direction_degree())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Cone degree"),
+                            HtmlElement("td", light_prefab.get_cone_degree())
+                        ])
+                    ]),
+                    self.position_prefab_html_generator.generate_html(light_prefab.get_position_prefab()),
+                    self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
+                ])
+            ])
         except Exception as e:
             raise LightPrefabHtmlGenerationException(light_prefab, e)
 

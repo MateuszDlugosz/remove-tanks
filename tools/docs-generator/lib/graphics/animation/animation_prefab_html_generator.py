@@ -31,26 +31,35 @@ class SubAnimationPrefabHtmlGenerator(object):
 class SubFileAnimationPrefabHtmlGenerator(SubAnimationPrefabHtmlGenerator):
     def generate_html(self, animation_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ANIMATION_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "File animation"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Flip x"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_flip_x()))
-            dl.add_child(HtmlElement("dt", "Flip y"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_flip_y()))
-            dl.add_child(HtmlElement("dt", "Play mode"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_play_mode()))
-            dl.add_child(HtmlElement("dt", "Frame duration"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_frame_duration()))
-            dl.add_child(HtmlElement("dt", "Filenames"))
-            dl.add_child(HtmlElement("dd", ", ".join(animation_prefab.get_filenames())))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ANIMATION_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "File animation"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip x"),
+                            HtmlElement("td", animation_prefab.get_flip_x())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip y"),
+                            HtmlElement("td", animation_prefab.get_flip_y())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Play mode"),
+                            HtmlElement("td", animation_prefab.get_play_mode())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Frame duration"),
+                            HtmlElement("td", animation_prefab.get_frame_duration())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Filenames"),
+                            HtmlElement("td", ", ".join(animation_prefab.get_filenames()))
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise AnimationPrefabHtmlGenerationException(animation_prefab, e)
 
@@ -61,28 +70,39 @@ class SubFileAnimationPrefabHtmlGenerator(SubAnimationPrefabHtmlGenerator):
 class SubAtlasAnimationPrefabHtmlGenerator(SubAnimationPrefabHtmlGenerator):
     def generate_html(self, animation_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", ANIMATION_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Atlas animation"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Flip x"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_flip_x()))
-            dl.add_child(HtmlElement("dt", "Flip y"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_flip_y()))
-            dl.add_child(HtmlElement("dt", "Play mode"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_play_mode()))
-            dl.add_child(HtmlElement("dt", "Frame duration"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_frame_duration()))
-            dl.add_child(HtmlElement("dt", "Atlas filename"))
-            dl.add_child(HtmlElement("dd", animation_prefab.get_atlas_filename()))
-            dl.add_child(HtmlElement("dt", "Region names"))
-            dl.add_child(HtmlElement("dd", ", ".join(animation_prefab.get_region_names())))
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": ANIMATION_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "File animation"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip x"),
+                            HtmlElement("td", animation_prefab.get_flip_x())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Flip y"),
+                            HtmlElement("td", animation_prefab.get_flip_y())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Play mode"),
+                            HtmlElement("td", animation_prefab.get_play_mode())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Frame duration"),
+                            HtmlElement("td", animation_prefab.get_frame_duration())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Atlas filename"),
+                            HtmlElement("td", animation_prefab.get_atlas_filename())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Region names"),
+                            HtmlElement("td", ", ".join(animation_prefab.get_region_names()))
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise AnimationPrefabHtmlGenerationException(animation_prefab, e)
 

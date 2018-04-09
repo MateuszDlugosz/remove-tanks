@@ -9,25 +9,20 @@ class LightHandlerPrefabHtmlGenerator(object):
 
     def generate_html(self, light_handler_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", LIGHT_HANDLER_HTML_ID_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Light handler"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Id"))
-            dl.add_child(HtmlElement("dd", light_handler_prefab.get_id()))
-
-            dl.add_child(HtmlElement("dt", "Light"))
-            dd_light = HtmlElement("dd")
-            dd_light.add_child(self.light_prefab_html_generator.generate_html(
-                light_handler_prefab.get_light_prefab()
-            ))
-            dl.add_child(dd_light)
-
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": LIGHT_HANDLER_HTML_ID_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Light handler"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Id"),
+                            HtmlElement("td", light_handler_prefab.get_id())
+                        ])
+                    ]),
+                    self.light_prefab_html_generator.generate_html(light_handler_prefab.get_light_prefab())
+                ])
+            ])
         except Exception as e:
             raise LightHandlerPrefabHtmlGenerationException(light_handler_prefab, e)
 

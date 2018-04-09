@@ -13,9 +13,9 @@ class TestSubFileAnimationPrefabHtmlGenerator(unittest.TestCase):
         fa_html_generator = SubFileAnimationPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-animation"><h6>Fileanimation</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt><dd>'
-            'False</dd><dt>Playmode</dt><dd>PlayMODE</dd><dt>Frameduration</dt><dd>0.22</dd><dt>Filenames</dt><dd>'
-            'one,two</dd></dl></div>',
+            '<divclass="doc-animation"><p>Fileanimation</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>'
+            'Flipy</th><td>False</td></tr><tr><th>Playmode</th><td>PlayMODE</td></tr><tr><th>Frameduration</th><td>'
+            '0.22</td></tr><tr><th>Filenames</th><td>one,two</td></tr></table></div></div>',
             html_generator.generate_html(fa_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -28,9 +28,10 @@ class TestSubAtlasAnimationPrefabHtmlGenerator(unittest.TestCase):
         fa_html_generator = SubAtlasAnimationPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-animation"><h6>Atlasanimation</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt>'
-            '<dd>False</dd><dt>Playmode</dt><dd>PlayMODE</dd><dt>Frameduration</dt><dd>0.22</dd><dt>Atlasfilename'
-            '</dt><dd>atlas</dd><dt>Regionnames</dt><dd>one,two</dd></dl></div>',
+            '<divclass="doc-animation"><p>Fileanimation</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>'
+            'Flipy</th><td>False</td></tr><tr><th>Playmode</th><td>PlayMODE</td></tr><tr><th>Frameduration</th><td>'
+            '0.22</td></tr><tr><th>Atlasfilename</th><td>atlas</td></tr><tr><th>Regionnames</th><td>one,two</td></tr>'
+            '</table></div></div>',
             html_generator.generate_html(fa_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -43,9 +44,10 @@ class TestAnimationPrefabHtmlGenerator(unittest.TestCase):
         a_html_generator = AnimationPrefabHtmlGenerator([SubAtlasAnimationPrefabHtmlGenerator()])
 
         self.assertEqual(
-            '<divclass="doc-animation"><h6>Atlasanimation</h6><hr/><dl><dt>Flipx</dt><dd>True</dd><dt>Flipy</dt>'
-            '<dd>False</dd><dt>Playmode</dt><dd>PlayMODE</dd><dt>Frameduration</dt><dd>0.22</dd><dt>Atlasfilename'
-            '</dt><dd>atlas</dd><dt>Regionnames</dt><dd>one,two</dd></dl></div>',
+            '<divclass="doc-animation"><p>Fileanimation</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>'
+            'Flipy</th><td>False</td></tr><tr><th>Playmode</th><td>PlayMODE</td></tr><tr><th>Frameduration</th><td>'
+            '0.22</td></tr><tr><th>Atlasfilename</th><td>atlas</td></tr><tr><th>Regionnames</th><td>one,two</td></tr>'
+            '</table></div></div>',
             html_generator.generate_html(a_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

@@ -31,19 +31,23 @@ class SubCameraEffectPrefabHtmlGenerator(object):
 class SubShakeCameraEffectPrefabHtmlGenerator(SubCameraEffectPrefabHtmlGenerator):
     def generate_html(self, camera_effect_prefab):
         try:
-            html = HtmlElement("div")
-            html.set_attribute("class", CAMERA_EFFECT_HTML_CLASS_ATTRIBUTE)
-            html.add_child(HtmlElement("h6", "Shake camera effect"))
-            html.add_child(HtmlElement("hr"))
-
-            dl = HtmlElement("dl")
-            dl.add_child(HtmlElement("dt", "Time"))
-            dl.add_child(HtmlElement("dd", camera_effect_prefab.get_time()))
-            dl.add_child(HtmlElement("dt", "Power"))
-            dl.add_child(HtmlElement("dd", camera_effect_prefab.get_power()))
-            html.add_child(dl)
-
-            return html
+            return HtmlElement("div", attributes={
+                "class": CAMERA_EFFECT_HTML_CLASS_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Shake camera effect"),
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Time"),
+                            HtmlElement("td", camera_effect_prefab.get_time())
+                        ]),
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Power"),
+                            HtmlElement("td", camera_effect_prefab.get_power())
+                        ])
+                    ])
+                ])
+            ])
         except Exception as e:
             raise CameraEffectPrefabHtmlGenerationException(camera_effect_prefab, e)
 

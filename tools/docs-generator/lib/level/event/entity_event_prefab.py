@@ -148,3 +148,52 @@ class ChangeLevelStateEntityEventPrefab(EntityEventPrefab):
 
     def __str__(self):
         return "ChangeLevelStateEntityEventPrefab(level_state={})".format(self.level_state)
+
+
+class RandomCreateEntityEventPrefab(EntityEventPrefab):
+    def __init__(self, create_entry_prefabs):
+        self.create_entry_prefabs = create_entry_prefabs
+
+    def get_create_entry_prefabs(self):
+        return self.create_entry_prefabs
+
+    def __str__(self):
+        return "RandomCreateEntityEventPrefab(create_entry_prefabs=[{}])" \
+            .format(", ".join('\'{}\''.format(str(val)) for val in self.create_entry_prefabs))
+
+
+class RemoveLifeEntityEventPrefab(EntityEventPrefab):
+    def __str__(self):
+        return "RemoveLifeEntityEventPrefab()"
+
+
+class ClearMessagesEntityEventPrefab(EntityEventPrefab):
+    def __str__(self):
+        return "ClearMessagesEntityEventPrefab()"
+
+
+class ResetPointsMultiplierEntityEventPrefab(EntityEventPrefab):
+    def __str__(self):
+        return "ResetPointsMultiplierEntityEventPrefab()"
+
+
+class ActivateSystemEntityEventPrefab(EntityEventPrefab):
+    def __init__(self, class_name):
+        self.class_name = class_name
+
+    def get_class_name(self):
+        return self.class_name
+
+    def __str__(self):
+        return "ActivateSystemEntityEventPrefab(class_name={})".format(self.class_name)
+
+
+class DeactivateSystemEntityEventPrefab(EntityEventPrefab):
+    def __init__(self, class_name):
+        self.class_name = class_name
+
+    def get_class_name(self):
+        return self.class_name
+
+    def __str__(self):
+        return "DeactivateSystemEntityEventPrefab(class_name={})".format(self.class_name)

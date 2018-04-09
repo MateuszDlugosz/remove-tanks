@@ -12,8 +12,8 @@ class TestMessagePrefabHtmlGenerator(unittest.TestCase):
         message_html_generator = MessagePrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-message"><h6>Message</h6><hr/><dl><dt>Time</dt><dd>10.0</dd><dt>Translationentrykey'
-            '</dt><dd>ENTRY_KEY</dd><dt>Faceid</dt><dd>FACE_ID</dd></dl></div>',
+            '<divclass="doc-message"><p>Message</p><div><table><tr><th>Time</th><td>10.0</td></tr><tr><th>Entrykey'
+            '</th><td>ENTRY_KEY</td></tr><tr><th>Faceid</th><td>FACE_ID</td></tr></table></div></div>',
             html_generator.generate_html(message_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

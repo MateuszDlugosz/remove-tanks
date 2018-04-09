@@ -13,8 +13,8 @@ class TestSubRgbColorPrefabHtmlGenerator(unittest.TestCase):
         color_prefab_html_generator = SubRgbColorPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-color"><h6>Rgbcolor</h6><hr/><dl><dt>R</dt><dd>1.0</dd><dt>G</dt><dd>2.0</dd><dt>B'
-            '</dt><dd>3.0</dd></dl></div>',
+            '<divclass="doc-color"><p>Rgbcolor</p><div><table><tr><th>R</th><td>1.0</td></tr><tr><th>G</th><td>2.0'
+            '</td></tr><tr><th>B</th><td>3.0</td></tr></table></div></div>',
             html_generator.generate_html(color_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -27,8 +27,8 @@ class TestSubRgbaColorPrefabHtmlGenerator(unittest.TestCase):
         color_prefab_html_generator = SubRgbaColorPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-color"><h6>Rgbacolor</h6><hr/><dl><dt>R</dt><dd>1.0</dd><dt>G</dt><dd>2.0</dd><dt>B'
-            '</dt><dd>3.0</dd><dt>A</dt><dd>4.0</dd></dl></div>',
+            '<divclass="doc-color"><p>Rgbacolor</p><div><table><tr><th>R</th><td>1.0</td></tr><tr><th>G</th><td>2.0'
+            '</td></tr><tr><th>B</th><td>3.0</td></tr><tr><th>A</th><td>4.0</td></tr></table></div></div>',
             html_generator.generate_html(color_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -41,7 +41,8 @@ class TestSubHexColorPrefabHtmlGenerator(unittest.TestCase):
         color_prefab_html_generator = SubHexColorPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div>',
+            '<divclass="doc-color"><p>Hexcolor</p><div><table><tr><th>Hexvalue</th><td>CCAAFFEE</td></tr></table>'
+            '</div></div>',
             html_generator.generate_html(color_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
