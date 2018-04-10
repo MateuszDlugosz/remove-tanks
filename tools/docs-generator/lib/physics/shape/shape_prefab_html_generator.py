@@ -38,19 +38,21 @@ class SubRectangleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
                 "class": SHAPE_HTML_CLASS_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Rectangle shape"),
-                    HtmlElement("div", children=[
-                        HtmlElement("table", children=[
-                            HtmlElement("tr", children=[
-                                HtmlElement("th", "Width"),
-                                HtmlElement("td", shape_prefab.get_width())
-                            ]),
-                            HtmlElement("tr", children=[
-                                HtmlElement("th", "Height"),
-                                HtmlElement("td", shape_prefab.get_height())
-                            ])
+                HtmlElement("div", children=[
+                    HtmlElement("table", children=[
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Width"),
+                            HtmlElement("td", shape_prefab.get_width())
                         ]),
-                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())
+                        HtmlElement("tr", children=[
+                            HtmlElement("th", "Height"),
+                            HtmlElement("td", shape_prefab.get_height())
+                        ])
+                    ])
                 ]),
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Position")
+                ] + self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
             ])
         except Exception as e:
             raise ShapePrefabHtmlGenerationException(shape_prefab, e)
@@ -75,9 +77,11 @@ class SubCircleShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
                             HtmlElement("th", "Radius"),
                             HtmlElement("td", shape_prefab.get_radius())
                         ])
-                    ]),
-                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())
+                    ])
                 ]),
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Position")
+                ] + self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()))
             ])
         except Exception as e:
             raise ShapePrefabHtmlGenerationException(shape_prefab, e)
@@ -98,8 +102,12 @@ class SubPolygonShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
             }, children=[
                 HtmlElement("p", "Polygon shape"),
                 HtmlElement("div", children=[
-                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()),
-                    self.vertex_prefab_html_generator.generate_html(shape_prefab.get_vertices())
+                    HtmlElement("div", children=[
+                        HtmlElement("p", "Position")
+                    ] + self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())),
+                    HtmlElement("div", children=[
+                        HtmlElement("p", "Vertices")
+                    ] + self.vertex_prefab_html_generator.generate_html(shape_prefab.get_vertices()))
                 ])
             ])
         except Exception as e:
@@ -121,8 +129,12 @@ class SubChainShapePrefabHtmlGenerator(SubShapePrefabHtmlGenerator):
             }, children=[
                 HtmlElement("p", "Chain shape"),
                 HtmlElement("div", children=[
-                    self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab()),
-                    self.vertex_prefab_html_generator.generate_html(shape_prefab.get_vertices())
+                    HtmlElement("div", children=[
+                        HtmlElement("p", "Position")
+                    ] + self.position_prefab_html_generator.generate_html(shape_prefab.get_position_prefab())),
+                    HtmlElement("div", children=[
+                        HtmlElement("p", "Vertices")
+                    ] + self.vertex_prefab_html_generator.generate_html(shape_prefab.get_vertices()))
                 ])
             ])
         except Exception as e:

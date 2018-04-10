@@ -18,7 +18,8 @@ class TestSubRectangleShapePrefabHtmlGenerator(unittest.TestCase):
         shape_prefab_html_generator = SubRectangleShapePrefabHtmlGenerator(
             PositionPrefabHtmlGenerator()
         )
-
+        print(html_generator.generate_html(shape_prefab_html_generator.generate_html(prefab))
+                .replace(" ", "").replace("\n", ""))
         self.assertEqual(
             '<divclass="doc-shape"><p>Rectangleshape</p><div><table><tr><th>Width</th><td>10.0</td></tr><tr><th>'
             'Height</th><td>20.0</td></tr></table><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th>'

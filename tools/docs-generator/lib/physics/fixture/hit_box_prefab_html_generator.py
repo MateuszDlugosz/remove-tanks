@@ -19,9 +19,11 @@ class HitBoxPrefabHtmlGenerator(object):
                             HtmlElement("th", "Id"),
                             HtmlElement("td", hit_box_prefab.get_id())
                         ])
-                    ]),
-                    self.fixture_prefab_html_generator.generate_html(hit_box_prefab.get_fixture_prefab())
-                ])
+                    ])
+                ]),
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Fixture")
+                ] + self.fixture_prefab_html_generator.generate_html(hit_box_prefab.get_fixture_prefab()))
             ])
         except Exception as e:
             raise HitBoxPrefabHtmlGenerationException(hit_box_prefab, e)

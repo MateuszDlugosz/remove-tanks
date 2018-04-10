@@ -28,10 +28,14 @@ class FixturePrefabHtmlGenerator(object):
                             HtmlElement("th", "Friction"),
                             HtmlElement("td", fixture_prefab.get_friction())
                         ])
-                    ]),
-                    self.filter_prefab_html_generator.generate_html(fixture_prefab.get_filter_prefab()),
-                    self.shape_prefab_html_generator.generate_html(fixture_prefab.get_shape_prefab())
-                ])
+                    ])
+                ]),
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Filter")
+                ] + self.filter_prefab_html_generator.generate_html(fixture_prefab.get_filter_prefab())),
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Shape")
+                ] + self.shape_prefab_html_generator.generate_html(fixture_prefab.get_shape_prefab()))
             ])
         except Exception as e:
             raise FixturePrefabHtmlGenerationException(fixture_prefab, e)
