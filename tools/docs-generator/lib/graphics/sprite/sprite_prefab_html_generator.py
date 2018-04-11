@@ -81,7 +81,7 @@ class SubAtlasSpritePrefabHtmlGenerator(SubSpritePrefabHtmlGenerator):
                             HtmlElement("td", sprite_prefab.get_atlas_filename())
                         ]),
                         HtmlElement("tr", children=[
-                            HtmlElement("th", "Refion name"),
+                            HtmlElement("th", "Region name"),
                             HtmlElement("td", sprite_prefab.get_region_name())
                         ])
                     ])

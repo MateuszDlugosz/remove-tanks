@@ -32,8 +32,8 @@ class TestSubTintEffectPrefabHtmlGenerator(unittest.TestCase):
             ColorPrefabHtmlGenerator([SubHexColorPrefabHtmlGenerator()]))
 
         self.assertEqual(
-            '<divclass="doc-effect"><p>Tinteffect</p><div><divclass="doc-color"><p>Hexcolor</p><div><table>'
-            '<tr><th>Hexvalue</th><td>CCAAFFEE</td></tr></table></div></div></div></div>',
+            '<divclass="doc-effect"><p>Tinteffect</p><divclass="doc-color"><p>Hexcolor</p><div><table><tr><th>Hexvalue'
+            '</th><td>CCAAFFEE</td></tr></table></div></div></div>',
             html_generator.generate_html(tep_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -46,9 +46,9 @@ class TestSubShaderEffectPrefabHtmlGenerator(unittest.TestCase):
         sep_html_generator = SubShaderEffectPrefabHtmlGenerator(ShaderProgramPrefabHtmlGenerator())
 
         self.assertEqual(
-            '<divclass="doc-effect"><p>Shadereffect</p><div><divclass="doc-shader-program"><p>Shaderprogram</p><div>'
-            '<table><tr><th>Fragmentshaderfilename</th><td>fragment</td></tr><tr><th>Vertexshaderfilename</th><td>'
-            'vertex</td></tr></table></div></div></div></div>',
+            '<divclass="doc-effect"><p>Shadereffect</p><divclass="doc-shader-program"><p>Shaderprogram</p><div><table>'
+            '<tr><th>Fragmentshaderfilename</th><td>fragment</td></tr><tr><th>Vertexshaderfilename</th><td>vertex</td>'
+            '</tr></table></div></div></div>',
             html_generator.generate_html(sep_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

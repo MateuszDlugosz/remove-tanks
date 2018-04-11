@@ -90,15 +90,18 @@ class SubCreateEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenerator)
 
     def generate_html(self, entity_event_prefab):
         try:
-            create_entry_elements = [HtmlElement("p", "Create entries")]
+            create_entry_elements = []
             for create_entry_prefab in entity_event_prefab.get_create_entry_prefabs():
-                create_entry_elements.append(self.create_entry_prefab_html_generator.generate_html(create_entry_prefab))
+                create_entry_elements.append(
+                    self.create_entry_prefab_html_generator.generate_html(create_entry_prefab))
 
             return HtmlElement("div", attributes={
                 "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Create entity event"),
-                HtmlElement("div", children=create_entry_elements)
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Create entries")
+                ] + create_entry_elements)
             ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
@@ -193,8 +196,7 @@ class SubAddMessageEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGenera
                 "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Add message entity event"),
-                self.message_prefab_html_generator.generate_html(
-                    entity_event_prefab.get_message_prefab())
+                self.message_prefab_html_generator.generate_html(entity_event_prefab.get_message_prefab())
             ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)
@@ -347,7 +349,7 @@ class SubRandomCreateEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGene
 
     def generate_html(self, entity_event_prefab):
         try:
-            create_entry_elements = [HtmlElement("p", "Create entries")]
+            create_entry_elements = []
             for create_entry_prefab in entity_event_prefab.get_create_entry_prefabs():
                 create_entry_elements.append(self.create_entry_prefab_html_generator.generate_html(create_entry_prefab))
 
@@ -355,7 +357,9 @@ class SubRandomCreateEntityEventPrefabHtmlGenerator(SubEntityEventPrefabHtmlGene
                 "class": ENTITY_EVENT_CLASS_HTML_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Random create entity event"),
-                HtmlElement("div", children=create_entry_elements)
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Create entries")
+                ] + create_entry_elements)
             ])
         except Exception as e:
             raise EntityEventPrefabHtmlGenerationException(entity_event_prefab, e)

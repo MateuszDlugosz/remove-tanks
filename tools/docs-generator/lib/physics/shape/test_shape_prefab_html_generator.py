@@ -18,12 +18,11 @@ class TestSubRectangleShapePrefabHtmlGenerator(unittest.TestCase):
         shape_prefab_html_generator = SubRectangleShapePrefabHtmlGenerator(
             PositionPrefabHtmlGenerator()
         )
-        print(html_generator.generate_html(shape_prefab_html_generator.generate_html(prefab))
-                .replace(" ", "").replace("\n", ""))
+
         self.assertEqual(
-            '<divclass="doc-shape"><p>Rectangleshape</p><div><table><tr><th>Width</th><td>10.0</td></tr><tr><th>'
-            'Height</th><td>20.0</td></tr></table><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th>'
-            '<td>11.1</td></tr><tr><th>Y</th><td>2.33</td></tr></table></div></div></div></div>',
+            '<divclass="doc-shape"><p>Rectangleshape</p><div><table><tr><th>Width</th><td>10.0</td></tr><tr>'
+            '<th>Height</th><td>20.0</td></tr></table></div><divclass="doc-position"><p>Position</p><div><table>'
+            '<tr><th>X</th><td>11.1</td></tr><tr><th>Y</th><td>2.33</td></tr></table></div></div></div>',
             html_generator.generate_html(shape_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -38,9 +37,9 @@ class TestSubCircleShapePrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-shape"><p>Circleshape</p><div><table><tr><th>Radius</th><td>10.0</td></tr></table>'
-            '<divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>11.1</td></tr><tr><th>Y</th>'
-            '<td>2.33</td></tr></table></div></div></div></div>',
+            '<divclass="doc-shape"><p>Circleshape</p><div><table><tr><th>Radius</th><td>10.0</td></tr></table></div>'
+            '<divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>11.1</td></tr><tr><th>Y</th><td>'
+            '2.33</td></tr></table></div></div></div>',
             html_generator.generate_html(shape_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -55,12 +54,11 @@ class TestSubPolygonShapePrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-shape"><p>Polygonshape</p><div><divclass="doc-position"><p>Position</p><div><table><tr>'
-            '<th>X</th><td>1.1</td></tr><tr><th>Y</th><td>2.2</td></tr></table></div></div><divclass="doc-vertices">'
-            '<p>Vertices</p><div><divclass="doc-vertex"><p>Vertex</p><div><table><tr><th>X</th><td>0.9</td></tr>'
-            '<tr><th>Y</th><td>1.2</td></tr></table></div></div><divclass="doc-vertex"><p>Vertex</p><div><table>'
-            '<tr><th>X</th><td>2.2</td></tr><tr><th>Y</th><td>2.3</td></tr></table></div></div></div></div></div>'
-            '</div>',
+            '<divclass="doc-shape"><p>Polygonshape</p><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
+            '</th><td>1.1</td></tr><tr><th>Y</th><td>2.2</td></tr></table></div></div><divclass="doc-vertices"><p>'
+            'Vertices</p><div><divclass="doc-vertex"><p>Vertex</p><div><table><tr><th>X</th><td>0.9</td></tr><tr><th>Y'
+            '</th><td>1.2</td></tr></table></div></div><divclass="doc-vertex"><p>Vertex</p><div><table><tr><th>X</th>'
+            '<td>2.2</td></tr><tr><th>Y</th><td>2.3</td></tr></table></div></div></div></div></div>',
             html_generator.generate_html(shape_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -75,11 +73,11 @@ class TestSubChainShapePrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-shape"><p>Chainshape</p><div><divclass="doc-position"><p>Position</p><div><table><tr><th>'
-            'X</th><td>1.1</td></tr><tr><th>Y</th><td>2.2</td></tr></table></div></div><divclass="doc-vertices"><p>'
-            'Vertices</p><div><divclass="doc-vertex"><p>Vertex</p><div><table><tr><th>X</th><td>0.9</td></tr><tr><th>'
-            'Y</th><td>1.2</td></tr></table></div></div><divclass="doc-vertex"><p>Vertex</p><div><table><tr><th>X'
-            '</th><td>2.2</td></tr><tr><th>Y</th><td>2.3</td></tr></table></div></div></div></div></div></div>',
+            '<divclass="doc-shape"><p>Chainshape</p><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
+            '</th><td>1.1</td></tr><tr><th>Y</th><td>2.2</td></tr></table></div></div><divclass="doc-vertices"><p>'
+            'Vertices</p><div><divclass="doc-vertex"><p>Vertex</p><div><table><tr><th>X</th><td>0.9</td></tr><tr'
+            '><th>Y</th><td>1.2</td></tr></table></div></div><divclass="doc-vertex"><p>Vertex</p><div><table><tr><th>'
+            'X</th><td>2.2</td></tr><tr><th>Y</th><td>2.3</td></tr></table></div></div></div></div></div>',
             html_generator.generate_html(shape_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -94,9 +92,9 @@ class TestShapePrefabHtmlGenerator(unittest.TestCase):
         ])
 
         self.assertEqual(
-            '<divclass="doc-shape"><p>Rectangleshape</p><div><table><tr><th>Width</th><td>10.0</td></tr><tr><th>'
-            'Height</th><td>20.0</td></tr></table><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
-            '</th><td>11.1</td></tr><tr><th>Y</th><td>2.33</td></tr></table></div></div></div></div>',
+            '<divclass="doc-shape"><p>Rectangleshape</p><div><table><tr><th>Width</th><td>10.0</td></tr><tr><th>Height'
+            '</th><td>20.0</td></tr></table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
+            '</th><td>11.1</td></tr><tr><th>Y</th><td>2.33</td></tr></table></div></div></div>',
             html_generator.generate_html(shape_prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

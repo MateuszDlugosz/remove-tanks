@@ -30,12 +30,8 @@ class FixturePrefabHtmlGenerator(object):
                         ])
                     ])
                 ]),
-                HtmlElement("div", children=[
-                    HtmlElement("p", "Filter")
-                ] + self.filter_prefab_html_generator.generate_html(fixture_prefab.get_filter_prefab())),
-                HtmlElement("div", children=[
-                    HtmlElement("p", "Shape")
-                ] + self.shape_prefab_html_generator.generate_html(fixture_prefab.get_shape_prefab()))
+                self.filter_prefab_html_generator.generate_html(fixture_prefab.get_filter_prefab()),
+                self.shape_prefab_html_generator.generate_html(fixture_prefab.get_shape_prefab())
             ])
         except Exception as e:
             raise FixturePrefabHtmlGenerationException(fixture_prefab, e)

@@ -1,9 +1,6 @@
 from lib.html.html import HtmlElement
 
-ENTITY_CLASS_HTML_ATTRIBUTE = "doc-entity card"
-ENTITY_BODY_CLASS_HTML_ATTRIBUTES = "doc-entity-body card-body"
-ENTITY_TITLE_CLASS_HTML_ATTRIBUTES = "doc-entity-title card-title text-center"
-ENTITY_tEXT_TEMPLATE = "Entity prefab: {}"
+ENTITY_CLASS_HTML_ATTRIBUTE = "doc-entity"
 
 
 class EntityPrefabHtmlGenerator(object):
@@ -13,19 +10,17 @@ class EntityPrefabHtmlGenerator(object):
 
     def generate_html(self, entity_prefab, code):
         try:
+            components = []
+            for class_name, component in entity_prefab.get_all_components().items():
+                components.append(self.component_prefab_html_generator.generate_html(component))
+
             return HtmlElement("div", attributes={
                 "class": ENTITY_CLASS_HTML_ATTRIBUTE
             }, children=[
-                HtmlElement("div", attributes={
-                    "class": ENTITY_BODY_CLASS_HTML_ATTRIBUTES
-                }, children=[
-                    HtmlElement("h5", attributes={
-                        "class": ENTITY_TITLE_CLASS_HTML_ATTRIBUTES
-                    }, text=ENTITY_tEXT_TEMPLATE.format(code)),
-                    HtmlElement("hr"),
-                    self.preload_data_html_generator.generate_html(entity_prefab.get_preload_data()),
-                    HtmlElement("hr")
-                ])
+                HtmlElement("p", "Entity: {}".format(code)),
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Components")
+                ] + components)
             ])
         except Exception as e:
             raise EntityPrefabHtmlGenerationException(entity_prefab, e)

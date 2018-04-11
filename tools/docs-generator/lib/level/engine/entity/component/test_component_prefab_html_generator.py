@@ -44,7 +44,8 @@ class TestSubSpeedComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubSpeedComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Speedcomponent</h5><hr/><dl><dt>Speed</dt><dd>10.0</dd></dl></div>',
+            '<divclass="doc-component"><p>Speedcomponent</p><div><table><tr><th>Speed</th><td>10.0</td></tr>'
+            '</table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -57,8 +58,8 @@ class TestSubSpeedModifierComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubSpeedModifierComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Speedmodifiercomponent</h5><hr/><dl><dt>Speedmodifier</dt>'
-            '<dd>10.0</dd></dl></div>',
+            '<divclass="doc-component"><p>Speedmodifiercomponent</p><div><table><tr><th>Speedmodifier</th><td>10.0'
+            '</td></tr></table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -71,9 +72,9 @@ class TestSubCameraTrackComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubCameraTrackComponentPrefabHtmlGenerator(PositionPrefabHtmlGenerator())
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Cameratrackcomponent</h5><hr/><dl><dt>Priority</dt><dd>1</dd><dt>'
-            'Position</dt><dd><divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X</dt><dd>1.0</dd><dt>Y'
-            '</dt><dd>2.0</dd></dl></div></dd></dl></div>',
+            '<divclass="doc-component"><p>Speedcomponent</p><div><table><tr><th>Priority</th><td>1</td></tr></table'
+            '></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>1.0</td></tr><tr><th>Y</t'
+            'h><td>2.0</td></tr></table></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -86,8 +87,8 @@ class TestSubLeaveBonusComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubLeaveBonusComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Leavebonuscomponent</h5><hr/><dl><dt>Chancemodifier<'
-            '/dt><dd>1.0</dd></dl></div>',
+            '<divclass="doc-component"><p>Leavebonuscomponent</p><div><table><tr><th>Chancemodifier</th><td>1.0'
+            '</td></tr></table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -101,12 +102,12 @@ class TestSubAmmoComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubAmmoComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Ammocomponent</h5><hr/><dl><dt>Currentlevel</dt><dd>1</dd><dt>'
-            'Maxlevel</dt><dd>2</dd><dt>Ammotable</dt><dd><table><tr><th>Level</th><th>EntityPrefabCodes</th>'
-            '</tr><tr><td>1</td><td><table><tr><th>Direction</th><th>Entityprefabcode</th></tr><tr><td>Left</td>'
-            '<td>LeftBullet0</td></tr><tr><td>Right</td><td>RightBullet0</td></tr></table></td></tr><tr><td>2</td>'
-            '<td><table><tr><th>Direction</th><th>Entityprefabcode</th></tr><tr><td>Left</td><td>LeftBullet1</td>'
-            '</tr><tr><td>Right</td><td>RightBullet1</td></tr></table></td></tr></table></dd></dl></div>',
+            '<divclass="doc-component"><p>Ammocomponent</p><div><table><tr><th>Currentlevel</th><td>1</td></tr><tr>'
+            '<th>Maxlevel</th><td>2</td></tr></table></div><div><p>Ammotable</p><table><tr><th>Level</th><th>Entity'
+            'prefabcodes</th></tr><tr><td>1</td><td><table><th>Direction</th><th>Entityprefabcode</th><tr><td>Left<'
+            '/td><td>LeftBullet0</td></tr><tr><td>Right</td><td>RightBullet0</td></tr></table></td></tr><tr><td>2</'
+            'td><td><table><th>Direction</th><th>Entityprefabcode</th><tr><td>Left</td><td>LeftBullet1</td></tr><tr'
+            '><td>Right</td><td>RightBullet1</td></tr></table></td></tr></table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -119,7 +120,7 @@ class TestSubAutoShootComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubAutoShootComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Autoshootcomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Autoshootcomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -132,7 +133,8 @@ class TestSubDamageComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubDamageComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Damagecomponent</h5><hr/><dl><dt>Damage</dt><dd>2</dd></dl></div>',
+            '<divclass="doc-component"><p>Damagecomponent</p><div><table><tr><th>Damage</th><td>2</td>'
+            '</tr></table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -145,8 +147,8 @@ class TestSubHealthComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubHealthComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Healthcomponent</h5><hr/><dl><dt>Health</dt><dd>2</dd><dt>Maxhealth</dt>'
-            '<dd>6</dd></dl></div>',
+            '<divclass="doc-component"><p>Healthcomponent</p><div><table><tr><th>Health</th><td>2</td></tr><tr><th>'
+            'Maxhealth</th><td>6</td></tr></table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -160,9 +162,9 @@ class TestSubHitComponentPrefabHtmlGenerator(unittest.TestCase):
             [SubAlphaEffectPrefabHtmlGenerator()]))
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Hitcomponent</h5><hr/><dl><dt>Time</dt><dd>10.0</dd><dt>Effect</dt><dd>'
-            '<divclass="doc-effect"><h6>Alphaeffect</h6><hr/><dl><dt>Alphavalue</dt><dd>1</dd></dl></div></dd></dl>'
-            '</div>',
+            '<divclass="doc-component"><p>Hitcomponent</p><div><table><tr><th>Time</th><td>10.0</td></tr></table>'
+            '</div><divclass="doc-effect"><p>Alphaeffect</p><div><table><tr><th>Alphavalue</th><td>1</td></tr></t'
+            'able></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -175,7 +177,7 @@ class TestSubProtectionComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubProtectionComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Protectioncomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Protectioncomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -188,8 +190,8 @@ class TestSubRandomShootComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubRandomShootComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Randomshootcomponent</h5><hr/><dl><dt>Minshootfrequency</dt><dd>1.0</dd>'
-            '<dt>Maxshootfrequency</dt><dd>2.0</dd></dl></div>',
+            '<divclass="doc-component"><p>Randomshootcomponent</p><div><table><tr><th>Minshootfrequency</th><td>1.0'
+            '</td></tr><tr><th>Maxshootfrequency</th><td>2.0</td></tr></table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -202,7 +204,8 @@ class TestSubDirectionComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubDirectionComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Directioncomponent</h5><hr/><dl><dt>Direction</dt><dd>Left</dd></dl></div>',
+            '<divclass="doc-component"><p>Directioncomponent</p><div><table><tr><th>Direction</th><td>Left</td></tr>'
+            '</table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -217,10 +220,9 @@ class TestSubChangeBehaviorComponentPrefabHtmlGenerator(unittest.TestCase):
         ]))
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Changebehaviorcomponent</h5><hr/><dl><dt>Components</dt><dd>'
-            '<divclass="doc-component"><h5>Speedcomponent</h5><hr/><dl><dt>Speed</dt><dd>1.0</dd></dl></div>'
-            '<divclass="doc-component"><h5>Damagecomponent</h5><hr/><dl><dt>Damage</dt><dd>2</dd></dl></div>'
-            '</dd></dl></div>',
+            '<divclass="doc-component"><p>Changebehaviorcomponent</p><div><divclass="doc-component"><p>Speedcomponent'
+            '</p><div><table><tr><th>Speed</th><td>1.0</td></tr></table></div></div><divclass="doc-component"><p>Dama'
+            'gecomponent</p><div><table><tr><th>Damage</th><td>2</td></tr></table></div></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -243,8 +245,9 @@ class TestSubRandomDirectionComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubRandomDirectionComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Randomdirectioncomponent</h5><hr/><dl><dt>Mindirectionfrequency</dt><dd>'
-            '1.0</dd><dt>Maxdirectionfrequency</dt><dd>2.0</dd><dt>Directions</dt><dd>Left,Right</dd></dl></div>',
+            '<divclass="doc-component"><p>Randomdirectioncomponent</p><div><table><tr><th>Minchangedirectionfreque'
+            'ncy</th><td>1.0</td></tr><tr><th>Maxchangedirectionfrequency</th><td>2.0</td></tr><tr><th>Directions<'
+            '/th><td>Left,Right</td></tr></table></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -257,7 +260,7 @@ class TestSubPlayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubPlayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Playercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Playercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -270,7 +273,7 @@ class TestSubEnemyComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubEnemyComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Enemycomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Enemycomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -283,7 +286,7 @@ class TestSubIdentityComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubIdentityComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Identitycomponent</h5><hr/><dl><dt>Id</dt><dd>ID</dd></dl></div>',
+            '<divclass="doc-component"><p>Identitycomponent</p><table><tr><th>Id</th><td>ID</td></tr></table></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -296,7 +299,8 @@ class TestSubInputComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubInputComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Inputcomponent</h5><hr/><dl><dt>Shootdelay</dt><dd>5.0</dd></dl></div>',
+            '<divclass="doc-component"><p>Inputcomponent</p><table><tr><th>Shootdelay</th><td>5.0</td></tr>'
+            '</table></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -309,7 +313,7 @@ class TestSubCreateComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubCreateComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Createcomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Createcomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -322,7 +326,7 @@ class TestSubDestroyComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubDestroyComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Destroycomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Destroycomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -335,7 +339,7 @@ class TestSubDestroyOnContactComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubDestroyOnContactComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Destroyoncontactcomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Destroyoncontactcomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -348,7 +352,7 @@ class TestSubDestroyOnContactLostComponentPrefabHtmlGenerator(unittest.TestCase)
         sub_generator = SubDestroyOnContactLostComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Destroyoncontactlostcomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Destroyoncontactlostcomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -361,7 +365,8 @@ class TestSubLifetimeComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubLifetimeComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Lifetimecomponent</h5><hr/><dl><dt>Lifetime</dt><dd>4.0</dd></dl></div>',
+            '<divclass="doc-component"><p>Lifetimecomponent</p><table><tr><th>Lifetime</th><td>4.0</td>'
+            '</tr></table></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -376,11 +381,11 @@ class TestSubRandomCreateComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Randomcreatecomponent</h5><hr/><dl><dt>Mincreatefrequency</dt><dd>1.0'
-            '</dd><dt>Maxcreatefrequency</dt><dd>2.0</dd><dt>Createentries</dt><dd><divclass="doc-create-entry"><h6>'
-            'Createentry</h6><hr/><dl><dt>Position</dt><dd><divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X'
-            '</dt><dd>1.0</dd><dt>Y</dt><dd>2.0</dd></dl></div></dd><dt>Entityprefabcode</dt><dd>PREFAB_CODE</dd>'
-            '</dl></div></dd></dl></div>',
+            '<divclass="doc-component"><p>Changebehaviorcomponent</p><table><tr><th>Mincreatefrequency</th><td>1.0'
+            '</td></tr><tr><th>Maxcreatefrequency</th><td>2.0</td></tr></table><div><p>Components</p><divclass="do'
+            'c-create-entry"><p>Createentry</p><div><table><tr><th>Entityprefabcode</th><td>PREFAB_CODE</td></tr><'
+            '/table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>1.0</td></tr><tr><'
+            'th>Y</th><td>2.0</td></tr></table></div></div></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -393,7 +398,7 @@ class TestSubAutoMoveComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubAutoMoveComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Automovecomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Automovecomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -463,31 +468,31 @@ class TestSubPhysicsComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Physicscomponent</h5><hr/><dl><dt>Body</dt><dd><divclass="doc-body">'
-            '<h6>Body</h6><hr/><dl><dt>Bodytype</dt><dd>StaticBody</dd><dt>Active</dt><dd>True</dd><dt>Awake</dt>'
-            '<dd>False</dd><dt>Allowsleep</dt><dd>False</dd><dt>Fixedrotation</dt><dd>False</dd><dt>Bullet</dt>'
-            '<dd>True</dd><dt>Gravityscale</dt><dd>1.0</dd><dt>Angle</dt><dd>45.0</dd><dt>Lineardamping</dt><dd>2.0'
-            '</dd><dt>Angulardamping</dt><dd>1.0</dd></dl></div></dd><dt>Hitboxes</dt><dd><divclass="doc-hit-box">'
-            '<h6>Hitbox</h6><hr/><dl><dt>Id</dt><dd>HB0</dd><dt>Fixture</dt><dd><divclass="doc-fixture"><h6>'
-            'Fixture</h6><hr/><dl><dt>Shape</dt><dd><divclass="doc-shape"><h6>Circleshape</h6><hr/><dl><dt>Radius'
-            '</dt><dd>2.0</dd><dt>Position</dt><dd><divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X</dt>'
-            '<dd>10.0</dd><dt>Y</dt><dd>20.0</dd></dl></div></dd></dl></div></dd><dt>Filter</dt><dd>'
-            '<divclass="doc-filter"><h6>Filter</h6><hr/><dl><dt>Categorybit</dt><dd>category</dd><dt>Maskbit'
-            '</dt><dd>mask</dd></dl></div></dd><dt>Density</dt><dd>2.0</dd><dt>Restitution</dt><dd>1.0</dd>'
-            '<dt>Friction</dt><dd>3.0</dd><dt>Issensor</dt><dd>False</dd></dl></div></dd></dl></div></dd><dt>Sensors'
-            '</dt><dd><divclass="doc-sensor"><h6>Sensor</h6><hr/><dl><dt>Id</dt><dd>S0</dd><dt>Fixture</dt><dd>'
-            '<divclass="doc-fixture"><h6>Fixture</h6><hr/><dl><dt>Shape</dt><dd><divclass="doc-shape"><h6>'
-            'Circleshape</h6><hr/><dl><dt>Radius</dt><dd>2.0</dd><dt>Position</dt><dd><divclass="doc-position">'
-            '<h6>Position</h6><hr/><dl><dt>X</dt><dd>10.0</dd><dt>Y</dt><dd>20.0</dd></dl></div></dd></dl></div>'
-            '</dd><dt>Filter</dt><dd><divclass="doc-filter"><h6>Filter</h6><hr/><dl><dt>Categorybit</dt><dd>category'
-            '</dd><dt>Maskbit</dt><dd>mask</dd></dl></div></dd><dt>Density</dt><dd>2.0</dd><dt>Restitution</dt>'
-            '<dd>1.0</dd><dt>Friction</dt><dd>3.0</dd><dt>Issensor</dt><dd>True</dd></dl></div></dd></dl></div>'
-            '</dd><dt>Lighthandlers</dt><dd><divclass="doc-light-handler"><h6>Lighthandler</h6><hr/><dl><dt>Id'
-            '</dt><dd>LH0</dd><dt>Light</dt><dd><divclass="doc-light"><h6>Pointlight</h6><hr/><dl><dt>XRay</dt>'
-            '<dd>True</dd><dt>Color</dt><dd><divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue</dt><dd>'
-            'CCAAFFEE</dd></dl></div></dd><dt>Position</dt><dd><divclass="doc-position"><h6>Position</h6><hr/><dl>'
-            '<dt>X</dt><dd>1.0</dd><dt>Y</dt><dd>2.0</dd></dl></div></dd><dt>Distance</dt><dd>10.0</dd></dl></div>'
-            '</dd></dl></div></dd></dl></div>',
+            '<divclass="doc-component"><p>Physicscomponent</p><divclass="doc-body"><p>Body</p><div><table><tr><th>Bo'
+            'dytype</th><td>StaticBody</td></tr><tr><th>Active</th><td>True</td></tr><tr><th>Awake</th><td>False</td'
+            '></tr><tr><th>Allowsleep</th><td>False</td></tr><tr><th>Fixedrotation</th><td>False</td></tr><tr><th>Bu'
+            'llet</th><td>True</td></tr><tr><th>Gravityscale</th><td>1.0</td></tr><tr><th>Angle</th><td>2.0</td></tr'
+            '><tr><th>Lineardamping</th><td>2.0</td></tr><tr><th>Angulardamping</th><td>1.0</td></tr></table></div><'
+            '/div><div><p>Hitboxes</p><divclass="doc-hit-box"><p>Hitbox</p><div><table><tr><th>Id</th><td>HB0</td></'
+            'tr></table></div><divclass="doc-fixture"><p>Fixture</p><div><table><tr><th>Density</th><td>2.0</td></tr'
+            '><tr><th>Restitution</th><td>1.0</td></tr><tr><th>Friction</th><td>3.0</td></tr></table></div><divclass'
+            '="doc-filter"><p>Filter</p><div><table><tr><th>Categorybit</th><td>category</td></tr><tr><th>Maskbit</t'
+            'h><td>mask</td></tr></table></div></div><divclass="doc-shape"><p>Circleshape</p><div><table><tr><th>Rad'
+            'ius</th><td>2.0</td></tr></table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X</t'
+            'h><td>10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table></div></div></div></div></div></div><div><p'
+            '>Sensors</p><divclass="doc-sensor"><p>Sensor</p><div><table><tr><th>Id</th><td>S0</td></tr></table></di'
+            'v><divclass="doc-fixture"><p>Fixture</p><div><table><tr><th>Density</th><td>2.0</td></tr><tr><th>Restit'
+            'ution</th><td>1.0</td></tr><tr><th>Friction</th><td>3.0</td></tr></table></div><divclass="doc-filter"><'
+            'p>Filter</p><div><table><tr><th>Categorybit</th><td>category</td></tr><tr><th>Maskbit</th><td>mask</td>'
+            '</tr></table></div></div><divclass="doc-shape"><p>Circleshape</p><div><table><tr><th>Radius</th><td>2.0'
+            '</td></tr></table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>10.0</td>'
+            '</tr><tr><th>Y</th><td>20.0</td></tr></table></div></div></div></div></div></div><div><p>Lighthandlers<'
+            '/p><divclass="doc-light-handler"><p>Lighthandler</p><div><table><tr><th>Id</th><td>LH0</td></tr></table'
+            '></div><divclass="doc-light"><p>Pointlight</p><div><table><tr><th>XRay</th><td>True</td></tr><tr><th>Di'
+            'stance</th><td>10.0</td></tr></table></div><div><p>Position</p><divclass="doc-position"><p>Position</p>'
+            '<div><table><tr><th>X</th><td>1.0</td></tr><tr><th>Y</th><td>2.0</td></tr></table></div></div></div><di'
+            'vclass="doc-color"><p>Hexcolor</p><div><table><tr><th>Hexvalue</th><td>CCAAFFEE</td></tr></table></div>'
+            '</div></div></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -500,7 +505,7 @@ class TestSubAirplaneRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubAirplaneRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Airplanerenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Airplanerenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -513,7 +518,7 @@ class TestSubBombRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubBombRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Bombrenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Bombrenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -526,7 +531,7 @@ class TestSubBonusRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubBonusRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Bonusrenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Bonusrenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -539,7 +544,7 @@ class TestSubBulletRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubBulletRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Bulletrenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Bulletrenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -552,7 +557,7 @@ class TestSubCloudRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubCloudRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Cloudrenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Cloudrenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -565,7 +570,7 @@ class TestSubExplosionRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase)
         sub_generator = SubExplosionRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Explosionrenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Explosionrenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -578,7 +583,7 @@ class TestSubGroundRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubGroundRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Groundrenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Groundrenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -591,7 +596,7 @@ class TestSubObstacleRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubObstacleRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Obstaclerenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Obstaclerenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -604,7 +609,7 @@ class TestSubVehicleRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubVehicleRenderLayerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Vehiclerenderlayercomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Vehiclerenderlayercomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -628,11 +633,11 @@ class TestSubViewComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Viewcomponent</h5><hr/><dl><dt>Views</dt><dd><divclass="doc-view"><h6>'
-            'Spriteview</h6><hr/><dl><dt>Position</dt><dd><divclass="doc-position"><h6>Position</h6><hr/><dl><dt>X'
-            '</dt><dd>1.0</dd><dt>Y</dt><dd>2.0</dd></dl></div></dd><dt>Sprite</dt><dd><divclass="doc-sprite"><h6>'
-            'Filesprite</h6><hr/><dl><dt>Flipx</dt><dd>False</dd><dt>Flipy</dt><dd>True</dd><dt>Filename</dt><dd>'
-            'FILENAME</dd></dl></div></dd></dl></div></dd></dl></div>',
+            '<divclass="doc-component"><p>Viewcomponent</p><div><p>Views</p><divclass="doc-view"><p>Spriteview</p>'
+            '<divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>1.0</td></tr><tr><th>Y</th><td>'
+            '2.0</td></tr></table></div></div><divclass="doc-sprite"><p>Filesprite</p><div><table><tr><th>Flipx</t'
+            'h><td>False</td></tr><tr><th>Flipy</th><td>True</td></tr><tr><th>Filename</th><td>FILENAME</td></tr><'
+            '/table></div></div></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -645,8 +650,8 @@ class TestSubAirplaneSpawnerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubAirplaneSpawnerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Airplanespawnercomponent</h5><hr/><dl><dt>Entityprefabcode'
-            '</dt><dd>CODE</dd></dl></div>',
+            '<divclass="doc-component"><p>Airplanespawnercomponent</p><table><tr><th>Entityprefabcode</th><td>'
+            'CODE</td></tr></table></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -659,7 +664,7 @@ class TestSubRespawnComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubRespawnComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Respawncomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Respawncomponent</p></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -672,7 +677,7 @@ class TestSubAutoSpawnerComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubAutoSpawnerComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Autospawnercomponent</h5><hr/><dl><dt>Id</dt><dd>ID</dd></dl></div>',
+            '<divclass="doc-component"><p>Autospawnercomponent</p><table><tr><th>Id</th><td>ID</td></tr></table></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -685,7 +690,7 @@ class TestSubStateComponentPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubStateComponentPrefabHtmlGenerator()
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Statecomponent</h5><hr/><dl><dt>State</dt><dd>STATE</dd></dl></div>',
+            '<divclass="doc-component"><p>Statecomponent</p><table><tr><th>State</th><td>STATE</td></tr></table></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -702,8 +707,8 @@ class TestSubCreateTriggerComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Createtriggercomponent</h5><hr/><dl><dt>Entityevents</dt><dd>'
-            '<divclass="doc-entity-event"><h6>Destroyentityevent</h6><hr/></div></dd></dl></div>',
+            '<divclass="doc-component"><p>Createtriggercomponent</p><div><p>Entityevents</p><divclass="doc-entity-'
+            'event"><p>Destroyentityevent</p></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -720,8 +725,8 @@ class TestSubHitTriggerComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Hittriggercomponent</h5><hr/><dl><dt>Entityevents</dt><dd>'
-            '<divclass="doc-entity-event"><h6>Destroyentityevent</h6><hr/></div></dd></dl></div>',
+            '<divclass="doc-component"><p>Hittriggercomponent</p><div><p>Entityevents</p><divclass="doc-entity-event"'
+            '><p>Destroyentityevent</p></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -738,8 +743,8 @@ class TestSubDestroyTriggerComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Destroytriggercomponent</h5><hr/><dl><dt>Entityevents</dt><dd>'
-            '<divclass="doc-entity-event"><h6>Destroyentityevent</h6><hr/></div></dd></dl></div>',
+            '<divclass="doc-component"><p>Destroytriggercomponent</p><div><p>Entityevents</p><divclass="doc-entity-ev'
+            'ent"><p>Destroyentityevent</p></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -754,7 +759,7 @@ class TestComponentPrefabHtmlGenerator(unittest.TestCase):
         ])
 
         self.assertEqual(
-            '<divclass="doc-component"><h5>Createcomponent</h5><hr/></div>',
+            '<divclass="doc-component"><p>Createcomponent</p></div>',
             html_generator.generate_html(generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

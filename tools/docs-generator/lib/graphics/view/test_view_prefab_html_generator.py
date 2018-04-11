@@ -24,10 +24,10 @@ class TestSubSpriteViewPrefabHtmlGenerator(unittest.TestCase):
             PositionPrefabHtmlGenerator(), SpritePrefabHtmlGenerator([SubFileSpritePrefabHtmlGenerator()]))
 
         self.assertEqual(
-            '<divclass="doc-view"><p>Spriteview</p><div><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
-            '</th><td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div><divclass="doc-sprite"><p>'
-            'Filesprite</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>Flipy</th><td>False</td></tr><tr>'
-            '<th>Filename</th><td>filename</td></tr></table></div></div></div></div>',
+            '<divclass="doc-view"><p>Spriteview</p><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th>'
+            '<td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div><divclass="doc-sprite"><p>Filesprite'
+            '</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>Flipy</th><td>False</td></tr><tr><th>Filename'
+            '</th><td>filename</td></tr></table></div></div></div>',
             html_generator.generate_html(s_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -42,11 +42,11 @@ class TestSubAnimationViewPrefabHtmlGenerator(unittest.TestCase):
             PositionPrefabHtmlGenerator(), AnimationPrefabHtmlGenerator([SubFileAnimationPrefabHtmlGenerator()]))
 
         self.assertEqual(
-            '<divclass="doc-view"><p>Animationview</p><div><divclass="doc-position"><p>Position</p><div><table><tr'
-            '><th>X</th><td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div><divclass="doc-animation">'
-            '<p>Fileanimation</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>Flipy</th><td>False</td>'
-            '</tr><tr><th>Playmode</th><td>PlayMODE</td></tr><tr><th>Frameduration</th><td>0.22</td></tr><tr><th>'
-            'Filenames</th><td>one,two</td></tr></table></div></div></div></div>',
+            '<divclass="doc-view"><p>Animationview</p><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
+            '</th><td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div><divclass="doc-animation"><p>'
+            'Fileanimation</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr><th>Flipy</th><td>False</td></tr>'
+            '<tr><th>Playmode</th><td>PlayMODE</td></tr><tr><th>Frameduration</th><td>0.22</td></tr><tr><th>Filenames'
+            '</th><td>one,two</td></tr></table></div></div></div>',
             html_generator.generate_html(s_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -62,11 +62,11 @@ class TestSubParticleEffectViewPrefabHtmlGenerator(unittest.TestCase):
                 SubFileParticleEffectPrefabHtmlGenerator()]))
 
         self.assertEqual(
-            '<divclass="doc-view"><p>Particleeffectview</p><div><divclass="doc-position"><p>Position</p><div><table>'
-            '<tr><th>X</th><td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div><divclass="'
-            'doc-particle-effect"><p>Fileparticleeffect</p><div><table><tr><th>Flipx</th><td>True</td></tr><tr>'
-            '<th>Flipy</th><td>False</td></tr><tr><th>Filename</th><td>test_filename</td></tr><tr><th>Imagesdirectory'
-            '</th><td>test_images_dir</td></tr></table></div></div></div></div>',
+            '<divclass="doc-view"><p>Particleeffectview</p><divclass="doc-position"><p>Position</p><div><table><tr>'
+            '<th>X</th><td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div>'
+            '<divclass="doc-particle-effect"><p>Fileparticleeffect</p><div><table><tr><th>Flipx</th><td>True</td></tr>'
+            '<tr><th>Flipy</th><td>False</td></tr><tr><th>Filename</th><td>test_filename</td></tr><tr><th>'
+            'Imagesdirectory</th><td>test_images_dir</td></tr></table></div></div></div>',
             html_generator.generate_html(s_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -84,11 +84,11 @@ class TestViewPrefabHtmlGenerator(unittest.TestCase):
         ])
 
         self.assertEqual(
-            '<divclass="doc-view"><p>Particleeffectview</p><div><divclass="doc-position"><p>Position</p><div><table>'
-            '<tr><th>X</th><td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div>'
+            '<divclass="doc-view"><p>Particleeffectview</p><divclass="doc-position"><p>Position</p><div><table><tr>'
+            '<th>X</th><td>0.1</td></tr><tr><th>Y</th><td>0.2</td></tr></table></div></div>'
             '<divclass="doc-particle-effect"><p>Fileparticleeffect</p><div><table><tr><th>Flipx</th><td>True</td></tr>'
-            '<tr><th>Flipy</th><td>False</td></tr><tr><th>Filename</th><td>test_filename</td></tr><tr>'
-            '<th>Imagesdirectory</th><td>test_images_dir</td></tr></table></div></div></div></div>',
+            '<tr><th>Flipy</th><td>False</td></tr><tr><th>Filename</th><td>test_filename</td></tr><tr><th>'
+            'Imagesdirectory</th><td>test_images_dir</td></tr></table></div></div></div>',
             html_generator.generate_html(s_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

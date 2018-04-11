@@ -33,14 +33,14 @@ class TestSensorPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-sensor"><p>Sensor</p><div><table><tr><th>Id</th><td>ID</td></tr></table>'
-            '<divclass="doc-fixture"><p>Fixture</p><div><table><tr><th>Density</th><td>50.0</td></tr><tr>'
-            '<th>Restitution</th><td>40.0</td></tr><tr><th>Friction</th><td>60.0</td></tr></table>'
+            '<divclass="doc-sensor"><p>Sensor</p><div><table><tr><th>Id</th><td>ID</td></tr></table></div>'
+            '<divclass="doc-fixture"><p>Fixture</p><div><table><tr><th>Density</th><td>50.0</td></tr><tr><th>'
+            'Restitution</th><td>40.0</td></tr><tr><th>Friction</th><td>60.0</td></tr></table></div>'
             '<divclass="doc-filter"><p>Filter</p><div><table><tr><th>Categorybit</th><td>category_bit</td></tr><tr>'
             '<th>Maskbit</th><td>mask_bit</td></tr></table></div></div><divclass="doc-shape"><p>Rectangleshape</p>'
-            '<div><table><tr><th>Width</th><td>20.0</td></tr><tr><th>Height</th><td>30.0</td></tr></table>'
-            '<divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>1.0</td></tr><tr><th>Y</th><td>'
-            '2.0</td></tr></table></div></div></div></div></div></div></div></div>',
+            '<div><table><tr><th>Width</th><td>20.0</td></tr><tr><th>Height</th><td>30.0</td></tr></table></div>'
+            '<divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>1.0</td></tr><tr><th>Y</th>'
+            '<td>2.0</td></tr></table></div></div></div></div></div>',
             html_generator.generate_html(prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

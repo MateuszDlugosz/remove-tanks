@@ -89,10 +89,10 @@ class TestSubCreateEntityEventPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-entity-event"><p>Createentityevent</p><div><p>Createentries</p>'
-            '<divclass="doc-create-entry"><p>Createentry</p><div><table><tr><th>Entityprefabcode</th><td>'
-            'PREFAB_CODE</td></tr></table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
-            '</th><td>10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table></div></div></div></div></div>',
+            '<divclass="doc-entity-event"><p>Createentityevent</p><div><p>Createentries</p><divclass="doc-create-en'
+            'try"><p>Createentry</p><div><table><tr><th>Entityprefabcode</th><td>PREFAB_CODE</td></tr></table></div'
+            '><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>10.0</td></tr><tr><th>Y</th><td'
+            '>20.0</td></tr></table></div></div></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -160,8 +160,8 @@ class TestSubAddMessageEntityEventPrefabHtmlGenerator(unittest.TestCase):
 
         self.assertEqual(
             '<divclass="doc-entity-event"><p>Addmessageentityevent</p><divclass="doc-message"><p>Message</p><div>'
-            '<table><tr><th>Time</th><td>10.0</td></tr><tr><th>Entrykey</th><td>ENTRY_KEY</td></tr><tr><th>Faceid</th>'
-            '<td>FACE_ID</td></tr></table></div></div></div>',
+            '<table><tr><th>Time</th><td>10.0</td></tr><tr><th>Entrykey</th><td>ENTRY_KEY</td></tr><tr><th>Faceid'
+            '</th><td>FACE_ID</td></tr></table></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -216,9 +216,9 @@ class TestSubPlaySoundEntityEventPrefabHtmlGenerator(unittest.TestCase):
         sub_generator = SubPlaySoundEntityEventPrefabHtmlGenerator(SoundPrefabHtmlGenerator())
 
         self.assertEqual(
-            '<divclass="doc-entity-event"><p>Playsoundentityevent</p><div><table><tr><th>Soundchannelname</th><td>'
-            'sound_channel_name</td></tr></table></div><divclass="doc-sound"><p>Sound</p><div><table><tr><th>Filename'
-            '</th><td>sound_filename</td></tr></table></div></div></div>',
+            '<divclass="doc-entity-event"><p>Playsoundentityevent</p><div><table><tr><th>Soundchannelname</th>'
+            '<td>sound_channel_name</td></tr></table></div><divclass="doc-sound"><p>Sound</p><div><table><tr>'
+            '<th>Filename</th><td>sound_filename</td></tr></table></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -261,10 +261,10 @@ class TestSubRandomCreateEntityEventPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-entity-event"><p>Randomcreateentityevent</p><div><p>Createentries</p>'
-            '<divclass="doc-create-entry"><p>Createentry</p><div><table><tr><th>Entityprefabcode</th><td>PREFAB_CODE'
-            '</td></tr></table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>10.0</td>'
-            '</tr><tr><th>Y</th><td>20.0</td></tr></table></div></div></div></div></div>',
+            '<divclass="doc-entity-event"><p>Randomcreateentityevent</p><div><p>Createentries</p><divclass="doc-c'
+            'reate-entry"><p>Createentry</p><div><table><tr><th>Entityprefabcode</th><td>PREFAB_CODE</td></tr></t'
+            'able></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>10.0</td></tr><tr><'
+            'th>Y</th><td>20.0</td></tr></table></div></div></div></div></div>',
             html_generator.generate_html(sub_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

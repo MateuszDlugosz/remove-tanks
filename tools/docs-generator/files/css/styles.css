@@ -11,3 +11,15 @@ body {
     line-height: 60px;
     background-color: #f5f5f5;
 }
+
+.doc-entity {
+    padding:1em;
+}
+
+.doc-entity div {
+    padding: 1em;
+}
+
+.doc-entity p {
+    border-bottom: 1px solid gray;
+}

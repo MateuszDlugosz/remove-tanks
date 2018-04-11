@@ -22,8 +22,8 @@ class TestSubDirectionalLightPrefabHtmlGenerator(unittest.TestCase):
 
         self.assertEqual(
             '<divclass="doc-light"><p>Directionallight</p><div><table><tr><th>XRay</th><td>True</td></tr><tr><th>'
-            'Directiondegree</th><td>10.0</td></tr></table><divclass="doc-color"><h6>Hexcolor</h6><hr/><dl><dt>Hexvalue'
-            '</dt><dd>CCAAFFEE</dd></dl></div></div></div>',
+            'Directiondegree</th><td>10.0</td></tr></table></div><divclass="doc-color"><p>Hexcolor</p><div><table>'
+            '<tr><th>Hexvalue</th><td>CCAAFFEE</td></tr></table></div></div></div>',
             html_generator.generate_html(prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -43,9 +43,9 @@ class TestSubConeLightPrefabHtmlGenerator(unittest.TestCase):
         self.assertEqual(
             '<divclass="doc-light"><p>Conelight</p><div><table><tr><th>XRay</th><td>False</td></tr><tr><th>'
             'Distance</th><td>100.0</td></tr><tr><th>Directiondegree</th><td>45.0</td></tr><tr><th>Conedegree'
-            '</th><td>60.0</td></tr></table><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>'
-            '10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table></div></div><divclass="doc-color"><h6>Hexcolor'
-            '</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></div></div>',
+            '</th><td>60.0</td></tr></table></div><divclass="doc-position"><p>Position</p><div><table><tr><th>X'
+            '</th><td>10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table></div></div><divclass="doc-color">'
+            '<p>Hexcolor</p><div><table><tr><th>Hexvalue</th><td>CCAAFFEE</td></tr></table></div></div></div>',
             html_generator.generate_html(prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )
@@ -63,10 +63,11 @@ class TestSubPointLightPrefabHtmlGenerator(unittest.TestCase):
         )
 
         self.assertEqual(
-            '<divclass="doc-light"><p>Pointlight</p><div><table><tr><th>XRay</th><td>False</td></tr><tr><th>Distance'
-            '</th><td>100.0</td></tr></table><divclass="doc-position"><p>Position</p><div><table><tr><th>X</th><td>'
-            '10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table></div></div><divclass="doc-color"><h6>Hexcolor'
-            '</h6><hr/><dl><dt>Hexvalue</dt><dd>CCAAFFEE</dd></dl></div></div></div>',
+            '<divclass="doc-light"><p>Pointlight</p><div><table><tr><th>XRay</th><td>False</td></tr><tr><th>'
+            'Distance</th><td>100.0</td></tr></table></div><div><p>Position</p><divclass="doc-position"><p>'
+            'Position</p><div><table><tr><th>X</th><td>10.0</td></tr><tr><th>Y</th><td>20.0</td></tr></table>'
+            '</div></div></div><divclass="doc-color"><p>Hexcolor</p><div><table><tr><th>Hexvalue</th><td>CCAAFFEE'
+            '</td></tr></table></div></div></div>',
             html_generator.generate_html(prefab_html_generator.generate_html(prefab))
                 .replace(" ", "").replace("\n", "")
         )

@@ -21,9 +21,7 @@ class SensorPrefabHtmlGenerator(object):
                         ])
                     ])
                 ]),
-                HtmlElement("div", children=[
-                    HtmlElement("p", "Fixture")
-                ] + self.fixture_prefab_html_generator.generate_html(sensor_prefab.get_fixture_prefab()))
+                self.fixture_prefab_html_generator.generate_html(sensor_prefab.get_fixture_prefab())
             ])
         except Exception as e:
             raise SensorPrefabHtmlGenerationException(sensor_prefab, e)

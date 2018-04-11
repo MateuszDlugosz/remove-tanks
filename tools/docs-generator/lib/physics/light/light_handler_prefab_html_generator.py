@@ -19,9 +19,9 @@ class LightHandlerPrefabHtmlGenerator(object):
                             HtmlElement("th", "Id"),
                             HtmlElement("td", light_handler_prefab.get_id())
                         ])
-                    ]),
-                    self.light_prefab_html_generator.generate_html(light_handler_prefab.get_light_prefab())
-                ])
+                    ])
+                ]),
+                self.light_prefab_html_generator.generate_html(light_handler_prefab.get_light_prefab())
             ])
         except Exception as e:
             raise LightHandlerPrefabHtmlGenerationException(light_handler_prefab, e)

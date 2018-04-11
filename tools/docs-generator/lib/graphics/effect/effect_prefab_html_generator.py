@@ -61,9 +61,7 @@ class SubShaderEffectPrefabHtmlGenerator(SubEffectPrefabHtmlGenerator):
                 "class": EFFECT_HTML_CLASS_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Shader effect"),
-                HtmlElement("div", children=[
-                    self.shader_program_prefab_html_generator.generate_html(effect_prefab.get_shader_program_prefab())
-                ])
+                self.shader_program_prefab_html_generator.generate_html(effect_prefab.get_shader_program_prefab())
             ])
         except Exception as e:
             raise EffectPrefabHtmlGenerationException(effect_prefab, e)
@@ -82,9 +80,7 @@ class SubTintEffectPrefabHtmlGenerator(SubEffectPrefabHtmlGenerator):
                 "class": EFFECT_HTML_CLASS_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Tint effect"),
-                HtmlElement("div", children=[
-                    self.color_prefab_html_generator.generate_html(effect_prefab.get_color_prefab())
-                ])
+                self.color_prefab_html_generator.generate_html(effect_prefab.get_color_prefab())
             ])
         except Exception as e:
             raise EffectPrefabHtmlGenerationException(effect_prefab, e)

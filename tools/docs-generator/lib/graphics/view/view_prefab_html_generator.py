@@ -39,10 +39,8 @@ class SubSpriteViewPrefabHtmlGenerator(SubViewPrefabHtmlGenerator):
                 "class": VIEW_HTML_CLASS_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Sprite view"),
-                HtmlElement("div", children=[
-                    self.position_prefab_html_generator.generate_html(view_prefab.get_position_prefab()),
-                    self.sprite_prefab_html_generator.generate_html(view_prefab.get_sprite_prefab())
-                ])
+                self.position_prefab_html_generator.generate_html(view_prefab.get_position_prefab()),
+                self.sprite_prefab_html_generator.generate_html(view_prefab.get_sprite_prefab())
             ])
         except Exception as e:
             raise ViewPrefabHtmlGenerationException(view_prefab, e)
@@ -62,10 +60,8 @@ class SubAnimationViewPrefabHtmlGenerator(SubViewPrefabHtmlGenerator):
                 "class": VIEW_HTML_CLASS_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Animation view"),
-                HtmlElement("div", children=[
-                    self.position_prefab_html_generator.generate_html(view_prefab.get_position_prefab()),
-                    self.animation_prefab_html_generator.generate_html(view_prefab.get_animation_prefab())
-                ])
+                self.position_prefab_html_generator.generate_html(view_prefab.get_position_prefab()),
+                self.animation_prefab_html_generator.generate_html(view_prefab.get_animation_prefab())
             ])
         except Exception as e:
             raise ViewPrefabHtmlGenerationException(view_prefab, e)
@@ -85,10 +81,8 @@ class SubParticleEffectViewPrefabHtmlGenerator(SubViewPrefabHtmlGenerator):
                 "class": VIEW_HTML_CLASS_ATTRIBUTE
             }, children=[
                 HtmlElement("p", "Particle effect view"),
-                HtmlElement("div", children=[
-                    self.position_prefab_html_generator.generate_html(view_prefab.get_position_prefab()),
-                    self.particle_effect_prefab_html_generator.generate_html(view_prefab.get_particle_effect_prefab())
-                ])
+                self.position_prefab_html_generator.generate_html(view_prefab.get_position_prefab()),
+                self.particle_effect_prefab_html_generator.generate_html( view_prefab.get_particle_effect_prefab())
             ])
         except Exception as e:
             raise ViewPrefabHtmlGenerationException(view_prefab, e)

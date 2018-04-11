@@ -49,10 +49,12 @@ class SubPointLightPrefabHtmlGenerator(SubLightPrefabHtmlGenerator):
                             HtmlElement("th", "Distance"),
                             HtmlElement("td", light_prefab.get_distance())
                         ])
-                    ]),
-                    self.position_prefab_html_generator.generate_html(light_prefab.get_position_prefab()),
-                    self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
-                ])
+                    ])
+                ]),
+                HtmlElement("div", children=[
+                    HtmlElement("p", "Position")
+                ] + [self.position_prefab_html_generator.generate_html(light_prefab.get_position_prefab())]),
+                self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
             ])
         except Exception as e:
             raise LightPrefabHtmlGenerationException(light_prefab, e)
@@ -81,9 +83,9 @@ class SubDirectionalLightPrefabHtmlGenerator(SubLightPrefabHtmlGenerator):
                             HtmlElement("th", "Direction degree"),
                             HtmlElement("td", light_prefab.get_direction_degree())
                         ])
-                    ]),
-                    self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
-                ])
+                    ])
+                ]),
+                self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
             ])
         except Exception as e:
             raise LightPrefabHtmlGenerationException(light_prefab, e)
@@ -121,10 +123,10 @@ class SubConeLightPrefabHtmlGenerator(SubLightPrefabHtmlGenerator):
                             HtmlElement("th", "Cone degree"),
                             HtmlElement("td", light_prefab.get_cone_degree())
                         ])
-                    ]),
-                    self.position_prefab_html_generator.generate_html(light_prefab.get_position_prefab()),
-                    self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
-                ])
+                    ])
+                ]),
+                self.position_prefab_html_generator.generate_html(light_prefab.get_position_prefab()),
+                self.color_prefab_html_generator.generate_html(light_prefab.get_color_prefab())
             ])
         except Exception as e:
             raise LightPrefabHtmlGenerationException(light_prefab, e)
