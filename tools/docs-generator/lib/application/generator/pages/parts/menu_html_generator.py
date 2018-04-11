@@ -1,8 +1,8 @@
 from lib.html.html import HtmlElement
 
-MENU_CLASS_HTML_ATTRIBUTES = "doc-menu card"
-MENU_BODY_CLASS_HTML_ATTRIBUTES = "doc-menu-body card-body"
-MENU_TITLE_CLASS_HTML_ATTRIBUTES = "doc-menu-title card-title text-center"
+MENU_CLASS_HTML_ATTRIBUTES = "doc-menu"
+MENU_BODY_CLASS_HTML_ATTRIBUTES = "doc-menu-body"
+MENU_TITLE_CLASS_HTML_ATTRIBUTES = "doc-menu-title"
 MENU_TITLE_TEXT = "Table of Contents"
 
 class MenuHtmlGenerator(object):

@@ -1,19 +1,13 @@
 from lib.html.html import HtmlElement
 
-HEADER_NAV_CLASS_HTML_ATTRIBUTES = "navbar navbar-dark bg-dark fixed-top"
-HEADER_NAV_BRAND_CLASS_HTML_ATTRIBUTES = "navbar-brand mb-0 h1"
 HEADER_NAV_BRAND_TEXT = "RemoveTanks! Documentation"
 
 
 class HeaderHtmlGenerator(object):
     def generate_html(self):
         try:
-            return HtmlElement("nav", attributes={
-                "class": HEADER_NAV_CLASS_HTML_ATTRIBUTES
-            }, children=[
-                HtmlElement("span", attributes={
-                    "class": HEADER_NAV_BRAND_CLASS_HTML_ATTRIBUTES
-                }, text=HEADER_NAV_BRAND_TEXT)
+            return HtmlElement("nav", children=[
+                HtmlElement("span", HEADER_NAV_BRAND_TEXT)
             ])
         except Exception as e:
             raise HeaderHtmlGenerationException(e)

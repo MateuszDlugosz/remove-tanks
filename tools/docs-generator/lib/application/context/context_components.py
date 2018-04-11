@@ -23,6 +23,7 @@ from lib.graphics.effect.effect_prefab_html_generator import EffectPrefabHtmlGen
     SubTintEffectPrefabHtmlGenerator, SubShaderEffectPrefabHtmlGenerator, SubAlphaEffectPrefabHtmlGenerator
 from lib.graphics.effect.effect_prefab_xml_reader import EffectPrefabXmlReader, SubAlphaEffectPrefabXmlReader, \
     SubTintEffectPrefabXmlReader, SubShaderEffectPrefabXmlReader
+from lib.graphics.image.image_html_generator import ImageHtmlGenerator
 from lib.graphics.particles.particle_effect_prefab_html_generator import ParticleEffectPrefabHtmlGenerator, \
     SubFileParticleEffectPrefabHtmlGenerator, SubAtlasParticleEffectPrefabHtmlGenerator
 from lib.graphics.particles.particle_effect_prefab_xml_reader import ParticleEffectPrefabXmlReader, \
@@ -138,6 +139,10 @@ from lib.utility.surface.position.position_prefab_xml_reader import PositionPref
 
 
 class ContextComponents(object):
+    @staticmethod
+    def init_image_html_generator(components, configuration):
+        return "ImageHtmlGenerator", ImageHtmlGenerator()
+
     @staticmethod
     def init_position_prefab_xml_reader(components, configuration):
         return "PositionPrefabXmlReader", PositionPrefabXmlReader()

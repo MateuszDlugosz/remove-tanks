@@ -1,11 +1,11 @@
 from lib.html.html import HtmlElement
 
-PAGE_DIV_CLASS_HTML_ATTRIBUTES = "doc-page container-fluid"
+PAGE_DIV_CLASS_HTML_ATTRIBUTES = "doc-page"
 HEADER_CLASS_HTML_ATTRIBUTES = "doc-header"
-MAIN_CLASS_HTML_ATTRIBUTES = "doc-main row"
-ARTICLE_CLASS_HTML_ATTRIBUTES = "doc-article col-8"
+MAIN_CLASS_HTML_ATTRIBUTES = "doc-main"
+ARTICLE_CLASS_HTML_ATTRIBUTES = "doc-article"
 ARTICLE_SECTION_CLASS_HTML_ATTRIBUTES = "doc-article-section"
-ASIDE_CLASS_HTML_ATTRIBUTES = "doc-aside col-4"
+ASIDE_CLASS_HTML_ATTRIBUTES = "doc-aside"
 ASIDE_SECTION_CLASS_HTML_ATTRIBUTES = "doc-aside-section"
 
 
