@@ -42,7 +42,7 @@ public final class RespawnSystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        if (!playerExists()) {
+        if (!isPlayerExists()) {
             if (isAvailableLife() || freeRespawn) {
                 if (timer.isCompleted()) {
                     respawnPlayer();
@@ -54,7 +54,7 @@ public final class RespawnSystem extends EntitySystem {
         }
     }
 
-    private boolean playerExists() {
+    private boolean isPlayerExists() {
         return getEngine().getEntitiesFor(EntityFamily.InputFamily.getFamily()).size() > 0;
     }
 

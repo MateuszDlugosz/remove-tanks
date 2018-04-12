@@ -22,7 +22,7 @@ public final class TimeEndDefeatSystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        if (properties.getFloat(LevelProperty.LevelTimeLeft.getName()) <= 0.0) {
+        if (properties.getFloat(LevelProperty.LevelTimeLeft.getName()) <= 0.0f) {
             eventBus.post(new ChangeLevelStateEvent(LevelState.Defeat));
             getEngine().removeSystem(this);
         }
