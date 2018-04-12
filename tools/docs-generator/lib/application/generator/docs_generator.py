@@ -18,27 +18,29 @@ class DocsGenerator:
                      f"{self.context.get_configuration().get_option('source.directory')} assets directory.")
 
         try:
-            self.copy_files()
-            self.unpack_texture_atlases()
-            self.generate_entity_prefabs_pages(self.create_entity_codes_filenames())
+            self.initialize_files()
+            self.initialize_texture_atlases()
+            self.generate_entity_prefabs_pages(self.initialize_entity_codes_filenames_dictionary())
         except Exception as e:
             raise DocsGenerationException(e)
 
         logging.info("Generation files ended.")
 
-    def copy_files(self):
+    def initialize_files(self):
         logging.info("Copy required files started.")
 
         for file_to_copy in self.context.get_configuration().get_option("target.directory.files").split(';'):
             source = file_to_copy.split(',')[0].strip()
             target = file_to_copy.split(',')[1].strip()
+
             logging.info(f"Copy file from {source} to {target}.")
+
             os.makedirs(os.path.dirname(target), exist_ok=True)
             copyfile(source, target)
 
         logging.info("Copy required files ended.")
 
-    def unpack_texture_atlases(self):
+    def initialize_texture_atlases(self):
         configuration = self.context.get_configuration()
         unpacker = self.context.get_component("TextureAtlasUnpacker")
 
@@ -47,12 +49,13 @@ class DocsGenerator:
                                       configuration.get_option("target.directory.root") + "/" + \
                                       configuration.get_option("target.directory.images.root") + "/" + \
                                       texture_atlas.split(":")[0].strip()
+
             pack_filename = texture_atlas.split(":")[1].split(",")[0].strip()
             image_filename = texture_atlas.split(":")[1].split(",")[1].strip()
             os.makedirs(target_directory, exist_ok=True)
             unpacker.unpack_to_directory(target_directory, pack_filename, image_filename)
 
-    def create_entity_codes_filenames(self):
+    def initialize_entity_codes_filenames_dictionary(self):
         logging.info("Generating entity prefabs => filename dict started.")
         repository = self.context.get_component("EntityPrefabRepository")
         configuration = self.context.get_configuration()
@@ -76,6 +79,7 @@ class DocsGenerator:
         entity_html_generator = self.context.get_component("EntityPrefabHtmlGenerator")
         configuration = self.context.get_configuration()
         menu_entity_prefabs_html_generator = self.context.get_component("MenuEntityPrefabsHtmlGenerator")
+        page_generator = self.context.get_component("PageHtmlGenerator")
 
         for code in repository.get_all_prefabs():
             filename = repository.get_prefab(code)\
@@ -87,31 +91,13 @@ class DocsGenerator:
                               filename
             logging.info(f"Generating entity prefab page {target_filename}.")
 
-            self.generate_html_page(
+            page_generator.generate_html(
                 menu_entity_prefabs_html_generator.generate_html(codes_filenames),
                 entity_html_generator.generate_html(storage.get_entity_prefab(code), code),
                 target_filename
             )
 
         logging.info("Generating entity prefabs pages ended.")
-
-    def generate_html_page(self, html_menu, html_content, filename):
-        footer_html_generator = self.context.get_component("FooterHtmlGenerator")
-        menu_html_generator = self.context.get_component("MenuHtmlGenerator")
-        header_html_generator = self.context.get_component("HeaderHtmlGenerator")
-        html_layout_generator = self.context.get_component("LayoutHtmlGenerator")
-        html_generator = self.context.get_component("HtmlGenerator")
-
-        html_string = html_generator.generate_html(html_layout_generator.generate_html(
-            header_html_generator.generate_html(),
-            menu_html_generator.generate_html(html_menu),
-            html_content,
-            footer_html_generator.generate_html()
-        ))
-
-        os.makedirs(os.path.dirname(filename), exist_ok=True)
-        with open(filename, "w+") as file:
-            file.write(html_string)
 
 
 class DocsGenerationException(Exception):

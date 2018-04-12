@@ -1,4 +1,5 @@
 from lib.application.generator.layout.layout_html_generator import LayoutHtmlGenerator
+from lib.application.generator.pages.html_page_generator import PageHtmlGenerator
 from lib.application.generator.pages.parts.footer_html_generator import FooterHtmlGenerator
 from lib.application.generator.pages.parts.header_html_generator import HeaderHtmlGenerator
 from lib.application.generator.pages.parts.menu_entity_prefabs_html_generator import MenuEntityPrefabsHtmlGenerator
@@ -640,3 +641,13 @@ class ContextComponents(object):
     @staticmethod
     def init_html_generator(components, configuration):
         return "HtmlGenerator", HtmlGenerator()
+
+    @staticmethod
+    def init_page_html_generator(components, configuration):
+        return "PageHtmlGenerator", PageHtmlGenerator(
+            components["LayoutHtmlGenerator"],
+            components["HeaderHtmlGenerator"],
+            components["MenuHtmlGenerator"],
+            components["FooterHtmlGenerator"],
+            components["HtmlGenerator"]
+        )

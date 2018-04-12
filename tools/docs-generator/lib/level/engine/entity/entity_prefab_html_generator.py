@@ -17,7 +17,8 @@ class EntityPrefabHtmlGenerator(object):
             return HtmlElement("div", attributes={
                 "class": ENTITY_CLASS_HTML_ATTRIBUTE
             }, children=[
-                HtmlElement("p", "Entity: {}".format(code)),
+                HtmlElement("h5", "Entity: {}".format(code)),
+                HtmlElement("hr"),
                 HtmlElement("div", children=[
                     HtmlElement("p", "Components")
                 ] + components)
