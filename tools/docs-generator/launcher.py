@@ -17,4 +17,5 @@ def main():
     docs_generator = docs_generator_initializer.initialize_docs_generator(configuration, ContextComponents)
     docs_generator.generate_docs()
 
+
 main()

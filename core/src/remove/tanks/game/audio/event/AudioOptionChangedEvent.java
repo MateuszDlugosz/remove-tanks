@@ -7,18 +7,12 @@ import remove.tanks.game.audio.AudioConfiguration;
  */
 public final class AudioOptionChangedEvent {
     private final AudioConfiguration.Option option;
-    private final int newValue;
 
-    public AudioOptionChangedEvent(AudioConfiguration.Option option, int newValue) {
+    public AudioOptionChangedEvent(AudioConfiguration.Option option) {
         this.option = option;
-        this.newValue = newValue;
     }
 
     public AudioConfiguration.Option getOption() {
         return option;
-    }
-
-    public int getNewValue() {
-        return newValue;
     }
 }

@@ -54,6 +54,7 @@ public final class ProfileController {
                 profileUpdater.updateProfile(profile, levelProperties))), false);
     }
 
+    //fixme
     public void resetProfile() {
         if (profileScanner.isProfileFileExists(localProfile)) {
             localProfile.delete();

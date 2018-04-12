@@ -18,12 +18,6 @@ public final class CameraEffectFactory {
         Arrays.stream(factories).forEach(f -> this.factories.put(f.getFactoryType(), f));
     }
 
-    public List<CameraEffect> createCameraEffects(List<CameraEffectPrefab> prefabs) {
-        return prefabs.stream()
-                .map(this::createCameraEffect)
-                .collect(Collectors.toList());
-    }
-
     public CameraEffect createCameraEffect(CameraEffectPrefab prefab) {
         try {
             if (!factories.containsKey(prefab.getClass())) {

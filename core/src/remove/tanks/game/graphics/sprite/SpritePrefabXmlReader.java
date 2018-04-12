@@ -24,12 +24,6 @@ public final class SpritePrefabXmlReader {
         Arrays.stream(readers).forEach(s -> this.readers.put(s.getReaderType(), s));
     }
 
-    public List<SpritePrefab> readSpritePrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(SPRITE_ELEMENT).toArray())
-                .map(this::readSpritePrefab)
-                .collect(Collectors.toList());
-    }
-
     public SpritePrefab readSpritePrefab(XmlReader.Element element) {
         try {
             SpriteType type = SpriteType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

@@ -36,12 +36,6 @@ public final class BodyPrefabXmlReader {
     private static final float LINEAR_DAMPING_DEFAULT_VALUE = 0f;
     private static final float ANGULAR_DAMPING_DEFAULT_VALUE = 0f;
 
-    public List<BodyPrefab> readBodyPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(BODY_ELEMENT).toArray())
-                .map(this::readBodyPrefab)
-                .collect(Collectors.toList());
-    }
-
     public BodyPrefab readBodyPrefab(XmlReader.Element element) {
         try {
             return new BodyPrefab(

@@ -17,12 +17,6 @@ public final class SensorFactory {
         this.fixtureFactory = fixtureFactory;
     }
 
-    public List<Sensor> createSensors(List<SensorPrefab> prefabs, Body body, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createSensor(p, body, scale))
-                .collect(Collectors.toList());
-    }
-
     public Sensor createSensor(SensorPrefab prefab, Body body, Scale scale) {
         try {
             return new Sensor(

@@ -21,12 +21,6 @@ public final class ViewFactory {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<View> createViews(List<ViewPrefab> prefabs, AssetStorage assetStorage, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createView(p, assetStorage, scale))
-                .collect(Collectors.toList());
-    }
-
     public View createView(ViewPrefab prefab, AssetStorage assetStorage, Scale scale) {
         try {
             if (!factories.containsKey(prefab.getClass())) {

@@ -52,10 +52,6 @@ public final class AnimationView implements View, UpdatableView, ResettableView 
         return animation;
     }
 
-    public float getStateTime() {
-        return stateTime;
-    }
-
     @Override
     public void update(float delta) {
         stateTime += delta;

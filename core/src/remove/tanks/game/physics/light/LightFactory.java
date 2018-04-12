@@ -23,12 +23,6 @@ public final class LightFactory {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<Light> createLights(List<LightPrefab> prefabs, WorldLight worldLight, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createLight(p, worldLight, scale))
-                .collect(Collectors.toList());
-    }
-
     public Light createLight(LightPrefab prefab, WorldLight worldLight, Scale scale) {
         try {
             if (!factories.containsKey(prefab.getClass())) {

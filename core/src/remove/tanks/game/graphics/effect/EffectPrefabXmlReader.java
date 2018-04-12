@@ -24,12 +24,6 @@ public final class EffectPrefabXmlReader {
         Arrays.stream(readers).forEach(s -> this.readers.put(s.getReaderType(), s));
     }
 
-    public List<EffectPrefab> readEffectPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(EFFECT_ELEMENT).toArray())
-                .map(this::readEffectPrefab)
-                .collect(Collectors.toList());
-    }
-
     public EffectPrefab readEffectPrefab(XmlReader.Element element) {
         try {
             EffectType type = EffectType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

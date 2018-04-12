@@ -21,12 +21,6 @@ public final class ShapeFactory {
         Arrays.stream(factories).forEach(f -> this.factories.put(f.getFactoryType(), f));
     }
 
-    public List<Shape> createShapes(List<ShapePrefab> prefabs, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createShape(p, scale))
-                .collect(Collectors.toList());
-    }
-
     public Shape createShape(ShapePrefab prefab, Scale scale) {
         try {
             if (!factories.containsKey(prefab.getClass())) {

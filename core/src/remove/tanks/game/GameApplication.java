@@ -28,7 +28,7 @@ import java.util.HashSet;
  */
 public final class GameApplication extends Game {
     public static final String TITLE = "Remove Tanks!";
-    public static final String VERSION = "0.19.98";
+    public static final String VERSION = "0.19.99";
 
     private final Configuration configuration;
     private Context context;

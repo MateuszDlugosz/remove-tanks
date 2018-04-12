@@ -11,12 +11,6 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 public final class ShaderProgramFactory {
-    public List<ShaderProgram> createShaderPrograms(List<ShaderProgramPrefab> programPrefabs, AssetStorage assetStorage) {
-        return programPrefabs.stream()
-                .map(p -> createShaderProgram(p, assetStorage))
-                .collect(Collectors.toList());
-    }
-
     public ShaderProgram createShaderProgram(ShaderProgramPrefab prefab, AssetStorage assetStorage) {
         try {
             return new ShaderProgram(

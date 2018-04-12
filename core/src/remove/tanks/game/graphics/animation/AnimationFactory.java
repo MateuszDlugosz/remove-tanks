@@ -22,12 +22,6 @@ public final class AnimationFactory {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<Animation> createAnimations(List<AnimationPrefab> prefabs, AssetStorage assetStorage, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createAnimation(p, assetStorage, scale))
-                .collect(Collectors.toList());
-    }
-
     public Animation createAnimation(AnimationPrefab prefab, AssetStorage storage, Scale scale) {
         try {
             Class<? extends AnimationPrefab> prefabClass = prefab.getClass();

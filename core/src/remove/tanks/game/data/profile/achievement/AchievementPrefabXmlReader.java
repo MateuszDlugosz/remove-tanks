@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  */
 public final class AchievementPrefabXmlReader {
     public static final String ACHIEVEMENT_ELEMENT = "achievement";
-    public static final String ACHIEVEMENTS_ELEMENT = "achievements";
 
     private final AchievementTypeXmlReader achievementTypeXmlReader;
     private final SpritePrefabXmlReader spritePrefabXmlReader;

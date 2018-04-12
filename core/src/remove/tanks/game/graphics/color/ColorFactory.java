@@ -20,12 +20,6 @@ public final class ColorFactory {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<Color> createColors(List<ColorPrefab> prefabs) {
-        return prefabs.stream()
-                .map(this::createColor)
-                .collect(Collectors.toList());
-    }
-
     public Color createColor(ColorPrefab prefab) {
         try {
             if (!factories.containsKey(prefab.getClass())) {

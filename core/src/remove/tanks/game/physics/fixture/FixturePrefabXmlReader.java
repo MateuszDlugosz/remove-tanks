@@ -38,27 +38,6 @@ public final class FixturePrefabXmlReader {
         this.filterPrefabXmlReader = filterPrefabXmlReader;
     }
 
-    public List<FixturePrefab> readFixturePrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(FIXTURE_ELEMENT).toArray())
-                .map(this::readFixturePrefab)
-                .collect(Collectors.toList());
-    }
-
-    public FixturePrefab readFixturePrefab(XmlReader.Element element) {
-        try {
-            return new FixturePrefab(
-                    readFilterPrefab(element),
-                    readShapePrefab(element),
-                    readRestitution(element),
-                    readDensity(element),
-                    readFriction(element),
-                    readIsSensor(element)
-            );
-        } catch (Exception e) {
-            throw new FixturePrefabXmlReadException(element, e);
-        }
-    }
-
     public FixturePrefab readFixturePrefabAsHitBox(XmlReader.Element element) {
         try {
             return new FixturePrefab(
@@ -120,12 +99,5 @@ public final class FixturePrefabXmlReader {
             return FRICTION_DEFAULT_VALUE;
         }
         return Float.valueOf(element.getChildByName(FRICTION_ELEMENT).getText().trim());
-    }
-
-    private boolean readIsSensor(XmlReader.Element element) {
-        if (element.getChildByName(IS_SENSOR_ELEMENT) == null) {
-            return IS_SENSOR_DEFAULT_VALUE;
-        }
-        return Boolean.valueOf(element.getChildByName(IS_SENSOR_ELEMENT).getText().trim());
     }
 }

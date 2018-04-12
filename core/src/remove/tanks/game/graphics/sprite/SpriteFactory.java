@@ -22,12 +22,6 @@ public final class SpriteFactory {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<Sprite> createSprites(List<SpritePrefab> prefabs, AssetStorage assetStorage, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createSprite(p, assetStorage, scale))
-                .collect(Collectors.toList());
-    }
-
     public Sprite createSprite(SpritePrefab prefabs, AssetStorage assetStorage, Scale scale) {
         try {
             if (!factories.containsKey(prefabs.getClass())) {

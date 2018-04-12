@@ -24,12 +24,6 @@ public final class ParticleEffectPrefabXmlReader {
         Arrays.stream(readers).forEach(l -> this.readers.put(l.getReaderType(), l));
     }
 
-    public List<ParticleEffectPrefab> readParticleEffectPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(PARTICLE_EFFECT_ELEMENT).toArray())
-                .map(this::readParticleEffectPrefab)
-                .collect(Collectors.toList());
-    }
-
     public ParticleEffectPrefab readParticleEffectPrefab(XmlReader.Element element) {
         try {
             ParticleEffectType type = ParticleEffectType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

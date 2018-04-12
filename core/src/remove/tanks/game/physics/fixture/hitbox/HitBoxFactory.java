@@ -17,12 +17,6 @@ public final class HitBoxFactory {
         this.fixtureFactory = fixtureFactory;
     }
 
-    public List<HitBox> createHitBoxes(List<HitBoxPrefab> prefabs, Body body, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createHitBox(p, body, scale))
-                .collect(Collectors.toList());
-    }
-
     public HitBox createHitBox(HitBoxPrefab prefab, Body body, Scale scale) {
         try {
             return new HitBox(

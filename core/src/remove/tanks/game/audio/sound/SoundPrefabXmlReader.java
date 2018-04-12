@@ -15,12 +15,6 @@ public final class SoundPrefabXmlReader {
 
     private static final String FILENAME_ELEMENT = "filename";
 
-    public List<SoundPrefab> readSoundPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(SOUND_ELEMENT).toArray())
-                .map(this::readSoundPrefab)
-                .collect(Collectors.toList());
-    }
-
     public SoundPrefab readSoundPrefab(XmlReader.Element element) {
         try {
             return new SoundPrefab(readFilename(element));

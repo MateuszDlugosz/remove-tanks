@@ -16,12 +16,6 @@ public final class ShaderProgramPrefabXmlReader {
     private static final String VERTEX_SHADER_FILENAME_ELEMENT = "vertexShaderFilename";
     private static final String FRAGMENT_SHADER_FILENAME_ELEMENT = "fragmentShaderFilename";
 
-    public List<ShaderProgramPrefab> readShaderProgramPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(SHADER_PROGRAM_ELEMENT).toArray())
-                .map(this::readShaderProgramPrefab)
-                .collect(Collectors.toList());
-    }
-
     public ShaderProgramPrefab readShaderProgramPrefab(XmlReader.Element element) {
         try {
             return new ShaderProgramPrefab(

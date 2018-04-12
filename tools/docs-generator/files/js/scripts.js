@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
     $("table").addClass("table table-bordered table-hover");
     $(".doc-entity").addClass("card");
     $(".doc-page").addClass("container-fluid");

@@ -24,12 +24,6 @@ public final class AnimationPrefabXmlReader {
         Arrays.stream(readers).forEach(l -> this.readers.put(l.getReaderType(), l));
     }
 
-    public List<AnimationPrefab> readAnimationPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(ANIMATION_ELEMENT).toArray())
-                .map(this::readAnimationPrefab)
-                .collect(Collectors.toList());
-    }
-
     public AnimationPrefab readAnimationPrefab(XmlReader.Element element) {
         try {
             AnimationType type = AnimationType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

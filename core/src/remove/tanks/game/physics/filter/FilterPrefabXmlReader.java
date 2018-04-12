@@ -28,12 +28,6 @@ public final class FilterPrefabXmlReader {
         this.maskBits = maskBits;
     }
 
-    public List<FilterPrefab> readFilterPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(FILTER_ELEMENT).toArray())
-                .map(this::readFilterPrefab)
-                .collect(Collectors.toList());
-    }
-
     public FilterPrefab readFilterPrefab(XmlReader.Element element) {
         try {
             String categoryName = element.getChildByName(CATEGORY_BIT_ELEMENT).getText().trim();

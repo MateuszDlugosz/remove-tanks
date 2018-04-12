@@ -24,12 +24,6 @@ public final class ShapePrefabXmlReader {
         Arrays.stream(readers).forEach(l -> this.readers.put(l.getReaderType(), l));
     }
 
-    public List<ShapePrefab> readShapePrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(SHAPE_ELEMENT).toArray())
-                .map(this::readShapePrefab)
-                .collect(Collectors.toList());
-    }
-
     public ShapePrefab readShapePrefab(XmlReader.Element element) {
         try {
             ShapeType type = ShapeType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

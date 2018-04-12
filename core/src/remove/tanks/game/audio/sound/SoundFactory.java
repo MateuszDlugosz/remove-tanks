@@ -10,12 +10,6 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 public final class SoundFactory {
-    public List<Sound> createSounds(List<SoundPrefab> prefabs, AssetStorage assetStorage) {
-        return prefabs.stream()
-                .map(p -> createSound(p, assetStorage))
-                .collect(Collectors.toList());
-    }
-
     public Sound createSound(SoundPrefab prefab, AssetStorage assetStorage) {
         try {
             return assetStorage.getAsset(prefab.getFilename(), Sound.class);

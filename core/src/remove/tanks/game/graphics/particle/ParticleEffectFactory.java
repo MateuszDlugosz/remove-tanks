@@ -22,12 +22,6 @@ public final class ParticleEffectFactory {
         Arrays.stream(factories).forEach(f -> this.factories.put(f.getFactoryType(), f));
     }
 
-    public List<ParticleEffect> createParticleEffects(List<ParticleEffectPrefab> prefabs, AssetStorage assetStorage, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createParticleEffect(p, assetStorage, scale))
-                .collect(Collectors.toList());
-    }
-
     public ParticleEffect createParticleEffect(ParticleEffectPrefab prefab, AssetStorage assetStorage, Scale scale) {
         try {
             if (!factories.containsKey(prefab.getClass())) {

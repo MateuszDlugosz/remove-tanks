@@ -20,12 +20,6 @@ public final class EffectFactory {
         Arrays.stream(factories).forEach(s -> this.factories.put(s.getFactoryType(), s));
     }
 
-    public List<Effect> createEffects(List<EffectPrefab> prefabs, AssetStorage assetStorage) {
-        return prefabs.stream()
-                .map(p -> createEffect(p, assetStorage))
-                .collect(Collectors.toList());
-    }
-
     public Effect createEffect(EffectPrefab prefab, AssetStorage assetStorage) {
         try {
             if (!factories.containsKey(prefab.getClass())) {

@@ -16,14 +16,6 @@ public final class FixtureFactory {
         this.shapeFactory = shapeFactory;
     }
 
-    public Fixture createFixture(FixturePrefab prefab, Body body, Scale scale) {
-        try {
-            return body.createFixture(createFixtureDef(prefab, scale));
-        } catch (Exception e) {
-            throw new FixtureCreateException(prefab, e);
-        }
-    }
-
     public Fixture createFixtureAsHitBox(FixturePrefab prefab, Body body, Scale scale) {
         try {
             FixtureDef fixtureDef = createFixtureDef(prefab, scale);

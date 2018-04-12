@@ -24,12 +24,6 @@ public final class LightPrefabXmlReader {
         Arrays.stream(readers).forEach(s -> this.readers.put(s.getReaderType(), s));
     }
 
-    public List<LightPrefab> readLightPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(LIGHT_ELEMENT).toArray())
-                .map(this::readLightPrefab)
-                .collect(Collectors.toList());
-    }
-
     public LightPrefab readLightPrefab(XmlReader.Element element) {
         try {
             LightType type = LightType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

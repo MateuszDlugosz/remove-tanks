@@ -13,10 +13,6 @@ public final class Translation {
         this.entries = entries;
     }
 
-    public boolean hasEntry(String key) {
-        return entries.containsKey(key);
-    }
-
     public String getFormattedEntry(String key, Object... values) {
         if (!entries.containsKey(key)) {
             throw new EntryNotFoundException(key);

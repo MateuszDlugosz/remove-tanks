@@ -51,7 +51,7 @@ public final class AudioConfiguration {
 
     public void setOptionValue(Option option, int value) {
         this.options.put(option, MathUtils.clamp(value, option.getMinValue(), option.getMaxValue()));
-        eventBus.post(new AudioOptionChangedEvent(option, value));
+        eventBus.post(new AudioOptionChangedEvent(option));
     }
 
     public int getOptionValueAsInt(Option option) {

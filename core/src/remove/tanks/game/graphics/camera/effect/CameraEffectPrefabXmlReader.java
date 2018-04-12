@@ -24,12 +24,6 @@ public final class CameraEffectPrefabXmlReader {
         Arrays.stream(readers).forEach(l -> this.readers.put(l.getReaderType(), l));
     }
 
-    public List<CameraEffectPrefab> readCameraEffectPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(CAMERA_EFFECT_ELEMENT).toArray())
-                .map(this::readCameraEffectPrefab)
-                .collect(Collectors.toList());
-    }
-
     public CameraEffectPrefab readCameraEffectPrefab(XmlReader.Element element) {
         try {
             CameraEffectType type = CameraEffectType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

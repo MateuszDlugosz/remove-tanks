@@ -61,19 +61,4 @@ public class MusicPrefabXmlReaderTest {
         musicPrefabXmlReader.readMusicPrefab(
                 xmlReader.parse(MUSIC_INCORRECT_PREFAB));
     }
-
-    @Test
-    public void Should_ReturnMusicPrefabs_When_GivenElementIsCorrectlyFormatted() {
-        List<MusicPrefab> prefabs = musicPrefabXmlReader.readMusicPrefabs(
-                xmlReader.parse(MUSICS_CORRECT_PREFAB));
-
-        assertEquals("music-filename-0", prefabs.get(0).getFilename());
-        assertEquals("music-filename-1", prefabs.get(1).getFilename());
-    }
-
-    @Test(expected = MusicPrefabXmlReadException.class)
-    public void Should_ThrowException_When_AlLeastOneOfGivenElementIsIncorrectlyFormatted() {
-        musicPrefabXmlReader.readMusicPrefabs(
-                xmlReader.parse(MUSICS_INCORRECT_PREFAB));
-    }
 }

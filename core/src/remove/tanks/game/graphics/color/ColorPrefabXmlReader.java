@@ -24,12 +24,6 @@ public final class ColorPrefabXmlReader {
         Arrays.stream(readers).forEach(r -> this.readers.put(r.getReaderType(), r));
     }
 
-    public List<ColorPrefab> readColorPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(COLOR_ELEMENT).toArray())
-                .map(this::readColorPrefab)
-                .collect(Collectors.toList());
-    }
-
     public ColorPrefab readColorPrefab(XmlReader.Element element) {
         try {
             ColorType type = ColorType.valueOf(element.getAttribute(TYPE_ATTRIBUTE).trim());

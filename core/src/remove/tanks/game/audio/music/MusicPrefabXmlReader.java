@@ -11,15 +11,8 @@ import java.util.stream.Collectors;
  */
 public final class MusicPrefabXmlReader {
     public static final String MUSIC_ELEMENT = "music";
-    public static final String MUSICS_ELEMENT = "musics";
 
     private static final String FILENAME_ELEMENT = "filename";
-
-    public List<MusicPrefab> readMusicPrefabs(XmlReader.Element element) {
-        return Arrays.stream(element.getChildrenByName(MUSIC_ELEMENT).toArray())
-                .map(this::readMusicPrefab)
-                .collect(Collectors.toList());
-    }
 
     public MusicPrefab readMusicPrefab(XmlReader.Element element) {
         try {
