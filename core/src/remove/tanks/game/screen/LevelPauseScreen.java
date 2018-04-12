@@ -46,7 +46,7 @@ public final class LevelPauseScreen extends GameScreen {
     private final remove.tanks.game.screen.gui.label.Label titleLabel;
     private final TextButton contentLabel;
 
-    private ButtonGroup buttonGroup;
+    private final ButtonGroup buttonGroup;
 
     public LevelPauseScreen(GameApplication gameApplication, LevelScreen levelScreen) {
         super(gameApplication);

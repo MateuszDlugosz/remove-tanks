@@ -18,12 +18,6 @@ public final class CampaignFactory {
         this.spriteFactory = spriteFactory;
     }
 
-    public List<Campaign> createCampaigns(List<CampaignPrefab> prefabs, AssetStorage assetStorage, Scale scale) {
-        return prefabs.stream()
-                .map(p -> createCampaign(p, assetStorage, scale))
-                .collect(Collectors.toList());
-    }
-
     public Campaign createCampaign(CampaignPrefab prefab, AssetStorage assetStorage, Scale scale) {
         try {
             return new Campaign(

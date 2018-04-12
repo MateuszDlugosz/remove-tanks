@@ -30,10 +30,6 @@ public final class PropertyPresenterWidget implements Widget {
         this.valueLabel = valueLabel;
     }
 
-    public TranslationEntryKey getTitleEntry() {
-        return titleEntry;
-    }
-
     public LevelProperty getProperty() {
         return property;
     }

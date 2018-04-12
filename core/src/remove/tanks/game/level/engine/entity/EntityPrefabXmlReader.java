@@ -30,12 +30,6 @@ public final class EntityPrefabXmlReader {
         this.componentPrefabXmlReader = componentPrefabXmlReader;
     }
 
-    public List<EntityPrefab> readEntityPrefabs(List<FileHandle> fileHandles) {
-        return fileHandles.stream()
-                .map(this::readEntityPrefab)
-                .collect(Collectors.toList());
-    }
-
     public EntityPrefab readEntityPrefab(FileHandle fileHandle) {
         try {
             XmlReader.Element element = xmlReader.parse(fileHandle);

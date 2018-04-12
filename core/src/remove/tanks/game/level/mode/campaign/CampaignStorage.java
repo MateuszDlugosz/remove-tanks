@@ -19,8 +19,4 @@ public final class CampaignStorage {
         }
         return campaigns.get(title);
     }
-
-    public Set<String> getCampaignTitles() {
-        return campaigns.keySet();
-    }
 }

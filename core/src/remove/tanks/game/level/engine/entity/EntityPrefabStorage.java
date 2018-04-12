@@ -21,14 +21,6 @@ public final class EntityPrefabStorage {
         this.entityPrefabs = new HashMap<>();
     }
 
-    public void loadEntityPrefabs(String[] codes) {
-        loadEntityPrefabs(Arrays.asList(codes));
-    }
-
-    public void loadEntityPrefabs(List<String> codes) {
-        codes.forEach(this::loadEntityPrefab);
-    }
-
     public void loadEntityPrefab(String code) {
         if (!isEntityPrefabLoaded(code)) {
             try {
@@ -42,10 +34,6 @@ public final class EntityPrefabStorage {
 
     public void unloadAllEntityPrefabs() {
         unloadEntityPrefabs(new ArrayList<>(entityPrefabs.keySet()));
-    }
-
-    public void unloadEntityPrefabs(String[] codes) {
-        unloadEntityPrefabs(Arrays.asList(codes));
     }
 
     public void unloadEntityPrefabs(List<String> codes) {
@@ -67,16 +55,6 @@ public final class EntityPrefabStorage {
             throw new EntityPrefabNotFoundException(code);
         }
         return entityPrefabs.get(code);
-    }
-
-    public EntityPrefab getEntityPrefabCopy(String code) {
-        if (!isEntityPrefabLoaded(code)) {
-            throw new EntityPrefabNotFoundException(code);
-        }
-        return new EntityPrefab(
-                entityPrefabs.get(code).getPreloadData(),
-                new HashMap<>(entityPrefabs.get(code).getComponentPrefabs())
-        );
     }
 
     public Set<String> getEntityPrefabCodes() {

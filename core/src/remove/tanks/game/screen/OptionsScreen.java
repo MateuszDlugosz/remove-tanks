@@ -50,7 +50,7 @@ public final class OptionsScreen extends GameScreen {
     private final Window window;
     private final Table wrapper;
 
-    private TextButton titleLabel;
+    private final TextButton titleLabel;
 
     private final VerticalGroup leftColumn;
     private final VerticalGroup rightColumn;
@@ -66,7 +66,7 @@ public final class OptionsScreen extends GameScreen {
     private final Button currentMusicVolumeButton;
     private final Button backButton;
 
-    private ButtonGroup buttonGroup;
+    private final ButtonGroup buttonGroup;
 
     public OptionsScreen(GameApplication gameApplication) {
         super(gameApplication);
