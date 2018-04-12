@@ -17,8 +17,6 @@ import static org.junit.Assert.assertEquals;
  * @author Mateusz Długosz
  */
 public class ApplicationContextTest {
-    private static final String UNKNOWN_COMPONENT_NAME = "unknown-component";
-
     private Context context;
 
     @Before
@@ -68,10 +66,5 @@ public class ApplicationContextTest {
                         TestComponentSupplierBag.COMPONENT_1_CLASS
                 )
         );
-    }
-
-    @Test(expected = ComponentProviderNotFoundException.class)
-    public void Should_ThrowException_When_GivenComponentNameNotFound() {
-        context.getComponent(UNKNOWN_COMPONENT_NAME);
     }
 }
