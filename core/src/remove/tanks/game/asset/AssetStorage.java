@@ -71,14 +71,6 @@ public final class AssetStorage implements Disposable {
         }
     }
 
-    public void unloadAssets(String[] ids) {
-        unloadAssets(Arrays.asList(ids));
-    }
-
-    public void unloadAssets(List<String> ids) {
-        ids.forEach(this::unloadAsset);
-    }
-
     public void unloadAsset(String id) {
         try {
             assetManager.unload(assetPrefabRepository.getAssetPrefab(id).getFilename());

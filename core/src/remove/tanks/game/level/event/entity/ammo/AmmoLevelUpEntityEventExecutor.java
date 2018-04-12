@@ -18,17 +18,16 @@ public final class AmmoLevelUpEntityEventExecutor implements SubEventExecutor<Am
     public void executeEvent(AmmoLevelUpEntityEvent event, ResourceRegistry registry) {
         try {
             registry.getResource(ResourceType.EngineResource, Engine.class)
-                    .getEntitiesFor(EntityFamily.InputFamily.getFamily()).forEach( e -> {
-                Optional.ofNullable(AmmoComponent.MAPPER.get(e)).ifPresent(c -> {
-                    if (c.getCurrentLevel() < c.getMaxLevel()) {
-                        e.add(new AmmoComponent(
-                                c.getCurrentLevel() + 1,
-                                c.getMaxLevel(),
-                                c.getPrefabCodes()
-                        ));
-                    }
-                });
-            });
+                    .getEntitiesFor(EntityFamily.InputFamily.getFamily()).forEach( e -> Optional.ofNullable(
+                            AmmoComponent.MAPPER.get(e)).ifPresent(c -> {
+                        if (c.getCurrentLevel() < c.getMaxLevel()) {
+                            e.add(new AmmoComponent(
+                                    c.getCurrentLevel() + 1,
+                                    c.getMaxLevel(),
+                                    c.getPrefabCodes()
+                            ));
+                        }
+                    }));
         } catch (Exception e) {
             throw new EventExecuteException(event, e);
         }

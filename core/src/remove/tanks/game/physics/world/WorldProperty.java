@@ -8,8 +8,8 @@ public enum WorldProperty {
     WorldGravityY("world.gravity.y", "0"),
     WorldAllowSleep("world.allow.sleep", "true");
 
-    private String name;
-    private String defaultValue;
+    private final String name;
+    private final String defaultValue;
 
     WorldProperty(String name, String defaultValue) {
         this.name = name;

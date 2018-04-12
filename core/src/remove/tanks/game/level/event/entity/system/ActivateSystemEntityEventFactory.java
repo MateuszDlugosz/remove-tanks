@@ -4,9 +4,6 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import remove.tanks.game.level.event.EventCreateException;
 import remove.tanks.game.level.event.SubEntityEventFactory;
-import remove.tanks.game.level.event.SubEventFactory;
-import remove.tanks.game.level.event.system.ActivateSystemEvent;
-import remove.tanks.game.level.event.system.ActivateSystemEventPrefab;
 import remove.tanks.game.level.resource.ResourceRegistry;
 
 /**

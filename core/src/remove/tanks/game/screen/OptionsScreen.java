@@ -46,25 +46,25 @@ public final class OptionsScreen extends GameScreen {
     private final AudioConfiguration soundUIEffectAudioConfiguration;
     private final AudioConfiguration musicAudioConfiguration;
 
-    private Stage stage;
-    private Window window;
-    private Table wrapper;
+    private final Stage stage;
+    private final Window window;
+    private final Table wrapper;
 
     private TextButton titleLabel;
 
-    private VerticalGroup leftColumn;
-    private VerticalGroup rightColumn;
-    private HorizontalGroup optionsGroup;
+    private final VerticalGroup leftColumn;
+    private final VerticalGroup rightColumn;
+    private final HorizontalGroup optionsGroup;
 
-    private Button languageButton;
-    private Button currentLanguageButton;
-    private Button soundEffectVolumeButton;
-    private Button currentSoundEffectVolumeButton;
-    private Button soundUIEffectVolumeButton;
-    private Button currentSoundUIEffectVolumeButton;
-    private Button musicVolumeButton;
-    private Button currentMusicVolumeButton;
-    private Button backButton;
+    private final Button languageButton;
+    private final Button currentLanguageButton;
+    private final Button soundEffectVolumeButton;
+    private final Button currentSoundEffectVolumeButton;
+    private final Button soundUIEffectVolumeButton;
+    private final Button currentSoundUIEffectVolumeButton;
+    private final Button musicVolumeButton;
+    private final Button currentMusicVolumeButton;
+    private final Button backButton;
 
     private ButtonGroup buttonGroup;
 

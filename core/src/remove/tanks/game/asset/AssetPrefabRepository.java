@@ -6,7 +6,7 @@ import java.util.Map;
  * @author Mateusz Długosz
  */
 public final class AssetPrefabRepository {
-    private Map<String, AssetPrefab> assetPrefabs;
+    private final Map<String, AssetPrefab> assetPrefabs;
 
     public AssetPrefabRepository(Map<String, AssetPrefab> assetPrefabs) {
         this.assetPrefabs = assetPrefabs;

@@ -35,7 +35,7 @@ public final class TestComponentSupplierBag {
     @ComponentName("test-name-1")
     @ComponentScope(Scope.Prototype)
     public static final class TestComponentSupplier_1 extends ComponentSupplier<Integer> {
-        private int number = TEST_SUPPLIER_1_INITIAL_VALUE;
+        private final int number = TEST_SUPPLIER_1_INITIAL_VALUE;
 
         @Override
         public Integer supplyComponent() {

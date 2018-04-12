@@ -33,18 +33,18 @@ public final class LevelPauseScreen extends GameScreen {
     private final Locale locale;
     private final Skin skin;
 
-    private Stage stage;
-    private Window window;
-    private Table wrapper;
+    private final Stage stage;
+    private final Window window;
+    private final Table wrapper;
 
-    private VerticalGroup leftColumn;
-    private VerticalGroup rightColumn;
-    private HorizontalGroup optionsGroup;
+    private final VerticalGroup leftColumn;
+    private final VerticalGroup rightColumn;
+    private final HorizontalGroup optionsGroup;
 
-    private Button yesButton;
-    private Button noButton;
-    private remove.tanks.game.screen.gui.label.Label titleLabel;
-    private TextButton contentLabel;
+    private final Button yesButton;
+    private final Button noButton;
+    private final remove.tanks.game.screen.gui.label.Label titleLabel;
+    private final TextButton contentLabel;
 
     private ButtonGroup buttonGroup;
 

@@ -67,14 +67,6 @@ public final class ApplicationContext implements Context {
         }
     }
 
-    @Override
-    public Object getComponent(String name) {
-        if (!providers.containsKey(name)) {
-            throw new ComponentProviderNotFoundException(name);
-        }
-        return providers.get(name).provideComponent();
-    }
-
     @SuppressWarnings("unchecked")
     @Override
     public <T> T getComponent(Class<T> type) {

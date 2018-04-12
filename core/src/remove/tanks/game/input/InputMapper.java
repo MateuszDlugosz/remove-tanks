@@ -19,17 +19,6 @@ public final class InputMapper {
         keys.replace(inputKey, true);
     }
 
-    public void keyUp(InputKey inputKey) {
-        if (!hasKey(inputKey)) {
-            throw new InputKeyNotFoundException(inputKey);
-        }
-        keys.replace(inputKey, false);
-    }
-
-    public void keyDownAll() {
-        keys.keySet().forEach(k -> keys.replace(k, true));
-    }
-
     public void keyUpAll() {
         keys.keySet().forEach(k -> keys.replace(k, false));
     }

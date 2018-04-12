@@ -2,7 +2,6 @@ package remove.tanks.game.level.event.entity.system;
 
 import com.badlogic.ashley.core.Engine;
 import remove.tanks.game.level.event.SubEventExecutor;
-import remove.tanks.game.level.event.system.ActivateSystemEvent;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
 

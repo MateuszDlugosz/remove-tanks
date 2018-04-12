@@ -15,7 +15,7 @@ public class AudioConfigurationController {
     private final AudioConfigurationXmlWriter audioConfigurationXmlWriter;
     private final XmlFormatter xmlFormatter;
 
-    private AudioConfigurationStorage audioConfigurationStorage;
+    private final AudioConfigurationStorage audioConfigurationStorage;
 
     public AudioConfigurationController(
             AudioConfigurationFileHandleRepository audioConfigurationFileHandleRepository,

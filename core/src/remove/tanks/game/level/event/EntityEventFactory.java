@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings("unchecked")
 public final class EntityEventFactory {
-    private Map<Class<? extends EntityEventPrefab>, SubEntityEventFactory> factories = new HashMap<>();
+    private final Map<Class<? extends EntityEventPrefab>, SubEntityEventFactory> factories = new HashMap<>();
 
     public EntityEventFactory(SubEntityEventFactory[] factories) {
         Arrays.stream(factories).forEach(f -> this.factories.put(f.getFactoryType(), f));

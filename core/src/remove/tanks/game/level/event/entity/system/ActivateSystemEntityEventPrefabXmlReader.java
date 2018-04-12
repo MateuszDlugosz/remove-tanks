@@ -2,7 +2,6 @@ package remove.tanks.game.level.event.entity.system;
 
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.event.*;
-import remove.tanks.game.level.event.system.ActivateSystemEventPrefab;
 
 /**
  * @author Mateusz Długosz

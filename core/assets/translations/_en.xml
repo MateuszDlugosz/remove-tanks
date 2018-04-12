@@ -26,6 +26,7 @@
     <entry key="game.screen.profile.title">Profile</entry>
     <entry key="game.screen.profile.label.profile.points">Points</entry>
     <entry key="game.screen.profile.label.profile.destroyed.enemies">Destroyed enemies</entry>
+    <entry key="game.screen.profile.label.profile.version">Version</entry>
 
     <entry key="game.screen.credits.title">Credits</entry>
     <entry key="game.screen.credits.content.0">Mateusz Długosz</entry>

@@ -15,7 +15,7 @@ import remove.tanks.game.utility.time.Timer;
 public final class NoLifesDefeatSystem extends EntitySystem {
     private final Properties properties;
     private final EventBus eventBus;
-    private Timer timer;
+    private final Timer timer;
 
     public NoLifesDefeatSystem(int priority, Properties properties, EventBus eventBus, Timer timer) {
         super(priority);

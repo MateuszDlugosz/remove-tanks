@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 /**
  * @author Mateusz Długosz
  */
+@SuppressWarnings("unchecked")
 public final class WidgetFactory {
     private final Map<Class<? extends WidgetPrefab>, SubWidgetFactory> factories = new HashMap<>();
 

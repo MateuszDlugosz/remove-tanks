@@ -26,6 +26,7 @@
     <entry key="game.screen.profile.title">Profil</entry>
     <entry key="game.screen.profile.label.profile.points">Punkty</entry>
     <entry key="game.screen.profile.label.profile.destroyed.enemies">Zniszczeni wrogowie</entry>
+    <entry key="game.screen.profile.label.profile.version">Wersja</entry>
 
     <entry key="game.screen.pause.title">Pauza</entry>
     <entry key="game.screen.pause.content">Powrót do menu głownego?</entry>

@@ -3,7 +3,7 @@
     <properties>
         <property name="profile.points">0</property>
         <property name="profile.destroyed.enemies">0</property>
-        <property name="profile.maps.ended">0</property>
+        <property name="profile.version">0.1</property>
     </properties>
     <achievementTypes>
     </achievementTypes>

@@ -40,21 +40,20 @@ public final class ProfileScreen extends GameScreen {
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
     private final ProfileController profileController;
-    private final AchievementStorage achievementStorage;
 
     private Profile profile;
 
-    private Label titleLabel;
-    private Button backButton;
-    private Table profileTable;
-    private Map<ProfileProperty, Button> profilePropertyLabels;
-    private Map<ProfileProperty, Button> profilePropertyValueLabels;
+    private final Label titleLabel;
+    private final Button backButton;
+    private final Table profileTable;
+    private final Map<ProfileProperty, Button> profilePropertyLabels;
+    private final Map<ProfileProperty, Button> profilePropertyValueLabels;
 
-    private ButtonGroup buttonGroup;
+    private final ButtonGroup buttonGroup;
 
-    private Stage stage;
-    private Window window;
-    private Table wrapper;
+    private final Stage stage;
+    private final Window window;
+    private final Table wrapper;
 
     public ProfileScreen(GameApplication gameApplication) {
         super(gameApplication);
@@ -74,8 +73,6 @@ public final class ProfileScreen extends GameScreen {
         this.profileController = gameApplication.getContext()
                 .getComponent("ProfileController", ProfileController.class);
         this.profile = profileController.readProfile();
-        this.achievementStorage = gameApplication.getContext()
-                .getComponent("AchievementStorage", AchievementStorage.class);
 
         this.titleLabel = createTitleLabel();
         this.profilePropertyLabels = createProfilePropertyLabels();

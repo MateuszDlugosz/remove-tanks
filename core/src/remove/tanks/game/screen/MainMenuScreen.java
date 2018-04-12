@@ -34,20 +34,20 @@ public final class MainMenuScreen extends GameScreen {
     private final AssetStorage assetStorage;
     private final CampaignStorage campaignStorage;
 
-    private Stage stage;
-    private Window window;
-    private Table wrapper;
+    private final Stage stage;
+    private final Window window;
+    private final Table wrapper;
 
-    private Label titleLabel;
-    private Label versionLabel;
+    private final Label titleLabel;
+    private final Label versionLabel;
 
-    private Button startButton;
-    private Button optionsButton;
-    private Button creditsButton;
-    private Button profileButton;
-    private Button exitButton;
+    private final Button startButton;
+    private final Button optionsButton;
+    private final Button creditsButton;
+    private final Button profileButton;
+    private final Button exitButton;
 
-    private ButtonGroup buttonGroup;
+    private final ButtonGroup buttonGroup;
 
     public MainMenuScreen(GameApplication gameApplication) {
         super(gameApplication);

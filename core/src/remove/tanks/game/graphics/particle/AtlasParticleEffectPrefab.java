@@ -8,8 +8,8 @@ import com.google.common.base.MoreObjects;
 public final class AtlasParticleEffectPrefab extends ParticleEffectPrefab {
     private final String filename;
     private final String atlasFilename;
-    private boolean flipX;
-    private boolean flipY;
+    private final boolean flipX;
+    private final boolean flipY;
 
     public AtlasParticleEffectPrefab(
             String filename,

@@ -25,6 +25,7 @@ public enum TranslationEntryKey {
 
     GameScreenProfileTitle("game.screen.profile.title"),
     GameScreenProfileLabelProfilePoints("game.screen.profile.label.profile.points"),
+    GameScreenProfileLabelProfileVersion("game.screen.profile.label.profile.version"),
     GameScreenProfileLabelProfileDestroyedEnemies("game.screen.profile.label.profile.destroyed.enemies"),
     GameScreenProfileLabelProfileMapsEnded("game.screen.profile.label.profile.maps.ended"),
 

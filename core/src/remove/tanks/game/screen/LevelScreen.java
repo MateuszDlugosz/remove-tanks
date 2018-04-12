@@ -28,8 +28,8 @@ public final class LevelScreen extends GameScreen {
     private final Properties properties;
     private final Skin skin;
 
-    private Stage stage;
-    private Window window;
+    private final Stage stage;
+    private final Window window;
 
     private boolean screenSwitched;
 

@@ -29,7 +29,7 @@ public final class AutoShootSystem extends IteratingSystem {
     protected void processEntity(Entity entity, float deltaTime) {
         AmmoComponent.MAPPER.get(entity)
                 .getPrefabCodeForDirection(DirectionComponent.MAPPER.get(entity).getDirection())
-                .ifPresent(c -> eventBus.post(new CreateEvent(new ArrayList<CreateEntry>(Lists.newArrayList(new CreateEntry(
+                .ifPresent(c -> eventBus.post(new CreateEvent(new ArrayList<>(Lists.newArrayList(new CreateEntry(
                         c, PhysicsComponent.MAPPER.get(entity).getPosition()
                 ))))));
         entity.remove(AutoShootComponent.class);

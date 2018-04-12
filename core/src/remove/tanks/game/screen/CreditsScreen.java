@@ -33,15 +33,15 @@ public final class CreditsScreen extends GameScreen {
     private final EventBus eventBus;
     private final AssetStorage assetStorage;
 
-    private Stage stage;
-    private Window window;
-    private Table wrapper;
+    private final Stage stage;
+    private final Window window;
+    private final Table wrapper;
 
-    private TextButton contentLabel;
-    private TextButton titleLabel;
-    private Button backButton;
+    private final TextButton contentLabel;
+    private final TextButton titleLabel;
+    private final Button backButton;
 
-    private ButtonGroup buttonGroup;
+    private final ButtonGroup buttonGroup;
 
     public CreditsScreen(GameApplication gameApplication) {
         super(gameApplication);

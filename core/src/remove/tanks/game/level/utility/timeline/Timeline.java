@@ -10,7 +10,7 @@ import java.util.List;
  */
 public final class Timeline {
     private final List<TimelineEntry> timelineEntries;
-    private Timer timer;
+    private final Timer timer;
 
     Timeline(List<TimelineEntry> timelineEntries, Timer timer) {
         this.timelineEntries = timelineEntries;

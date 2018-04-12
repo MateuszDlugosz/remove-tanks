@@ -38,15 +38,15 @@ public final class LevelSummaryScreen extends GameScreen {
     private final AssetStorage assetStorage;
     private final Skin skin;
 
-    private TextButton titleLabel;
-    private TextButton contentLabel;
-    private Button backButton;
+    private final TextButton titleLabel;
+    private final TextButton contentLabel;
+    private final Button backButton;
 
-    private ButtonGroup buttonGroup;
+    private final ButtonGroup buttonGroup;
 
-    private Stage stage;
-    private Table wrapper;
-    private Window window;
+    private final Stage stage;
+    private final Table wrapper;
+    private final Window window;
 
     public LevelSummaryScreen(GameApplication gameApplication, Mode mode, Properties properties) {
         super(gameApplication);
