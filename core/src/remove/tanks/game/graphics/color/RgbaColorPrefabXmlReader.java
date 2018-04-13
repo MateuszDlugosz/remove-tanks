@@ -11,21 +11,29 @@ public final class RgbaColorPrefabXmlReader implements SubColorPrefabXmlReader<R
     private static final String B_ELEMENT = "b";
     private static final String A_ELEMENT = "a";
 
+    private static final float R_DEFAULT = 0f;
+    private static final float G_DEFAULT = 0f;
+    private static final float B_DEFAULT = 0f;
+    private static final float A_DEFAULT = 0f;
+
     @Override
     public RgbaColorPrefab readColorPrefab(XmlReader.Element element) {
         try {
             return new RgbaColorPrefab(
-                    readColorValue(element.getChildByName(R_ELEMENT)),
-                    readColorValue(element.getChildByName(G_ELEMENT)),
-                    readColorValue(element.getChildByName(B_ELEMENT)),
-                    readColorValue(element.getChildByName(A_ELEMENT))
+                    readColorValue(element.getChildByName(R_ELEMENT), R_DEFAULT),
+                    readColorValue(element.getChildByName(G_ELEMENT), G_DEFAULT),
+                    readColorValue(element.getChildByName(B_ELEMENT), B_DEFAULT),
+                    readColorValue(element.getChildByName(A_ELEMENT), A_DEFAULT)
             );
         } catch (Exception e) {
             throw new ColorPrefabXmlReadException(element, e);
         }
     }
 
-    private float readColorValue(XmlReader.Element element) {
+    private float readColorValue(XmlReader.Element element, float defaultValue) {
+        if (element == null) {
+            return defaultValue;
+        }
         return Float.valueOf(element.getText().trim());
     }
 

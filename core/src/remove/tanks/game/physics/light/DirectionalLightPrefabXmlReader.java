@@ -3,6 +3,7 @@ package remove.tanks.game.physics.light;
 import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.graphics.color.ColorPrefab;
 import remove.tanks.game.graphics.color.ColorPrefabXmlReader;
+import remove.tanks.game.graphics.color.RgbColorPrefab;
 
 /**
  * @author Mateusz Długosz
@@ -31,6 +32,9 @@ public final class DirectionalLightPrefabXmlReader implements SubLightPrefabXmlR
     }
 
     private ColorPrefab readColorPrefab(XmlReader.Element element) {
+        if (element.getChildByName(ColorPrefabXmlReader.COLOR_ELEMENT) == null) {
+            return RgbColorPrefab.WHITE;
+        }
         return colorPrefabXmlReader.readColorPrefab(
                 element.getChildByName(ColorPrefabXmlReader.COLOR_ELEMENT)
         );

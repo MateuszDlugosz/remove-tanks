@@ -70,11 +70,6 @@
             <lightHandlers>
                 <lightHandler id="Main">
                     <light type="PointLight">
-                        <color type="RgbColor">
-                            <r>0</r>
-                            <g>0</g>
-                            <b>0</b>
-                        </color>
                         <distance>64</distance>
                         <xRay>true</xRay>
                     </light>

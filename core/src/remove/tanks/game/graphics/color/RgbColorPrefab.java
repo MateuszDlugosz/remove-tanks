@@ -6,6 +6,8 @@ import com.google.common.base.MoreObjects;
  * @author Mateusz Długosz
  */
 public final class RgbColorPrefab extends ColorPrefab {
+    public static final RgbColorPrefab WHITE = new RgbColorPrefab(255f, 255f, 255f);
+
     private final float r;
     private final float g;
     private final float b;

@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as EXml
 
+from lib.graphics.color.color_prefab import RgbColorPrefab
 from lib.graphics.color.color_prefab_xml_reader import ColorPrefabXmlReader
 from lib.physics.light.light_prefab import PointLightPrefab, DirectionalLightPrefab, ConeLightPrefab
 from lib.utility.string_functions import string_to_boolean
@@ -52,9 +53,13 @@ class SubPointLightPrefabXmlReader(SubLightPrefabXmlReader):
         try:
             element = EXml.fromstring(xml_string)
             position_prefab = PositionPrefab(0, 0)
-            color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
-                EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
-            )
+
+            color_prefab = RgbColorPrefab(0, 0, 0)
+            if element.find(ColorPrefabXmlReader.COLOR_ELEMENT) is not None:
+                color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
+                    EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
+                )
+
             x_ray = string_to_boolean(element.find(self.X_RAY_ELEMENT).text)
 
             if element.find(PositionPrefabXmlReader.POSITION_ELEMENT) is not None:
@@ -82,9 +87,13 @@ class SubDirectionalLightPrefabXmlReader(SubLightPrefabXmlReader):
     def read_prefab_from_string(self, xml_string):
         try:
             element = EXml.fromstring(xml_string)
-            color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
-                EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
-            )
+
+            color_prefab = RgbColorPrefab(0, 0, 0)
+            if element.find(ColorPrefabXmlReader.COLOR_ELEMENT) is not None:
+                color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
+                    EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
+                )
+
             x_ray = string_to_boolean(element.find(self.X_RAY_ELEMENT).text)
             direction_degree = float(element.find(self.DIRECTION_DEGREE_ELEMENT).text)
 
@@ -110,9 +119,13 @@ class SubConeLightPrefabXmlReader(SubLightPrefabXmlReader):
         try:
             element = EXml.fromstring(xml_string)
             position_prefab = PositionPrefab(0, 0)
-            color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
-                EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
-            )
+
+            color_prefab = RgbColorPrefab(0, 0, 0)
+            if element.find(ColorPrefabXmlReader.COLOR_ELEMENT) is not None:
+                color_prefab = self.color_prefab_xml_reader.read_prefab_from_string(
+                    EXml.tostring(element.find(ColorPrefabXmlReader.COLOR_ELEMENT))
+                )
+
             x_ray = string_to_boolean(element.find(self.X_RAY_ELEMENT).text)
 
             if element.find(PositionPrefabXmlReader.POSITION_ELEMENT) is not None:
