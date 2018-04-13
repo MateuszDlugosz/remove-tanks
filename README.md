@@ -1,4 +1,4 @@
-#RemoveTanks!
+# RemoveTanks!
 RemoveTanks! is a libGDX based game in the spirit of Battle City game.
 
 ## Libraries, frameworks and programs
