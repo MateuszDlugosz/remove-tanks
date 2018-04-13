@@ -20,7 +20,7 @@ public final class OperationStorageFactory {
         this.operationFactory = operationFactory;
     }
 
-    public OperationStorage createOperationPrefabStorage(OperationPrefabFilenameRepository repository) {
+    public OperationStorage createOperationStorage(OperationPrefabFilenameRepository repository) {
         try {
             return new OperationStorage(createOperationPrefabMap(repository));
         } catch (Exception e) {

@@ -36,7 +36,8 @@ public enum ConfigurationOption {
     GamePreferencesFilename("game.preferences.filename"),
     GameDefaultLanguage("game.default.language"),
     GameCampaignPrefabFilenameRepositoryFilename("game.campaign.prefab.filename.repository.filename"),
-    GameOperationPrefabFilenameRepositoryFilename("game.operation.prefab.filename.repository.filename");
+    GameOperationPrefabFilenameRepositoryFilename("game.operation.prefab.filename.repository.filename"),
+    GameArenaPrefabFilenameRepositoryFilename("game.arena.prefab.filename.repository.filename");
 
     private final String name;
 

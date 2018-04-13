@@ -92,6 +92,8 @@ public final class DesktopLauncher {
                 "prefabs/campaigns/campaigns-prefab-filename-repository.xml");
         configuration.put(ConfigurationOption.GameOperationPrefabFilenameRepositoryFilename.getName(),
                 "prefabs/operations/operations-prefab-filename-repository.xml");
+        configuration.put(ConfigurationOption.GameArenaPrefabFilenameRepositoryFilename.getName(),
+                "prefabs/arenas/arenas-prefab-filename-repository.xml");
         configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(),
                 "achievements/achievement-prefab-repository.xml");
         configuration.put(ConfigurationOption.GameLevelPresenterPrefabFilename.getName(),

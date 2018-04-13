@@ -73,7 +73,7 @@ public final class OperationConfiguration {
         @Override
         public OperationStorage supplyComponent() {
             return getContext().getComponent("OperationStorageFactory", OperationStorageFactory.class)
-                    .createOperationPrefabStorage(
+                    .createOperationStorage(
                             getContext().getComponent("OperationPrefabFilenameRepository",
                                     OperationPrefabFilenameRepository.class)
                     );
