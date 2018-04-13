@@ -59,6 +59,7 @@ public final class ProfileController {
             localProfile.writeString(xmlFormatter.formatXmlString(profileXmlWriter.writeProfile(
                     profileUpdater.updateProfile(profile, levelProperties))), false);
         } catch (Exception e) {
+            resetProfile();
             localProfile.writeString(xmlFormatter.formatXmlString(profileXmlWriter.writeProfile(
                     profileUpdater.updateProfile(profile, levelProperties))), false);
         }

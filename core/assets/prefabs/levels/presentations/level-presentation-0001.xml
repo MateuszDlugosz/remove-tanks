@@ -61,7 +61,6 @@
             <system type="CloudLayerRenderSystem" />
             <system type="BombLayerRenderSystem" />
             <system type="AirplaneLayerRenderSystem" />
-            <!--<system type="WorldDebugRenderSystem" />-->
             <system type="DestroySystem" />
             <system type="ChangeBehaviorSystem" />
             <system type="AutoSpawnerSystem">
