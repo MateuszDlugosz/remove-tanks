@@ -273,6 +273,9 @@ public final class EventConfiguration {
                             new DeactivateSystemEntityEventPrefabXmlReader(),
                             new AddWeatherEffectEntityEventPrefabXmlReader(
                                     getContext().getComponent("WeatherEffectPrefabXmlReader", WeatherEffectPrefabXmlReader.class)
+                            ),
+                            new RandomCreateEntityEventPrefabXmlReader(
+                                    getContext().getComponent("CreateEntryPrefabXmlReader", CreateEntryPrefabXmlReader.class)
                             )
                     }
             );
@@ -319,6 +322,9 @@ public final class EventConfiguration {
                             new DeactivateSystemEntityEventFactory(),
                             new AddWeatherEffectEntityEventFactory(
                                     getContext().getComponent("WeatherEffectFactory", WeatherEffectFactory.class)
+                            ),
+                            new RandomCreateEntityEventFactory(
+                                    getContext().getComponent("CreateEntryFactory", CreateEntryFactory.class)
                             )
                     }
             );

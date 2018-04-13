@@ -10,7 +10,6 @@ import remove.tanks.game.graphics.sprite.SpriteFactory;
 import remove.tanks.game.graphics.sprite.SpritePrefabXmlReader;
 import remove.tanks.game.level.LevelSequenceXmlReader;
 import remove.tanks.game.level.mode.arena.*;
-import remove.tanks.game.level.mode.campaign.*;
 import remove.tanks.game.utility.scale.Scale;
 
 /**

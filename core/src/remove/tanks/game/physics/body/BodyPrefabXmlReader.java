@@ -3,10 +3,6 @@ package remove.tanks.game.physics.body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.utils.XmlReader;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  * @author Mateusz Długosz
  */

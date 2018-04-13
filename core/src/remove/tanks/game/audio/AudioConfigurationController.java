@@ -9,7 +9,7 @@ import java.util.Arrays;
 /**
  * @author Mateusz Długosz
  */
-public class AudioConfigurationController {
+public final class AudioConfigurationController {
     private final AudioConfigurationFileHandleRepository audioConfigurationFileHandleRepository;
     private final AudioConfigurationStorageFactory audioConfigurationStorageFactory;
     private final AudioConfigurationXmlWriter audioConfigurationXmlWriter;

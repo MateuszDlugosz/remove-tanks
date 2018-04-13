@@ -2,9 +2,7 @@ package remove.tanks.game.graphics.camera.effect;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz

@@ -8,7 +8,6 @@ import remove.tanks.game.level.preload.PreloadData;
 import remove.tanks.game.level.preload.PreloadDataXmlReader;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 

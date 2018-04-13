@@ -1,7 +1,6 @@
 package remove.tanks.game.level.mode.campaign;
 
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Mateusz Długosz

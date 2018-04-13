@@ -2,10 +2,6 @@ package remove.tanks.game.graphics.shader;
 
 import com.badlogic.gdx.utils.XmlReader;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  * @author Mateusz Długosz
  */

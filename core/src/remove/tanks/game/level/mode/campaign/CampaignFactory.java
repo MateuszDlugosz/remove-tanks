@@ -5,9 +5,6 @@ import remove.tanks.game.asset.AssetStorage;
 import remove.tanks.game.graphics.sprite.SpriteFactory;
 import remove.tanks.game.utility.scale.Scale;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  * @author Mateusz Długosz
  */

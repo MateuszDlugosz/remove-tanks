@@ -4,9 +4,6 @@ import com.badlogic.gdx.physics.box2d.Body;
 import remove.tanks.game.physics.fixture.FixtureFactory;
 import remove.tanks.game.utility.scale.Scale;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  * @author Mateusz Długosz
  */

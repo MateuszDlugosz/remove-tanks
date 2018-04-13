@@ -2,7 +2,6 @@ package remove.tanks.game.application.context;
 
 import org.junit.Before;
 import org.junit.Test;
-import remove.tanks.game.application.context.component.provider.ComponentProviderNotFoundException;
 import remove.tanks.game.application.context.component.supplier.test_package.TestComponentSupplierBag;
 import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.application.context.configuration.ConfigurationOption;

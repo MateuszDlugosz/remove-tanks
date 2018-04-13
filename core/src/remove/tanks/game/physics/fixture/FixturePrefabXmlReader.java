@@ -6,10 +6,6 @@ import remove.tanks.game.physics.filter.FilterPrefabXmlReader;
 import remove.tanks.game.physics.shape.ShapePrefab;
 import remove.tanks.game.physics.shape.ShapePrefabXmlReader;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  * @author Mateusz Długosz
  */

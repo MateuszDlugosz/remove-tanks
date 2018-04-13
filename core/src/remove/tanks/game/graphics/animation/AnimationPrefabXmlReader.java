@@ -4,9 +4,7 @@ import com.badlogic.gdx.utils.XmlReader;
 
 import java.util.Arrays;
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz

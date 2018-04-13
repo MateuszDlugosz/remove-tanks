@@ -4,16 +4,13 @@ import com.badlogic.gdx.utils.XmlReader;
 
 import java.util.Arrays;
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz
  */
 public final class ColorPrefabXmlReader {
     public static final String COLOR_ELEMENT = "color";
-    public static final String COLORS_ELEMENT = "colors";
 
     private static final String TYPE_ATTRIBUTE = "type";
 

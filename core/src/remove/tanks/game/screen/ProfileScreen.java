@@ -17,7 +17,6 @@ import remove.tanks.game.audio.sound.event.PlaySoundEvent;
 import remove.tanks.game.data.profile.Profile;
 import remove.tanks.game.data.profile.ProfileController;
 import remove.tanks.game.data.profile.ProfileProperty;
-import remove.tanks.game.data.profile.achievement.AchievementStorage;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.LevelPresenter;
 import remove.tanks.game.locale.Locale;

@@ -5,9 +5,7 @@ import remove.tanks.game.utility.scale.Scale;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author Mateusz Długosz
