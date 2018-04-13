@@ -40,21 +40,30 @@ public final class ProfileController {
     }
 
     public Profile readProfile() {
-        if (!profileScanner.isProfileFileExists(localProfile)) {
-            profileInitializer.initializeProfile(emptyProfile, localProfile);
+        try {
+            if (!profileScanner.isProfileFileExists(localProfile)) {
+                profileInitializer.initializeProfile(emptyProfile, localProfile);
+            }
+            return profileXmlReader.readProfile(localProfile);
+        } catch (Exception e) {
+            resetProfile();
+            return profileXmlReader.readProfile(localProfile);
         }
-        return profileXmlReader.readProfile(localProfile);
     }
 
     public void writeProfile(Profile profile, Properties levelProperties) {
-        if (!profileScanner.isProfileFileExists(localProfile)) {
-            profileInitializer.initializeProfile(emptyProfile, localProfile);
+        try {
+            if (!profileScanner.isProfileFileExists(localProfile)) {
+                profileInitializer.initializeProfile(emptyProfile, localProfile);
+            }
+            localProfile.writeString(xmlFormatter.formatXmlString(profileXmlWriter.writeProfile(
+                    profileUpdater.updateProfile(profile, levelProperties))), false);
+        } catch (Exception e) {
+            localProfile.writeString(xmlFormatter.formatXmlString(profileXmlWriter.writeProfile(
+                    profileUpdater.updateProfile(profile, levelProperties))), false);
         }
-        localProfile.writeString(xmlFormatter.formatXmlString(profileXmlWriter.writeProfile(
-                profileUpdater.updateProfile(profile, levelProperties))), false);
     }
 
-    //fixme
     public void resetProfile() {
         if (profileScanner.isProfileFileExists(localProfile)) {
             localProfile.delete();
