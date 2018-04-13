@@ -21,7 +21,7 @@ public final class FontConfiguration {
             FreeTypeFontGenerator.FreeTypeFontParameter parameter
                     = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
-            parameter.size = 20;
+            parameter.size = 16;
             parameter.color = Color.WHITE;
             parameter.borderColor = Color.BLACK;
             parameter.borderWidth = 2;

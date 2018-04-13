@@ -27,39 +27,9 @@ public final class CameraConfiguration {
         @Override
         public Game2DCamera supplyComponent() {
             return create2DCamera(
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayWidth.getName())),
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayHeight.getName())),
                     getContext().getComponent("WorldScale", Scale.class)
-            );
-        }
-
-        private Game2DCamera create2DCamera(Scale worldScale) {
-            float displayWidth
-                    = Float.valueOf(getContext().getConfiguration().getOption(
-                    ConfigurationOption.GameDisplayWidth.getName()));
-            float displayHeight
-                    = Float.valueOf(getContext().getConfiguration().getOption(
-                    ConfigurationOption.GameDisplayHeight.getName()));
-            OrthographicCamera camera = createOrthographicCamera(displayWidth, displayHeight, worldScale);
-            Viewport viewport = createViewport(displayWidth, displayHeight, worldScale, camera);
-            return new Game2DCamera(camera, viewport);
-        }
-
-        private OrthographicCamera createOrthographicCamera(float width, float height, Scale worldScale) {
-            OrthographicCamera camera = new OrthographicCamera();
-            camera.setToOrtho(
-                    false,
-                    worldScale.scaleValue(width),
-                    worldScale.scaleValue(height)
-            );
-            camera.position.set(0,0,0);
-            camera.update();
-            return camera;
-        }
-
-        private Viewport createViewport(float width, float height, Scale worldScale, OrthographicCamera camera) {
-            return new FitViewport(
-                    worldScale.scaleValue(width),
-                    worldScale.scaleValue(height),
-                    camera
             );
         }
     }
@@ -68,21 +38,11 @@ public final class CameraConfiguration {
     public static final class HudCameraSupplier extends ComponentSupplier<Game2DCamera> {
         @Override
         public Game2DCamera supplyComponent() {
-            OrthographicCamera camera = new OrthographicCamera(
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayWidth.getName())),
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayHeight.getName()))
+            return create2DCamera(
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayWidth.getName())),
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayHeight.getName())),
+                    getContext().getComponent("UIScale", Scale.class)
             );
-            camera.setToOrtho(
-                    false,
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayWidth.getName())) * 0.5f,
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayHeight.getName())) * 0.5f
-            );
-            Viewport viewport = new ScreenViewport(camera);
-            return new Game2DCamera(camera, viewport);
         }
     }
 
@@ -90,22 +50,38 @@ public final class CameraConfiguration {
     public static final class MenuCameraSupplier extends ComponentSupplier<Game2DCamera> {
         @Override
         public Game2DCamera supplyComponent() {
-            OrthographicCamera camera = new OrthographicCamera(
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayWidth.getName())),
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayHeight.getName()))
+            return create2DCamera(
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayWidth.getName())),
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayHeight.getName())),
+                    getContext().getComponent("UIScale", Scale.class)
             );
-            camera.setToOrtho(
-                    false,
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayWidth.getName())) * 0.5f,
-                    Float.valueOf(getContext().getConfiguration().getOption(
-                            ConfigurationOption.GameDisplayHeight.getName())) * 0.5f
-            );
-            Viewport viewport = new ScreenViewport(camera);
-            return new Game2DCamera(camera, viewport);
         }
+    }
+
+    private static Game2DCamera create2DCamera(float displayWidth, float displayHeight, Scale scale) {
+        OrthographicCamera camera = createOrthographicCamera(displayWidth, displayHeight, scale);
+        Viewport viewport = createViewport(displayWidth, displayHeight, scale, camera);
+        return new Game2DCamera(camera, viewport);
+    }
+
+    private static OrthographicCamera createOrthographicCamera(float width, float height, Scale scale) {
+        OrthographicCamera camera = new OrthographicCamera();
+        camera.setToOrtho(
+                false,
+                scale.scaleValue(width),
+                scale.scaleValue(height)
+        );
+        camera.position.set(0,0,0);
+        camera.update();
+        return camera;
+    }
+
+    private static Viewport createViewport(float width, float height, Scale scale, OrthographicCamera camera) {
+        return new FitViewport(
+                scale.scaleValue(width),
+                scale.scaleValue(height),
+                camera
+        );
     }
 
     @ComponentName("CameraEffectPrefabXmlReader")

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<level>
+    <tiledMapFilename>maps/operations/early-morning/map-level-0.tmx</tiledMapFilename>
+    <entityPrefabRepositoryFilename>prefabs/entities/entity-prefab-repository.xml</entityPrefabRepositoryFilename>
+    <assetPrefabRepositoryFilename>themes/sepia-asset-prefab-repository.xml</assetPrefabRepositoryFilename>
+    <preloadData>
+        <entityPrefabCodes>
+
+        </entityPrefabCodes>
+        <assetIds>
+
+        </assetIds>
+    </preloadData>
+    <resourceConfigurations>
+        <resourceConfiguration resourceType="WorldResource">
+            <properties>
+                <property name="world.gravity.x">0</property>
+                <property name="world.gravity.y">0</property>
+            </properties>
+        </resourceConfiguration>
+        <resourceConfiguration resourceType="LevelPropertiesResource">
+            <properties>
+                <property name="level.enemies.left">10</property>
+            </properties>
+        </resourceConfiguration>
+    </resourceConfigurations>
+    <engine>
+        <systems>
+            <system type="MusicOnStartSystem">
+                <music>
+                    <filename>LevelStart0Music</filename>
+                </music>
+                <musicChannelName>MainMusicChannel</musicChannelName>
+            </system>
+            <system type="WorldUpdateSystem" />
+            <system type="InputSystem" />
+            <system type="CameraTrackSystem" />
+            <system type="CameraEffectSystem" />
+            <system type="CameraUpdateSystem" />
+            <system type="RandomDirectionSystem" />
+            <system type="RandomCreateSystem" />
+            <system type="HealthSystem" />
+            <system type="HitSystem" />
+            <system type="CombatSystem">
+                <hitEffect>
+                    <effect type="ShaderEffect">
+                        <shaderProgram>
+                            <vertexShaderFilename>GrayscaleShaderVertex</vertexShaderFilename>
+                            <fragmentShaderFilename>GrayscaleShaderFragment</fragmentShaderFilename>
+                        </shaderProgram>
+                    </effect>
+                </hitEffect>
+                <hitTime>0.2</hitTime>
+            </system>
+            <system type="AutoMoveSystem" />
+            <system type="AutoShootSystem" />
+            <system type="ViewUpdateSystem" />
+            <system type="LifetimeSystem" />
+            <system type="RandomShootSystem" />
+            <system type="GroundMapLayerRenderSystem" />
+            <system type="GroundLayerRenderSystem" />
+            <system type="BulletLayerRenderSystem" />
+            <system type="VehicleLayerRenderSystem" />
+            <system type="ObstacleLayerRenderSystem" />
+            <system type="ExplosionLayerRenderSystem" />
+            <system type="BonusLayerRenderSystem" />
+            <system type="CloudLayerRenderSystem" />
+            <system type="BombLayerRenderSystem" />
+            <system type="AirplaneLayerRenderSystem" />
+            <system type="WorldDebugRenderSystem" />
+            <system type="HudSystem">
+                <stage>
+                    <widgets>
+                        <widget type="TimeLeftPresenterWidget">
+                            <titleEntry>GameLevelHudLife</titleEntry>
+                            <property>LevelLifes</property>
+                        </widget>
+                        <widget type="PropertyPresenterWidget">
+                            <titleEntry>GameLevelHudEnemiesLeft</titleEntry>
+                            <property>LevelEnemiesLeft</property>
+                        </widget>
+                        <widget type="PointsPresenterWidget" />
+                    </widgets>
+                    <stateBar>
+                        <displayableStates>
+                            <displayableState>Defeat</displayableState>
+                            <displayableState>Victory</displayableState>
+                        </displayableStates>
+                    </stateBar>
+                    <messageBar>
+                        <defaultMessage> </defaultMessage>
+                        <messagePrinter>
+                            <time>0.05</time>
+                            <sound>
+                                <filename>MessagePrint0Sound</filename>
+                            </sound>
+                            <soundChannelName>EffectSoundChannel</soundChannelName>
+                        </messagePrinter>
+                        <faces>
+                            <face id="Face0">
+                                <sprite type="AtlasSprite">
+                                    <atlasFilename>FaceAtlas</atlasFilename>
+                                    <regionName>face-0</regionName>
+                                </sprite>
+                            </face>
+                        </faces>
+                    </messageBar>
+                </stage>
+            </system>
+            <system type="DestroyOnContactSystem" />
+            <system type="DestroySystem" />
+            <system type="ChangeBehaviorSystem" />
+            <system type="RespawnSystem">
+                <entityPrefabCode>PlayerMediumTankSpawn0</entityPrefabCode>
+                <respawnTime>2</respawnTime>
+            </system>
+            <system type="AutoSpawnerSystem">
+                <spawners>
+                    <spawner id="SpawnerAlpha" autoStart="false">
+                        <time>5</time>
+                        <limit>3</limit>
+                        <entityPrefabCodes>
+                            <entityPrefabCode>EnemyBomberTankSpawn0</entityPrefabCode>
+                        </entityPrefabCodes>
+                    </spawner>
+                </spawners>
+            </system>
+            <system type="NoEnemiesVictorySystem">
+                <delay>3</delay>
+            </system>
+            <system type="LevelEndSystem">
+                <delay>3</delay>
+            </system>
+        </systems>
+        <listeners>
+            <listener type="CreateTriggerListener" />
+            <listener type="DestroyTriggerListener" />
+            <listener type="HitTriggerListener" />
+            <listener type="LeaveBonusListener">
+                <chance>100</chance>
+                <entityPrefabCodes>
+                    <entityPrefabCode>BonusPromotion0</entityPrefabCode>
+                    <entityPrefabCode>BonusStar0</entityPrefabCode>
+                    <entityPrefabCode>BonusLife0</entityPrefabCode>
+                    <entityPrefabCode>BonusAmmo0</entityPrefabCode>
+                    <entityPrefabCode>BonusGrenade0</entityPrefabCode>
+                </entityPrefabCodes>
+            </listener>
+            <listener type="EnemyDestroyListener" />
+        </listeners>
+    </engine>
+</level>

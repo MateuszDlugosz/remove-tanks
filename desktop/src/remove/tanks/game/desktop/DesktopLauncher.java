@@ -58,7 +58,7 @@ public final class DesktopLauncher {
                 "remove.tanks.game.configuration.component");
         configuration.put(ConfigurationOption.GameWorldScale.getName(), "32");
         configuration.put(ConfigurationOption.GameWorldLightNumberOfRays.getName(), "100");
-        configuration.put(ConfigurationOption.GameUIScale.getName(), "2");
+        configuration.put(ConfigurationOption.GameUIScale.getName(), "2.5");
         configuration.put(ConfigurationOption.GameWorldUpdateTimeStep.getName(), String.valueOf(1f/45f));
         configuration.put(ConfigurationOption.GameWorldUpdatePositionIterations.getName(), "2");
         configuration.put(ConfigurationOption.GameWorldUpdateVelocityIterations.getName(), "6");
