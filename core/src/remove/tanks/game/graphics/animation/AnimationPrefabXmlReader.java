@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  */
 public final class AnimationPrefabXmlReader {
     public static final String ANIMATION_ELEMENT = "animation";
-    public static final String ANIMATIONS_ELEMENT = "animations";
 
     private static final String TYPE_ATTRIBUTE = "type";
 

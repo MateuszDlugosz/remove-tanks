@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  */
 public final class LightPrefabXmlReader {
     public static final String LIGHT_ELEMENT = "light";
-    public static final String LIGHTS_ELEMENT = "lights";
 
     private static final String TYPE_ATTRIBUTE = "type";
 

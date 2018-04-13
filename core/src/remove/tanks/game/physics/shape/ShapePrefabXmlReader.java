@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  */
 public final class ShapePrefabXmlReader {
     public static final String SHAPE_ELEMENT = "shape";
-    public static final String SHAPES_ELEMENT = "shapes";
 
     private static final String TYPE_ATTRIBUTE = "type";
 

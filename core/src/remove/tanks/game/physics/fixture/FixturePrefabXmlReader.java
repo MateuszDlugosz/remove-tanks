@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
  * @author Mateusz Długosz
  */
 public final class FixturePrefabXmlReader {
-    public static final String FIXTURES_ELEMENT = "fixtures";
     public static final String FIXTURE_ELEMENT = "fixture";
 
     private static final String FRICTION_ELEMENT = "friction";

@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
  */
 public final class FilterPrefabXmlReader {
     public static final String FILTER_ELEMENT = "filter";
-    public static final String FILTERS_ELEMENT = "filters";
 
     private static final String CATEGORY_BIT_ELEMENT = "categoryBit";
     private static final String MASK_BIT_ELEMENT = "maskBit";

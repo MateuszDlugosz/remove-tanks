@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  */
 public final class ParticleEffectPrefabXmlReader {
     public static final String PARTICLE_EFFECT_ELEMENT = "particleEffect";
-    public static final String PARTICLE_EFFECTS_ELEMENT = "particleEffects";
 
     private static final String TYPE_ATTRIBUTE = "type";
 

@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
  */
 public final class BodyPrefabXmlReader {
     public static final String BODY_ELEMENT = "body";
-    public static final String BODIES_ELEMENT = "bodies";
 
     private static final String BODY_TYPE_ELEMENT = "type";
     private static final String ACTIVE_ELEMENT = "active";

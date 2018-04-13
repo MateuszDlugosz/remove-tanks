@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
  */
 public final class ShaderProgramPrefabXmlReader {
     public static final String SHADER_PROGRAM_ELEMENT = "shaderProgram";
-    public static final String SHADER_PROGRAMS_ELEMENT = "shaderPrograms";
 
     private static final String VERTEX_SHADER_FILENAME_ELEMENT = "vertexShaderFilename";
     private static final String FRAGMENT_SHADER_FILENAME_ELEMENT = "fragmentShaderFilename";

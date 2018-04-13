@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  */
 public final class SpritePrefabXmlReader {
     public static final String SPRITE_ELEMENT = "sprite";
-    public static final String SPRITES_ELEMENT = "sprites";
 
     private static final String TYPE_ATTRIBUTE = "type";
 
