@@ -7,7 +7,7 @@
     </sprite>
     <levelSequence>
         <levelPrefabFilenames>
-            <levelPrefabFilename>prefabs/levels/campaigns/age-of-crow/level-prefab.xml</levelPrefabFilename>
+            <levelPrefabFilename>prefabs/levels/campaigns/age-of-crow/age-of-crow-level-0001.xml</levelPrefabFilename>
         </levelPrefabFilenames>
     </levelSequence>
 </campaignPrefab>

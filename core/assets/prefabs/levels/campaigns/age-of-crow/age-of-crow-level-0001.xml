@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <level>
-    <tiledMapFilename>maps/campaigns/age-of-crow/map-level-0001.tmx</tiledMapFilename>
+    <tiledMapFilename>maps/campaigns/age-of-crow/age-of-crow-level-0001.tmx</tiledMapFilename>
     <entityPrefabRepositoryFilename>prefabs/entities/entity-prefab-repository.xml</entityPrefabRepositoryFilename>
     <assetPrefabRepositoryFilename>themes/sepia-asset-prefab-repository.xml</assetPrefabRepositoryFilename>
     <preloadData>
