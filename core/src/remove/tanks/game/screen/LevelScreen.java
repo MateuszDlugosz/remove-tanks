@@ -87,25 +87,44 @@ public final class LevelScreen extends GameScreen {
             if (Gdx.input.isKeyPressed(Input.Keys.UP)) inputMapper.keyDown(InputKey.Up);
             if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) inputMapper.keyDown(InputKey.Down);
             if (Gdx.input.isKeyJustPressed(Input.Keys.CONTROL_LEFT)) inputMapper.keyDown(InputKey.Shoot);
-            if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-                getGameApplication().switchScreenWithTransition(
-                        new LevelPauseScreen(getGameApplication(), this));
-            }
 
-            if (properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.End.getName())) {
-                getGameApplication().switchScreenWithTransition(
-                        new LevelLoadingScreen(
-                                getGameApplication(),
-                                mode,
-                                (playedLevelIndex + 1),
-                                levelController.getLevel()
-                        )
-                );
-                screenSwitched = true;
-            }
+            if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))
+                pauseLevel();
+            if (properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.End.getName()))
+                switchToNextLevel();
+            if (properties.getString(LevelProperty.LevelState.getName()).equals(LevelState.Reset.getName()))
+                resetLevel();
         }
         levelController.update(delta);
         super.render(delta);
+    }
+
+    private void pauseLevel() {
+        getGameApplication().switchScreenWithTransition(
+                new LevelPauseScreen(getGameApplication(), this));
+    }
+
+    private void switchToNextLevel() {
+        getGameApplication().switchScreenWithTransition(
+                new LevelLoadingScreen(
+                        getGameApplication(),
+                        mode,
+                        (playedLevelIndex + 1),
+                        levelController.getLevel()
+                )
+        );
+        screenSwitched = true;
+    }
+
+    private void resetLevel() {
+        getGameApplication().switchScreenWithTransition(
+                new LevelLoadingScreen(
+                        getGameApplication(),
+                        mode,
+                        playedLevelIndex,
+                        levelController.getLevel()
+                )
+        );
     }
 
     @Override

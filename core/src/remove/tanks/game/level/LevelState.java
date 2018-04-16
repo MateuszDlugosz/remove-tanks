@@ -7,6 +7,7 @@ public enum LevelState {
     Play("Play"),
     Victory("Victory"),
     Defeat("Defeat"),
+    Reset("Reset"),
     End("End");
 
     private final String name;

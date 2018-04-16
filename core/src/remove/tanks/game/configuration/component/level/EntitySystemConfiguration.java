@@ -41,6 +41,8 @@ import remove.tanks.game.level.engine.system.state.defeat.TimeEndDefeatSystemFac
 import remove.tanks.game.level.engine.system.state.defeat.TimeEndDefeatSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.state.end.LevelEndSystemFactory;
 import remove.tanks.game.level.engine.system.state.end.LevelEndSystemPrefabXmlReader;
+import remove.tanks.game.level.engine.system.state.reset.PlayerDestroyedResetSystemFactory;
+import remove.tanks.game.level.engine.system.state.reset.PlayerDestroyedResetSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.state.victory.NoEnemiesVictorySystemFactory;
 import remove.tanks.game.level.engine.system.state.victory.NoEnemiesVictorySystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.time.TimeUpdateSystemFactory;
@@ -159,7 +161,8 @@ public final class EntitySystemConfiguration {
                             new AutoSpawnerSystemFactory(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class),
                                     getContext().getComponent("SpawnerFactory", SpawnerFactory.class)
-                            )
+                            ),
+                            new PlayerDestroyedResetSystemFactory()
                     }
             );
         }
@@ -226,7 +229,8 @@ public final class EntitySystemConfiguration {
                             ),
                             new AutoSpawnerSystemPrefabXmlReader(
                                     getContext().getComponent("SpawnerPrefabXmlReader", SpawnerPrefabXmlReader.class)
-                            )
+                            ),
+                            new PlayerDestroyedResetSystemPrefabXmlReader()
                     }
             );
         }
