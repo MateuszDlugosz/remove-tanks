@@ -33,6 +33,8 @@ allprojects {
 project(":desktop") {
     apply plugin: "java"
 
+    sourceSets.main.resources.srcDirs = [ "src/resources" ]
+
     dependencies {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
@@ -48,8 +50,8 @@ project(":core") {
     apply plugin: "java"
 
     sourceSets.main.java.srcDirs = [ "src/" ]
-    sourceSets.test.java.srcDirs = ["test/"]
-    sourceSets.test.resources.srcDirs = ["test/resources"]
+    sourceSets.test.java.srcDirs = [ "test/" ]
+    sourceSets.test.resources.srcDirs = [ "test/resources" ]
 
     dependencies {
         testCompile "junit:junit:4.12"

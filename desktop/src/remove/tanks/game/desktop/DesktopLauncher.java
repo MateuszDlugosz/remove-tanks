@@ -8,8 +8,11 @@ import remove.tanks.game.application.context.ApplicationContext;
 import remove.tanks.game.application.context.component.provider.ComponentProviderInitializer;
 import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.application.context.configuration.ConfigurationOption;
+import remove.tanks.game.desktop.display.DisplayDimensionResolver;
+import remove.tanks.game.desktop.display.DisplayDimensionResolverXmlReader;
 
 import java.awt.*;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -23,12 +26,10 @@ import java.util.logging.Logger;
  * @author Mateusz Długosz
  */
 public final class DesktopLauncher {
-    private static final Double DEFAULT_RATIO = 0.0d;
-    private static final Map<Double, Dimension> aspectRatioDimensions = new HashMap<>();
+    private static final String DISPLAY_DIMENSIONS_FILENAME = "/display-dimensions.xml";
 
     public static void main (String[] arg) {
         configureLoggers();
-        initializeAspectRatioDimensionsMap();
 
         Graphics.DisplayMode desktopDisplayMode = LwjglApplicationConfiguration.getDesktopDisplayMode();
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -60,22 +61,17 @@ public final class DesktopLauncher {
         Logger.getLogger(ComponentProviderInitializer.class.getName()).addHandler(consoleHandler);
     }
 
-    private static void initializeAspectRatioDimensionsMap() {
-        aspectRatioDimensions.put(16.0d / 9.0d, new Dimension(320, 180));
-        aspectRatioDimensions.put(4.0d / 3.0d, new Dimension(400, 300));
-        aspectRatioDimensions.put(DEFAULT_RATIO, new Dimension(320, 180));
-    }
-
     private static Configuration createConfiguration(Graphics.DisplayMode displayMode) {
         Map<String, String> configuration = new HashMap<>();
-
-        double ratio = displayMode.width / displayMode.height;
-        if (!aspectRatioDimensions.containsKey(ratio)) ratio = DEFAULT_RATIO;
+        Dimension dimension = new DisplayDimensionResolverXmlReader().readDisplayDimensionResolver(
+                new File(DesktopLauncher.class.getResource(DISPLAY_DIMENSIONS_FILENAME).getFile()),
+                new Dimension(320, 180)
+        ).resolveDimension(displayMode);
 
         configuration.put(ConfigurationOption.GameDisplayWidth.getName(),
-                String.valueOf(aspectRatioDimensions.get(ratio).getWidth()));
+                String.valueOf(dimension.getWidth()));
         configuration.put(ConfigurationOption.GameDisplayHeight.getName(),
-                String.valueOf(aspectRatioDimensions.get(ratio).getHeight()));
+                String.valueOf(dimension.getHeight()));
 
         configuration.put(ConfigurationOption.GameComponentConfigurationPackage.getName(),
                 "remove.tanks.game.configuration.component");
