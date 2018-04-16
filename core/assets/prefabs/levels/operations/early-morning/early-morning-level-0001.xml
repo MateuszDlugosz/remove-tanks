@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <level>
-    <tiledMapFilename>maps/operations/early-morning/map-level-0.tmx</tiledMapFilename>
+    <tiledMapFilename>maps/operations/early-morning/map-level-0001.tmx</tiledMapFilename>
     <entityPrefabRepositoryFilename>prefabs/entities/entity-prefab-repository.xml</entityPrefabRepositoryFilename>
     <assetPrefabRepositoryFilename>themes/sepia-asset-prefab-repository.xml</assetPrefabRepositoryFilename>
     <preloadData>

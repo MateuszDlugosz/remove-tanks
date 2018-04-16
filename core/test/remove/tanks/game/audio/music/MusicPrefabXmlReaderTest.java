@@ -18,25 +18,6 @@ public class MusicPrefabXmlReaderTest {
     private static final String MUSIC_INCORRECT_PREFAB =
             "<music></music>";
 
-    private static final String MUSICS_CORRECT_PREFAB =
-            "<musics>" +
-                    "<music>" +
-                    "    <filename>music-filename-0</filename>" +
-                    "</music>" +
-                    "<music>" +
-                    "    <filename>music-filename-1</filename>" +
-                    "</music>" +
-            "</musics>";
-
-    private static final String MUSICS_INCORRECT_PREFAB =
-            "<musics>" +
-                    "<music>" +
-                    "    <filename>music-filename-0</filename>" +
-                    "</music>" +
-                    "<music>" +
-                    "</music>" +
-            "</musics>";
-
     private XmlReader xmlReader;
     private MusicPrefabXmlReader musicPrefabXmlReader;
 

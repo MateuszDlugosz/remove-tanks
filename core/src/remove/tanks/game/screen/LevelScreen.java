@@ -42,7 +42,8 @@ public final class LevelScreen extends GameScreen {
         super(gameApplication);
         this.mode = mode;
         this.playedLevelIndex = playedLevelIndex;
-        this.inputMapper = gameApplication.getContext().getComponent("InputMapper", InputMapper.class);
+        this.inputMapper = gameApplication.getContext()
+                .getComponent("InputMapper", InputMapper.class);
         this.levelController = levelController;
         this.skin = gameApplication.getContext()
                 .getComponent("UISkin", Skin.class);
