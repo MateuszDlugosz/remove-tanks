@@ -38,7 +38,7 @@ public final class DesktopLauncher {
         config.fullscreen = false;
         config.resizable = false;
         config.forceExit = true;
-        config.title = GameApplication.TITLE + " - " + GameApplication.VERSION;
+        config.title = String.format("%s - %s", GameApplication.TITLE, GameApplication.VERSION);
 
         new LwjglApplication(new GameApplication(createConfiguration(desktopDisplayMode)), config);
     }

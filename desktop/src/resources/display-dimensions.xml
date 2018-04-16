@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dimensions>
     <dimension>
+        <ratio width="3" height="2" />
+        <target width="400" height="270" />
+    </dimension>
+    <dimension>
         <ratio width="4" height="3" />
         <target width="400" height="300" />
+    </dimension>
+    <dimension>
+        <ratio width="4" height="5" />
+        <target width="272" height="340" />
+    </dimension>
+    <dimension>
+        <ratio width="5" height="3" />
+        <target width="320" height="192" />
+    </dimension>
+    <dimension>
+        <ratio width="5" height="4" />
+        <target width="320" height="256" />
     </dimension>
     <dimension>
         <ratio width="16" height="9" />
