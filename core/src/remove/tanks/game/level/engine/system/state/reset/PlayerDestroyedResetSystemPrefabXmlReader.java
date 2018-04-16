@@ -4,7 +4,6 @@ import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.level.engine.system.EntitySystemPrefabXmlReadException;
 import remove.tanks.game.level.engine.system.SubEntitySystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.SystemType;
-import remove.tanks.game.level.engine.system.state.defeat.NoLifesDefeatSystemPrefab;
 
 /**
  * @author Mateusz Długosz

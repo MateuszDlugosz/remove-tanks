@@ -2,11 +2,9 @@ package remove.tanks.game.level.engine.system.state.reset;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.level.LevelProperty;
 import remove.tanks.game.level.LevelState;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.event.state.ChangeLevelStateEvent;
-import remove.tanks.game.utility.properties.Properties;
 import remove.tanks.game.utility.time.Timer;
 
 /**

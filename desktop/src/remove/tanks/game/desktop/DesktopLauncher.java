@@ -8,7 +8,6 @@ import remove.tanks.game.application.context.ApplicationContext;
 import remove.tanks.game.application.context.component.provider.ComponentProviderInitializer;
 import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.application.context.configuration.ConfigurationOption;
-import remove.tanks.game.desktop.display.DisplayDimensionResolver;
 import remove.tanks.game.desktop.display.DisplayDimensionResolverXmlReader;
 
 import java.awt.*;

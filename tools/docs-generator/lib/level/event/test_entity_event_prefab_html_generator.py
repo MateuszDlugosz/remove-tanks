@@ -25,8 +25,7 @@ from lib.level.event.entity_event_prefab_html_generator import SubSpawnAirplaneE
     SubIncreasePointsMultiplierEntityEventPrefabHtmlGenerator, SubPlaySoundEntityEventPrefabHtmlGenerator, \
     SubActivateSpawnerEntityEventPrefabHtmlGenerator, SubChangeLevelStateEntityEventPrefabHtmlGenerator, \
     EntityEventPrefabHtmlGenerator, EntityEventPrefabHtmlGenerationException, \
-    SubRandomCreateEntityEventPrefabHtmlGenerator, SubEntityEventPrefabHtmlGenerator, \
-    SubRemoveLifeEntityEventPrefabHtmlGenerator, SubClearMessagesEntityEventPrefabHtmlGenerator, \
+    SubRandomCreateEntityEventPrefabHtmlGenerator, SubRemoveLifeEntityEventPrefabHtmlGenerator, SubClearMessagesEntityEventPrefabHtmlGenerator, \
     SubResetPointsMultiplierEntityEventPrefabHtmlGenerator, SubActivateSystemEntityEventPrefabHtmlGenerator, \
     SubDeactivateSystemEntityEventPrefabHtmlGenerator
 from lib.level.utility.create.create_entry_prefab import CreateEntryPrefab
