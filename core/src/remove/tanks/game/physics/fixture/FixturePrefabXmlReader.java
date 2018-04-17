@@ -31,30 +31,14 @@ public final class FixturePrefabXmlReader {
         this.filterPrefabXmlReader = filterPrefabXmlReader;
     }
 
-    public FixturePrefab readFixturePrefabAsHitBox(XmlReader.Element element) {
+    public FixturePrefab readFixturePrefab(XmlReader.Element element) {
         try {
             return new FixturePrefab(
                     readFilterPrefab(element),
                     readShapePrefab(element),
                     readRestitution(element),
                     readDensity(element),
-                    readFriction(element),
-                    false
-            );
-        } catch (Exception e) {
-            throw new FixturePrefabXmlReadException(element, e);
-        }
-    }
-
-    public FixturePrefab readFixturePrefabAsSensor(XmlReader.Element element) {
-        try {
-            return new FixturePrefab(
-                    readFilterPrefab(element),
-                    readShapePrefab(element),
-                    readRestitution(element),
-                    readDensity(element),
-                    readFriction(element),
-                    false
+                    readFriction(element)
             );
         } catch (Exception e) {
             throw new FixturePrefabXmlReadException(element, e);

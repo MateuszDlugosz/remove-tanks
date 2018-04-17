@@ -18,7 +18,7 @@ public final class HitBoxFactory {
         try {
             return new HitBox(
                     prefab.getId(),
-                    fixtureFactory.createFixtureAsHitBox(prefab.getFixturePrefab(), body, scale)
+                    fixtureFactory.createFixture(prefab.getFixturePrefab(), body, scale, false)
             );
         } catch (Exception e) {
             throw new HitBoxCreateException(prefab, e);

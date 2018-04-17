@@ -16,29 +16,17 @@ public final class FixtureFactory {
         this.shapeFactory = shapeFactory;
     }
 
-    public Fixture createFixtureAsHitBox(FixturePrefab prefab, Body body, Scale scale) {
+    public Fixture createFixture(FixturePrefab prefab, Body body, Scale scale, boolean isSensor) {
         try {
-            FixtureDef fixtureDef = createFixtureDef(prefab, scale);
-            fixtureDef.isSensor = false;
-            return body.createFixture(fixtureDef);
+            return body.createFixture(createFixtureDef(prefab, scale, isSensor));
         } catch (Exception e) {
             throw new FixtureCreateException(prefab, e);
         }
     }
 
-    public Fixture createFixtureAsSensor(FixturePrefab prefab, Body body, Scale scale) {
-        try {
-            FixtureDef fixtureDef = createFixtureDef(prefab, scale);
-            fixtureDef.isSensor = true;
-            return body.createFixture(fixtureDef);
-        } catch (Exception e) {
-            throw new FixtureCreateException(prefab, e);
-        }
-    }
-
-    private FixtureDef createFixtureDef(FixturePrefab prefab, Scale scale) {
+    private FixtureDef createFixtureDef(FixturePrefab prefab, Scale scale, boolean isSensor) {
         FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.isSensor = prefab.isSensor();
+        fixtureDef.isSensor = isSensor;
         fixtureDef.density = prefab.getDensity();
         fixtureDef.friction = prefab.getFriction();
         fixtureDef.restitution = prefab.getRestitution();

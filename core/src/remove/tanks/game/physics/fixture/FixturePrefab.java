@@ -14,22 +14,19 @@ public final class FixturePrefab extends Prefab {
     private final float restitution;
     private final float density;
     private final float friction;
-    private final boolean isSensor;
 
     public FixturePrefab(
             FilterPrefab filterPrefab,
             ShapePrefab shapePrefab,
             float restitution,
             float density,
-            float friction,
-            boolean isSensor
+            float friction
     ) {
         this.filterPrefab = filterPrefab;
         this.shapePrefab = shapePrefab;
         this.restitution = restitution;
         this.density = density;
         this.friction = friction;
-        this.isSensor = isSensor;
     }
 
     public FilterPrefab getFilterPrefab() {
@@ -52,10 +49,6 @@ public final class FixturePrefab extends Prefab {
         return friction;
     }
 
-    public boolean isSensor() {
-        return isSensor;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
@@ -64,7 +57,6 @@ public final class FixturePrefab extends Prefab {
                 .add("restitution", restitution)
                 .add("density", density)
                 .add("friction", friction)
-                .add("isSensor", isSensor)
                 .toString();
     }
 }

@@ -45,7 +45,7 @@ public final class HitBoxPrefabXmlReader {
     }
 
     private FixturePrefab readFixturePrefab(XmlReader.Element element) {
-        return fixturePrefabXmlReader.readFixturePrefabAsHitBox(
+        return fixturePrefabXmlReader.readFixturePrefab(
                 element.getChildByName(FixturePrefabXmlReader.FIXTURE_ELEMENT)
         );
     }

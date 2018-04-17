@@ -45,7 +45,7 @@ public final class SensorPrefabXmlReader {
     }
 
     private FixturePrefab readFixturePrefab(XmlReader.Element element) {
-        return fixturePrefabXmlReader.readFixturePrefabAsSensor(
+        return fixturePrefabXmlReader.readFixturePrefab(
                 element.getChildByName(FixturePrefabXmlReader.FIXTURE_ELEMENT)
         );
     }
