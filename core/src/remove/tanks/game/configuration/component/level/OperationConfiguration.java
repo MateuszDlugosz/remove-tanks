@@ -5,8 +5,12 @@ import com.badlogic.gdx.utils.XmlReader;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.application.context.configuration.ConfigurationOption;
+import remove.tanks.game.asset.AssetStorage;
+import remove.tanks.game.graphics.sprite.SpriteFactory;
+import remove.tanks.game.graphics.sprite.SpritePrefabXmlReader;
 import remove.tanks.game.level.LevelSequenceXmlReader;
 import remove.tanks.game.level.mode.operation.*;
+import remove.tanks.game.utility.scale.Scale;
 
 /**
  * @author Mateusz Długosz
@@ -18,6 +22,7 @@ public final class OperationConfiguration {
         public OperationPrefabXmlReader supplyComponent() {
             return new OperationPrefabXmlReader(
                     getContext().getComponent("XmlReader", XmlReader.class),
+                    getContext().getComponent("SpritePrefabXmlReader", SpritePrefabXmlReader.class),
                     getContext().getComponent("LevelSequenceXmlReader", LevelSequenceXmlReader.class)
             );
         }
@@ -27,7 +32,9 @@ public final class OperationConfiguration {
     public static final class OperationFactorySupplier extends ComponentSupplier<OperationFactory> {
         @Override
         public OperationFactory supplyComponent() {
-            return new OperationFactory();
+            return new OperationFactory(
+                    getContext().getComponent("SpriteFactory", SpriteFactory.class)
+            );
         }
     }
 
@@ -75,7 +82,9 @@ public final class OperationConfiguration {
             return getContext().getComponent("OperationStorageFactory", OperationStorageFactory.class)
                     .createOperationStorage(
                             getContext().getComponent("OperationPrefabFilenameRepository",
-                                    OperationPrefabFilenameRepository.class)
+                                    OperationPrefabFilenameRepository.class),
+                            getContext().getComponent("MainAssetStorage", AssetStorage.class),
+                            getContext().getComponent("UIScale", Scale.class)
                     );
         }
     }

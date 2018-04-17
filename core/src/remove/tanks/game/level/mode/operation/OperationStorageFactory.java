@@ -1,6 +1,8 @@
 package remove.tanks.game.level.mode.operation;
 
 import com.badlogic.gdx.Gdx;
+import remove.tanks.game.asset.AssetStorage;
+import remove.tanks.game.utility.scale.Scale;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -20,21 +22,21 @@ public final class OperationStorageFactory {
         this.operationFactory = operationFactory;
     }
 
-    public OperationStorage createOperationStorage(OperationPrefabFilenameRepository repository) {
+    public OperationStorage createOperationStorage(OperationPrefabFilenameRepository repository, AssetStorage assetStorage, Scale scale) {
         try {
-            return new OperationStorage(createOperationPrefabMap(repository));
+            return new OperationStorage(createOperationPrefabMap(repository, assetStorage, scale));
         } catch (Exception e) {
             throw new OperationStorageCreateException(e);
         }
     }
 
-    private Map<String, Operation> createOperationPrefabMap(OperationPrefabFilenameRepository repository) {
+    private Map<String, Operation> createOperationPrefabMap(OperationPrefabFilenameRepository repository, AssetStorage assetStorage, Scale scale) {
         return operationPrefabXmlReader.readOperationPrefabs(
                 repository.getOperationPrefabFilenames().stream().map(Gdx.files::internal).collect(Collectors.toList())
         ).stream()
                 .collect(Collectors.toMap(
                         OperationPrefab::getTitle,
-                        operationFactory::createOperation
+                        o -> operationFactory.createOperation(o, assetStorage, scale)
                 ));
     }
 }

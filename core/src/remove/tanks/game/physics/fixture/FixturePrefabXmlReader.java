@@ -15,12 +15,10 @@ public final class FixturePrefabXmlReader {
     private static final String FRICTION_ELEMENT = "friction";
     private static final String DENSITY_ELEMENT = "density";
     private static final String RESTITUTION_ELEMENT = "restitution";
-    private static final String IS_SENSOR_ELEMENT = "isSensor";
 
     private static final float FRICTION_DEFAULT_VALUE = 0f;
     private static final float DENSITY_DEFAULT_VALUE = 0f;
     private static final float RESTITUTION_DEFAULT_VALUE = 0f;
-    private static final boolean IS_SENSOR_DEFAULT_VALUE = false;
 
     private final ShapePrefabXmlReader shapePrefabXmlReader;
     private final FilterPrefabXmlReader filterPrefabXmlReader;
