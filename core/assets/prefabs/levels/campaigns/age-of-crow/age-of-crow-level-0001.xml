@@ -299,7 +299,7 @@
             <system type="WeatherSystem">
                 <weather>
                     <weatherEffects>
-                        <weatherEffect type="LightningWeatherEffect">
+                        <weatherEffect type="LightningWeatherEffect" id="Lightning0">
                             <soundChannelName>EffectSoundChannel</soundChannelName>
                             <minFrequency>0.2</minFrequency>
                             <maxFrequency>5</maxFrequency>
