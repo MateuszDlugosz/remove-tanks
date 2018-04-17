@@ -33,8 +33,7 @@ public final class CameraTrackSystem extends EntitySystem {
             PhysicsComponent pc = PhysicsComponent.MAPPER.get(e);
             CameraTrackComponent ctc = CameraTrackComponent.MAPPER.get(e);
 
-            lockCameraX();
-            lockCameraY();
+            setCameraLocks();
 
             game2DCamera.setX(MathUtils.clamp(
                     pc.getPosition().getX() + ctc.getPosition().getX(),
@@ -49,7 +48,12 @@ public final class CameraTrackSystem extends EntitySystem {
         });
     }
 
-    private void lockCameraX() {
+    private void setCameraLocks() {
+        setCameraLockX();
+        setCameraLockY();
+    }
+
+    private void setCameraLockX() {
         if (game2DCamera.getCameraBoundaries().getWidth() >= boundary.getWidth()) {
             game2DCamera.lockX(boundary.getCenterPosition().getX());
         } else {
@@ -57,7 +61,7 @@ public final class CameraTrackSystem extends EntitySystem {
         }
     }
 
-    private void lockCameraY() {
+    private void setCameraLockY() {
         if (game2DCamera.getCameraBoundaries().getHeight() >= boundary.getHeight()) {
             game2DCamera.lockY(boundary.getCenterPosition().getY());
         } else {
