@@ -106,7 +106,7 @@
 </data>
  </layer>
  <objectgroup name="objects_layer">
-  <object id="1" x="128" y="184" width="16" height="16">
+  <object id="1" x="352" y="464" width="16" height="16">
    <properties>
     <property name="prefab.code" value="RespawnMedium0"/>
    </properties>
@@ -216,9 +216,20 @@
     <property name="prefab.code" value="PlayerBulletSmall0Down"/>
    </properties>
   </object>
-  <object id="50" x="121.606" y="492.455" width="16" height="16">
+  <object id="50" x="408" y="464" width="16" height="16">
    <properties>
-    <property name="prefab.code" value="PlayerBulletSmall0Down"/>
+    <property name="prefab.code" value="PlayerTriggerTiny0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;DestroyTriggerComponent&quot;&gt;
+  &lt;entityEvents&gt;
+   &lt;entityEvent type=&quot;AddCameraEffectEntityEvent&quot;&gt;
+    &lt;cameraEffect type=&quot;ContinuousRotateCameraEffect&quot;&gt;
+     &lt;rotationSpeed&gt;0.001&lt;/rotationSpeed&gt;
+    &lt;/cameraEffect&gt;
+   &lt;/entityEvent&gt;
+  &lt;/entityEvents&gt;
+ &lt;/component&gt;
+&lt;/components&gt;</property>
    </properties>
   </object>
   <object id="51" x="87.6061" y="455.455" width="16" height="16">

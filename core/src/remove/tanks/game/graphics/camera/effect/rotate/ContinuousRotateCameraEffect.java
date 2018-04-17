@@ -15,7 +15,7 @@ public final class ContinuousRotateCameraEffect implements CameraEffect {
 
     @Override
     public void update(float delta, Game2DCamera camera) {
-        camera.rotate(rotationSpeed);
+        camera.rotate(-rotationSpeed);
     }
 
     @Override

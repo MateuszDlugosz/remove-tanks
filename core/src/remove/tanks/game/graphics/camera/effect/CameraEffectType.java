@@ -5,6 +5,6 @@ package remove.tanks.game.graphics.camera.effect;
  */
 public enum CameraEffectType {
     ShakeCameraEffect,
-    ContinuousRotationCameraEffect,
+    ContinuousRotateCameraEffect,
     RotateCameraEffect
 }

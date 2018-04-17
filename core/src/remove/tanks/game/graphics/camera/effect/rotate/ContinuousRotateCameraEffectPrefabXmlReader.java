@@ -26,6 +26,6 @@ public final class ContinuousRotateCameraEffectPrefabXmlReader implements SubCam
 
     @Override
     public CameraEffectType getReaderType() {
-        return CameraEffectType.ContinuousRotationCameraEffect;
+        return CameraEffectType.ContinuousRotateCameraEffect;
     }
 }

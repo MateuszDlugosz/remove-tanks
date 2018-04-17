@@ -135,12 +135,12 @@ public final class LevelPauseScreen extends GameScreen {
 
     private void initStage() {
         window.setFillParent(false);
-        window.pad(70);
-        window.add(titleLabel.pad(5));
-        window.row().padTop(80);
-        window.add(contentLabel.pad(5));
-        window.row().padTop(80);
-        window.add(optionsGroup.pad(5));
+        window.pad(ScreenConstants.WINDOW_PADDING);
+        window.add(titleLabel.pad(ScreenConstants.ELEMENT_PADDING));
+        window.row().padTop(ScreenConstants.ROW_SEPARATOR_PADDING);
+        window.add(contentLabel.pad(ScreenConstants.ELEMENT_PADDING));
+        window.row().padTop(ScreenConstants.ROW_SEPARATOR_PADDING);
+        window.add(optionsGroup.pad(ScreenConstants.ELEMENT_PADDING));
         window.pack();
         window.setDebug(false);
         wrapper.add(window);

@@ -179,7 +179,7 @@ public final class LevelConfiguration {
         public LevelPresenterFactory supplyComponent() {
             return new LevelPresenterFactory(
                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class),
-                    getContext().getComponent("LevelFactory", LevelFactory.class),
+                    getContext().getComponent("PresenterLevelFactory", LevelFactory.class),
                     getContext().getComponent("LevelControllerFactory", LevelControllerFactory.class)
             );
         }

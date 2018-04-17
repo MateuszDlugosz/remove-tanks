@@ -23,17 +23,16 @@ public final class RotateCameraEffect implements CameraEffect {
     @Override
     public void update(float delta, Game2DCamera camera) {
         if (!rotationsCounter.isComplete()) {
-            if (degreeCounter >= 360) {
+            if (degreeCounter < 360) {
+                if (clockwiseDirection) {
+                    camera.rotate(-rotationSpeed);
+                } else {
+                    camera.rotate(rotationSpeed);
+                }
+                degreeCounter += rotationSpeed;
+            } else {
                 degreeCounter -= 360;
                 rotationsCounter.update();
-
-                if (clockwiseDirection) {
-                    camera.rotate(rotationSpeed);
-                } else {
-                    camera.rotate(-rotationSpeed);
-                }
-            } else {
-                degreeCounter += rotationSpeed;
             }
         }
     }
