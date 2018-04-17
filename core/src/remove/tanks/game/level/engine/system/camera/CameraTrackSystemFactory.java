@@ -14,12 +14,6 @@ public final class CameraTrackSystemFactory implements SubEntitySystemFactory<Ca
     @Override
     public CameraTrackSystem createEntitySystem(CameraTrackSystemPrefab prefab, ResourceRegistry registry) {
         try {
-            Boundary boundary = registry.getResource(ResourceType.TiledMapBoundaryResource, Boundary.class);
-            Game2DCamera camera = registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class);
-
-            lockCameraX(boundary, camera);
-            lockCameraY(boundary, camera);
-
             return new CameraTrackSystem(
                     prefab.getPriority(),
                     registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class),
@@ -27,18 +21,6 @@ public final class CameraTrackSystemFactory implements SubEntitySystemFactory<Ca
             );
         } catch (Exception e) {
             throw new EntitySystemCreateException(prefab, e);
-        }
-    }
-
-    private void lockCameraX(Boundary boundary, Game2DCamera camera) {
-        if (camera.getCameraBoundaries().getWidth() >= boundary.getWidth()) {
-            camera.lockX(boundary.getCenterPosition().getX());
-        }
-    }
-
-    private void lockCameraY(Boundary boundary, Game2DCamera camera) {
-        if (camera.getCameraBoundaries().getHeight() >= boundary.getHeight()) {
-            camera.lockY(boundary.getCenterPosition().getY());
         }
     }
 

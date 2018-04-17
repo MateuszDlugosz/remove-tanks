@@ -11,6 +11,10 @@ import remove.tanks.game.graphics.camera.effect.CameraEffectFactory;
 import remove.tanks.game.graphics.camera.effect.CameraEffectPrefabXmlReader;
 import remove.tanks.game.graphics.camera.effect.SubCameraEffectFactory;
 import remove.tanks.game.graphics.camera.effect.SubCameraEffectPrefabXmlReader;
+import remove.tanks.game.graphics.camera.effect.rotate.ContinuousRotateCameraEffectFactory;
+import remove.tanks.game.graphics.camera.effect.rotate.ContinuousRotateCameraEffectPrefabXmlReader;
+import remove.tanks.game.graphics.camera.effect.rotate.RotateCameraEffectFactory;
+import remove.tanks.game.graphics.camera.effect.rotate.RotateCameraEffectPrefabXmlReader;
 import remove.tanks.game.graphics.camera.effect.shake.ShakeCameraEffectFactory;
 import remove.tanks.game.graphics.camera.effect.shake.ShakeCameraEffectPrefabXmlReader;
 import remove.tanks.game.utility.scale.Scale;
@@ -89,7 +93,9 @@ public final class CameraConfiguration {
         public CameraEffectPrefabXmlReader supplyComponent() {
             return new CameraEffectPrefabXmlReader(
                     new SubCameraEffectPrefabXmlReader[] {
-                            new ShakeCameraEffectPrefabXmlReader()
+                            new ShakeCameraEffectPrefabXmlReader(),
+                            new ContinuousRotateCameraEffectPrefabXmlReader(),
+                            new RotateCameraEffectPrefabXmlReader()
                     }
             );
         }
@@ -103,7 +109,9 @@ public final class CameraConfiguration {
                     new SubCameraEffectFactory[] {
                             new ShakeCameraEffectFactory(
                                     getContext().getComponent("Random", Random.class)
-                            )
+                            ),
+                            new ContinuousRotateCameraEffectFactory(),
+                            new RotateCameraEffectFactory()
                     }
             );
         }

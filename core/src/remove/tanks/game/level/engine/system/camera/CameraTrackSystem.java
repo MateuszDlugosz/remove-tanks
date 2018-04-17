@@ -32,6 +32,10 @@ public final class CameraTrackSystem extends EntitySystem {
         Optional.ofNullable(getFirstPriorityEntity()).ifPresent(e -> {
             PhysicsComponent pc = PhysicsComponent.MAPPER.get(e);
             CameraTrackComponent ctc = CameraTrackComponent.MAPPER.get(e);
+
+            lockCameraX();
+            lockCameraY();
+
             game2DCamera.setX(MathUtils.clamp(
                     pc.getPosition().getX() + ctc.getPosition().getX(),
                     boundary.getMinX(),
@@ -43,6 +47,22 @@ public final class CameraTrackSystem extends EntitySystem {
                     boundary.getMaxY()
             ));
         });
+    }
+
+    private void lockCameraX() {
+        if (game2DCamera.getCameraBoundaries().getWidth() >= boundary.getWidth()) {
+            game2DCamera.lockX(boundary.getCenterPosition().getX());
+        } else {
+            game2DCamera.unlockX();
+        }
+    }
+
+    private void lockCameraY() {
+        if (game2DCamera.getCameraBoundaries().getHeight() >= boundary.getHeight()) {
+            game2DCamera.lockY(boundary.getCenterPosition().getY());
+        } else {
+            game2DCamera.unlockY();
+        }
     }
 
     private Entity getFirstPriorityEntity() {
