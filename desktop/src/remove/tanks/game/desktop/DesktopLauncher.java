@@ -38,6 +38,7 @@ public final class DesktopLauncher {
         config.fullscreen = false;
         config.resizable = false;
         config.forceExit = true;
+        config.vSyncEnabled = true;
         config.title = String.format("%s - %s", GameApplication.TITLE, GameApplication.VERSION);
 
         new LwjglApplication(new GameApplication(createConfiguration(desktopDisplayMode)), config);
@@ -75,7 +76,7 @@ public final class DesktopLauncher {
         configuration.put(ConfigurationOption.GameComponentConfigurationPackage.getName(),
                 "remove.tanks.game.configuration.component");
 
-        configuration.put(ConfigurationOption.GameUIScale.getName(), "2");
+        configuration.put(ConfigurationOption.GameUIScale.getName(), "3");
         configuration.put(ConfigurationOption.GameWorldScale.getName(), "32");
         configuration.put(ConfigurationOption.GameWorldLightNumberOfRays.getName(), "100");
         configuration.put(ConfigurationOption.GameWorldUpdateTimeStep.getName(), String.valueOf(1f/45f));
