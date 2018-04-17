@@ -29,6 +29,7 @@ public final class GameCameraGlobalResourceFactory extends AbstractGlobalResourc
         return object -> {
             object.unlockX();
             object.unlockY();
+            object.resetRotation();
         };
     }
 }

@@ -28,9 +28,9 @@ public final class RotateCameraEffect implements CameraEffect {
                 rotationsCounter.update();
 
                 if (clockwiseDirection) {
-                    camera.getCamera().rotate(rotationSpeed);
+                    camera.rotate(rotationSpeed);
                 } else {
-                    camera.getCamera().rotate(-rotationSpeed);
+                    camera.rotate(-rotationSpeed);
                 }
             } else {
                 degreeCounter += rotationSpeed;

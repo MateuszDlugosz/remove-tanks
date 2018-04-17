@@ -14,12 +14,15 @@ public final class Game2DCamera {
     private boolean lockedX;
     private boolean lockedY;
 
+    private float rotation;
+
     public Game2DCamera(OrthographicCamera camera, Viewport viewport) {
         if (viewport.getCamera() != camera) {
             throw new Game2DCameraInstantiationException();
         }
         this.camera = camera;
         this.viewport = viewport;
+        this.rotation = 0;
     }
 
     public OrthographicCamera getCamera() {
@@ -54,6 +57,16 @@ public final class Game2DCamera {
 
     public void setY(float y) {
         if (!lockedY) camera.position.y = y;
+    }
+
+    public void rotate(float angle) {
+        rotation += angle;
+        camera.rotate(angle);
+    }
+
+    public void resetRotation() {
+        camera.rotate((0 - rotation));
+        rotation = 0;
     }
 
     public Boundary getCameraBoundaries() {

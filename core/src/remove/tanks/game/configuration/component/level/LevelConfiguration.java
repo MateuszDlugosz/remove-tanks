@@ -37,7 +37,39 @@ public final class LevelConfiguration {
         public LevelFactory supplyComponent() {
             EnumMap<ResourceType, Object> globalObjects = new EnumMap<>(ResourceType.class);
             globalObjects.put(ResourceType.GameCameraResource,
-                    getContext().getComponent("GameCamera", Game2DCamera.class));
+                    getContext().getComponent("LevelCamera", Game2DCamera.class));
+            globalObjects.put(ResourceType.SpriteBatchResource,
+                    getContext().getComponent("SpriteBatch", SpriteBatch.class));
+            globalObjects.put(ResourceType.UICameraResource,
+                    getContext().getComponent("UICamera", Game2DCamera.class));
+            globalObjects.put(ResourceType.UIScaleResource,
+                    getContext().getComponent("UIScale", Scale.class));
+            globalObjects.put(ResourceType.UISkinResource,
+                    getContext().getComponent("UISkin", Skin.class));
+            globalObjects.put(ResourceType.LocaleResource,
+                    getContext().getComponent("Locale", Locale.class));
+            globalObjects.put(ResourceType.WorldScaleResource,
+                    getContext().getComponent("WorldScale", Scale.class));
+            globalObjects.put(ResourceType.InputMapperResource,
+                    getContext().getComponent("InputMapper", InputMapper.class));
+            globalObjects.put(ResourceType.PlayerProfileResource,
+                    getContext().getComponent("Profile", Profile.class));
+            globalObjects.put(ResourceType.ExternalEventBusResource,
+                    getContext().getComponent("EventBus", EventBus.class));
+
+            return new LevelFactory(
+                    globalObjects, getContext().getComponent("ResourceRegistryFactory", ResourceRegistryFactory.class));
+        }
+    }
+
+    @ComponentName("PresenterLevelFactory")
+    @ComponentScope(Scope.Prototype)
+    public static final class PresenterLevelFactorySupplier extends ComponentSupplier<LevelFactory> {
+        @Override
+        public LevelFactory supplyComponent() {
+            EnumMap<ResourceType, Object> globalObjects = new EnumMap<>(ResourceType.class);
+            globalObjects.put(ResourceType.GameCameraResource,
+                    getContext().getComponent("PresenterCamera", Game2DCamera.class));
             globalObjects.put(ResourceType.SpriteBatchResource,
                     getContext().getComponent("SpriteBatch", SpriteBatch.class));
             globalObjects.put(ResourceType.UICameraResource,

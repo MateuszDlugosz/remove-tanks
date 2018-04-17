@@ -25,8 +25,20 @@ import java.util.Random;
  * @author Mateusz Długosz
  */
 public final class CameraConfiguration {
-    @ComponentName("GameCamera")
+    @ComponentName("LevelCamera")
     public static final class GameCameraSupplier extends ComponentSupplier<Game2DCamera> {
+        @Override
+        public Game2DCamera supplyComponent() {
+            return create2DCamera(
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayWidth.getName())),
+                    Float.valueOf(getContext().getConfiguration().getOption(ConfigurationOption.GameDisplayHeight.getName())),
+                    getContext().getComponent("WorldScale", Scale.class)
+            );
+        }
+    }
+
+    @ComponentName("PresenterCamera")
+    public static final class PresenterCameraSupplier extends ComponentSupplier<Game2DCamera> {
         @Override
         public Game2DCamera supplyComponent() {
             return create2DCamera(
