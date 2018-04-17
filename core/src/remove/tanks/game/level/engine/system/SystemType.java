@@ -21,6 +21,7 @@ public enum SystemType {
     ChangeBehaviorSystem(2600),
     GroundMapLayerRenderSystem(2800),
     GroundLayerRenderSystem(3000),
+    FogOfWarMapLayerRenderSystem(3100),
     BulletLayerRenderSystem(3200),
     VehicleLayerRenderSystem(3400),
     ObstacleLayerRenderSystem(3600),

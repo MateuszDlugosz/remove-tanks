@@ -28,6 +28,8 @@ import remove.tanks.game.level.engine.system.move.AutoMoveSystemFactory;
 import remove.tanks.game.level.engine.system.move.AutoMoveSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.music.MusicOnStartSystemFactory;
 import remove.tanks.game.level.engine.system.music.MusicOnStartSystemPrefabXmlReader;
+import remove.tanks.game.level.engine.system.render.map.FogOfWarMapLayerRenderSystemFactory;
+import remove.tanks.game.level.engine.system.render.map.FogOfWarMapLayerRenderSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.render.map.GroundMapLayerRenderSystemFactory;
 import remove.tanks.game.level.engine.system.render.map.GroundMapLayerRenderSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.render.view.*;
@@ -88,6 +90,7 @@ public final class EntitySystemConfiguration {
                                     getContext().getComponent("WorldRenderer", WorldRenderer.class)
                             ),
                             new GroundMapLayerRenderSystemFactory(),
+                            new FogOfWarMapLayerRenderSystemFactory(),
                             new ViewUpdateSystemFactory(
                                     getContext().getComponent("ViewUpdater", ViewUpdater.class)
                             ),
@@ -181,6 +184,7 @@ public final class EntitySystemConfiguration {
                             new WorldUpdateSystemPrefabXmlReader(),
                             new WorldDebugRenderSystemPrefabXmlReader(),
                             new GroundMapLayerRenderSystemPrefabXmlReader(),
+                            new FogOfWarMapLayerRenderSystemPrefabXmlReader(),
                             new ViewUpdateSystemPrefabXmlReader(),
                             new GroundLayerRenderSystemPrefabXmlReader(),
                             new BulletLayerRenderSystemPrefabXmlReader(),

@@ -5,7 +5,8 @@ package remove.tanks.game.graphics.map;
  */
 public enum MapLayerName {
     GroundTiledLayer("ground_layer", 0),
-    ObjectsLayer("objects_layer", 1);
+    FogOfWarTiledLayer("fog_of_war_layer", 1),
+    ObjectsLayer("objects_layer", 2);
 
     private final String name;
     private final int index;
