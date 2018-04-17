@@ -5,7 +5,6 @@ import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
-import remove.tanks.game.utility.surface.boundary.Boundary;
 
 /**
  * @author Mateusz Długosz

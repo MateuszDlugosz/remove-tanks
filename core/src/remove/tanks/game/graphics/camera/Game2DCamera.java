@@ -1,7 +1,6 @@
 package remove.tanks.game.graphics.camera;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import remove.tanks.game.utility.surface.boundary.Boundary;
 

@@ -3,7 +3,6 @@ package remove.tanks.game.level.engine.system.camera;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.engine.entity.EntityFamily;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponent;
