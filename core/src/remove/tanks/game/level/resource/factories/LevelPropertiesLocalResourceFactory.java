@@ -3,7 +3,6 @@ package remove.tanks.game.level.resource.factories;
 import remove.tanks.game.level.LevelPrefab;
 import remove.tanks.game.level.LevelProperty;
 import remove.tanks.game.level.resource.AbstractLocalResourceFactory;
-import remove.tanks.game.level.resource.ResourceDisposer;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.properties.Properties;
@@ -25,11 +24,6 @@ public final class LevelPropertiesLocalResourceFactory extends AbstractLocalReso
         registry.getResource(ResourceType.LevelPrefabResource, LevelPrefab.class).getResourceConfigurations()
                 .getProperties(ResourceType.LevelPropertiesResource).ifPresent(properties::merge);
         return properties;
-    }
-
-    @Override
-    protected ResourceDisposer<Properties> createResourceDisposer() {
-        return null;
     }
 
     @Override

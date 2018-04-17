@@ -2,6 +2,7 @@ package remove.tanks.game.level.resource.factories;
 
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.resource.AbstractGlobalResourceFactory;
+import remove.tanks.game.level.resource.ResourceDisposer;
 import remove.tanks.game.level.resource.ResourceType;
 
 /**
@@ -20,8 +21,14 @@ public final class GameCameraGlobalResourceFactory extends AbstractGlobalResourc
 
     @Override
     protected Game2DCamera prepareResourceObject(Game2DCamera object) {
-        object.unlockX();
-        object.unlockY();
         return object;
+    }
+
+    @Override
+    protected ResourceDisposer<Game2DCamera> createResourceDisposer() {
+        return object -> {
+            object.unlockX();
+            object.unlockY();
+        };
     }
 }

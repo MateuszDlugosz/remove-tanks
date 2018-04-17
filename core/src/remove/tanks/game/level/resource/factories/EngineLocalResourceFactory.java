@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.Engine;
 import remove.tanks.game.level.LevelPrefab;
 import remove.tanks.game.level.engine.EngineFactory;
 import remove.tanks.game.level.resource.AbstractLocalResourceFactory;
-import remove.tanks.game.level.resource.ResourceDisposer;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
 
@@ -51,10 +50,5 @@ public final class EngineLocalResourceFactory extends AbstractLocalResourceFacto
     protected Engine createResourceObject(EnumMap<ResourceType, Object> globalObjects, ResourceRegistry registry) {
         return engineFactory.createEngine(registry.getResource(ResourceType.LevelPrefabResource,
                 LevelPrefab.class).getEnginePrefab(), registry);
-    }
-
-    @Override
-    protected ResourceDisposer<Engine> createResourceDisposer() {
-        return null;
     }
 }

@@ -5,7 +5,6 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import remove.tanks.game.level.resource.AbstractLocalResourceFactory;
-import remove.tanks.game.level.resource.ResourceDisposer;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.scale.Scale;
@@ -37,10 +36,5 @@ public final class TiledMapRendererLocalResourceFactory extends AbstractLocalRes
                 1f / registry.getResource(ResourceType.WorldScaleResource, Scale.class).getValue(),
                 registry.getResource(ResourceType.SpriteBatchResource, SpriteBatch.class)
         );
-    }
-
-    @Override
-    protected ResourceDisposer<TiledMapRenderer> createResourceDisposer() {
-        return null;
     }
 }

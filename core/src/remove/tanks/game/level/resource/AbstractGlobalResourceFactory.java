@@ -12,7 +12,8 @@ public abstract class AbstractGlobalResourceFactory<T> extends AbstractResourceF
             checkResourceRequirements(registry);
             return new GlobalResource<>(
                     getCreatedResourceType(),
-                    extractResourceObject(globalObjects)
+                    extractResourceObject(globalObjects),
+                    createResourceDisposer()
             );
         } catch (Exception e) {
             throw new ResourceCreateException(getCreatedResourceType(), e);
@@ -34,4 +35,8 @@ public abstract class AbstractGlobalResourceFactory<T> extends AbstractResourceF
     }
 
     protected abstract T prepareResourceObject(T object);
+
+    protected ResourceDisposer<T> createResourceDisposer() {
+        return null;
+    }
 }

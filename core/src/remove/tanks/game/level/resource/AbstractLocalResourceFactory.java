@@ -21,5 +21,8 @@ public abstract class AbstractLocalResourceFactory<T> extends AbstractResourceFa
     }
 
     protected abstract T createResourceObject(EnumMap<ResourceType, Object> globalObjects, ResourceRegistry registry);
-    protected abstract ResourceDisposer<T> createResourceDisposer();
+
+    protected ResourceDisposer<T> createResourceDisposer() {
+        return null;
+    }
 }

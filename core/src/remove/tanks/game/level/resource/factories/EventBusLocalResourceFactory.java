@@ -2,7 +2,6 @@ package remove.tanks.game.level.resource.factories;
 
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.level.resource.AbstractLocalResourceFactory;
-import remove.tanks.game.level.resource.ResourceDisposer;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
 
@@ -27,10 +26,5 @@ public final class EventBusLocalResourceFactory extends AbstractLocalResourceFac
     @Override
     protected EventBus createResourceObject(EnumMap<ResourceType, Object> globalObjects, ResourceRegistry registry) {
         return new EventBus(EVENT_BUS_IDENTIFIER);
-    }
-
-    @Override
-    protected ResourceDisposer<EventBus> createResourceDisposer() {
-        return null;
     }
 }
