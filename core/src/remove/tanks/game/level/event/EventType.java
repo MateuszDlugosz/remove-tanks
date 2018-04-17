@@ -25,5 +25,6 @@ public enum EventType {
     ClearMessagesEvent,
     ActivateSpawnerEvent,
     AddWeatherEffectEvent,
+    RemoveWeatherEffectEvent,
     ClearWeatherEffectsEvent
 }

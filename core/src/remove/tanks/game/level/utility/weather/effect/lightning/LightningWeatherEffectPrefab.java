@@ -10,6 +10,7 @@ import remove.tanks.game.level.utility.weather.effect.WeatherEffectPrefab;
  * @author Mateusz Długosz
  */
 public final class LightningWeatherEffectPrefab extends WeatherEffectPrefab {
+    private final String id;
     private final SoundPrefab soundPrefab;
     private final ColorPrefab colorPrefab;
     private final SoundChannelName soundChannelName;
@@ -19,6 +20,7 @@ public final class LightningWeatherEffectPrefab extends WeatherEffectPrefab {
     private final float maxDuration;
 
     public LightningWeatherEffectPrefab(
+            String id,
             SoundPrefab soundPrefab,
             ColorPrefab colorPrefab,
             SoundChannelName soundChannelName,
@@ -27,6 +29,7 @@ public final class LightningWeatherEffectPrefab extends WeatherEffectPrefab {
             float minDuration,
             float maxDuration
     ) {
+        this.id = id;
         this.soundPrefab = soundPrefab;
         this.colorPrefab = colorPrefab;
         this.soundChannelName = soundChannelName;
@@ -34,6 +37,10 @@ public final class LightningWeatherEffectPrefab extends WeatherEffectPrefab {
         this.maxFrequency = maxFrequency;
         this.minDuration = minDuration;
         this.maxDuration = maxDuration;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public SoundPrefab getSoundPrefab() {

@@ -32,6 +32,7 @@ public final class LightningWeatherEffectFactory implements SubWeatherEffectFact
     public LightningWeatherEffect createWeatherEffect(LightningWeatherEffectPrefab prefab, ResourceRegistry resourceRegistry) {
         try {
             return new LightningWeatherEffect(
+                    prefab.getId(),
                     soundFactory.createSound(prefab.getSoundPrefab(), resourceRegistry.getResource(
                             ResourceType.AssetStorageResource, AssetStorage.class)),
                     prefab.getSoundChannelName(),

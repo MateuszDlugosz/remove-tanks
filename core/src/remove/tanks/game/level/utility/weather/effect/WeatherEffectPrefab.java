@@ -6,4 +6,5 @@ import remove.tanks.game.utility.Prefab;
  * @author Mateusz Długosz
  */
 public abstract class WeatherEffectPrefab extends Prefab {
+    public abstract String getId();
 }

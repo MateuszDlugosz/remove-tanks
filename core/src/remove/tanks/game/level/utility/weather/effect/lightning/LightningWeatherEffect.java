@@ -15,6 +15,7 @@ import remove.tanks.game.utility.time.Timer;
  * @author Mateusz Długosz
  */
 public final class LightningWeatherEffect implements WeatherEffect {
+    private final String id;
     private final Sound sound;
     private final SoundChannelName soundChannelName;
     private final Color color;
@@ -31,6 +32,7 @@ public final class LightningWeatherEffect implements WeatherEffect {
     private final EventBus eventBus;
 
     public LightningWeatherEffect(
+            String id,
             Sound sound,
             SoundChannelName soundChannelName,
             Color color,
@@ -41,6 +43,7 @@ public final class LightningWeatherEffect implements WeatherEffect {
             RandomNumberGenerator randomNumberGenerator,
             EventBus eventBus
     ) {
+        this.id = id;
         this.sound = sound;
         this.soundChannelName = soundChannelName;
         this.color = color;
@@ -52,6 +55,11 @@ public final class LightningWeatherEffect implements WeatherEffect {
         this.eventBus = eventBus;
         this.frequencyTimer = createTimer(minFrequency, maxFrequency);
         this.durationTimer = createTimer(minDuration, maxDuration);
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 
     @Override

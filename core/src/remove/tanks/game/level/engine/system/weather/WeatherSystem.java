@@ -19,6 +19,10 @@ public final class WeatherSystem extends EntitySystem {
         weather.addWeatherEffect(effect);
     }
 
+    public void removeWeatherEffect(String id) {
+        weather.removeWeatherEffect(id);
+    }
+
     public void clearWeatherEffects() {
         weather.clearWeatherEffects();
     }

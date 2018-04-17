@@ -49,9 +49,7 @@ import remove.tanks.game.level.event.entity.state.ChangeLevelStateEntityEventExe
 import remove.tanks.game.level.event.entity.state.ChangeLevelStateEntityEventFactory;
 import remove.tanks.game.level.event.entity.state.ChangeLevelStateEntityEventPrefabXmlReader;
 import remove.tanks.game.level.event.entity.system.*;
-import remove.tanks.game.level.event.entity.weather.AddWeatherEffectEntityEventExecutor;
-import remove.tanks.game.level.event.entity.weather.AddWeatherEffectEntityEventFactory;
-import remove.tanks.game.level.event.entity.weather.AddWeatherEffectEntityEventPrefabXmlReader;
+import remove.tanks.game.level.event.entity.weather.*;
 import remove.tanks.game.level.event.life.AddLifeEventExecutor;
 import remove.tanks.game.level.event.life.AddLifeEventFactory;
 import remove.tanks.game.level.event.life.AddLifeEventPrefabXmlReader;
@@ -130,6 +128,9 @@ public final class EventConfiguration {
                             new AddWeatherEffectEventExecutor(),
                             new AddWeatherEffectEntityEventExecutor(),
                             new ClearWeatherEffectsEventExecutor(),
+                            new ClearWeatherEffectsEntityEventExecutor(),
+                            new RemoveWeatherEffectEntityEventExecutor(),
+                            new RemoveWeatherEffectEventExecutor(),
                             new RandomCreateEventExecutor(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
@@ -181,7 +182,8 @@ public final class EventConfiguration {
                             new ClearWeatherEffectsEventPrefabXmlReader(),
                             new RandomCreateEventPrefabXmlReader(
                                     getContext().getComponent("CreateEntryPrefabXmlReader", CreateEntryPrefabXmlReader.class)
-                            )
+                            ),
+                            new RemoveWeatherEffectEventPrefabXmlReader()
                     }
             );
         }
@@ -227,7 +229,8 @@ public final class EventConfiguration {
                             new ClearWeatherEffectsEventFactory(),
                             new RandomCreateEventFactory(
                                     getContext().getComponent("CreateEntryFactory", CreateEntryFactory.class)
-                            )
+                            ),
+                            new RemoveWeatherEffectEventFactory()
                     }
             );
         }
@@ -276,7 +279,9 @@ public final class EventConfiguration {
                             ),
                             new RandomCreateEntityEventPrefabXmlReader(
                                     getContext().getComponent("CreateEntryPrefabXmlReader", CreateEntryPrefabXmlReader.class)
-                            )
+                            ),
+                            new RemoveWeatherEffectEntityEventPrefabXmlReader(),
+                            new ClearWeatherEffectsEntityEventPrefabXmlReader()
                     }
             );
         }
@@ -325,7 +330,9 @@ public final class EventConfiguration {
                             ),
                             new RandomCreateEntityEventFactory(
                                     getContext().getComponent("CreateEntryFactory", CreateEntryFactory.class)
-                            )
+                            ),
+                            new ClearWeatherEffectsEntityEventFactory(),
+                            new RemoveWeatherEffectEntityEventFactory()
                     }
             );
         }

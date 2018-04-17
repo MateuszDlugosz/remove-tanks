@@ -25,5 +25,7 @@ public enum EntityEventType {
     ActivateSpawnerEntityEvent,
     ActivateSystemEntityEvent,
     DeactivateSystemEntityEvent,
-    AddWeatherEffectEntityEvent
+    AddWeatherEffectEntityEvent,
+    ClearWeatherEffectsEntityEvent,
+    RemoveWeatherEffectEntityEvent
 }

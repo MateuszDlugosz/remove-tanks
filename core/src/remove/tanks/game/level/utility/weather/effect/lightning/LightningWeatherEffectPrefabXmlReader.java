@@ -19,6 +19,7 @@ public final class LightningWeatherEffectPrefabXmlReader implements SubWeatherEf
     private static final String MAX_FREQUENCY_ELEMENT = "maxFrequency";
     private static final String MIN_DURATION_ELEMENT = "minDuration";
     private static final String MAX_DURATION_ELEMENT = "maxDuration";
+    private static final String ID_ATTRIBUTE = "id";
 
     private final SoundPrefabXmlReader soundPrefabXmlReader;
     private final ColorPrefabXmlReader colorPrefabXmlReader;
@@ -35,6 +36,7 @@ public final class LightningWeatherEffectPrefabXmlReader implements SubWeatherEf
     public LightningWeatherEffectPrefab readWeatherEffect(XmlReader.Element element) {
         try {
             return new LightningWeatherEffectPrefab(
+                    readId(element),
                     readSoundPrefab(element),
                     readColorPrefab(element),
                     readSoundChannelName(element),
@@ -46,6 +48,10 @@ public final class LightningWeatherEffectPrefabXmlReader implements SubWeatherEf
         } catch (Exception e) {
             throw new WeatherEffectPrefabXmlReadException(element, e);
         }
+    }
+
+    private String readId(XmlReader.Element element) {
+        return element.getAttribute(ID_ATTRIBUTE).trim();
     }
 
     private SoundPrefab readSoundPrefab(XmlReader.Element element) {
