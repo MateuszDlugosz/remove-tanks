@@ -9,22 +9,14 @@ import remove.tanks.game.utility.surface.boundary.Boundary;
  */
 public final class CameraUpdateSystem extends EntitySystem {
     private final Game2DCamera game2DCamera;
-    private final Boundary boundary;
 
-    public CameraUpdateSystem(int priority, Game2DCamera game2DCamera, Boundary boundary) {
+    public CameraUpdateSystem(int priority, Game2DCamera game2DCamera) {
         super(priority);
         this.game2DCamera = game2DCamera;
-        this.boundary = boundary;
-        this.game2DCamera.getCamera().position.set(boundary.getCenterPosition().getAsVector2(), 0);
     }
 
     @Override
     public void update(float deltaTime) {
-        game2DCamera.getCamera().position.set(
-                boundary.clampX(game2DCamera.getCamera().position.x),
-                boundary.clampY(game2DCamera.getCamera().position.y),
-                0
-        );
         game2DCamera.getCamera().update();
     }
 }

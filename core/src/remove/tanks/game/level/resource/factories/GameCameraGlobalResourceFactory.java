@@ -20,6 +20,8 @@ public final class GameCameraGlobalResourceFactory extends AbstractGlobalResourc
 
     @Override
     protected Game2DCamera prepareResourceObject(Game2DCamera object) {
+        object.unlockX();
+        object.unlockY();
         return object;
     }
 }

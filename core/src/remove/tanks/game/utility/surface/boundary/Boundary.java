@@ -62,6 +62,14 @@ public final class Boundary {
         );
     }
 
+    public float getWidth() {
+        return maxX - minX;
+    }
+
+    public float getHeight() {
+        return maxY - minY;
+    }
+
     public static Boundary valueOf(float minX, float maxX, float minY, float maxY) {
         return new Boundary(minX, maxX, minY, maxY);
     }

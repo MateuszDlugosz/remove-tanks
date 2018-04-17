@@ -16,8 +16,7 @@ public final class CameraUpdateSystemFactory implements SubEntitySystemFactory<C
         try {
             return new CameraUpdateSystem(
                     prefab.getPriority(),
-                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class),
-                    registry.getResource(ResourceType.TiledMapBoundaryResource, Boundary.class)
+                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class)
             );
         } catch (Exception e) {
             throw new EntitySystemCreateException(prefab, e);

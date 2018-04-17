@@ -1,6 +1,7 @@
 package remove.tanks.game.graphics.camera;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import remove.tanks.game.utility.surface.boundary.Boundary;
 
@@ -10,6 +11,9 @@ import remove.tanks.game.utility.surface.boundary.Boundary;
 public final class Game2DCamera {
     private final OrthographicCamera camera;
     private final Viewport viewport;
+
+    private boolean lockedX;
+    private boolean lockedY;
 
     public Game2DCamera(OrthographicCamera camera, Viewport viewport) {
         if (viewport.getCamera() != camera) {
@@ -25,6 +29,32 @@ public final class Game2DCamera {
 
     public Viewport getViewport() {
         return viewport;
+    }
+
+    public void lockX(float x) {
+        camera.position.x = x;
+        lockedX = true;
+    }
+
+    public void unlockX() {
+        lockedX = false;
+    }
+
+    public void setX(float x) {
+        if (!lockedX) camera.position.x = x;
+    }
+
+    public void lockY(float y) {
+        camera.position.y = y;
+        lockedY = true;
+    }
+
+    public void unlockY() {
+        lockedY = false;
+    }
+
+    public void setY(float y) {
+        if (!lockedY) camera.position.y = y;
     }
 
     public Boundary getCameraBoundaries() {
