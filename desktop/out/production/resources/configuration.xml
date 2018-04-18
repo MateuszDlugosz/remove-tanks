@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <options>
+        <option name="component.configuration.package">remove.tanks.game.configuration.component</option>
+
+        <option name="game.ui.scale">3</option>
+        <option name="game.number.of.rays">100</option>
+        <option name="game.world.scale">32</option>
+        <option name="game.world.update.time.step">0.022222223</option>
+        <option name="game.world.update.position.iterations">2</option>
+        <option name="game.world.update.velocity.iterations">6</option>
+        <option name="game.skin.filename">skins/ui-skin.json</option>
+        <option name="game.profile.player.filename">profile.xml</option>
+        <option name="game.local.screenshot.directory">screenshots</option>
+        <option name="game.local.data.directory">RemoveTanks</option>
+        <option name="game.local.screenshot.file.prefix">screenshot-</option>
+        <option name="game.local.configuration.directory">configuration</option>
+        <option name="game.empty.configuration.directory">data/configuration</option>
+        <option name="game.audio.configuration.sound.directory">sound</option>
+        <option name="game.audio.configuration.music.directory">music</option>
+        <option name="game.preferences.filename">RemoveTanks</option>
+        <option name="game.default.language">EN</option>
+        <option name="game.locale.filename">locale/locale.xml</option>
+        <option name="game.main.asset.prefab.repository.filename">themes/main-asset-prefab-repository.xml</option>
+        <option name="game.translation.repository.filename">translations/translation-repository.xml</option>
+        <option name="game.font.ttf.filename">fonts/PressStart2P-Regular.ttf</option>
+        <option name="game.profile.empty.filename">data/profile/default-profile.xml</option>
+        <option name="game.campaign.prefab.filename.repository.filename">prefabs/campaigns/campaigns-prefab-filename-repository.xml</option>
+        <option name="game.operation.prefab.filename.repository.filename">prefabs/operations/operations-prefab-filename-repository.xml</option>
+        <option name="game.arena.prefab.filename.repository.filename">prefabs/arenas/arenas-prefab-filename-repository.xml</option>
+        <option name="game.achievement.prefab.repository.filename">achievements/achievement-prefab-repository.xml</option>
+        <option name="game.level.presenter.prefab.filename">prefabs/levels/presentations/level-presenter-prefab.xml</option>
+    </options>
+</configuration>

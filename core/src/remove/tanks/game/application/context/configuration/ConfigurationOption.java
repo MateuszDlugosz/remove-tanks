@@ -19,7 +19,6 @@ public enum ConfigurationOption {
     GameTranslationRepositoryFilename("game.translation.repository.filename"),
     GameLocaleFilename("game.locale.filename"),
     GameComponentConfigurationPackage(ApplicationContext.COMPONENT_CONFIGURATION_PACKAGE_OPTION),
-    GameLocation("game.location"),
     GameLevelPresenterPrefabFilename("game.level.presenter.prefab.filename"),
     GameSkinFilename("game.skin.filename"),
     GameFontTTFFilename("game.font.ttf.filename"),

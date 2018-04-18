@@ -8,6 +8,7 @@ import remove.tanks.game.application.context.ApplicationContext;
 import remove.tanks.game.application.context.component.provider.ComponentProviderInitializer;
 import remove.tanks.game.application.context.configuration.Configuration;
 import remove.tanks.game.application.context.configuration.ConfigurationOption;
+import remove.tanks.game.application.context.configuration.ConfigurationXmlReader;
 import remove.tanks.game.desktop.display.DisplayDimensionResolverXmlReader;
 
 import java.awt.*;
@@ -26,6 +27,7 @@ import java.util.logging.Logger;
  */
 public final class DesktopLauncher {
     private static final String DISPLAY_DIMENSIONS_FILENAME = "/display-dimensions.xml";
+    private static final String CONFIGURATION_FILENAME = "/configuration.xml";
 
     public static void main (String[] arg) {
         configureLoggers();
@@ -62,62 +64,19 @@ public final class DesktopLauncher {
     }
 
     private static Configuration createConfiguration(Graphics.DisplayMode displayMode) {
-        Map<String, String> configuration = new HashMap<>();
+        Configuration configuration = new ConfigurationXmlReader()
+                .readConfiguration(new File(DesktopLauncher.class.getResource(CONFIGURATION_FILENAME).getFile()));
+
         Dimension dimension = new DisplayDimensionResolverXmlReader().readDisplayDimensionResolver(
                 new File(DesktopLauncher.class.getResource(DISPLAY_DIMENSIONS_FILENAME).getFile()),
                 new Dimension(320, 180)
         ).resolveDimension(displayMode);
 
-        configuration.put(ConfigurationOption.GameDisplayWidth.getName(),
+        configuration.setOption(ConfigurationOption.GameDisplayWidth.getName(),
                 String.valueOf(dimension.getWidth()));
-        configuration.put(ConfigurationOption.GameDisplayHeight.getName(),
+        configuration.setOption(ConfigurationOption.GameDisplayHeight.getName(),
                 String.valueOf(dimension.getHeight()));
 
-        configuration.put(ConfigurationOption.GameComponentConfigurationPackage.getName(),
-                "remove.tanks.game.configuration.component");
-
-        configuration.put(ConfigurationOption.GameUIScale.getName(), "3");
-        configuration.put(ConfigurationOption.GameWorldScale.getName(), "32");
-        configuration.put(ConfigurationOption.GameWorldLightNumberOfRays.getName(), "100");
-        configuration.put(ConfigurationOption.GameWorldUpdateTimeStep.getName(), String.valueOf(1f/45f));
-        configuration.put(ConfigurationOption.GameWorldUpdatePositionIterations.getName(), "2");
-        configuration.put(ConfigurationOption.GameWorldUpdateVelocityIterations.getName(), "6");
-
-        configuration.put(ConfigurationOption.GameLocation.getName(),
-                DesktopLauncher.class.getProtectionDomain().getCodeSource().getLocation().toString());
-        configuration.put(ConfigurationOption.GameSkinFilename.getName(), "skins/ui-skin.json");
-        configuration.put(ConfigurationOption.GameProfileLocalFilename.getName(), "profile.xml");
-        configuration.put(ConfigurationOption.GameLocalDataDirectory.getName(), "RemoveTanks");
-        configuration.put(ConfigurationOption.GameLocalScreenshotDirectory.getName(), "screenshots");
-        configuration.put(ConfigurationOption.GameLocalScreenshotFilePrefix.getName(), "screenshot-");
-        configuration.put(ConfigurationOption.GameEmptyConfigurationDirectory.getName(), "data/configuration");
-        configuration.put(ConfigurationOption.GameLocalConfigurationDirectory.getName(), "configuration");
-        configuration.put(ConfigurationOption.GameAudioConfigurationSoundDirectory.getName(), "sound");
-        configuration.put(ConfigurationOption.GameAudioConfigurationMusicDirectory.getName(), "music");
-        configuration.put(ConfigurationOption.GamePreferencesFilename.getName(), "RemoveTanks");
-        configuration.put(ConfigurationOption.GameDefaultLanguage.getName(), "EN");
-
-        configuration.put(ConfigurationOption.GameLocaleFilename.getName(),
-                "locale/locale.xml");
-        configuration.put(ConfigurationOption.GameMainAssetPrefabRepositoryFilename.getName(),
-                "themes/main-asset-prefab-repository.xml");
-        configuration.put(ConfigurationOption.GameTranslationRepositoryFilename.getName(),
-                "translations/translation-repository.xml");
-        configuration.put(ConfigurationOption.GameFontTTFFilename.getName(),
-                "fonts/PressStart2P-Regular.ttf");
-        configuration.put(ConfigurationOption.GameProfileEmptyFilename.getName(),
-                "data/profile/default-profile.xml");
-        configuration.put(ConfigurationOption.GameCampaignPrefabFilenameRepositoryFilename.getName(),
-                "prefabs/campaigns/campaigns-prefab-filename-repository.xml");
-        configuration.put(ConfigurationOption.GameOperationPrefabFilenameRepositoryFilename.getName(),
-                "prefabs/operations/operations-prefab-filename-repository.xml");
-        configuration.put(ConfigurationOption.GameArenaPrefabFilenameRepositoryFilename.getName(),
-                "prefabs/arenas/arenas-prefab-filename-repository.xml");
-        configuration.put(ConfigurationOption.GameAchievementPrefabRepositoryFilename.getName(),
-                "achievements/achievement-prefab-repository.xml");
-        configuration.put(ConfigurationOption.GameLevelPresenterPrefabFilename.getName(),
-                "prefabs/levels/presentations/level-presenter-prefab.xml");
-
-        return new Configuration(configuration);
+        return configuration;
     }
 }

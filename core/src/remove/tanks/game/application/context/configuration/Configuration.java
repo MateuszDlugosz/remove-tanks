@@ -22,4 +22,8 @@ public final class Configuration {
         }
         return options.get(name);
     }
+
+    public void setOption(String name, String value) {
+        options.put(name, value);
+    }
 }

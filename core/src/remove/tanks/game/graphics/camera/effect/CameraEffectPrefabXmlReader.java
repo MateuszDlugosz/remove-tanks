@@ -11,7 +11,6 @@ import java.util.Map;
  */
 public final class CameraEffectPrefabXmlReader {
     public static final String CAMERA_EFFECT_ELEMENT = "cameraEffect";
-    public static final String CAMERA_EFFECTS_ELEMENT = "cameraEffects";
 
     private static final String TYPE_ATTRIBUTE = "type";
 
