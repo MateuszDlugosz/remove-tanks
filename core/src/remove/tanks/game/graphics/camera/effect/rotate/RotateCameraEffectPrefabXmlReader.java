@@ -11,15 +11,13 @@ import remove.tanks.game.graphics.camera.effect.SubCameraEffectPrefabXmlReader;
 public final class RotateCameraEffectPrefabXmlReader implements SubCameraEffectPrefabXmlReader<RotateCameraEffectPrefab> {
     private static final String ROTATION_SPEED_ELEMENT = "rotationSpeed";
     private static final String NUMBER_OF_ROTATIONS_ELEMENT = "numberOfRotations";
-    private static final String CLOCKWISE_DIRECTION_ELEMENT = "clockwiseDirection";
 
     @Override
     public RotateCameraEffectPrefab readCameraEffectPrefab(XmlReader.Element element) {
         try {
             return new RotateCameraEffectPrefab(
                     readRotationSpeed(element),
-                    readNumberOfRotations(element),
-                    readClockwiseDirection(element)
+                    readNumberOfRotations(element)
             );
         } catch (Exception e) {
             throw new CameraEffectPrefabXmlReadException(element, e);
@@ -32,10 +30,6 @@ public final class RotateCameraEffectPrefabXmlReader implements SubCameraEffectP
 
     private int readNumberOfRotations(XmlReader.Element element) {
         return Integer.valueOf(element.getChildByName(NUMBER_OF_ROTATIONS_ELEMENT).getText().trim());
-    }
-
-    private boolean readClockwiseDirection(XmlReader.Element element) {
-        return Boolean.valueOf(element.getChildByName(CLOCKWISE_DIRECTION_ELEMENT).getText().trim());
     }
 
     @Override

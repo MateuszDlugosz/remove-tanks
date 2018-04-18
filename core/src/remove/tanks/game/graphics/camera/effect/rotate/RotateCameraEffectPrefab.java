@@ -9,12 +9,10 @@ import remove.tanks.game.graphics.camera.effect.CameraEffectPrefab;
 public final class RotateCameraEffectPrefab extends CameraEffectPrefab {
     private final float rotationSpeed;
     private final int numberOfRotations;
-    private final boolean clockwiseDirection;
 
-    public RotateCameraEffectPrefab(float rotationSpeed, int numberOfRotations, boolean clockwiseDirection) {
+    public RotateCameraEffectPrefab(float rotationSpeed, int numberOfRotations) {
         this.rotationSpeed = rotationSpeed;
         this.numberOfRotations = numberOfRotations;
-        this.clockwiseDirection = clockwiseDirection;
     }
 
     public float getRotationSpeed() {
@@ -25,16 +23,11 @@ public final class RotateCameraEffectPrefab extends CameraEffectPrefab {
         return numberOfRotations;
     }
 
-    public boolean isClockwiseDirection() {
-        return clockwiseDirection;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("rotationSpeed", rotationSpeed)
                 .add("numberOfRotations", numberOfRotations)
-                .add("clockwiseDirection", clockwiseDirection)
                 .toString();
     }
 }

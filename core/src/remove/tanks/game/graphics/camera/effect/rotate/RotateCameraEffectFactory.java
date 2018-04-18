@@ -13,8 +13,7 @@ public final class RotateCameraEffectFactory implements SubCameraEffectFactory<R
         try {
             return new RotateCameraEffect(
                     prefab.getRotationSpeed(),
-                    createCounter(prefab.getNumberOfRotations()),
-                    prefab.isClockwiseDirection()
+                    createCounter(prefab.getNumberOfRotations())
             );
         } catch (Exception e) {
             throw new CameraEffectCreateException(prefab, e);
