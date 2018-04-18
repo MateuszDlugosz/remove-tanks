@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="8" tileheight="8" nextobjectid="455">
+<map version="2017.05.02" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="8" tileheight="8" nextobjectid="509">
  <tileset firstgid="1" source="../../tilesets/sepia-level-tileset.tsx"/>
  <layer name="ground_layer" width="100" height="100">
   <data encoding="csv">
@@ -1469,6 +1469,196 @@
   <object id="454" x="400" y="448" width="16" height="16">
    <properties>
     <property name="prefab.code" value="Tree1"/>
+   </properties>
+  </object>
+  <object id="465" name="CloudSpawner" x="840" y="120" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="491" name="CloudSpawner" x="840" y="152" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="492" name="CloudSpawner" x="840" y="184" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="493" name="CloudSpawner" x="840" y="216" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="494" name="CloudSpawner" x="840" y="248" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="495" name="CloudSpawner" x="840" y="280" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="496" name="CloudSpawner" x="840" y="312" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="497" name="CloudSpawner" x="840" y="344" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="498" name="CloudSpawner" x="840" y="376" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="499" name="CloudSpawner" x="840" y="408" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="500" name="CloudSpawner" x="840" y="440" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="501" name="CloudSpawner" x="840" y="472" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="502" name="CloudSpawner" x="840" y="536" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="503" name="CloudSpawner" x="840" y="696" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="504" name="CloudSpawner" x="840" y="600" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="505" name="CloudSpawner" x="840" y="632" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="506" name="CloudSpawner" x="840" y="664" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="507" name="CloudSpawner" x="840" y="568" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
+   </properties>
+  </object>
+  <object id="508" name="CloudSpawner" x="840" y="504" width="16" height="16">
+   <properties>
+    <property name="prefab.code" value="AutoSpawnerMedium0"/>
+    <property name="prefab.components">&lt;components&gt;
+ &lt;component type=&quot;AutoSpawnerComponent&quot;&gt;
+  &lt;id&gt;CloudSpawner&lt;/id&gt;
+ &lt;/component&gt;
+&lt;/components&gt; </property>
    </properties>
   </object>
  </objectgroup>

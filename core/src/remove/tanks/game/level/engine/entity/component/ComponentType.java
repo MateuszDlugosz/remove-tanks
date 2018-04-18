@@ -48,5 +48,6 @@ public enum ComponentType {
     AutoSpawnerComponent,
     RespawnComponent,
     AirplaneSpawnerComponent,
-    AirplaneComponent
+    AirplaneComponent,
+    CloudComponent
 }

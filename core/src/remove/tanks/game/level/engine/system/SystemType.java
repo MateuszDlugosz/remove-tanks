@@ -48,7 +48,8 @@ public enum SystemType {
     TimeEndDefeatSystem(9600),
     PlayerDestroyedResetSystem(9700),
     AutoSpawnerSystem(9800),
-    AirplaneControlSystem(10000);
+    AirplaneControlSystem(10000),
+    CloudControlSystem(10200);
 
     private final int priority;
 

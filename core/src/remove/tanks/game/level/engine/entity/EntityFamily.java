@@ -5,6 +5,7 @@ import remove.tanks.game.level.engine.entity.component.airplane.AirplaneComponen
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponent;
 import remove.tanks.game.level.engine.entity.component.bonus.LeaveBonusComponent;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponent;
+import remove.tanks.game.level.engine.entity.component.cloud.CloudComponent;
 import remove.tanks.game.level.engine.entity.component.combat.*;
 import remove.tanks.game.level.engine.entity.component.direction.DirectionComponent;
 import remove.tanks.game.level.engine.entity.component.direction.RandomDirectionComponent;
@@ -140,6 +141,10 @@ public enum EntityFamily {
     ).get()),
     AirplaneFamily(Family.all(
             PhysicsComponent.class, AirplaneComponent.class,
+            DirectionComponent.class
+    ).get()),
+    CloudFamily(Family.all(
+            PhysicsComponent.class, CloudComponent.class,
             DirectionComponent.class
     ).get());
 

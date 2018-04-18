@@ -17,6 +17,8 @@ import remove.tanks.game.level.engine.entity.component.bonus.LeaveBonusComponent
 import remove.tanks.game.level.engine.entity.component.bonus.LeaveBonusComponentPrefabXmlReader;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponentFactory;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponentPrefabXmlReader;
+import remove.tanks.game.level.engine.entity.component.cloud.CloudComponentFactory;
+import remove.tanks.game.level.engine.entity.component.cloud.CloudComponentPrefabXmlReader;
 import remove.tanks.game.level.engine.entity.component.combat.*;
 import remove.tanks.game.level.engine.entity.component.direction.DirectionComponentFactory;
 import remove.tanks.game.level.engine.entity.component.direction.DirectionComponentPrefabXmlReader;
@@ -156,7 +158,8 @@ public final class EntityComponentConfiguration {
                                     getContext().getComponent("EntityPrefabCodeXmlReader", EntityPrefabCodeXmlReader.class)
                             ),
                             new AutoSpawnerComponentPrefabXmlReader(),
-                            new AirplaneComponentPrefabXmlReader()
+                            new AirplaneComponentPrefabXmlReader(),
+                            new CloudComponentPrefabXmlReader()
                     }
             );
         }
@@ -245,7 +248,8 @@ public final class EntityComponentConfiguration {
                             new RespawnComponentFactory(),
                             new AirplaneSpawnerComponentFactory(),
                             new AutoSpawnerComponentFactory(),
-                            new AirplaneComponentFactory()
+                            new AirplaneComponentFactory(),
+                            new CloudComponentFactory()
                     }
             );
         }

@@ -46,9 +46,7 @@
         <component type="SpeedComponent">
             <speed>1.9</speed>
         </component>
-        <component type="LifetimeComponent">
-            <lifetime>60</lifetime>
-        </component>
+        <component type="CloudComponent" />
         <component type="CloudRenderLayerComponent" />
     </components>
 </entity>

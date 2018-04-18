@@ -31,6 +31,11 @@
             <entityPrefabCode>TelegraphicSlope2</entityPrefabCode>
             <entityPrefabCode>MudSmall0</entityPrefabCode>
             <entityPrefabCode>MudTiny0</entityPrefabCode>
+            <entityPrefabCode>AutoSpawnerMedium0</entityPrefabCode>
+            <entityPrefabCode>CloudSmall0Left</entityPrefabCode>
+            <entityPrefabCode>CloudSmall1Left</entityPrefabCode>
+            <entityPrefabCode>CloudSmall2Left</entityPrefabCode>
+            <entityPrefabCode>CloudSmall3Left</entityPrefabCode>
         </entityPrefabCodes>
     </preloadData>
     <resourceConfigurations>
@@ -65,15 +70,19 @@
             <system type="ChangeBehaviorSystem" />
             <system type="AutoSpawnerSystem">
                 <spawners>
-                    <spawner id="SpawnerAlpha" autoStart="false">
-                        <time>5</time>
-                        <limit>3</limit>
+                    <spawner id="CloudSpawner" autoStart="true">
+                        <time>0.01</time>
+                        <limit>-1</limit>
                         <entityPrefabCodes>
-                            <entityPrefabCode>EnemyBomberTankSpawn0</entityPrefabCode>
+                            <entityPrefabCode>CloudSmall0Left</entityPrefabCode>
+                            <entityPrefabCode>CloudSmall1Left</entityPrefabCode>
+                            <entityPrefabCode>CloudSmall2Left</entityPrefabCode>
+                            <entityPrefabCode>CloudSmall3Left</entityPrefabCode>
                         </entityPrefabCodes>
                     </spawner>
                 </spawners>
             </system>
+            <system type="CloudControlSystem" />
         </systems>
         <listeners>
             <listener type="CreateTriggerListener" />

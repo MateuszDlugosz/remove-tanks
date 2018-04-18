@@ -56,7 +56,7 @@ public final class AutoSpawnerSystem extends EntitySystem {
             if (s.getTimer().isCompleted()) {
                 if (spawnEntity(s)) {
                     s.getCounter().update();
-                    if (s.getCounter().isComplete()) {
+                    if (s.getCounter().isCompleted()) {
                         spawnersToDeactivate.add(s.getId());
                     }
                 }
@@ -70,7 +70,7 @@ public final class AutoSpawnerSystem extends EntitySystem {
     }
 
     private boolean spawnEntity(Spawner spawner) {
-        List<Entity> spawners = getSpawnersEntitiesForLetter(spawner.getId());
+        List<Entity> spawners = getSpawnersEntitiesForId(spawner.getId());
         if (spawners.size() > 0) {
             Entity entity = getRandomSpawnerEntity(spawners);
             PhysicsComponent pc = PhysicsComponent.MAPPER.get(entity);
@@ -89,7 +89,7 @@ public final class AutoSpawnerSystem extends EntitySystem {
                 .getRandomInt(0, spawner.getEntityPrefabCodes().size() - 1));
     }
 
-    private List<Entity> getSpawnersEntitiesForLetter(String id) {
+    private List<Entity> getSpawnersEntitiesForId(String id) {
         List<Entity> spawners = new ArrayList<>();
         ImmutableArray<Entity> allSpawners
                 = getEngine().getEntitiesFor(EntityFamily.AutoSpawnerFamily.getFamily());

@@ -15,7 +15,7 @@ public class CounterTest {
         counter.update();
         counter.update();
 
-        assertTrue(counter.isComplete());
+        assertTrue(counter.isCompleted());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class CounterTest {
         counter.update();
         counter.update();
 
-        assertFalse(counter.isComplete());
+        assertFalse(counter.isCompleted());
     }
 
     @Test
@@ -34,6 +34,6 @@ public class CounterTest {
         counter.update();
 
         assertEquals(2, counter.getValue());
-        assertFalse(counter.isComplete());
+        assertFalse(counter.isCompleted());
     }
 }

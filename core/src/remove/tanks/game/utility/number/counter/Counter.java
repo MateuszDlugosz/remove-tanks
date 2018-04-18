@@ -26,7 +26,7 @@ public final class Counter {
         return value;
     }
 
-    public boolean isComplete() {
+    public boolean isCompleted() {
         return limit >= 0 && value >= limit;
     }
 }
