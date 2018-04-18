@@ -37,13 +37,13 @@ public final class CameraTrackSystem extends EntitySystem {
 
             game2DCamera.setX(MathUtils.clamp(
                     pc.getPosition().getX() + ctc.getPosition().getX(),
-                    boundary.getMinX(),
-                    boundary.getMaxX()
+                    boundary.getMinX() * game2DCamera.getCamera().zoom,
+                    boundary.getMaxX() * game2DCamera.getCamera().zoom
             ));
             game2DCamera.setY(MathUtils.clamp(
                     pc.getPosition().getY() + ctc.getPosition().getY(),
-                    boundary.getMinY(),
-                    boundary.getMaxY()
+                    boundary.getMinY() * game2DCamera.getCamera().zoom,
+                    boundary.getMaxY() * game2DCamera.getCamera().zoom
             ));
         });
     }

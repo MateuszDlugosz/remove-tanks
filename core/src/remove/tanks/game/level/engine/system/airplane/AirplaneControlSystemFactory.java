@@ -7,6 +7,7 @@ import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.number.random.RandomNumberGenerator;
+import remove.tanks.game.utility.surface.boundary.Boundary;
 
 /**
  * @author Mateusz Długosz
@@ -24,7 +25,8 @@ public final class AirplaneControlSystemFactory implements SubEntitySystemFactor
             return new AirplaneControlSystem(
                     randomNumberGenerator,
                     registry.getResource(ResourceType.EventBusResource, EventBus.class),
-                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class)
+                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class),
+                    registry.getResource(ResourceType.TiledMapBoundaryResource, Boundary.class)
             );
         } catch (Exception e) {
             throw new EntitySystemCreateException(prefab, e);

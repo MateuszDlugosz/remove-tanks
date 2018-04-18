@@ -812,7 +812,7 @@
     <property name="prefab.code" value="Obelisk0"/>
    </properties>
   </object>
-  <object id="171" x="144" y="296" width="16" height="16">
+  <object id="171" x="400" y="536" width="16" height="16">
    <properties>
     <property name="prefab.code" value="BonusBombers0"/>
    </properties>

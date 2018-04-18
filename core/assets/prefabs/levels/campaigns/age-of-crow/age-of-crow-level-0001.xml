@@ -341,6 +341,7 @@
             <system type="LevelEndSystem">
                 <delay>3</delay>
             </system>
+            <system type="AirplaneControlSystem" />
         </systems>
         <listeners>
             <listener type="CreateTriggerListener" />

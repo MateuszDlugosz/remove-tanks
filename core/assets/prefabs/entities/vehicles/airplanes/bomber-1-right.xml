@@ -49,9 +49,6 @@
         <component type="SpeedComponent">
             <speed>2.4</speed>
         </component>
-        <component type="LifetimeComponent">
-            <lifetime>20</lifetime>
-        </component>
         <component type="AirplaneRenderLayerComponent" />
         <component type="RandomCreateComponent">
             <minCreateFrequency>0.5</minCreateFrequency>

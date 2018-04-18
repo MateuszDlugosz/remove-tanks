@@ -139,7 +139,8 @@ public enum EntityFamily {
             PhysicsComponent.class, AirplaneSpawnerComponent.class
     ).get()),
     AirplaneFamily(Family.all(
-            PhysicsComponent.class, AirplaneComponent.class
+            PhysicsComponent.class, AirplaneComponent.class,
+            DirectionComponent.class
     ).get());
 
     private final Family family;
