@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.system.airplane;
 
 import com.google.common.eventbus.EventBus;
+import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
@@ -22,7 +23,8 @@ public final class AirplaneControlSystemFactory implements SubEntitySystemFactor
         try {
             return new AirplaneControlSystem(
                     randomNumberGenerator,
-                    registry.getResource(ResourceType.EventBusResource, EventBus.class)
+                    registry.getResource(ResourceType.EventBusResource, EventBus.class),
+                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class)
             );
         } catch (Exception e) {
             throw new EntitySystemCreateException(prefab, e);
