@@ -62,5 +62,6 @@
                 </createEntry>
             </createEntries>
         </component>
+        <component type="AirplaneComponent" />
     </components>
 </entity>

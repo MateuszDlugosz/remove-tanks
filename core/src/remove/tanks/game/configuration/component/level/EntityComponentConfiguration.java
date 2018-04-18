@@ -9,6 +9,8 @@ import remove.tanks.game.graphics.view.ViewFactory;
 import remove.tanks.game.graphics.view.ViewPrefabXmlReader;
 import remove.tanks.game.level.engine.entity.EntityPrefabCodeXmlReader;
 import remove.tanks.game.level.engine.entity.component.*;
+import remove.tanks.game.level.engine.entity.component.airplane.AirplaneComponentFactory;
+import remove.tanks.game.level.engine.entity.component.airplane.AirplaneComponentPrefabXmlReader;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponentFactory;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponentPrefabXmlReader;
 import remove.tanks.game.level.engine.entity.component.bonus.LeaveBonusComponentFactory;
@@ -153,7 +155,8 @@ public final class EntityComponentConfiguration {
                             new AirplaneSpawnerComponentPrefabXmlReader(
                                     getContext().getComponent("EntityPrefabCodeXmlReader", EntityPrefabCodeXmlReader.class)
                             ),
-                            new AutoSpawnerComponentPrefabXmlReader()
+                            new AutoSpawnerComponentPrefabXmlReader(),
+                            new AirplaneComponentPrefabXmlReader()
                     }
             );
         }
@@ -241,7 +244,8 @@ public final class EntityComponentConfiguration {
                             ),
                             new RespawnComponentFactory(),
                             new AirplaneSpawnerComponentFactory(),
-                            new AutoSpawnerComponentFactory()
+                            new AutoSpawnerComponentFactory(),
+                            new AirplaneComponentFactory()
                     }
             );
         }

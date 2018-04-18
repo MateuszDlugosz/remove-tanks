@@ -1,6 +1,7 @@
 package remove.tanks.game.level.engine.entity;
 
 import com.badlogic.ashley.core.Family;
+import remove.tanks.game.level.engine.entity.component.airplane.AirplaneComponent;
 import remove.tanks.game.level.engine.entity.component.behavior.ChangeBehaviorComponent;
 import remove.tanks.game.level.engine.entity.component.bonus.LeaveBonusComponent;
 import remove.tanks.game.level.engine.entity.component.camera.CameraTrackComponent;
@@ -136,6 +137,9 @@ public enum EntityFamily {
     ).get()),
     AirplaneSpawnerFamily(Family.all(
             PhysicsComponent.class, AirplaneSpawnerComponent.class
+    ).get()),
+    AirplaneFamily(Family.all(
+            PhysicsComponent.class, AirplaneComponent.class
     ).get());
 
     private final Family family;

@@ -13,6 +13,8 @@ import remove.tanks.game.level.engine.system.EntitySystemFactory;
 import remove.tanks.game.level.engine.system.EntitySystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.engine.system.SubEntitySystemPrefabXmlReader;
+import remove.tanks.game.level.engine.system.airplane.AirplaneControlSystemFactory;
+import remove.tanks.game.level.engine.system.airplane.AirplaneControlSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemFactory;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.camera.*;
@@ -165,7 +167,10 @@ public final class EntitySystemConfiguration {
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class),
                                     getContext().getComponent("SpawnerFactory", SpawnerFactory.class)
                             ),
-                            new PlayerDestroyedResetSystemFactory()
+                            new PlayerDestroyedResetSystemFactory(),
+                            new AirplaneControlSystemFactory(
+                                    getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
+                            )
                     }
             );
         }
@@ -234,7 +239,8 @@ public final class EntitySystemConfiguration {
                             new AutoSpawnerSystemPrefabXmlReader(
                                     getContext().getComponent("SpawnerPrefabXmlReader", SpawnerPrefabXmlReader.class)
                             ),
-                            new PlayerDestroyedResetSystemPrefabXmlReader()
+                            new PlayerDestroyedResetSystemPrefabXmlReader(),
+                            new AirplaneControlSystemPrefabXmlReader()
                     }
             );
         }
