@@ -6,6 +6,8 @@ import remove.tanks.game.audio.sound.SoundFactory;
 import remove.tanks.game.audio.sound.SoundPrefabXmlReader;
 import remove.tanks.game.graphics.color.ColorFactory;
 import remove.tanks.game.graphics.color.ColorPrefabXmlReader;
+import remove.tanks.game.graphics.particle.ParticleEffectFactory;
+import remove.tanks.game.graphics.particle.ParticleEffectPrefabXmlReader;
 import remove.tanks.game.graphics.sprite.SpriteFactory;
 import remove.tanks.game.graphics.sprite.SpritePrefabXmlReader;
 import remove.tanks.game.level.engine.entity.EntityPrefabCodeXmlReader;
@@ -51,6 +53,8 @@ import remove.tanks.game.level.utility.weather.effect.WeatherEffectFactory;
 import remove.tanks.game.level.utility.weather.effect.WeatherEffectPrefabXmlReader;
 import remove.tanks.game.level.utility.weather.effect.lightning.LightningWeatherEffectFactory;
 import remove.tanks.game.level.utility.weather.effect.lightning.LightningWeatherEffectPrefabXmlReader;
+import remove.tanks.game.level.utility.weather.effect.rainfall.RainfallWeatherEffectFactory;
+import remove.tanks.game.level.utility.weather.effect.rainfall.RainfallWeatherEffectPrefabXmlReader;
 import remove.tanks.game.utility.number.random.RandomNumberGenerator;
 import remove.tanks.game.utility.surface.position.PositionFactory;
 import remove.tanks.game.utility.surface.position.PositionPrefabXmlReader;
@@ -330,6 +334,9 @@ public final class UtilityConfiguration {
                                     getContext().getComponent("SoundFactory", SoundFactory.class),
                                     getContext().getComponent("ColorFactory", ColorFactory.class),
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
+                            ),
+                            new RainfallWeatherEffectFactory(
+                                    getContext().getComponent("ParticleEffectFactory", ParticleEffectFactory.class)
                             )
                     }
             );
@@ -345,6 +352,9 @@ public final class UtilityConfiguration {
                             new LightningWeatherEffectPrefabXmlReader(
                                     getContext().getComponent("SoundPrefabXmlReader", SoundPrefabXmlReader.class),
                                     getContext().getComponent("ColorPrefabXmlReader", ColorPrefabXmlReader.class)
+                            ),
+                            new RainfallWeatherEffectPrefabXmlReader(
+                                    getContext().getComponent("ParticleEffectPrefabXmlReader", ParticleEffectPrefabXmlReader.class)
                             )
                     }
             );
