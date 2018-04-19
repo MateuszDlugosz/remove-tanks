@@ -19,6 +19,6 @@ public final class WorldUpdateSystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        worldUpdater.step(world);
+        worldUpdater.update(deltaTime, world);
     }
 }

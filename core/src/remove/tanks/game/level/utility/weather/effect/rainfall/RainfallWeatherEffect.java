@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.utility.weather.effect.WeatherEffect;
-import remove.tanks.game.utility.time.Timer;
 
 /**
  * @author Mateusz Długosz
