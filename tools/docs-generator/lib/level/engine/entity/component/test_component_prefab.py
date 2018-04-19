@@ -413,5 +413,21 @@ class TestStateComponentPrefab(unittest.TestCase):
         )
 
 
+class TestAirplaneComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(AirplaneComponentPrefab()),
+            "AirplaneComponentPrefab()"
+        )
+
+
+class TestCloudComponentPrefab(unittest.TestCase):
+    def test_component_prefab_to_string(self):
+        self.assertEqual(
+            str(CloudComponentPrefab()),
+            "CloudComponentPrefab()"
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

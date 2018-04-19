@@ -210,4 +210,6 @@
     <component type="SpeedModifierComponent">
         <speedModifier>1.12</speedModifier>
     </component>
+    <component type="AirplaneComponent" />
+    <component type="CloudComponent" />
 </components>

@@ -10,7 +10,8 @@ from lib.level.engine.entity.component.component_prefab import SpeedComponentPre
     BulletRenderLayerComponentPrefab, CloudRenderLayerComponentPrefab, ExplosionRenderLayerComponentPrefab, \
     GroundRenderLayerComponentPrefab, ObstacleRenderLayerComponentPrefab, VehicleRenderLayerComponentPrefab, \
     ViewComponentPrefab, AirplaneSpawnerComponentPrefab, RespawnComponentPrefab, AutoSpawnerComponentPrefab, \
-    StateComponentPrefab, CreateTriggerComponentPrefab, HitTriggerComponentPrefab, DestroyTriggerComponentPrefab
+    StateComponentPrefab, CreateTriggerComponentPrefab, HitTriggerComponentPrefab, DestroyTriggerComponentPrefab, \
+    AirplaneComponentPrefab, CloudComponentPrefab
 
 COMPONENT_CLASS_HTML_ATTRIBUTE = "doc-component"
 
@@ -957,6 +958,36 @@ class SubDestroyTriggerComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenera
 
     def get_type(self):
         return DestroyTriggerComponentPrefab.__name__
+
+
+class SubAirplaneComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Airplane component")
+            ])
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return AirplaneComponentPrefab.__name__
+
+
+class SubCloudComponentPrefabHtmlGenerator(SubComponentPrefabHtmlGenerator):
+    def generate_html(self, component_prefab):
+        try:
+            return HtmlElement("div", attributes={
+                "class": COMPONENT_CLASS_HTML_ATTRIBUTE
+            }, children=[
+                HtmlElement("p", "Cloud component")
+            ])
+        except Exception as e:
+            raise ComponentPrefabHtmlGenerationException(component_prefab, e)
+
+    def get_type(self):
+        return CloudComponentPrefab.__name__
 
 
 class ComponentPrefabHtmlGenerationException(Exception):

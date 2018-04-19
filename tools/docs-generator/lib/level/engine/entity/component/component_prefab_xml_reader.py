@@ -703,6 +703,22 @@ class SubProtectionComponentPrefabXmlReader(SubComponentPrefabXmlReader):
         return "ProtectionComponent"
 
 
+class SubAirplaneComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return ProtectionComponentPrefab()
+
+    def get_type(self):
+        return "AirplaneComponent"
+
+
+class SubCloudComponentPrefabXmlReader(SubComponentPrefabXmlReader):
+    def read_prefab_from_string(self, xml_string):
+        return ProtectionComponentPrefab()
+
+    def get_type(self):
+        return "CloudComponent"
+
+
 class ComponentPrefabXmlReadException(Exception):
     MESSAGE_TEMPLATE = "Cannot read component prefab from xml string {}. Cause: {}."
 

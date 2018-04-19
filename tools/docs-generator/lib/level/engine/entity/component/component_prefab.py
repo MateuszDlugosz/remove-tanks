@@ -432,3 +432,13 @@ class HitTriggerComponentPrefab(ComponentPrefab):
     def __str__(self):
         return "HitTriggerComponentPrefab(entity_event_prefabs=[{}])" \
             .format(str(", ".join('\'{}\''.format(str(val)) for val in self.entity_event_prefabs)))
+
+
+class AirplaneComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "AirplaneComponentPrefab()"
+
+
+class CloudComponentPrefab(ComponentPrefab):
+    def __str__(self):
+        return "CloudComponentPrefab()"

@@ -71,7 +71,7 @@
             <system type="AutoSpawnerSystem">
                 <spawners>
                     <spawner id="CloudSpawner" autoStart="true">
-                        <time>0.01</time>
+                        <time>0.1</time>
                         <limit>-1</limit>
                         <entityPrefabCodes>
                             <entityPrefabCode>CloudSmall0Left</entityPrefabCode>

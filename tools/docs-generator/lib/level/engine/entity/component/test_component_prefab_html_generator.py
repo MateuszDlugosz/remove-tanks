@@ -615,6 +615,32 @@ class TestSubVehicleRenderLayerComponentPrefabHtmlGenerator(unittest.TestCase):
         )
 
 
+class TestSubAirplaneComponentPrefabHtmlGenerator(unittest.TestCase):
+    def test_generate_html(self):
+        prefab = AirplaneComponentPrefab()
+        html_generator = HtmlGenerator()
+        sub_generator = SubAirplaneComponentPrefabHtmlGenerator()
+
+        self.assertEqual(
+            '<divclass="doc-component"><p>Airplanecomponent</p></div>',
+            html_generator.generate_html(sub_generator.generate_html(prefab))
+                .replace(" ", "").replace("\n", "")
+        )
+
+
+class TestSubCloudComponentPrefabHtmlGenerator(unittest.TestCase):
+    def test_generate_html(self):
+        prefab = CloudComponentPrefab()
+        html_generator = HtmlGenerator()
+        sub_generator = SubCloudComponentPrefabHtmlGenerator()
+
+        self.assertEqual(
+            '<divclass="doc-component"><p>Cloudcomponent</p></div>',
+            html_generator.generate_html(sub_generator.generate_html(prefab))
+                .replace(" ", "").replace("\n", "")
+        )
+
+
 class TestSubViewComponentPrefabHtmlGenerator(unittest.TestCase):
     def test_generate_html(self):
         prefab = ViewComponentPrefab([SpriteViewPrefab(

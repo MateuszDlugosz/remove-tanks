@@ -24,7 +24,7 @@ from lib.level.engine.entity.component.component_prefab_xml_reader import SubSpe
     SubDirectionComponentPrefabXmlReader, SubRandomShootComponentPrefabXmlReader, SubProtectionComponentPrefabXmlReader, \
     SubHitComponentPrefabXmlReader, SubHealthComponentPrefabXmlReader, SubDamageComponentPrefabXmlReader, \
     SubAutoShootComponentPrefabXmlReader, SubAmmoComponentPrefabXmlReader, SubLeaveBonusComponentPrefabXmlReader, \
-    ComponentPrefabXmlReadException
+    ComponentPrefabXmlReadException, SubAirplaneComponentPrefabXmlReader, SubCloudComponentPrefabXmlReader
 from lib.level.event.entity_event_prefab_xml_reader import EntityEventPrefabXmlReader, \
     SubDestroyEntityEventPrefabXmlReader
 from lib.level.utility.create.create_entry_prefab_xml_reader import CreateEntryPrefabXmlReader
@@ -1020,6 +1020,28 @@ class TestSubHitTriggerComponentPrefabXmlReader(unittest.TestCase):
             reader.read_prefab_from_string(xml)
 
 
+class TestSubAirplaneComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="AirplaneComponent" />
+        """
+        reader = SubAirplaneComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
+class TestSubCloudComponentPrefabXmlReader(unittest.TestCase):
+    def test_component_prefab_xml_reader_valid(self):
+        xml = """
+            <component type="CloudComponent" />
+        """
+        reader = SubCloudComponentPrefabXmlReader()
+        prefab = reader.read_prefab_from_string(xml)
+
+        self.assertIsNotNone(prefab)
+
+
 class TestComponentPrefabXmlReader(unittest.TestCase):
     def test_component_prefab_xml_reader_valid(self):
         xml = """
@@ -1192,12 +1214,14 @@ class TestComponentPrefabXmlReader(unittest.TestCase):
                 EntityEventPrefabXmlReader([SubDestroyEntityEventPrefabXmlReader()])
             ),
             SubSpeedComponentPrefabXmlReader(),
-            SubSpeedModifierComponentPrefabXmlReader()
+            SubSpeedModifierComponentPrefabXmlReader(),
+            SubAirplaneComponentPrefabXmlReader(),
+            SubCloudComponentPrefabXmlReader()
         ])
         element = EXml.parse(ENTITY_COMPONENTS_PREFABS_ALL_FILENAME).getroot()
         prefabs = reader.read_prefabs_from_string(EXml.tostring(element))
 
-        self.assertEqual(45, len(prefabs))
+        self.assertEqual(47, len(prefabs))
 
 
 if __name__ == "__main__":

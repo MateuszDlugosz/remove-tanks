@@ -63,7 +63,8 @@ from lib.level.engine.entity.component.component_prefab_html_generator import Co
     SubAirplaneSpawnerComponentPrefabHtmlGenerator, SubRespawnComponentPrefabHtmlGenerator, \
     SubAutoSpawnerComponentPrefabHtmlGenerator, SubStateComponentPrefabHtmlGenerator, \
     SubCreateTriggerComponentPrefabHtmlGenerator, SubDestroyTriggerComponentPrefabHtmlGenerator, \
-    SubHitTriggerComponentPrefabHtmlGenerator
+    SubHitTriggerComponentPrefabHtmlGenerator, SubAirplaneComponentPrefabHtmlGenerator, \
+    SubCloudComponentPrefabHtmlGenerator
 from lib.level.engine.entity.component.component_prefab_xml_reader import ComponentPrefabXmlReader, \
     SubSpeedComponentPrefabXmlReader, SubSpeedModifierComponentPrefabXmlReader, SubCameraTrackComponentPrefabXmlReader, \
     SubLeaveBonusComponentPrefabXmlReader, SubAmmoComponentPrefabXmlReader, SubAutoShootComponentPrefabXmlReader, \
@@ -81,7 +82,8 @@ from lib.level.engine.entity.component.component_prefab_xml_reader import Compon
     SubObstacleRenderLayerComponentPrefabXmlReader, SubVehicleRenderLayerComponentPrefabXmlReader, \
     SubViewComponentPrefabXmlReader, SubAirplaneSpawnerComponentPrefabXmlReader, SubRespawnComponentPrefabXmlReader, \
     SubAutoSpawnerComponentPrefabXmlReader, SubStateComponentPrefabXmlReader, SubCreateTriggerComponentPrefabXmlReader, \
-    SubDestroyTriggerComponentPrefabXmlReader, SubHitTriggerComponentPrefabXmlReader
+    SubDestroyTriggerComponentPrefabXmlReader, SubHitTriggerComponentPrefabXmlReader, \
+    SubAirplaneComponentPrefabXmlReader, SubCloudComponentPrefabXmlReader
 from lib.level.engine.entity.entity_prefab_html_generator import EntityPrefabHtmlGenerator
 from lib.level.engine.entity.entity_prefab_repository import EntityPrefabRepositoryXmlReader
 from lib.level.engine.entity.entity_prefab_storage import EntityPrefabStorageFactory
@@ -508,6 +510,8 @@ class ContextComponents(object):
             SubCreateTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
             SubDestroyTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
             SubHitTriggerComponentPrefabXmlReader(components["EntityEventPrefabXmlReader"]),
+            SubAirplaneComponentPrefabXmlReader(),
+            SubCloudComponentPrefabXmlReader()
         ])
 
     @staticmethod
@@ -564,6 +568,8 @@ class ContextComponents(object):
             SubCreateTriggerComponentPrefabHtmlGenerator(components["EntityEventPrefabHtmlGenerator"]),
             SubDestroyTriggerComponentPrefabHtmlGenerator(components["EntityEventPrefabHtmlGenerator"]),
             SubHitTriggerComponentPrefabHtmlGenerator(components["EntityEventPrefabHtmlGenerator"]),
+            SubAirplaneComponentPrefabHtmlGenerator(),
+            SubCloudComponentPrefabHtmlGenerator()
         ])
 
     @staticmethod
