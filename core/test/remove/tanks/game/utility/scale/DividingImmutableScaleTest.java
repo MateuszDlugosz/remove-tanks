@@ -7,20 +7,20 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Mateusz Długosz
  */
-public class DividingScaleTest {
+public class DividingImmutableScaleTest {
     @Test(expected = InvalidScaleValueException.class)
     public void Should_ThrowException_When_GivenScaleValueIsZero() {
-        new DividingScale(0f);
+        new DividingImmutableScale(0f);
     }
 
     @Test(expected = InvalidScaleValueException.class)
     public void Should_ThrowException_When_GivenScaleValueIsNegativeNumber() {
-        new DividingScale(-5f);
+        new DividingImmutableScale(-5f);
     }
 
     @Test
     public void Should_ReturnCorrectlyScaledValues() {
-        Scale scale = new DividingScale(5f);
+        Scale scale = new DividingImmutableScale(5f);
         float scaledValue0 = scale.scaleValue(10f);
         float scaledValue1 = scale.scaleValue(7f);
 

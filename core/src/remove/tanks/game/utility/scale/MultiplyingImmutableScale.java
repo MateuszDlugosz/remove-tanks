@@ -3,10 +3,10 @@ package remove.tanks.game.utility.scale;
 /**
  * @author Mateusz Długosz
  */
-public final class MultiplyingScale implements Scale {
+public final class MultiplyingImmutableScale implements ImmutableScale {
     private final float value;
 
-    public MultiplyingScale(float value) {
+    public MultiplyingImmutableScale(float value) {
         this.value = value;
     }
 

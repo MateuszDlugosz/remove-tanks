@@ -3,10 +3,10 @@ package remove.tanks.game.utility.scale;
 /**
  * @author Mateusz Długosz
  */
-public final class DividingScale implements Scale {
+public final class DividingImmutableScale implements ImmutableScale {
     private final float value;
 
-    public DividingScale(float value) {
+    public DividingImmutableScale(float value) {
         if (value <= 0) {
             throw new InvalidScaleValueException("Scale value must be greater than zero.");
         }

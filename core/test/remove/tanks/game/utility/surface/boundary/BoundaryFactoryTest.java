@@ -2,8 +2,8 @@ package remove.tanks.game.utility.surface.boundary;
 
 import org.junit.Before;
 import org.junit.Test;
-import remove.tanks.game.utility.scale.DividingScale;
-import remove.tanks.game.utility.scale.MultiplyingScale;
+import remove.tanks.game.utility.scale.DividingImmutableScale;
+import remove.tanks.game.utility.scale.MultiplyingImmutableScale;
 import remove.tanks.game.utility.scale.Scale;
 
 import java.util.ArrayList;
@@ -21,8 +21,8 @@ public class BoundaryFactoryTest {
 
     @Before
     public void initTestObjects() {
-        multiplyingScale = new MultiplyingScale(2);
-        dividingScale = new DividingScale(2);
+        multiplyingScale = new MultiplyingImmutableScale(2);
+        dividingScale = new DividingImmutableScale(2);
         boundaryFactory = new BoundaryFactory();
     }
 

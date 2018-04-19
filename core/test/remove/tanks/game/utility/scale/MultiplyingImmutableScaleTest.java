@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Mateusz Długosz
  */
-public class MultiplyingScaleTest {
+public class MultiplyingImmutableScaleTest {
     @Test
     public void Should_ReturnCorrectlyScaledValues() {
-        Scale scale = new MultiplyingScale(5f);
+        Scale scale = new MultiplyingImmutableScale(5f);
         float scaledValue0 = scale.scaleValue(10f);
         float scaledValue1 = scale.scaleValue(7f);
 

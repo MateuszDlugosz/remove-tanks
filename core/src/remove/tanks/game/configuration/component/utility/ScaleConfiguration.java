@@ -3,8 +3,8 @@ package remove.tanks.game.configuration.component.utility;
 import remove.tanks.game.application.context.component.supplier.ComponentSupplier;
 import remove.tanks.game.application.context.component.supplier.annotation.ComponentName;
 import remove.tanks.game.application.context.configuration.ConfigurationOption;
-import remove.tanks.game.utility.scale.DividingScale;
-import remove.tanks.game.utility.scale.MultiplyingScale;
+import remove.tanks.game.utility.scale.DividingImmutableScale;
+import remove.tanks.game.utility.scale.MultiplyingImmutableScale;
 import remove.tanks.game.utility.scale.Scale;
 
 /**
@@ -15,7 +15,7 @@ public final class ScaleConfiguration {
     public static final class WorldScaleSupplier extends ComponentSupplier<Scale> {
         @Override
         public Scale supplyComponent() {
-            return new DividingScale(Float.valueOf(
+            return new DividingImmutableScale(Float.valueOf(
                     getContext().getConfiguration().getOption(ConfigurationOption.GameWorldScale.getName())
             ));
         }
@@ -25,7 +25,7 @@ public final class ScaleConfiguration {
     public static final class UIScaleSupplier extends ComponentSupplier<Scale> {
         @Override
         public Scale supplyComponent() {
-            return new MultiplyingScale(Float.valueOf(
+            return new MultiplyingImmutableScale(Float.valueOf(
                     getContext().getConfiguration().getOption(ConfigurationOption.GameUIScale.getName())
             ));
         }
