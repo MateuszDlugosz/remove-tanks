@@ -15,6 +15,8 @@ import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.engine.system.SubEntitySystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.airplane.AirplaneControlSystemFactory;
 import remove.tanks.game.level.engine.system.airplane.AirplaneControlSystemPrefabXmlReader;
+import remove.tanks.game.level.engine.system.artillery.ArtilleryControlSystemFactory;
+import remove.tanks.game.level.engine.system.artillery.ArtilleryControlSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemFactory;
 import remove.tanks.game.level.engine.system.behavior.ChangeBehaviorSystemPrefabXmlReader;
 import remove.tanks.game.level.engine.system.camera.*;
@@ -173,7 +175,10 @@ public final class EntitySystemConfiguration {
                             new AirplaneControlSystemFactory(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
                             ),
-                            new CloudControlSystemFactory()
+                            new CloudControlSystemFactory(),
+                            new ArtilleryControlSystemFactory(
+                                    getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
+                            )
                     }
             );
         }
@@ -244,7 +249,10 @@ public final class EntitySystemConfiguration {
                             ),
                             new PlayerDestroyedResetSystemPrefabXmlReader(),
                             new AirplaneControlSystemPrefabXmlReader(),
-                            new CloudControlSystemPrefabXmlReader()
+                            new CloudControlSystemPrefabXmlReader(),
+                            new ArtilleryControlSystemPrefabXmlReader(
+                                    getContext().getComponent("EntityPrefabCodeXmlReader", EntityPrefabCodeXmlReader.class)
+                            )
                     }
             );
         }

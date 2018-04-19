@@ -49,7 +49,8 @@ public enum SystemType {
     PlayerDestroyedResetSystem(9700),
     AutoSpawnerSystem(9800),
     AirplaneControlSystem(10000),
-    CloudControlSystem(10200);
+    CloudControlSystem(10200),
+    ArtilleryControlSystem(10400);
 
     private final int priority;
 

@@ -33,11 +33,13 @@ public final class AirplaneControlSystem extends EntitySystem {
     private int spawnQueue;
 
     public AirplaneControlSystem(
+            int priority,
             RandomNumberGenerator randomNumberGenerator,
             EventBus eventBus,
             Game2DCamera game2DCamera,
             Boundary boundary
     ) {
+        super(priority);
         this.randomNumberGenerator = randomNumberGenerator;
         this.eventBus = eventBus;
         this.game2DCamera = game2DCamera;

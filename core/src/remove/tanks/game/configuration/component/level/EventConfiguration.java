@@ -15,6 +15,9 @@ import remove.tanks.game.level.event.airplane.SpawnAirplaneEventPrefabXmlReader;
 import remove.tanks.game.level.event.ammo.AmmoLevelUpEventExecutor;
 import remove.tanks.game.level.event.ammo.AmmoLevelUpEventFactory;
 import remove.tanks.game.level.event.ammo.AmmoLevelUpEventPrefabXmlReader;
+import remove.tanks.game.level.event.artillery.ArtilleryShootEventExecutor;
+import remove.tanks.game.level.event.artillery.ArtilleryShootEventFactory;
+import remove.tanks.game.level.event.artillery.ArtilleryShootEventPrefabXmlReader;
 import remove.tanks.game.level.event.camera.AddCameraEffectEventExecutor;
 import remove.tanks.game.level.event.camera.AddCameraEffectEventFactory;
 import remove.tanks.game.level.event.camera.AddCameraEffectEventPrefabXmlReader;
@@ -26,6 +29,9 @@ import remove.tanks.game.level.event.entity.airplane.SpawnAirplaneEntityEventPre
 import remove.tanks.game.level.event.entity.ammo.AmmoLevelUpEntityEventExecutor;
 import remove.tanks.game.level.event.entity.ammo.AmmoLevelUpEntityEventFactory;
 import remove.tanks.game.level.event.entity.ammo.AmmoLevelUpEntityEventPrefabXmlReader;
+import remove.tanks.game.level.event.entity.artillery.ArtilleryShootEntityEventExecutor;
+import remove.tanks.game.level.event.entity.artillery.ArtilleryShootEntityEventFactory;
+import remove.tanks.game.level.event.entity.artillery.ArtilleryShootEntityEventPrefabXmlReader;
 import remove.tanks.game.level.event.entity.camera.AddCameraEffectEntityEventExecutor;
 import remove.tanks.game.level.event.entity.camera.AddCameraEffectEntityEventFactory;
 import remove.tanks.game.level.event.entity.camera.AddCameraEffectEntityEventPrefabXmlReader;
@@ -136,7 +142,9 @@ public final class EventConfiguration {
                             ),
                             new RandomCreateEntityEventExecutor(
                                     getContext().getComponent("RandomNumberGenerator", RandomNumberGenerator.class)
-                            )
+                            ),
+                            new ArtilleryShootEntityEventExecutor(),
+                            new ArtilleryShootEventExecutor()
                     }
             );
         }
@@ -183,7 +191,8 @@ public final class EventConfiguration {
                             new RandomCreateEventPrefabXmlReader(
                                     getContext().getComponent("CreateEntryPrefabXmlReader", CreateEntryPrefabXmlReader.class)
                             ),
-                            new RemoveWeatherEffectEventPrefabXmlReader()
+                            new RemoveWeatherEffectEventPrefabXmlReader(),
+                            new ArtilleryShootEventPrefabXmlReader()
                     }
             );
         }
@@ -230,7 +239,8 @@ public final class EventConfiguration {
                             new RandomCreateEventFactory(
                                     getContext().getComponent("CreateEntryFactory", CreateEntryFactory.class)
                             ),
-                            new RemoveWeatherEffectEventFactory()
+                            new RemoveWeatherEffectEventFactory(),
+                            new ArtilleryShootEventFactory()
                     }
             );
         }
@@ -281,7 +291,8 @@ public final class EventConfiguration {
                                     getContext().getComponent("CreateEntryPrefabXmlReader", CreateEntryPrefabXmlReader.class)
                             ),
                             new RemoveWeatherEffectEntityEventPrefabXmlReader(),
-                            new ClearWeatherEffectsEntityEventPrefabXmlReader()
+                            new ClearWeatherEffectsEntityEventPrefabXmlReader(),
+                            new ArtilleryShootEntityEventPrefabXmlReader()
                     }
             );
         }
@@ -332,7 +343,8 @@ public final class EventConfiguration {
                                     getContext().getComponent("CreateEntryFactory", CreateEntryFactory.class)
                             ),
                             new ClearWeatherEffectsEntityEventFactory(),
-                            new RemoveWeatherEffectEntityEventFactory()
+                            new RemoveWeatherEffectEntityEventFactory(),
+                            new ArtilleryShootEntityEventFactory()
                     }
             );
         }

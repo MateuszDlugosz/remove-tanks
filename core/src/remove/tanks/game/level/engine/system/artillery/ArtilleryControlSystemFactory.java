@@ -1,41 +1,46 @@
-package remove.tanks.game.level.engine.system.airplane;
+package remove.tanks.game.level.engine.system.artillery;
 
 import com.google.common.eventbus.EventBus;
-import remove.tanks.game.graphics.camera.Game2DCamera;
 import remove.tanks.game.level.engine.system.EntitySystemCreateException;
 import remove.tanks.game.level.engine.system.SubEntitySystemFactory;
 import remove.tanks.game.level.resource.ResourceRegistry;
 import remove.tanks.game.level.resource.ResourceType;
 import remove.tanks.game.utility.number.random.RandomNumberGenerator;
 import remove.tanks.game.utility.surface.boundary.Boundary;
+import remove.tanks.game.utility.time.Timer;
 
 /**
  * @author Mateusz Długosz
  */
-public final class AirplaneControlSystemFactory implements SubEntitySystemFactory<AirplaneControlSystem, AirplaneControlSystemPrefab> {
+public final class ArtilleryControlSystemFactory implements SubEntitySystemFactory<ArtilleryControlSystem, ArtilleryControlSystemPrefab> {
     private final RandomNumberGenerator randomNumberGenerator;
 
-    public AirplaneControlSystemFactory(RandomNumberGenerator randomNumberGenerator) {
+    public ArtilleryControlSystemFactory(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
     @Override
-    public AirplaneControlSystem createEntitySystem(AirplaneControlSystemPrefab prefab, ResourceRegistry registry) {
+    public ArtilleryControlSystem createEntitySystem(ArtilleryControlSystemPrefab prefab, ResourceRegistry registry) {
         try {
-            return new AirplaneControlSystem(
+            return new ArtilleryControlSystem(
                     prefab.getPriority(),
                     randomNumberGenerator,
+                    registry.getResource(ResourceType.TiledMapBoundaryResource, Boundary.class),
                     registry.getResource(ResourceType.EventBusResource, EventBus.class),
-                    registry.getResource(ResourceType.GameCameraResource, Game2DCamera.class),
-                    registry.getResource(ResourceType.TiledMapBoundaryResource, Boundary.class)
+                    createTimer(prefab.getFrequency()),
+                    prefab.getEntityPrefabCodes()
             );
         } catch (Exception e) {
             throw new EntitySystemCreateException(prefab, e);
         }
     }
 
+    private Timer createTimer(float frequency) {
+        return new Timer(frequency);
+    }
+
     @Override
-    public Class<AirplaneControlSystemPrefab> getFactoryType() {
-        return AirplaneControlSystemPrefab.class;
+    public Class<ArtilleryControlSystemPrefab> getFactoryType() {
+        return ArtilleryControlSystemPrefab.class;
     }
 }

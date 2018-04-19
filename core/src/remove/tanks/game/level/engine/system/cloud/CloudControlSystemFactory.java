@@ -15,6 +15,7 @@ public final class CloudControlSystemFactory implements SubEntitySystemFactory<C
     public CloudControlSystem createEntitySystem(CloudControlSystemPrefab prefab, ResourceRegistry registry) {
         try {
             return new CloudControlSystem(
+                    prefab.getPriority(),
                     registry.getResource(ResourceType.EventBusResource, EventBus.class),
                     registry.getResource(ResourceType.TiledMapBoundaryResource, Boundary.class)
             );

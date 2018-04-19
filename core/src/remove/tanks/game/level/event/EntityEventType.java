@@ -27,5 +27,6 @@ public enum EntityEventType {
     DeactivateSystemEntityEvent,
     AddWeatherEffectEntityEvent,
     ClearWeatherEffectsEntityEvent,
-    RemoveWeatherEffectEntityEvent
+    RemoveWeatherEffectEntityEvent,
+    ArtilleryShootEntityEvent
 }
