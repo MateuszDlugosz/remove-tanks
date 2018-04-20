@@ -38,7 +38,6 @@ public enum ResourceType {
     PlayerProfileResource(Profile.class),
     ExternalEventBusResource(EventBus.class),
 
-    TimeScaleResource(MutableScale.class),
     LevelPropertiesResource(Properties.class),
     EntityPrefabStorageResource(EntityPrefabStorage.class),
     AssetStorageResource(AssetStorage.class),

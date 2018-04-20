@@ -32,16 +32,19 @@ public final class DesktopLauncher {
 
         Graphics.DisplayMode desktopDisplayMode = LwjglApplicationConfiguration.getDesktopDisplayMode();
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+        Configuration configuration = createConfiguration(desktopDisplayMode);
 
-        config.width = 1280;
-        config.height = 720;
+        //fixme
+        config.width = Integer.valueOf(configuration.getOption(ConfigurationOption.GameDisplayWidth.getName()));
+        config.height = Integer.valueOf(configuration.getOption(ConfigurationOption.GameDisplayHeight.getName()));
+
         config.fullscreen = false;
         config.resizable = false;
         config.forceExit = true;
         config.vSyncEnabled = true;
         config.title = String.format("%s - %s", GameApplication.TITLE, GameApplication.VERSION);
 
-        new LwjglApplication(new GameApplication(createConfiguration(desktopDisplayMode)), config);
+        new LwjglApplication(new GameApplication(configuration), config);
     }
 
     private static void configureLoggers() {
@@ -71,9 +74,9 @@ public final class DesktopLauncher {
         ).resolveDimension(displayMode);
 
         configuration.setOption(ConfigurationOption.GameDisplayWidth.getName(),
-                String.valueOf(dimension.getWidth()));
+                String.valueOf(Math.round(dimension.getWidth())));
         configuration.setOption(ConfigurationOption.GameDisplayHeight.getName(),
-                String.valueOf(dimension.getHeight()));
+                String.valueOf(Math.round(dimension.getHeight())));
 
         return configuration;
     }

@@ -71,8 +71,7 @@ public final class ResourceConfiguration {
                             ),
                             new ExternalEventBusGlobalResourceFactory(),
                             new TiledMapRendererLocalResourceFactory(),
-                            new LevelPropertiesLocalResourceFactory(),
-                            new TimeScaleLocalResourceFactory()
+                            new LevelPropertiesLocalResourceFactory()
                     }
             );
         }

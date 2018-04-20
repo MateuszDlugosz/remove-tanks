@@ -10,11 +10,7 @@ import remove.tanks.game.utility.scale.Scale;
  */
 public final class LevelUpdater {
     public void updateLevel(float deltaTime, Level level) {
-        level.getResourceRegistry().getResource(ResourceType.EngineResource, Engine.class)
-                .update(
-                        level.getResourceRegistry().getResource(ResourceType.TimeScaleResource, Scale.class)
-                                .scaleValue(deltaTime)
-                );
+        level.getResourceRegistry().getResource(ResourceType.EngineResource, Engine.class).update(deltaTime);
         level.getResourceRegistry().getResource(ResourceType.InputMapperResource, InputMapper.class).keyUpAll();
     }
 }
