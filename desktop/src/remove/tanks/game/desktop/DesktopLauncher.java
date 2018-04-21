@@ -35,8 +35,9 @@ public final class DesktopLauncher {
         Configuration configuration = createConfiguration(desktopDisplayMode);
 
         //fixme
-        config.width = Integer.valueOf(configuration.getOption(ConfigurationOption.GameDisplayWidth.getName()));
-        config.height = Integer.valueOf(configuration.getOption(ConfigurationOption.GameDisplayHeight.getName()));
+        float factor = 0.5f;
+        config.width = (int) (desktopDisplayMode.width * factor);
+        config.height = (int) (desktopDisplayMode.height * factor);
 
         config.fullscreen = false;
         config.resizable = false;
