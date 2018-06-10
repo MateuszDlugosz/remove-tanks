@@ -20,9 +20,7 @@ public final class ArenaConfiguration {
     public static final class ArenaFactorySupplier extends ComponentSupplier<ArenaFactory> {
         @Override
         public ArenaFactory supplyComponent() {
-            return new ArenaFactory(
-                    getContext().getComponent("SpriteFactory", SpriteFactory.class)
-            );
+            return new ArenaFactory();
         }
     }
 
@@ -32,7 +30,6 @@ public final class ArenaConfiguration {
         public ArenaPrefabXmlReader supplyComponent() {
             return new ArenaPrefabXmlReader(
                     getContext().getComponent("XmlReader", XmlReader.class),
-                    getContext().getComponent("SpritePrefabXmlReader", SpritePrefabXmlReader.class),
                     getContext().getComponent("LevelSequenceXmlReader", LevelSequenceXmlReader.class)
             );
         }
@@ -78,9 +75,7 @@ public final class ArenaConfiguration {
             return getContext().getComponent("ArenaStorageFactory", ArenaStorageFactory.class)
                     .createArenaStorage(
                             getContext().getComponent("ArenaPrefabFilenameRepository",
-                                    ArenaPrefabFilenameRepository.class),
-                            getContext().getComponent("MainAssetStorage", AssetStorage.class),
-                            getContext().getComponent("UIScale", Scale.class)
+                                    ArenaPrefabFilenameRepository.class)
                     );
         }
     }

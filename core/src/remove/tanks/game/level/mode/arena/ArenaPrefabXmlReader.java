@@ -15,19 +15,15 @@ import java.util.stream.Collectors;
  */
 public final class ArenaPrefabXmlReader {
     private static final String TITLE_ELEMENT = "title";
-    private static final String WAVES_ELEMENT = "waves";
 
     private final XmlReader xmlReader;
-    private final SpritePrefabXmlReader spritePrefabXmlReader;
     private final LevelSequenceXmlReader levelSequenceXmlReader;
 
     public ArenaPrefabXmlReader(
             XmlReader xmlReader,
-            SpritePrefabXmlReader spritePrefabXmlReader,
             LevelSequenceXmlReader levelSequenceXmlReader
     ) {
         this.xmlReader = xmlReader;
-        this.spritePrefabXmlReader = spritePrefabXmlReader;
         this.levelSequenceXmlReader = levelSequenceXmlReader;
     }
 
@@ -42,8 +38,6 @@ public final class ArenaPrefabXmlReader {
             XmlReader.Element element = xmlReader.parse(fileHandle);
             return new ArenaPrefab(
                     readTitle(element),
-                    readWaves(element),
-                    readSpritePrefab(element),
                     readLevelSequence(element)
             );
         } catch (Exception e) {
@@ -53,16 +47,6 @@ public final class ArenaPrefabXmlReader {
 
     private String readTitle(XmlReader.Element element) {
         return element.getChildByName(TITLE_ELEMENT).getText().trim();
-    }
-
-    private int readWaves(XmlReader.Element element) {
-        return Integer.valueOf(element.getChildByName(WAVES_ELEMENT).getText().trim());
-    }
-
-    private SpritePrefab readSpritePrefab(XmlReader.Element element) {
-        return spritePrefabXmlReader.readSpritePrefab(
-                element.getChildByName(SpritePrefabXmlReader.SPRITE_ELEMENT)
-        );
     }
 
     private LevelSequence readLevelSequence(XmlReader.Element element) {

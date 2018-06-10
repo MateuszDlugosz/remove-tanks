@@ -22,7 +22,6 @@ public final class OperationConfiguration {
         public OperationPrefabXmlReader supplyComponent() {
             return new OperationPrefabXmlReader(
                     getContext().getComponent("XmlReader", XmlReader.class),
-                    getContext().getComponent("SpritePrefabXmlReader", SpritePrefabXmlReader.class),
                     getContext().getComponent("LevelSequenceXmlReader", LevelSequenceXmlReader.class)
             );
         }
@@ -32,9 +31,7 @@ public final class OperationConfiguration {
     public static final class OperationFactorySupplier extends ComponentSupplier<OperationFactory> {
         @Override
         public OperationFactory supplyComponent() {
-            return new OperationFactory(
-                    getContext().getComponent("SpriteFactory", SpriteFactory.class)
-            );
+            return new OperationFactory();
         }
     }
 
@@ -82,9 +79,7 @@ public final class OperationConfiguration {
             return getContext().getComponent("OperationStorageFactory", OperationStorageFactory.class)
                     .createOperationStorage(
                             getContext().getComponent("OperationPrefabFilenameRepository",
-                                    OperationPrefabFilenameRepository.class),
-                            getContext().getComponent("MainAssetStorage", AssetStorage.class),
-                            getContext().getComponent("UIScale", Scale.class)
+                                    OperationPrefabFilenameRepository.class)
                     );
         }
     }

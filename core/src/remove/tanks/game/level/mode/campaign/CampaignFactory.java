@@ -9,17 +9,10 @@ import remove.tanks.game.utility.scale.Scale;
  * @author Mateusz Długosz
  */
 public final class CampaignFactory {
-    private final SpriteFactory spriteFactory;
-
-    public CampaignFactory(SpriteFactory spriteFactory) {
-        this.spriteFactory = spriteFactory;
-    }
-
-    public Campaign createCampaign(CampaignPrefab prefab, AssetStorage assetStorage, Scale scale) {
+    public Campaign createCampaign(CampaignPrefab prefab) {
         try {
             return new Campaign(
                     prefab.getTitle(),
-                    createSprite(prefab, assetStorage, scale),
                     prefab.getLevelSequence()
             );
         } catch (Exception e) {
@@ -27,7 +20,4 @@ public final class CampaignFactory {
         }
     }
 
-    private Sprite createSprite(CampaignPrefab prefab, AssetStorage assetStorage, Scale scale) {
-        return spriteFactory.createSprite(prefab.getSpritePrefab(), assetStorage, scale);
-    }
 }

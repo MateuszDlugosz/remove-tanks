@@ -22,21 +22,21 @@ public final class OperationStorageFactory {
         this.operationFactory = operationFactory;
     }
 
-    public OperationStorage createOperationStorage(OperationPrefabFilenameRepository repository, AssetStorage assetStorage, Scale scale) {
+    public OperationStorage createOperationStorage(OperationPrefabFilenameRepository repository) {
         try {
-            return new OperationStorage(createOperationPrefabMap(repository, assetStorage, scale));
+            return new OperationStorage(createOperationPrefabMap(repository));
         } catch (Exception e) {
             throw new OperationStorageCreateException(e);
         }
     }
 
-    private Map<String, Operation> createOperationPrefabMap(OperationPrefabFilenameRepository repository, AssetStorage assetStorage, Scale scale) {
+    private Map<String, Operation> createOperationPrefabMap(OperationPrefabFilenameRepository repository) {
         return operationPrefabXmlReader.readOperationPrefabs(
                 repository.getOperationPrefabFilenames().stream().map(Gdx.files::internal).collect(Collectors.toList())
         ).stream()
                 .collect(Collectors.toMap(
                         OperationPrefab::getTitle,
-                        o -> operationFactory.createOperation(o, assetStorage, scale)
+                        operationFactory::createOperation
                 ));
     }
 }

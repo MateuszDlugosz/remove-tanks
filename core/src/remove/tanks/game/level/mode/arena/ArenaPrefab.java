@@ -10,27 +10,15 @@ import remove.tanks.game.utility.Prefab;
  */
 public final class ArenaPrefab extends Prefab {
     private final String title;
-    private final int waves;
-    private final SpritePrefab spritePrefab;
     private final LevelSequence levelSequence;
 
-    public ArenaPrefab(String title, int waves, SpritePrefab spritePrefab, LevelSequence levelSequence) {
+    public ArenaPrefab(String title, LevelSequence levelSequence) {
         this.title = title;
-        this.waves = waves;
-        this.spritePrefab = spritePrefab;
         this.levelSequence = levelSequence;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public int getWaves() {
-        return waves;
-    }
-
-    public SpritePrefab getSpritePrefab() {
-        return spritePrefab;
     }
 
     public LevelSequence getLevelSequence() {
@@ -41,8 +29,6 @@ public final class ArenaPrefab extends Prefab {
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("title", title)
-                .add("waves", waves)
-                .add("spritePrefab", spritePrefab)
                 .add("levelSequence", levelSequence)
                 .toString();
     }

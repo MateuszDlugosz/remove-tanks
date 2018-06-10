@@ -10,25 +10,14 @@ import remove.tanks.game.utility.scale.Scale;
  * @author Mateusz Długosz
  */
 public final class OperationFactory {
-    private final SpriteFactory spriteFactory;
-
-    public OperationFactory(SpriteFactory spriteFactory) {
-        this.spriteFactory = spriteFactory;
-    }
-
-    public Operation createOperation(OperationPrefab prefab, AssetStorage assetStorage, Scale scale) {
+    public Operation createOperation(OperationPrefab prefab) {
         try {
             return new Operation(
                     prefab.getTitle(),
-                    createSprite(prefab.getSpritePrefab(), assetStorage, scale),
                     prefab.getLevelSequence()
             );
         } catch (Exception e) {
             throw new OperationCreateException(prefab, e);
         }
-    }
-
-    private Sprite createSprite(SpritePrefab prefab, AssetStorage assetStorage, Scale scale) {
-        return spriteFactory.createSprite(prefab, assetStorage, scale);
     }
 }

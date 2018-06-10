@@ -9,22 +9,16 @@ import remove.tanks.game.level.mode.Mode;
  */
 public final class Operation implements Mode {
     private final String title;
-    private final Sprite sprite;
     private final LevelSequence levelSequence;
 
-    public Operation(String title, Sprite sprite, LevelSequence levelSequence) {
+    public Operation(String title, LevelSequence levelSequence) {
         this.title = title;
-        this.sprite = sprite;
         this.levelSequence = levelSequence;
     }
 
     @Override
     public String getTitle() {
         return title;
-    }
-
-    public Sprite getSprite() {
-        return sprite;
     }
 
     @Override

@@ -9,7 +9,8 @@
     <entry key="game.level.state.victory">Victory</entry>
     <entry key="game.level.state.defeat">Defeat</entry>
 
-    <entry key="game.level.sequence.title.age-of-crow">'Age of Crow'</entry>
+    <entry key="game.level.sequence.title.age-of-crow">Age of Crow</entry>
+    <entry key="game.level.sequence.title.early-morning">Early Morning</entry>
 
     <entry key="game.screen.main.menu.button.start">Start</entry>
     <entry key="game.screen.main.menu.button.options">Options</entry>
@@ -36,6 +37,13 @@
 
     <entry key="game.screen.summary.title">Summary</entry>
     <entry key="game.screen.summary.content">You end %s and gain %s points.</entry>
+
+    <entry key="game.screen.mode.select.title">Select mode</entry>
+    <entry key="game.screen.mode.select.button.arena">Arena</entry>
+    <entry key="game.screen.mode.select.button.operation">Operation</entry>
+    <entry key="game.screen.mode.select.button.campaign">Campaign</entry>
+
+    <entry key="game.screen.operation.select.title">Select operation</entry>
 
     <entry key="game.screen.button.back">Back</entry>
     <entry key="game.screen.button.yes">Yes</entry>

@@ -9,7 +9,8 @@
     <entry key="game.level.state.victory">Zwycięstwo</entry>
     <entry key="game.level.state.defeat">Porażka</entry>
 
-    <entry key="game.level.sequence.title.age-of-crow">'Era Wrony'</entry>
+    <entry key="game.level.sequence.title.age-of-crow">Era Wrony</entry>
+    <entry key="game.level.sequence.title.early-morning">Wczesy Ranek</entry>
 
     <entry key="game.screen.main.menu.button.start">Start</entry>
     <entry key="game.screen.main.menu.button.options">Opcje</entry>
@@ -18,7 +19,7 @@
     <entry key="game.screen.main.menu.button.exit">Wyjście</entry>
 
     <entry key="game.screen.options.title">Opcje</entry>
-    <entry key="game.screen.options.button.language">Language</entry>
+    <entry key="game.screen.options.button.language">Język</entry>
     <entry key="game.screen.options.button.sound.effect.volume">Głośność efektów dźwiękowych</entry>
     <entry key="game.screen.options.button.sound.ui.effect.volume">Głośność interfejsu</entry>
     <entry key="game.screen.options.button.music.volume">Głośność muzyki</entry>
@@ -36,6 +37,13 @@
 
     <entry key="game.screen.credits.title">Autorzy</entry>
     <entry key="game.screen.credits.content.0">Mateusz Długosz</entry>
+
+    <entry key="game.screen.mode.select.title">Wybierz tryb</entry>
+    <entry key="game.screen.mode.select.button.arena">Arena</entry>
+    <entry key="game.screen.mode.select.button.operation">Operacja</entry>
+    <entry key="game.screen.mode.select.button.campaign">Kampania</entry>
+
+    <entry key="game.screen.operation.select.title">Wybierz operację</entry>
 
     <entry key="game.screen.button.back">Powrót</entry>
     <entry key="game.screen.button.yes">Tak</entry>

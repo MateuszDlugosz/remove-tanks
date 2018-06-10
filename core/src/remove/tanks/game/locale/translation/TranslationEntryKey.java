@@ -39,6 +39,11 @@ public enum TranslationEntryKey {
     GameScreenPauseContent("game.screen.pause.content"),
 
     GameScreenModeSelectTitle("game.screen.mode.select.title"),
+    GameScreenModeSelectButtonArena("game.screen.mode.select.button.arena"),
+    GameScreenModeSelectButtonOperation("game.screen.mode.select.button.operation"),
+    GameScreenModeSelectButtonCampaign("game.screen.mode.select.button.campaign"),
+
+    GameScreenOperationSelectTitle("game.screen.operation.select.title"),
 
     GameLevelSequenceTitleTemplate("game.level.sequence.title.%s"),
 

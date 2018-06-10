@@ -20,9 +20,7 @@ public final class CampaignConfiguration {
     public static final class CampaignFactorySupplier extends ComponentSupplier<CampaignFactory> {
         @Override
         public CampaignFactory supplyComponent() {
-            return new CampaignFactory(
-                    getContext().getComponent("SpriteFactory", SpriteFactory.class)
-            );
+            return new CampaignFactory();
         }
     }
 
@@ -32,7 +30,6 @@ public final class CampaignConfiguration {
         public CampaignPrefabXmlReader supplyComponent() {
             return new CampaignPrefabXmlReader(
                     getContext().getComponent("XmlReader", XmlReader.class),
-                    getContext().getComponent("SpritePrefabXmlReader", SpritePrefabXmlReader.class),
                     getContext().getComponent("LevelSequenceXmlReader", LevelSequenceXmlReader.class)
             );
         }
@@ -78,9 +75,7 @@ public final class CampaignConfiguration {
             return getContext().getComponent("CampaignStorageFactory", CampaignStorageFactory.class)
                     .createCampaignPrefabStorage(
                             getContext().getComponent("CampaignPrefabFilenameRepository",
-                                    CampaignPrefabFilenameRepository.class),
-                            getContext().getComponent("MainAssetStorage", AssetStorage.class),
-                            getContext().getComponent("UIScale", Scale.class)
+                                    CampaignPrefabFilenameRepository.class)
                     );
         }
     }

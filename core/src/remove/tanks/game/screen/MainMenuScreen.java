@@ -145,13 +145,13 @@ public final class MainMenuScreen extends GameScreen {
                 skin);
         startButton.setKeyListener(keycode -> {
             if (keycode == Input.Keys.ENTER) {
-                getGameApplication().switchScreenWithTransition(
-                        new LevelLoadingScreen(
+                getGameApplication().switchScreenWithoutTransition(ModeSelectScreen.class);
+                        /*new LevelLoadingScreen(
                                 getGameApplication(),
                                 campaignStorage.getCampaign("age-of-crow"),
                                 0,
                                 null
-                        ));
+                        ));*/
                 eventBus.post(new PlaySoundEvent(
                         SoundChannelName.UIEffectSoundChannel,
                         assetStorage.getAsset("UIButtonSelect0Sound", Sound.class)

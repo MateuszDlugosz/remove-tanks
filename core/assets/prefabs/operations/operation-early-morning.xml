@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<campaignPrefab>
-    <title>age-of-crow</title>
+<operation>
+    <title>early-morning</title>
     <levelSequence>
         <levelPrefabFilenames>
             <levelPrefabFilename>prefabs/levels/campaigns/age-of-crow/age-of-crow-level-0001.xml</levelPrefabFilename>
         </levelPrefabFilenames>
     </levelSequence>
-</campaignPrefab>
+</operation>

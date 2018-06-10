@@ -19,21 +19,21 @@ public final class ArenaStorageFactory {
         this.arenaFactory = arenaFactory;
     }
 
-    public ArenaStorage createArenaStorage(ArenaPrefabFilenameRepository repository, AssetStorage assetStorage, Scale scale) {
+    public ArenaStorage createArenaStorage(ArenaPrefabFilenameRepository repository) {
         try {
-            return new ArenaStorage(createArenaMap(repository, assetStorage, scale));
+            return new ArenaStorage(createArenaMap(repository));
         } catch (Exception e) {
             throw new ArenaStorageCreateException(e);
         }
     }
 
-    private Map<String, Arena> createArenaMap(ArenaPrefabFilenameRepository repository, AssetStorage assetStorage, Scale scale) {
+    private Map<String, Arena> createArenaMap(ArenaPrefabFilenameRepository repository) {
         return arenaPrefabXmlReader.readArenaPrefabs(
                 repository.getArenaPrefabFilenames().stream().map(Gdx.files::internal).collect(Collectors.toList())
         ).stream()
                 .collect(Collectors.toMap(
                         ArenaPrefab::getTitle,
-                        c -> arenaFactory.createArena(c, assetStorage, scale)
+                        arenaFactory::createArena
                 ));
     }
 }
