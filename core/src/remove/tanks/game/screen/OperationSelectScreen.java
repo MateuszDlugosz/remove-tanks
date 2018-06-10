@@ -24,6 +24,7 @@ import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.screen.gui.button.Button;
 import remove.tanks.game.screen.gui.button.ButtonGroup;
 import remove.tanks.game.screen.gui.label.Label;
+import remove.tanks.game.screen.gui.listener.KeyListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -130,13 +131,26 @@ public final class OperationSelectScreen extends GameScreen {
                 .map(operationStorage::getOperation)
                 .collect(Collectors.toMap(
                         Operation::getTitle,
-                        operation -> new Button(
-                                locale.getSelectedTranslation().getEntry(
-                                        String.format(TranslationEntryKey.GameLevelSequenceTitleTemplate.getName(),
-                                                operation.getTitle())
-                                ).toUpperCase(),
-                                skin
-                        )
+                        operation -> {
+                            Button button = new Button(
+                                    locale.getSelectedTranslation().getEntry(
+                                            String.format(TranslationEntryKey.GameLevelSequenceTitleTemplate.getName(),
+                                                    operation.getTitle())
+                                    ).toUpperCase(),
+                                    skin
+                            );
+                            button.setKeyListener(keyCode -> {
+                                if (keyCode == Input.Keys.ENTER) {
+                                    getGameApplication().switchScreenWithTransition(new LevelLoadingScreen(
+                                        getGameApplication(),
+                                        operation,
+                                        0,
+                                        null
+                                    ));
+                                }
+                            });
+                            return button;
+                        }
                 ));
     }
 
