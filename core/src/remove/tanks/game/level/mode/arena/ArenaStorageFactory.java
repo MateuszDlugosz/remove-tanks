@@ -1,8 +1,6 @@
 package remove.tanks.game.level.mode.arena;
 
 import com.badlogic.gdx.Gdx;
-import remove.tanks.game.asset.AssetStorage;
-import remove.tanks.game.utility.scale.Scale;
 
 import java.util.Map;
 import java.util.stream.Collectors;

@@ -17,7 +17,6 @@ import remove.tanks.game.level.engine.entity.EntityPrefabStorage;
 import remove.tanks.game.locale.Locale;
 import remove.tanks.game.physics.light.world.WorldLight;
 import remove.tanks.game.utility.properties.Properties;
-import remove.tanks.game.utility.scale.MutableScale;
 import remove.tanks.game.utility.scale.Scale;
 import remove.tanks.game.utility.surface.boundary.Boundary;
 

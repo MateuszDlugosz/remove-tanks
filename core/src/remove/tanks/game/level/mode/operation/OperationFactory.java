@@ -1,11 +1,5 @@
 package remove.tanks.game.level.mode.operation;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import remove.tanks.game.asset.AssetStorage;
-import remove.tanks.game.graphics.sprite.SpriteFactory;
-import remove.tanks.game.graphics.sprite.SpritePrefab;
-import remove.tanks.game.utility.scale.Scale;
-
 /**
  * @author Mateusz Długosz
  */

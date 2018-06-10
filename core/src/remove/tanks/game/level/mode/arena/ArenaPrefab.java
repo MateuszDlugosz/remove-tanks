@@ -1,7 +1,6 @@
 package remove.tanks.game.level.mode.arena;
 
 import com.google.common.base.MoreObjects;
-import remove.tanks.game.graphics.sprite.SpritePrefab;
 import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.utility.Prefab;
 

@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import com.google.common.collect.Lists;
 import com.google.common.eventbus.EventBus;
 import remove.tanks.game.GameApplication;
 import remove.tanks.game.asset.AssetStorage;
@@ -24,10 +23,8 @@ import remove.tanks.game.locale.translation.TranslationEntryKey;
 import remove.tanks.game.screen.gui.button.Button;
 import remove.tanks.game.screen.gui.button.ButtonGroup;
 import remove.tanks.game.screen.gui.label.Label;
-import remove.tanks.game.screen.gui.listener.KeyListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;

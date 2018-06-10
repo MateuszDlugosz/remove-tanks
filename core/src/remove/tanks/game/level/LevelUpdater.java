@@ -3,7 +3,6 @@ package remove.tanks.game.level;
 import com.badlogic.ashley.core.Engine;
 import remove.tanks.game.input.InputMapper;
 import remove.tanks.game.level.resource.ResourceType;
-import remove.tanks.game.utility.scale.Scale;
 
 /**
  * @author Mateusz Długosz

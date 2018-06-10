@@ -1,6 +1,5 @@
 package remove.tanks.game.level.mode.campaign;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.level.mode.Mode;
 

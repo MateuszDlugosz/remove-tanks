@@ -2,8 +2,6 @@ package remove.tanks.game.level.mode.campaign;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.XmlReader;
-import remove.tanks.game.graphics.sprite.SpritePrefab;
-import remove.tanks.game.graphics.sprite.SpritePrefabXmlReader;
 import remove.tanks.game.level.LevelSequence;
 import remove.tanks.game.level.LevelSequenceXmlReader;
 
